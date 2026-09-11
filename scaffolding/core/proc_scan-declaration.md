@@ -15,6 +15,7 @@ A Declaration without Extraction Notes is INVALID — surgeon blocks work.
   SECTIONS ADDED   : <beyond style skeleton, each + one-line reason | none>
   QUOTA TARGET     : <mode minimums for this session>
   EXTERNAL ACCESS  : Drive-capable / not capable
+  FETCH PLAN       : <files by name, from MANIFESTs — max 3/collection, 6 total | none>
   BOOT TIER        : <highest tier loaded; declare any degradation>
 ╚═══════════════════════════════════════════════════════════════╝
 ```

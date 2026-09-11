@@ -4,6 +4,20 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.3.0 — 2026-09-12 — Restraint-Doctrine (🟠 RATIFIED)
+Patch: `RADIATION_PATCH_2026-09-12_2000_Restraint-Doctrine.zip`
+II.6 gains the Restrained Retrieval sub-clause: manifest-first navigation,
+per-fetch necessity test, hard fetch budget (3/collection, 6/session),
+one-at-a-time handling, no mirroring, SIZE-SKIPPED protocol,
+digest-before-refetch. INDEX rules 8-14 (operational copy); Scan Declaration
+gains FETCH PLAN field. Protects sessions from GB-scale collection ingestion.
+
+## v1.2.1 — 2026-09-12 — First-Collections-Registration (🟢)
+Patch: `RADIATION_PATCH_2026-09-12_1900_First-Collections-Registration.zip`
+Five Commander-supplied Drive collections registered: HOA Reviewers, Books,
+TOA Reviewers, Building Utilities, Professional Practice. All links verified
+ACCESSIBLE; full manifests captured live at registration.
+
 ## v1.2.0 — 2026-09-12 — External-Sources-Region (🟠)
 Patch: `RADIATION_PATCH_2026-09-12_1800_External-Sources-Region.zip`
 **Canon changes, Commander-ratified ("proceed to Patch 4").**

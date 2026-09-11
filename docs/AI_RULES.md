@@ -68,6 +68,15 @@ Memory moves only along the Promotion Protocol (`Brain/BRAIN_INDEX.md`):
 - **testament.md** is append-only, dated, attributed, and surgeon-audited.
 Nothing enters long_term untriangulated. No exceptions.
 **External collections (`Brain/external_sources/`):** approved collections are catalog pointers, never citable evidence in themselves. Material read from them is ordinary source matter — graded (I.2) and triangulated (I.3) like any other. Collections enter the catalog only by Commander-approved Patch. A session that could not access a collection works from its MANIFEST/DIGEST only and must never represent catalog knowledge as having read the underlying documents (access-honesty; violations are I.1 contamination).
+**Restrained Retrieval (the Restraint Doctrine):** external collections scale to gigabytes — far beyond what any session can hold. The catalog is a library, not a meal: a session checks out documents; it never ingests the library. Seven binding rules govern every Drive-capable session:
+1. **MANIFEST-first navigation** — never enumerate or bulk-open a live collection; select targets *by name* from the captured MANIFEST, fetch only those.
+2. **Necessity test** — before any fetch, state in-session which file serves which claim or task (Scout's vetting extended to Drive). No stated need → no fetch.
+3. **Fetch budget** — maximum **3 files per collection, 6 files total per session**. Hard ceiling. Genuine need beyond it is declared to the Commander and work pauses; only explicit Commander authorization extends a run.
+4. **One-at-a-time** — open, extract, write findings to the collection's DIGEST, release; never hold multiple large files simultaneously.
+5. **No mirroring** — wholesale download or copying of a collection into the workspace is forbidden; only extracts (quotes, page-cites, summaries) enter the Brain.
+6. **Large-file protocol** — oversized or single-pass-unreadable files are read partially/paged; an unsafe file is logged `SIZE-SKIPPED` in the ACCESS LOG and passed over. A skipped file is lawful; a crashed session is not.
+7. **DIGEST-before-refetch** — consult the DIGEST first; refetching material a prior session already extracted is forbidden waste.
+**VIOLATION:** sentinel flags budget breaches and mirroring breaches; surgeon halts retrieval and the session completes from DIGEST/MANIFEST only.
 
 ### II.7 — THE PATCH PROTOCOL
 1. The AI shall not directly modify the live repository. All proposed durable changes — to the Brain, procedures, subskills, scaffolds, styles, cues, playbook, or this Constitution — are delivered exclusively through a formal **Patch**.
@@ -139,3 +148,4 @@ New styles, cues, scaffolds, and subskills enter the canon only by Commander rat
 |---|---|---|---|---|
 | 2026-09-12 | ALL | Constitution v1.0.0 ratified in full | Founding ratification, Blueprint v5.0 | RATIFIED — THE COMMANDER |
 | 2026-09-12 | II.6 | External-sources clause appended | Commander's proposal: Drive-linked bulk collections, catalog-with-digest design | RATIFIED — THE COMMANDER ("proceed to Patch 4") |
+| 2026-09-12 | II.6 | Restrained Retrieval sub-clause appended (Restraint Doctrine: manifest-first, necessity test, 3/6 fetch budget, one-at-a-time, no mirroring, SIZE-SKIPPED, digest-before-refetch) | GB-scale collections would crash sessions that bulk-ingest; retrieval discipline made law | RATIFIED — THE COMMANDER ("proceed to patch 6") |

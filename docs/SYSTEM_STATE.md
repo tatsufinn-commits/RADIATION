@@ -4,9 +4,13 @@
 **Updated by:** Protocol Architect (Patch proposal; effective at Commander's push)
 
 ## REPOSITORY VERSION
-RADIATION v1.2.0 — founding + Patches Nos.1-4, all ratified. No.4 adds the
-Brain/external_sources/ catalog region (Commander's proposal). Effective in
-the live repository at the Commander's push (IV.5).
+RADIATION v1.3.0 — founding + Patches Nos.1-6. No.6 (🟠, ratified) adds the
+Restraint Doctrine: Drive-capable sessions fetch manifest-first, necessity-
+vetted, hard-budgeted at 3 files/collection and 6/session, one-at-a-time,
+never mirroring. v1.2.1 (No.5) No.5 registers the first five
+external collections (HOA, Books, TOA, Building Utilities, Professional
+Practice) — all verified ACCESSIBLE with live-captured manifests. Effective
+at the Commander's push (IV.5).
 
 ## CURRENT STATE
 - All canonical docs written; system OPERATIONAL.
@@ -28,7 +32,7 @@ the live repository at the Commander's push (IV.5).
 | Subskills (4 passive + 2 active, six-block specs) | ✅ FULLY POPULATED |
 | Patch machinery (protocol, ledger, form) | ✅ FULLY POPULATED |
 | Brain STRUCTURE (5 regions + movement rules) | ✅ COMPLETE |
-| Brain/external_sources catalog (region + rules) | ✅ STRUCTURAL / 🕳️ no collections registered yet |
+| Brain/external_sources catalog (region + rules) | ✅ OPERATIONAL — 5 collections registered, all ACCESSIBLE (2026-09-12); Restraint Doctrine active (3/6 budget) |
 | Brain CONTENT (ingestions, promotions, dossiers) | 🕳️ EMPTY — awaits first live sessions |
 | Skill jurisdictions 01–09 (READMEs + registers) | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |
