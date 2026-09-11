@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.3.1 — 2026-09-12 — Planning-Collection-Registration (🟢)
+Patch: `RADIATION_PATCH_2026-09-12_2100_Planning-Collection-Registration.zip`
+Sixth collection registered: Planning (Community Architecture & Urban Design)
+— 8 files, Modules 1-2. Verified ACCESSIBLE; manifest captured live with per-
+file sizes. Three files (60-100 MB) flagged ⚠️ for the large-file protocol —
+first collection registered under the Restraint Doctrine.
+
 ## v1.3.0 — 2026-09-12 — Restraint-Doctrine (🟠 RATIFIED)
 Patch: `RADIATION_PATCH_2026-09-12_2000_Restraint-Doctrine.zip`
 II.6 gains the Restrained Retrieval sub-clause: manifest-first navigation,

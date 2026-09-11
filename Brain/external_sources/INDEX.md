@@ -55,3 +55,4 @@ is never itself citable evidence.**
 | Theory of Architecture (TOA) Reviewers | `toa-reviewers.md` | ✅ ACCESSIBLE | 2026-09-12 | Design/ordering principles, Pritzker reference, TOA-X merged reviewer — 5 PDFs |
 | Building Utilities | `building-utilities.md` | ✅ ACCESSIBLE | 2026-09-12 | Electrical (PEC, Fajardo), plumbing/sanitary, mechanical, acoustics — 14 PDFs |
 | Professional Practice | `professional-practice.md` | ✅ ACCESSIBLE | 2026-09-12 | RA 9266, UAP Docs 200-208/301, SPP, Salvan CM, building permits — 15 PDFs |
+| Planning (Community Architecture & Urban Design) | `planning.md` | ✅ ACCESSIBLE | 2026-09-12 | Module 1-2 lectures: community architecture, urban design theories/process, cluster housing & PUD — 8 files, ⚠️ several 60-100 MB (large-file protocol) |
