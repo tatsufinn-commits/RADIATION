@@ -1,6 +1,6 @@
 # 📦 THE STOCKPILE DOCTRINE (`docs/STOCKPILE_DOCTRINE.md`)
 ## Source Intake Quotas & Dossier Reference Limits — Ratified Figures
-**Version:** 1.0.0 | Constitutional basis: III.5 (Stockpile Quotas), III.8 (Scout's Gate)
+**Version:** 1.1 | Constitutional basis: III.5 (Stockpile Quotas), III.8 (Scout's Gate)
 
 ## 1. SOURCE INTAKE QUOTAS PER MODE
 | Mode | Primary (min) | Secondary (min) | Triangulation floor | Sources listed? |
@@ -25,14 +25,39 @@
   third-party benchmarks, forum consensus.
 - **Independent:** different author/organization AND different publication channel.
 
-## 4. RULES
-1. **Scout's Gate (III.8):** every source passes the necessity test (relevance ·
-   authority · novelty · necessity) BEFORE acquisition. The Brain is checked
-   first — never re-acquire held knowledge.
-2. **Zero padding:** quotas are met with necessary sources. Stuffing filler to
-   hit a number is a III.8 violation.
-3. **Shortfall protocol:** if quotas are genuinely unreachable (niche topic),
-   log `[STOCKPILE SHORTFALL]` with count achieved + reason; surgeon-passive
-   adjudicates whether the session may close.
-4. Secondary-source claims enter at `[O]`/`[N]` grade maximum until
-   triangulation elevates them (I.2).
+## 4. NECESSARY vs PADDING — THE ENFORCEABLE TEST (v1.1 clarification)
+A source is **NECESSARY** if it passes ALL FOUR of scout's tests, with the
+answers RECORDED in the Acquisition Plan:
+1. **RELEVANCE** — names the specific need-profile gap (G-n) it fills. "General
+   background" is not a gap.
+2. **AUTHORITY** — its tier is stated; a lower-tier source is necessary only
+   when no higher-tier source covers the same gap, and that absence is noted.
+3. **NOVELTY** — states what it adds that no already-acquired source and no
+   Brain holding provides. "Confirms S-03" is only valid as EXPLICIT
+   triangulation duty (and is then marked `role: triangulation`).
+4. **NECESSITY** — one line: what weakens in the deliverable if this source
+   is dropped?
+
+A source is **PADDING** if any of these is true — and padding is a III.8
+violation surgeon must flag:
+- It repeats another source's contribution without a declared triangulation role.
+- Its Acquisition Plan entry cannot name its gap (G-n).
+- It was added AFTER the quota gap became visible, without a new need-profile
+  entry justifying it.
+- Its per-source entry (proc_research-sortie §4) extracts zero claims used
+  anywhere downstream.
+
+**Enforcement chain:** scout records the four answers → prospector acquires
+only planned sources → sentinel spot-checks that per-source entries produced
+downstream-used claims → surgeon blocks closure on padding findings.
+
+**@Gather/@Radiation specific rule:** the quota is a FLOOR for genuine
+coverage, not a TARGET to hit. If the need-profile is fully served below
+quota: acquire the remaining count ONLY as declared triangulation-role or
+tier-upgrade sources; if none exist, log `[STOCKPILE SHORTFALL]` with the
+coverage argument. A shortfall with full coverage is lawful; padding never is.
+
+## 5. SHORTFALL PROTOCOL
+If quotas are genuinely unreachable (niche topic), log `[STOCKPILE SHORTFALL]`
+with count achieved + reason; surgeon-passive adjudicates whether the session
+may close. Secondary-source claims remain [O]/[N]-capped until triangulated (I.2).

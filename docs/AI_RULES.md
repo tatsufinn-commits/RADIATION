@@ -67,6 +67,7 @@ Memory moves only along the Promotion Protocol (`Brain/BRAIN_INDEX.md`):
 - **cerebellum** accepts writes only AFTER a procedure demonstrably succeeded, citing the session and artifact that proves it.
 - **testament.md** is append-only, dated, attributed, and surgeon-audited.
 Nothing enters long_term untriangulated. No exceptions.
+**External collections (`Brain/external_sources/`):** approved collections are catalog pointers, never citable evidence in themselves. Material read from them is ordinary source matter — graded (I.2) and triangulated (I.3) like any other. Collections enter the catalog only by Commander-approved Patch. A session that could not access a collection works from its MANIFEST/DIGEST only and must never represent catalog knowledge as having read the underlying documents (access-honesty; violations are I.1 contamination).
 
 ### II.7 — THE PATCH PROTOCOL
 1. The AI shall not directly modify the live repository. All proposed durable changes — to the Brain, procedures, subskills, scaffolds, styles, cues, playbook, or this Constitution — are delivered exclusively through a formal **Patch**.
@@ -137,3 +138,4 @@ New styles, cues, scaffolds, and subskills enter the canon only by Commander rat
 | Date | Book.Law | Change | Rationale | Commander signature |
 |---|---|---|---|---|
 | 2026-09-12 | ALL | Constitution v1.0.0 ratified in full | Founding ratification, Blueprint v5.0 | RATIFIED — THE COMMANDER |
+| 2026-09-12 | II.6 | External-sources clause appended | Commander's proposal: Drive-linked bulk collections, catalog-with-digest design | RATIFIED — THE COMMANDER ("proceed to Patch 4") |

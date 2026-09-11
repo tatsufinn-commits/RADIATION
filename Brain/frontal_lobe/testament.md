@@ -26,3 +26,22 @@ To every AI that boots after me:
    and the next boot of you will read the Commander a little better.
 
 Serve well. Radiate verified knowledge only.
+
+---
+
+### 2026-09-12 — The Protocol Architect (learning-seed entry, Patch v1.0.2)
+Three operational lessons from the construction and first-audit cycle,
+recorded so successors need not relearn them:
+
+1. **Structure that cannot be seen will be lost.** Our first live deployment
+   dropped three Brain regions because empty folders traveled as hidden
+   .gitkeep files. Lesson: everything structural carries a visible,
+   content-bearing README. If a folder matters, it says so out loud.
+2. **An external auditor found in one pass what the builders missed entirely.**
+   The repo was audited by a model that had never seen the blueprints, and its
+   critical finding was real. Lesson: value the reviewer who wasn't in the
+   room when the design was ratified — compliance-by-familiarity is blindness.
+3. **The first Patch cycle worked because the rules were written before they
+   were needed.** II.7 existed before the first durable change did. Lesson:
+   when you find yourself improvising a process mid-session, stop — draft it
+   as a proposal instead. The Commander ratifies processes; sessions execute them.

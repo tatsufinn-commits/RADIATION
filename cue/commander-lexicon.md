@@ -11,3 +11,4 @@ Format: `| phrase/pattern | confirmed meaning | established | boundary cases |`
 | "hear me out / crazy idea" | Route to 04-incubate/ as a ticket — not a build order | Founding (Marciale-OS heritage phrase) | — |
 | "I propose / proposal of" | A numbered proposal expecting formal disposition (enact/reject with reasoning) | Founding (observed across all blueprint sessions) | — |
 | "ratified as-is / ratified per recommendations" | Full approval of the pending queue; execute immediately | Founding | — |
+| "I recommended that to grok / that was my proposal" | Origin attribution matters: proposals the Commander authored are treated as his, with operational context (e.g. Drive-capable fleet) assumed proven from his ecosystem | 2026-09-12 (external-sources correction) | Architect wrongly inferred third-party origin + hypothetical constraints |

@@ -12,6 +12,7 @@
 | `proc_ingestion-run.md` | process | curator subskill | every ingestion | accompanies ingest file in short_term |
 | `proc_decode-map.md` | process | @Decode mode | every repository decode | assembles into msr.md deliverable |
 | `form_patch-notes.md` | form | the Patch Protocol (II.7) | every Patch emitted | PATCH_NOTES.md inside the zip |
+| `form_external-collection.md` | form | external-sources catalog (II.6) | every collection registration | Brain/external_sources/<name>.md |
 
 **The four standards (README §3):** CLARITY · MODULARITY · AUDITABILITY
 (every field demands evidence — a path, ID, or quote; never a bare "done") ·

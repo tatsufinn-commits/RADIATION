@@ -14,6 +14,7 @@ A Declaration without Extraction Notes is INVALID — surgeon blocks work.
   SCAFFOLDS ARMED  : <core scaffolds to be used | generated: name + why>
   SECTIONS ADDED   : <beyond style skeleton, each + one-line reason | none>
   QUOTA TARGET     : <mode minimums for this session>
+  EXTERNAL ACCESS  : Drive-capable / not capable
   BOOT TIER        : <highest tier loaded; declare any degradation>
 ╚═══════════════════════════════════════════════════════════════╝
 ```

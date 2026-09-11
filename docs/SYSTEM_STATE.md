@@ -1,12 +1,12 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-12 (Patch: Brain-Completion-and-Structural-Hardening)
+**Last updated:** 2026-09-12 (Patches Nos.1-3 ratified; No.3 canon changes explicitly ratified by the Commander)
 **Updated by:** Protocol Architect (Patch proposal; effective at Commander's push)
 
 ## REPOSITORY VERSION
-RADIATION v1.0.1 — pending Commander application of
-`RADIATION_PATCH_2026-09-12_Brain-Completion-and-Structural-Hardening.zip`
-(v1.0.0 founding + structural completion PATCH bump).
+RADIATION v1.2.0 — founding + Patches Nos.1-4, all ratified. No.4 adds the
+Brain/external_sources/ catalog region (Commander's proposal). Effective in
+the live repository at the Commander's push (IV.5).
 
 ## CURRENT STATE
 - All canonical docs written; system OPERATIONAL.
@@ -28,6 +28,7 @@ RADIATION v1.0.1 — pending Commander application of
 | Subskills (4 passive + 2 active, six-block specs) | ✅ FULLY POPULATED |
 | Patch machinery (protocol, ledger, form) | ✅ FULLY POPULATED |
 | Brain STRUCTURE (5 regions + movement rules) | ✅ COMPLETE |
+| Brain/external_sources catalog (region + rules) | ✅ STRUCTURAL / 🕳️ no collections registered yet |
 | Brain CONTENT (ingestions, promotions, dossiers) | 🕳️ EMPTY — awaits first live sessions |
 | Skill jurisdictions 01–09 (READMEs + registers) | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |
