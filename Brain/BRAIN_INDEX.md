@@ -9,7 +9,8 @@
 | `long_term/` | Refined vault: papers/, audits/, dossiers/, references/ | Permanent; admission EARNED |
 | `subsidiary/` | Tangents (compass 🟨), alternatives, minority views, sub-threshold data | Persistent periphery; `subsidiary-reason:` header mandatory |
 | `cerebellum/` | Procedural memory: routines/, patterns/, habits.md | Permanent; write-after-proof only |
-| `frontal_lobe/` | Executive memory: task_ledger.md, learned_skills.md, learned_cues.md, testament.md | Append-only |
+| `frontal_lobe/` | Executive memory + sentiment: task_ledger.md, learned_skills.md, learned_cues.md, testament.md, opinions.md (emotions/opinions — size-minimized, never evidence) | Append-only |
+| `temporal_lobe/` | Episodic memory: one `S###_date_slug/` folder per session (SESSION.md, deliverables.md, learnings.md) + registry INDEX.md | Own-folder-write-only; append-locked at session close |
 
 ## 2. THE MOVEMENT RULES (II.6 — exact criteria)
 **short_term → long_term** requires ALL THREE:
@@ -31,6 +32,16 @@ propose purge (purge = Commander-ratified only, II.4).
 **cerebellum writes:** only AFTER a procedure demonstrably succeeded
 (deliverable accepted, no 🟥 events), citing the session + scaffold artifact
 that proves it. No speculative habits.
+
+**temporal_lobe episodes:** register in INDEX.md FIRST, then write; a session
+touches ONLY its own episode; summaries not transcripts (size discipline);
+frozen append-only at close. Division of labor: temporal_lobe = the session's
+story · task_ledger = one-line executive index · testament = cross-session
+wisdom · opinions.md = sentiment. No duplication.
+
+**frontal_lobe/opinions.md:** the AI's emotions, feelings, opinions — one line
+per entry (≤25 words), append-only, size-minimized by law; NEVER evidence,
+never citable, never graded.
 
 **frontal_lobe/testament.md:** append-only; each entry dated + attributed
 (model/session); surgeon-audited for I.1 compliance — earned principles only

@@ -1,10 +1,10 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-12 (Patches Nos.1-3 ratified; No.3 canon changes explicitly ratified by the Commander)
+**Last updated:** 2026-09-12 (v1.4.0: temporal lobe + sentiment, Commander-ratified)
 **Updated by:** Protocol Architect (Patch proposal; effective at Commander's push)
 
 ## REPOSITORY VERSION
-RADIATION v1.3.1 — founding + Patches Nos.1-7. No.7 registers the Planning collection (6th), manifest size-flagged under the Restraint Doctrine. No.6 (🟠, ratified) adds the
+RADIATION v1.4.0 — temporal_lobe episodic region live (S001 enrolled) + frontal-lobe sentiment (opinions.md). Previously: v1.3.3 — founding + Patches Nos.1-7 + the field session's first Patch (Planning ingestion, v1.3.2) + hygiene fix (v1.3.3). First live ingestion complete: Planning 8/8 files, [D]-as-taught in short_term, DIGEST populated. Test 1 PASSED. No.6 (🟠, ratified) adds the
 Restraint Doctrine: Drive-capable sessions fetch manifest-first, necessity-
 vetted, hard-budgeted at 3 files/collection and 6/session, one-at-a-time,
 never mirroring. v1.2.1 (No.5) No.5 registers the first five

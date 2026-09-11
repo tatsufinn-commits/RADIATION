@@ -4,6 +4,30 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.4.0 — 2026-09-12 — Temporal-Lobe-and-Sentiment (🟠 RATIFIED)
+Patch: `RADIATION_PATCH_2026-09-12_2300_Temporal-Lobe-and-Sentiment.zip`
+Brain gains episodic memory: Brain/temporal_lobe/ — one S###_date_slug/ folder
+per session (SESSION.md, deliverables.md, learnings.md), own-folder-write-only,
+append-locked at close, registry in INDEX.md. S001 (Test 1) enrolled
+retroactively. Frontal lobe gains sentiment: opinions.md — the AI's emotions/
+feelings/opinions, one-line entries, size-minimized by law, never evidence.
+II.6 amended (2 clauses); BRAIN_INDEX anatomy updated.
+
+## v1.3.3 — 2026-09-12 — Test1-Acceptance-and-Repo-Hygiene (🟢)
+Patch: `RADIATION_PATCH_2026-09-12_2200_Test1-Acceptance-and-Repo-Hygiene.zip`
+Applies the Test-1 session's four append blocks (planning.md DIGEST + ACCESS
+LOG, task ledger, patch ledger, this entry's sibling below) that were committed
+as transport files but never pasted into their targets. Removes patch-transport
+debris from the repo root: append-blocks/, PATCH_NOTES.md, and three
+*_REPLACEMENT files left over from Patches 1-3 application.
+
+## v1.3.2 — 2026-09-12 — Planning-Ingestion-and-Reviewer (🟢)
+Patch: `RADIATION_PATCH_2026-09-12_0704_Planning-Ingestion-and-Reviewer.zip`
+First live Brain ingestion: Planning collection read 8/8 files (3 image-only decks
+recovered via OCR). Master summary + 79-item study reviewer written to
+Brain/short_term/. DIGEST populated (no SIZE-SKIPPED files). Content graded
+[D]-as-taught — awaiting triangulation before long_term/Core promotion.
+
 ## v1.3.1 — 2026-09-12 — Planning-Collection-Registration (🟢)
 Patch: `RADIATION_PATCH_2026-09-12_2100_Planning-Collection-Registration.zip`
 Sixth collection registered: Planning (Community Architecture & Urban Design)
