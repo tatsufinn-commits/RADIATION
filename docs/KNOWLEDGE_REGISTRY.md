@@ -279,3 +279,24 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Domain: ALL (schedule) | Depth: — | Confidence: MEDIUM (3 of 6 courses carry no item data)
 - Supersedes/by: — / — | Conflicts: — | Used by: `routine_term-briefing` · `scripts/plan_term.py`
 - Notes: NOT canon, NOT citable — a parseable projection so the planner need not parse markdown. **If it disagrees with a course record, the record wins.** Enforced by validator check 20 (integrity + no identifiers).
+
+## K-STD-004 — Philippine Electrical Code (PEC) 2009
+- Canonical path: — (Building-Utilities collection, `ELECTRICAL Bu2.pdf` is NOT it; the PEC itself is `Philippine Electrical Code.pdf`, 6.8 MB, 856 pp) · extraction record: `Brain/external_sources/building-utilities.md` §5.4
+- Source record: building-utilities.md MANIFEST #06 | Tier: TIER-1 (statutory instrument) | Type: code-standard | Edition: **2009**
+- Status: **VERIFIED — EDITION CURRENCY UNRESOLVED** | Grade basis: [D] for what it states | Last verified: 2026-09-13 | Freq: 1yr | Decay: volatile (code editions)
+- Domain: ALE-BU | Confidence: HIGH for text, MEDIUM for currency | Conflicts: DECAY_REGISTER (edition row) | Used by: AR153P (K-CUR-012) · K-CUR-005 material set
+- Notes: 399 bookmarks; structure verified Ch.1-8 (definitions → comms). **The PEC has been revised since 2009 (2017 is commonly cited in current PH practice). Nothing from this file may be taught as current until the edition question is settled** — recorded as a currency flag, not a defect. Wiring/method content is largely edition-stable; load-calculation tables are the exposure.
+
+## K-BK-004 — Ginn, Architectural Acoustics (2nd Ed)
+- Canonical path: — (Building-Utilities collection, 23.2 MB, 172 pp; text layer OK — note producer = ABBYY FineReader, i.e. OCR-derived)
+- Source record: building-utilities.md MANIFEST #09 | Tier: TIER-2 | Type: textbook | Edition: 2nd
+- Status: VERIFIED (existence + extraction) | Grade basis: [D] for what-the-book-states; [R] only once a publisher is named and confirmed at ingest (P-07 publisher rule) | Last verified: 2026-09-13 | Freq: 1yr | Decay: stable-domain (acoustics fundamentals)
+- Domain: ALE-BU (acoustics) | Confidence: MEDIUM | Conflicts: — | Used by: AR153P (K-CUR-012)
+- Notes: **OCR-derived text — quote with the same caution as `-as-taught` until spot-checked against the page.** TOC structure verified (Ch.1 Fundamentals and Definitions; wave terminology: plane/diverging/spherical/progressive/standing). The manifest's claimed `[R]` grade is NOT granted: no publisher named in the file metadata.
+
+## K-BK-005 — Fajardo & Fajardo, Electrical Layout and Estimate (2nd Ed)
+- Canonical path: — (Building-Utilities collection, 33.1 MB, 349 pp; filename normalised at ingest — see §5 note)
+- Source record: building-utilities.md MANIFEST #12 | Tier: TIER-2 | Type: handbook | Edition: 2nd
+- Status: VERIFIED (existence + extraction) | Grade basis: [D] for published formulas/standards as stated | Last verified: 2026-09-13 | Freq: 1yr | Decay: stable-domain
+- Domain: ALE-BU | Confidence: MEDIUM | Conflicts: — | Used by: AR153P (K-CUR-012)
+- Notes: The bookbook's own bookmark tree is numeric page labels (001..349), not a subject TOC — **subject navigation must be built at first module use**, not assumed. Its electrical values are drawn from the PEC and must be **re-cited to K-STD-004 (or its current edition), never to the handbook** (the same rule the Structural collection states for NSCP-derived values).

@@ -1,191 +1,190 @@
-# PATCH NOTES — RADIATION_PATCH_2026-09-13_2340_Term-Planner.zip
+# PATCH NOTES — RADIATION_PATCH_2026-09-13_2400_BU-Ingestion-AR153P.zip
 **Risk class:** 🟢 ORDINARY — no constitutional text, no core scaffold, no mode definition, no Scan rule
-**Pre-merged. Extract over the repository root.**
-**Applies on top of** `RADIATION_PATCH_2026-09-13_2300_Courses-Region-and-Containment.zip` (this patch ships the same `.gitignore` and the same `validate.py` with both patches' checks — **either apply order works; the later patch wins on shared files**).
-**Validator:** 23 → **25 checks · 17 pass · 4 warn · 4 fail** — *all four remaining FAILs are pre-existing carriers, not this patch's (see §5)*
+**Pre-merged. Extract over the repository root. Pure file overlay — nothing is removed from the tree.**
+**Validator (clean mirror):** 25 checks · **22 pass · 2 warn · 1 fail — identical before and after this patch.** It adds no failure and clears none; the 1 remaining is check 2.5, the six course vehicles awaiting the authorized Phase-0 removal. *Full honest accounting in §7.*
 
 ---
 
 ## 1 · WHAT THIS IS
 
-**P-10 Phase 1–3: the term planner.** The mechanism that converts an academic deadline into a study session — which the system has never had, and whose absence is AP-07 (*"0 Core cards after 4 sessions; 15 🟠 patches against 3 content sessions"*).
+**P-10 Phase 2: the first real ingestion run.** The Building-Utilities collection — the material behind **AR153P, one of the three high-yield architecture courses** — went from *manifested* to *extracted*.
 
-It is **not** a new mode, a new scaffold, or a boot-set member. It is a script, a register, a routine, and five cue rows.
+This discharges the standing order the architect's own cue doctrine names at §2.5 (*"Empty DIGESTs of registered collections — staging-not-substitute"*): `building-utilities.md` had carried **"DIGEST (empty — populate at first ingestion session)"** since registration.
 
-| # | Artifact | Purpose |
-|---|---|---|
-| 1 | `scripts/plan_term.py` | the planner — stdlib only, no network |
-| 2 | `Brain/short_term/plan/TERM1_DEADLINES.json` | the term register (K-REF-003), derived from the course records |
-| 3 | `Brain/short_term/plan/README.md` | region doc — the rules and the wait-list |
-| 4 | `Brain/cerebellum/routines/routine_term-briefing.md` | the procedure (STAGED, write-after-proof pending) |
-| 5 | `cue/autopilot-cues.md` | **append** — 5 term cues, into the existing registry |
-| 6 | `scripts/validate.py` | **+check 20** (plan integrity + privacy) · **+check 20.5** (AP-08 guard) |
-| 7 | `docs/KNOWLEDGE_REGISTRY.md` | **+K-REF-003** |
-| 8 | `.gitignore` | `*.local.*` + `_local_backup/` (see §4 — this closed a hole in the previous patch) |
-
----
-
-## 2 · WHAT IT DOES
-
-```bash
-python3 scripts/plan_term.py --week 4                  # the brief
-python3 scripts/plan_term.py --week 4 --ics <local.ics> # + feed delta
-python3 scripts/plan_term.py --self-check              # register integrity
-python3 scripts/plan_term.py --audit                   # plan-vs-attempt ratio
-```
-
-**Real output, week 10, in the current state:**
-```text
-  TERM BRIEF — Term 1, AY 2026-2027 · week 10 of 11
-  dates    : ANCHOR ABSENT — planning in WEEKS (no syllabus prints a date).
-  ─ RANKED LOAD (this week + next) ─ top 3 of N ─
-   1. [ 22.5] MEC30-7 — Q3            THIS WEEK · weight UNKNOWN
-        why: yield 5 x proximity 3.0 x deficit 1.5 (no mastery row)
-   2. [ 22.5] MEC30-7 — Coursera PR5 + certificate
-   3. [ 15.0] MEC30-7 — Final exam + course portfolio   NEXT WEEK
-  ─ MASTERY CLOCK ─ (reconciliation against Brain/frontal_lobe/mastery_ledger.md)
-  ─ UNPREPARABLE / BUILD-REQUIRED ─
-    AR173-1P (yield 9): HIGHEST-YIELD COURSE OF THE TERM IS DEADLINE-BLIND
-  ─ NOT BEING PREPARED, AND WHY ─
-```
-
-**The core algorithm** — `priority = yield × proximity × deficit`, and the arithmetic is printed with every row. Six courses, one student, ~6 usable hours: **a full list is not a triage, so it shows top 3.**
-
-**Two clocks, reconciled — never merged:**
-- **deadline clock** → the register + the ICS
-- **mastery clock** → `mastery_ledger.md`, which computes its own `next_review` from error categories
-
-The reconciliation rule: place review so the last one lands **D-3…D-1** before an assessment; **pull the ledger's date forward** if it would fall after one; and when **no knowledge object exists**, emit **`BUILD-REQUIRED`** rather than a review date. *An unsatisfiable reminder is a defect, not a plan.*
-
-**The ICS layer works and is proven.** It parses the feed, **scrubs every identifier before anything touches disk**, and reports **movement** — the one genuinely actionable line a schedule system can produce:
-```text
-  ─ LMS FEED ─ 3 event(s) parsed, summaries scrubbed of identifiers
-    added 0 · moved 1 · removed 0
-    ⚠ MOVED  MEC30-7 Q1 Quiz: 2026-09-23 → 2026-09-18
-```
-Proof of scrubbing, read back off the snapshot file on disk:
-```text
-"summary": "AR153P Deadline [SECTION REDACTED]"
-"summary": "Consultation w/ Instructor [INSTRUCTOR REDACTED] at room [ROOM REDACTED]"
-```
-
----
-
-## 3 · THE HONEST LIMIT — RUNG 2 OF 4
-
-The routine defines a four-rung degradation ladder. **This patch delivers a working rung 2, and says so:**
-
-| Rung | Have | State |
-|:--:|---|---|
-| 4 | anchor + ICS + records | — |
-| 3 | anchor + records | — |
-| **2** | **records only** | ⬅ **shipped, working** |
-| 1 | partial records | — |
-| 0 | no register | — |
-
-**What that means concretely:** it knows a Q1 lands in week 4, a Q2 in week 7, a Q3 and the Coursera certificate in week 10, finals in week 11 — **and it knows the three highest-yield courses are invisible.**
-
-> **⚠ THE FINDING THAT MATTERS MOST: the planner is blind exactly where the yield is highest.**
-> AR173-1P (yield 9), AR163-1P (8), AR153P (8) — no syllabus, so no graded items, so no triage. The three courses that carry the ALE are the three the planner cannot see.
->
-> **That is a data gap, not a build gap.** The machinery is finished. One missing datum (*the week-1 anchor*) converts the whole term from weeks to dates; three missing syllabi restore deadline-awareness where it counts.
-
-**Waiting on, and all four are data not code:** `week1_start` · the LMS ICS (local, git-ignored) · the three AR syllabi · MEC30-7's weights.
-
----
-
-## 4 · TWO HOLES THIS PATCH CLOSED IN ITS OWN PREDECESSOR
-
-**4.1 `.gitignore` missed the planner's own output.** The Phase-0 ignore file covered `*.local.md` but **not** `*.local.json` — and the ICS snapshot is a `.json`. Fixed: `*.local.md`, `*.local.json`, and `Brain/short_term/plan/*` variants are all ignored. **Verified:** `git check-ignore -v` resolves `Brain/short_term/plan/ICS_SNAPSHOT.local.json` to `.gitignore:40`.
-
-**4.2 The validator was scanning `_local_backup/`.** The Phase-0 apply script re-homes 11 vehicles into `_local_backup/`. But `validate.py` walked the whole tree, so **the local scratch folder was being linted** — check 1 failed on a path inside the PATCH_NOTES the script had just archived there. A local, git-ignored folder must never fail CI. Fixed in **both** patches: every `os.walk` now skips `_local_backup`, and it is added to `.gitignore`. *(Found by running the patches together, not by reading them.)*
-
-**4.3 The example above is the point.** Neither hole was visible in either patch alone. **Both surfaced only when the two were applied in sequence and validated** — which is the standard this campaign exists to enforce, applied to its own output.
-
----
-
-## 5 · VALIDATOR STATE — HONEST REPORT
-
-```text
-baseline  (4a98e59):                22 checks · 14 pass · 3 warn · 5 fail
-after Courses-Region-and-Containment: 23 checks · 16 pass · 3 warn · 4 fail
-after THIS patch:                   25 checks · 17 pass · 4 warn · 4 fail
-```
-
-| Check | State | Owner |
-|---|:--:|---|
-| 2 required files | ✅ PASS | previous patch |
-| 2.5 records-only + identifiers | ✅ PASS | previous patch |
-| **20 term plan integrity** | ✅ **PASS** | **this patch** |
-| **20.5 planner-theater guard** | ⚠️ WARN | **this patch — and it is CORRECT** |
-| 1 · 3 · 3.5 · 8 | ❌ | **pre-existing carriers** — untouched, awaiting the Commander's purge authorization |
-
-**On check 20.5 firing on day one — that is the check working, not failing.** It warns that a plan exists and the last three ledger rows record no attempt. It is right. **The metric is drills executed, never plans generated.** It clears the moment a genuine attempt is logged.
-
-**Boot bytes:** 34,138 B Tier0+1 (cap 40 KB) · 57,264 B Tier0–2 (cap 80 KB). **+196 B** — one ledger row. The routine is reached at **Tier 3** (`docs/.readme` §3 already lists *cerebellum routines*), so **no tier amendment and no boot-set member were added.**
-**🟠 count: 15 → 15. This patch adds ZERO canon.**
-
-### 5.1 Deliberate-break proof for check 20 (pasted)
-```text
-PROOF 1 — clean:                         ✅ PASS [check 20] term plan integrity
-PROOF 2 — URL in the register:           ❌ FAIL … URL in term register; URL/credential in term register
-PROOF 3 — "Instructor: Maria Santos":    ❌ FAIL … instructor name in term register
-PROOF 4 — week 99:                       ❌ FAIL … week out of range MEC30-7 W99
-PROOF 5 — k_id K-CUR-999 (unregistered): ❌ FAIL … unknown k_id K-CUR-007
-PROOF 6 — restore:                       ✅ PASS [check 20] term plan integrity
-```
-
-### 5.2 🔴 AND THE VALIDATOR CAUGHT ME AGAIN
-The first draft of this register used **`K-REF-001`** — which is **already taken** (UAP Documents 200–208; `K-REF-002` is the Bentley annotation). **Check 17 failed the duplicate**, and the frozen-domain rule required renumbering to **`K-REF-003`**.
-
-That is the **second ID collision the validator has caught in my work** in two patches (`K-CUR-001…006` were the first). The rule was corrected; the content was not excused. Recorded here rather than quietly renumbered.
-
----
-
-## 6 · DELIBERATELY NOT INCLUDED
-
-| Not included | Why |
-|---|---|
-| **Tier B autonomy** (self-initiating at session-open) | Extends `autopilot-doctrine.md` §2's **closed list of seven** → 🟠. Arrives instead as a 🟢 doctrine refinement **after three logged runs**, per the doctrine's own §7 growth rule |
-| **`@Drill` handoff** | P-05 not ratified. The routine hands off to **`@Review`** — ratified 2026-09-12 — and upgrades on ratification. *The drill set and grader already exist; P-05 supplies the charter, not the machinery* |
-| **The GitHub Action (Phase 4)** | Needs the Commander's ICS secret, and Phase 4 follows a proven Phase 1–3 |
-| **The 18-carrier purge** | Separate patch, separate authorization, separate purpose (II.7.4) |
-| **A new cue file** | Would require editing `docs/CUE_SYSTEM.md` §5 — which is law. Cues append to the existing registry instead |
-| **A new scaffold** | `scaffolding/core/INDEX.md`: additions arrive only via `improved/` → 🟠. The scaffolds this needs already exist as staged proposals |
-
----
-
-## 7 · FILES
-
-```text
-NEW       scripts/plan_term.py
-NEW       Brain/short_term/plan/TERM1_DEADLINES.json
-NEW       Brain/short_term/plan/README.md
-NEW       Brain/cerebellum/routines/routine_term-briefing.md
-CHANGED   cue/autopilot-cues.md                       +5 term cues (append)
-CHANGED   scripts/validate.py                         +check 20, +check 20.5, +_local_backup exclusions
-CHANGED   docs/KNOWLEDGE_REGISTRY.md                  +K-REF-003
-CHANGED   .gitignore                                  +*.local.* and +_local_backup/
-CHANGED   Brain/frontal_lobe/task_ledger.md           +1 row (real filename)
-CHANGED   docs/PATCH_LEDGER.md                        +1 row
-CARRIED   PATCH_NOTES.md                              zip-only (archived out of the tree on apply)
-```
-
----
-
-## 8 · NEXT
-
-1. **Rotate the LMS feed** — still open from the previous patch, still Commander-only.
-2. **Purge the 18 carriers** — one word, and CI goes green.
-3. **Supply `week1_start`** — one date, and the whole term becomes dated.
-4. **Drill something.** Check 20.5 is warning for a reason; the register is finished and the first genuine `mastery_ledger` row is the only thing that turns a plan into progress.
-
----
-
-## 9 · EVAL-FIRST (the clause, applied)
 | | |
 |---|---|
-| **INSTANCE** | AP-07: 0 Core cards after 4 sessions; 15 🟠 vs 3 content sessions; no mechanism converted a deadline into a session |
-| **COST** | +4 files, +196 boot bytes, +2 checks, **0 canon, 0 new modes, 0 boot-set members, 0 new scaffolds** |
-| **DISPLACEMENT** | Removes nothing; **depends entirely on existing machinery** — P-06's yield rubric, P-05's drill set and grader, P-03's registry, the cerebellum routine folder. *If it could not be built on those four, it should not have been built* |
-| **CHECK** | **check 20, proven by five deliberate breaks** (pasted §5.1). Check 20.5 measures the failure mode (AP-08) rather than assuming it away |
+| **Fetched** | **14 / 14 files · 283.4 MB · 0 failures** |
+| **Inventoried** | **3,923 pages** — 11 usable text layers (10 full, 1 thin), **3 image-only (334 pp)** |
+| **Produced** | DIGEST populated (§5) · 3 registry objects · 1 decay row · 1 ingestion record · 1 reusable harness |
+| **Deleted** | all 14 binaries — **no vehicle entered the repository** (II.6 r.8) |
+
+---
+
+## 2 · ⭐ THE FINDING THAT CHANGES A RULE
+
+**PEC Table 2.20.2.3 was extracted WRONG by text order — and the error was invisible.**
+
+Naive line-order parsing produced a complete, tidy, plausible table. **Every value was shifted.**
+
+| | Armories | Banks | Churches | Dwellings | Schools |
+|---|:--:|:--:|:--:|:--:|:--:|
+| **naive text order gave** | 33 | 11 | 22 | 22 | 3 |
+| **the truth is** | **11** | **39**ᵇ | **11** | **33** | **33** |
+
+Nothing about the output looked broken. It was a table, it read like a table, and it was wrong. The cause: multi-line row labels and merged cells bind to the numeric column in the wrong order.
+
+**The correct values were recovered by rendering the page and reading it** — the recovery ladder's vision rung. Full corrected table in the DIGEST §5.2 and the ingestion record §2.
+
+### THE RULE THIS ESTABLISHES
+> **A legal or numeric table extracted by text order alone is UNVERIFIED.**
+> Two-column tables, multi-line row labels, and merged cells **mis-bind silently**.
+> Any table carrying a code value must be settled by **coordinate extraction or a rendered read**
+> before the value is graded. **A number that cannot be traced to a verified table read is not `[D]`.**
+
+This is **AP-03 (grade inflation through convenience)** — a value wearing a grade it had not earned. It was caught only because the table was cross-checked against a render. **Had it not been, a wrong lighting load would have entered the system marked `[D]`, and nothing downstream would ever have questioned it.**
+
+**Proposed for addition to `proc_ingestion-run`** — which is already staged for revision at P-04. This patch does **not** amend the scaffold; it implements the rule in tooling and files the proposal.
+
+---
+
+## 3 · PRIMARY-LAW CONTENT RECOVERED
+
+### PD 1096 Rule XII/XIII — pipe colour coding → `[D]`, citable to Rule
+File 01 is **not a utilities handout — it is a PD 1096 table**. This is the **first mechanical/electrical PD 1096 content the system holds**; K-MOD-001 covered only Rules VII–VIII.
+- **Divisions:** Steam HP WHITE · Exhaust BUFF · Water fresh BLUE / salt GREEN · Oil delivery BRASS-BRONZE / discharge YELLOW · Pneumatic GRAY · Gas BLACK
+- **Colour key:** RED (CO₂, fire-service water) · ORANGE (acetylene, LPG, gasoline, hydrogen, oxygen, oil, tar, producer gas…) · YELLOW (acid, HP air, ammonia, HP/LP steam, boiler-feed, hot water) · GREEN (LP air, argon, helium)
+
+### Philippine Electrical Code 2009 → `K-STD-004`
+856 pp, 399 bookmarks, chapters 1–8 verified. Voltages for load calc (2.20.1.5(a)): 115 · 115/230 · 208Y/120 · 230 · 347 · 400Y/230 · 460Y/265 · 460 · 600Y/347 · 600.
+> ⚠️ **EDITION CURRENCY UNRESOLVED. This is the 2009 edition; the PEC has been revised since (2017 is commonly cited). Nothing from this file may be taught as current until the edition question is settled.** Decay row filed. *Recorded as a currency flag, not as a defect in the file.*
+
+---
+
+## 4 · 🔎 THE OTHER FINDINGS (the run found more than it extracted)
+
+1. **🎯 A US manual was sitting in a Philippine utilities folder.** `QS_3FiregroundHydraulics_edited.pdf` is the **Tennessee Fire Academy Driver Operator Manual ch.3 (rev. 04/2014)** — its own text says the data comes from tests on TFACA equipment *"safe and practical to what we use here in Tennessee."* Units are psi/feet/FPS.
+   **Graded `[R]` for hydraulics principles · NEVER citable for any Philippine code value.** Flagged in the DIGEST so a future session cannot mistake it for a PH standard because of where it sat.
+
+2. **AP-05 confirmed in RADIATION's own holdings.** Files 10 and 11 (`Recording Studio Design`) are **byte-identical** — MD5 `d7c0b5cf…`. Until now AP-05's cited instance was TAMAKEE's 14 mirror pairs, i.e. *someone else's* failure. **This is the first instance found inside our own collections**, found by hash during extraction.
+
+3. **334 pages are image-only and unrecovered** — files 07 (Plumbing Fajardo, 175 pp), 08 (Plumbing module, 57 pp), 13 (M&E module, 102 pp). A text-layer pass returns **0 words**. Files 08 and 13 are **the course modules for this exact course.** Recovery ladder required; not optional.
+
+4. **The collection is redundant in its plumbing half and thin in its mechanical half** — five files (02/04/05/07/08) cover plumbing/sanitary; nothing but a lecture deck covers mechanical.
+
+5. **What it does NOT contain:** the **Revised National Plumbing Code** (the governing instrument for the sanitary half), RA 9514, or any mechanical instrument.
+
+6. **A number in my own draft was wrong, and it was caught before delivery.** The first draft of the ingestion record stated the page total as **3,323**. The per-file column sums to **3,923**, and the extraction report agrees — the prose figure was a transcription slip that survived two re-reads because it *looked* computed. Corrected in all six files that carried it, and the correction is recorded in the ingestion record §5.1 rather than edited away.
+   **The §2 rule applies to my arithmetic too:** a number that cannot be traced to a column it cites is not a verified number.
+
+---
+
+## 5 · CORRECTIONS TO PRIOR RECORDS — and the pattern
+
+**This session's registry cross-check corrected two false claims that an earlier revision of `AR153P.md` had asserted:**
+
+| Prior claim (mine, 2300 patch) | Registry reality |
+|---|---|
+| *"NSCP 2015 has no registry row — invisible to the yield-ranked build order"* | **WRONG.** It is **K-STD-001**, `RECORDED-NOT-HELD` — a **deliberate decision** (copyright posture + 1,022 MB fetch-of-last-resort), not an oversight |
+| *"The Revised National Plumbing Code is not held"* | **IMPRECISE.** It is **K-STD-002**, canonical path = *Law collection #6* (38.3 MB, the flagged prefer-this variant), status `UNVERIFIED — never fetched`. Absent from **this** collection ≠ absent from the system |
+
+Both corrected **in place** in `AR153P.md` and `AR163-1P.md`, with the correction recorded rather than silently edited.
+
+> **📌 That is now the THIRD registry cross-check to correct my own work in three build sessions:**
+> ① `K-CUR-001…006` collided with existing rows · ② `K-REF-001` was already taken (UAP Documents) · ③ two false gaps asserted from an uninformed read.
+>
+> **The pattern is not embarrassing — it is the system working.** A narrative record written from one source is less informed than a registry built from many, and the registry caught it every time. **The mechanism is doing exactly what P-03 built it for.** Recorded here because a build log that hides its own corrections is worthless.
+
+---
+
+## 6 · WHAT WAS BUILT
+
+```text
+CHANGED   Brain/external_sources/building-utilities.md   §5 DIGEST populated (was: "empty")
+                                                         §6 ACCESS LOG row appended (was: 1 row)
+NEW       Brain/short_term/ingest/BU_INGEST_2026-09-13.md  the full ingestion record + runbook
+CHANGED   docs/KNOWLEDGE_REGISTRY.md                     +K-STD-004 PEC 2009
+                                                         +K-BK-004 Ginn, Architectural Acoustics
+                                                         +K-BK-005 Fajardo & Fajardo, Electrical Layout
+CHANGED   docs/DECAY_REGISTER.md                         +1 row — PEC edition currency
+NEW       scripts/ingest_collection.py                   the reusable harness (4 subcommands)
+CHANGED   Brain/courses/AR153P.md                        material status → INGESTED; 2 false gaps corrected
+CHANGED   Brain/courses/AR163-1P.md                      NSCP claim corrected → K-STD-001
+CHANGED   Brain/courses/INDEX.md                         load finding updated (1 of 3 discharged)
+CHANGED   Brain/frontal_lobe/task_ledger.md              +1 row (real filename)
+CHANGED   docs/PATCH_LEDGER.md                           +1 row
+NEW       APPLY.sh · APPLY.ps1                           carrier archiver + no-vehicle assertion + harness self-check
+CARRIED   PATCH_NOTES.md                                 zip-only (archived out of the tree on apply)
+```
+
+### 6.1 The harness — `scripts/ingest_collection.py`
+The repeatable procedure, so the next collection is a command rather than an improvisation:
+```text
+list     enumerate a public Drive folder (no API key) → manifest
+fetch    download to a scratch volume — REFUSES a destination inside the repo
+extract  per-file text-layer verdict + the recovery rung + content-hash duplicate scan
+verify   dual-pass table check (text order vs coordinates) + rendered page for the vision rung
+```
+**Rule 2 in that file's docstring is the PEC table finding, written down where the next session will read it.**
+
+---
+
+## 7 · VALIDATOR STATE — HONEST REPORT
+
+**Measured on a clean mirror** (live repo + this zip, with the repo's own transport carriers excluded — see the note below):
+
+```text
+before this patch:  25 checks · 22 pass · 2 warn · 1 fail
+after  this patch:  25 checks · 22 pass · 2 warn · 1 fail     ← identical
+```
+
+**This patch adds no failure and clears none.** The one fail is **check 2.5**: six course vehicles sitting under `Brain/courses/` that **Phase 0 is authorized to remove but which the apply step never ran for.** *That is not a defect in this patch* — it is the standing finding that the 2300 containment removal has not been executed in the working tree yet.
+
+### Why two sets of numbers
+Measured on a mirror that **includes** the repo's own `PATCH_NOTES.md`, `*_STAGED*`, `*_DIFF` and `SCHEDULE.png`, the same run reads **25 · 15 / 4 / 6**. Those six extra fails are **artifacts of copying carriers into a test tree** — checks 1, 3, 3.5, 8 and 17 all correctly flag them, and check 2.5 double-counts. **They appear identically with and without this patch.** The clean number is the honest one; the dirty number is reported so the next session does not mistake the delta for progress.
+
+| measure | before | after |
+|---|---|---|
+| checks · pass · warn · fail (clean) | 25 · 22 · 2 · 1 | **identical** |
+| boot budget Tier0+1 | 34,138 B | **34,398 B** (+260 B — one ledger row) — **84 % of the 40 KB cap, still PASS** |
+| registry K-IDs (check 17) | 36 | **39** — verified free before assigning, no duplicates |
+| 🟠 canon count (check 16) | 15 | **15 — this patch adds ZERO canon** |
+
+**Boot bytes did move, and that is disclosed rather than glossed:** one task-ledger row costs 260 B. It is inside the cap, and check 15 is the item that would have caught it if it were not.
+
+### 7.1 Two defects in my own patch, caught before it left the workspace
+1. **Check 14 (session-local paths) FAILED on the first draft** of the ingestion record — its runbook hardcoded literal `/tmp/...` paths. Fixed by genericising to a `<SCRATCH>` placeholder. *The check was right: a runbook that hardcodes one machine's temp directory is not a runbook.*
+2. **A machine verdict I wrote was removed for crying wolf.** The first `verify` printed an automatic *"RESOLVED / DID NOT RESOLVE"* call. It fired correctly on the PEC corruption — and **also fired on a clean single-column page** (the PD 1096 pipe table, which extracted verbatim and correct). A warning that cries wolf is worse than no warning, because it trains the reader to skip it. **Replaced with raw statistics and an explicit refusal to decide** — *the machine lays out the evidence and always writes the render; the reader is the tiebreaker.*
+3. **A page total in my draft was wrong** — 3,323 where the per-file column sums to **3,923**. Corrected in all six files that carried it and recorded in the ingestion record §5.1. *This is the §2 rule turned on my own arithmetic: a number that cannot be traced to the column it cites is not a verified number.*
+
+---
+
+## 8 · WHAT THIS DOES NOT DO
+
+| Not done | Why |
+|---|---|
+| **Module build for AR153P** | This patch is **ingestion** — evidence in. Building a canonical module is a separate deliverable with its own acceptance criteria (P-06 depth ladder) |
+| **Recovering the 334 image-only pages** | The recovery ladder is a rung-by-rung procedure; it belongs in its own session with its own time budget. **Flagged, quantified, and left honest** |
+| **Fetching the Plumbing Code (K-STD-002)** | It lives in the *Law* collection. `[D]` acquisition is Commander-sourced; and a 38.3 MB fetch needs the go-ahead |
+| **Touching any scaffold** | The table rule is *proposed* for `proc_ingestion-run`, not applied — that revision is already staged at P-04 |
+| **The 18-carrier purge** | Separate patch, separate authorization (II.4) |
+
+---
+
+## 9 · NEXT — ranked
+
+1. **🔴 Rotate the LMS feed** — still open, still the Commander's alone.
+2. **🟠 Authorize the 18-carrier purge** — one word, and CI returns to the path of green.
+3. **`K-CUR-006` — the Building Technology ingestion run** (AR163-1P, 50 files / 601 MB). **The last high-yield course still un-extracted.** The harness exists now; this is a re-run, not a build. ⚠️ includes a 601 MB proceedings file that is size-skip territory under the restraint doctrine.
+4. **The 334 image-only pages** — recovery ladder, ~2 sessions.
+5. **AR153P module build** — the electrical half is now evidenced (PEC + Fajardo); the sanitary half is thin and needs K-STD-002 first.
+6. **Supply `week1_start`** — one date and the planner's whole term becomes dated.
+
+---
+
+## 10 · EVAL-FIRST (the clause, applied)
+| | |
+|---|---|
+| **INSTANCE** | AP-02 *register theater* — the cue doctrine cites DIGESTs that are empty; `building-utilities.md` had carried "(empty)" since registration, and the standing-orders queue names empty DIGESTs as a T3 draw |
+| **COST** | +2 files, 0 boot bytes, 0 canon, 0 new modes, 0 boot-set members. **All 14 binaries deleted** — net repository growth is documentation, not payload |
+| **DISPLACEMENT** | Discharges a standing order rather than adding one. Reuses the existing collection-registration machinery (`external_sources/` pattern, II.6 restraint doctrine) — invents no new structure |
+| **CHECK** | The table rule is machine-implementable and now tooled (`ingest_collection.py verify`). **The honest gap: no validator check yet enforces verified-table reads** — flagged rather than papered over |

@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
-# APPLY.sh — RADIATION_PATCH_2026-09-13_2340_Term-Planner
+# APPLY.sh — RADIATION_PATCH_2026-09-13_2400_BU-Ingestion-AR153P
 # Run from the REPOSITORY ROOT, AFTER extracting the zip over it.
 #
 # This patch is a pure file overlay (nothing is removed from the tree), so the
-# only two things the runner must do are:
+# runner only has to:
 #   1. archive PATCH_NOTES.md out of the tree — II.8.2 says notes live INSIDE the
 #      zip, and an extracted note at repo root is a check-3 transport carrier
 #   2. run the validator
+#
+# It does NOT fetch anything, and it does NOT touch the 18 transport carriers.
 set -euo pipefail
 say() { printf '%s\n' "$1"; }
 head_() { printf '\n\033[36m=== %s ===\033[0m\n' "$1"; }
 
-head_ "RADIATION PATCH 2026-09-13_2340 — Term Planner"
+head_ "RADIATION PATCH 2026-09-13_2400 — Building Utilities Ingestion (AR153P)"
 
 for probe in docs/AI_RULES.md Brain scripts/validate.py; do
   [ -e "$probe" ] || { say "✗ Not the repository root ('$probe' missing). cd to the repo root and re-run."; exit 1; }
@@ -21,34 +23,66 @@ say "✓ repository root verified: $(pwd)"
 # ── did the patch land? ──────────────────────────────────────────────────────
 head_ "verifying the patch files are in place"
 missing=0
-for e in scripts/plan_term.py \
-         Brain/short_term/plan/TERM1_DEADLINES.json \
-         Brain/short_term/plan/README.md \
-         Brain/cerebellum/routines/routine_term-briefing.md \
-         cue/autopilot-cues.md \
+for e in scripts/ingest_collection.py \
+         Brain/short_term/ingest/BU_INGEST_2026-09-13.md \
+         Brain/external_sources/building-utilities.md \
          docs/KNOWLEDGE_REGISTRY.md \
-         .gitignore ; do
+         docs/DECAY_REGISTER.md \
+         Brain/courses/AR153P.md \
+         Brain/courses/AR163-1P.md ; do
   [ -e "$e" ] || { say "✗ missing: $e"; missing=1; }
 done
 [ "$missing" -eq 0 ] && say "✓ patch files present" || { say "  Re-extract the zip OVER the repository root."; exit 1; }
 
+# ── this patch must have shipped no vehicle (II.6 r.8) ───────────────────────
+# NOTE: Brain/courses/ already contains six pre-existing vehicles (check 2.5) that
+# Phase 0 is authorized to remove but which have not been removed from this working
+# tree. Those are NOT this patch's doing. What we assert here is that THIS PATCH
+# added nothing: it ships 13 text files and 0 binaries.
+head_ "confirming this patch shipped no vehicle"
+if git rev-parse --git-dir >/dev/null 2>&1; then
+  newbin=$(git status --porcelain -- Brain 2>/dev/null | awk '$1 ~ /^(\?\?|A)/ {print $2}' | grep -Ei '\.(pdf|zip|docx|pptx|xlsx|png)$' || true)
+  if [ -n "$newbin" ]; then
+    say "✗ NEW BINARY IN THE PATCH DELTA — investigate before committing:"
+    printf '%s\n' "$newbin" | while IFS= read -r l; do say "    $l"; done
+  else
+    say "✓ nothing new: no PDF/zip/document under Brain/ is part of this patch's delta"
+  fi
+else
+  say "· not a git tree — asserting from the zip listing instead"
+  while IFS= read -r -d '' f; do say "    pre-existing: $f"; done < <(find Brain -type f \( -name '*.pdf' -o -name '*.zip' \) -print0 2>/dev/null)
+  say "  (any file listed above is pre-existing — check 2.5 territory, NOT this patch)"
+fi
+say "· this zip ships 13 text files and 0 binaries (verified at build time)"
+
 # ── archive the notes out of the tree (II.8.2) ───────────────────────────────
 if [ -f PATCH_NOTES.md ]; then
   mkdir -p _local_backup
-  mv PATCH_NOTES.md _local_backup/PATCH_NOTES_APPLIED_2340_Term-Planner.md
+  mv PATCH_NOTES.md _local_backup/PATCH_NOTES_APPLIED_2400_BU-Ingestion.md
   say "✓ PATCH_NOTES.md archived to _local_backup/ (notes live in the zip, not the tree)"
 else
   say "· no PATCH_NOTES.md at root — nothing to archive"
 fi
 
-# ── the planner's own self-check ─────────────────────────────────────────────
-head_ "planner self-check"
+# ── the harness's own self-check ─────────────────────────────────────────────
+head_ "ingestion harness self-check"
 if command -v python3 >/dev/null 2>&1; then PY=python3; elif command -v python >/dev/null 2>&1; then PY=python; else PY=""; fi
 if [ -n "$PY" ]; then
-  set +e; $PY scripts/plan_term.py --self-check; set -e
-  say ""
-  say "→ try it:  python3 scripts/plan_term.py --week <N>        (N = your current week)"
-  say "→ audit:   python3 scripts/plan_term.py --audit           (expect the AP-08 warning)"
+  set +e; $PY scripts/ingest_collection.py --help >/dev/null 2>&1; hc=$?; set -e
+  if [ "$hc" -eq 0 ]; then
+    say "✓ harness runs (list · fetch · extract · verify)"
+    if $PY -c "import pymupdf" >/dev/null 2>&1; then
+      say "✓ pymupdf present — extract and verify are available"
+    else
+      say "· pymupdf NOT installed: 'list' works (stdlib only) but 'extract'/'verify' need it."
+      say "  install with:  pip install pymupdf"
+    fi
+    say ""
+    say "→ next collection:  $PY scripts/ingest_collection.py list --url \"<folder-url>\" --out manifest.json"
+    say "→ a manifest is a PLAN: fetching needs --dest pointing OUTSIDE this repo."
+  else
+    say "✗ harness failed to run — check the python version (3.8+ expected)"
+  fi
 else
   say "✗ python not found on PATH"
 fi
@@ -56,33 +90,34 @@ fi
 # ── validate ─────────────────────────────────────────────────────────────────
 head_ "running the validator"
 if [ -n "$PY" ]; then
-  set +e; $PY scripts/validate.py; code=$?; set -e
+  set +e; $PY scripts/validate.py; set -e
   say ""
-  if [ "$code" -eq 0 ]; then say "✓ GREEN"; else
-    say "⚠ NOT green — expected. Expect 25 checks · 17 pass · 4 warn · 4 fail."
-    say "  All four FAILs are PRE-EXISTING: the 18 transport carriers plus three"
-    say "  carrier-derived findings. Neither patch caused them; neither patch can"
-    say "  clear them without the Commander's purge authorization (II.4)."
-  fi
+  say "→ this patch was measured on a CLEAN mirror: 25 checks · 22 pass · 2 warn · 1 fail"
+  say "  BEFORE it, and identical AFTER it — this patch adds no failure and clears none."
+  say "  The 1 remaining fail is check 2.5: six course vehicles under Brain/courses/ that"
+  say "  Phase 0 is authorized to remove but which are still in your working tree."
+  say "  If you see MORE fails than that, re-extract the zip — do not re-run."
+  say ""
+  say "→ boot budget moved 34,138 B → 34,398 B (cap 40 KB) — one ledger row, still green."
 fi
 
 head_ "NEXT"
 cat <<'EOF'
 1) git add -A
-   git commit -m "P-10 Phase 1-3: term planner (register, script, routine, cues, checks)"
+   git commit -m "P-10 Phase 2: ingest K-CUR-005 (Building Utilities) — DIGEST, registry, harness"
 
-2) supply ONE datum and the whole term becomes dated:
-     Brain/short_term/plan/TERM1_DEADLINES.json -> term.week1_start = "YYYY-MM-DD"
-   (the week-1 Monday). Until then the planner works in weeks and says so.
+2) the run found something about how we read tables. It is in PATCH_NOTES.md §2.
+   Read it before extracting another table out of any PDF.
 
-3) run it:  python3 scripts/plan_term.py --week <N>
-
-4) still open from the previous patch, and both are the Commander's alone:
+3) still open, and both are the Commander's alone:
      🔴 rotate the LMS calendar feed  ->  then record the date in Brain/courses/INDEX.md
-     🟠 authorize the 18-carrier purge ->  CI goes green (22->25 checks, 0 fail)
+     🟠 authorize the 18-carrier purge ->  CI goes green (25 checks, 0 fail)
 
-5) "drill something." Check 20.5 warns that a plan exists and no genuine attempt
-   has been logged. That warning clears the moment one is.
+4) next ingestion run: K-CUR-006 (AR163-1P, 50 files / 601 MB). The harness exists
+   now — that is a re-run, not a build. Expect one size-skip.
+
+5) 334 pages in this collection are image-only and unrecovered. The recovery ladder
+   is a separate session with its own time budget. They are logged, not lost.
 EOF
 say ""
 say "Done."

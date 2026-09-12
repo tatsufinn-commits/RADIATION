@@ -31,7 +31,7 @@ One record per enrolled course: what is taught, what is graded, when, and which 
 | K-CUR-009 | MEC30-7 | Statics of Rigid Bodies for CE | 3 | **5** | ⚠️ calendar only | — | `Brain/courses/MEC30-7.md` |
 | **K-CUR-010** | **AR173-1P** | **Planning 2 — Urban Design & Community Architecture** | 3 | **9** ⭐ | ❌ | ✅ **ingested + reviewer + module + drill** | `Brain/courses/AR173-1P.md` |
 | K-CUR-011 | AR163-1P | Building Technology | 3 | **8** | ❌ | ✅ **held, never ingested** (K-CUR-006) | `Brain/courses/AR163-1P.md` |
-| K-CUR-012 | AR153P | Building Utilities 2 | 3 | **8** | ❌ | ✅ **held, never ingested** (K-CUR-005) | `Brain/courses/AR153P.md` |
+| K-CUR-012 | AR153P | Building Utilities 2 | 3 | **8** | ❌ | ✅ **INGESTED 2026-09-13** (K-CUR-005) | `Brain/courses/AR153P.md` |
 
 **ALE yield** = the P-06 yield rubric's four factors applied to licensure relevance (frequency 40 / breadth 20 / error-proneness 25 / memorisation 15). Provisional at capture; replaced by the measured `yield_rank` in each `K-MOD` record as modules are built.
 
@@ -39,13 +39,15 @@ One record per enrolled course: what is taught, what is graded, when, and which 
 
 ## ⭐ THE LOAD FINDING — corrected after registry cross-check (2026-09-13)
 
+**UPDATE 2026-09-13 — AR153P has been ingested** (14/14 files, 3,923 pages, DIGEST populated). The finding below stands as written but is now **half-discharged**: one of the three high-yield courses has moved from *manifested* to *extracted*, and three registry objects were created (K-STD-004 PEC, K-BK-004 Ginn, K-BK-005 Fajardo Electrical). **Two ingestion runs remain: K-CUR-006 (AR163-1P) and the 334 image-only pages.**
+
 **Six courses · 18 units · 31.5 contact-hours per week.** The two courses with complete primary documentation are **general education with no ALE component**. The three courses carrying the licensure yield have **no syllabus** — but they are **not empty**:
 
 | Course | Yield | What is actually held | The real open work |
 |:--:|:--:|---|---|
 | AR173-1P | 9 | lecture set **ingested** · audited reviewer · **K-MOD-001 (L4)** · **drill set forged** | *nothing to acquire* — drill it |
 | AR163-1P | 8 | deck set, 50 files (601 MB) — **manifested, never ingested** | an **ingestion run** |
-| AR153P | 8 | 14 PDFs incl. Fajardo + PEC — **manifested, never ingested** | an **ingestion run** + the Plumbing Code |
+| AR153P | 8 | 14 files / 283.4 MB — ✅ **INGESTED 2026-09-13** · PEC + Fajardo + PD 1096 pipe codes extracted | **334 pp image-only** (recovery ladder) + module build |
 
 > **The bottleneck is INGESTION, not acquisition.** The material for the three highest-yield courses of the term is already in the Commander's collections — two sets have never been processed, and the third has been processed all the way to a working drill set.
 >
