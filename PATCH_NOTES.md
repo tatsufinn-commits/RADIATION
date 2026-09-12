@@ -1,10 +1,7 @@
-# PATCH NOTES — RADIATION_PATCH_2026-09-13_1500_P06-Module-Depth-Yield.zip
-**Risk class:** 🟢 AUTONOMOUS — pre-merged, live in frame. No canon touched (style + region staged separately).
-- docs/DEPTH_LADDER.md + docs/YIELD_RANKING.md — levels with machine-checkable criteria (⚙ = check 18); 4-axis weighted yield rubric + audit rule.
-- 03-dossier/MODULE_WORKSHOP_pd1096-rule7-8-setbacks-pso.md — K-MOD-001, **Level 4 honestly** (no drill → P-05 pending; no PH case studies verified → none invented). 8 traps (incl. the 3+5=8 m split, MACA=PSO+ISA, two-PSOs-per-district), 2 worked examples (one applied AMVB massing), 14-term glossary, yield 9/10 with axis math + evidence line.
-- Brain/external_sources/law.md — DIGEST: BP 344 IRR p.17/37/72 + PD 1096 Tables VIII.1/VIII.2 extracts [D]; ACCESS LOG: 2 fetches, binaries deleted, 118.7 MB reclaimed.
-- 06-triangulate/CONFLICT_REGISTER.md — row 3: **ROW 1 RESOLVED** — amended IRR says ramp gradient 1:20; the 1:12 seed appears only as pool transfer-space slope. Row 1 preserved unedited (II.2).
-- tests/knowledge_assertions.json — KR-LAW-005/006/007/009 **LOCKED** (claims corrected to primary before lock; supersession notes carry the 1:12→1:20 trail). Regression: 4 locked · 5 pending · 0 failed.
-- scripts/validate.py — check 18 module depth integrity. Break tests: L5-claim-no-drill → exit 1 · empty yield_rank → WARN 18.5 (first version of this check missed it; fixed and re-proven) · modules/ index-count mismatch → exit 1.
-- docs/KNOWLEDGE_REGISTRY.md — K-MOD-001 row; K-LAW-001/003 updated to primary-verified 2026-09-12 (edition-currency caveat retained on K-LAW-001).
-Fetch discipline: 2 files, one collection (budget 2/3), manifest-named, necessity stated (module build + conflict resolution), one-at-a-time, extracts-only, binaries deleted.
+# PATCH NOTES — RADIATION_PATCH_2026-09-13_1700_P07-Citation-Discipline-STAGED.zip
+**Risk class:** 🟠 CANON-AFFECTING (grading law) — STAGED, NOTHING APPLIED. Ratify: **"ratify P-07"**.
+CONTENTS: I.2 annex side-by-side + EVIDENCE_TAXONOMY §§5–8 full text + IV.3 rows.
+DECISIONS DECLARED: [D]-as-taught name KEPT (no [D-c] rename — II.2-friendly; P-08 mapping bound to this). Check 19 shipped 🟢 AHEAD of ratification — justification: it enforces I.2's EXISTING "peer-reviewed or formally studied" wording, not the new law; the new law only writes down what [R] always meant. If the Commander rejects P-07, check 19 still stands on current I.2.
+STATED TENSION (not swallowed): directive §5 puts encyclopaedias at [O], but §6.1 instructs Britannica-supported claims MAY HOLD [R] with publisher+locator. Re-grade followed §6.1 (F-02 held [R]); the staged §7 text follows §5. On ratification F-02 needs a Commander ruling or a one-line encyclopaedia exception — flagged in the re-grade row itself.
+EVAL-FIRST: INSTANCE = F-01..F-07 aggregator [R]s + F-08 inversion (audit, 2026-09-12). COST = 0 boot bytes (EVIDENCE_TAXONOMY is Tier-2 reference; I.2 annex ≈ +0.6 KB Tier-1, inside cap headroom). DISPLACEMENT = lives in existing files, zero new mandatory files. CHECK = check 19 (fixture FAIL demonstrated).
+ON RATIFICATION: apply I.2 annex + EVIDENCE_TAXONOMY §§5–8 · move IV.3 rows · rule F-02 encyclopaedia question · delete carrier · re-run validator · bump version · AUTO-PATCH.
