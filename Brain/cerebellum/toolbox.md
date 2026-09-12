@@ -32,7 +32,7 @@
 | Tool | What it does | Fast usage | Status |
 |---|---|---|---|
 | Drive direct-download URL | Fetch ONE file by its Drive ID — the surgical fetch the 3/6 budget wants | `https://drive.google.com/uc?export=download&id=<FILE_ID>` | ✅ PROVEN (S001 downloaded 8 Planning files) |
-| `gdown` (`pip install gdown`) | Robust Drive downloader — handles big-file confirmation pages that plain curl fumbles | `gdown <FILE_ID>` or `gdown --fuzzy <share-url>` | 🟡 CANDIDATE |
+| `gdown` (`pip install gdown`) | Robust Drive downloader — handles big-file confirmation pages that plain curl fumbles; `--json` lists folder file-IDs without downloading | `gdown <FILE_ID>` / `gdown --json <folder-url>` | ✅ PROVEN (S003: listed Books 47 + Law 27, fetched 6 files) |
 | `curl`/`wget` with `-r` byte ranges | Partial download of huge files — recon the first MBs instead of swallowing 601 MB | `curl -r 0-5000000 -L <url> -o head.pdf` | 🟡 CANDIDATE |
 | `rclone` | Bulk Drive sync — ⚠️ FORBIDDEN for collections (no-mirroring rule II.6.5); listed only so sessions know NOT to reach for it | — | 🚫 PROHIBITED for collections |
 
@@ -52,3 +52,5 @@
 
 *(Append-only below the line for promotions and new tools; date + session citation mandatory.)*
 ---
+| 2026-09-12 | pdfminer.six | Fallback text extraction; detects image-only PDFs (form-feed-only output) | ✅ PROVEN (S003: detected Lynch image-only) |
+| 2026-09-12 | gdown | promoted CANDIDATE → PROVEN | S003 citation above |

@@ -36,3 +36,5 @@ what it was ordered to do, what it delivered. One episode folder per session.
 | № | Date | Agent | Mode(s) | Episode folder | One-line summary |
 |---|---|---|---|---|---|
 | S001 | 2026-09-12 | Field session AI (Test 1; model undeclared) | boot → @Gather | `S001_2026-09-12_gather-planning-ingestion/` | First live ingestion: Planning 8/8 files, reviewer + Patch emitted — PASSED |
+| S002 | 2026-09-12 | Arena AI (Agent Mode) | BOOT → @Autopilot standby | `S002_2026-09-12_autopilot-boot/` | Test 2 boot: BOOT ASK honored, @Autopilot standby declared — reconstructed by Architect |
+| S003 | 2026-09-12 | Arena AI (Agent Mode) | @Autopilot [@Review → @Data] | `S003_2026-09-12_planning-reviewer-audit/` | Cross-reference PLANNING reviewer to Brain/external_sources (Books/Law/Planning manifests + 6-file fetch + web triangulation) + audit report + self-directives |

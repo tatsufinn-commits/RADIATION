@@ -4,6 +4,35 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.6.0 — 2026-09-12 — DirectWrite-AutoPatch-Autopilot-Doctrine (🟠 RATIFIED)
+Patch: `RADIATION_PATCH_2026-09-13_0600_DirectWrite-AutoPatch-Autopilot-Doctrine.zip`
+NEW LAW II.8 (⚡ABSOLUTE): direct edits always — transport artifacts (append
+blocks, *_REPLACEMENT files) ABOLISHED; PATCH_NOTES.md never committed to the
+tree; the Brain is FREE ground (proactive editing is a session DUTY — the four
+surviving gates: long_term earned, new collections Commander-gated, episodes
+own-folder, purges Commander-only); AUTO-PATCH: every deliverable ships with
+its Patch zip UNPROMPTED — a deliverable without its Patch is incomplete.
+Autopilot cue system drastically expanded: cue/autopilot-doctrine.md — 4-tier
+cue taxonomy, standing-orders queue, 7-step loop, deliverable-inference table,
+ask/never-ask gates, post-deliverable duty checklist, growth rule.
+
+## v1.5.6 — 2026-09-12 — Test2-Acceptance-and-Learnings (🟢)
+Patch: `RADIATION_PATCH_2026-09-13_0500_Test2-Acceptance-and-Learnings.zip`
+Applies S003's four append blocks (registry, ledgers, changelog); enrolls the
+missing S002 episode (reconstructed); folds in S003's proposed learnings:
+learned_cues (5), learned_skills (4), testament (2 principles), opinions (1),
+toolbox promotions (gdown + pdfminer.six ✅ PROVEN via S003), new routine
+mb-aware-fetch. Hygiene round 2: append_blocks/ + root PATCH_NOTES.md flagged
+for deletion.
+
+## v1.5.5 — 2026-09-12 — Planning-Reviewer-Audit (🟢)
+Patch: `RADIATION_PATCH_2026-09-12_0145_Planning-Reviewer-Audit.zip`
+Audit of PLANNING reviewer (AR173-1P) against Brain/external_sources: 22
+findings (15 clean, 1 drift Bentley Connectivity vs Permeability, 6 debt Law
+gaps + Lynch OCR pending + Bentley missing). 6 files fetched via gdown within
+Restraint Doctrine 3/6 but 205.2 MB total — count-compliant, MB-heavy, logged.
+DIGESTs enriched for Law and Books. Temporal lobe S003 enrolled. No contamination.
+
 ## v1.5.4 — 2026-09-12 — Law-Collection-and-Books-Refresh (🟢)
 Patch: `RADIATION_PATCH_2026-09-13_0400_Law-Collection-and-Books-Refresh.zip`
 Ninth collection: Law — PH statutory backbone (PD 1096+IRR, NSCP 2015, RA 9514

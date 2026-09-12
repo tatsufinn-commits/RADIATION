@@ -92,6 +92,16 @@ Nothing enters long_term untriangulated. No exceptions.
 
 ---
 
+### II.8 — THE DIRECT-WRITE DOCTRINE ⚡ABSOLUTE
+*(Ratified 2026-09-12 — supersedes all transport-block practice.)*
+1. **Direct edits, always.** A session has full write access to its working copy and edits every target file DIRECTLY — append-only files (II.2) are appended IN PLACE. The append-only law restricts WHAT may change (nothing above the append line), never HOW the change travels.
+2. **Transport artifacts are ABOLISHED.** APPEND BLOCKS, `*_REPLACEMENT` files, staging folders, and every other transport artifact are FORBIDDEN in Patches and in the repository tree. A Patch carries ONLY real repo files in their final, pre-merged form. `PATCH_NOTES.md` exists ONLY inside its zip — it is NEVER committed to the tree. Any transport artifact found in the tree is a structural violation: sentinel flags it, and a hygiene correction is mandatory in the next Patch.
+3. **The Brain is FREE ground.** The Brain is the AI's own memory. Sessions edit `/Brain` FREELY and PROACTIVELY — without Commander prompting, without permission-seeking. Enriching the Brain (digests, learnings, episodes, cues, opinions, toolbox promotions) is a standing DUTY, not a favor to be requested. The only surviving gates inside the Brain: long_term admission is still EARNED (I.3 triangulation), NEW external collections are still Commander-gated (II.6), episodes are still own-folder-only (II.6), purges still need the Commander (II.4). Everything else: write first, report after.
+4. **AUTO-PATCH — ABSOLUTE RULE.** Every accomplished deliverable is accompanied by its Patch zip, emitted UNPROMPTED, in the same delivery. No deliverable is complete without its Patch. The Commander shall NEVER need to ask or remind. A deliverable presented without its Patch is an INCOMPLETE deliverable — surgeon blocks session closure until the Patch exists.
+**VIOLATION:** transport artifacts or a missing auto-Patch = structural violation; sentinel flags, surgeon withholds session closure, hygiene correction mandatory.
+
+---
+
 # 📘 BOOK III — LAWS OF CONDUCT
 
 ### III.1 — FIRST-READ GATE
@@ -155,3 +165,5 @@ New styles, cues, scaffolds, and subskills enter the canon only by Commander rat
 | 2026-09-12 | II.6 | Frontal-lobe sentiment clause appended (opinions.md: emotions/feelings/opinions, one-line entries, size-minimized, never evidence) | Commander's design: the frontal lobe houses sentiment, not just memory — kept deliberately small | RATIFIED — THE COMMANDER |
 | 2026-09-12 | III.6 annex | BOOT ASK added to .readme first-action: no-mode boots end by asking the Commander for mode+topic; never infer a mode at boot | Test 1 (S001) proved the pattern; Commander: "let's keep it that way in every beginning" | RATIFIED — THE COMMANDER |
 | 2026-09-12 | III.2 annex | Modes expanded 4→6: @Review (Brain-first recall, gap-fetch only) and @Autopilot (bounded full autonomy, cue-reading, serial self-chaining under one Declaration) | Commander's order; skills/subskills assigned by Architect per delegation | RATIFIED — THE COMMANDER |
+| 2026-09-12 | II.8 (NEW) | Direct-Write Doctrine: direct edits always; transport artifacts ABOLISHED; Brain is free ground (proactive editing = duty); AUTO-PATCH absolute (every deliverable ships with its zip, unprompted) | Commander's orders after append_blocks debris recurred twice; "make it an ABSOLUTE rule" | RATIFIED — THE COMMANDER |
+| 2026-09-12 | II.2, II.6, II.7 (interplay) | II.2 append-only now explicitly means append-IN-PLACE; II.7 Patches carry pre-merged files only; II.6 Brain gates narrowed to the four named in II.8.3 | Consequence of II.8 | RATIFIED — THE COMMANDER |

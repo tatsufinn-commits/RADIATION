@@ -1,1 +1,0 @@
-| S003 | 2026-09-12 | Arena AI (Agent Mode) | @Autopilot [@Review → @Data] | `S003_2026-09-12_planning-reviewer-audit/` | Cross-reference PLANNING reviewer to Brain/external_sources (Books/Law/Planning manifests + 6-file fetch + web triangulation) + audit report + self-directives |

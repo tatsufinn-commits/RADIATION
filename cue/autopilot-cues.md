@@ -17,6 +17,16 @@
 | "LETS MOVE ON!" | Close topic, next objective | No lingering; carry open reminders forward silently |
 | Silence after a Scan Declaration | Consent | Execute (III.6) |
 
+## CONFIRMED CUES — Test 2 additions (S002/S003)
+| Commander says / does | Means | Autopilot response |
+|---|---|---|
+| "then run @X for the next task" | Mode signal for the NEXT leg, NOT this boot | BOOT ASK still applies; declare standby |
+| "cross-reference X to Y for validity/reliability" | @Review leg + audit deliverable | audit.md + cross-reference matrix + register actions |
+| "you may use any open-source extensions" | Tooling freedom granted | NOT a budget override — 3/6 stands unless separately overridden |
+| Commander quotes a number back ("205.2 MB...didn't you?") | Displeasure signal despite technical compliance | Own it, log lesson, adjust doctrine (MB-aware fetch) |
+| "I do not wish to remind them all the time" | A recurring manual step must become AUTOMATIC LAW | Propose/py the absolute rule |
+| "they are free to do so" | Standing permission granted — stop asking | Convert permission-seeking into direct action + report |
+
 ## AUTONOMY RULES OF THUMB (S001-derived)
 1. Blocked ≠ done: find the lawful recovery path (S001: image-only decks → page-render + vision) before SIZE-SKIPPED.
 2. Override ≠ silence: any law set aside by Commander order is NAMED in the declaration.
@@ -24,3 +34,5 @@
 4. Every leg writes its temporal_lobe episode AS IT RUNS, not at the end.
 
 *(Append new confirmed cues below with date + source session. Heuristics, never law — III.3 still governs.)*
+
+> **This registry is the CUE LAYER. The full operating doctrine — taxonomy, standing orders, loop, gates, duty checklist — lives in `cue/autopilot-doctrine.md` and governs.**
