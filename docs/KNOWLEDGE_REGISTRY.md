@@ -208,13 +208,14 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Domain: ALE-UD | Conflicts: resolves STUDY-side handling of row 2 (register row stays OPEN — the register never resolves by annotation)
 - Used by: PLANNING_reviewer A3 study guidance | Notes: "know both terms for exam."
 
-## K-EXT-GDRIVE-001 — The Commander's Drive hub (9 registered collections)
+## K-EXT-GDRIVE-001 — The Commander's Drive hub (12 registered collections)
 - Canonical path: `Brain/external_sources/INDEX.md`
 - Source record: nine collection files | Tier: — (catalog, never evidence) | Type: external-hub
 - Status: CURRENT | Last verified: 2026-09-12 | Freq: 90d | Decay: volatile (links)
 - Domain: ALL | Conflicts: — | Used by: every Drive-capable session (II.6 Restraint Doctrine)
 - Notes: ID deliberately matches TAMAKEE's K-EXT-GDRIVE-001 — the ecosystem-link row P-08 uses. Re-verify by 2026-12-11.
 - ⚠️ P-08 APPEND (2026-09-12): VERIFIED COLLISION — TAMAKEE's K-EXT-GDRIVE-001 names a DIFFERENT object (single folder 1q5iXLUJ...7d6P). Until the Commander rules (fix list 7a), cross-repo references use repo-qualified form: RAD:K-EXT-GDRIVE-001 vs TAMA:K-EXT-GDRIVE-001 (docs/ECOSYSTEM.md §6).
+- APPEND (2026-09-13): +3 collections registered on Commander's order (Statics and Rigid Bodies · Structural · Introduction to Data Science) — 9 → 12. Registration-only; no ingestion (Commander holds a follow-on plan). Verified ACCESSIBLE 2026-09-13.
 
 ## K-MOD-001 — Canonical module: PD 1096 Rule VII–VIII (PSO · TOSL · setbacks · AMBF/AMVB)
 - Canonical path: `03-dossier/MODULE_WORKSHOP_pd1096-rule7-8-setbacks-pso.md` (workshop; settles to Brain/long_term/modules/ on P-06 ratification)

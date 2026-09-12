@@ -59,3 +59,6 @@ is never itself citable evidence.**
 | Building Technology | `building-technology.md` | ✅ ACCESSIBLE | 2026-09-12 | Materials, construction methods, structural design, detailing — 50 files, 🛑 one 601 MB proceedings (fetch-of-last-resort) + 116 MB module |
 | Novels (Entertainment Library) | `novels.md` | ✅ ACCESSIBLE | 2026-09-12 | 🎭 ENTERTAINMENT — Commander's favorite series (MUSHOKU TENSEI subfolder); fiction NEVER citable as evidence |
 | Law (PH Building & Planning Law) | `law.md` | ✅ ACCESSIBLE | 2026-09-12 | Statutes + IRRs: PD 1096, NSCP, RA 9514, BP 220/344, PD 957, plumbing/green codes — 27 files + DHSUD subfolder, 🛑🛑 NSCP 2015 = 1,022 MB (>1 GB, catalog record) |
+| Statics and Rigid Bodies | `statics-rigid-bodies.md` | ✅ ACCESSIBLE | 2026-09-13 | MEC30-7 lecture pages: force vectors, force system resultants — 2 HTML files (registered-only, no ingestion yet) |
+| Structural | `structural.md` | ✅ ACCESSIBLE | 2026-09-13 | Steel design (Trebilcock/Lawson), Structure as Architecture, earthquake engineering, STRUK modules — 11 files (registered-only, no ingestion yet) |
+| Introduction to Data Science | `intro-data-science.md` | ✅ ACCESSIBLE | 2026-09-13 | Lessons 0–6 (big data, data life cycle, linear regression), R intro + notebooks — 11 files · 🌐 first NON-ARCHITECTURE collection (registered-only, no ingestion yet) |
