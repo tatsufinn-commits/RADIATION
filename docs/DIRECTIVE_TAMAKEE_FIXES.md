@@ -1,0 +1,13 @@
+# 📮 OUTBOUND DIRECTIVE — TAMAKEE FIX LIST (P-08 §6)
+**Hand this to a TAMAKEE session. RADIATION edits nothing in TAMAKEE — this file is an instruction, not an edit. Items 1–8 from the P-08 directive, re-verified from RADIATION 2026-09-12 where checkable; 9–10 added by verification findings.**
+
+1. **Re-point the stale boot name.** README.md line 55 + docs/AGENTS.md templates say `github.com/tatsufinn-commits/TAMAintegration.git`. VERIFIED 2026-09-12: that URL is a **301 rename-redirect** to TAMAKEE — working today, one rename away from dead. Point at `TAMAKEE.git` directly.
+2. **Reconcile the four version strings** — all four VERIFIED live: README `TAMA 3.0.0.0.a v` · package.json `1.9.0-a` · STUDY_LOGBOOK `2.9.0.0.a v` · DEFINITIVE_MASTERPLAN `TAMA v2.0.0`. Pick one; add the machine check (RADIATION check 7 pattern).
+3. **Execute consolidation Option B** (reversible): 14 mirror pairs → canonical + pointer READMEs (scavenge B1). RADIATION-side note: DEFINITIVE_MASTERPLAN.md exists at BOTH root and docs/ (verified) — start there.
+4. **Deduplicate the mojibake pairs** — `ΓÇö` directive twins verified present in research/directives/ (both spellings listed in the live tree). Keep one canonical copy each; fix filenames.
+5. **Move regression-test paths into data** (B8) — path literals break on consolidation; a manifest file the tests read survives it. Same rule adopted in RADIATION's shared-validator note (ECOSYSTEM §5).
+6. **Add recorded-not-held registry rows** for C1–C3 (Fire Code RIRR, CHED CMO 61 full text) so the debt is registry-visible. RADIATION's mirror rows exist (K-LAW-005 UNVERIFIED / CMO 61 in tier examples).
+7. **Adopt the K-ID convention**: RADIATION mints; TAMAKEE adopts; the K- prefix is never re-used for anything else. **7a (new, verified collision):** your `K-EXT-GDRIVE-001` (folder 1q5iXLUJ...7d6P) and RADIATION's `K-EXT-GDRIVE-001` (nine-collection hub) are different objects — re-scope one (recommend yours → a fresh -002 suffix minted on your side, or a sub-entry) or use repo-qualified IDs until the Commander rules.
+8. **Make milestone status machine-checkable** — COMPLETED only when files exist + index rows present + `npm test` green (B5).
+9. **Name RADIATION in the masterplan's pillar diagram** (or state the consuming relationship): VERIFIED — the four pillars omit it while RADIATION's README claims the ecosystem. One sentence fixes the asymmetry: "verification authority: RADIATION."
+10. **(Contingent)** If a `[L][T][M][A][I][U]` legend exists somewhere unfound or gets created: publish it at a citable path, and rename its `[I]` per TAXONOMY_MAPPING §3.2. VERIFIED 2026-09-12: research/SOURCE_VERIFICATION.md already uses RADIATION's six grades — alignment may be cheaper than mapping.

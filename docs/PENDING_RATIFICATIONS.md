@@ -12,5 +12,6 @@ Carrier homes (IV.2/IV.4/scaffolding-README §4): law → `08-overhaul/proposals
 | P-06 canonical-module style + modules/ region | 🟠 style/region | `styles/proposals/canonical-module_PROPOSED.md` (+ MODULES_INDEX_SEED.md, comparative-analysis_usage-note_PROPOSED.md) | 2026-09-12 | RADIATION_PATCH_2026-09-13_1600_P06-Style-and-Modules-Region-STAGED.zip | `ratify P-06` | OPEN |
 | P-07 I.2 annex + taxonomy §§5–8 | 🟠 law | `08-overhaul/proposals/PROPOSAL_P07_citation-discipline.md` | 2026-09-12 | RADIATION_PATCH_2026-09-13_1700_P07-Citation-Discipline-STAGED.zip | `ratify P-07 (encyclopaedia = [O])` | OPEN |
 | P-09 II.9 EVAL-FIRST + boot caps + meta-budget | 🟠 law | `08-overhaul/proposals/PROPOSAL_P09_eval-first.md` | 2026-09-12 | RADIATION_PATCH_2026-09-13_1100_P09-EvalFirst-Clause-STAGED.zip | `ratify P-09` | OPEN |
+| P-08 §5 handoff demo (TAMAKEE object round-trip + drill item) | 🟢 deferred-work (not a ratification item) | — (procedure in uploads/P-08 §5; Part A shipped) | 2026-09-12 | RADIATION_PATCH_2026-09-13_2200_P08-Ecosystem-PartA.zip | **deferred — blocked on P-05 + P-07 ratification**; run in the session after both apply | DEFERRED |
 
 **Non-ratification decision pending (🟡):** public-repo link exposure — options A/B/C memo at `08-overhaul/proposals/MEMO_P04_repo-exposure-decision.md`; Commander rules, nothing moves until then.

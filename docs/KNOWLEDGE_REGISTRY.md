@@ -213,7 +213,8 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Source record: nine collection files | Tier: — (catalog, never evidence) | Type: external-hub
 - Status: CURRENT | Last verified: 2026-09-12 | Freq: 90d | Decay: volatile (links)
 - Domain: ALL | Conflicts: — | Used by: every Drive-capable session (II.6 Restraint Doctrine)
-- Notes: ID deliberately matches TAMAKEE's K-EXT-GDRIVE-001 — the ecosystem-link row P-08 will use. Re-verify by 2026-12-11.
+- Notes: ID deliberately matches TAMAKEE's K-EXT-GDRIVE-001 — the ecosystem-link row P-08 uses. Re-verify by 2026-12-11.
+- ⚠️ P-08 APPEND (2026-09-12): VERIFIED COLLISION — TAMAKEE's K-EXT-GDRIVE-001 names a DIFFERENT object (single folder 1q5iXLUJ...7d6P). Until the Commander rules (fix list 7a), cross-repo references use repo-qualified form: RAD:K-EXT-GDRIVE-001 vs TAMA:K-EXT-GDRIVE-001 (docs/ECOSYSTEM.md §6).
 
 ## K-MOD-001 — Canonical module: PD 1096 Rule VII–VIII (PSO · TOSL · setbacks · AMBF/AMVB)
 - Canonical path: `03-dossier/MODULE_WORKSHOP_pd1096-rule7-8-setbacks-pso.md` (workshop; settles to Brain/long_term/modules/ on P-06 ratification)

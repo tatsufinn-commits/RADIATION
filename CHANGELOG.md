@@ -4,6 +4,10 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.6.3 — 2026-09-12 — P-08 Part A: Ecosystem Interlock (🟢)
+- ECOSYSTEM.md (contracts, boundary laws, live-verified URLs), TAXONOMY_MAPPING.md ([I] collision resolved; TAMAKEE legend claim marked UNVERIFIED — not found), 4 interface schemas with real examples, shared-ID convention, K-EXT-GDRIVE-001 cross-repo collision flagged, DIRECTIVE_TAMAKEE_FIXES.md (10 items, zero TAMAKEE edits).
+- P-08 §5 handoff demo DEFERRED (PENDING_RATIFICATIONS row) — blocked on P-05 + P-07 ratification; not simulated.
+
 ## v1.6.2 — 2026-09-12 — Wave 1&2 Closure (reviewer directive, 🟢)
 - Carriers re-homed: 17 *_STAGED/_DIFF files + root PATCH_NOTES abolished from tree; law → 08-overhaul/proposals/ (7 PROPOSAL files), scaffold revs → scaffolding/improved/ (5), subskill revs → subskills/proposals/ (2), style carriers renamed in styles/proposals/ (3).
 - docs/PENDING_RATIFICATIONS.md created (8 open rows); docs/BOOT_BUDGET_WAIVERS.md founded; 🟡 exposure memo filed to proposals.

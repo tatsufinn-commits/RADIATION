@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v1.6.2 · Ratified by THE COMMANDER · 2026-09-12
+**Version:** v1.6.3 · Ratified by THE COMMANDER · 2026-09-12
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 
