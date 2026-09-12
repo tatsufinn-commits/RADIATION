@@ -22,5 +22,4 @@ the validator would violate II.2. Additions here are 🟢 but must be justified.
 | `docs/AI_RULES.md` | Constitution: II.2 final sentence pending 🟠 strike-through (IV.3); II.8.2 lawfully NAMES the retired artifacts |
 | `docs/ANTI_PATTERNS.md` | Evidence register: lawfully NAMES retired artifacts (append_blocks, placeholder rows) as historical instances |
 | `08-overhaul/proposals/REJECTED_2026-09-12_experimental-telegraphic-style.md` | Rejection record: lawfully NAMES the proposed path that must never exist (EVAL-FIRST evidence) |
-| `styles/proposals/canonical-module_STAGED.md` | Staged carrier: lawfully NAMES its own post-ratification destination paths (P-06) |
-| `styles/proposals/MODULES_INDEX_STAGED.md` | Staged carrier: lawfully NAMES the modules/ region that exists only after ratification (P-06) |
+| `08-overhaul/proposals/PROPOSAL_P01_canon-companion.md` | Proposal carrier: lawfully QUOTES the append-block law text it proposes to strike (checks 8/9 narrowing also applies via PENDING_RATIFICATIONS) |

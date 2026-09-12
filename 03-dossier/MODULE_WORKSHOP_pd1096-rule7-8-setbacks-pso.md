@@ -1,5 +1,5 @@
 # 🏗️ CANONICAL MODULE — PD 1096 Rule VII–VIII: PSO · TOSL · Setbacks · AMBF/AMVB
-STYLE: canonical-module (staged, styles/proposals/) | K-ID: K-MOD-001
+STYLE: canonical-module (proposed — styles/proposals/canonical-module_PROPOSED.md, P-06 pending) | K-ID: K-MOD-001
 depth_level: 4 | yield_rank: 9/10 (F9×.40+B9×.20+E9×.25+M10×.15=9.15→9; evidence: PSO/setback items recur in ALE site-planning practice sets + S003 reviewer A5 legal spine; exact-recall table values) | last_verified: 2026-09-12 | frequency: 1yr
 LIMITS: covers Rule VIII Secs. 803–804 tables + AMVB method; does NOT cover Rule VII occupancy classes, BHL Table VII.2 values, firewall construction exceptions, TGFA/GFA computation, or parking counts — all cited-not-taught here.
 **WORKSHOP COPY (03-dossier/). Canonical settle path Brain/long_term/modules/ awaits P-06 ratification — one module, ONE canonical path; this copy is transient by design.**

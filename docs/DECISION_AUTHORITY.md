@@ -2,7 +2,7 @@
 ## Three decision classes, the action map, the AI Challenge Protocol, and the Change-Control Record
 **Version:** 1.0 — STAGED, effective only on Commander ratification (IV.3/IV.4)
 **Constitutional basis:** IV.1 (supremacy — UNTOUCHED), IV.5 (patch authority — UNTOUCHED), II.8 (direct-write), proposed IV.6
-**Origin:** P-02 Commander directive; pattern proven in TAMAKEE `docs/DECISION_AUTHORITY_SPEC.md`
+**Origin:** P-02 Commander directive; pattern proven in TAMAKEE's DECISION_AUTHORITY_SPEC document (TAMAKEE repo)
 
 > **What this is NOT:** an autonomy expansion. The classes govern what the AI
 > must ASK about, never what may enter the live repository. IV.5.1 stands:
@@ -50,7 +50,7 @@ Irreversible, destructive, or authority-sensitive:
 | Action in RADIATION | Class | Basis |
 |---|:---:|---|
 | Append task-ledger row for a finished session | 🟢 | II.3 mandates it; asking is noise |
-| Fix `README.md` "Four Modes" → six | 🟢 | machine-verifiable from `docs/MODES.md` (validator check 8) |
+| Fix a stale mode-count string in README.md (drift vs docs/MODES.md, historical 2026-09-12 case) | 🟢 | machine-verifiable from `docs/MODES.md` (validator check 8) |
 | Write S003 debts into `07-inspect/DEBT_REGISTER.md` | 🟢 | the register exists to hold them (done, v1.6.1) |
 | Revert inflated `[R]` grades to `[O]` cap | 🟢 | I.2 secondary cap is not a judgement call |
 | Stage a Core card with grades + lineage | 🟢 | admission still gated by I.3 |

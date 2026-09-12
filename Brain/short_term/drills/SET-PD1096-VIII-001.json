@@ -1,0 +1,358 @@
+{
+ "set_id": "SET-PD1096-VIII-001",
+ "target": "K-MOD-001",
+ "context": "ALE-UD / departmental",
+ "forge": "proc_exam-forge (staged) run 2026-09-12; source gate: K-MOD-001/K-LAW-001/K-LAW-003 all VERIFIED [D]; keys verified against law.md DIGEST extracts (step 7) — 0 items discarded",
+ "items": [
+  {
+   "id": "Q01",
+   "brief": "A 400 m² R-2 Basic lot (single-family, BHL 10 m), NO firewall. Maximum AMBF?",
+   "options": {
+    "A": "180 m²",
+    "B": "220 m²",
+    "C": "240 m²",
+    "D": "280 m²"
+   },
+   "key": "B",
+   "rationale": "PSO 55% × 400 = 220 m² (no-firewall column).",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-011",
+     "mistake": "45% is TOSL, not PSO",
+     "category": "C"
+    },
+    "C": {
+     "mb_id": "MB-004",
+     "mistake": "60% is the with-firewall column",
+     "category": "B"
+    },
+    "D": {
+     "mb_id": "MB-003",
+     "mistake": "70% is R-3-Max/R-4 territory",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "PD 1096 (2005 Revised IRR), Rule VIII, Table VIII.1"
+   ],
+   "k_id": "K-MOD-001",
+   "yield_rank": 9,
+   "difficulty": "foundation"
+  },
+  {
+   "id": "Q02",
+   "brief": "Same 400 m² R-2 Basic lot, now WITH the one permitted firewall. Maximum footprint?",
+   "options": {
+    "A": "220 m²",
+    "B": "240 m²",
+    "C": "260 m²",
+    "D": "180 m²"
+   },
+   "key": "B",
+   "rationale": "With-firewall PSO 60% × 400 = 240 m².",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-004",
+     "mistake": "55% no-firewall column read instead",
+     "category": "B"
+    },
+    "C": {
+     "mb_id": "MB-003",
+     "mistake": "65% is R-3 Basic",
+     "category": "C"
+    },
+    "D": {
+     "mb_id": "MB-011",
+     "mistake": "45% TOSL used as PSO",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "PD 1096 (2005 Revised IRR), Rule VIII, Table VIII.1 notes e/f"
+   ],
+   "k_id": "K-MOD-001",
+   "yield_rank": 9,
+   "difficulty": "foundation"
+  },
+  {
+   "id": "Q03",
+   "brief": "MACA (Maximum Allowable Construction Area) equals:",
+   "options": {
+    "A": "PSO + TOSL",
+    "B": "PSO + ISA",
+    "C": "ISA + USA",
+    "D": "PSO alone"
+   },
+   "key": "B",
+   "rationale": "Note c: MACA = PSO + ISA. (PSO+TOSL = TLA; ISA+USA = TOSL.)",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-011",
+     "mistake": "that sum is TLA (note d)",
+     "category": "C"
+    },
+    "C": {
+     "mb_id": "MB-011",
+     "mistake": "that sum is TOSL",
+     "category": "C"
+    },
+    "D": {
+     "mb_id": "MB-010",
+     "mistake": "PSO alone is only the footprint",
+     "category": "B"
+    }
+   },
+   "citations": [
+    "PD 1096 (2005 Revised IRR), Rule VIII, Table VIII.1 note c"
+   ],
+   "k_id": "K-MOD-001",
+   "yield_rank": 9,
+   "difficulty": "foundation"
+  },
+  {
+   "id": "Q04",
+   "brief": "R-2 Maximum lot: the table prints front setback 8.00 m*. For the 3rd floor, the required front setback is:",
+   "options": {
+    "A": "8.00 m",
+    "B": "5.00 m",
+    "C": "3.00 m",
+    "D": "4.50 m"
+   },
+   "key": "C",
+   "rationale": "8.00 = 3.00 + 5.00 at grade only (parking strip); upper floors revert to 3.00 m (note b).",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-002",
+     "mistake": "grade-level total applied to upper floors",
+     "category": "A"
+    },
+    "B": {
+     "mb_id": "MB-002",
+     "mistake": "the parking-strip half quoted alone",
+     "category": "A"
+    },
+    "D": {
+     "mb_id": "MB-003",
+     "mistake": "4.50 is R-1/R-4 front",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "PD 1096 (2005 Revised IRR), Rule VIII, Table VIII.2 note b"
+   ],
+   "k_id": "K-MOD-001",
+   "yield_rank": 9,
+   "difficulty": "working"
+  },
+  {
+   "id": "Q05",
+   "brief": "A 10-storey residential building. Minimum width of the rear court?",
+   "options": {
+    "A": "2.00 m",
+    "B": "4.40 m",
+    "C": "5.00 m",
+    "D": "3.00 m"
+   },
+   "key": "B",
+   "rationale": "2.00 m + 300 mm × 8 storeys above the 2nd = 4.40 m (increments run to the 14th storey).",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-005",
+     "mistake": "flat 2.00 m ignores the increments",
+     "category": "B"
+    },
+    "C": {
+     "mb_id": "MB-005",
+     "mistake": "counted all 10 storeys instead of storeys above the 2nd",
+     "category": "A"
+    },
+    "D": {
+     "mb_id": "MB-011",
+     "mistake": "3.00 is the R-5 side/rear setback, not a court rule",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "PD 1096 (2005 Revised IRR), Rule VIII, Sec. 804.6"
+   ],
+   "k_id": "K-MOD-001",
+   "yield_rank": 9,
+   "difficulty": "working"
+  },
+  {
+   "id": "Q06",
+   "brief": "For an R-2 lot, firewalls/abutments are permitted on:",
+   "options": {
+    "A": "two sides",
+    "B": "one side only, never front or rear",
+    "C": "no property line at all",
+    "D": "two sides and the rear"
+   },
+   "key": "B",
+   "rationale": "Sec. 804.4.ii: R-2 = one side only; front/rear never. (R-1 none; R-3 two sides or one+rear; R-4 two sides.)",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-009",
+     "mistake": "R-4 rule applied to R-2",
+     "category": "C"
+    },
+    "C": {
+     "mb_id": "MB-009",
+     "mistake": "R-1 rule applied to R-2",
+     "category": "C"
+    },
+    "D": {
+     "mb_id": "MB-009",
+     "mistake": "R-3 rule applied to R-2",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "PD 1096 (2005 Revised IRR), Rule VIII, Sec. 804.4"
+   ],
+   "k_id": "K-MOD-001",
+   "yield_rank": 9,
+   "difficulty": "working"
+  },
+  {
+   "id": "Q07",
+   "brief": "BP 344 (amended IRR): the general gradient limit for an accessible ramp is:",
+   "options": {
+    "A": "1:12",
+    "B": "1:10",
+    "C": "1:20",
+    "D": "1:15"
+   },
+   "key": "C",
+   "rationale": "Appendix A p.17: gradient not steeper than 1:20; steeper only in special cases by length.",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-006",
+     "mistake": "pre-amendment value — RADIATION's own disproven seed",
+     "category": "B"
+    },
+    "B": {
+     "mb_id": "MB-007",
+     "mistake": "not in Table A.1.1 at all",
+     "category": "C"
+    },
+    "D": {
+     "mb_id": "MB-007",
+     "mistake": "1:15 is the special-case row, not the default",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "BP 344 IRR Amendments, Appendix A, p.17 / Table A.1.1"
+   ],
+   "k_id": "K-LAW-003",
+   "yield_rank": 9,
+   "difficulty": "foundation"
+  },
+  {
+   "id": "Q08",
+   "brief": "BP 344: minimum clear width of an accessible ramp:",
+   "options": {
+    "A": "900 mm",
+    "B": "1200 mm",
+    "C": "1500 mm",
+    "D": "800 mm"
+   },
+   "key": "B",
+   "rationale": "Appendix A.1.2.a: minimum clear width 1200 mm.",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-012",
+     "mistake": "door-leaf width confused with ramp width",
+     "category": "C"
+    },
+    "C": {
+     "mb_id": "MB-012",
+     "mistake": "1500 mm is the transfer/turning space",
+     "category": "C"
+    },
+    "D": {
+     "mb_id": "MB-012",
+     "mistake": "corridor/door confusable",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "BP 344 IRR Amendments, Appendix A, p.17"
+   ],
+   "k_id": "K-LAW-003",
+   "yield_rank": 9,
+   "difficulty": "foundation"
+  },
+  {
+   "id": "Q09",
+   "brief": "BP 344: a ramp at 1:15 may run at most how long before a landing is required?",
+   "options": {
+    "A": "6.00 m",
+    "B": "15.00 m",
+    "C": "10.50 m",
+    "D": "0.70 m"
+   },
+   "key": "C",
+   "rationale": "Table A.1.1: 1:15 → max length 10.50 m (max rise 700 mm, landing interval 10 m).",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-008",
+     "mistake": "the disproven 6.00 m seed value",
+     "category": "B"
+    },
+    "B": {
+     "mb_id": "MB-007",
+     "mistake": "15 m is the 1:20 landing interval",
+     "category": "C"
+    },
+    "D": {
+     "mb_id": "MB-007",
+     "mistake": "700 mm is the RISE, not the length",
+     "category": "D"
+    }
+   },
+   "citations": [
+    "BP 344 IRR Amendments, Table A.1.1"
+   ],
+   "k_id": "K-LAW-003",
+   "yield_rank": 9,
+   "difficulty": "working"
+  },
+  {
+   "id": "Q10",
+   "brief": "A Com-2 lot WITH firewall: maximum allowable PSO?",
+   "options": {
+    "A": "75%",
+    "B": "80%",
+    "C": "85%",
+    "D": "90%"
+   },
+   "key": "C",
+   "rationale": "Table VIII.1: Com-2 = 75 (no firewall) / 85 (with firewall).",
+   "distractors": {
+    "A": {
+     "mb_id": "MB-004",
+     "mistake": "no-firewall column",
+     "category": "B"
+    },
+    "B": {
+     "mb_id": "MB-003",
+     "mistake": "80 is Com-3-e / R-x-f territory",
+     "category": "C"
+    },
+    "D": {
+     "mb_id": "MB-003",
+     "mistake": "90 is Com-3 with firewall",
+     "category": "C"
+    }
+   },
+   "citations": [
+    "PD 1096 (2005 Revised IRR), Rule VIII, Table VIII.1"
+   ],
+   "k_id": "K-MOD-001",
+   "yield_rank": 9,
+   "difficulty": "working"
+  }
+ ]
+}

@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.6.2 — 2026-09-12 — Wave 1&2 Closure (reviewer directive, 🟢)
+- Carriers re-homed: 17 *_STAGED/_DIFF files + root PATCH_NOTES abolished from tree; law → 08-overhaul/proposals/ (7 PROPOSAL files), scaffold revs → scaffolding/improved/ (5), subskill revs → subskills/proposals/ (2), style carriers renamed in styles/proposals/ (3).
+- docs/PENDING_RATIFICATIONS.md created (8 open rows); docs/BOOT_BUDGET_WAIVERS.md founded; 🟡 exposure memo filed to proposals.
+- Validator: ARCHIVE_NOTES self-exemption bug FIXED; check 1b (phantom exemptions), check 3 extended (*_STAGED/*_DIFF/PATCH_NOTES anywhere), check 3b (core/ closed set), checks-8/9 narrowing for listed proposal homes.
+- docs/DECISION_AUTHORITY.md: mode-count string + SPEC ref fixed. K-LAW-004 ruling: the ingest file EXISTS — it was absent from the pushed commit (🟢 companion zips unpushed), delivered in this patch.
+- @Drill seventh-mode judgement call recorded as EVAL-FIRST presumption working (reviewer §7).
+
 ## v1.6.1 — 2026-09-12 — P01-Machine-Enforcement-Green (🟢)
 Patch: `RADIATION_PATCH_2026-09-13_0700_P01-Machine-Enforcement-Green.zip`
 P-01 Wave 1: scripts/validate.py (14 structural checks, form-only, stdlib, no

@@ -180,3 +180,19 @@ One-line basis: Reviewer faithfully represents Planning lectures [D]-as-taught, 
 
 ---
 *Audit completed per proc_inspection-audit.md + EVIDENCE_TAXONOMY.md + STOCKPILE_DOCTRINE.md + Restraint Doctrine. All claims graded. No contamination. Surgeon countersign: pending (auto-check: Scan Declaration valid, quotas met or logged, external access declared, fetch plan named).*
+
+---
+## RE-GRADE APPEND — 2026-09-12, P-07 publisher rule (II.8.1 append-in-place; original rows above UNCHANGED)
+Rule applied: [R] requires a peer-reviewed or formally published source with a named publisher; aggregators/content platforms revert to [O]. Trail preserved; only elevations re-graded — TRUE/FALSE verdicts and [D] extractions stand.
+| Finding | Old grade | New grade | Reason |
+|---|---|---|---|
+| F-01 Garden City (Howard 1898/1902) | [D]-as-taught → [R] | **[O] (was [R] — re-graded 2026-09-12 under P-07 §5; aggregator sources: grokipedia, flickr)** | cited artifacts are aggregator pages; Time-Saver secondary noted but not locator-cited — re-verifiable path: Time-Saver page cite or Howard primary |
+| F-02 City Beautiful (Burnham 1893) | [D]-as-taught → [R] | **[R] HOLDS — publisher named: Encyclopædia Britannica, "White City" entry, accessed 2026-09-12** | §6.1 explicitly allows Britannica-supported [R] with publisher + locator; noted: §5's encyclopaedia-at-[O] line conflicts with §6.1 — directive's own re-grade instruction followed, tension logged, not swallowed |
+| F-03 Concentric Zone (Burgess 1925) | [D]-as-taught → [R] | **[O] (was [R] — re-graded 2026-09-12; aggregator: grokipedia)** | as F-01 |
+| F-04 Neighborhood Unit (Perry 1929) | [D]-as-taught → [R] | **[O] (was [R] — re-graded 2026-09-12; aggregator: grokipedia)** | as F-01; Time-Saver path available for lawful re-elevation |
+| F-05 Sector (Hoyt 1939) | [D]-as-taught → [R] | **[O] (was [R] — re-graded 2026-09-12; aggregator: fiveable)** | as F-01 |
+| F-06 Multi-Nuclei (Harris & Ullman 1945) | [D]-as-taught → [R] | **[O] (was [R] — re-graded 2026-09-12; aggregator: planningtank)** | as F-01 |
+| F-07 Lynch 5 Elements | [D]-as-taught → [R] + [D]-as-cataloged | **[O] for the elevation (was [R] — re-graded 2026-09-12; aggregator: scribd); [D]-as-cataloged STANDS (gdown-verified file presence)** | elevation rested on a scribd summary; presence claim was machine-verified |
+| F-08 Bentley terminology | 🟨 drift, literature recorded as correction | **RECLASSIFIED as EXAM NOTE under Curriculum Primacy (staged): the lecture term is the exam answer; the 1985 original is the annotation** | the audit's direction of correction was inverted for licensure purposes; reviewer now carries the ⚑ EXAM NOTE; CONFLICT_REGISTER row 4 |
+| F-11/F-12/F-13 Law-PDF extractions | [D] | **[D] UNCHANGED** | extracted from the instrument's own text — that part of the audit was sound |
+All [D]-as-taught grades themselves: UNCHANGED (formalisation staged in P-07; the grade was honest). Nothing above deleted (II.2).

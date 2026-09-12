@@ -1,2 +1,4 @@
 # 📝 ANNOTATION — F-08 drift: Bentley's 7 Qualities (S003 audit)
 **Claim (reviewer):** lists "Connectivity" among Bentley's qualities. **Sources (secondary, web-triangulated S003):** Bentley et al. 1985 canonical list uses **Permeability** (with Variety, Legibility, Robustness, Visual Appropriateness, Richness, Personalisation). Grade: reviewer term [O] (as-taught variant); canonical term [R] pending primary (book absent from Books manifest — DEBT_REGISTER row 2026-09-12). Resolution path: primary lands → I.5 both-versions row or grade correction.
+
+**P-07 APPEND (2026-09-12):** handling upgraded from annotation to ⚑ EXAM NOTE under Curriculum Primacy (staged): the reviewer KEEPS "Connectivity" as the answer of record; "Permeability (Bentley et al. 1985)" is the essay-depth annotation. The earlier "Resolution path: … grade correction" line is superseded — the curriculum term is not an error to correct but the exam term to keep (CONFLICT_REGISTER row 4).

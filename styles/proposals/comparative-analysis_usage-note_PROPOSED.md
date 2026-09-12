@@ -1,0 +1,2 @@
+# STAGED — usage-note APPEND to `styles/comparative-analysis.md` (P-06, ratify with P-06)
+NEW final section: **CODE-VS-CODE DEFAULT** — for any code-comparison question the matrix form is the DEFAULT, not an alternative: same dimension rows, one column per instrument, every cell a cited value, divergence callouts beneath (pattern: PD 1096 · RA 9514 · BP 344 on stair width / travel distance / ramp gradient / parking-slot rows). The master-matrix artifact class ranks 10/10 yield (docs/YIELD_RANKING.md).

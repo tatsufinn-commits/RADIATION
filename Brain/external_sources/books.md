@@ -91,3 +91,6 @@ Fetch-economy notes: Ching ×3, Fajardo P&D ×5-total, Plumbing-code-style dupli
 | 2026-09-12 | S003 | ACCESSIBLE — Time-Saver Urban Design 80.8 MB fetched (text-layer) |
 | 2026-09-12 | S003 | ACCESSIBLE — Death and Life 4.28 MB fetched (text-layer) |
 | 2026-09-12 | S003 | MANIFEST-CHECK — Bentley Responsive Environments not in collection (gap) |
+
+## DIGEST APPEND — 2026-09-12 P-07 re-grade
+Lynch entry above: the "[R] (Scribd, Goodreads)" elevation re-graded → **[O] (was [R] — P-07 §5, aggregator sources)**. [D]-as-cataloged presence stands (gdown-verified). Lawful [R]/[D] path: OCR the held PDF (recovery ladder) or Time-Saver page-cite.

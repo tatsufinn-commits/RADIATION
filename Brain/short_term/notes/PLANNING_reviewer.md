@@ -33,6 +33,10 @@
 
 ### A3. Ian Bentley — Responsive Environments: 7 Qualities
 **Connectivity · Variety · Legibility · Robustness · Visual Appropriateness · Richness · Personalization**
+
+> ⚑ **EXAM NOTE** — board/curriculum terminology: **"Connectivity"** (AR173-1P lecture; mnemonic C-V-L-R-V-R-P).
+>   Literature usage: **"Permeability"** (Bentley et al., *Responsive Environments: A Manual for Designers*, 1985 — first of the seven; book not yet held, K-BK-002 RECORDED-NOT-HELD).
+>   Study guidance: **answer with the curriculum term; know the origin term for essays.** (P-07 Curriculum Primacy, staged; CONFLICT_REGISTER rows 2+4; 05-annotate/ANNOT_F-08.)
 *(mnemonic: "**C**an **V**ery **L**azy **R**obots **V**isualize **R**eal **P**laces")*
 
 ### A4. The 5 Development Sectors (basis of the CDP)
@@ -269,3 +273,6 @@ All content is **single-source lecture material** graded `[D]-as-taught`. It is 
 decks but **not triangulated** against primary literature (Lynch 1960, Bentley 1985, Howard 1902,
 or the statutes' full text). For board-exam or publication use, verify names/years/statute numbers
 against the primary sources before relying on them.
+
+## RE-GRADE APPEND — 2026-09-12 (P-07 publisher rule)
+Part A1 theory-timeline web elevations reverted [R]→[O] (aggregator-supported; see audit RE-GRADE APPEND). Study value unchanged — the [D]-as-taught grade carries the exam authority; the [O] marks the *web triangulation* strength honestly. Lawful re-elevation path: Time-Saver page-cites or primary texts.

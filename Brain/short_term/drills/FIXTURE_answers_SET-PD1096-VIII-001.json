@@ -1,0 +1,15 @@
+{
+ "meta": "FIXTURE (mixed-result test vector, architect-authored) \u2014 NOT a Commander attempt; per P-05 \u00a78.3",
+ "answers": {
+  "Q01": "B",
+  "Q02": "A",
+  "Q03": "B",
+  "Q04": "C",
+  "Q05": "C",
+  "Q06": "B",
+  "Q07": "C",
+  "Q08": "B",
+  "Q09": "A",
+  "Q10": "C"
+ }
+}

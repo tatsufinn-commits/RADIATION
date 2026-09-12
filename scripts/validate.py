@@ -21,17 +21,31 @@ def read(p):
     with open(os.path.join(ROOT, p), encoding="utf-8", errors="replace") as fh:
         return fh.read()
 def archive_exempt():
-    """Paths listed in docs/ARCHIVE_NOTES.md are historical record: exempt from
-    checks 1, 8, 9, 14 (they lawfully quote retired phrases and dead paths)."""
+    """Exempt-path column of docs/ARCHIVE_NOTES.md table rows ONLY (closure fix:
+    the old scraper read every backtick incl. the title line, so the file
+    exempted ITSELF and phantom rows went unverified). ARCHIVE_NOTES.md itself
+    is never exempt. Check 1b asserts every listed path exists."""
     ex = set()
     p = os.path.join(ROOT, "docs/ARCHIVE_NOTES.md")
     if os.path.exists(p):
-        for m in re.finditer(r"`([^`\n]+)`", open(p, encoding="utf-8").read()):
-            ex.add(m.group(1).rstrip("/"))
+        for ln in open(p, encoding="utf-8").read().splitlines():
+            if ln.strip().startswith("|"):
+                m = re.match(r"\|\s*`([^`]+)`\s*\|", ln.strip())
+                if m: ex.add(m.group(1).rstrip("/"))
+    ex.discard("docs/ARCHIVE_NOTES.md")
     def is_ex(path):
         return any(path == e or path.startswith(e + "/") for e in ex)
+    is_ex.paths = ex
     return is_ex
 IS_EX = archive_exempt()
+def pend_narrow(path):
+    """Files under proposal homes are exempt from checks 8/9 ONLY while listed
+    (or their directory is listed) in docs/PENDING_RATIFICATIONS.md."""
+    if not ("/proposals/" in path or path.startswith("scaffolding/improved/")): return False
+    pr = os.path.join(ROOT, "docs/PENDING_RATIFICATIONS.md")
+    if not os.path.exists(pr): return False
+    t = open(pr, encoding="utf-8").read()
+    return path in t or os.path.dirname(path) + "/" in t
 
 # ---- check 1: internal path resolution -------------------------------------
 def c1():
@@ -45,6 +59,8 @@ def c1():
             if not os.path.exists(os.path.join(ROOT, p)):
                 bad.append(f"{f} -> {p}")
     rec(1, "FAIL", not bad, "internal path resolution" + ("" if not bad else ": " + "; ".join(bad[:6])))
+    ghosts = [e for e in sorted(IS_EX.paths) if not os.path.exists(os.path.join(ROOT, e))]
+    rec(1.5, "FAIL", not ghosts, "no phantom exemptions (every ARCHIVE_NOTES path exists)" + ("" if not ghosts else ": " + "; ".join(ghosts[:6])))
 # ---- check 2: required files present & non-empty ---------------------------
 REQUIRED = ["README.md","docs/.readme","BOOT_SEQUENCE.md","docs/AI_RULES.md",
  "docs/SYSTEM_STATE.md","docs/MODES.md","docs/CUE_SYSTEM.md","CHANGELOG.md",
@@ -63,14 +79,20 @@ def c2():
 # ---- check 3: forbidden transport artifacts (II.8.2) -----------------------
 def c3():
     bad = []
-    if os.path.exists(os.path.join(ROOT, "PATCH_NOTES.md")): bad.append("PATCH_NOTES.md at repo root")
     for dp, dn, fn in os.walk(ROOT):
         dn[:] = [d for d in dn if d != ".git"]
         for d in dn:
             if d in ("append_blocks","append-blocks"): bad.append(os.path.relpath(os.path.join(dp,d),ROOT)+"/")
         for f in fn:
-            if "_REPLACEMENT" in f: bad.append(os.path.relpath(os.path.join(dp,f),ROOT))
-    rec(3, "FAIL", not bad, "no transport artifacts (II.8.2)" + ("" if not bad else ": " + "; ".join(bad)))
+            if "_REPLACEMENT" in f or "_STAGED" in f or "_DIFF" in f or f == "PATCH_NOTES.md":
+                bad.append(os.path.relpath(os.path.join(dp,f),ROOT))
+    rec(3, "FAIL", not bad, "no transport artifacts or carriers in tree (II.8.2 + closure rule: *_STAGED/*_DIFF/PATCH_NOTES)" + ("" if not bad else ": " + "; ".join(bad)))
+# ---- check 3b: scaffolding/core/ closed set — every file named in its INDEX ----
+def c3b():
+    idx = read("scaffolding/core/INDEX.md")
+    files = [f for f in os.listdir(os.path.join(ROOT, "scaffolding/core")) if f.endswith(".md") and f != "INDEX.md"]
+    bad = [f for f in files if f"`{f}`" not in idx]
+    rec(3.5, "FAIL", not bad, f"core/ closed set ({len(files)} files vs INDEX)" + ("" if not bad else ": unlisted " + "; ".join(bad)))
 # ---- check 4: register table schema ----------------------------------------
 SCHEMA_FILES = ["Brain/frontal_lobe/task_ledger.md","docs/PATCH_LEDGER.md",
  "cue/commander-lexicon.md","cue/inference-log.md","Brain/frontal_lobe/learned_cues.md",
@@ -126,7 +148,7 @@ def c8():
     words = {"one":1,"two":2,"three":3,"four":4,"five":5,"six":6,"seven":7,"eight":8,"nine":9}
     bad = []
     for f in md_files():
-        if IS_EX(f) or f == "docs/MODES.md": continue
+        if IS_EX(f) or pend_narrow(f) or f == "docs/MODES.md": continue
         for m in re.finditer(r"\b(one|two|three|four|five|six|seven|eight|nine|\d)\s+(?:commander-declared\s+)?modes\b(?!\s+(?:tie|fit))", read(f), re.I):
             n = words.get(m.group(1).lower(), None) or (int(m.group(1)) if m.group(1).isdigit() else None)
             if n is not None and n != canon:
@@ -137,7 +159,7 @@ RETIRED = ["APPEND BLOCK", "append block", "_REPLACEMENT", "Eight Skills"]
 def c9():
     bad = []
     for f in md_files():
-        if IS_EX(f): continue
+        if IS_EX(f) or pend_narrow(f): continue
         for i, ln in enumerate(read(f).splitlines()):
             if "~~" in ln: continue
             for ph in RETIRED:
@@ -303,7 +325,19 @@ def c18():
     rec(18, "FAIL", not bad, f"module depth integrity ({len(mods)} module(s))" + ("" if not bad else ": " + "; ".join(bad[:5])))
     if warn: rec(18.5, "WARN", False, "module yield_rank: " + "; ".join(warn[:4]))
 
-for fn in (c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18): fn()
+# ---- check 19: [R] publisher rule — blocklist (P-07; enforces I.2's existing "peer-reviewed or formally studied") ----
+BLOCKLIST = ["grokipedia.com","scribd.com","fiveable.me","coursehero.com","studocu.com","flickr.com","planningtank.com","blogspot.","medium.com"]
+def c19():
+    bad = []
+    for f in md_files():
+        if IS_EX(f): continue
+        for i, ln in enumerate(read(f).splitlines()):
+            hits = sum(d in ln for d in BLOCKLIST)
+            if "[R]" in ln and hits == 1:  # >=2 domains on one line = the rule/blocklist text itself, not a citation
+                bad.append(f"{f}:{i+1}")
+    rec(19, "FAIL", not bad, "publisher rule: no [R] carried by blocklisted aggregator" + ("" if not bad else ": " + "; ".join(bad[:6])))
+
+for fn in (c1,c2,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:
