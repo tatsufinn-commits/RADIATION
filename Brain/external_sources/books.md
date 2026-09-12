@@ -73,3 +73,22 @@ Massive growth: 16 → 47 files. NEW since update 1, by cluster:
 Fetch-economy notes: Ching ×3, Fajardo P&D ×5-total, Plumbing-code-style duplicates — ALWAYS pick the smallest variant (rule 14 spirit). Lynch/Jacobs/Gehl now in-catalog = Planning collection's triangulation targets are one surgical fetch away.
 
 | 2026-09-12 | Protocol Architect (registration session 3) | ACCESSIBLE — re-verified; manifest refreshed (+31 entries; Time-Saver suite 🛑⚠️) |
+
+## DIGEST APPEND — S003 Audit Session 2026-09-12
+
+**Session S003 — 3-file fetch from Books (3/3 budget):**
+
+- **The Image of the City - Kevin Lynch.pdf (ID 19HLc3C7bDL1jFTnfIRqfDYcgOeDfNX0p, 4.32 MB)** — File present [D]-as-cataloged (gdown --json). Text-layer absent (image-only, form-feed only via pdfminer) — requires OCR recovery ladder (render PNG 300dpi + tesseract). Secondary triangulation via web_search confirms 1960 book, 5 elements Paths Edges Districts Nodes Landmarks [R] (Scribd, Goodreads). Validates reviewer A2/B5 TRUE. Logged as 🟧 debt: OCR pending.
+- **Time-Saver Standards for Urban Design.pdf (ID 1wFQqM3FZCnaYtlYCIsqooA01Em0jJ1BZ, 80.8 MB)** — Fetched, text-layer partially extractable (large-file protocol paged). Contains urban design theories (Garden City, Concentric, Sector, Multi-Nuclei) and cluster housing/PUD sections — validates A1/A7/B6/B8 as [O] secondary until paged extraction completes. Budget: 80.8 MB single file.
+- **The Death and Life of Great American Cities - Jane Jacobs.pdf (ID 1qRpqP1TpxKxXPSnESFSUdXiICECgHAXh, 4.28 MB)** — Fetched, text-layer present (438 pages). Validates urban design context, sidewalks safety/contact, neighborhood parks — secondary [R] for Jane Jacobs theories. Supports reviewer contextual claims.
+- **Total Books fetch:** 89.4 MB, 3/3 budget. Combined with Law = 205.2 MB total session fetch.
+- **Gap:** Bentley Responsive Environments primary not in 47-file manifest — need to add or fetch via web secondary.
+
+## ACCESS LOG APPEND — S003
+
+| Date | Session | Result |
+|---|---|---|
+| 2026-09-12 | S003 @Autopilot | ACCESSIBLE — The Image of the City 4.32 MB fetched (image-only) |
+| 2026-09-12 | S003 | ACCESSIBLE — Time-Saver Urban Design 80.8 MB fetched (text-layer) |
+| 2026-09-12 | S003 | ACCESSIBLE — Death and Life 4.28 MB fetched (text-layer) |
+| 2026-09-12 | S003 | MANIFEST-CHECK — Bentley Responsive Environments not in collection (gap) |

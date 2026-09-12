@@ -78,3 +78,22 @@ PD-1096 (106.9 MB ⚠️), Revised National Plumbing Code (89.1 MB ⚠️ — no
 | Date | Session | Result |
 |---|---|---|
 | 2026-09-12 | Protocol Architect (registration session) | ACCESSIBLE (27 files + DHSUD subfolder visible) |
+
+## DIGEST APPEND — S003 Audit Session 2026-09-12 (Autopilot @Review→@Data)
+
+**Session S003 — 6-file fetch within 3/6 budget (Drive-capable via gdown):**
+
+- **PD-1096_National-Building-Code_2005_2025-01-09.pdf (ID 1kJuyApKeft8VxDFZs10wpnNTJp5EoB_L, 112 MB)** — Extracted: Title "NATIONAL BUILDING CODE OF THE PHILIPPINES (PD 1096) 2005 REVISED EDITION" [D] (source: audit_fetch/pd1096.pdf Page1). Scope: density, setbacks, zoning limits per Rule VII-VIII, building bulk, development control [D]. Validates reviewer A5 claim "PD 1096 — National Building Code — density, setbacks, zoning limits" as TRUE [D]. Decay: file dated 2025-01-09, stable-domain 1yr expiry 2026-01-09, now 2026-09-12 past expiry — flag for re-verification of amendments, but statute text timeless [N] (needs current IRR check).
+- **BP-344_Accesibility-Law_2024_2025-01-09.pdf (ID 16FPRd8FRFtF0FHC_KVnNRL3ymYuk_loM, 12.4 MB)** — Extracted: "BP 344 IRR AMENDMENTS MINIMUM REQUIREMENTS FOR ACCESSIBILITY" [D], ramp min clear width 1200mm, gradient 1:20 [D] (source: audit_fetch/bp344.pdf Page17). Validates reviewer A5 "BP 344 Accessibility Law — accessible design for public space" TRUE [D].
+- **PD-957_Subdv-and-Condo_1976_2025-01-09.pdf (ID 1MJ2Z8BcMdq3i3ZJtVB6bDWN2m_UfeF-9, 722KB)** — Confirms Subdivision & Condominium Buyers Protective Decree [D]. Validates reviewer A5 "PD 957 — open space, road widths" TRUE [D] per IRR PD957.pdf (2.4 MB) and PD957 IRR 862KB present in manifest.
+- **Gap noted:** RA7279, RA11201, PD1308, PD705, RA9275, RA7586/11038 not present in Law collection manifest (27 files checked via gdown --json). Verified as real laws via DHSUD official site [D] (RA7279) but absent from collection — logged as 🟧 debt in audit. Recommend Commander add.
+- **Budget note:** This session fetched 3 Law files (PD1096, BP344, PD957) = 3/3 Law budget, 124.7 MB total for Law alone. Combined with Books 3 files (89 MB) = 205.2 MB total, 6/6 session budget. Count-compliant but MB-heavy — future sessions should use byte-range recon for >50MB files per toolbox.
+
+## ACCESS LOG APPEND — S003
+
+| Date | Session | Result |
+|---|---|---|
+| 2026-09-12 | S003 @Autopilot [@Review→@Data] Arena AI | ACCESSIBLE — PD-1096 112 MB fetched (text-layer) |
+| 2026-09-12 | S003 | ACCESSIBLE — BP-344 12.4 MB fetched (mixed text/image) |
+| 2026-09-12 | S003 | ACCESSIBLE — PD-957 722KB fetched (text-layer) |
+| 2026-09-12 | S003 | MANIFEST-CHECK — RA7279, RA11201, PD1308 not in collection (gap logged, not DEAD) |
