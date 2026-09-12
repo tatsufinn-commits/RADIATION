@@ -194,7 +194,82 @@ def c14():
                 bad.append(f"{f}:{i+1}")
     rec(14, "FAIL", not bad, "no session-local paths" + ("" if not bad else ": " + "; ".join(bad[:8])))
 
-for fn in (c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14): fn()
+# ---- check 15: boot-byte budget (P-09; WARN until EVAL-FIRST ratified into AI_RULES) ----
+def c15():
+    def sz(rel):
+        fp = os.path.join(ROOT, rel)
+        return os.path.getsize(fp) if os.path.exists(fp) else 0
+    # boot-effective task_ledger: BOOT_SEQUENCE Tier 0 reads only the LAST 3 entries
+    tl_lines = read("Brain/frontal_lobe/task_ledger.md").splitlines()
+    rows = [l for l in tl_lines if l.strip().startswith("|") and "---" not in l.replace("|","")]
+    non_table = [l for l in tl_lines if not l.strip().startswith("|")]
+    eff_lines = non_table + rows[:1] + rows[-3:] if len(rows) > 4 else tl_lines
+    tl_eff = len(("\n".join(eff_lines)).encode("utf-8"))
+    t01 = sz("docs/.readme") + sz("docs/SYSTEM_STATE.md") + sz("docs/AI_RULES.md") + tl_eff
+    t2  = sum(sz(x) for x in ("docs/MODES.md","docs/CUE_SYSTEM.md",
+          "subskills/passive/compass.md","subskills/passive/curator.md",
+          "subskills/passive/sentinel.md","subskills/passive/surgeon.md"))
+    t02 = t01 + t2
+    ratified = "EVAL-FIRST" in read("docs/AI_RULES.md")
+    wpath = os.path.join(ROOT, "docs/BOOT_BUDGET_WAIVERS.md")
+    waived = os.path.exists(wpath) and "ACTIVE" in open(wpath, encoding="utf-8").read()
+    ok = t01 <= 40960 and t02 <= 81920
+    sev = "FAIL" if (ratified and not waived) else "WARN"
+    rec(15, sev, ok,
+        f"boot-byte budget: Tier0+1={t01} B ({t01/1024:.1f} KB / cap 40) · "
+        f"Tier0-2={t02} B ({t02/1024:.1f} KB / cap 80) · ~{t02//4} tokens · "
+        f"task_ledger boot-effective (last 3 rows)={tl_eff} B · "
+        f"enforcement={'FAIL-class (EVAL-FIRST ratified)' if ratified else 'WARN-class (P-09 pending ratification)'}"
+        + (" · WAIVER ACTIVE" if waived else ""))
+# ---- check 16: canon-vs-content meta-budget ratio (P-09; reporting) -------------
+def c16():
+    rows = [l for l in read("docs/PATCH_LEDGER.md").splitlines() if l.strip().startswith("|")]
+    canon = len([l for l in rows if "\U0001F7E0" in l])
+    tdir = os.path.join(ROOT, "Brain/temporal_lobe")
+    sessions = len([d for d in os.listdir(tdir) if re.match(r"S\d{3}_", d)]) if os.path.isdir(tdir) else 0
+    ok = canon * 3 <= sessions
+    rec(16, "WARN", ok,
+        f"meta-budget: {canon} canon(orange) patches vs {sessions} content sessions "
+        f"(law allows 1 per 3 => {'WITHIN' if ok else 'OVER'} budget by {canon*3 - sessions if not ok else 0} session-equivalents)")
+
+
+# ---- check 17: knowledge-registry integrity (P-03) ------------------------------
+def c17():
+    bad = []
+    regtxt = read("docs/KNOWLEDGE_REGISTRY.md") if os.path.exists(os.path.join(ROOT,"docs/KNOWLEDGE_REGISTRY.md")) else ""
+    kpat = re.compile(r"\bK-(?:LAW|STD|CUR|BK|MOD|MTH|REF|EXT)(?:-[A-Z0-9]+)*-\d{3}\b")
+    defined = []
+    for ln in regtxt.splitlines():
+        if ln.startswith("## "):
+            m = kpat.search(ln)
+            if m: defined.append(m.group(0))
+    dupes = {k for k in defined if defined.count(k) > 1}
+    if dupes: bad.append("duplicate K-IDs: " + ", ".join(sorted(dupes)))
+    dset = set(defined)
+    for f in md_files():
+        if IS_EX(f): continue
+        for i, ln in enumerate(read(f).splitlines()):
+            for m in kpat.finditer(ln):
+                if m.group(0) not in dset:
+                    bad.append(f"{f}:{i+1} dangling ref {m.group(0)}")
+    paths = []
+    for b in re.split(r"\n## (?=K-)", regtxt)[1:]:
+        kid = b.split(" ")[0].strip()
+        pm = re.search(r"Canonical path:\s*`([^`]+)`", b)
+        if pm:
+            paths.append(pm.group(1))
+            if not os.path.exists(os.path.join(ROOT, pm.group(1))):
+                bad.append(f"{kid} canonical path missing: {pm.group(1)}")
+        st = re.search(r"Status:\s*(CURRENT|VERIFIED)", b)
+        lv = re.search(r"Last verified:\s*\d{4}-\d{2}-\d{2}", b)
+        if st and not lv: bad.append(f"{kid} status {st.group(1)} but Last verified blank")
+        sb = re.search(r"Supersedes/by:\s*\S+\s*/\s*(K-\S+)", b)
+        if sb and sb.group(1).rstrip(",") not in dset: bad.append(f"{kid} superseded_by unresolvable: {sb.group(1)}")
+    dp = {x for x in paths if paths.count(x) > 1}
+    if dp: bad.append("two rows share a canonical path: " + ", ".join(sorted(dp)))
+    rec(17, "FAIL", not bad, f"knowledge registry ({len(dset)} K-IDs)" + ("" if not bad else ": " + "; ".join(bad[:6])))
+
+for fn in (c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:
