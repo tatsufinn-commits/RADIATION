@@ -50,10 +50,11 @@ is never itself citable evidence.**
 ## APPROVED COLLECTIONS
 | Collection | File | Link status | Last verified | Contents (summary) |
 |---|---|---|---|---|
-| History of Architecture (HOA) Reviewers | `hoa-reviewers.md` | ✅ ACCESSIBLE | 2026-09-12 | Weekly HOA lecture materials W1-W3+ (Pre-historic → Renaissance), departmental exam + reviewer, ~50 files |
-| Books (Architecture Reference Library) | `books.md` | ✅ ACCESSIBLE | 2026-09-12 | Banister Fletcher, PD 1096 NBCP, Fajardo handbooks, monographs, parametric design texts — 14 files |
+| History of Architecture (HOA) Reviewers | `hoa-reviewers.md` | ✅ ACCESSIBLE | 2026-09-12 ×2 | HOA lectures W1-W3+ + HOA4 P1-P3 + PH architecture series (Noche: Tirahan/Sambahan/Pamahalaan/Kalakalan, Gabaldon) — ~59 files |
+| Books (Architecture Reference Library) | `books.md` | ✅ ACCESSIBLE | 2026-09-12 ×2 | Banister Fletcher, PD 1096 NBCP, Fajardo, monographs, Spanish-architecture history — 16 files, 🛑 one 566.5 MB |
 | Theory of Architecture (TOA) Reviewers | `toa-reviewers.md` | ✅ ACCESSIBLE | 2026-09-12 | Design/ordering principles, Pritzker reference, TOA-X merged reviewer — 5 PDFs |
 | Building Utilities | `building-utilities.md` | ✅ ACCESSIBLE | 2026-09-12 | Electrical (PEC, Fajardo), plumbing/sanitary, mechanical, acoustics — 14 PDFs |
 | Professional Practice | `professional-practice.md` | ✅ ACCESSIBLE | 2026-09-12 | RA 9266, UAP Docs 200-208/301, SPP, Salvan CM, building permits — 15 PDFs |
 | Planning (Community Architecture & Urban Design) | `planning.md` | ✅ ACCESSIBLE | 2026-09-12 | Module 1-2 lectures: community architecture, urban design theories/process, cluster housing & PUD — 8 files, ⚠️ several 60-100 MB (large-file protocol) |
 | Building Technology | `building-technology.md` | ✅ ACCESSIBLE | 2026-09-12 | Materials, construction methods, structural design, detailing — 50 files, 🛑 one 601 MB proceedings (fetch-of-last-resort) + 116 MB module |
+| Novels (Entertainment Library) | `novels.md` | ✅ ACCESSIBLE | 2026-09-12 | 🎭 ENTERTAINMENT — Commander's favorite series (MUSHOKU TENSEI subfolder); fiction NEVER citable as evidence |

@@ -4,6 +4,14 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.5.3 — 2026-09-12 — Novels-and-Manifest-Refresh (🟢)
+Patch: `RADIATION_PATCH_2026-09-13_0300_Novels-and-Manifest-Refresh.zip`
+Eighth collection: Novels (🎭 entertainment — fiction NEVER citable as
+evidence; special regime in novels.md). Books manifest refreshed 14→16 files
+(+Spanish-architecture history 566.5 MB 🛑 — largest file in catalog). HOA
+manifest refreshed: +HOA4 P1-P3 and PH architecture series (Noche: Tirahan,
+Sambahan, Pamahalaan, Kalakalan; Gabaldon styles).
+
 ## v1.5.2 — 2026-09-12 — Cerebellum-Toolbox (🟢)
 Patch: `RADIATION_PATCH_2026-09-13_0200_Cerebellum-Toolbox.zip`
 Procedural arsenal cataloged: Brain/cerebellum/toolbox.md — 20 open-source

@@ -4,7 +4,7 @@
 **Updated by:** Protocol Architect (Patch proposal; effective at Commander's push)
 
 ## REPOSITORY VERSION
-RADIATION v1.5.2 — cerebellum toolbox (20 tools) + recovery-ladder routine live. Previously: v1.5.1 — 7th collection (Building Technology, 50 files) registered. Previously: v1.5.0 — six modes (@Review, @Autopilot added), BOOT ASK law, autopilot cues seeded. Previously: v1.4.0 — temporal_lobe episodic region live (S001 enrolled) + frontal-lobe sentiment (opinions.md). Previously: v1.3.3 — founding + Patches Nos.1-7 + the field session's first Patch (Planning ingestion, v1.3.2) + hygiene fix (v1.3.3). First live ingestion complete: Planning 8/8 files, [D]-as-taught in short_term, DIGEST populated. Test 1 PASSED. No.6 (🟠, ratified) adds the
+RADIATION v1.5.3 — Novels registered (entertainment regime), Books/HOA manifests refreshed. Previously: v1.5.2 — cerebellum toolbox (20 tools) + recovery-ladder routine live. Previously: v1.5.1 — 7th collection (Building Technology, 50 files) registered. Previously: v1.5.0 — six modes (@Review, @Autopilot added), BOOT ASK law, autopilot cues seeded. Previously: v1.4.0 — temporal_lobe episodic region live (S001 enrolled) + frontal-lobe sentiment (opinions.md). Previously: v1.3.3 — founding + Patches Nos.1-7 + the field session's first Patch (Planning ingestion, v1.3.2) + hygiene fix (v1.3.3). First live ingestion complete: Planning 8/8 files, [D]-as-taught in short_term, DIGEST populated. Test 1 PASSED. No.6 (🟠, ratified) adds the
 Restraint Doctrine: Drive-capable sessions fetch manifest-first, necessity-
 vetted, hard-budgeted at 3 files/collection and 6/session, one-at-a-time,
 never mirroring. v1.2.1 (No.5) No.5 registers the first five
@@ -32,7 +32,7 @@ at the Commander's push (IV.5).
 | Subskills (4 passive + 2 active, six-block specs) | ✅ FULLY POPULATED |
 | Patch machinery (protocol, ledger, form) | ✅ FULLY POPULATED |
 | Brain STRUCTURE (5 regions + movement rules) | ✅ COMPLETE |
-| Brain/external_sources catalog (region + rules) | ✅ OPERATIONAL — 7 collections registered, all ACCESSIBLE (2026-09-12); Restraint Doctrine active (3/6 budget) |
+| Brain/external_sources catalog (region + rules) | ✅ OPERATIONAL — 8 collections registered, all ACCESSIBLE (2026-09-12; Books & HOA re-verified ×2); Restraint Doctrine active (3/6 budget) |
 | Brain CONTENT (ingestions, promotions, dossiers) | 🕳️ EMPTY — awaits first live sessions |
 | Skill jurisdictions 01–09 (READMEs + registers) | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |

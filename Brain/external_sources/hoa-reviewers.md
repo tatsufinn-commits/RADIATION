@@ -5,7 +5,7 @@
 - OWNER          : THE COMMANDER
 - PERMISSIONS    : anyone-with-link (verified working without auth)
 - APPROVED       : 2026-09-12 — RADIATION_PATCH_2026-09-12_1900_First-Collections-Registration.zip
-- LAST VERIFIED  : 2026-09-12 (re-verify by 2026-12-11, I.4 volatile class)
+- LAST VERIFIED  : 2026-09-12 — re-verified same day, session 2 (re-verify by 2026-12-11, I.4 volatile class)
 
 ## 2. CONTENTS DESCRIPTION
 Course reviewer archive for History of Architecture (HOA): weekly lecture
@@ -53,3 +53,21 @@ and coverage patterns.
 | Date | Session/model | Result | Note |
 |---|---|---|---|
 | 2026-09-12 | Protocol Architect (registration session) | ACCESSIBLE | Full folder listing read without auth; manifest captured |
+
+## MANIFEST UPDATE — 2026-09-12 (registration session 2, live re-read)
+Collection re-verified ACCESSIBLE. NEW since first capture — a Philippine
+architecture series (Archt. Manolo Noche) + HOA4 reviewer set:
+| File | Type | Topic | Noted |
+|---|---|---|---|
+| HOA4 P1.pdf / P2.pdf / P3.pdf | PDF ×3 | HOA4 reviewer parts 1-3 | 5.7 / 2.9 / 5.3 MB |
+| Tirahan_Archt. Manolo Noche.pdf | PDF | PH architecture: dwellings (tirahan) | 5.8 MB |
+| Sambahan_Archt. Manolo Noche.pdf | PDF | PH architecture: places of worship | 2.7 MB |
+| Pamahalaan_Archt. Manolo Noche.pdf | PDF | PH architecture: government buildings | 3 MB |
+| Kalakalan_Archt. Manolo Noche.pdf | PDF | PH architecture: commerce/trade buildings | 2.7 MB |
+| Styles of Gabaldon Buildings.pdf | PDF | Gabaldon schoolhouse styles (PH heritage) | 916 KB |
+*(Also observed: W#_# - Topic Title.pptx — template file, not content; .DS_Store absent here but check before fetch.)*
+Note: W1-W2 lecture triplets confirmed still present (Pre-Historic → Early
+Christian); departmental exam + HOAX-1st-Take confirmed. PH series is prime
+matter for Filipino-architecture exam questions.
+
+| 2026-09-12 | Protocol Architect (registration session 2) | ACCESSIBLE — re-verified; manifest refreshed (+9 PH/HOA4 entries) |

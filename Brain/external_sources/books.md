@@ -5,7 +5,7 @@
 - OWNER          : THE COMMANDER
 - PERMISSIONS    : anyone-with-link (verified working without auth)
 - APPROVED       : 2026-09-12 — RADIATION_PATCH_2026-09-12_1900_First-Collections-Registration.zip
-- LAST VERIFIED  : 2026-09-12 (re-verify by 2026-12-11)
+- LAST VERIFIED  : 2026-09-12 — re-verified same day, session 2 (re-verify by 2026-12-11)
 
 ## 2. CONTENTS DESCRIPTION
 Core architecture reference library ("BOOKS"): canonical architectural history
@@ -14,7 +14,7 @@ Building Code, 2005 ed., 2025 file), practice handbooks (Fajardo Planning &
 Designers Handbook ×3 variants), monographs (Aalto, Wright landscapes, Bauhaus
 Dessau, Japanese architecture/Jodidio-Taschen), parametric/computational
 design texts, and Heidegger's "The Question Concerning Technology."
-14 files, up to 119 MB.
+16 files (grew from 14 on 2026-09-12), up to 566.5 MB — see MANIFEST UPDATE.
 
 ## 3. EVIDENCE-GRADE EXPECTATIONS
 Law texts (PD 1096) → [D] — cite rule/section exactly · published books →
@@ -45,3 +45,15 @@ Law texts (PD 1096) → [D] — cite rule/section exactly · published books →
 | Date | Session/model | Result | Note |
 |---|---|---|---|
 | 2026-09-12 | Protocol Architect (registration session) | ACCESSIBLE | Full listing read; manifest captured |
+
+## MANIFEST UPDATE — 2026-09-12 (registration session 2, live re-read)
+Collection re-verified ACCESSIBLE; grew 14 → 16 files. NEW since first capture:
+| File | Type | Topic | Noted |
+|---|---|---|---|
+| 238528-A History Of Architecture (1943).pdf | PDF | Architectural history survey (1943 ed.) | ⚠️ 111.6 MB — large-file protocol |
+| History of Architecture - Spanish Architecture.pdf.pdf | PDF | Spanish architecture history | 🛑 566.5 MB — fetch-of-last-resort (largest file in entire catalog); paged reads only or SIZE-SKIPPED |
+| 2014 Cultural Heritage Mapping Project - Identifying Built Heritage by Manolo Noche (Day 1).pdf | PDF | PH built-heritage identification (Noche) | 4.1 MB |
+*(Also observed: .DS_Store — macOS system junk, not content; never fetch.)*
+Size flags on prior entries confirmed: Banister Fletcher 119.1 MB ⚠️, PD-1096 106.9 MB ⚠️, JP Architecture (Jodidio/Taschen) 96.3 MB ⚠️, Aalto 50.3 MB ⚠️.
+
+| 2026-09-12 | Protocol Architect (registration session 2) | ACCESSIBLE — re-verified; manifest refreshed (+3 entries incl. 566.5 MB 🛑) |
