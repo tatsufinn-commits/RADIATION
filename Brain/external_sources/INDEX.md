@@ -56,3 +56,4 @@ is never itself citable evidence.**
 | Building Utilities | `building-utilities.md` | ✅ ACCESSIBLE | 2026-09-12 | Electrical (PEC, Fajardo), plumbing/sanitary, mechanical, acoustics — 14 PDFs |
 | Professional Practice | `professional-practice.md` | ✅ ACCESSIBLE | 2026-09-12 | RA 9266, UAP Docs 200-208/301, SPP, Salvan CM, building permits — 15 PDFs |
 | Planning (Community Architecture & Urban Design) | `planning.md` | ✅ ACCESSIBLE | 2026-09-12 | Module 1-2 lectures: community architecture, urban design theories/process, cluster housing & PUD — 8 files, ⚠️ several 60-100 MB (large-file protocol) |
+| Building Technology | `building-technology.md` | ✅ ACCESSIBLE | 2026-09-12 | Materials, construction methods, structural design, detailing — 50 files, 🛑 one 601 MB proceedings (fetch-of-last-resort) + 116 MB module |

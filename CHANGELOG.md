@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.5.1 — 2026-09-12 — Building-Technology-Registration (🟢)
+Patch: `RADIATION_PATCH_2026-09-13_0100_Building-Technology-Registration.zip`
+Seventh collection registered: Building Technology — 50 files (largest yet).
+Verified ACCESSIBLE; manifest captured with sizes. 601.1 MB proceedings marked
+🛑 fetch-of-last-resort; 116 MB module and 54-67 MB files ⚠️ flagged; duplicate
+pair noted for rule-14 economy.
+
 ## v1.5.0 — 2026-09-12 — Review-Autopilot-BootAsk (🟠 RATIFIED)
 Patch: `RADIATION_PATCH_2026-09-12_2400_Review-Autopilot-BootAsk.zip`
 Two new modes: @Review (Brain-first recall; internet only for gaps, each
