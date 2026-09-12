@@ -31,7 +31,7 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Canonical path: — (Law collection: PD-1096_National-Building-Code_2005_2025-01-09.pdf, 106.9 MB; also NBCP_IRR.pdf)
 - Source record: SRC-012 · law.md MANIFEST #22/#18/#24
 - Tier: TIER-1 | Type: statute+IRR | Edition: 2005 Revised IRR, file retrieved 2025-01-09
-- Status: VERIFIED | Grade basis: [D] | Last verified: 2025-01-09 | Freq: 1yr | Decay: stable-domain
+- Status: VERIFIED | Grade basis: [D] | Last verified: 2026-09-12 (Rule VIII tables extracted from primary; edition-currency vs later amendments still unchecked — decay row stands) | Freq: 1yr | Decay: stable-domain
 - Domain: ALE-Law/AR173-1P | Depth: — | Confidence: HIGH
 - Supersedes/by: — / — | Conflicts: — (currency question → DECAY_REGISTER row 1)
 - Used by: S003 audit F-11 · PLANNING_reviewer · assertions KR-LAW-001/002/009 (pending)
@@ -51,10 +51,10 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Canonical path: — (Law collection: BP-344 files #8/#10; commentary #11 [O]-capped)
 - Source record: SRC-013 · law.md MANIFEST
 - Tier: TIER-1 | Type: IRR | Edition: 2024 amendments file, retrieved 2025-01-09
-- Status: VERIFIED | Grade basis: [D] | Last verified: 2025-01-09 | Freq: 1yr | Decay: stable-domain
-- Domain: ALE-Law | Depth: — | Confidence: MEDIUM (open conflict)
-- Supersedes/by: — / — | Conflicts: CONFLICT_REGISTER row 1 (ramp gradient 1:12 vs 1:20)
-- Used by: S003 audit F-13 · KR-LAW-005 (pending on conflict resolution)
+- Status: VERIFIED | Grade basis: [D] | Last verified: 2026-09-12 (p.17/37/72 extracted from primary) | Freq: 1yr | Decay: stable-domain
+- Domain: ALE-Law | Depth: — | Confidence: HIGH (conflict resolved)
+- Supersedes/by: — / — | Conflicts: CONFLICT_REGISTER row 1 → RESOLVED row 3 (gradient = 1:20 [D])
+- Used by: S003 audit F-13 · KR-LAW-005/006/007 (LOCKED 2026-09-12)
 - Notes: S003 read p.17 gradient 1:20; campaign seed says 1:12 — unresolved (I.5). Currency same caveat as K-LAW-001.
 
 ## K-LAW-004 — BP 344 statute text (the Act itself, not the IRR)
@@ -214,3 +214,11 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Status: CURRENT | Last verified: 2026-09-12 | Freq: 90d | Decay: volatile (links)
 - Domain: ALL | Conflicts: — | Used by: every Drive-capable session (II.6 Restraint Doctrine)
 - Notes: ID deliberately matches TAMAKEE's K-EXT-GDRIVE-001 — the ecosystem-link row P-08 will use. Re-verify by 2026-12-11.
+
+## K-MOD-001 — Canonical module: PD 1096 Rule VII–VIII (PSO · TOSL · setbacks · AMBF/AMVB)
+- Canonical path: `03-dossier/MODULE_WORKSHOP_pd1096-rule7-8-setbacks-pso.md` (workshop; settles to Brain/long_term/modules/ on P-06 ratification)
+- Source record: K-LAW-001 primary extraction 2026-09-12 | Tier: TIER-1-derived | Type: procedure/module
+- Status: VERIFIED | Grade basis: [D] | Last verified: 2026-09-12 | Freq: 1yr | Decay: stable-domain
+- Domain: ALE-Law/UD | Depth: 4 (docs/DEPTH_LADDER.md) | Confidence: HIGH
+- Supersedes/by: — / — | Conflicts: — | Used by: KR-LAW-009 (locked) · future P-05 drills
+- Notes: Level 4 by design — no drill (P-05 pending), no invented case studies; NOT Core-grade (single primary instrument).

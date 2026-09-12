@@ -20,3 +20,7 @@ the validator would violate II.2. Additions here are 🟢 but must be justified.
 | `scaffolding/core/proc_inspection-audit.md` | Append-block lines pending 🟠 rewrite |
 | `scaffolding/core/proc_nota-distillation.md` | Append-block line pending 🟠 rewrite |
 | `docs/AI_RULES.md` | Constitution: II.2 final sentence pending 🟠 strike-through (IV.3); II.8.2 lawfully NAMES the retired artifacts |
+| `docs/ANTI_PATTERNS.md` | Evidence register: lawfully NAMES retired artifacts (append_blocks, placeholder rows) as historical instances |
+| `08-overhaul/proposals/REJECTED_2026-09-12_experimental-telegraphic-style.md` | Rejection record: lawfully NAMES the proposed path that must never exist (EVAL-FIRST evidence) |
+| `styles/proposals/canonical-module_STAGED.md` | Staged carrier: lawfully NAMES its own post-ratification destination paths (P-06) |
+| `styles/proposals/MODULES_INDEX_STAGED.md` | Staged carrier: lawfully NAMES the modules/ region that exists only after ratification (P-06) |

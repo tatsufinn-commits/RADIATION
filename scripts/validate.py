@@ -269,7 +269,41 @@ def c17():
     if dp: bad.append("two rows share a canonical path: " + ", ".join(sorted(dp)))
     rec(17, "FAIL", not bad, f"knowledge registry ({len(dset)} K-IDs)" + ("" if not bad else ": " + "; ".join(bad[:6])))
 
-for fn in (c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17): fn()
+# ---- check 18: canonical-module depth integrity (P-06) --------------------------
+def c18():
+    bad, warn = [], []
+    mods = []
+    for f in md_files():
+        t = read(f)
+        m = re.search(r"depth_level:\s*(\d)", t)
+        if m: mods.append((f, int(m.group(1)), t))
+    for f, lvl, t in mods:
+        if not re.search(r"yield_rank:\s*(?!\|)[0-9]", t): warn.append(f"{f}: yield_rank empty/non-numeric")
+        if not re.search(r"K-(?:MOD|LAW|STD|CUR|BK|REF|MTH|EXT)\S*", t): bad.append(f"{f}: no K-ID")
+        if "LIMITS" not in t: bad.append(f"{f}: L{lvl} missing LIMITS line")
+        if lvl >= 2:
+            for h in ("WHY THIS MATTERS","CORE CONTENT","AUTHORITY TABLE","NUMBERS TO KNOW","WORKED EXAMPLE","EXAM TRAPS","LINEAGE"):
+                if h not in t: bad.append(f"{f}: L{lvl} missing section {h}")
+        traps = len(re.findall(r"\*\*TRAP \d", t))
+        worked = len(re.findall(r"### Worked Example", t))
+        gloss = len(re.findall(r"- \*\*[A-Za-z]", t.split("GLOSSARY",1)[1])) if "GLOSSARY" in t else 0
+        if lvl >= 3 and (traps < 4 or gloss < 10 or worked < 1):
+            bad.append(f"{f}: L{lvl} needs >=4 traps/>=10 glossary/>=1 worked (has {traps}/{gloss}/{worked})")
+        if lvl >= 4 and (traps < 8 or worked < 2): bad.append(f"{f}: L{lvl} needs >=8 traps & >=2 worked (has {traps}/{worked})")
+        if lvl == 5:
+            drill = len(re.findall(r"^\s*Q\d+", t, re.M))
+            if "DRILL" not in t or drill < 10: bad.append(f"{f}: L5 claims but drill absent/short ({drill} items)")
+            if "CASE STUD" not in t.upper(): bad.append(f"{f}: L5 without case studies")
+    mdir = os.path.join(ROOT, "Brain/long_term/modules")
+    if os.path.isdir(mdir):
+        files = [x for x in os.listdir(mdir) if x.endswith(".md") and x != "MODULES_INDEX.md"]
+        idx = os.path.join(mdir, "MODULES_INDEX.md")
+        rows = len([l for l in open(idx, encoding="utf-8").read().splitlines() if l.strip().startswith("|") and "---" not in l.replace("|","")]) - 1 if os.path.exists(idx) else -1
+        if rows != len(files): bad.append(f"modules/: {len(files)} module file(s) vs {rows} index row(s)")
+    rec(18, "FAIL", not bad, f"module depth integrity ({len(mods)} module(s))" + ("" if not bad else ": " + "; ".join(bad[:5])))
+    if warn: rec(18.5, "WARN", False, "module yield_rank: " + "; ".join(warn[:4]))
+
+for fn in (c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

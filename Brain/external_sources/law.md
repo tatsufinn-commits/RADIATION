@@ -96,3 +96,10 @@ PD-1096 (106.9 MB ⚠️), Revised National Plumbing Code (89.1 MB ⚠️ — no
 | 2026-09-12 | S003 | ACCESSIBLE — BP-344 12.4 MB fetched (mixed text/image) |
 | 2026-09-12 | S003 | ACCESSIBLE — PD-957 722KB fetched (text-layer) |
 | 2026-09-12 | S003 | MANIFEST-CHECK — RA7279, RA11201, PD1308 not in collection (gap logged, not DEAD) |
+
+## DIGEST APPEND — P-06 module-build session 2026-09-12 (2 fetches, budget 2/3 collection)
+**BP-344 IRR AMENDMENTS (file #8, 12.4 MB, text-layer):** Appendix A p.17 [D]: accessible ramps minimum clear width **1200 mm**; gradient **not steeper than 1:20** ("steeper gradients may be allowed in special cases depending on the length"); Table A.1.1: 1:20 → landing interval 15 m; 1:15 → max length **10.50 m**, max rise 700 mm, landing interval 10 m; ramps ≥3000 mm wide need intermediate handrails; length >10.50 m → intermediate landing min 1800 mm. p.37 [D]: walkways gradient ≤1:20 (5%), cross-gradient ≤1:100; curb ramps ≤1:15. p.72 [D]: 1:12 appears ONLY for swimming-pool transfer-space slope — NOT the general ramp gradient. **Resolves CONFLICT_REGISTER row 1: the 1:12 general-ramp value is not in the amended IRR.**
+**PD 1096 2005 IRR (file #22, 106.9 MB, text-layer pp.113–134):** Table VIII.1 [D]: **R-2 Basic PSO 55/60 · Com-2 PSO 75/85** (no-firewall/with-firewall); R-2 Max 60/70; R-3 Basic 65/70; R-3 Max 70/80 (BHL 36 m); Com-3 80/90; Institutional 50/60; notes: MACA=PSO+ISA, TLA=PSO+TOSL. Table VIII.2 [D]: R-1 front 4.50; R-2 Basic front 3.00; 8.00* = 3.00+5.00 grade-level split; courts +300 mm/storey above 2nd to 14th. Full extraction → 03-dossier/MODULE_WORKSHOP_pd1096-rule7-8-setbacks-pso.md (K-MOD-001).
+
+## ACCESS LOG APPEND — P-06 session
+| 2026-09-12 | P-06 build (campaign) | ACCESSIBLE | Fetched #8 bp344_irr.pdf (12,370,899 B) + #22 pd1096.pdf (112,081,560 B); extracts to DIGEST + K-MOD-001; both binaries DELETED same step (staged rule 8 demo) — bytes reclaimed 124,452,459 B (118.7 MB) |
