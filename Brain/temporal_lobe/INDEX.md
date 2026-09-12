@@ -17,7 +17,7 @@ what it was ordered to do, what it delivered. One episode folder per session.
      Commander's orders VERBATIM, Scan Declarations issued.
    - `deliverables.md` — what was produced, where it lives, Patch emitted.
    - `learnings.md` — session-specific lessons (cross-session wisdom still
-     goes to `frontal_lobe/testament.md`; do not duplicate).
+     goes to `Brain/frontal_lobe/testament.md`; do not duplicate).
 3. **Own-folder-write-only:** a session writes ONLY its own episode. Reading
    other episodes is encouraged; editing another session's episode is
    forbidden (treated as I.1 contamination of the record).

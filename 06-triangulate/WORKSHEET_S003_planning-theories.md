@@ -1,0 +1,2 @@
+# 🔺 TRIANGULATION WORKSHEET — S003 planning-theory year/author claims
+Elevations [D]-as-taught → [R] performed in S003 via ≥2 independent secondary sources each (web): Howard Garden City 1898/1902 · Burnham 1893 · Burgess Concentric 1925 · Perry Neighborhood Unit 1929 · Hoyt Sector 1939 · Harris-Ullman Multi-Nuclei 1945 · Bentley 1985 (term drift → F-08 annotation) · RA 7279 = UDHA 1992 (DHSUD + LawPhil). Floor: I.3 (2 independent). Core-bound claims still need a 3rd independent + primary. Evidence detail: S003 audit, FINDINGS table F-01…F-22.

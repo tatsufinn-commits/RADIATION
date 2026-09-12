@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version 1.0.0** · Ratified by THE COMMANDER · 2026-09-12
+**Version:** v1.6.1 · Ratified by THE COMMANDER · 2026-09-12
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 
@@ -26,13 +26,15 @@ Repository: https://github.com/tatsufinn-commits/RADIATION.git
 No mode declared? The AI runs the **Autonomous Scan** and infers your intent —
 asking, never guessing, when uncertain.
 
-## 🎛️ The Four Modes
+## 🎛️ The Six Modes
 | Mode | Purpose |
 |---|---|
 | **@Radiation** | Full-spectrum: all 9 skills, maximum rigor, permanent canonical knowledge |
 | **@Data** | Rapid source-accurate answers to questions/quizzes (sources verified, not listed) |
 | **@Gather** | Information acquisition: min 10 primary + 18 secondary sources, no conclusions |
 | **@Decode** | GitHub repository comprehension: architecture, infrastructure, concepts |
+| **@Review** | Brain-first recall: answers from stored knowledge; internet only for justified gaps |
+| **@Autopilot** | Bounded full autonomy: reads cues, chains modes, standing-orders queue (cue/autopilot-doctrine.md) |
 
 ## 📂 Repository Layout
 ```text

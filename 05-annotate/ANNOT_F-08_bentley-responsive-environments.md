@@ -1,0 +1,2 @@
+# 📝 ANNOTATION — F-08 drift: Bentley's 7 Qualities (S003 audit)
+**Claim (reviewer):** lists "Connectivity" among Bentley's qualities. **Sources (secondary, web-triangulated S003):** Bentley et al. 1985 canonical list uses **Permeability** (with Variety, Legibility, Robustness, Visual Appropriateness, Richness, Personalisation). Grade: reviewer term [O] (as-taught variant); canonical term [R] pending primary (book absent from Books manifest — DEBT_REGISTER row 2026-09-12). Resolution path: primary lands → I.5 both-versions row or grade correction.

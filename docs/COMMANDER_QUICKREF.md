@@ -16,6 +16,9 @@ Repository: https://github.com/tatsufinn-commits/RADIATION.git
 | `@Gather` | "Stockpile knowledge, 10+18 min" | ✅ full list | ❌ never |
 | `@Decode` | "Understand this repository" | ✅ full list | ❌ never |
 
+| **@Review** | "answer from what we KNOW; fetch only gaps" | in refresh report | yes |
+| **@Autopilot** | "handle it end-to-end; read my cues" | per leg | per leg |
+
 **Full invocation:** `@[MODE] | STYLE: [name or AUTO] | TOPIC: [task]`
 **Minimal:** just give the task — the AI runs the Autonomous Scan and infers (asking when unsure).
 

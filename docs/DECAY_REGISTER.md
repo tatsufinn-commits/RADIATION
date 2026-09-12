@@ -7,3 +7,5 @@ Format: `| date flagged | claim (verbatim) | location | old grade → decayed gr
 | Date flagged | Claim | Location | Grade change | Class | Status |
 |---|---|---|---|---|---|
 | — | *(register empty — system founding)* | — | — | — | — |
+| 2026-09-12 | "PD-1096 collection file (retrieved 2025-01-09) reflects current amended state" | Brain/external_sources/law.md DIGEST | [D] → [D][DECAYED] (currency aspect only; statute text itself timeless) | stable-domain 1yr, expired 2026-01-09 | AWAITING RE-VERIFICATION |
+

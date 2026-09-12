@@ -33,7 +33,7 @@ COMMANDER prompt ──► AUTONOMOUS SCAN (docs/CUE_SYSTEM.md)
 | Entry gate | docs/.readme | First-read for any AI ("Read this repository, and act as per .readme") |
 | Boot | BOOT_SEQUENCE.md | Tiered mandatory load order |
 | Intent | docs/CUE_SYSTEM.md + cue/ | Five-phase Autonomous Scan + learning lexicon |
-| Modes | docs/MODES.md | @Radiation, @Data, @Gather, @Decode + Activation Matrix |
+| Modes | docs/MODES.md | @Radiation, @Data, @Gather, @Decode, @Review, @Autopilot + Activation Matrix |
 | Skills | docs/SKILLS.md + 01…09 folders | The nine capabilities, jurisdiction-bound |
 | Subskills | subskills/ | 4 passives (police) + 2 actives (assist) |
 | Formats | styles/ | 10 deliverable skeletons, [MANDATORY]/[FLEX] sections |

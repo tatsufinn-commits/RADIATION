@@ -4,6 +4,19 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.6.1 — 2026-09-12 — P01-Machine-Enforcement-Green (🟢)
+Patch: `RADIATION_PATCH_2026-09-13_0700_P01-Machine-Enforcement-Green.zip`
+P-01 Wave 1: scripts/validate.py (14 structural checks, form-only, stdlib, no
+network) + scripts/knowledge_regression.py + tests/knowledge_assertions.json
+(9 seed assertions, ALL PENDING — locking lawfully blocked until raw primaries
+land per P-04) + CI workflow. Hygiene: 15 placeholder ledger rows backfilled
+with real patch filenames (AP-06 cleared); six-mode propagation to README/
+.readme/PROTOCOL/QUICKREF; DEBT(6)/DECAY(1)/REFERENCES(14) registers seeded;
+F-08 Bentley annotation + S003 triangulation worksheet landed; audit dedupe
+(short_term → pointer stub); schema fixes; docs/ARCHIVE_NOTES.md created.
+Validator: exit 1 (8 fails) before → exit 0 after. Retired-phrase WARNs stand
+pending the 🟠 companion patch (II.2 strike-through etc.).
+
 ## v1.6.0 — 2026-09-12 — DirectWrite-AutoPatch-Autopilot-Doctrine (🟠 RATIFIED)
 Patch: `RADIATION_PATCH_2026-09-13_0600_DirectWrite-AutoPatch-Autopilot-Doctrine.zip`
 NEW LAW II.8 (⚡ABSOLUTE): direct edits always — transport artifacts (append

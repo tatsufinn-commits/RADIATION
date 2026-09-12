@@ -45,7 +45,7 @@ TIER 2 (per task): docs/MODES.md + docs/CUE_SYSTEM.md + passive specs +
 TIER 3 (as needed): 09-nota/CORE_INDEX.md, Brain/long_term/ dossiers,
                    cue/commander-lexicon.md, cerebellum routines
 
-## 4. THE FOUR MODES (full charters: docs/MODES.md)
+## 4. THE SIX MODES (full charters: docs/MODES.md)
 @Radiation — full-spectrum: all 9 skills, max rigor, permanent canonical output.
 @Data      — rapid answers for quizzes/questions. Verify with real sources but
              do NOT list them. Fast, accurate, minimal footprint.
@@ -53,6 +53,10 @@ TIER 3 (as needed): 09-nota/CORE_INDEX.md, Brain/long_term/ dossiers,
              sources. NO final answer (no Nota) — gathering is the mission.
 @Decode    — @Gather's sibling for GitHub repositories: architecture,
              infrastructure, code comprehension.
+@Review    — Brain-first recall & refresh: long_term → short_term → DIGESTs →
+             internet ONLY for gaps, each justified. Scout mandatory.
+@Autopilot — bounded full autonomy: 4-tier cues, standing-orders queue,
+             AUTO-PATCH; doctrine in cue/autopilot-doctrine.md.
 Invocation: @[MODE] | STYLE: [style or AUTO] | TOPIC: [task]
 
 ## 5. THE AUTONOMOUS SCAN (full spec: docs/CUE_SYSTEM.md; condensed: cue/CUE_INDEX.md)

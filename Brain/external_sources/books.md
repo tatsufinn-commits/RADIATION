@@ -39,7 +39,6 @@ Law texts (PD 1096) → [D] — cite rule/section exactly · published books →
 | .DS_Store | binary | (macOS artifact — ignore) | 2026-09-12 |
 
 ## 5. DIGEST
-*(empty — populate at first ingestion session)*
 
 ## 6. ACCESS LOG (append-only, II.2)
 | Date | Session/model | Result | Note |
