@@ -1,0 +1,1 @@
+This calendar will be updated by the commander everyday.
