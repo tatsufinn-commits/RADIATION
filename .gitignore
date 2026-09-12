@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# RADIATION .gitignore — landed 2026-09-13 (P-10 Phase 0, containment patch)
+# Purpose: make accidental publication of vehicles, binaries, and credentials
+#          IMPOSSIBLE rather than merely discouraged.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── 1. CREDENTIALS — never, under any circumstance ───────────────────────────
+# A Blackboard/LMS external-calendar feed URL grants full read access to the
+# Commander's course calendar. It is a credential (P-10 §3.2). It enters no
+# file that git can see.
+schedule/
+schedul*.txt
+*ics.txt
+*.ics
+*.ical
+
+# ── 2. VEHICLES — the documents are read and extracted, never committed ──────
+# II.6 restraint doctrine, rule 8 (delete-the-binary, staged under P-04).
+# The repo holds what the Commander KNOWS; vehicles stay on his machine.
+syllabi/
+courses_raw/
+Brain/courses/_local/
+*.pdf
+*.docx
+*.doc
+*.pptx
+*.xlsx
+*.html
+*.htm
+SCHEDULE.png
+desktop.ini
+Thumbs.db
+
+# ── 3. ARCHIVES & PATCHES — transported, not stored ─────────────────────────
+*.zip
+PATCH_*.zip
+RADIATION_PATCH_*.zip
+
+# ── 4. WORKING NOISE ────────────────────────────────────────────────────────
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+node_modules/

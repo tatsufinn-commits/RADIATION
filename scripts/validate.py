@@ -76,6 +76,43 @@ def c2():
             if d not in ("long_term","short_term","subsidiary","cerebellum"):  # region docs live in BRAIN_INDEX
                 bad.append(f"Brain/{d}/ lacks README/INDEX")
     rec(2, "FAIL", not bad, "required files" + ("" if not bad else ": missing " + "; ".join(bad[:6])))
+# ---- check 2.5: Brain/courses/ — records only, no vehicles, no identifiers ----
+# P-10 §3.3. Cures the 4a98e59 exposure class: FAILs the exact shapes published
+# on 2026-09-13 (binaries, a credential URL, room/section strings).
+# NOTE (v2, after self-test): an earlier revision flagged the bare WORD
+# "Instructor" and failed the course records that state the exclusion. The rule
+# targets VALUES, never vocabulary — a name-bearing label is required to match.
+CV_DENY = ["S308","S300","S303","S301","NW408","SW200","SW304","E01","A54","C5",
+           "calendarFeed","@mapua.edu"]
+CV_PATTERNS = [
+    (r"https?://", "URL/credential"),
+    (r"\b(?:Instructor|Professors?|Prof\.)\s*[:\-\u2013]?\s*(?:is\s+|was\s+)?[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}", "instructor name"),
+    (r"\b(?:Consultation|Email|Contact)\s*(?:Schedule|Hours|Address)?\s*[:\-\u2013]\s*[A-Za-z0-9._%+-]+@", "contact detail"),
+    # v3: rooms are S3xx / NW4xx / SW2xx — but S001-S003 are SESSION ids and
+    # legitimately appear in this region. The pattern excludes S0xx so the check
+    # cannot fail on a session citation.
+    (r"\bS[1-9]\d{2}\b", "room code"),
+    (r"\b(?:NW|SW|SE|NE)\d{3}\b", "room code"),
+    (r"\b(?:E|W)[1-9]\d{2}\b", "room code"),
+    (r"\b(?:Section|Sec\.)\s+[A-Z]{1,2}\d{1,3}\b", "section code"),
+]
+def c25():
+    bad = []
+    root = os.path.join(ROOT, "Brain/courses")
+    if os.path.isdir(root):
+        for dp, dn, fn in os.walk(root):
+            for f in sorted(fn):
+                p = os.path.relpath(os.path.join(dp, f), ROOT)
+                if not f.endswith(".md"):
+                    bad.append(f"{p} (non-markdown vehicle)"); continue
+                t = read(p)
+                for w in CV_DENY:
+                    if w in t: bad.append(f"{p} (published token: {w})")
+                for pat, what in CV_PATTERNS:
+                    m = re.search(pat, t)
+                    if m: bad.append(f"{p} ({what}: {m.group(0)[:24]})")
+    rec(2.5, "FAIL", not bad, "Brain/courses/ records-only + no identifiers" + ("" if not bad else ": " + "; ".join(bad[:6])))
+
 # ---- check 3: forbidden transport artifacts (II.8.2) -----------------------
 def c3():
     bad = []
@@ -337,7 +374,7 @@ def c19():
                 bad.append(f"{f}:{i+1}")
     rec(19, "FAIL", not bad, "publisher rule: no [R] carried by blocklisted aggregator" + ("" if not bad else ": " + "; ".join(bad[:6])))
 
-for fn in (c1,c2,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19): fn()
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

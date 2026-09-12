@@ -208,14 +208,13 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Domain: ALE-UD | Conflicts: resolves STUDY-side handling of row 2 (register row stays OPEN — the register never resolves by annotation)
 - Used by: PLANNING_reviewer A3 study guidance | Notes: "know both terms for exam."
 
-## K-EXT-GDRIVE-001 — The Commander's Drive hub (12 registered collections)
+## K-EXT-GDRIVE-001 — The Commander's Drive hub (9 registered collections)
 - Canonical path: `Brain/external_sources/INDEX.md`
 - Source record: nine collection files | Tier: — (catalog, never evidence) | Type: external-hub
 - Status: CURRENT | Last verified: 2026-09-12 | Freq: 90d | Decay: volatile (links)
 - Domain: ALL | Conflicts: — | Used by: every Drive-capable session (II.6 Restraint Doctrine)
 - Notes: ID deliberately matches TAMAKEE's K-EXT-GDRIVE-001 — the ecosystem-link row P-08 uses. Re-verify by 2026-12-11.
 - ⚠️ P-08 APPEND (2026-09-12): VERIFIED COLLISION — TAMAKEE's K-EXT-GDRIVE-001 names a DIFFERENT object (single folder 1q5iXLUJ...7d6P). Until the Commander rules (fix list 7a), cross-repo references use repo-qualified form: RAD:K-EXT-GDRIVE-001 vs TAMA:K-EXT-GDRIVE-001 (docs/ECOSYSTEM.md §6).
-- APPEND (2026-09-13): +3 collections registered on Commander's order (Statics and Rigid Bodies · Structural · Introduction to Data Science) — 9 → 12. Registration-only; no ingestion (Commander holds a follow-on plan). Verified ACCESSIBLE 2026-09-13.
 
 ## K-MOD-001 — Canonical module: PD 1096 Rule VII–VIII (PSO · TOSL · setbacks · AMBF/AMVB)
 - Canonical path: `03-dossier/MODULE_WORKSHOP_pd1096-rule7-8-setbacks-pso.md` (workshop; settles to Brain/long_term/modules/ on P-06 ratification)
@@ -224,3 +223,51 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Domain: ALE-Law/UD | Depth: 4 (docs/DEPTH_LADDER.md) | Confidence: HIGH
 - Supersedes/by: — / — | Conflicts: — | Used by: KR-LAW-009 (locked) · future P-05 drills
 - Notes: Level 4 by design — no drill (P-05 pending), no invented case studies; NOT Core-grade (single primary instrument).
+
+## K-CUR-007 — [COURSE] GED103 Readings in Philippine History (Term 1 AY 2026-2027)
+- Canonical path: `Brain/courses/GED103.md` — syllabus binary DELETED per II.6 r.8; none retained
+- Source record: Commander-supplied syllabus, ingested 2026-09-13 | Tier: TIER-1 (course document) | Type: course-object
+- Status: VERIFIED (capture) | Grade basis: [D] | Last verified: 2026-09-13 | Freq: 1 term | Decay: term-scoped (expires end of Term 1)
+- Domain: NON-ALE (general education) | Depth: — | Confidence: HIGH
+- Supersedes/by: — / — | Conflicts: — | Used by: planner (deadline clock); `Brain/courses/INDEX.md`
+- Notes: 7 graded tasks (10/10/15/15/15/15/20); AT1 is AI-PROHIBITED under the syllabus's own AI-use classification — RADIATION must never produce text for submission to it. No ALE yield; no module ordered. **COURSE-OBJECT row** (distinct from material-set rows K-CUR-001..006).
+
+## K-CUR-008 — [COURSE] DSS10 Introduction to Data Science w/ Coursera (Term 1 AY 2026-2027)
+- Canonical path: `Brain/courses/DSS10.md` — syllabus binary DELETED per II.6 r.8
+- Source record: Commander-supplied syllabus, ingested 2026-09-13 | Tier: TIER-1 | Type: course-object
+- Status: VERIFIED (capture) | Grade basis: [D] | Last verified: 2026-09-13 | Freq: 1 term | Decay: term-scoped
+- Domain: NON-ALE (computer topics 90% / GenEd 10%) | Depth: — | Confidence: HIGH
+- Supersedes/by: — / — | Conflicts: — | Used by: planner (deadline clock); `Brain/courses/INDEX.md`
+- Notes: FA1 20 / FA2 25 / Coursera 15 / SA 40, every task with a 70% floor. The Coursera component is an EXTERNAL obligation — schedulable, never drillable or verifiable here.
+
+## K-CUR-009 — [COURSE] MEC30-7 Statics of Rigid Bodies for CE (Term 1 AY 2026-2027)
+- Canonical path: `Brain/courses/MEC30-7.md` — vehicle removed from tree (no citable content)
+- Source record: Commander-supplied course calendar, ingested 2026-09-13 | Tier: TIER-1 | Type: course-object
+- Status: VERIFIED (capture) | Grade basis: [D] | Last verified: 2026-09-13 | Freq: 1 term | Decay: term-scoped
+- Domain: ALE-adjacent (structural prerequisite) | Depth: — | Confidence: MEDIUM (sequence known; WEIGHTS ABSENT)
+- Supersedes/by: — / — | Conflicts: — | Used by: planner (deadline clock); `Brain/courses/INDEX.md`
+- Notes: Q1 W4 · Q2 W7 · Q3 W10 · Final W11; Coursera PR1–PR5 + certificate. **Weights not printed — the largest single gap in the Term-1 capture.** Coursera recurs in 3 of 6 courses: treat as one term-wide obligation, not three.
+
+## K-CUR-010 — [COURSE] AR173-1P Planning 2: Urban Design & Community Architecture (Term 1 AY 2026-2027)
+- Canonical path: `Brain/courses/AR173-1P.md` — NO SYLLABUS; schedule vehicle removed (image-based, no text layer)
+- Source record: material cross-check 2026-09-13 | Tier: — | Type: course-object
+- Status: PARTIAL — module buildable; syllabus missing (prioritisation only) | Grade basis: [D] via K-CUR-001/002 | Last verified: 2026-09-13 | Freq: 1 term | Decay: term-scoped
+- Domain: **ALE-Site Planning/UD — highest yield of the term (provisional 9)** | Depth: — | Confidence: MEDIUM
+- Supersedes/by: — / — | Conflicts: — | Used by: planner (meeting-time only); `Brain/courses/INDEX.md`
+- Notes: **Best-supplied course in the system.** Served by K-CUR-001 (ingested lecture set), K-CUR-002 (audited reviewer), K-MOD-001 (L4), and SET-PD1096-VIII-001 (forged). Original BUILD-REQUIRED status was WRONG and was corrected by registry cross-check — recorded, not silently edited. Deadline-blind (no syllabus ⇒ no weights/dates).
+
+## K-CUR-011 — [COURSE] AR163-1P Building Technology (Term 1 AY 2026-2027)
+- Canonical path: `Brain/courses/AR163-1P.md` — NO SYLLABUS (stub: "not available")
+- Source record: material cross-check 2026-09-13 | Tier: — | Type: course-object
+- Status: MATERIAL HELD, NOT INGESTED | Grade basis: — | Last verified: — | Freq: 1 term | Decay: term-scoped
+- Domain: ALE-Building Technology (provisional 8) | Depth: — | Confidence: LOW (no scope statement)
+- Supersedes/by: — / — | Conflicts: — | Used by: planner (meeting-time only); `Brain/courses/INDEX.md`
+- Notes: Material is **K-CUR-006** (50-file deck set, 601 MB, manifested-never-ingested). Open work = an INGESTION run, not an acquisition. Exposed a REGISTRY GAP: **NSCP 2015 is held in the Law collection but has no K-STD row**, so it is invisible to the yield-ranked build order.
+
+## K-CUR-012 — [COURSE] AR153P Building Utilities 2 (Term 1 AY 2026-2027)
+- Canonical path: `Brain/courses/AR153P.md` — NO SYLLABUS (stub: "not available")
+- Source record: material cross-check 2026-09-13 | Tier: — | Type: course-object
+- Status: MATERIAL HELD, NOT INGESTED | Grade basis: — | Last verified: — | Freq: 1 term | Decay: term-scoped
+- Domain: ALE-Utilities (provisional 8) | Depth: — | Confidence: LOW
+- Supersedes/by: — / — | Conflicts: — | Used by: planner (meeting-time only); `Brain/courses/INDEX.md`
+- Notes: Material is **K-CUR-005** (14 PDFs incl. Fajardo + PEC; manifested-never-ingested) — the electrical side is covered. Highest code-density course of the term. Two gaps: NSCP 2015 unregistered; **Revised National Plumbing Code NOT HELD** — the only genuine instrument hole in the term (plumbing only; an earlier revision overstated its scope).
