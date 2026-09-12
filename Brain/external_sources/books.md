@@ -5,7 +5,7 @@
 - OWNER          : THE COMMANDER
 - PERMISSIONS    : anyone-with-link (verified working without auth)
 - APPROVED       : 2026-09-12 — RADIATION_PATCH_2026-09-12_1900_First-Collections-Registration.zip
-- LAST VERIFIED  : 2026-09-12 — re-verified same day, session 2 (re-verify by 2026-12-11)
+- LAST VERIFIED  : 2026-09-12 — re-verified ×3 same day (re-verify by 2026-12-11)
 
 ## 2. CONTENTS DESCRIPTION
 Core architecture reference library ("BOOKS"): canonical architectural history
@@ -14,7 +14,7 @@ Building Code, 2005 ed., 2025 file), practice handbooks (Fajardo Planning &
 Designers Handbook ×3 variants), monographs (Aalto, Wright landscapes, Bauhaus
 Dessau, Japanese architecture/Jodidio-Taschen), parametric/computational
 design texts, and Heidegger's "The Question Concerning Technology."
-16 files (grew from 14 on 2026-09-12), up to 566.5 MB — see MANIFEST UPDATE.
+47 files (14 → 16 → 47 on 2026-09-12) — see MANIFEST UPDATES; up to 566.5 MB.
 
 ## 3. EVIDENCE-GRADE EXPECTATIONS
 Law texts (PD 1096) → [D] — cite rule/section exactly · published books →
@@ -57,3 +57,19 @@ Collection re-verified ACCESSIBLE; grew 14 → 16 files. NEW since first capture
 Size flags on prior entries confirmed: Banister Fletcher 119.1 MB ⚠️, PD-1096 106.9 MB ⚠️, JP Architecture (Jodidio/Taschen) 96.3 MB ⚠️, Aalto 50.3 MB ⚠️.
 
 | 2026-09-12 | Protocol Architect (registration session 2) | ACCESSIBLE — re-verified; manifest refreshed (+3 entries incl. 566.5 MB 🛑) |
+
+## MANIFEST UPDATE 2 — 2026-09-12 (registration session 3, live re-read)
+Massive growth: 16 → 47 files. NEW since update 1, by cluster:
+| Cluster | Files | Sizes/flags |
+|---|---|---|
+| **Time-Saver Standards suite (6)** | Architectural Design Data 7th ed. (⚠️ 135.8 MB) + earlier ed. (⚠️ 86 MB) · Building Types 2nd ed. (🛑 189 MB) · Landscape Architecture (⚠️ 125.2 MB) · Site Construction Details (⚠️ 122.3 MB) · Urban Design (⚠️ 77.1 MB) | ALL large-file protocol |
+| **Ching** | Architecture: Form, Space & Order — 3rd ed. (50.7 MB ⚠️), 4th ed. (61.9 MB ⚠️), PDFDrive variant (19.6 MB — prefer for fetch economy) | 3 variants of one work |
+| **Urbanism classics** | Jane Jacobs — Death and Life of Great American Cities (4.1 MB) · Kevin Lynch — The Image of the City (4.1 MB) · Jan Gehl — Cities for People (13.4 MB) · New Urbanism/Andres Duany (4.7 MB) | Lynch = Planning DIGEST triangulation target ✓ now in-catalog |
+| **Standards/handbooks** | Metric Handbook ×3 (Basic Data, Notation, Planning 18.9 MB) · Human Dimension & Interior Space (50.3 MB ⚠️) · Time… Architect's Studio Companion (8 MB) · Space Planning Basics (8.1 MB) · Interior Design Reference & Spec (13.3 MB) · Graphics Manual (12 MB) · masterformat_2018 (2 MB) | Core exam-prep matter |
+| **Fajardo additions** | Planning & Design Handbook (23.7 MB) · P&D 2nd ed. alt scan (6.4 MB — prefer) · Simplified Construction Estimates (30.7 MB) | more variants — pick smallest |
+| **Sustainability/eco** | Ken Yeang (5.5) · Jean Nouvel (3.8) · William McDonough (4.1) · PH Urban Greening Plant Guidebook (5.9) | |
+| **Filipiniana** | Diksiyonaryong Biswal ng Arkitekturang Filipino (17.2 MB) | PH architecture visual dictionary |
+| **Concept/theory** | The Architecture Concept Book (36.9 MB ⚠️) | |
+Fetch-economy notes: Ching ×3, Fajardo P&D ×5-total, Plumbing-code-style duplicates — ALWAYS pick the smallest variant (rule 14 spirit). Lynch/Jacobs/Gehl now in-catalog = Planning collection's triangulation targets are one surgical fetch away.
+
+| 2026-09-12 | Protocol Architect (registration session 3) | ACCESSIBLE — re-verified; manifest refreshed (+31 entries; Time-Saver suite 🛑⚠️) |

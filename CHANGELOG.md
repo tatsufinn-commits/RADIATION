@@ -4,6 +4,15 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.5.4 — 2026-09-12 — Law-Collection-and-Books-Refresh (🟢)
+Patch: `RADIATION_PATCH_2026-09-13_0400_Law-Collection-and-Books-Refresh.zip`
+Ninth collection: Law — PH statutory backbone (PD 1096+IRR, NSCP 2015, RA 9514
+Fire Code, BP 220/344, PD 957, Plumbing/Green codes; statute↔IRR pairs mapped
+for citation discipline). NSCP 2015 = 1,022.2 MB — first >1 GB file, ABSOLUTE
+fetch-of-last-resort. Books manifest refreshed 16→47: Time-Saver suite (6),
+Ching ×3, urbanism classics (Lynch/Jacobs/Gehl — Planning's triangulation
+targets now in-catalog), Metric Handbooks, Filipiniana.
+
 ## v1.5.3 — 2026-09-12 — Novels-and-Manifest-Refresh (🟢)
 Patch: `RADIATION_PATCH_2026-09-13_0300_Novels-and-Manifest-Refresh.zip`
 Eighth collection: Novels (🎭 entertainment — fiction NEVER citable as
