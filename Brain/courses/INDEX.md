@@ -30,7 +30,7 @@ One record per enrolled course: what is taught, what is graded, when, and which 
 | K-CUR-008 | DSS10 | Introduction to Data Science (w/ Coursera) | 3 | **1** | ✅ full | (Coursera, external) | `Brain/courses/DSS10.md` |
 | K-CUR-009 | MEC30-7 | Statics of Rigid Bodies for CE | 3 | **5** | ⚠️ calendar only | — | `Brain/courses/MEC30-7.md` |
 | **K-CUR-010** | **AR173-1P** | **Planning 2 — Urban Design & Community Architecture** | 3 | **9** ⭐ | ❌ | ✅ **ingested + reviewer + module + drill** | `Brain/courses/AR173-1P.md` |
-| K-CUR-011 | AR163-1P | Building Technology | 3 | **8** | ❌ | ✅ **held, never ingested** (K-CUR-006) | `Brain/courses/AR163-1P.md` |
+| K-CUR-011 | AR163-1P | Building Technology | 3 | **8** | ❌ | ✅ **INGESTED 2026-09-13** (K-CUR-006) — ⚠️ core texts image-only | `Brain/courses/AR163-1P.md` |
 | K-CUR-012 | AR153P | Building Utilities 2 | 3 | **8** | ❌ | ✅ **INGESTED 2026-09-13** (K-CUR-005) | `Brain/courses/AR153P.md` |
 
 **ALE yield** = the P-06 yield rubric's four factors applied to licensure relevance (frequency 40 / breadth 20 / error-proneness 25 / memorisation 15). Provisional at capture; replaced by the measured `yield_rank` in each `K-MOD` record as modules are built.
@@ -46,7 +46,7 @@ One record per enrolled course: what is taught, what is graded, when, and which 
 | Course | Yield | What is actually held | The real open work |
 |:--:|:--:|---|---|
 | AR173-1P | 9 | lecture set **ingested** · audited reviewer · **K-MOD-001 (L4)** · **drill set forged** | *nothing to acquire* — drill it |
-| AR163-1P | 8 | deck set, 50 files (601 MB) — **manifested, never ingested** | an **ingestion run** |
+| AR163-1P | 8 | 50 files / **1,177.9 MB** — ✅ **INGESTED 2026-09-13** · Salvan (PH) + Barry vols 1–5 + FLEA 2013 review + a 3,036-item corpus | **2,038 pp image-only = the core texts** (recovery ladder) |
 | AR153P | 8 | 14 files / 283.4 MB — ✅ **INGESTED 2026-09-13** · PEC + Fajardo + PD 1096 pipe codes extracted | **334 pp image-only** (recovery ladder) + module build |
 
 > **The bottleneck is INGESTION, not acquisition.** The material for the three highest-yield courses of the term is already in the Commander's collections — two sets have never been processed, and the third has been processed all the way to a working drill set.

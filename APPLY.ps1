@@ -18,7 +18,7 @@ $ErrorActionPreference = "Stop"
 function Say($m, $c = "Gray") { Write-Host $m -ForegroundColor $c }
 function Head($m) { Write-Host "`n=== $m ===" -ForegroundColor Cyan }
 
-Head "RADIATION PATCH 2026-09-13_2400 — Building Utilities Ingestion (AR153P)"
+Head "RADIATION PATCH 2026-09-13_2500 — Ingestion #2: Building Technology (AR163-1P)"
 
 # ── 1. repo root? ────────────────────────────────────────────────────────────
 $probes = @("docs\AI_RULES.md", "Brain", "scripts\validate.py")
@@ -32,9 +32,13 @@ Head "verifying the patch files are in place"
 $files = @(
   "scripts\ingest_collection.py",
   "Brain\short_term\ingest\BU_INGEST_2026-09-13.md",
+  "Brain\short_term\ingest\BT_INGEST_2026-09-13.md",
   "Brain\external_sources\building-utilities.md",
+  "Brain\external_sources\building-technology.md",
   "docs\KNOWLEDGE_REGISTRY.md",
   "docs\DECAY_REGISTER.md",
+  "scripts\validate.py",
+  "Brain\short_term\plan\README.md",
   "Brain\courses\AR153P.md",
   "Brain\courses\AR163-1P.md"
 )
@@ -42,6 +46,10 @@ $missing = 0
 foreach ($f in $files) { if (-not (Test-Path $f)) { Say "x missing: $f" Red; $missing++ } }
 if ($missing -gt 0) { Say "  Re-extract the zip OVER the repository root." Red; exit 1 }
 Say "v patch files present" Green
+$vpy = Get-Content "scripts\validate.py" -Raw
+if ($vpy -match "def cv_denied" -and $vpy -match "MARKERS = ") {
+    Say "v validator carries the v4/v5 precision fixes (check 2.5 token-aware; check 20.5 needs an attempt marker)" Green
+} else { Say "x validate.py is the OLD version - re-extract the zip over the repo root" Red }
 
 # ── 3. this patch shipped no vehicle (II.6 r.8) ──────────────────────────────
 # Brain\courses\ already holds six pre-existing vehicles (check 2.5) that Phase 0 is
@@ -125,6 +133,7 @@ Say ""
 Say "4) next ingestion run: K-CUR-006 (AR163-1P, 50 files / 601 MB). The harness exists" White
 Say "   now - that is a re-run, not a build. Expect one size-skip." White
 Say ""
-Say "5) 334 pages in this collection are image-only and unrecovered. The recovery ladder" White
-Say "   is a separate session with its own time budget. They are logged, not lost." White
+Say "5) THE REAL CONSTRAINT: 2,038 pages of K-CUR-006 are image-only - and they are the" White
+Say "   core course texts (Barry vols 1-5 = 984 pp; the course module = 248 pp). K-CUR-005s" White
+Say "   334 pages were peripheral. These are not. The recovery ladder is the next real job." White
 Say "`nDone.`n" Cyan

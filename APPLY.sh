@@ -13,7 +13,7 @@ set -euo pipefail
 say() { printf '%s\n' "$1"; }
 head_() { printf '\n\033[36m=== %s ===\033[0m\n' "$1"; }
 
-head_ "RADIATION PATCH 2026-09-13_2400 — Building Utilities Ingestion (AR153P)"
+head_ "RADIATION PATCH 2026-09-13_2500 — Ingestion #2: Building Technology (AR163-1P)"
 
 for probe in docs/AI_RULES.md Brain scripts/validate.py; do
   [ -e "$probe" ] || { say "✗ Not the repository root ('$probe' missing). cd to the repo root and re-run."; exit 1; }
@@ -25,14 +25,24 @@ head_ "verifying the patch files are in place"
 missing=0
 for e in scripts/ingest_collection.py \
          Brain/short_term/ingest/BU_INGEST_2026-09-13.md \
+         Brain/short_term/ingest/BT_INGEST_2026-09-13.md \
          Brain/external_sources/building-utilities.md \
+         Brain/external_sources/building-technology.md \
          docs/KNOWLEDGE_REGISTRY.md \
          docs/DECAY_REGISTER.md \
+         scripts/validate.py \
+         Brain/short_term/plan/README.md \
          Brain/courses/AR153P.md \
          Brain/courses/AR163-1P.md ; do
   [ -e "$e" ] || { say "✗ missing: $e"; missing=1; }
 done
 [ "$missing" -eq 0 ] && say "✓ patch files present" || { say "  Re-extract the zip OVER the repository root."; exit 1; }
+# this patch changes two checks — confirm the new rules actually landed
+if grep -q "def cv_denied" scripts/validate.py && grep -q "MARKERS = " scripts/validate.py; then
+  say "✓ validator carries the v4/v5 precision fixes (check 2.5 token-aware · check 20.5 needs an attempt marker)"
+else
+  say "✗ validate.py is the OLD version — re-extract the zip over the repo root"
+fi
 
 # ── this patch must have shipped no vehicle (II.6 r.8) ───────────────────────
 # NOTE: Brain/courses/ already contains six pre-existing vehicles (check 2.5) that
@@ -71,6 +81,7 @@ if [ -n "$PY" ]; then
   set +e; $PY scripts/ingest_collection.py --help >/dev/null 2>&1; hc=$?; set -e
   if [ "$hc" -eq 0 ]; then
     say "✓ harness runs (list · fetch · extract · verify)"
+    say "  · new in this patch: --max-size (SIZE-SKIP + log) · declared-type gate · >100 MB confirm flow · OOXML extract"
     if $PY -c "import pymupdf" >/dev/null 2>&1; then
       say "✓ pymupdf present — extract and verify are available"
     else
@@ -79,6 +90,7 @@ if [ -n "$PY" ]; then
     fi
     say ""
     say "→ next collection:  $PY scripts/ingest_collection.py list --url \"<folder-url>\" --out manifest.json"
+    say "   (fetch with --max-size: a 600 MB file is then skipped LAWFULLY, and logged)"
     say "→ a manifest is a PLAN: fetching needs --dest pointing OUTSIDE this repo."
   else
     say "✗ harness failed to run — check the python version (3.8+ expected)"
@@ -104,10 +116,10 @@ fi
 head_ "NEXT"
 cat <<'EOF'
 1) git add -A
-   git commit -m "P-10 Phase 2: ingest K-CUR-005 (Building Utilities) — DIGEST, registry, harness"
+   git commit -m "P-10 Phase 3: ingest K-CUR-006 (Building Technology) — DIGEST, 6 registry objects, hardened harness"
 
-2) the run found something about how we read tables. It is in PATCH_NOTES.md §2.
-   Read it before extracting another table out of any PDF.
+2) two findings belong to methods, not data — PATCH_NOTES §2 (the core is text-blind)
+   and §3 (a 200 with the wrong bytes is a FAILED fetch). Both are in the notes.
 
 3) still open, and both are the Commander's alone:
      🔴 rotate the LMS calendar feed  ->  then record the date in Brain/courses/INDEX.md
@@ -116,8 +128,10 @@ cat <<'EOF'
 4) next ingestion run: K-CUR-006 (AR163-1P, 50 files / 601 MB). The harness exists
    now — that is a re-run, not a build. Expect one size-skip.
 
-5) 334 pages in this collection are image-only and unrecovered. The recovery ladder
-   is a separate session with its own time budget. They are logged, not lost.
+5) ⚠️ THE REAL CONSTRAINT: 2,038 pages of K-CUR-006 are image-only — and they are the
+   core course texts (Barry vols 1-5 = 984 pp; the course's own module = 248 pp).
+   K-CUR-005's 334 pages were peripheral. These are not. The recovery ladder is the
+   next real job in this system.
 EOF
 say ""
 say "Done."

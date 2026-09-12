@@ -1,190 +1,208 @@
-# PATCH NOTES — RADIATION_PATCH_2026-09-13_2400_BU-Ingestion-AR153P.zip
-**Risk class:** 🟢 ORDINARY — no constitutional text, no core scaffold, no mode definition, no Scan rule
-**Pre-merged. Extract over the repository root. Pure file overlay — nothing is removed from the tree.**
-**Validator (clean mirror):** 25 checks · **22 pass · 2 warn · 1 fail — identical before and after this patch.** It adds no failure and clears none; the 1 remaining is check 2.5, the six course vehicles awaiting the authorized Phase-0 removal. *Full honest accounting in §7.*
+# PATCH NOTES — RADIATION_PATCH_2026-09-13_2500_BT-Ingestion-AR163P.zip
+**Risk class:** 🟢 ORDINARY — no constitutional text, no core scaffold, no mode definition, no Scan rule.
+**⚠️ This patch modifies two validator checks (`scripts/validate.py`).** Both are precision fixes, both carry regression tests in both directions, and **neither loosens a guard** — §6 states exactly what changed and why.
+**This patch is a SUPERSET of `…_2400_BU-Ingestion-AR153P.zip`.** If the 2400 patch was never applied, this one alone brings the tree to the same state; if it was applied, extracting this over it is idempotent. Nothing is removed from the tree either way.
+**Validator (clean mirror):** 25 checks · **22 pass · 2 warn · 1 fail — identical before and after.** It adds no failure and clears none. The one fail is check 2.5's six pre-existing course vehicles (pending the authorised Phase-0 removal); the warns are check 16 (meta-budget, standing) and check 20.5 (AP-08 — *correctly still on; see §6*).
 
 ---
 
 ## 1 · WHAT THIS IS
 
-**P-10 Phase 2: the first real ingestion run.** The Building-Utilities collection — the material behind **AR153P, one of the three high-yield architecture courses** — went from *manifested* to *extracted*.
-
-This discharges the standing order the architect's own cue doctrine names at §2.5 (*"Empty DIGESTs of registered collections — staging-not-substitute"*): `building-utilities.md` had carried **"DIGEST (empty — populate at first ingestion session)"** since registration.
+**Ingestion run #2 — K-CUR-006, Building Technology (AR163-1P, K-CUR-011).** The last high-yield course of the term that had never been processed.
 
 | | |
 |---|---|
-| **Fetched** | **14 / 14 files · 283.4 MB · 0 failures** |
-| **Inventoried** | **3,923 pages** — 11 usable text layers (10 full, 1 thin), **3 image-only (334 pp)** |
-| **Produced** | DIGEST populated (§5) · 3 registry objects · 1 decay row · 1 ingestion record · 1 reusable harness |
-| **Deleted** | all 14 binaries — **no vehicle entered the repository** (II.6 r.8) |
+| **Accounted for** | **50 / 50 files** — 49 fetched (1,177.9 MB, **0 failures**) · **1 SIZE-SKIPPED** (601.1 MB, lawful and logged) |
+| **Inventoried** | 45 PDFs / **8,797 pages** · 4 non-PDF objects extracted · 2,038 pp image-only |
+| **Produced** | DIGEST populated (§5) · 6 registry objects · 4 decay rows · 1 ingestion record · the harness hardened |
+| **Deleted** | every binary — **no vehicle entered the repository** (II.6 r.8) |
+
+**Live manifest vs registered manifest: no drift.** 50 files both times, 1,177.9 MB live vs 1,178.2 MB registered — two titles are merely abridged in the registration. *Checked rather than assumed; the first version of that check was wrong and said the opposite (§8).*
 
 ---
 
-## 2 · ⭐ THE FINDING THAT CHANGES A RULE
+## 2 · ⭐ THE FINDING THAT MATTERS MOST — the core course texts are TEXT-BLIND
 
-**PEC Table 2.20.2.3 was extracted WRONG by text order — and the error was invisible.**
+**Every book this course is actually taught from is a scan with no text layer.**
 
-Naive line-order parsing produced a complete, tidy, plausible table. **Every value was shifted.**
+| File | pp |
+|---|--:|
+| **Barry**, *The Construction of Buildings* **vols 1–5** | 984 |
+| **the course's own module** (`Module - Building Technology`) | 248 |
+| *Visual Handbook of Building and Remodeling* (US) · *Architectural Surfaces* · *Essential Guide to Framing* · *STAIRS DESIGN* | 806 |
+| **Total** | **2,038 = 23.2 % of the collection** |
 
-| | Armories | Banks | Churches | Dwellings | Schools |
-|---|:--:|:--:|:--:|:--:|:--:|
-| **naive text order gave** | 33 | 11 | 22 | 22 | 3 |
-| **the truth is** | **11** | **39**ᵇ | **11** | **33** | **33** |
+**Building Utilities, ingested the day before, was 8.5 % image-only — and its text-blind files were peripheral. Here it is 23.2 %, and it is the spine.**
 
-Nothing about the output looked broken. It was a table, it read like a table, and it was wrong. The cause: multi-line row labels and merged cells bind to the numeric column in the wrong order.
+**So this patch's own headline sentence needs a second half.** "K-CUR-006 ingested" is true and incomplete: the ingestion read the *periphery*, and is blind to the *core*. Any future session that repeats the first half alone is reporting a half-truth, which is why the caveat is written into the DIGEST, the course record, the ingest record and the ledger rather than buried in one of them.
 
-**The correct values were recovered by rendering the page and reading it** — the recovery ladder's vision rung. Full corrected table in the DIGEST §5.2 and the ingestion record §2.
+**Measured, not assumed:** the scans are legible — rendering *The Construction of Buildings 1* p. 50 at 110 dpi returns clean body text and legible captions. The recovery ladder is **viable** (≈ a page per render-and-read). **None of it has been done, and none of it is claimed.**
 
-### THE RULE THIS ESTABLISHES
-> **A legal or numeric table extracted by text order alone is UNVERIFIED.**
-> Two-column tables, multi-line row labels, and merged cells **mis-bind silently**.
-> Any table carrying a code value must be settled by **coordinate extraction or a rendered read**
-> before the value is graded. **A number that cannot be traced to a verified table read is not `[D]`.**
-
-This is **AP-03 (grade inflation through convenience)** — a value wearing a grade it had not earned. It was caught only because the table was cross-checked against a render. **Had it not been, a wrong lighting load would have entered the system marked `[D]`, and nothing downstream would ever have questioned it.**
-
-**Proposed for addition to `proc_ingestion-run`** — which is already staged for revision at P-04. This patch does **not** amend the scaffold; it implements the rule in tooling and files the proposal.
+**Grade consequence:** no page of those 2,038 carries `[D]` — *including the volumes whose editions were settled*, because an edition is a fact and the content behind it is still unread.
 
 ---
 
-## 3 · PRIMARY-LAW CONTENT RECOVERED
+## 3 · ⭐ THE METHOD FINDING — a 200 with the wrong bytes is a FAILED fetch
 
-### PD 1096 Rule XII/XIII — pipe colour coding → `[D]`, citable to Rule
-File 01 is **not a utilities handout — it is a PD 1096 table**. This is the **first mechanical/electrical PD 1096 content the system holds**; K-MOD-001 covered only Rules VII–VIII.
-- **Divisions:** Steam HP WHITE · Exhaust BUFF · Water fresh BLUE / salt GREEN · Oil delivery BRASS-BRONZE / discharge YELLOW · Pneumatic GRAY · Gas BLACK
-- **Colour key:** RED (CO₂, fire-service water) · ORANGE (acetylene, LPG, gasoline, hydrogen, oxygen, oil, tar, producer gas…) · YELLOW (acid, HP air, ammonia, HP/LP steam, boiler-feed, hot water) · GREEN (LP air, argon, helium)
+**The first fetch of this collection downloaded Google's "virus scan warning" HTML page as `Module - Building Technology.pdf`, and my harness counted it OK** — because the interstitial *is text*, and the harness's check accepted text.
 
-### Philippine Electrical Code 2009 → `K-STD-004`
-856 pp, 399 bookmarks, chapters 1–8 verified. Voltages for load calc (2.20.1.5(a)): 115 · 115/230 · 208Y/120 · 230 · 347 · 400Y/230 · 460Y/265 · 460 · 600Y/347 · 600.
-> ⚠️ **EDITION CURRENCY UNRESOLVED. This is the 2009 edition; the PEC has been revised since (2017 is commonly cited). Nothing from this file may be taught as current until the edition question is settled.** Decay row filed. *Recorded as a currency flag, not as a defect in the file.*
+**116 MB of the course's own module was silently absent from a run that printed "48 fetched, 0 failures".**
 
----
+Nothing about that output looked wrong. **This is the PEC-table failure in a different costume:** the right shape, the wrong contents, passing a check that only asked for something plausible.
 
-## 4 · 🔎 THE OTHER FINDINGS (the run found more than it extracted)
+> **THE RULE THIS ESTABLISHES — a fetch is successful only if the bytes match the declared type.**
+> HTTP 200, a non-zero size and a plausible-looking file are **not** evidence. Validate the magic bytes against the extension; on mismatch, run the >100 MB confirm flow; if it still fails, **fail loudly**. *A document fetch that silently yields a web page is a missing document, not a downloaded one.*
 
-1. **🎯 A US manual was sitting in a Philippine utilities folder.** `QS_3FiregroundHydraulics_edited.pdf` is the **Tennessee Fire Academy Driver Operator Manual ch.3 (rev. 04/2014)** — its own text says the data comes from tests on TFACA equipment *"safe and practical to what we use here in Tennessee."* Units are psi/feet/FPS.
-   **Graded `[R]` for hydraulics principles · NEVER citable for any Philippine code value.** Flagged in the DIGEST so a future session cannot mistake it for a PH standard because of where it sat.
+**Fixed in this patch, three ways:**
+1. **declared-type gate** — `.pdf→pdf`, `.xlsx/.pptx/.docx→zip`, `.ppt/.xls/.doc→ole`; a mismatch is a **FAIL** and is logged, never a pass;
+2. **the >100 MB confirm-token flow** — parses the interstitial's `id/export/confirm/uuid` form and re-requests from `drive.usercontent.google.com`. Verified: 116.08 MB, `%PDF-1.6`;
+3. **cache validity** — a cached file is re-fetched unless its bytes match the declared type (the first run's 2,449-byte "PDF" sat in the cache and would have been counted as present).
 
-2. **AP-05 confirmed in RADIATION's own holdings.** Files 10 and 11 (`Recording Studio Design`) are **byte-identical** — MD5 `d7c0b5cf…`. Until now AP-05's cited instance was TAMAKEE's 14 mirror pairs, i.e. *someone else's* failure. **This is the first instance found inside our own collections**, found by hash during extraction.
-
-3. **334 pages are image-only and unrecovered** — files 07 (Plumbing Fajardo, 175 pp), 08 (Plumbing module, 57 pp), 13 (M&E module, 102 pp). A text-layer pass returns **0 words**. Files 08 and 13 are **the course modules for this exact course.** Recovery ladder required; not optional.
-
-4. **The collection is redundant in its plumbing half and thin in its mechanical half** — five files (02/04/05/07/08) cover plumbing/sanitary; nothing but a lecture deck covers mechanical.
-
-5. **What it does NOT contain:** the **Revised National Plumbing Code** (the governing instrument for the sanitary half), RA 9514, or any mechanical instrument.
-
-6. **A number in my own draft was wrong, and it was caught before delivery.** The first draft of the ingestion record stated the page total as **3,323**. The per-file column sums to **3,923**, and the extraction report agrees — the prose figure was a transcription slip that survived two re-reads because it *looked* computed. Corrected in all six files that carried it, and the correction is recorded in the ingestion record §5.1 rather than edited away.
-   **The §2 rule applies to my arithmetic too:** a number that cannot be traced to a column it cites is not a verified number.
+*The log said OK. The file was a web page. It was caught by reading the bytes instead of the log.*
 
 ---
 
-## 5 · CORRECTIONS TO PRIOR RECORDS — and the pattern
+## 4 · 🎯 THE QUESTION BANK — 3,036 items, and what it is NOT
 
-**This session's registry cross-check corrected two false claims that an earlier revision of `AR153P.md` had asserted:**
+`Building Tech, Utilities, Structural (1).xlsx` → sheet **"Ultimate Reviewer"**, **3,036 items**, options inline `[A]`–`[D]`. It is the single highest-value-looking object in the collection.
 
-| Prior claim (mine, 2300 patch) | Registry reality |
+**It looks like an answer bank. It is not one.**
+
+| Column | Holds | Coverage |
+|---|---|---|
+| question text | the question | 3,036 |
+| **answer letter** | **the key** | **24 items — 0.8 %** |
+| the attempt's answer | what someone chose | all items |
+| verdict / score | 16 Correct · 2,906 Wrong · score **16** | |
+
+**The correct answer is recoverable for 16 items out of 3,036.** Filed `K-REF-004` as **[R] — a question corpus, not an answer source.**
+
+**Building drills from it as if it were keyed would be the PEC-table failure at a scale of three thousand** — a plausible, unverified letter, memorised until it feels like knowledge. **Its honest value is the reverse one: it is a coverage map** of what this course examines (concrete 348 · doors & hardware 190 · roofing 170 · PEC 144 · steel 137 · wind 118 · NSCP 80 · foundation 62 · masonry 58 · timber 43 · plumbing 26).
+
+*The 2,906 "Wrong" marks are unexplained — possibly a bulk-marked or stale attempt. Recorded as unexplained, not interpreted.*
+
+---
+
+## 5 · WHAT WAS RECOVERED
+
+- **The Philippine material** — `K-BK-006` **Salvan**, *Architectural Building Materials* ("The New Ladder Type Curriculum", UAP) — the PH text, and the only object here that speaks to PH practice rather than a foreign code. **Edition unresolved** (interior years 1963/69/87); no dated claim until settled.
+- **`K-BK-008` FLEA 2013 UAP-Dubai review chapters** — steel · doors & hardware · roofing · concrete · site preparation · formworks. **Philippine licensure review**, each with "Refresher Questions". `[R]`: *a review deck is not an authority; it points at authorities.*
+- **`K-REF-005`** a 1,066-row glossary · **`K-REF-006`** a **210-item identification list** ("Short metal 'T' beam in suspended ceilings" → *Cross Tee*) — **drill-shaped, the same shape as the PD 1096 drill already in use.**
+- **`K-BK-007` Barry vols 1–5 — editions settled by render, not by filename:** vol 1 **7th** · vol 2 **5th** · vol 3 **4th** · vol 4 **4th** · vol 5 **NOT SETTLED** (recorded as unknown rather than guessed). **The set is mixed editions: "cites Barry" is not a citable act — a claim must name the volume *and* the edition.** Decay row filed.
+- **Hazards flagged:** most of the collection is foreign-code (US ASD/NDS · UK/BS · EU/EC5 · India/IS) and **none of it is a source for a Philippine code value**; one file is a **marketing SAMPLE** sold into the folder as a book (`25`, Walshaw — 37 pp of a title that runs to hundreds); one is a **1988** Elsevier energy text; one is a **2002 Carbon Trust UK wind-turbine report**.
+
+---
+
+## 6 · TWO VALIDATOR CHECKS MADE PRECISE — and the guard my own patch broke
+
+**This patch modifies `scripts/validate.py`. Here is exactly what changed.**
+
+### 6.1 check 2.5 — a denied code is a token, not a substring
+The check denies a list of literal room/section codes (`S308`, `NW408`, **`C5`**, `E01`, …) with `if w in text`. **My new course record contains "EU/EC5" (Eurocode 5) — which contains "C5" — so the patch introduced a check-2.5 failure on legitimate domain content.**
+
+`CV_DENY` codes are now matched with **word boundaries**; distinctive strings (`calendarFeed`, `@mapua.edu`) keep substring matching.
+**Regression-tested in both directions:** a **standalone `C5` still FAILS** (verified), and `EC5` no longer does. *This fixes the rule's precision; it does not exempt the content.*
+
+### 6.2 ⚠️ check 20.5 — the AP-08 guard my ingestion rows switched off
+When I first ran the validator, **pass went up by one: check 20.5 went from WARN to PASS.** That looked like good news. It was not.
+
+The check cleared if any of the last three task-ledger rows merely **contained the substring "drill"** — and my ingestion rows say *"**not a drill source**"*. **The AP-08 guard — the one that exists to say "plans are not progress" — switched itself off on a sentence about the opposite of practising.**
+
+**A guard that a passing mention can silence is not a guard.** The check now requires an **explicit marker** (`attempt:` · `mastery:` · `drilled` · `@Review`), documented in `Brain/short_term/plan/README.md` with the reason written next to it. **Consequence: the AP-08 warning is correctly still ON** — the plan exists and no attempt has been logged. *That warning is true, and this patch deliberately leaves it true.*
+
+**Net effect of both fixes: the check count is unchanged (22 · 2 · 1 before and after).** Nothing was loosened; one false positive was removed and one false clear was removed.
+
+---
+
+## 7 · CORRECTIONS TO PRIOR RECORDS — the 4th registry cross-check
+
+**K-CUR-006 was mis-described at registration, in two ways:**
+
+| Registered | Reality |
 |---|---|
-| *"NSCP 2015 has no registry row — invisible to the yield-ranked build order"* | **WRONG.** It is **K-STD-001**, `RECORDED-NOT-HELD` — a **deliberate decision** (copyright posture + 1,022 MB fetch-of-last-resort), not an oversight |
-| *"The Revised National Plumbing Code is not held"* | **IMPRECISE.** It is **K-STD-002**, canonical path = *Law collection #6* (38.3 MB, the flagged prefer-this variant), status `UNVERIFIED — never fetched`. Absent from **this** collection ≠ absent from the system |
+| *"Building Technology **deck set**"* | **predominantly textbooks** — Barry ×5, Salvan, Duggal, EC5/BS/IS texts; only ~8 of 50 files are decks |
+| *"50 files; **601 MB**"* | live total **1,177.9 MB** — 601.1 MB is **one file inside it** |
 
-Both corrected **in place** in `AR153P.md` and `AR163-1P.md`, with the correction recorded rather than silently edited.
+**The mis-description would have under-specified this ingestion by half:** a session trusting it would have budgeted 601 MB and met 1,178 MB, and would have gone looking for slide decks and found two core textbooks. Corrected in the row, with the correction recorded rather than silently edited.
 
-> **📌 That is now the THIRD registry cross-check to correct my own work in three build sessions:**
-> ① `K-CUR-001…006` collided with existing rows · ② `K-REF-001` was already taken (UAP Documents) · ③ two false gaps asserted from an uninformed read.
->
-> **The pattern is not embarrassing — it is the system working.** A narrative record written from one source is less informed than a registry built from many, and the registry caught it every time. **The mechanism is doing exactly what P-03 built it for.** Recorded here because a build log that hides its own corrections is worthless.
+**Four build sessions, four registry corrections** (K-CUR ID collisions · the K-REF-001 collision · two false "not held" gaps · a mis-sized material set). The mechanism is doing what P-03 built it for. *Also fixed in passing: a typo in `K-BK-005`'s notes ("bookbook").*
 
----
-
-## 6 · WHAT WAS BUILT
-
-```text
-CHANGED   Brain/external_sources/building-utilities.md   §5 DIGEST populated (was: "empty")
-                                                         §6 ACCESS LOG row appended (was: 1 row)
-NEW       Brain/short_term/ingest/BU_INGEST_2026-09-13.md  the full ingestion record + runbook
-CHANGED   docs/KNOWLEDGE_REGISTRY.md                     +K-STD-004 PEC 2009
-                                                         +K-BK-004 Ginn, Architectural Acoustics
-                                                         +K-BK-005 Fajardo & Fajardo, Electrical Layout
-CHANGED   docs/DECAY_REGISTER.md                         +1 row — PEC edition currency
-NEW       scripts/ingest_collection.py                   the reusable harness (4 subcommands)
-CHANGED   Brain/courses/AR153P.md                        material status → INGESTED; 2 false gaps corrected
-CHANGED   Brain/courses/AR163-1P.md                      NSCP claim corrected → K-STD-001
-CHANGED   Brain/courses/INDEX.md                         load finding updated (1 of 3 discharged)
-CHANGED   Brain/frontal_lobe/task_ledger.md              +1 row (real filename)
-CHANGED   docs/PATCH_LEDGER.md                           +1 row
-NEW       APPLY.sh · APPLY.ps1                           carrier archiver + no-vehicle assertion + harness self-check
-CARRIED   PATCH_NOTES.md                                 zip-only (archived out of the tree on apply)
-```
-
-### 6.1 The harness — `scripts/ingest_collection.py`
-The repeatable procedure, so the next collection is a command rather than an improvisation:
-```text
-list     enumerate a public Drive folder (no API key) → manifest
-fetch    download to a scratch volume — REFUSES a destination inside the repo
-extract  per-file text-layer verdict + the recovery rung + content-hash duplicate scan
-verify   dual-pass table check (text order vs coordinates) + rendered page for the vision rung
-```
-**Rule 2 in that file's docstring is the PEC table finding, written down where the next session will read it.**
+**Registry rows:** K-CUR-005 and K-CUR-006 status → `INGESTED 2026-09-13`; **+K-BK-006, +K-BK-007, +K-BK-008, +K-REF-004, +K-REF-005, +K-REF-006** (every prefix grepped free across the whole tree first — 0 hits each). Total **45 K-IDs**, no duplicates (check 17 PASS).
 
 ---
 
-## 7 · VALIDATOR STATE — HONEST REPORT
-
-**Measured on a clean mirror** (live repo + this zip, with the repo's own transport carriers excluded — see the note below):
+## 8 · WHAT WAS BUILT
 
 ```text
-before this patch:  25 checks · 22 pass · 2 warn · 1 fail
-after  this patch:  25 checks · 22 pass · 2 warn · 1 fail     ← identical
+CHANGED   Brain/external_sources/building-technology.md   §5 DIGEST populated (was: "empty") + ACCESS LOG row
+NEW       Brain/short_term/ingest/BT_INGEST_2026-09-13.md  the ingestion record (8 sections, incl. the method rule)
+CHANGED   docs/KNOWLEDGE_REGISTRY.md                       K-CUR-005/006 → INGESTED; +6 objects; 1 typo fixed
+CHANGED   docs/DECAY_REGISTER.md                           +4 rows (Barry mixed editions · 1988 energy text · Salvan edition · FLEA 2013 currency)
+CHANGED   scripts/ingest_collection.py                     declared-type gate · >100 MB confirm flow · --max-size + skip log · cache validation · OOXML extraction
+CHANGED   scripts/validate.py                              check 2.5 token-aware · check 20.5 requires an explicit attempt marker
+CHANGED   Brain/courses/AR163-1P.md                        material → INGESTED + the caveat; what the run produced; 3 findings
+CHANGED   Brain/courses/INDEX.md                           both register tables updated
+CHANGED   Brain/short_term/plan/README.md                  the attempt-marker convention (why, not just what)
+CHANGED   Brain/frontal_lobe/task_ledger.md                +1 row
+CHANGED   docs/PATCH_LEDGER.md                             +1 row
+CARRIED   (from the superseded 2400 patch)                 building-utilities.md §5 · BU_INGEST record · AR153P.md · APPLY scripts
+NEW       APPLY.sh · APPLY.ps1                             updated for this patch
+CARRIED   PATCH_NOTES.md                                   zip-only (archived out of the tree on apply)
 ```
 
-**This patch adds no failure and clears none.** The one fail is **check 2.5**: six course vehicles sitting under `Brain/courses/` that **Phase 0 is authorized to remove but which the apply step never ran for.** *That is not a defect in this patch* — it is the standing finding that the 2300 containment removal has not been executed in the working tree yet.
+**The harness now carries the restraint doctrine in code:** `--max-size` makes a large file a **logged skip** instead of a silent omission, and the skip log is **built by scanning the destination** rather than from the run's control flow — *the first version lost an entry on a second run because the file was cached, and an accountability log that depends on cache state is not a log.*
 
-### Why two sets of numbers
-Measured on a mirror that **includes** the repo's own `PATCH_NOTES.md`, `*_STAGED*`, `*_DIFF` and `SCHEDULE.png`, the same run reads **25 · 15 / 4 / 6**. Those six extra fails are **artifacts of copying carriers into a test tree** — checks 1, 3, 3.5, 8 and 17 all correctly flag them, and check 2.5 double-counts. **They appear identically with and without this patch.** The clean number is the honest one; the dirty number is reported so the next session does not mistake the delta for progress.
+---
+
+## 9 · VALIDATOR STATE — HONEST REPORT
+
+```text
+clean mirror, before this patch:  25 checks · 22 pass · 2 warn · 1 fail
+clean mirror, after  this patch:  25 checks · 22 pass · 2 warn · 1 fail   ← identical
+```
 
 | measure | before | after |
 |---|---|---|
-| checks · pass · warn · fail (clean) | 25 · 22 · 2 · 1 | **identical** |
-| boot budget Tier0+1 | 34,138 B | **34,398 B** (+260 B — one ledger row) — **84 % of the 40 KB cap, still PASS** |
-| registry K-IDs (check 17) | 36 | **39** — verified free before assigning, no duplicates |
-| 🟠 canon count (check 16) | 15 | **15 — this patch adds ZERO canon** |
+| checks · pass · warn · fail | 25 · 22 · 2 · 1 | **identical** |
+| boot budget Tier0+1 | 34,138 B | **35,161 B** (+1,023 B — two ledger rows) — **86 % of the 40 KB cap, PASS** |
+| registry K-IDs (check 17) | 36 | **45** |
+| 🟠 canon count (check 16) | 15 | **15 — zero canon added** |
 
-**Boot bytes did move, and that is disclosed rather than glossed:** one task-ledger row costs 260 B. It is inside the cap, and check 15 is the item that would have caught it if it were not.
+*Measured on a mirror that includes the repo's own `PATCH_NOTES.md` / `*_STAGED*` files, the same run reads 15 pass / 4 warn / 6 fail — those extra failures are the carriers themselves, they appear identically with and without this patch, and they are reported here only so the next session does not mistake the delta for progress.*
 
-### 7.1 Two defects in my own patch, caught before it left the workspace
-1. **Check 14 (session-local paths) FAILED on the first draft** of the ingestion record — its runbook hardcoded literal `/tmp/...` paths. Fixed by genericising to a `<SCRATCH>` placeholder. *The check was right: a runbook that hardcodes one machine's temp directory is not a runbook.*
-2. **A machine verdict I wrote was removed for crying wolf.** The first `verify` printed an automatic *"RESOLVED / DID NOT RESOLVE"* call. It fired correctly on the PEC corruption — and **also fired on a clean single-column page** (the PD 1096 pipe table, which extracted verbatim and correct). A warning that cries wolf is worse than no warning, because it trains the reader to skip it. **Replaced with raw statistics and an explicit refusal to decide** — *the machine lays out the evidence and always writes the render; the reader is the tiebreaker.*
-3. **A page total in my draft was wrong** — 3,323 where the per-file column sums to **3,923**. Corrected in all six files that carried it and recorded in the ingestion record §5.1. *This is the §2 rule turned on my own arithmetic: a number that cannot be traced to the column it cites is not a verified number.*
+**Defects caught in my own work before this patch left the workspace:** the type-gate bug (§3, the most serious) · a **broken drift check that reported phantom drift** and was re-run robustly · the cache-dependent skip log · the AP-08 false clear (§6.2) · `validate.py` missing from the patch tree while this patch modifies it · and **an invalid acceptance test of my own making** — the tree comparison used unquoted `$(find …)`, which word-split on the spaced course filenames, so md5sum silently skipped most of them and the "identical" result was meaningless. Redone NUL-safe: **221 files compared, zero differences.** *A test that silently skips what it cannot name is the same failure class as everything else in this patch — and it was the second time that trap has caught me.*
 
 ---
 
-## 8 · WHAT THIS DOES NOT DO
+## 10 · WHAT THIS DOES NOT DO
 
 | Not done | Why |
 |---|---|
-| **Module build for AR153P** | This patch is **ingestion** — evidence in. Building a canonical module is a separate deliverable with its own acceptance criteria (P-06 depth ladder) |
-| **Recovering the 334 image-only pages** | The recovery ladder is a rung-by-rung procedure; it belongs in its own session with its own time budget. **Flagged, quantified, and left honest** |
-| **Fetching the Plumbing Code (K-STD-002)** | It lives in the *Law* collection. `[D]` acquisition is Commander-sourced; and a 38.3 MB fetch needs the go-ahead |
-| **Touching any scaffold** | The table rule is *proposed* for `proc_ingestion-run`, not applied — that revision is already staged at P-04 |
-| **The 18-carrier purge** | Separate patch, separate authorization (II.4) |
+| **Recovering the 2,038 image-only pages** | The real constraint, and it is a project: ≈ a page per render-and-read. Flagged, quantified, **not started** |
+| **Building any module or drill** | Ingestion is evidence-in. The drill-shaped corpora are *identified*; keys must be resolved against governing sources first |
+| **Verifying the 3,036-item corpus** | Same reason — and it must not be trusted as a key in the meantime |
+| **Verifying the PEC 2.10.3 citation** in the outlet/switch deck | Cheap, and it is the first action if that file is used |
+| **Touching the `structural` collection** | Standing instruction: it stays `NOT ingested — Commander holds a larger plan`. **13 structural titles inside K-CUR-006 were processed as members of that collection; the collection on hold was never opened.** §5.8 of the digest states this so nobody conflates the two |
+| **The 18-carrier purge** | Separate patch, separate authorisation (II.4) |
 
 ---
 
-## 9 · NEXT — ranked
+## 11 · NEXT — ranked
 
-1. **🔴 Rotate the LMS feed** — still open, still the Commander's alone.
-2. **🟠 Authorize the 18-carrier purge** — one word, and CI returns to the path of green.
-3. **`K-CUR-006` — the Building Technology ingestion run** (AR163-1P, 50 files / 601 MB). **The last high-yield course still un-extracted.** The harness exists now; this is a re-run, not a build. ⚠️ includes a 601 MB proceedings file that is size-skip territory under the restraint doctrine.
-4. **The 334 image-only pages** — recovery ladder, ~2 sessions.
-5. **AR153P module build** — the electrical half is now evidenced (PEC + Fajardo); the sanitary half is thin and needs K-STD-002 first.
+1. **🔴 Rotate the LMS feed** — still open, still yours alone.
+2. **🟠 Authorise the 18-carrier purge** — one word, and check 2.5's remaining fail and the CI noise both clear.
+3. **The 2,038 image-only pages of K-CUR-006** — now the single largest evidence gap in the system, and it sits under the course with the second-highest ALE yield. Barry vols 1–5 (984 pp) and the course module (248 pp) are the priority subset.
+4. **`K-REF-006` — the 210-item identification list → a drill set.** Drill-shaped already, answers are the terms themselves, no key needed. **This is the cheapest real yield in the collection.**
+5. **A Building Technology module** — Salvan (PH) + the FLEA chapters are enough for a first pass; NSCP remains `RECORDED-NOT-HELD`, so any structural value would be a pointer, not `[D]`.
 6. **Supply `week1_start`** — one date and the planner's whole term becomes dated.
+7. **`attempt:` something.** Check 20.5 is warning, and it is right.
 
 ---
 
-## 10 · EVAL-FIRST (the clause, applied)
+## 12 · EVAL-FIRST (the clause, applied)
 | | |
 |---|---|
-| **INSTANCE** | AP-02 *register theater* — the cue doctrine cites DIGESTs that are empty; `building-utilities.md` had carried "(empty)" since registration, and the standing-orders queue names empty DIGESTs as a T3 draw |
-| **COST** | +2 files, 0 boot bytes, 0 canon, 0 new modes, 0 boot-set members. **All 14 binaries deleted** — net repository growth is documentation, not payload |
-| **DISPLACEMENT** | Discharges a standing order rather than adding one. Reuses the existing collection-registration machinery (`external_sources/` pattern, II.6 restraint doctrine) — invents no new structure |
-| **CHECK** | The table rule is machine-implementable and now tooled (`ingest_collection.py verify`). **The honest gap: no validator check yet enforces verified-table reads** — flagged rather than papered over |
+| **INSTANCE** | AP-03 (grade inflation through convenience) reached a *third* form here: not a wrong value, but a **fetch that returns the wrong kind of bytes**, and an **attempt guard switched off by a word**. Both were caught by reading the artifact instead of the log |
+| **COST** | +2 files, +1,023 boot bytes, 0 canon, 0 new modes. All binaries deleted — net repository growth is documentation plus two hardened scripts |
+| **DISPLACEMENT** | Discharges a standing order (the empty-DIGEST cue) for the second collection. Reuses the existing machinery — `external_sources/` pattern, II.6 restraint doctrine, the existing drill format |
+| **CHECK** | Two checks were made **more precise, not weaker**, each with a two-direction regression test. **The honest gap: nothing yet enforces "the bytes match the declared type" inside CI** — it lives in the harness. Flagged rather than papered over |

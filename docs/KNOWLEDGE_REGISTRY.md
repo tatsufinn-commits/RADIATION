@@ -172,14 +172,15 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Domain: ALE-TOA | Conflicts: — | Used by: — | Notes: manifested, never ingested.
 
 ## K-CUR-005 — Building Utilities module set (14 PDFs incl. Fajardo, PEC material)
-- Canonical path: — (Building-Utilities collection) | Source record: building-utilities.md MANIFEST
-- Tier: TIER-2/3 mixed | Type: lecture-material+textbook | Status: UNVERIFIED | Last verified: | Freq: 90d
-- Domain: ALE-BU | Conflicts: — | Used by: — | Notes: manifested, never ingested.
+- Canonical path: — (Building-Utilities collection, 283.4 MB) | Source record: building-utilities.md MANIFEST + DIGEST §5
+- Tier: TIER-2/3 mixed | Type: lecture-material+textbook | Status: **INGESTED 2026-09-13** | Last verified: 2026-09-13 | Freq: 90d
+- Domain: ALE-BU | Conflicts: — | Used by: AR153P (K-CUR-012) | Notes: 14/14 files accounted for · 3,923 pp · 11 usable text layers · **3 files / 334 pp image-only** (recovery ladder open) · binaries deleted (II.6 r.8).
 
-## K-CUR-006 — Building Technology deck set (50 files; 601 MB proceedings 🛑)
-- Canonical path: — (Building-Technology collection) | Source record: building-technology.md MANIFEST
-- Tier: TIER-3 | Type: lecture-material | Status: UNVERIFIED | Last verified: | Freq: 90d
-- Domain: ALE-BT | Conflicts: — | Used by: — | Notes: manifested, never ingested; 601 MB file SIZE-SKIP territory.
+## K-CUR-006 — Building Technology collection (50 files: textbooks + lecture decks + review decks)
+- Canonical path: — (Building-Technology collection, **1,177.9 MB live**) | Source record: building-technology.md MANIFEST + DIGEST §5
+- Tier: TIER-2/3 mixed | Type: textbook+lecture-material+review-decks | Status: **INGESTED 2026-09-13** | Last verified: 2026-09-13 | Freq: 90d
+- Domain: ALE-BT | Conflicts: — | Used by: AR163-1P (K-CUR-011) | Notes: 50/50 files accounted for (49 fetched, 1 SIZE-SKIPPED) · 45 PDFs / **8,797 pp** · **2,038 pp image-only (23.2 %) — and they are the core course texts** (Barry vols 1–5, the course module, the Visual Handbook). Binaries deleted (II.6 r.8).
+- ⚠️ **ROW CORRECTED AT INGESTION (2026-09-13):** the row as registered called this a *"deck set"* of *"601 MB"*. Both were wrong — the collection is **predominantly textbooks** (Barry ×5, Salvan, Duggal, EC5/BS texts), the live total is **1,177.9 MB**, and 601.1 MB is *one file inside it*. The mis-description would have under-specified the ingestion by half. Recorded, not silently edited.
 
 ## K-BK-001 — Lynch, The Image of the City (1960)
 - Canonical path: — (Books collection, 4.32 MB, image-only PDF)
@@ -223,6 +224,45 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Domain: ALE-Law/UD | Depth: 4 (docs/DEPTH_LADDER.md) | Confidence: HIGH
 - Supersedes/by: — / — | Conflicts: — | Used by: KR-LAW-009 (locked) · future P-05 drills
 - Notes: Level 4 by design — no drill (P-05 pending), no invented case studies; NOT Core-grade (single primary instrument).
+
+
+## K-BK-006 — Salvan, Architectural Building Materials (PH)
+- Canonical path: — (Building-Technology collection, file 05, 370 pp) | Source record: building-technology.md DIGEST §5.5
+- Tier: TIER-2 | Type: textbook | Edition: **UNRESOLVED** (interior years 1963/69/87 appear) | Status: VERIFIED (existence + text-layer extraction) | Last verified: 2026-09-13 | Freq: 1yr | Decay: edition-currency
+- Domain: ALE-BT | Confidence: MEDIUM | Conflicts: — | Used by: AR163-1P (K-CUR-011)
+- Notes: The **Philippine** architectural-materials text — *"The New Ladder Type Curriculum"*, UAP. Highest course-value object in K-CUR-006, and the one that speaks to PH practice rather than to a foreign code. **Edition must be settled before any dated claim.**
+
+## K-BK-007 — Barry, *The Construction of Buildings*, Vols 1–5
+- Canonical path: — (Building-Technology collection, files 10/15/20/14/17; 984 pp) | Source record: building-technology.md DIGEST §5.2–5.3
+- Tier: TIER-2 | Type: textbook set | Edition: **MIXED — v1 7th · v2 5th · v3 4th · v4 4th · v5 UNSETTLED** | Status: VERIFIED (existence + editions by render); **content UNREAD** | Last verified: 2026-09-13 | Freq: 1yr | Decay: edition-currency (mixed set)
+- Domain: ALE-BT | Confidence: LOW–MEDIUM | Conflicts: — | Used by: AR163-1P (K-CUR-011)
+- Notes: **A citation must name the volume AND the edition — "Barry" alone is not citable.** All 984 pp are image-only: render → vision-read → targeted quote. The set is the course's core text, so the collection's most-cited object is presently the least readable.
+
+## K-BK-008 — UAP-Dubai FLEA 2013 Building Technology review chapter set
+- Canonical path: — (Building-Technology collection, files 30 / 31≡32 / 34 / 37 / 40 / 43) | Source record: building-technology.md DIGEST §5.5
+- Tier: TIER-3 | Type: review-decks | Edition: FLEA 2013 | Status: VERIFIED (existence + extraction) | Last verified: 2026-09-13 | Freq: 1yr (review cycle) | Decay: ALE-content (rules revise)
+- Domain: ALE-BT | Confidence: LOW | Conflicts: — | Used by: AR163-1P (K-CUR-011)
+- Notes: **Philippine Architecture Licensure Examination** review chapters — steel, doors & hardware, roofing, concrete, site preparation, formworks & scaffoldings. **A review deck is not an authority; it points at authorities.** Chapters carry "Refresher Questions" whose answers are not keyed in the files. Contains the collection's duplicate pair (31≡32).
+
+## K-REF-004 — "Ultimate Reviewer" MCQ corpus (3,036 items)
+- Canonical path: — (Building-Technology collection, file 44 — 366 KB xlsx, sheet "Ultimate Reviewer")
+- Source record: building-technology.md DIGEST §5.4 | Tier: — (not evidence) | Type: question-corpus
+- Status: VERIFIED (structure + census) | Grade basis: **[R] — and NOT usable as an answer key** | Last verified: 2026-09-13 | Freq: 1 term | Decay: ALE-content
+- Domain: ALL (BT / BU / structural review) | Confidence: LOW (key absent) | Conflicts: — | Used by: — *(candidate: drill construction, only after per-item answer resolution)*
+- Notes: 3,036 items, options inline `[A]`–`[D]` (2,691 four-option). **Only 24 items carry an explicit key; the correct answer is recoverable for 16.** Topic census in the digest (concrete 348 · doors 190 · roofing 170 · PEC 144 · steel 137 · wind 118 · NSCP 80 …). **Do not build drills from it as if it were keyed** — a plausible unverified letter, memorised 3,000 times, is the PEC-table failure at scale. Its real value is as a **coverage map** of what the course examines.
+
+## K-REF-005 — Building Materials glossary (1,066 rows)
+- Canonical path: — (Building-Technology collection, file 47 — 93 KB xlsx, sheet "Sheet1")
+- Source record: building-technology.md DIGEST §5.5 | Tier: — (not evidence) | Type: reference-data
+- Status: VERIFIED (structure) | Grade basis: [R] — terms as listed | Last verified: 2026-09-13 | Freq: none | Decay: timeless (terminology)
+- Domain: ALE-BT | Confidence: MEDIUM | Conflicts: — | Used by: — (drill candidate: term→definition)
+- Notes: term→definition pairs (Cripple stud · Cogged joint · Bull-nosed step · Gravity wall · Quoin), with blank spacer rows. Drill-grade once entries are spot-verified against a held text.
+
+## K-REF-006 — Building Technology 210-item identification list
+- Canonical path: — (Building-Technology collection, file 49 — 7 pp PDF) | Source record: building-technology.md DIGEST §5.5
+- Tier: — (not evidence) | Type: reference-data (identification drill) | Status: VERIFIED (extraction) | Grade basis: [R]; answers are the terms themselves | Last verified: 2026-09-13 | Freq: 1 term | Decay: ALE-content
+- Domain: ALE-BT | Confidence: MEDIUM | Conflicts: — | Used by: — (drill candidate)
+- Notes: 210 numbered items, one-to-one definition→term ("Short metal 'T' beam in suspended ceilings" → *Cross Tee*; "clay tile, semi-cylindrical, convex side alternately up/down" → *Mission Tile*). **Same shape as the PD 1096 identification drill already in use** (SET-PD1096-VIII-001).
 
 ## K-CUR-007 — [COURSE] GED103 Readings in Philippine History (Term 1 AY 2026-2027)
 - Canonical path: `Brain/courses/GED103.md` — syllabus binary DELETED per II.6 r.8; none retained
@@ -299,4 +339,4 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Source record: building-utilities.md MANIFEST #12 | Tier: TIER-2 | Type: handbook | Edition: 2nd
 - Status: VERIFIED (existence + extraction) | Grade basis: [D] for published formulas/standards as stated | Last verified: 2026-09-13 | Freq: 1yr | Decay: stable-domain
 - Domain: ALE-BU | Confidence: MEDIUM | Conflicts: — | Used by: AR153P (K-CUR-012)
-- Notes: The bookbook's own bookmark tree is numeric page labels (001..349), not a subject TOC — **subject navigation must be built at first module use**, not assumed. Its electrical values are drawn from the PEC and must be **re-cited to K-STD-004 (or its current edition), never to the handbook** (the same rule the Structural collection states for NSCP-derived values).
+- Notes: The book's own bookmark tree is numeric page labels (001..349), not a subject TOC — **subject navigation must be built at first module use**, not assumed. Its electrical values are drawn from the PEC and must be **re-cited to K-STD-004 (or its current edition), never to the handbook** (the same rule the Structural collection states for NSCP-derived values).

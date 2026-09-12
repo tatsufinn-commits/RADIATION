@@ -58,3 +58,19 @@ python3 scripts/plan_term.py --audit                     # plan-vs-attempt ratio
 | **MEC30-7 weights** | lets its quizzes be ranked against each other rather than merely dated |
 
 **None of these is a build task.** The machinery is finished; it is waiting on data.
+
+## RECORDING AN ATTEMPT (validator check 20.5)
+The AP-08 guard watches the last three `task_ledger` rows for evidence that practice is actually
+happening. **A row counts as an attempt only if it carries an explicit marker** — one of:
+
+| marker | use |
+|---|---|
+| `attempt:` | a graded drill or practice run (give the set id + score, e.g. `attempt: SET-PD1096-VIII-001 7/10`) |
+| `mastery:` | a mastery check on a module |
+| `drilled` | short form, when the set is named nearby |
+| `@Review` | a review pass over a module |
+
+**Plain mentions of the word "drill" do not count** — an ingestion row saying *"not a drill source"*
+should never switch the guard off. If the guard is warning, the fix is to practise and write the row,
+not to write a sentence containing the right word.
+

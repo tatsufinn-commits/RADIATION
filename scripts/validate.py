@@ -88,6 +88,16 @@ def c2():
 # targets VALUES, never vocabulary — a name-bearing label is required to match.
 CV_DENY = ["S308","S300","S303","S301","NW408","SW200","SW304","E01","A54","C5",
            "calendarFeed","@mapua.edu"]
+# v4: a denied CODE is a token, not a substring. The v3 rule used `w in t`, so the
+# section code "C5" matched inside "EC5" (Eurocode 5) — a false positive on legitimate
+# domain content, and one that would recur in every structural-design record. The intent
+# (a room/section code is not published) is unchanged: a STANDALONE "C5" still fails, in
+# any punctuation context. Only embeddings inside a longer token stop matching.
+# Distinctive strings ("calendarFeed", "@mapua.edu") keep substring matching.
+def cv_denied(text, token):
+    if re.fullmatch(r"[A-Za-z]{1,3}\d{1,3}", token):
+        return re.search(r"(?<![A-Za-z0-9])" + re.escape(token) + r"(?![A-Za-z0-9])", text) is not None
+    return token in text
 CV_PATTERNS = [
     (r"https?://", "URL/credential"),
     (r"\b(?:Instructor|Professors?|Prof\.)\s*[:\-\u2013]?\s*(?:is\s+|was\s+)?[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}", "instructor name"),
@@ -111,7 +121,7 @@ def c25():
                     bad.append(f"{p} (non-markdown vehicle)"); continue
                 t = read(p)
                 for w in CV_DENY:
-                    if w in t: bad.append(f"{p} (published token: {w})")
+                    if cv_denied(t, w): bad.append(f"{p} (published token: {w})")
                 for pat, what in CV_PATTERNS:
                     m = re.search(pat, t)
                     if m: bad.append(f"{p} ({what}: {m.group(0)[:24]})")
@@ -392,7 +402,7 @@ def c20():
             for pat, what in CV_PATTERNS:
                 if re.search(pat, blob): bad.append(f"{what} in term register")
             for tok in CV_DENY:
-                if tok in blob: bad.append(f"published token in term register: {tok}")
+                if cv_denied(blob, tok): bad.append(f"published token in term register: {tok}")
         # the register's k_ids must exist in the knowledge registry
         regtxt = read("docs/KNOWLEDGE_REGISTRY.md") if os.path.exists(os.path.join(ROOT,"docs/KNOWLEDGE_REGISTRY.md")) else ""
         if isinstance(d, dict):
@@ -417,10 +427,17 @@ def c205():
         rec(20.5, "WARN", True, "planner theater: no plan register — nothing to guard"); return
     led = read("Brain/frontal_lobe/task_ledger.md").splitlines()
     tail = [l for l in led if l.strip().startswith("|")][-3:]
-    has_attempt = any("mastery" in l.lower() or "drill" in l.lower() or "@Review" in l for l in tail)
+    # v5: an ATTEMPT is a recorded attempt, not a mention of the word "drill". The v4
+    # rule matched the bare substring "drill", so an ingestion row reading "not a drill
+    # source" SILENCED this guard — the AP-08 warning cleared itself on a sentence that
+    # was about the opposite of practising. A guard that a passing mention can switch
+    # off is not a guard. Attempts are now recorded with an explicit marker.
+    MARKERS = ("attempt:", "mastery:", "drilled", "@review")
+    has_attempt = any(any(mk in l.lower() for mk in MARKERS) for l in tail)
     rec(20.5, "WARN", has_attempt,
         "planner theater guard: plan exists" + ("" if has_attempt else
-        " and the last 3 task_ledger rows record no attempt — plans are not progress (AP-08)"))
+        " and the last 3 task_ledger rows record no attempt — plans are not progress (AP-08). "
+        "Record one with the marker `attempt:` (see Brain/short_term/plan/README.md)"))
 
 # ---- check 19: [R] publisher rule — blocklist (P-07; enforces I.2's existing "peer-reviewed or formally studied") ----
 BLOCKLIST = ["grokipedia.com","scribd.com","fiveable.me","coursehero.com","studocu.com","flickr.com","planningtank.com","blogspot.","medium.com"]
