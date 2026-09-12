@@ -1,5 +1,5 @@
 <#
-  APPLY.ps1 — RADIATION_PATCH_2026-09-13_2300_Courses-Region-and-Containment
+  APPLY.ps1 — RADIATION_PATCH_2026-09-13_2340_Term-Planner
   Risk class: 🟢 ordinary.  Run from the REPOSITORY ROOT, after extracting the zip over it.
 
   What it does:
@@ -30,43 +30,16 @@ foreach ($probe in @("docs\AI_RULES.md", "Brain", "scripts\validate.py")) {
 Say "✓ repository root verified: $((Get-Location).Path)"
 
 
-# ── 2. back up every non-.md file under Brain/courses/ ───────────────────────
-$backup = Join-Path (Get-Location) "_local_backup"
-$moved  = @()
-
-$targets = Get-ChildItem -Path "Brain\courses" -Recurse -File -ErrorAction SilentlyContinue |
-           Where-Object { $_.Extension -ne ".md" }
-
-foreach ($f in $targets) {
-    $rel    = $f.FullName.Substring((Get-Location).Path.Length + 1)
-    $dest   = Join-Path $backup $rel
-    $dirdir = Split-Path $dest -Parent
-    if (-not (Test-Path $dirdir)) { New-Item -ItemType Directory -Path $dirdir -Force | Out-Null }
-    Move-Item -LiteralPath $f.FullName -Destination $dest -Force
-    $moved += $rel
-}
-Say "`n✓ backed up + removed from tree: $($moved.Count) vehicle(s)"
-foreach ($m in $moved) { Say "    $m" DarkGray }
-if ($moved.Count -gt 0) {
-    Say "  → local copies live in: _local_backup\" Yellow
-    Say "  → KEEP THAT FOLDER. It is git-ignored by the new .gitignore." Yellow
-}
-
-
 # ── 3. copy patch files into place (already extracted by you) ────────────────
 $expect = @(
-  ".gitignore",
-  "Brain\courses\INDEX.md",
-  "Brain\courses\GED103.md",
-  "Brain\courses\DSS10.md",
-  "Brain\courses\MEC30-7.md",
-  "Brain\courses\AR173-1P.md",
-  "Brain\courses\AR163-1P.md",
-  "Brain\courses\AR153P.md",
+  "scripts\plan_term.py",
+  "Brain\short_term\plan\TERM1_DEADLINES.json",
+  "Brain\short_term\plan\README.md",
+  "Brain\cerebellum\routines\routine_term-briefing.md",
+  "cue\autopilot-cues.md",
   "docs\KNOWLEDGE_REGISTRY.md",
   "scripts\validate.py",
-  "Brain\frontal_lobe\task_ledger.md",
-  "docs\PATCH_LEDGER.md"
+  ".gitignore"
 )
 Say "`n— verifying the patch files are in place —"
 $missing = @()
@@ -77,17 +50,9 @@ if ($missing.Count -gt 0) {
     Say "  Re-extract the zip OVER the repository root (keep folder structure), then re-run." Yellow
     exit 1
 }
-Say "✓ all $($expect.Count) patch files present (including the .gitignore dotfile)"
+Say "✓ patch files present"
 
 
-# ── 4. prune directories emptied by the move ─────────────────────────────────
-$pruned = 0
-do {
-    $empty = Get-ChildItem -Path "Brain\courses" -Recurse -Directory |
-             Where-Object { (Get-ChildItem -LiteralPath $_.FullName -Force | Measure-Object).Count -eq 0 }
-    foreach ($d in $empty) { Remove-Item -LiteralPath $d.FullName -Force -Recurse; $pruned++ }
-} while ($empty)
-Say "✓ pruned $pruned emptied director(ies)"
 
 
 # ── 5. leaving the 18 carriers alone, on purpose ─────────────────────────────
@@ -97,6 +62,13 @@ $carriers = @(Get-ChildItem -Recurse -File -ErrorAction SilentlyContinue |
 Say "`nℹ transport carriers still in the tree: $($carriers.Count) — UNTOUCHED by this patch." Yellow
 Say "  Removing them is a separate, Commander-authorized patch (II.4 purge rule)." DarkGray
 
+
+# ── 5b. archive PATCH_NOTES.md out of the tree (II.8.2) ─────────────────────
+if (Test-Path "PATCH_NOTES.md") {
+    if (-not (Test-Path $backup)) { New-Item -ItemType Directory -Path $backup -Force | Out-Null }
+    Move-Item "PATCH_NOTES.md" (Join-Path $backup "PATCH_NOTES_APPLIED.md") -Force
+    Say "✓ PATCH_NOTES.md archived to _local_backup\PATCH_NOTES_APPLIED.md (II.8.2: notes live in the zip, not the tree)" Green
+}
 
 # ── 6. validate ──────────────────────────────────────────────────────────────
 Say "`n=== running the validator ===" Cyan

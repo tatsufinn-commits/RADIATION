@@ -31,10 +31,23 @@ SCHEDULE.png
 desktop.ini
 Thumbs.db
 
+# ── 2b. DERIVED WORKING FILES — regenerable, and schedule-derived ────────────
+# The planner writes briefs and an ICS snapshot here. They are regenerable, and
+# the snapshot is schedule-derived, so neither belongs in the repository record.
+Brain/short_term/plan/*.local.md
+Brain/short_term/plan/*.local.json
+*.local.md
+*.local.json
+
 # ── 3. ARCHIVES & PATCHES — transported, not stored ─────────────────────────
 *.zip
 PATCH_*.zip
 RADIATION_PATCH_*.zip
+
+# ── 3b. LOCAL SCRATCH — re-homed vehicles, patch notes, backups ─────────────
+# Created by APPLY.sh. The vehicles the repository must not hold live here,
+# on the Commander's machine, exactly where they belong.
+_local_backup/
 
 # ── 4. WORKING NOISE ────────────────────────────────────────────────────────
 .DS_Store

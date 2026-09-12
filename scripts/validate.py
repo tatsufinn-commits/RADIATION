@@ -9,10 +9,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS = []
 def rec(check, sev, ok, msg):
     RESULTS.append({"check": check, "severity": sev, "ok": ok, "msg": msg})
+# NOTE: _local_backup/ is the Commander-local scratch folder created by
+# APPLY.sh (it holds the re-homed vehicles). It is git-ignored and is NOT
+# part of the repository, so every walk skips it -- including md_files(),
+# check 3 and check 12. Scanning it would fail CI on files that never ship.
 def md_files():
     out = []
     for dp, dn, fn in os.walk(ROOT):
-        dn[:] = [d for d in dn if d not in {".git", ".github", "node_modules"}]
+        dn[:] = [d for d in dn if d not in {".git", ".github", "node_modules", "_local_backup"}]
         for f in fn:
             if f.endswith(".md") or f == ".readme":
                 out.append(os.path.relpath(os.path.join(dp, f), ROOT))
@@ -117,7 +121,7 @@ def c25():
 def c3():
     bad = []
     for dp, dn, fn in os.walk(ROOT):
-        dn[:] = [d for d in dn if d != ".git"]
+        dn[:] = [d for d in dn if d not in {".git", "_local_backup"}]
         for d in dn:
             if d in ("append_blocks","append-blocks"): bad.append(os.path.relpath(os.path.join(dp,d),ROOT)+"/")
         for f in fn:
@@ -235,7 +239,7 @@ def c11():
 def c12():
     bad = []
     for dp, dn, fn in os.walk(ROOT):
-        dn[:] = [d for d in dn if d != ".git"]
+        dn[:] = [d for d in dn if d not in {".git", "_local_backup"}]
         for f in fn:
             if any(ord(ch) > 127 for ch in f) or f.startswith("#") or "ΓÇ" in f or "╬" in f:
                 bad.append(os.path.relpath(os.path.join(dp,f),ROOT))
@@ -362,6 +366,62 @@ def c18():
     rec(18, "FAIL", not bad, f"module depth integrity ({len(mods)} module(s))" + ("" if not bad else ": " + "; ".join(bad[:5])))
     if warn: rec(18.5, "WARN", False, "module yield_rank: " + "; ".join(warn[:4]))
 
+# ---- check 20: term plan integrity (P-10; and the register's own privacy rule) ----
+def c20():
+    bad = []
+    reg = os.path.join(ROOT, "Brain/short_term/plan/TERM1_DEADLINES.json")
+    if os.path.exists(reg):
+        try:
+            d = json.load(open(reg, encoding="utf-8"))
+        except Exception as e:
+            bad.append(f"TERM1_DEADLINES.json unparseable: {e}"); d = None
+        if isinstance(d, dict):
+            if d.get("schema") != "rad.term_deadlines/v1":
+                bad.append("schema key missing/wrong")
+            codes = {c.get("code") for c in d.get("courses", [])}
+            kids  = {c.get("k_id") for c in d.get("courses", [])}
+            weeks = (d.get("term") or {}).get("weeks") or 11
+            for it in d.get("items", []):
+                if it.get("course") not in codes: bad.append(f"unknown course {it.get('course')}")
+                if it.get("k_id") not in kids:    bad.append(f"unknown k_id {it.get('k_id')}")
+                w = it.get("week")
+                if w is not None and not (isinstance(w, int) and 1 <= w <= weeks):
+                    bad.append(f"week out of range {it.get('course')} W{w}")
+            blob = json.dumps(d)
+            if "http" in blob: bad.append("URL in term register")
+            for pat, what in CV_PATTERNS:
+                if re.search(pat, blob): bad.append(f"{what} in term register")
+            for tok in CV_DENY:
+                if tok in blob: bad.append(f"published token in term register: {tok}")
+        # the register's k_ids must exist in the knowledge registry
+        regtxt = read("docs/KNOWLEDGE_REGISTRY.md") if os.path.exists(os.path.join(ROOT,"docs/KNOWLEDGE_REGISTRY.md")) else ""
+        if isinstance(d, dict):
+            for c in d.get("courses", []):
+                if c.get("k_id") and f"## {c['k_id']}" not in regtxt:
+                    bad.append(f"course K-ID not registered: {c.get('k_id')}")
+    # any generated window must stay local + short-horizoned
+    pdir = os.path.join(ROOT, "Brain/short_term/plan")
+    if os.path.isdir(pdir):
+        for f in os.listdir(pdir):
+            if f.endswith(".local.md"):
+                t = read(os.path.relpath(os.path.join(pdir, f), ROOT))
+                if "http" in t: bad.append(f"{f}: URL in window")
+                m = re.search(r"horizon[:\s]+(\d+)\s*day", t, re.I)
+                if m and int(m.group(1)) > 14: bad.append(f"{f}: horizon {m.group(1)}d > 14")
+    rec(20, "FAIL", not bad, "term plan integrity" + ("" if not bad else ": " + "; ".join(bad[:6])))
+
+# ---- check 20.5: plans vs attempts — the AP-08 guard (WARN) ------------------
+def c205():
+    reg = os.path.join(ROOT, "Brain/short_term/plan/TERM1_DEADLINES.json")
+    if not os.path.exists(reg):
+        rec(20.5, "WARN", True, "planner theater: no plan register — nothing to guard"); return
+    led = read("Brain/frontal_lobe/task_ledger.md").splitlines()
+    tail = [l for l in led if l.strip().startswith("|")][-3:]
+    has_attempt = any("mastery" in l.lower() or "drill" in l.lower() or "@Review" in l for l in tail)
+    rec(20.5, "WARN", has_attempt,
+        "planner theater guard: plan exists" + ("" if has_attempt else
+        " and the last 3 task_ledger rows record no attempt — plans are not progress (AP-08)"))
+
 # ---- check 19: [R] publisher rule — blocklist (P-07; enforces I.2's existing "peer-reviewed or formally studied") ----
 BLOCKLIST = ["grokipedia.com","scribd.com","fiveable.me","coursehero.com","studocu.com","flickr.com","planningtank.com","blogspot.","medium.com"]
 def c19():
@@ -374,7 +434,7 @@ def c19():
                 bad.append(f"{f}:{i+1}")
     rec(19, "FAIL", not bad, "publisher rule: no [R] carried by blocklisted aggregator" + ("" if not bad else ": " + "; ".join(bad[:6])))
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19): fn()
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

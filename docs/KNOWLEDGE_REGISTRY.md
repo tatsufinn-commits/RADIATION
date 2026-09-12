@@ -271,3 +271,11 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Domain: ALE-Utilities (provisional 8) | Depth: — | Confidence: LOW
 - Supersedes/by: — / — | Conflicts: — | Used by: planner (meeting-time only); `Brain/courses/INDEX.md`
 - Notes: Material is **K-CUR-005** (14 PDFs incl. Fajardo + PEC; manifested-never-ingested) — the electrical side is covered. Highest code-density course of the term. Two gaps: NSCP 2015 unregistered; **Revised National Plumbing Code NOT HELD** — the only genuine instrument hole in the term (plumbing only; an earlier revision overstated its scope).
+
+## K-REF-003 — Term 1 AY 2026-2027 deadline register (derived, working)
+- Canonical path: `Brain/short_term/plan/TERM1_DEADLINES.json` — DERIVED; the authority is `Brain/courses/*.md`
+- Source record: projection of K-CUR-007..012 | Tier: — (not evidence) | Type: reference-data
+- Status: DERIVED-WORKING | Grade basis: — | Last verified: 2026-09-13 | Freq: 1 term | Decay: term-scoped (expires end of Term 1)
+- Domain: ALL (schedule) | Depth: — | Confidence: MEDIUM (3 of 6 courses carry no item data)
+- Supersedes/by: — / — | Conflicts: — | Used by: `routine_term-briefing` · `scripts/plan_term.py`
+- Notes: NOT canon, NOT citable — a parseable projection so the planner need not parse markdown. **If it disagrees with a course record, the record wins.** Enforced by validator check 20 (integrity + no identifiers).

@@ -36,3 +36,12 @@
 *(Append new confirmed cues below with date + source session. Heuristics, never law — III.3 still governs.)*
 
 > **This registry is the CUE LAYER. The full operating doctrine — taxonomy, standing orders, loop, gates, duty checklist — lives in `cue/autopilot-doctrine.md` and governs.**
+
+## TERM & SCHEDULE CUES (P-10, 2026-09-13) — heuristics, never law
+| Cue | Reading | Action |
+|---|---|---|
+| "plan my week" · "what's due" · "what's coming" | term briefing requested | run `routine_term-briefing` |
+| "drill me" · "quiz me" · "test me" (+ a course named) | drill requested | hand to @Review now; @Drill on P-05 ratification |
+| "the exam moved" · "it got pushed" | schedule delta | update the source note; re-rank the window |
+| An assessment is ≤3 days out and a plan register exists | T3 ENVIRONMENTAL | **PROPOSE** the drill in the Scan Declaration — do NOT self-execute until the P-10 §8.2 grant is earned |
+| Commander names a week number ("we're in W4") | anchor supplied | record it against `TERM1_DEADLINES.json` → term.get("week1_start") |
