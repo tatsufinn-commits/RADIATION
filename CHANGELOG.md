@@ -4,6 +4,14 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.5.0 — 2026-09-12 — Review-Autopilot-BootAsk (🟠 RATIFIED)
+Patch: `RADIATION_PATCH_2026-09-12_2400_Review-Autopilot-BootAsk.zip`
+Two new modes: @Review (Brain-first recall; internet only for gaps, each
+justified) and @Autopilot (bounded full autonomy: cue-reading, serial mode
+chaining under one Declaration, hard ASK-gates at canon/purge/budget/LOW
+confidence). BOOT ASK made law: no-mode boots always end by asking the
+Commander for mode + topic. cue/autopilot-cues.md seeded from S001.
+
 ## v1.4.0 — 2026-09-12 — Temporal-Lobe-and-Sentiment (🟠 RATIFIED)
 Patch: `RADIATION_PATCH_2026-09-12_2300_Temporal-Lobe-and-Sentiment.zip`
 Brain gains episodic memory: Brain/temporal_lobe/ — one S###_date_slug/ folder

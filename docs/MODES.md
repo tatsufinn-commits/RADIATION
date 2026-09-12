@@ -1,5 +1,5 @@
 # 🎛️ THE MODE SYSTEM (`docs/MODES.md`)
-## The Four Commander-Declared Modes & The Activation Matrix
+## The Six Commander-Declared Modes & The Activation Matrix
 **Version:** 1.0.0 | Constitutional basis: III.2 (Mode Supremacy), III.3 (Mode Compliance)
 
 The Commander declares exactly ONE mode per session (serial multi-stage sessions
@@ -45,27 +45,44 @@ skills. When a mode's constraint conflicts with a skill's normal behavior,
 - **Style:** default `msr.md` (Mining Software Repositories).
 - **When:** studying repositories for reference, reuse, or comprehension.
 
+## 🔍 @Review — Brain-First Recall & Refresh Mode
+- **Purpose:** answer from what RADIATION already KNOWS. Gathers information stored in `/Brain` first; fishes the internet ONLY where the Brain is silent, stale, or contradicted.
+- **Retrieval order (LAW of this mode):** 1) Brain/long_term → 2) Brain/short_term + subsidiary → 3) external_sources DIGESTs (MANIFEST-guided, Restraint Doctrine applies) → 4) internet, only for gaps — each gap-fetch justified in one line.
+- **Skill loadout:** prospector (Brain-first, lean web), decomposer (lean), triangulator (full — verifies stored claims still hold), inspector (decay/DEBT audit of touched matter), scribe (answer + refresh report; NO Core writes).
+- **Subskills:** scout MANDATORY (its Brain-check-before-acquire duty IS this mode's heart) · curator PASSIVE (gap-fetches ingested) · compass, sentinel, surgeon always-on.
+- **Deliverable:** the answer + a REFRESH REPORT: which Brain claims were used, which were re-verified, which decayed ([DECAYED] flagged per I.4), which gaps required the internet.
+- **Stockpile:** no fixed floor — Brain matter is the stockpile; every internet gap-fetch logged. Triangulation floor 2 for any NEW claim entering the Brain.
+- **When:** the Commander wants what the system already knows — study recall, reviewer drills, refreshing prior research without re-gathering the world.
+
+## 🤖 @Autopilot — Full-Autonomy Cue-Reading Mode
+- **Purpose:** full autonomy. The Commander states an objective; the AI plans, chains modes, and executes end-to-end, reading CUES from the Commander instead of awaiting orders.
+- **Authority:** may serially self-chain @Data/@Gather/@Decode/@Review legs under ONE Scan Declaration (III.2 serial-session clause); declares the planned chain up-front, appends `RE-SCAN` on every leg change.
+- **Cue discipline (cue/autopilot-cues.md):** infers intent from the Commander's phrasing, artifacts, and lexicon; silence = proceed; correction = obey instantly + lexicon entry (II.5).
+- **HARD LIMITS — autonomy is bounded, never sovereign:** ① all Constitution laws apply in full — autonomy never overrides I.1/I.3, quotas, or the Restraint Doctrine (only an EXPLICIT Commander order does, IV.1); ② 🛑 MUST ASK at: canon-affecting changes, purges, Commander-gated actions (external_sources entries), budget extensions, LOW-confidence forks (III.3 outranks autonomy); ③ every leg logged in its temporal_lobe episode as it happens — the episode IS the flight recorder.
+- **Deliverable:** the objective's deliverables + an AUTOPILOT LOG (decisions made, cues read, forks taken and why).
+- **When:** the Commander wants outcomes, not supervision — "handle it, wake me for the big calls."
+
 ---
 
 # 🗂️ THE ACTIVATION MATRIX (constitutional annex to III.2)
 
-| Skill / Organ | @Data | @Gather | @Decode | @Radiation |
-|---|:---:|:---:|:---:|:---:|
-| prospector (Research) | ✅ lean | ✅ full | ✅ full (repo=1°) | ✅ full |
-| decomposer (Analyze) | ✅ lean | ✅ | ✅ | ✅ |
-| archivist (Dossier) | ❌ | ✅ | ✅ | ✅ |
-| incubator (Incubate) | ❌ | ✅ | ✅ | ✅ |
-| annotator (Annotate) | ❌ | ✅ | ✅ | ✅ |
-| triangulator (Triangulate) | ✅ stripped | ✅ full | ✅ full | ✅ full (floor 3) |
-| inspector (Inspect) | ❌ | ✅ | ✅ | ✅ |
-| surgeon (Overhaul-authoring) | ❌ | ✅ | ✅ | ✅ |
-| scribe (Nota) | ✅ answer-only, no Core | ❌ | ❌ | ✅ |
-| surgeon-passive (enforcement) | ✅ always | ✅ always | ✅ always | ✅ always |
-| sentinel-passive | ✅ | ✅ | ✅ | ✅ |
-| compass-passive | ✅ | ✅ | ✅ | ✅ |
-| curator | ❌ dormant | ⚙️ invocable | ⚙️ invocable | ✅ passive |
-| scout (active) | ❌ | ⚙️ | ⚙️ | ⚙️ |
-| colony (active) | ❌ | ⚙️ | ⚙️ | ⚙️ |
+| Skill / Organ | @Data | @Gather | @Decode | @Radiation | @Review | @Autopilot |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| prospector (Research) | ✅ lean | ✅ full | ✅ full (repo=1°) | ✅ full | ✅ Brain-first | per leg |
+| decomposer (Analyze) | ✅ lean | ✅ | ✅ | ✅ | ✅ lean | per leg |
+| archivist (Dossier) | ❌ | ✅ | ✅ | ✅ | ❌ | per leg |
+| incubator (Incubate) | ❌ | ✅ | ✅ | ✅ | ❌ | per leg |
+| annotator (Annotate) | ❌ | ✅ | ✅ | ✅ | ❌ | per leg |
+| triangulator (Triangulate) | ✅ stripped | ✅ full | ✅ full | ✅ full (floor 3) | ✅ full | per leg |
+| inspector (Inspect) | ❌ | ✅ | ✅ | ✅ | ✅ decay-audit | per leg |
+| surgeon (Overhaul-authoring) | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| scribe (Nota) | ✅ answer-only, no Core | ❌ | ❌ | ✅ | ✅ answer+refresh | per leg |
+| surgeon-passive (enforcement) | ✅ always | ✅ always | ✅ always | ✅ always | ✅ | ✅ |
+| sentinel-passive | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| compass-passive | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| curator | ❌ dormant | ⚙️ invocable | ⚙️ invocable | ✅ passive | ✅ passive | per leg |
+| scout (active) | ❌ | ⚙️ | ⚙️ | ⚙️ | ✅ MANDATORY | ✅ |
+| colony (active) | ❌ | ⚙️ | ⚙️ | ⚙️ | ❌ | per leg |
 
 ✅ = active per loadout · ⚙️ = invocable on declared judgment · ❌ = not available
 
