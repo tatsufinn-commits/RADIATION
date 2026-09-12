@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.5.2 — 2026-09-12 — Cerebellum-Toolbox (🟢)
+Patch: `RADIATION_PATCH_2026-09-13_0200_Cerebellum-Toolbox.zip`
+Procedural arsenal cataloged: Brain/cerebellum/toolbox.md — 20 open-source
+tools across repo interaction, document extraction, Drive access, and speed
+utilities, each PROVEN (session-cited) or CANDIDATE (promote on field proof).
+S001's OCR rescue formalized as routine_document-recovery-ladder.md.
+
 ## v1.5.1 — 2026-09-12 — Building-Technology-Registration (🟢)
 Patch: `RADIATION_PATCH_2026-09-13_0100_Building-Technology-Registration.zip`
 Seventh collection registered: Building Technology — 50 files (largest yet).
