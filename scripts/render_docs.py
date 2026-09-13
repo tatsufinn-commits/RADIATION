@@ -108,7 +108,24 @@ def targets():
  "subskills/SUBSKILL_INDEX.md": {"subskill-passives": p, "subskill-actives": a},
     }
 
+# 4500 phrase lint: hand-stated live numbers are how the drift class survived its
+# own fix. These patterns must never appear OUTSIDE generated markers in guarded docs.
+FORBIDDEN = [r"\b45 K-IDs\b", r"\b33 checks\b", r"\b4 locked\b", r"No admitted Core cards",
+             r"CI runs 2 of", r"\b26 form", r"\b13 scripts\b"]
+
 MARK = re.compile(r"<!-- GENERATED:([a-z-]+):START -->\n.*?\n<!-- GENERATED:\1:END -->", re.S)
+
+def _strip_generated(t):
+    return MARK.sub("", t)
+
+def lint_phrases():
+    hits = []
+    for path in targets():
+        body = _strip_generated(read(path))
+        for pat in FORBIDDEN:
+            for m in re.finditer(pat, body):
+                hits.append(f"{path}: hand-stated live fact {m.group(0)!r} outside generated markers")
+    return hits
 
 def apply_blocks(write=True):
     drift = []
@@ -134,9 +151,11 @@ def apply_blocks(write=True):
 def main():
     check = "--check" in sys.argv
     drift = apply_blocks(write=not check)
+    ph = lint_phrases()
+    drift.extend(ph)
     if check:
         if drift:
-            for d in drift: print(f"  ✗ docs drift: {d} (run scripts/render_docs.py to regenerate)")
+            for d in drift: print(f"  ✗ {d} (regenerate via scripts/render_docs.py, or fix the prose)")
             print(f"\n❌ render_docs --check: {len(drift)} file(s) out of sync with reality")
             return 1
         print("✅ render_docs --check: generated blocks match reality")

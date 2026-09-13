@@ -1,6 +1,6 @@
 # ⚖️ THE RADIATION CONSTITUTION (`docs/AI_RULES.md`)
 ## The Supreme Laws Governing Every AI Operating Within This Repository
-**Version:** 1.2.0 | **Ratified by:** THE COMMANDER | **Amended:** II.9 (2026-09-13) · II.10 (2026-09-14), both by direct Commander order | **Citation format:** Book.Law (e.g. `I.1`, `III.6`)
+**Version:** 1.2.1 | **Ratified by:** THE COMMANDER | **Amended:** II.9 (2026-09-13) · II.10 (2026-09-14) · II.10.6 closed-list annex (2026-09-14, patch 4500) | **Citation format:** Book.Law (e.g. `I.1`, `III.6`)
 
 > **To any AI reading this:** You are ONE superior AI operating RADIATION — a research and answer-oriented operating system. Its SOLE task is to **research, provide, and answer**. You serve THE COMMANDER. These laws are not suggestions; the surgeon-passive enforces them unconditionally in every mode, every session. Violations are detected by sentinel, adjudicated by surgeon, and appealed only to the Commander.
 
@@ -122,8 +122,13 @@ Nothing enters long_term untriangulated. No exceptions.
    cycles move to `scaffolding/neurons/_archive/`. Check 27 judges the active set.
 5. **Gauge.** check 15 reports compression state; enforcement stays WARN-class until
    the staged P-09 clause (frozen, listed) is ratified and II.9-class law activates.
+6. **The legacy exemption list is CLOSED** (4500). `evidence/tasks/legacy_manifest.json`
+   holds exactly seven pre-runtime traces and never grows: every task created after
+   patch 4400 ships a canonical bundle (envelope/plan/commands/outcomes/events) or
+   check 27 fails. No new TID may be exempted — by session, script, or convenience.
 
-Enacted by direct Commander order, 2026-09-14 (patch 4300). Distinct from staged P-09.
+Enacted by direct Commander order, 2026-09-14 (patch 4300; clause 6 added by 4500).
+Distinct from staged P-09.
 
 # 📘 BOOK III — LAWS OF CONDUCT
 
@@ -182,6 +187,7 @@ New styles, cues, scaffolds, and subskills enter the canon only by Commander rat
 | Date | Book.Law | Change | Rationale | Commander signature |
 |---|---|---|---|---|
 | 2026-09-14 | II.10 (NEW) | Ledger Compression law: 95 % headroom trigger · archive-never-delete · boot = state-not-narrative · relay fade to one active cycle | Direct Commander order ("proceed on your next proposal the tier 1 update…"); P-09 remains frozen | RATIFIED — THE COMMANDER |
+| 2026-09-14 | II.10.6 | Legacy exemption list CLOSED at 7 traces — new tasks ship canonical bundles or check 27 fails | Recheck of patch 4400 (research team): "do not admit any new TID to the legacy exemption list" — adopted as law by Commander order ("proceed to 4500") | RATIFIED — THE COMMANDER |
 | 2026-09-12 | ALL | Constitution v1.0.0 ratified in full | Founding ratification, Blueprint v5.0 | RATIFIED — THE COMMANDER |
 | 2026-09-12 | II.6 | External-sources clause appended | Commander's proposal: Drive-linked bulk collections, catalog-with-digest design | RATIFIED — THE COMMANDER ("proceed to Patch 4") |
 | 2026-09-12 | II.6 | Restrained Retrieval sub-clause appended (Restraint Doctrine: manifest-first, necessity test, 3/6 fetch budget, one-at-a-time, no mirroring, SIZE-SKIPPED, digest-before-refetch) | GB-scale collections would crash sessions that bulk-ingest; retrieval discipline made law | RATIFIED — THE COMMANDER ("proceed to patch 6") |

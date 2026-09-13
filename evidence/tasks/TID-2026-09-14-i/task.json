@@ -1,0 +1,14 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-i",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: 'proceed to 4500!'",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T20:00:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "e7f0f7f",
+ "idempotency_key": "4500-lastmile-superset"
+}

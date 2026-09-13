@@ -21,8 +21,12 @@ jobs:
         run: python3 scripts/module_scaffold.py --self-test
       - name: Generated docs match reality (render_docs --check)
         run: python3 scripts/render_docs.py --check
-      - name: Relay semantic self-test (radiation_core)
-        run: python3 -m radiation_core.relay
+      - name: Relay semantic self-test + active check (radiation_core)
+        run: |
+          python3 -m radiation_core.relay --self-test
+          python3 -m radiation_core.relay
+      - name: Status dashboard self-test (date semantics)
+        run: python3 scripts/status.py --self-test
       - name: Byte-compile all scripts
         run: python3 -m py_compile scripts/*.py scripts/../radiation_core/*.py
       - name: External link census (check 13, online)
@@ -35,8 +39,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - name: Apply report (non-blocking — files the state, never gates a push)
-        continue-on-error: true
+      - name: Apply report (BLOCKING since 4500 — a red seal must block, not advise)
         run: |
           python3 scripts/verify_apply.py --self-test
           python3 scripts/verify_apply.py --strict | tee "${GITHUB_STEP_SUMMARY}"

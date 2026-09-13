@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v2.7.0
+**Last updated:** 2026-09-14 · **Version:** v2.8.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -32,7 +32,8 @@ Sat  07:30–09:00 GED103 (online)     · 09:00–10:30 DSS10 (online)
 Week-1 report; one Commander word ratifies it).
 
 ### What the Commander KNOWS
-`docs/KNOWLEDGE_REGISTRY.md` — **45 K-IDs** (36 live). Highest-yield courses:
+`docs/KNOWLEDGE_REGISTRY.md` — K-ID count GENERATED in the machine-facts block below.
+Highest-yield courses:
 **AR173-1P (9) · AR163-1P (8) · AR153P (8)** — the three carrying the licensure yield.
 
 ### What can be REACHED
@@ -41,22 +42,22 @@ Week-1 report; one Commander word ratifies it).
 graded items: `Brain/courses/INDEX.md`.
 
 ### What can be RUN
-`docs/CAPABILITIES.md` — **13 scripts**. `docs/SKILLS.md` says how to think; that file says what can be executed.
+`docs/CAPABILITIES.md` — script inventory GENERATED there. `docs/SKILLS.md` says how to think; that file says what can be executed.
 
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v2.7.0** — the due-diligence reconciliation (patch 4400): the Core gate
-validates the real cards (check 29), the relay judges content not filenames
-(radiation_core bundles), generated facts cannot drift in silence (render_docs +
-CI), the validator exposes a structured JSON API, and APPLY is a cross-removing
-seal transaction. II.10 Ledger Compression (4300) stands. Machine: 34 checks ·
-regression 11 locked · 0 failed. Prior: 4300 compression law · 4200 the
-Commander's expansion (@Fetch/@Overule/OPEN_SOURCES bank).
+**RADIATION v2.8.0** — the last mile (patch 4500): relay bundles are fully bound
+(schemas executed · identity · projection equality · causation · closed legacy
+list per II.10.6), prose cannot hand-state live facts (phrase lint in CI), the
+apply-report BLOCKS, and degraded mode is loud. Prior: 4400 reconciliation ·
+4300 compression law · 4200 the Commander's expansion
+(@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED in this file.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*
-- **Machine Enforcement:** `scripts/validate.py` **33 checks** (check 28 pins the
+- **Machine Enforcement:** `scripts/validate.py` (check count GENERATED below;
+  check 28 pins the
   activation matrix · check 15 gauges boot budget, II.10 gauge ACTIVE) +
   `knowledge_regression.py` (**11 locked · 5 pending**) + CI on every push.
 - **Core (09-nota/): 2 admitted cards** — CARD_001 (BP 344 accessibility) · CARD_002
@@ -64,7 +65,7 @@ Full version history: `CHANGELOG.md` (single source of record — not recited he
   pending Commander ruling — reviewer ⚑).
 - **Registry:** 13 standing directives (SD-GOV-013 = the @Overule boundary).
   **Subskills:** 4 passive + 5 active (scout · colony · selfdirectives · fetch · overule).
-- **Brain content:** 45 K-IDs (36 live); 2 collection ingestions (K-CUR-005/006);
+- **Brain content:** K-IDs GENERATED below; 2 collection ingestions (K-CUR-005/006);
   6 course records; term plan in `Brain/short_term/plan/`.
 - **Registers live:** TASK · PATCH · MASTERY · MISTAKE · DECAY · CONFLICT · KNOWLEDGE · DEBT.
 - **Transport hygiene:** course vehicles + APPLY runners untrack/re-home at apply
@@ -86,8 +87,8 @@ listed, not lost).
 | CUE_SYSTEM + cue/ lexicon + inference log | ✅ CURRENT · 🌱 grows via II.5 |
 | Subskills (4 passive + 5 active) | ✅ CURRENT — @Fetch/@Overule per 4200 |
 | Core (09-nota/) | ✅ 2 cards · nota.py-guarded |
-| Brain content | ✅ 45 K-IDs · 2 ingestions · 1 drill set |
-| Machine layer | ✅ 33 checks · 11/0 regression · CI |
+| Brain content | ✅ GENERATED facts · 2 ingestions · 1 drill set |
+| Machine layer | ✅ GENERATED facts · CI |
 | Shrine + session outputs contract | ✅ LIVE (checks 24/23) |
 | Calendar mirror | ⏳ BUILT, UNARMED — rotate feed, then arm |
 
@@ -98,5 +99,5 @@ in `docs/shrine/members/` first (CHARTER §3). Standing orders:
 `docs/COMMANDER_QUICKREF.md` §5. Await the Commander.
 
 <!-- GENERATED:machine-facts:START -->
-**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 34 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 14 (7 exercised in CI)
+**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 34 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 14 (8 exercised in CI)
 <!-- GENERATED:machine-facts:END -->

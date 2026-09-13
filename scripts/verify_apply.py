@@ -76,7 +76,9 @@ def main():
         _f, _w = _v._summary(_results)
         tot = (str(len(_results)), str(len(_results)-len(_f)-len(_w)), str(len(_w)), str(len(_f)))
         fails = [f"[check {r['check']}] {r['msg']}" for r in _f]
+        _degraded = False
     except Exception:
+        _degraded = True
         r = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "validate.py")],
                            capture_output=True, text=True)
         out = (r.stdout or "") + (r.stderr or "")
@@ -90,7 +92,10 @@ def main():
              ("" if v_readme == v_change else "   << DRIFT"))
     if v_readme != v_change:
         findings_fail.append(f"version drift: README {v_readme} vs CHANGELOG {v_change} — an apply did not finish")
-    L.append(f"  validator  : " + (" ".join(tot) + " (checks/pass/warn/fail)" if tot else "totals unparsed") )
+    L.append(f"  validator  : " + (" ".join(tot) + " (checks/pass/warn/fail)" if tot else "totals unparsed")
+             + ("  << DEGRADED (stdout fallback — structured API unavailable)" if _degraded else ""))
+    if _degraded and "--strict" in sys.argv:
+        findings_fail.append("degraded mode in strict run — structured validator API unavailable")
     for f in fails[:4]: L.append("    " + f[:120])
     if fails: findings_fail.append(f"validator: {len(fails)} FAIL — reconcile, then re-run")
 

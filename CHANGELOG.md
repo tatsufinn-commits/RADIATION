@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.8.0 — 2026-09-14 — Last Mile (🟠 · the 4400 recheck remediated)
+- **Relay hardened to the recheck's spec:** schemas EXECUTED (required/const/enum/pattern/type) · outcome identity bound to file stem AND internal id (the CMD-MISMATCH mutation now FAILS) · projection.json parsed and required to equal the event-derived state (corrupted projections FAIL) · causation refs required on all command events with coverage checks · base-revision agreement · unique event ids + RFC-3339 monotonic timestamps · self-test 6/6 incl. the recheck's two mutations as permanent vectors.
+- **Prose cannot lie:** render_docs --check now LINTS guarded docs for hand-stated live facts outside generated markers (45 K-IDs / 33 checks / 4 locked / "No admitted Core cards" / "CI runs 2 of" / 13 scripts — all nine recheck hits eradicated at source).
+- **Control hardened:** DEGRADED mode is loud and refused in --strict (status + verify_apply) · apply-report job is BLOCKING in CI (a red seal stops the merge, not a summary note) · status.py carries a 3-vector date-semantics self-test in CI.
+- **II.10.6 enacted:** the legacy exemption list is CLOSED at seven traces — law, not convention.
+- Version bump: MINOR → v2.8.0.
+
 ## v2.7.0 — 2026-09-14 — Reconciliation (🟠 · due-diligence remediation, Milestones A–C)
 - **Milestone A — the seal:** APPLY runners cross-remove (both platforms), check 3 flags committed runners, APPLY prints the exact seal commands. Main goes green on apply + commit + push.
 - **F-03 dead:** nota.py aligned to the CANONICAL contract (09-nota/CARD_###, core-card/v1 front matter, exact index parity) — CI now validates the real admitted cards (CARD_001/CARD_002 migrated, content untouched). New check 29.

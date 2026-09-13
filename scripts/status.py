@@ -33,14 +33,16 @@ def validator_block():
         online_skipped = any(("census skipped" in r["msg"] or "SKIPPED" in r["msg"]) for r in results)
         return (str(len(results)), str(len(results)-len(fails)-len(warns)),
                 str(len(warns)), str(len(fails))), \
-               [f"[check {r['check']}] {r['msg']}" for r in fails], online_skipped
+               [f"[check {r['check']}] {r['msg']}" for r in fails], online_skipped, False
     except Exception:
+        # DEGRADED MODE (4500): structured API unavailable - scraping stdout is a
+        # diagnostic fallback only. Surfaced loudly; refused in --strict.
         r = subprocess.run([sys.executable, R("scripts/validate.py")],
                            capture_output=True, text=True)
         out = (r.stdout or "") + (r.stderr or "")
         m = re.search(r"(\d+) checks run · (\d+) pass · (\d+) warn · (\d+) fail", out)
         fails = [l.strip() for l in out.splitlines() if l.startswith("❌")]
-        return (m.groups() if m else ("?", "?", "?", "?")), fails, False
+        return (m.groups() if m else ("?", "?", "?", "?")), fails, False, True
 
 
 def calendar_block(today):
@@ -78,9 +80,10 @@ def main():
     vm = re.search(r"Version.*?(v[0-9.]+)", v)
     print(f"  version   : {vm.group(1) if vm else '?'}")
 
-    (tot, ok, warn, fail), fails, offline = validator_block()
+    (tot, ok, warn, fail), fails, offline, degraded = validator_block()
     print(f"  validator : {tot} checks · {ok} pass · {warn} warn · {fail} FAIL" +
-          (" · link census offline-skipped" if offline else ""))
+          (" · link census offline-skipped" if offline else "")
+          + (" · ⚠ DEGRADED (stdout fallback — structured API unavailable)" if degraded else ""))
     for f in fails[:4]:
         print(f"    {f[:118]}")
 
@@ -128,7 +131,23 @@ def main():
     return 0
 
 
+def self_test():
+    ok = 0
+    t1 = last_date("| 2026-09-01 | session | later col 2027-09-13 |\n| 2026-09-14 | session | decay 2027-09-13 |")
+    v1 = (t1 == "2026-09-14"); ok += v1
+    print(f"  vector 1 first-column-only dates -> {'PASS' if v1 else t1}")
+    t2 = last_date("prose date 2027-01-01 without table row")
+    v2 = (t2 is None); ok += v2
+    print(f"  vector 2 non-table dates ignored -> {'PASS' if v2 else t2}")
+    t3 = last_date("| 2026-08-30 | a |\n| 2026-09-14 | b |\n| 2026-08-31 | c |")
+    v3 = (t3 == "2026-09-14"); ok += v3
+    print(f"  vector 3 max across unordered rows -> {'PASS' if v3 else t3}")
+    print(f"status self-test: {ok}/3 vectors")
+    return 0 if ok == 3 else 1
+
 if __name__ == "__main__":
+    if "--self-test" in sys.argv:
+        sys.exit(self_test())
     if "--strict" in sys.argv:
         res = None
         try:
@@ -137,7 +156,9 @@ if __name__ == "__main__":
             res = _v.run_all()
         except Exception:
             res = None
-        if res is None: sys.exit(2)
+        if res is None:
+            print("strict: DEGRADED — structured validator API unavailable; refusing strict pass")
+            sys.exit(3)
         f, _w = _v._summary(res)
         print(f"strict: {len(res)} checks, {len(f)} FAIL-class finding(s)")
         sys.exit(1 if f else 0)

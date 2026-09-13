@@ -1,35 +1,75 @@
 #!/usr/bin/env python3
-"""relay.py — semantic validation of task bundles (patch 4400; auditor plan item 2).
-Replaces filename-topology-only relay checking. A TID is either:
-  legacy_trace  — listed in evidence/tasks/legacy_manifest.json; judged by the
-                  filename-triple rule only, status historical_unverified; or
-  canonical     — must own evidence/tasks/<TID>/ with task.json (TaskEnvelope),
-                  plan JSON, commands/, outcomes/, events.ndjson, projection.json
-                  satisfying the state machine and evidence-digest rules.
-Self-test: python3 -m radiation_core.relay   (negative vectors MUST fail).
-Stdlib only. Exit 0 = all bundles valid; 1 = findings exist.
-"""
-import hashlib, json, os, re, sys, tempfile, shutil
+"""relay.py - semantic validation of task bundles (patch 4500 hardening).
+History: 4400 introduced bundles; 4500 closes the recheck gaps:
+  - schemas/ are EXECUTED (required/const/enum/pattern/type subset), not decorative;
+  - outcome identity is bound: file stem == internal command_id (CMD-MISMATCH fails);
+  - projection.json is parsed and must equal the event-derived final state;
+  - causation: command events carry ref=<command_id>, verified for coverage;
+  - base_revision agreement across envelope/plan/commands;
+  - unique event_ids, RFC-3339 timestamps, monotonic order.
+Legacy rule (II.10.6, CLOSED list): pre-runtime TIDs stay legacy_trace forever;
+every task after 4400 ships a canonical bundle. The list never grows.
+Self-test: python3 -m radiation_core.relay --self-test  (6 vectors, negatives MUST fail).
+Stdlib only. Exit 0 = valid; 1 = findings."""
+import hashlib, json, os, re, sys, tempfile, shutil, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EVID = os.path.join(ROOT, "evidence", "tasks")
+SCHEMA_DIR = os.path.join(ROOT, "schemas")
 STATES = ("RECEIVED","ACCEPTED","CONTEXT_READY","PLAN_PROPOSED","PLAN_APPROVED",
           "COMMAND_PROPOSED","COMMAND_AUTHORIZED","EXECUTING","OBSERVED",
           "STEP_VERIFIED","FINAL_VERIFYING","COMPLETE","REPLAN_REQUIRED","BLOCKED","FAILED")
-TRANS = {
+# TARGET: the destination state of every event (single-valued by construction).
+# ALLOWED (below) constrains the ORIGINS. They are different things; conflating
+# them made the state itself a tuple after plan.re-approval (caught by vector 1).
+TARGET = {
  "input.received":"RECEIVED","task.accepted":"ACCEPTED","context.built":"CONTEXT_READY",
- "plan.proposed":"PLAN_PROPOSED","plan.approved":"PLAN_APPROVED","command.proposed":"COMMAND_PROPOSED",
- "command.authorized":"COMMAND_AUTHORIZED","execution.started":"EXECUTING","outcome.recorded":"OBSERVED",
+ "plan.proposed":"PLAN_PROPOSED","plan.approved":"PLAN_APPROVED",
+ "command.proposed":"COMMAND_PROPOSED","command.authorized":"COMMAND_AUTHORIZED",
+ "execution.started":"EXECUTING","outcome.recorded":"OBSERVED",
  "verification.passed":"STEP_VERIFIED","task.completed":"COMPLETE","task.blocked":"BLOCKED",
  "replan":"REPLAN_REQUIRED"}
 OPS = {"read_file","run_validator","run_test","apply_patch","build_artifact","render_docs","stage_files"}
-ALLOWED = {  # event -> required prior state (state-machine guards)
+CAUSAL = {"command.proposed","command.authorized","execution.started","outcome.recorded"}
+ALLOWED = {  # event -> required prior state(s)
  "input.received":None,"task.accepted":"RECEIVED","context.built":"ACCEPTED",
- "plan.proposed":"CONTEXT_READY","plan.approved":("PLAN_PROPOSED","REPLAN_REQUIRED"),  # replan re-approval is legal
+ "plan.proposed":"CONTEXT_READY","plan.approved":("PLAN_PROPOSED","REPLAN_REQUIRED"),
  "command.proposed":("PLAN_APPROVED","STEP_VERIFIED","REPLAN_REQUIRED"),
  "command.authorized":"COMMAND_PROPOSED","execution.started":"COMMAND_AUTHORIZED",
  "outcome.recorded":("EXECUTING",),"verification.passed":"OBSERVED",
  "task.completed":("STEP_VERIFIED","FINAL_VERIFYING"),"task.blocked":None,"replan":None}
+
+_SCHEMAS = {}
+_K_CONST, _K_ENUM, _K_PAT = "const", "enum", "pattern"
+def _load_schema(name):
+    if name not in _SCHEMAS:
+        p = os.path.join(SCHEMA_DIR, name)
+        try: _SCHEMAS[name] = json.load(open(p, encoding="utf-8"))
+        except Exception: _SCHEMAS[name] = None
+    return _SCHEMAS[name]
+
+def _schema_check(obj, name, where, out):
+    """Execute the executed-subset of a JSON Schema: required, const, enum,
+    pattern (search), type. Schemas are law here, not decoration."""
+    s = _load_schema(name)
+    if s is None:
+        out.append(f"{where}: schema {name} missing/unreadable (schemas are executed law)")
+        return
+    for r in s.get("required", []):
+        if r not in obj: out.append(f"{where}: schema-required field {r!r} missing")
+    props = s.get("properties", {})
+    for k, v in obj.items():
+        if k not in props: continue
+        spec = props[k]; tag = f"{where}.{k}"
+        if "const" in spec and v != spec["const"]: out.append(f"{tag}: const violated (want {spec[_K_CONST]!r})")
+        if "enum" in spec and v not in spec["enum"]: out.append(f"{tag}: {v!r} outside enum {spec[_K_ENUM]}")
+        if "pattern" in spec and isinstance(v, str) and not re.search(spec["pattern"], v):
+            out.append(f"{tag}: {v!r} fails pattern {spec[_K_PAT]!r}")
+        t = spec.get("type")
+        if t == "string" and not isinstance(v, str): out.append(f"{tag}: must be string")
+        if t == "integer" and not isinstance(v, int): out.append(f"{tag}: must be integer")
+        if t == "object" and not isinstance(v, dict): out.append(f"{tag}: must be object")
+        if t == "array" and not isinstance(v, list): out.append(f"{tag}: must be array")
 
 def _sha(p):
     h = hashlib.sha256()
@@ -39,7 +79,7 @@ def _sha(p):
 
 def _req(obj, fields, where, out):
     for f in fields:
-        if f not in obj or obj[f] in (None,"",[]): out.append(f"{where}: missing required field '{f}'")
+        if f not in obj or obj[f] in (None,"",[]): out.append(f"{where}: missing required field {f!r}")
 
 def load_legacy():
     p = os.path.join(EVID,"legacy_manifest.json")
@@ -53,20 +93,23 @@ def validate_bundle(tid, d):
     if not os.path.isfile(tj): return [f"{tid}: task.json missing (bundle is not a TaskEnvelope)"]
     try: env = json.load(open(tj,encoding="utf-8"))
     except Exception as e: return [f"{tid}: task.json unparseable: {e}"]
+    _schema_check(env, "task-envelope.schema.json", f"{tid}/task.json", out)
     _req(env,["schema_version","task_id","source","principal","received_at","mode_hint","base_revision","idempotency_key"],f"{tid}/task.json",out)
     if env.get("task_id") != tid: out.append(f"{tid}: envelope task_id mismatch")
-    if env.get("schema_version") != "1.0": out.append(f"{tid}: unsupported schema_version {env.get('schema_version')!r}")
     if not re.match(r"^[0-9a-f]{7,40}$", str(env.get("base_revision",""))): out.append(f"{tid}: base_revision not a git SHA")
-    # plan
+    # plan (versioned; all files must parse, first matching becomes current)
     plans = [f for f in os.listdir(d) if re.match(r"plan(\.v\d+)?\.json$",f)]
     if not plans: out.append(f"{tid}: no plan JSON")
     plan = None
     for pf in sorted(plans):
         try: p = json.load(open(os.path.join(d,pf),encoding="utf-8"))
         except Exception as e: out.append(f"{tid}: {pf} unparseable: {e}"); continue
+        _schema_check(p, "plan.schema.json", f"{tid}/{pf}", out)
         _req(p,["plan_id","task_id","base_revision","steps"],f"{tid}/{pf}",out)
+        if str(p.get("base_revision")) != str(env.get("base_revision")):
+            out.append(f"{tid}/{pf}: plan base_revision disagrees with envelope (revision drift)")
         for st in p.get("steps",[]):
-            _req(st,["step_id","operation_class","success_predicate"],f"{tid}/{pf}:{st.get('step_id')}",out)
+            _req(st,["step_id","operation_class","success_predicate"],f"{tid}/{pf}:{st.get("step_id")}",out)
         if plan is None and p.get("task_id")==tid: plan = p
     # commands + outcomes
     cmds, outs = {}, {}
@@ -79,51 +122,94 @@ def validate_bundle(tid, d):
                 except Exception as e: out.append(f"{tid}/{sub}/{f}: unparseable: {e}"); continue
                 store[f[:-5]] = o
     for cid,c in cmds.items():
+        _schema_check(c, "command.schema.json", f"{tid}/commands/{cid}", out)
         _req(c,["command_id","task_id","plan_id","step_id","operation"],f"{tid}/commands/{cid}",out)
-        if c.get("operation") not in OPS: out.append(f"{tid}/commands/{cid}: operation {c.get('operation')!r} outside the allowlist")
+        if c.get("operation") not in OPS: out.append(f"{tid}/commands/{cid}: operation {c.get("operation")!r} outside the allowlist")
         if c.get("task_id") != tid: out.append(f"{tid}/commands/{cid}: cross-task command (causation broken)")
-        if plan and c.get("plan_id") != plan.get("plan_id"): out.append(f"{tid}/commands/{cid}: references plan {c.get('plan_id')!r}, bundle plan is {plan.get('plan_id')!r}")
+        if plan and c.get("plan_id") != plan.get("plan_id"): out.append(f"{tid}/commands/{cid}: references plan {c.get("plan_id")!r}, bundle plan is {plan.get("plan_id")!r}")
         steps = {s.get("step_id") for s in (plan or {}).get("steps",[])}
-        if plan and c.get("step_id") not in steps: out.append(f"{tid}/commands/{cid}: step {c.get('step_id')!r} not in approved plan")
+        if plan and c.get("step_id") not in steps: out.append(f"{tid}/commands/{cid}: step {c.get("step_id")!r} not in approved plan")
+        if "base_revision" in c and str(c.get("base_revision")) != str(env.get("base_revision")):
+            out.append(f"{tid}/commands/{cid}: command base_revision disagrees with envelope")
         if cid not in outs: out.append(f"{tid}/commands/{cid}: no outcome recorded")
     for oid,o in outs.items():
+        _schema_check(o, "outcome.schema.json", f"{tid}/outcomes/{oid}", out)
         _req(o,["command_id","task_id","result","evidence"],f"{tid}/outcomes/{oid}",out)
         if o.get("result") not in ("succeeded","failed","stale_precondition","policy_denied","timed_out","security_blocked"):
-            out.append(f"{tid}/outcomes/{oid}: illegal result {o.get('result')!r}")
+            out.append(f"{tid}/outcomes/{oid}: illegal result {o.get("result")!r}")
+        # identity binding (4500): file stem MUST equal the internal command_id
+        if str(o.get("command_id")) != oid:
+            out.append(f"{tid}/outcomes/{oid}: outcome identity mismatch - file stem says {oid!r}, internal command_id says {o.get("command_id")!r}")
         for ev in o.get("evidence",[]):
             ep = os.path.join(ROOT, ev.get("path",""))
-            if not os.path.isfile(ep): out.append(f"{tid}/outcomes/{oid}: evidence path missing: {ev.get('path')}")
-            elif ev.get("sha256") != _sha(ep): out.append(f"{tid}/outcomes/{oid}: evidence digest mismatch: {ev.get('path')}")
+            if not os.path.isfile(ep): out.append(f"{tid}/outcomes/{oid}: evidence path missing: {ev.get("path")}")
+            elif ev.get("sha256") != _sha(ep): out.append(f"{tid}/outcomes/{oid}: evidence digest mismatch: {ev.get("path")}")
         if o.get("result") == "failed" and oid in cmds: out.append(f"{tid}/outcomes/{oid}: failed command has no replan event or follow-up")
-    # events: order, transitions, duplicates
+    # events: order, transitions, uniqueness, timestamps, causation
     ej = os.path.join(d,"events.ndjson")
     if not os.path.isfile(ej): out.append(f"{tid}: events.ndjson missing (append-only causal record)")
     else:
-        seqs, state, done = [], "RECEIVED", False
+        seqs, eids, state, done = [], set(), "RECEIVED", False
+        refs = {t: [] for t in CAUSAL}
+        last_dt = None
         for ln in open(ej,encoding="utf-8"):
             ln = ln.strip()
             if not ln: continue
             try: e = json.loads(ln)
             except Exception as ex: out.append(f"{tid}/events.ndjson: unparseable line: {ex}"); continue
+            _schema_check(e, "event.schema.json", f"{tid}/events", out)
             _req(e,["seq","event_id","task_id","type","at","actor"],f"{tid}/events",out)
-            if e.get("task_id") != tid: out.append(f"{tid}/events: foreign task_id {e.get('task_id')!r}")
+            if e.get("task_id") != tid: out.append(f"{tid}/events: foreign task_id {e.get("task_id")!r}")
             seqs.append(e.get("seq"))
+            if e.get("event_id") in eids: out.append(f"{tid}/events: duplicate event_id {e.get("event_id")!r}")
+            eids.add(e.get("event_id"))
+            ts = e.get("at","")
+            try:
+                dt = datetime.datetime.fromisoformat(ts)
+                if last_dt is not None and dt < last_dt:
+                    out.append(f"{tid}/events: timestamps not monotonic at {e.get("event_id")!r}")
+                last_dt = dt
+            except Exception:
+                out.append(f"{tid}/events: non-RFC3339 timestamp {ts!r}")
             t = e.get("type")
-            if t not in TRANS: out.append(f"{tid}/events: unknown event type {t!r}"); continue
+            if t in CAUSAL:
+                ref = e.get("ref")
+                if not ref: out.append(f"{tid}/events: {t} without causation ref")
+                else: refs[t].append(ref)
+            if t not in TARGET: out.append(f"{tid}/events: unknown event type {t!r}"); continue
             need = ALLOWED.get(t)
             ok = (need is None) if not isinstance(need,tuple) else (state in need)
             if isinstance(need,str): ok = (state == need)
-            if not ok: out.append(f"{tid}/events: illegal transition {state} --{t}--> ")
-            state = TRANS[t]
+            if not ok: out.append(f"{tid}/events: illegal transition {state} --{t}-->")
+            state = TARGET[t]
             if t == "task.completed": done = True
         if seqs != sorted(seqs): out.append(f"{tid}/events: sequence numbers out of order (append-only violated)")
         if len(seqs) != len(set(seqs)): out.append(f"{tid}/events: duplicate sequence numbers")
         if not done: out.append(f"{tid}: no task.completed event (closure without completion)")
+        # causation coverage (4500): every command authorized+executed, every outcome recorded
+        for cid in cmds:
+            for t in ("command.proposed","command.authorized","execution.started"):
+                if cid not in refs[t]: out.append(f"{tid}/events: command {cid} missing a {t} causation ref")
+        for oid,o in outs.items():
+            rec = refs["outcome.recorded"]
+            if rec.count(str(o.get("command_id"))) != 1:
+                out.append(f"{tid}/events: outcome {oid} needs exactly one outcome.recorded ref to its command_id")
     if done and not outs: out.append(f"{tid}: completed with zero outcomes (no evidence)")
+    # projection (4500): parsed, identity-bound, and equal to the event-derived state
+    pj = os.path.join(d,"projection.json")
+    if not os.path.isfile(pj): out.append(f"{tid}: projection.json missing (rebuildable view is required)")
+    else:
+        try: proj = json.load(open(pj,encoding="utf-8"))
+        except Exception as e: proj = None; out.append(f"{tid}: projection.json unparseable: {e}")
+        if proj is not None:
+            if proj.get("task_id") != tid: out.append(f"{tid}: projection.json task_id mismatch")
+            derived = state if done else "INCOMPLETE"
+            if proj.get("state") != derived:
+                out.append(f"{tid}: projection.json state {proj.get("state")!r} != event-derived state {derived!r} (projection is rebuildable, never hand-edited)")
     return out
 
 def validate_active(neurons_dir=None):
-    """The check-27 engine: legacy triple rule + canonical bundle rule."""
+    """The check-27 engine: legacy triple rule + canonical bundle rule + projection fidelity."""
     findings = []
     nd = neurons_dir or os.path.join(ROOT,"scaffolding","neurons")
     stages = (("sensoryneurons","intake"),("interneurons","reasoning"),("motorneurons","orders"))
@@ -144,9 +230,8 @@ def validate_active(neurons_dir=None):
             if not all(trip): findings.append(f"TID-{tid} (legacy_trace): incomplete filename triple")
             continue
         if not all(trip): findings.append(f"TID-{tid}: incomplete filename triple")
-        # projection fidelity (4400): the Markdown neurons are RENDERED projections
-        # of the bundle - a motor record of gibberish must never pass again (the
-        # audit's negative mutation test is now a standing law, not a demo).
+        # projection fidelity (4400): Markdown neurons are rendered projections of
+        # the bundle - a motor record of gibberish must never pass again.
         for stage,suf in stages:
             fp = os.path.join(nd,stage,f"TID-{tid}_{suf}.md")
             body = open(fp,encoding="utf-8",errors="replace").read() if os.path.isfile(fp) else ""
@@ -157,7 +242,8 @@ def validate_active(neurons_dir=None):
         findings.extend(validate_bundle(f"TID-{tid}", os.path.join(EVID,f"TID-{tid}")))
     return findings
 
-def _self_test_vectors():
+
+def _make_vector_bundle():
     # synthetic canonical bundle in a temp dir; mutations of it MUST fail
     root = tempfile.mkdtemp(prefix="relay_selftest_")
     tid = "TID-2026-09-14-z"
@@ -168,7 +254,7 @@ def _self_test_vectors():
                "source":{"kind":"commander","artifact_ref":"artifact://t","trust":"root"},
                "principal":"commander","received_at":"2026-09-14T12:00:00+08:00",
                "mode_hint":"autopilot","base_revision":rev,
-               "idempotency_key":"selftest-4400-vec"}, open(os.path.join(d,"task.json"),"w"))
+               "idempotency_key":"selftest-4500-vec"}, open(os.path.join(d,"task.json"),"w"))
     json.dump({"schema_version":"1.0","plan_id":"P1","task_id":tid,"base_revision":rev,
                "steps":[{"step_id":"S1","operation_class":"verify","success_predicate":"exit==0"}]},
               open(os.path.join(d,"plan.v1.json"),"w"))
@@ -183,47 +269,74 @@ def _self_test_vectors():
     seq = ["input.received","task.accepted","context.built","plan.proposed","plan.approved",
            "command.proposed","command.authorized","execution.started","outcome.recorded",
            "verification.passed","task.completed"]
-    ev = [{"seq":i+1,"event_id":f"e{i+1}","task_id":tid,"type":ty,
-           "at":f"2026-09-14T12:00:{i:02d}+08:00","actor":"relay"} for i,ty in enumerate(seq)]
+    ev = []
+    for i,ty in enumerate(seq):
+        e = {"seq":i+1,"event_id":f"e{i+1}","task_id":tid,"type":ty,
+             "at":f"2026-09-14T12:00:{i:02d}+08:00","actor":"relay"}
+        if ty in CAUSAL: e["ref"] = "C1"
+        ev.append(e)
     open(os.path.join(d,"events.ndjson"),"w").write("\n".join(json.dumps(e) for e in ev))
     json.dump({"task_id":tid,"state":"COMPLETE"}, open(os.path.join(d,"projection.json"),"w"))
     return root, d, tid
 
+
 def self_test():
     ok = 0
-    root, d, tid = _self_test_vectors()
+    # vector 1: valid bundle is clean
+    root, d, tid = _make_vector_bundle()
     f = validate_bundle(tid, d)
-    ok += (len(f) == 0)
-    print(f"  vector 1 valid bundle clean -> {'PASS' if not f else f}")
-    p = os.path.join(d,"outcomes","C1.json")
-    o = json.load(open(p)); o["evidence"][0]["sha256"] = "0"*64
-    json.dump(o, open(p,"w"))
+    v1 = (len(f) == 0); ok += v1
+    print(f"  vector 1 valid bundle clean -> {'PASS' if v1 else f}")
+    # vector 2: tampered evidence digest fails
+    pj = os.path.join(d,"outcomes","C1.json")
+    o = json.load(open(pj)); o["evidence"][0]["sha256"] = "0"*64
+    json.dump(o, open(pj,"w"))
     f2 = validate_bundle(tid, d)
     v2 = any("digest mismatch" in x for x in f2); ok += v2
     print(f"  vector 2 tampered evidence caught -> {'PASS' if v2 else 'FAIL'}")
+    # vector 3: execution without authorization fails
     o["evidence"][0]["sha256"] = hashlib.sha256(open(os.path.join(d,"evidence.txt"),"rb").read()).hexdigest()
-    json.dump(o, open(p,"w"))
+    json.dump(o, open(pj,"w"))
     lines = open(os.path.join(d,"events.ndjson")).read().splitlines()
-    del lines[6]  # drop command.authorized -> execution.started becomes illegal
+    del lines[6]  # drop command.authorized
     open(os.path.join(d,"events.ndjson"),"w").write("\n".join(lines))
     f3 = validate_bundle(tid, d)
     v3 = any("illegal transition" in x for x in f3); ok += v3
     print(f"  vector 3 unauthorized execution caught -> {'PASS' if v3 else 'FAIL'}")
-    # vector 4: a LEGAL replan (completed task -> replan -> re-approval) must pass
+    # vector 4: a LEGAL replan (completed task -> replan -> re-approval) passes
     shutil.rmtree(root)
-    root, d, tid = _self_test_vectors()
+    root, d, tid = _make_vector_bundle()
     lines = open(os.path.join(d,"events.ndjson")).read().splitlines()
     import json as _j
-    seq = _j.loads(lines[-1])["seq"]
-    ins = [_j.dumps({"seq":seq+1,"event_id":f"e{seq+1}","task_id":tid,"type":"replan","at":"2026-09-14T13:00:00+08:00","actor":"relay"}),
-           _j.dumps({"seq":seq+2,"event_id":f"e{seq+2}","task_id":tid,"type":"plan.approved","at":"2026-09-14T13:00:05+08:00","actor":"policy"})]
+    seqn = _j.loads(lines[-1])["seq"]
+    ins = [_j.dumps({"seq":seqn+1,"event_id":f"e{seqn+1}","task_id":tid,"type":"replan","at":"2026-09-14T13:00:00+08:00","actor":"relay"}),
+           _j.dumps({"seq":seqn+2,"event_id":f"e{seqn+2}","task_id":tid,"type":"plan.approved","at":"2026-09-14T13:00:05+08:00","actor":"policy"})]
     open(os.path.join(d,"events.ndjson"),"w").write("\n".join(lines + ins) + "\n")
+    # a replan re-opens the task: the projection MUST be re-rendered to match
+    pr = json.load(open(os.path.join(d,"projection.json"))); pr["state"] = "PLAN_APPROVED"
+    json.dump(pr, open(os.path.join(d,"projection.json"),"w"))
     f4 = validate_bundle(tid, d)
     v4 = (len(f4) == 0); ok += v4
     print(f"  vector 4 legal replan sequence -> {'PASS' if v4 else f4}")
+    # vector 5 (recheck mutation): outcome identity mismatch (CMD-MISMATCH) fails
+    pj = os.path.join(d,"outcomes","C1.json")
+    o = json.load(open(pj)); o["command_id"] = "CMD-MISMATCH"
+    json.dump(o, open(pj,"w"))
+    f5 = validate_bundle(tid, d)
+    v5 = any("identity mismatch" in x for x in f5); ok += v5
+    print(f"  vector 5 outcome identity mismatch caught -> {'PASS' if v5 else 'FAIL'}")
+    # vector 6 (recheck mutation): corrupted projection (hand-edited state) fails
+    o["command_id"] = "C1"; json.dump(o, open(pj,"w"))
+    pp = os.path.join(d,"projection.json")
+    pr = json.load(open(pp)); pr["state"] = "FAILED"
+    json.dump(pr, open(pp,"w"))
+    f6 = validate_bundle(tid, d)
+    v6 = any("event-derived state" in x for x in f6); ok += v6
+    print(f"  vector 6 corrupted projection caught -> {'PASS' if v6 else 'FAIL'}")
     shutil.rmtree(root)
-    print(f"relay self-test: {ok}/4 vectors")
-    return 0 if ok == 4 else 1
+    print(f"relay self-test: {ok}/6 vectors")
+    return 0 if ok == 6 else 1
+
 
 if __name__ == "__main__":
     if "--self-test" in sys.argv:

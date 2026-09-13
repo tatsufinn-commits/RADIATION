@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0005",
+ "task_id": "TID-2026-09-14-i",
+ "result": "succeeded",
+ "revision_after": "e7f0f7f",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-i/artifacts/regression.txt",
+   "sha256": "97864f218719a360b028365858bb996f3ee0226d7afbeffc8769811785971c99"
+  }
+ ]
+}
