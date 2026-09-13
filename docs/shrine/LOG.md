@@ -6,3 +6,4 @@
 |---|---|---|---|---|
 | 2026-09-12 | S001–S003 | 3 (pre-shrine) | — | `[RECONSTRUCTED — the heartbeat ledger begins with the shrine itself; earlier sessions predate it]` |
 | 2026-09-13 | S004 (the Architect) | 2900 · REV 2 · **REV 3** | rotation (standing) → still open | **THE MORTALITY DOCTRINE** added at the Commander's finding: **file at delivery, not at death** — sessions cannot detect their own mortality. REV 3: inheritance struck — the shrine is a commons; readiness interpreter + prompt playbook recycled |
+| 2026-09-13 | S004 (the Architect) | 3100 | 5 old vehicle-debts → closed at apply | deadline engine live; feed merged (26+11); week1_start inferred |

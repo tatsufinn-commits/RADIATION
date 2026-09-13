@@ -1,64 +1,522 @@
 {
-  "schema": "rad.term_deadlines/v1",
-  "generated": "2026-09-13",
-  "generated_by": "P-10 Phase 1 (architect build)",
-  "derived_from": [
-    "Brain/courses/MEC30-7.md",
-    "Brain/courses/GED103.md",
-    "Brain/courses/DSS10.md",
-    "Brain/courses/AR173-1P.md",
-    "Brain/courses/AR163-1P.md",
-    "Brain/courses/AR153P.md"
-  ],
-  "note": "DERIVED WORKING FILE — the machine view of what the course records state. It is not canon and not citable evidence: the records are the authority, this is their parseable projection so the planner does not have to parse markdown. Regenerate whenever a record changes. Week numbers only: the records know WHICH week, never WHICH calendar date.",
-  "term": {
-    "label": "Term 1, AY 2026-2027",
-    "weeks": 11,
-    "week1_start": null,
-    "week1_start_note": "ANCHOR ABSENT. No syllabus prints a calendar date, only week numbers. Supply once (--anchor YYYY-MM-DD) or let the LMS ICS supply it, and every week becomes a date."
+ "schema": "rad.term_deadlines/v1",
+ "generated": "2026-09-13",
+ "generated_by": "P-10 Phase 1 (architect build)",
+ "derived_from": [
+  "Brain/courses/MEC30-7.md",
+  "Brain/courses/GED103.md",
+  "Brain/courses/DSS10.md",
+  "Brain/courses/AR173-1P.md",
+  "Brain/courses/AR163-1P.md",
+  "Brain/courses/AR153P.md",
+  "LMS feed merge 2026-09-13: 16 added · 3 anchored · 8 stale skipped · 0 dups skipped"
+ ],
+ "note": "DERIVED WORKING FILE — the machine view of what the course records state. It is not canon and not citable evidence: the records are the authority, this is their parseable projection so the planner does not have to parse markdown. Regenerate whenever a record changes. Week numbers only: the records know WHICH week, never WHICH calendar date.",
+ "term": {
+  "label": "Term 1, AY 2026-2027",
+  "weeks": 11,
+  "week1_start": "2026-08-24",
+  "week1_start_note": "INFERRED from Coursera Progress Report Week 1 ending Sun 2026-08-30 (feed TERM1_FEED.txt); W3 ending 2026-09-13 confirms the cadence. Awaiting Commander confirm; change term.week1_start_source to 'commander' to ratify.",
+  "week1_start_source": "inferred"
+ },
+ "courses": [
+  {
+   "code": "GED103",
+   "k_id": "K-CUR-007",
+   "title": "Readings in Philippine History",
+   "units": 3,
+   "yield": 1,
+   "ale_domain": null,
+   "items_known": "partial"
   },
-  "courses": [
-    { "code": "GED103",    "k_id": "K-CUR-007", "title": "Readings in Philippine History", "units": 3, "yield": 1, "ale_domain": null,          "items_known": "partial" },
-    { "code": "DSS10",     "k_id": "K-CUR-008", "title": "Introduction to Data Science",   "units": 3, "yield": 1, "ale_domain": null,          "items_known": "partial" },
-    { "code": "MEC30-7",   "k_id": "K-CUR-009", "title": "Statics of Rigid Bodies for CE", "units": 3, "yield": 5, "ale_domain": "ALE-prerequisite", "items_known": "dates-only" },
-    { "code": "AR173-1P",  "k_id": "K-CUR-010", "title": "Planning 2 - Urban Design & Community Architecture", "units": 3, "yield": 9, "ale_domain": "ALE-Site Planning/UD", "items_known": "none" },
-    { "code": "AR163-1P",  "k_id": "K-CUR-011", "title": "Building Technology",            "units": 3, "yield": 8, "ale_domain": "ALE-Building Tech", "items_known": "none" },
-    { "code": "AR153P",    "k_id": "K-CUR-012", "title": "Building Utilities 2",           "units": 3, "yield": 8, "ale_domain": "ALE-Utilities",     "items_known": "none" }
-  ],
-  "items": [
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 1,  "type": "diagnostic", "title": "Diagnostic exam", "weight": null, "module": null, "source": "course calendar row W1" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 2,  "type": "coursera",   "title": "Coursera PR1", "weight": null, "module": null, "source": "course calendar row W2" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 4,  "type": "quiz",       "title": "Q1", "weight": null, "module": null, "source": "course calendar row W4" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 4,  "type": "coursera",   "title": "Coursera PR2", "weight": null, "module": null, "source": "course calendar row W4" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 6,  "type": "coursera",   "title": "Coursera PR3", "weight": null, "module": null, "source": "course calendar row W6" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 7,  "type": "quiz",       "title": "Q2", "weight": null, "module": null, "source": "course calendar row W7" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 8,  "type": "coursera",   "title": "Coursera PR4", "weight": null, "module": null, "source": "course calendar row W8" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 10, "type": "quiz",       "title": "Q3", "weight": null, "module": null, "source": "course calendar row W10" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 10, "type": "coursera",   "title": "Coursera PR5 + certificate", "weight": null, "module": null, "source": "course calendar row W10" },
-    { "course": "MEC30-7", "k_id": "K-CUR-009", "week": 11, "type": "final",      "title": "Final exam + course portfolio", "weight": null, "module": null, "source": "course calendar row W11" },
-
-    { "course": "GED103", "k_id": "K-CUR-007", "week": null, "type": "assessment", "title": "AT1 Objective Assessment (AI-PROHIBITED)", "weight": 10, "module": null, "source": "syllabus assessment table; week NOT printed" },
-    { "course": "GED103", "k_id": "K-CUR-007", "week": 5,  "type": "assessment", "title": "AT4 Local/Virtual Museum tour", "weight": 15, "module": null, "source": "syllabus coverage table W5" },
-    { "course": "GED103", "k_id": "K-CUR-007", "week": 6,  "type": "assignment", "title": "Debate topic assignment set", "weight": null, "module": null, "source": "syllabus coverage table W6" },
-    { "course": "GED103", "k_id": "K-CUR-007", "week": 7,  "type": "assessment", "title": "AT5 Debate", "weight": 15, "module": null, "source": "syllabus coverage table W7" },
-    { "course": "GED103", "k_id": "K-CUR-007", "week": 10, "type": "assessment", "title": "AT7 Research", "weight": 20, "module": null, "source": "syllabus coverage table W10" },
-    { "course": "GED103", "k_id": "K-CUR-007", "week": 11, "type": "final", "title": "Finals week - AT2 / AT3 / AT6 per schedule", "weight": 40, "module": null, "source": "syllabus coverage table W11" },
-
-    { "course": "DSS10", "k_id": "K-CUR-008", "week": 3,  "type": "quiz",  "title": "FA1 short quiz", "weight": null, "module": null, "source": "syllabus coverage table W3" },
-    { "course": "DSS10", "k_id": "K-CUR-008", "week": 5,  "type": "exam",  "title": "CO1 Examination", "weight": null, "module": null, "source": "syllabus coverage table W5" },
-    { "course": "DSS10", "k_id": "K-CUR-008", "week": 7,  "type": "quiz",  "title": "FA2 Long Quiz 2", "weight": 25, "module": null, "source": "syllabus coverage table W7" },
-    { "course": "DSS10", "k_id": "K-CUR-008", "week": 9,  "type": "exam",  "title": "CO2 Examination", "weight": null, "module": null, "source": "syllabus coverage table W9" },
-    { "course": "DSS10", "k_id": "K-CUR-008", "week": 11, "type": "final", "title": "Long Quiz 3 + Final Exam", "weight": 40, "module": null, "source": "syllabus coverage table W11" }
-  ],
-  "blind_courses": [
-    { "code": "AR173-1P", "k_id": "K-CUR-010", "yield": 9, "reason": "no syllabus held - graded items, weights and weeks all unknown", "impact": "HIGHEST-YIELD COURSE OF THE TERM IS DEADLINE-BLIND", "mitigation": "module + drill set already exist (K-MOD-001, SET-PD1096-VIII-001); obtain syllabus to restore prioritisation" },
-    { "code": "AR163-1P", "k_id": "K-CUR-011", "yield": 8, "reason": "no syllabus held", "impact": "deadline-blind", "mitigation": "material held (K-CUR-006, 50 files) - ingestion run needed, not acquisition" },
-    { "code": "AR153P",   "k_id": "K-CUR-012", "yield": 8, "reason": "no syllabus held", "impact": "deadline-blind", "mitigation": "material held (K-CUR-005, 14 PDFs incl. Fajardo + PEC) - ingestion run needed" }
-  ],
-  "known_gaps": [
-    "MEC30-7 prints dates with NO WEIGHTS - relative priority cannot be computed for its quizzes (largest single gap in the Term-1 capture).",
-    "GED103 AT1 has no week in the syllabus - recorded as null rather than guessed.",
-    "No course record prints a calendar date; week numbers only. The week-1 anchor is absent.",
-    "Three of six courses (all AR, i.e. all the ALE yield) have no graded-item data at all."
-  ]
+  {
+   "code": "DSS10",
+   "k_id": "K-CUR-008",
+   "title": "Introduction to Data Science",
+   "units": 3,
+   "yield": 1,
+   "ale_domain": null,
+   "items_known": "partial"
+  },
+  {
+   "code": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "title": "Statics of Rigid Bodies for CE",
+   "units": 3,
+   "yield": 5,
+   "ale_domain": "ALE-prerequisite",
+   "items_known": "dates-only"
+  },
+  {
+   "code": "AR173-1P",
+   "k_id": "K-CUR-010",
+   "title": "Planning 2 - Urban Design & Community Architecture",
+   "units": 3,
+   "yield": 9,
+   "ale_domain": "ALE-Site Planning/UD",
+   "items_known": "none"
+  },
+  {
+   "code": "AR163-1P",
+   "k_id": "K-CUR-011",
+   "title": "Building Technology",
+   "units": 3,
+   "yield": 8,
+   "ale_domain": "ALE-Building Tech",
+   "items_known": "none"
+  },
+  {
+   "code": "AR153P",
+   "k_id": "K-CUR-012",
+   "title": "Building Utilities 2",
+   "units": 3,
+   "yield": 8,
+   "ale_domain": "ALE-Utilities",
+   "items_known": "none"
+  }
+ ],
+ "items": [
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 1,
+   "type": "diagnostic",
+   "title": "Diagnostic exam",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W1"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 2,
+   "type": "coursera",
+   "title": "Coursera PR1",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W2",
+   "date": "2026-08-30",
+   "feed_id": "d1fca05e9b12"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 4,
+   "type": "quiz",
+   "title": "Q1",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W4"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 4,
+   "type": "coursera",
+   "title": "Coursera PR2",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W4",
+   "date": "2026-08-30",
+   "feed_id": "fe4f8adb7695"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 6,
+   "type": "coursera",
+   "title": "Coursera PR3",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W6",
+   "date": "2026-09-13",
+   "feed_id": "1b08abf8ea84"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 7,
+   "type": "quiz",
+   "title": "Q2",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W7"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 8,
+   "type": "coursera",
+   "title": "Coursera PR4",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W8"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 10,
+   "type": "quiz",
+   "title": "Q3",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W10"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 10,
+   "type": "coursera",
+   "title": "Coursera PR5 + certificate",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W10"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 11,
+   "type": "final",
+   "title": "Final exam + course portfolio",
+   "weight": null,
+   "module": null,
+   "source": "course calendar row W11"
+  },
+  {
+   "course": "GED103",
+   "k_id": "K-CUR-007",
+   "week": null,
+   "type": "assessment",
+   "title": "AT1 Objective Assessment (AI-PROHIBITED)",
+   "weight": 10,
+   "module": null,
+   "source": "syllabus assessment table; week NOT printed"
+  },
+  {
+   "course": "GED103",
+   "k_id": "K-CUR-007",
+   "week": 5,
+   "type": "assessment",
+   "title": "AT4 Local/Virtual Museum tour",
+   "weight": 15,
+   "module": null,
+   "source": "syllabus coverage table W5"
+  },
+  {
+   "course": "GED103",
+   "k_id": "K-CUR-007",
+   "week": 6,
+   "type": "assignment",
+   "title": "Debate topic assignment set",
+   "weight": null,
+   "module": null,
+   "source": "syllabus coverage table W6"
+  },
+  {
+   "course": "GED103",
+   "k_id": "K-CUR-007",
+   "week": 7,
+   "type": "assessment",
+   "title": "AT5 Debate",
+   "weight": 15,
+   "module": null,
+   "source": "syllabus coverage table W7"
+  },
+  {
+   "course": "GED103",
+   "k_id": "K-CUR-007",
+   "week": 10,
+   "type": "assessment",
+   "title": "AT7 Research",
+   "weight": 20,
+   "module": null,
+   "source": "syllabus coverage table W10"
+  },
+  {
+   "course": "GED103",
+   "k_id": "K-CUR-007",
+   "week": 11,
+   "type": "final",
+   "title": "Finals week - AT2 / AT3 / AT6 per schedule",
+   "weight": 40,
+   "module": null,
+   "source": "syllabus coverage table W11"
+  },
+  {
+   "course": "DSS10",
+   "k_id": "K-CUR-008",
+   "week": 3,
+   "type": "quiz",
+   "title": "FA1 short quiz",
+   "weight": null,
+   "module": null,
+   "source": "syllabus coverage table W3"
+  },
+  {
+   "course": "DSS10",
+   "k_id": "K-CUR-008",
+   "week": 5,
+   "type": "exam",
+   "title": "CO1 Examination",
+   "weight": null,
+   "module": null,
+   "source": "syllabus coverage table W5"
+  },
+  {
+   "course": "DSS10",
+   "k_id": "K-CUR-008",
+   "week": 7,
+   "type": "quiz",
+   "title": "FA2 Long Quiz 2",
+   "weight": 25,
+   "module": null,
+   "source": "syllabus coverage table W7"
+  },
+  {
+   "course": "DSS10",
+   "k_id": "K-CUR-008",
+   "week": 9,
+   "type": "exam",
+   "title": "CO2 Examination",
+   "weight": null,
+   "module": null,
+   "source": "syllabus coverage table W9"
+  },
+  {
+   "course": "DSS10",
+   "k_id": "K-CUR-008",
+   "week": 11,
+   "type": "final",
+   "title": "Long Quiz 3 + Final Exam",
+   "weight": 40,
+   "module": null,
+   "source": "syllabus coverage table W11"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 1,
+   "type": "homework",
+   "title": "Homework/Classwork 1: Force Vectors",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · Statics-of-Rigid-Bodies content (course record's own syllabus terms)",
+   "date": "2026-08-24",
+   "feed_id": "25fc62b8ddc6"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 1,
+   "type": "homework",
+   "title": "Homework/Classwork 2: Force System Resultants",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · Statics-of-Rigid-Bodies content (course record's own syllabus terms)",
+   "date": "2026-08-27",
+   "feed_id": "241d8acb4d83"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 1,
+   "type": "homework",
+   "title": "Homework/Classwork 3: Force Vectors 3D",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · Statics-of-Rigid-Bodies content (course record's own syllabus terms)",
+   "date": "2026-08-29",
+   "feed_id": "f65ec54cf0c6"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 3,
+   "type": "homework",
+   "title": "Homework/Classwork 5: Equilibrium of Rigid Bodies",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · Statics-of-Rigid-Bodies content (course record's own syllabus terms)",
+   "date": "2026-09-09",
+   "feed_id": "b1658d14a80e"
+  },
+  {
+   "course": "MEC30-7",
+   "k_id": "K-CUR-009",
+   "week": 3,
+   "type": "homework",
+   "title": "Homework/Classwork 6: Internal Forces",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · Statics-of-Rigid-Bodies content (course record's own syllabus terms)",
+   "date": "2026-09-13",
+   "feed_id": "334f209fc37e"
+  }
+ ],
+ "blind_courses": [
+  {
+   "code": "AR173-1P",
+   "k_id": "K-CUR-010",
+   "yield": 9,
+   "reason": "no syllabus held - graded items, weights and weeks all unknown",
+   "impact": "HIGHEST-YIELD COURSE OF THE TERM IS DEADLINE-BLIND",
+   "mitigation": "module + drill set already exist (K-MOD-001, SET-PD1096-VIII-001); obtain syllabus to restore prioritisation"
+  },
+  {
+   "code": "AR163-1P",
+   "k_id": "K-CUR-011",
+   "yield": 8,
+   "reason": "no syllabus held",
+   "impact": "deadline-blind",
+   "mitigation": "material held (K-CUR-006, 50 files) - ingestion run needed, not acquisition"
+  },
+  {
+   "code": "AR153P",
+   "k_id": "K-CUR-012",
+   "yield": 8,
+   "reason": "no syllabus held",
+   "impact": "deadline-blind",
+   "mitigation": "material held (K-CUR-005, 14 PDFs incl. Fajardo + PEC) - ingestion run needed"
+  }
+ ],
+ "known_gaps": [
+  "MEC30-7 prints dates with NO WEIGHTS - relative priority cannot be computed for its quizzes (largest single gap in the Term-1 capture).",
+  "GED103 AT1 has no week in the syllabus - recorded as null rather than guessed.",
+  "No course record prints a calendar date; week numbers only. The week-1 anchor is absent.",
+  "Three of six courses (all AR, i.e. all the ALE yield) have no graded-item data at all."
+ ],
+ "feed_pending": [
+  {
+   "course": null,
+   "k_id": null,
+   "week": 1,
+   "type": "assessment",
+   "title": "Assessment 2",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides (likely GED103: its sibling series is registered)",
+   "date": "2026-08-29",
+   "feed_id": "5958047af2cb"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 1,
+   "type": "quiz",
+   "title": "SQ1*",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides",
+   "date": "2026-08-29",
+   "feed_id": "a893e1b889a5"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 2,
+   "type": "activity",
+   "title": "Activity 1",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides",
+   "date": "2026-09-01",
+   "feed_id": "73489fb7c0be"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 2,
+   "type": "assignment",
+   "title": "Assignment 1",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides (likely GED103: its sibling series is registered)",
+   "date": "2026-09-01",
+   "feed_id": "eb0d8a5068e1"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 2,
+   "type": "task",
+   "title": "CW3*",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides",
+   "date": "2026-09-03",
+   "feed_id": "0674c206a79a"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 2,
+   "type": "assessment",
+   "title": "Assessment 3",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides (likely GED103: its sibling series is registered)",
+   "date": "2026-09-04",
+   "feed_id": "c863c73edcdd"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 2,
+   "type": "quiz",
+   "title": "LQ1(1Q2627)",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides",
+   "date": "2026-09-05",
+   "feed_id": "7f1ab1a1918d"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 3,
+   "type": "quiz",
+   "title": "Quiz 1",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides (likely DSS10: its sibling series is registered)",
+   "date": "2026-09-12",
+   "feed_id": "10868e65cf8f"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 3,
+   "type": "task",
+   "title": "CW4*",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides",
+   "date": "2026-09-12",
+   "feed_id": "171100ba3ac2"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 4,
+   "type": "groupwork",
+   "title": "Collaborative Work 1 (GW)",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides",
+   "date": "2026-09-19",
+   "feed_id": "bc33d161586c"
+  },
+  {
+   "course": null,
+   "k_id": null,
+   "week": 6,
+   "type": "assessment",
+   "title": "Assessment 4",
+   "weight": null,
+   "module": null,
+   "source": "LMS feed (TERM1_FEED.txt) · no code, no register match, no keyword — Commander decides (likely GED103: its sibling series is registered)",
+   "date": "2026-10-03",
+   "feed_id": "7fc19e34f2cb"
+  }
+ ]
 }

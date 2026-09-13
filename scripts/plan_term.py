@@ -302,7 +302,7 @@ def brief(week, ics_path):
 def main():
     p = argparse.ArgumentParser(add_help=True)
     p.add_argument("--week", type=int)
-    p.add_argument("--ics")
+    p.add_argument("--ics", default=None, help="path to a local .ics (defaults to the committed feed Brain/courses/0_CALLENDER/TERM1_FEED.txt when present)")
     p.add_argument("--anchor", help="week-1 Monday, YYYY-MM-DD (records this into the register? no - display only)")
     p.add_argument("--self-check", action="store_true")
     p.add_argument("--audit", action="store_true")
@@ -315,6 +315,10 @@ def main():
         die("--week N is required (or --self-check / --audit). Week numbers are what the records know.")
     if not (1 <= a.week <= 11):
         die("--week must be 1..11 (Quarterm term length)")
+    if a.ics is None:                      # default: the committed LMS feed
+        fb = os.path.join(ROOT, "Brain", "courses", "0_CALLENDER", "TERM1_FEED.txt")
+        if os.path.exists(fb):
+            a.ics = fb
     sys.exit(brief(a.week, a.ics))
 
 if __name__ == "__main__":

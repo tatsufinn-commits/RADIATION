@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v1.8.0
+**Last updated:** 2026-09-13 · **Version:** v1.8.1
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -30,8 +30,8 @@ Sat  07:30–09:00 GED103 (online)     · 09:00–10:30 DSS10 (online)
 ```
 **Heaviest:** Mon and Sat (9.0 h each). **Lightest weekday:** Thu (3.0 h).
 **50 % online** (18.0 h). Longest block 4.5 h — treat as unavailable.
-**Anchor:** `week1_start` **NOT recorded** — plan in WEEKS until the LMS ICS or the
-academic calendar supplies it. One date converts the whole term to absolute.
+**Anchor:** `week1_start` = **2026-08-24** (inferred from the LMS feed's Coursera
+Week-1 report; one Commander word ratifies it). Week numbers are now dates.
 
 ### What the Commander KNOWS
 `docs/KNOWLEDGE_REGISTRY.md` — **45 K-IDs** (36 live). Highest-yield courses:
@@ -43,14 +43,18 @@ Utilities, Building Technology, Professional Practice, …) · per-course readin
 graded items: `Brain/courses/INDEX.md`.
 
 ### What can be RUN
-`docs/CAPABILITIES.md` — **10 scripts** (validate · regression · plan_term ·
+`docs/CAPABILITIES.md` — **11 scripts** (validate · regression · plan_term ·
 ingest · anki · grade · decay · ics_normalize · nota · module_scaffold). `docs/SKILLS.md` says how to think; that file says
 what can be executed.
 
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v1.8.0** — the emission layer: the Core and the modules are now
+**RADIATION v1.8.1** — the calendar is FED: the LMS feed is a committed file
+(`Brain/courses/0_CALLENDER/TERM1_FEED.txt`), the Deadline Engine merged it into the
+register (37 items · 19 dated · week1_start = 2026-08-24, inferred), and CI
+regenerates the calendar mirror from it on every push — the Commander's own push
+cadence is the timer. Previously: v1.8.0 — the emission layer: the Core and the modules are now
 TOOL-GUARDED (`nota.py`, `module_scaffold.py` — born-valid output, shape enforced),
 the regression net holds 9 locked assertions, and check 13's link census runs in CI.
 Previously: v1.7.0 — swarm memory and signal: the shrine (`docs/shrine/`, recycled
@@ -104,7 +108,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 - **Study output is the bottleneck, not infrastructure.** 1 mastery row exists and it is
   a fixture, not a Commander attempt. check 20.5 asks for a real `attempt:` marker.
 - Knowledge assertions: 5 of 9 PENDING on raw primaries (PD 1096 IRR, RA 9514 IRR).
-- **Calendar fully built** — expansion, overrides, series diff, the daily cron, and the committed mirror `Brain/courses/CALENDAR.md`. The cron is UNARMED until the feed URL is rotated and set as the secret; any AI may regenerate calendar artifacts locally without asking (derived-data autonomy).
+- **Calendar FED and closed-loop** — the Commander pushes the LMS export (`TERM1_FEED.txt`); CI regenerates `CALENDAR.md`; `deadline_feed.py` merges it into the register; `plan_term.py` eats it with zero arguments. `week1_start` = 2026-08-24 (INFERRED from Coursera W1 — one Commander confirm ratifies it). 11 feed items remain UNATTRIBUTED for the Commander (sibling hints attached).
 - `week1_start` unrecorded (see THE SITUATION).
 
 ## HANDOVER NOTE

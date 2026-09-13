@@ -1,21 +1,20 @@
-# The calendar's timer. Runs daily, pulls the live feed, commits the scrubbed mirror.
-# UNARMED-BY-DESIGN until two things happen, in order:
-#   1. the Commander ROTATES the feed URL exposed in 4a98e59 (history keeps it);
-#   2. the new URL is stored as the Actions secret  RADIATION_ICS_URL.
-# Until then this job runs, sees no secret, and correctly does nothing.
-# The URL is injected as an env var only. It is never echoed, never written to disk.
-name: calendar-daily
+# The calendar's timer — COMMITTED-FEED edition (patch 3100).
+# The Commander re-exports the LMS calendar and pushes it to
+# Brain/courses/0_CALLENDER/TERM1_FEED.txt; this workflow regenerates the
+# scrubbed public mirror Brain/courses/CALENDAR.md on every push. No secret,
+# no credential, no cron — HIS push cadence IS the timer (he updates daily).
+name: calendar-mirror
 
 on:
-  schedule:
-    - cron: "30 17 * * *"   # 01:30 Asia/Manila — after the Commander's day closes
-  workflow_dispatch: {}      # manual trigger for testing the armed state
+  push:
+    paths: ["Brain/courses/0_CALLENDER/TERM1_FEED.txt", ".github/workflows/ical_fetch.yml"]
+  workflow_dispatch: {}
 
 permissions:
   contents: write
 
 concurrency:
-  group: calendar-daily
+  group: calendar-mirror
   cancel-in-progress: false
 
 jobs:
@@ -23,30 +22,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Arm check (secret present?)
-        env:
-          RADIATION_ICS_URL: ${{ secrets.RADIATION_ICS_URL }}
+      - name: Regenerate CALENDAR.md from the committed feed
         run: |
-          if [ -z "$RADIATION_ICS_URL" ]; then
-            echo "::notice::Unarmed — RADIATION_ICS_URL secret is not set. Rotate the exposed feed URL at source FIRST, then add the new URL as this secret. Doing nothing today is correct."
-          fi
-
-      - name: Fetch + render the public calendar mirror
-        env:
-          RADIATION_ICS_URL: ${{ secrets.RADIATION_ICS_URL }}
-        run: |
-          [ -n "$RADIATION_ICS_URL" ] || { echo "skipped (unarmed)"; exit 0; }
-          python3 scripts/ics_normalize.py --fetch --write --public
-
+          [ -f Brain/courses/0_CALLENDER/TERM1_FEED.txt ] || { echo "no feed committed"; exit 0; }
+          python3 scripts/ics_normalize.py --public --no-diff
       - name: Commit the mirror only if it changed
-        env:
-          RADIATION_ICS_URL: ${{ secrets.RADIATION_ICS_URL }}
         run: |
-          [ -n "$RADIATION_ICS_URL" ] || exit 0
           git config user.name  "radiation-calendar-bot"
           git config user.email "actions@users.noreply.github.com"
           git add Brain/courses/CALENDAR.md
-          if git diff --cached --quiet; then echo "no change in the feed"; exit 0; fi
-          git commit -m "cal: daily refresh $(date -u +%F)"
+          if git diff --cached --quiet; then echo "mirror unchanged"; exit 0; fi
+          git commit -m "cal: mirror refresh $(date -u +%F)"
           git push

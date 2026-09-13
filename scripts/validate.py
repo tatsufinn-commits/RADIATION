@@ -100,6 +100,11 @@ CV_DENY_LOCATION = ["S308","S300","S303","S301","NW408","SW200","SW304","E01","A
 CV_DENY_OTHER    = ["calendarFeed","@mapua.edu"]
 CV_DENY = CV_DENY_LOCATION + CV_DENY_OTHER
 CV_ALLOW_LOCATION = {"Brain/courses/SCHEDULE.md"}   # amendment A1 — the one permitted timetable
+# Amendment A2 (patch 3100): the committed LMS feed lives in the records region by
+# Commander order (the hivemind needs the schedule data; GitHub rejects .ics uploads,
+# so it is a .txt). It is DATA, not a record — one named exemption, identifier scan
+# still applies to it, and everything else in the region stays records-only.
+CV_ALLOW_DATA = {"Brain/courses/0_CALLENDER/TERM1_FEED.txt"}
 # v4: a denied CODE is a token, not a substring. The v3 rule used `w in t`, so the
 # section code "C5" matched inside "EC5" (Eurocode 5) — a false positive on legitimate
 # domain content, and one that would recur in every structural-design record. The intent
@@ -135,6 +140,8 @@ def c25():
             for f in sorted(fn):
                 p = os.path.relpath(os.path.join(dp, f), ROOT)
                 if not f.endswith(".md"):
+                    if p in CV_ALLOW_DATA:
+                        continue          # amendment A2: the committed LMS feed
                     bad.append(f"{p} (non-markdown vehicle)"); continue
                 t = read(p)
                 # Amendment A1 (patch 2600): the Commander's own timetable is the one
@@ -550,22 +557,35 @@ def c21():
 # declare the calendar stale instead of trusting it). No mirror at all is a
 # legitimate state: the cron is unarmed until the feed URL is rotated.
 def c22():
+    # v3 (patch 3100): the feed is a COMMITTED FILE (TERM1_FEED.txt). Guards:
+    #   - a URL inside the mirror is still a committed credential (FAIL, unchanged)
+    #   - the FEED itself going stale (its newest event behind today) → WARN: re-export
+    #   - mirror missing → WARN only (CI regenerates post-push; the human push must not go red first)
     pth = os.path.join(ROOT, "Brain/courses/CALENDAR.md")
-    if not os.path.exists(pth):
-        rec(22, "WARN", True, "calendar mirror: not present — the daily cron is unarmed "
-             "(rotation first, then secret RADIATION_ICS_URL); SCHEDULE.md remains the visible schedule"); return
-    t = read(pth)
-    urls = re.findall(r"https?://\S+", t)
-    stale = False
-    m = re.search(r"\*\*Generated:\*\*\s*(\d{4})-(\d{2})-(\d{2})", t)
-    if m:
-        import datetime as _dt
-        age = (_dt.date.today() - _dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))).days
-        stale = age > 7
-    ok = not urls and not stale
-    msg = "committed calendar mirror" + (" · CREDENTIAL-CLASS: URL present in mirror" if urls else "") + \
-          (" · stale (Generated > 7 days — feed or cron lapsed)" if stale else "")
-    rec(22, "FAIL" if urls else "WARN", ok, msg)
+    feed = os.path.join(ROOT, "Brain/courses/0_CALLENDER/TERM1_FEED.txt")
+    import datetime as _dt
+    msgs, ok = [], True
+    if os.path.exists(feed):
+        dates = [m.group(1) for m in re.finditer(r"DTSTART[^:\r\n]*:(\d{8})", read(feed).replace(" ", ""))]
+        if dates:
+            newest = max(dates)
+            d = _dt.date(int(newest[:4]), int(newest[4:6]), int(newest[6:]))
+            if d < _dt.date.today():
+                msgs.append(f"FEED STALE — newest event {d.isoformat()} is behind today; re-export from the LMS and push")
+    t = read(pth) if os.path.exists(pth) else ""
+    if not t:
+        msgs.append("CALENDAR.md not generated yet — CI regenerates it from the committed feed on push")
+    else:
+        urls = re.findall(r"https?://\S+", t)
+        if urls:
+            ok = False
+            msgs.append("CREDENTIAL-CLASS: URL present in mirror: " + "; ".join(urls[:2]))
+        m = re.search(r"\*\*Generated:\*\*\s*(\d{4})-(\d{2})-(\d{2})", t)
+        if m:
+            age = (_dt.date.today() - _dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))).days
+            if age > 7:
+                msgs.append(f"mirror stale ({age}d) — feed push or CI lapsed")
+    rec(22, "WARN" if ok else "FAIL", ok, "calendar feed + mirror" + (": " + "; ".join(msgs[:3]) if msgs else " — current"))
 
 # ---- check 23: outputs/ discipline (patch 2900) ---------------------------------
 # outputs/ is the session loading dock (Commander directive 2026-09-13: Brain is for

@@ -46,6 +46,7 @@ OUT_MD = os.path.join(PLAN, "TERM1_CALENDAR.local.md")        # git-ignored
 OUT_JSON = os.path.join(PLAN, "TERM1_CALENDAR.local.json")    # git-ignored
 PUBLIC_MD = os.path.join(ROOT, "Brain", "courses", "CALENDAR.md")  # COMMITTED scrubbed mirror
 ENV_URL = "RADIATION_ICS_URL"
+FEED_TXT = os.path.join(ROOT, "Brain", "courses", "0_CALLENDER", "TERM1_FEED.txt")  # the committed LMS export (.txt: GitHub rejects .ics uploads; the parser reads content)
 DEFAULT_TZ = "Asia/Manila"
 
 # Same privacy rule as validator check 2.5 and plan_term.py. These never ship.
@@ -825,8 +826,11 @@ def main():
             die(f"no such file: {a.ics}")
         text = open(a.ics, encoding="utf-8", errors="replace").read()
         src = a.ics
+    elif os.path.exists(FEED_TXT):          # canonical committed feed — zero arguments needed
+        text = open(FEED_TXT, encoding="utf-8", errors="replace").read()
+        src = os.path.relpath(FEED_TXT, ROOT)
     else:
-        die("give me --ics <file>, --fetch, or --self-test")
+        die("give me --ics <file>, --fetch, or commit the feed at Brain/courses/0_CALLENDER/TERM1_FEED.txt")
 
     raw = parse_ics(text, a.tz)
     events = expand_all(raw, a.tz, include_cancelled=a.include_cancelled,
