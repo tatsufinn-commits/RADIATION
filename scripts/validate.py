@@ -716,6 +716,35 @@ def c25reg():
     rec(25, "FAIL", not bad, f"standing-directive registry ({len(ids)} directives)" +
         ("" if not bad else ": " + "; ".join(bad[:6])))
 
+# ---- check 27: neuron relay chain integrity (patch 3900, SD-3600-03) -------
+def c27relay():
+    nd = os.path.join(ROOT, "scaffolding", "neurons")
+    if not os.path.isdir(nd):
+        rec(27, "WARN", True, "neuron relay absent — Autopilot runs without persistent task records (3600 ships it)")
+        return
+    stages = (("sensoryneurons", "intake"), ("interneurons", "reasoning"), ("motorneurons", "orders"))
+    bad = []
+    files = {}
+    for stage, suffix in stages:
+        sd = os.path.join(nd, stage)
+        fs = sorted(f for f in os.listdir(sd) if f.endswith(".md")) if os.path.isdir(sd) else []
+        files[stage] = fs
+        if not any(f.startswith("TEMPLATE") for f in fs):
+            bad.append(f"{stage}: TEMPLATE record missing")
+    # chain rule: every TID needs all three stages — no orphans, no gaps (spec v2 §5)
+    tids = set()
+    for stage, suffix in stages:
+        for f in files[stage]:
+            m = re.match(r"TID-(.+)_" + suffix + r"\.md$", f)
+            if m: tids.add(m.group(1))
+    for tid in sorted(tids):
+        for stage, suffix in stages:
+            expected = f"TID-{tid}_{suffix}.md"
+            if expected not in files[stage]:
+                bad.append(f"{tid}: chain gap — {stage}/{expected} missing")
+    rec(27, "FAIL", not bad, f"neuron relay ({len(tids)} TID chains)" +
+        ("" if not bad else ": " + "; ".join(bad[:6]) + " · REMEDY: relay records are a chain — complete or retire the TID (scaffolding/neurons/README.md)"))
+
 # ---- check 26: shrine freshness (AI_RULES II.9 — THE SHRINE MANDATE) --------
 def c26shrine():
     import subprocess
@@ -746,7 +775,7 @@ def c26shrine():
         "shrine heartbeat current — II.9 MANDATE: every conversation files one" if ok
         else "shrine lags: " + "; ".join(lag) + " · REMEDY: append today's heartbeat row to docs/shrine/LOG.md (II.9)")
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c26shrine,c25reg,c21): fn()
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c27relay,c26shrine,c25reg,c21): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

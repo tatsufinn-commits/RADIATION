@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.4.0 — 2026-09-13 — Reflex Arc (🟢 · SD-3600-03)
+- **check 27 — neuron relay chain integrity** (the 32nd check, FAIL-class): every TID must be a complete chain (intake → reasoning → orders); orphan stages and missing templates FAIL with a REMEDY. The relay that made tasks inspectable now makes them *enforceable* — the memo's "forbidden edges" get their deterministic guard.
+- **`07-inspect/TABLETOP_injection_2026-09-13.md`** — the indirect-injection defense rehearsed layer by layer (AgentDojo-style scenario through scout → ingest → Brain → context → capability). Verdict: holds at every layer because no ingested text can reach a 🔴 capability — with the honest gap named: all layers but the validator are procedural (no sandbox runtime). **Live drill PROPOSED** — it fetches external content, which is ask-gated; awaiting the Commander.
+- **Phase-0 CLOSED** (SD-3600-01, SD-3700-01): four real chains (TID-a…d) through the relay; behavior verdict filed — register-first caught a real conflict re-opening (TID-c); the triad scanned clean ×4; orientation from relay records measurably faster. The relay stays, for 🟡+ work.
+- **Honesty note — the negative test earned its keep:** check 27's first draft matched NOTHING (0 chains) because both it and status.py's pipeline line assumed `TID_` naming while the shipped records use `TID-` — meaning the live pipeline line had been blind since 3600 (always "nothing in flight"). Both now follow the files as shipped; positive+negative tests green; pipeline truth restored. Also this session: K-STD-001 (NSCP 2015) checked BEFORE acting — the audit-era "unregistered" gap was already fixed; Brain-first prevented a duplicate row.
+- SD-3600-03 CLOSED. Version bump: MINOR → v2.4.0.
+
 ## v2.3.1 — 2026-09-13 — First Light: CARD_001 (🟢 CONTENT — the first Core card)
 - **`09-nota/CARD_001_bp344-accessibility.md`** — the first card ever admitted to the Core: BP 344's permit gate, conveyance duties, IRR delegation principle, penalties, dates — 3 independent channels verified verbatim (SRC-013 LawPhil · SRC-014 Legaldex carrying the Official Gazette imprint Vol. 80 No. 8 p.1103 · SRC-015 UN ESCAP/ILO reproduction), Shield-Stamped, decay 2027-09-13, full lineage block.
 - **The exam trap, defused and locked:** "1:12 vs 1:20" is a generation trap; the amended IRR of record = 1:20 (KR-LAW-005). The register's append-only memory outran the session's first instinct to re-open the resolved row — corroborated instead (SRC-015 is an original-generation copy).

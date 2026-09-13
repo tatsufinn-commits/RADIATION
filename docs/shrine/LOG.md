@@ -17,4 +17,5 @@
 | 2026-09-13 | S005 (the Architect) | — (no-patch research session) | selfdirectives-scaffold research (10 sources, ordered) | [RETROACTIVE per II.9 violation clause — reason: research-only turn] · headline: curated +16.2pp vs self-generated −1.3pp (SkillsBench) → the curation gate |
 | 2026-09-13 | S005 (the Architect) | 3700 | The Curation Gate | scaffold v1.1 (default-deny, curation gate, triggers, rollback, quota, compression ladder) · SD-GOV-012 · untrack seal attempted again (dies when the Commander commits) |
 | 2026-09-13 | S005 (the Architect) | 3800 | First Light — the Core's first card | CARD_001 (BP 344) admitted via the full gauntlet: 3 independent channels verified verbatim; the register caught a would-be re-opening of a resolved conflict BEFORE it reached the card — II.1's finest hour; 02-analyze exercised for the first time (B2) |
+| 2026-09-13 | S005 (the Architect) | 3900 | Reflex Arc | check 27 machine-checks the relay (32nd check) · injection tabletop rehearsed (live drill proposed, ask-gated) · SD-3600-01/-3700-01/-03 closed with evidence · Phase-0 complete: the relay earned its keep |
 

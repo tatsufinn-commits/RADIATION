@@ -91,6 +91,7 @@ meta-budget WARNs stay honestly lit until then. Zero build items behind them.
 | **3600** | ✅ DELIVERED — Autopilot Pipeline & Wayfinding | neuron relay (research-applied closed loop; five forbidden edges; terminal states) + `proc_self-directive.md` (Commander-ordered scaffold) + WAYFINDING + TOOLBOX + the untrack fix + status.py pipeline line | tasks inspectable at stage granularity; the lost find their way; the rescue kit is graded |
 | **3700** | ✅ DELIVERED — The Curation Gate | proc_self-directive v1.1 (research-applied) + SD-GOV-012 + the compression ladder + vehicle-seal gitignore | the swarm proposes; ratification or second-session use promotes — with field numbers to prove why |
 | **3800** | ✅ DELIVERED — First Light (content, not machinery) | CARD_001 admitted via the full gauntlet · 02-analyze cured · SD-3600-02 closed | the system's final product EXISTS — the Core radiates |
+| **3900** | ✅ DELIVERED — Reflex Arc | check 27 (chain integrity, 32 checks) + injection TABLETOP (live drill proposed, ask-gated) + Phase-0 closed (4 chains, verdict filed) | the relay is enforceable; the injection surface has a rehearsed defense |
 | **3500+** | reserved — candidates from the 3400 audit | pending-item attribution UX · plan_term snapshot · APPLY self-removal (runners die at end of run) · payload-completeness probe (APPLY runs every shipped tool's self-test) · meta-budget rebalance (check 16 is OVER — needs a Commander doctrine call) · drill-fixtures disposition ("no drills" ruling vs nota/export_anki fixtures) | his pick |
 
 
