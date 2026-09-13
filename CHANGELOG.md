@@ -4,6 +4,18 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.4.2 — 2026-09-13 — Recalibration (🟡 · Commander correction, in person)
+- **Task selection corrected at the source:** "our goal is building and elevating the repository." Doctrine §2 now reads: open-ended proceeds = CAPABILITY work first; contamination second; content debts ONLY on explicit content orders or declared idle windows. Confirmed-cue row + ledger record + inference-log CORRECTED verdict filed (II.5).
+- **3500 payload REMEDIATED:** git forensics showed the Cue-Renewal patch was never extracted on the Commander's machine — its unique files (cue lessons incl. the 7 BUILD CUES, 4 lexicon entries, inference rows, TICKET_001) existed nowhere in the repo. Restored byte-identical from the 3500 zip, correction row appended. Method lesson: extraction gaps are invisible to APPLY gates that never run — the CI apply-report is the control that matches his workflow.
+- **Regression locks:** KR-LAW-014 (RA 10587 designation must survive in card + registry) and KR-LAW-009S (REPEALED-GENERATION marker) — 11 locked · 0 failed. Verified knowledge is now machine-guarded.
+- **APPLY runners self-remove** at end of run (the 3500-candidate, finally built).
+- Version bump: PATCH → v2.4.2.
+
+## v2.4.1 — 2026-09-13 — Stale Generation (🟢 CONTENT — the second Core card)
+- **CARD_002 admitted** (`09-nota/CARD_002_environmental-planning-act.md`): **RA 10587 (Environmental Planning Act of 2013) repeals PD 1308** (§42, verified verbatim ×3: LawPhil fetched · Official Gazette · Scribd text; + UP CIDS 2025 [R]) — and the trap was in OUR OWN house: `PLANNING_reviewer` line 55 and registry K-LAW-009 both cited PD 1308 as current. Corrected: K-LAW-009 → REPEALED-GENERATION (superseded by K-LAW-014 NEW), reviewer ⚑ EXAM NOTE appended, CONFLICT_REGISTER row 3 resolved per the P-07 curriculum-primacy pattern (answer-of-record unchanged; know the current law).
+- **Standing-orders sweep documented** (doctrine §2): law-gaps debt = registry-complete (K-LAW-007/009 mirror-verified 2026-09-13; 008 fetch owed; collection PDFs = Commander-side); MB-discipline verified for this session's fetches; OCR/Bentley remain holdings-blocked (OPEN, owned).
+- SRC-016..019 registered. Version bump: PATCH → v2.4.1.
+
 ## v2.4.0 — 2026-09-13 — Reflex Arc (🟢 · SD-3600-03)
 - **check 27 — neuron relay chain integrity** (the 32nd check, FAIL-class): every TID must be a complete chain (intake → reasoning → orders); orphan stages and missing templates FAIL with a REMEDY. The relay that made tasks inspectable now makes them *enforceable* — the memo's "forbidden edges" get their deterministic guard.
 - **`07-inspect/TABLETOP_injection_2026-09-13.md`** — the indirect-injection defense rehearsed layer by layer (AgentDojo-style scenario through scout → ingest → Brain → context → capability). Verdict: holds at every layer because no ingested text can reach a 🔴 capability — with the honest gap named: all layers but the validator are procedural (no sandbox runtime). **Live drill PROPOSED** — it fetches external content, which is ask-gated; awaiting the Commander.

@@ -163,6 +163,32 @@
    "locked": true,
    "pending_reason": null,
    "lock_note": "Locked 2026-09-13 (S004). The collection census was measured, not assumed (ledger 2500); pins the text-blindness number the recovery ladder depends on."
+  },
+  {
+   "id": "KR-LAW-014",
+   "claim": "RA 10587 (Environmental Planning Act of 2013) repealed PD 1308 — the current profession law",
+   "value_pattern": "RA 10587",
+   "assert_in": "06-triangulate/TRI_ra10587-repeal_2026-09-13.md",
+   "appears_in": [
+    "09-nota/CARD_002_environmental-planning-act.md",
+    "docs/KNOWLEDGE_REGISTRY.md"
+   ],
+   "source_kid": "K-LAW-014",
+   "decay_class": "stable-domain",
+   "locked": true,
+   "pending_reason": null,
+   "superseded_note": "Guards the stale-generation correction (4000): if the card or registry ever drops the RA 10587 designation, the lock fails. Raw texts: LawPhil/OG (not held; mirrors fetched 2026-09-13)."
+  },
+  {
+   "id": "KR-LAW-009S",
+   "claim": "K-LAW-009 (PD 1308) carries the REPEALED-GENERATION marker — no stale law presents as current",
+   "value_pattern": "REPEALED-GENERATION",
+   "assert_in": "docs/KNOWLEDGE_REGISTRY.md",
+   "appears_in": [],
+   "source_kid": "K-LAW-009",
+   "decay_class": "stable-domain",
+   "locked": true,
+   "pending_reason": null
   }
  ]
 }

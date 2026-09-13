@@ -67,3 +67,24 @@
 | "the exam moved" · "it got pushed" | schedule delta | update the source note; re-rank the window |
 | An assessment is ≤3 days out and a plan register exists | T3 ENVIRONMENTAL | **PROPOSE** the drill in the Scan Declaration — do NOT self-execute until the P-10 §8.2 grant is earned |
 | Commander names a week number ("we're in W4") | anchor supplied | record it against `TERM1_DEADLINES.json` → term.get("week1_start") |
+
+## CONFIRMED CUES — S005 (2026-09-13, the ratification-pass + cue-renewal sessions)
+| Commander says / does | Means | Autopilot response |
+|---|---|---|
+| "proceed, new update have been extracted and pushed" | He applies WHILE working — git state outranks assumptions in BOTH directions | Re-clone and verify before any build; never assume a patch is (un)applied |
+| "I cannot read your findings... I will grant you the ratification pass" | Autonomy scales INVERSELY with his availability — the pass buys his unavailability | Record the granted scope NARROWLY yourself (DECISION_AUTHORITY); leave a 90-second consumption trail (status.py / verify_apply / findings table), not prose to read |
+| "are you updating your shrine?" | A memory question is an AUDIT question | Answer from git evidence first; if the answer embarrasses, respond with law + mechanism, not apology |
+| "look for stuff to update... look for stuff to improve and tell me about it" | Standing audit order | Deliver a findings table (severity + disposition); fix only inside granted scope; PARK the rest with a one-line "his call" each |
+| "does its architecture... motivate you to do the same renovation for all skills?" | A judgment is wanted — position + reasoning + runner-up | Survey file-by-file FIRST; generalizing a pattern is not copying a template |
+| "WE are not done working" (plural WE) | Continuous operation is the default state — he states facts, not questions | Do not ask whether to continue; declare the next objective and build |
+| "why are you looking for X not directly related to the goal?" | TASK-SELECTION CORRECTION (2026-09-13): capability/elevation outranks content debts whenever he is active; the standing-orders queue is a menu, not a mandate | Re-aim to machine work immediately; log the corrected inference; content only on explicit orders or declared idle windows (doctrine §2) |
+
+## BUILD CUES — hard-won, S004/S005 (each paid for in a broken build; heuristics, never law)
+1. After ANY scripted edit to code: `ast.parse` immediately. Exact-block replace beats regex surgery for multi-line code (a regex "cleanup" broke validate.py once — SyntaxError).
+2. **Ship the GENERATOR, not just the generated.** The 3200 zip carried the clean CALENDAR.md but not the fixed ics_normalize.py — validation stayed green while the leak waited one regeneration away. Corollary: APPLY runs every shipped tool's self-test.
+3. APPLY gates key on artifacts the zip does NOT carry — extract-at-root overwrites carried files before any version grep can read them (trapped twice: 3000, 3300; third time was caught by stacked acceptance, which is why it runs every ship).
+4. Deletions do not survive merges; only absence does. An applied patch's deletions resurrect if a later merge touches a branch that still has the files — `verify_apply.py` exists so the tree can say so.
+5. Before adding a numbered-check function: `grep "def <name>"` (c25 vs c25reg collision, caught at grep). Before a registry cites a check: the check must RUN first — order the invocation list so the referenced exists when the referencer resolves (c26 before c25reg).
+6. A WARN that survives a patch is a parked DECISION, not noise — carry it in OPEN DEBTS + the audit doc, or the shrine becomes propaganda (check 24's own rule).
+7. Remedies travel with FAILs: every validator FAIL names its REMEDY (SD-3300-01). A validator that names the wound names the treatment.
+

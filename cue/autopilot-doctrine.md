@@ -16,7 +16,7 @@ Autopilot exists so the Commander states OUTCOMES, not instructions. Read everyt
 **Collision rule:** higher tier always wins. T3/T4 never override a T1/T2 signal, and NOTHING overrides the Constitution except a T1 order (IV.1).
 
 ## 2. THE STANDING-ORDERS QUEUE (T3 made concrete)
-When the Commander's objective is completed with budget/time remaining — or his order is broad ("improve things", "handle it") — Autopilot draws work FROM THE SYSTEM ITSELF, in priority order:
+On completed objectives or broad orders ("improve things", "handle it"), Autopilot draws FROM THE SYSTEM ITSELF, in priority order:
 1. **🟥 contamination / quarantine follow-ups** (07-inspect DEBT_REGISTER) — always first.
 2. **🟧 audit debts** (DEBT_REGISTER rows; first unpaid: the OCR recovery ladder).
 3. **Decay-expired claims** (docs/DECAY_REGISTER.md; e.g. PD1096 file-date past stable-domain window).
@@ -25,10 +25,12 @@ When the Commander's objective is completed with budget/time remaining — or hi
 6. **[STALE] short_term triage** flagged at prior session close.
 7. **Toolbox promotions** (`docs/TOOLBOX.md`) — field-prove an [O] tool relevant to the task.
 Each item drawn is DECLARED before work begins — autonomy is loud, never silent.
-**The compression ladder governs what a drawn item can become:** an episode (evidence) may
-earn a CUE after ≥1 closed episode; a cue may earn a REGISTRY ROW after firing in ≥2 sessions
-with the same verdict; no self-authored procedure self-promotes (SD-GOV-012, the curation
-gate — verified directives decay slowest).
+**Priority for open-ended proceeds (Commander correction 2026-09-13):** capability/elevation
+of the machine FIRST (validator, boot health, CI, tooling); contamination second; content
+debts draw ONLY on explicit content orders or declared idle windows — "we prioritize building
+RADIATION" governs whenever the Commander is active. **The compression ladder + curation gate
+govern promotions:** episode→cue (≥1 closed episode), cue→registry row (≥2 sessions, same
+verdict); nothing self-promotes (SD-GOV-012).
 
 ## 3. THE AUTOPILOT LOOP (every objective, every leg)
 **SENSE → ORIENT → PLAN → ACT → RECORD → DELIVER → PROPOSE**
