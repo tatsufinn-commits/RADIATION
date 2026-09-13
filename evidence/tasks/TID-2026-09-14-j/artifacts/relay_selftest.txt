@@ -1,0 +1,11 @@
+  vector 1 valid bundle clean -> PASS
+  vector 2 tampered evidence caught -> PASS
+  vector 3 unauthorized execution caught -> PASS
+  vector 4 legal replan sequence -> PASS
+  vector 5 outcome identity mismatch caught -> PASS
+  vector 6 corrupted projection caught -> PASS
+  vector 7 command identity mismatch caught -> PASS
+  vector 8 outcome foreign task caught -> PASS
+  vector 9 nested schema executed caught -> PASS
+  vector 10 foreign plan hard-fail caught -> PASS
+  vector 11 seq below minimum caught -> PASS

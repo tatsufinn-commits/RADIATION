@@ -1,0 +1,14 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-j",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: 'proceed to your proposed 4600!'",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T23:00:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "47bf26e",
+ "idempotency_key": "4600-binding-superset"
+}

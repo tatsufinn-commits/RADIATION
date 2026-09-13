@@ -30,7 +30,7 @@ TARGET = {
  "verification.passed":"STEP_VERIFIED","task.completed":"COMPLETE","task.blocked":"BLOCKED",
  "replan":"REPLAN_REQUIRED"}
 OPS = {"read_file","run_validator","run_test","apply_patch","build_artifact","render_docs","stage_files"}
-CAUSAL = {"command.proposed","command.authorized","execution.started","outcome.recorded"}
+CAUSAL = {"command.proposed","command.authorized","execution.started","outcome.recorded","verification.passed"}
 ALLOWED = {  # event -> required prior state(s)
  "input.received":None,"task.accepted":"RECEIVED","context.built":"ACCEPTED",
  "plan.proposed":"CONTEXT_READY","plan.approved":("PLAN_PROPOSED","REPLAN_REQUIRED"),
@@ -48,28 +48,51 @@ def _load_schema(name):
         except Exception: _SCHEMAS[name] = None
     return _SCHEMAS[name]
 
+def _validate_against(v, spec, where, out):
+    """Recursive execution of the schema subset our contracts use: type,
+    required, properties (nested), items (arrays), const, enum, pattern,
+    minLength, minimum. Schemas are law at every depth (4600)."""
+    if not isinstance(spec, dict): return
+    ty = spec.get("type")
+    if ty == "object":
+        if not isinstance(v, dict):
+            out.append(f"{where}: must be object"); return
+        for r in spec.get("required", []):
+            if r not in v: out.append(f"{where}: schema-required field {r!r} missing")
+        props = spec.get("properties", {})
+        for k, rv in v.items():
+            if k in props: _validate_against(rv, props[k], f"{where}.{k}", out)
+        return
+    if ty == "array":
+        if not isinstance(v, list):
+            out.append(f"{where}: must be array"); return
+        if "items" in spec:
+            for i, item in enumerate(v):
+                _validate_against(item, spec["items"], f"{where}[{i}]", out)
+        return
+    if "const" in spec and v != spec["const"]:
+        out.append(f"{where}: const violated (want {spec['const']!r})")
+    if "enum" in spec and v not in spec["enum"]:
+        out.append(f"{where}: {v!r} outside enum {spec['enum']}")
+    if "pattern" in spec and isinstance(v, str) and not re.search(spec["pattern"], v):
+        out.append(f"{where}: {v!r} fails pattern {spec['pattern']!r}")
+    if "minLength" in spec and isinstance(v, str) and len(v) < spec["minLength"]:
+        out.append(f"{where}: shorter than minLength {spec['minLength']}")
+    if "minimum" in spec and isinstance(v, int) and not isinstance(v, bool) and v < spec["minimum"]:
+        out.append(f"{where}: {v!r} below minimum {spec['minimum']}")
+    if ty == "string" and not isinstance(v, str): out.append(f"{where}: must be string")
+    if ty == "integer" and not isinstance(v, int): out.append(f"{where}: must be integer")
+    if ty == "number" and not isinstance(v, (int, float)): out.append(f"{where}: must be number")
+
+
 def _schema_check(obj, name, where, out):
-    """Execute the executed-subset of a JSON Schema: required, const, enum,
-    pattern (search), type. Schemas are law here, not decoration."""
+    """Execute the schema file (recursive subset). Missing schema = finding."""
     s = _load_schema(name)
     if s is None:
         out.append(f"{where}: schema {name} missing/unreadable (schemas are executed law)")
         return
-    for r in s.get("required", []):
-        if r not in obj: out.append(f"{where}: schema-required field {r!r} missing")
-    props = s.get("properties", {})
-    for k, v in obj.items():
-        if k not in props: continue
-        spec = props[k]; tag = f"{where}.{k}"
-        if "const" in spec and v != spec["const"]: out.append(f"{tag}: const violated (want {spec[_K_CONST]!r})")
-        if "enum" in spec and v not in spec["enum"]: out.append(f"{tag}: {v!r} outside enum {spec[_K_ENUM]}")
-        if "pattern" in spec and isinstance(v, str) and not re.search(spec["pattern"], v):
-            out.append(f"{tag}: {v!r} fails pattern {spec[_K_PAT]!r}")
-        t = spec.get("type")
-        if t == "string" and not isinstance(v, str): out.append(f"{tag}: must be string")
-        if t == "integer" and not isinstance(v, int): out.append(f"{tag}: must be integer")
-        if t == "object" and not isinstance(v, dict): out.append(f"{tag}: must be object")
-        if t == "array" and not isinstance(v, list): out.append(f"{tag}: must be array")
+    _validate_against(obj, s, where, out)
+
 
 def _sha(p):
     h = hashlib.sha256()
@@ -110,7 +133,10 @@ def validate_bundle(tid, d):
             out.append(f"{tid}/{pf}: plan base_revision disagrees with envelope (revision drift)")
         for st in p.get("steps",[]):
             _req(st,["step_id","operation_class","success_predicate"],f"{tid}/{pf}:{st.get("step_id")}",out)
-        if plan is None and p.get("task_id")==tid: plan = p
+        if str(p.get("task_id")) != tid:
+            out.append(f"{tid}/{pf}: plan file belongs to a foreign task {p.get('task_id')!r} — never silently skipped (4600)")
+            continue
+        if plan is None: plan = p
     # commands + outcomes
     cmds, outs = {}, {}
     for sub,store in (("commands",cmds),("outcomes",outs)):
@@ -123,6 +149,8 @@ def validate_bundle(tid, d):
                 store[f[:-5]] = o
     for cid,c in cmds.items():
         _schema_check(c, "command.schema.json", f"{tid}/commands/{cid}", out)
+        if str(c.get("command_id")) != cid:
+            out.append(f"{tid}/commands/{cid}: command identity mismatch — file stem says {cid!r}, internal command_id says {c.get('command_id')!r}")
         _req(c,["command_id","task_id","plan_id","step_id","operation"],f"{tid}/commands/{cid}",out)
         if c.get("operation") not in OPS: out.append(f"{tid}/commands/{cid}: operation {c.get("operation")!r} outside the allowlist")
         if c.get("task_id") != tid: out.append(f"{tid}/commands/{cid}: cross-task command (causation broken)")
@@ -135,6 +163,8 @@ def validate_bundle(tid, d):
     for oid,o in outs.items():
         _schema_check(o, "outcome.schema.json", f"{tid}/outcomes/{oid}", out)
         _req(o,["command_id","task_id","result","evidence"],f"{tid}/outcomes/{oid}",out)
+        if str(o.get("task_id")) != tid:
+            out.append(f"{tid}/outcomes/{oid}: outcome task_id mismatch (foreign outcome — {o.get('task_id')!r})")
         if o.get("result") not in ("succeeded","failed","stale_precondition","policy_denied","timed_out","security_blocked"):
             out.append(f"{tid}/outcomes/{oid}: illegal result {o.get("result")!r}")
         # identity binding (4500): file stem MUST equal the internal command_id
@@ -166,6 +196,8 @@ def validate_bundle(tid, d):
             ts = e.get("at","")
             try:
                 dt = datetime.datetime.fromisoformat(ts)
+                if dt.tzinfo is None or dt.utcoffset() is None:
+                    out.append(f"{tid}/events: timestamp without timezone offset {ts!r} (RFC-3339 requires one)")
                 if last_dt is not None and dt < last_dt:
                     out.append(f"{tid}/events: timestamps not monotonic at {e.get("event_id")!r}")
                 last_dt = dt
@@ -185,11 +217,20 @@ def validate_bundle(tid, d):
             if t == "task.completed": done = True
         if seqs != sorted(seqs): out.append(f"{tid}/events: sequence numbers out of order (append-only violated)")
         if len(seqs) != len(set(seqs)): out.append(f"{tid}/events: duplicate sequence numbers")
+        if seqs and seqs != list(range(1, len(seqs)+1)):
+            out.append(f"{tid}/events: sequences must be contiguous 1..N (got {seqs[:6]}...)")
         if not done: out.append(f"{tid}: no task.completed event (closure without completion)")
         # causation coverage (4500): every command authorized+executed, every outcome recorded
         for cid in cmds:
             for t in ("command.proposed","command.authorized","execution.started"):
                 if cid not in refs[t]: out.append(f"{tid}/events: command {cid} missing a {t} causation ref")
+        for t in sorted(CAUSAL):
+            for ref in refs[t]:
+                if ref not in cmds:
+                    out.append(f"{tid}/events: {t} ref {ref!r} names an unknown command")
+        for ref in refs["verification.passed"]:
+            if ref in outs and outs[ref].get("result") != "succeeded":
+                out.append(f"{tid}/events: verification.passed ref {ref!r} attests a command without a succeeded outcome")
         for oid,o in outs.items():
             rec = refs["outcome.recorded"]
             if rec.count(str(o.get("command_id"))) != 1:
@@ -333,9 +374,45 @@ def self_test():
     f6 = validate_bundle(tid, d)
     v6 = any("event-derived state" in x for x in f6); ok += v6
     print(f"  vector 6 corrupted projection caught -> {'PASS' if v6 else 'FAIL'}")
+    # vectors 7-11: the 4500-recheck mutations — each MUST be caught (4600)
     shutil.rmtree(root)
-    print(f"relay self-test: {ok}/6 vectors")
-    return 0 if ok == 6 else 1
+    root, d, tid = _make_vector_bundle()
+    c1 = os.path.join(d, "commands", "C1.json")
+    cj = json.load(open(c1)); cj["command_id"] = "CMD-OTHER"; json.dump(cj, open(c1, "w"))
+    f7 = validate_bundle(tid, d)
+    v7 = any("command identity mismatch" in x for x in f7); ok += v7
+    print(f"  vector 7 command identity mismatch caught -> {'PASS' if v7 else 'FAIL'}")
+    cj["command_id"] = "C1"; json.dump(cj, open(c1, "w"))
+    o1 = os.path.join(d, "outcomes", "C1.json")
+    oj = json.load(open(o1)); oj["task_id"] = "TID-9999-99-99-x"; json.dump(oj, open(o1, "w"))
+    f8 = validate_bundle(tid, d)
+    v8 = any("outcome task_id mismatch" in x for x in f8); ok += v8
+    print(f"  vector 8 outcome foreign task caught -> {'PASS' if v8 else 'FAIL'}")
+    oj["task_id"] = tid; json.dump(oj, open(o1, "w"))
+    tj2 = os.path.join(d, "task.json")
+    e = json.load(open(tj2)); e["source"] = {"kind": "untrusted"}; json.dump(e, open(tj2, "w"))
+    f9 = validate_bundle(tid, d)
+    v9 = any(("outside enum" in x and "source.kind" in x) or ("schema-required field 'trust'" in x) for x in f9)
+    ok += v9
+    print(f"  vector 9 nested schema executed caught -> {'PASS' if v9 else f9}")
+    e = json.load(open(tj2))
+    e["source"] = {"kind": "commander", "artifact_ref": "artifact://t", "trust": "root"}
+    json.dump(e, open(tj2, "w"))
+    pl = os.path.join(d, "plan.v1.json")
+    pj2 = json.load(open(pl)); pj2["task_id"] = "TID-9999-99-99-x"; json.dump(pj2, open(pl, "w"))
+    f10 = validate_bundle(tid, d)
+    v10 = any("belongs to a foreign task" in x for x in f10); ok += v10
+    print(f"  vector 10 foreign plan hard-fail caught -> {'PASS' if v10 else 'FAIL'}")
+    pj2["task_id"] = tid; json.dump(pj2, open(pl, "w"))
+    evf = os.path.join(d, "events.ndjson")
+    lines = open(evf).read().splitlines()
+    e0 = json.loads(lines[0]); e0["seq"] = 0; lines[0] = json.dumps(e0)
+    open(evf, "w").write("\n".join(lines))
+    f11 = validate_bundle(tid, d)
+    v11 = any(("below minimum" in x) or ("contiguous" in x) for x in f11); ok += v11
+    print(f"  vector 11 seq below minimum caught -> {'PASS' if v11 else 'FAIL'}")
+    shutil.rmtree(root)
+    return 0 if ok == 11 else 1
 
 
 if __name__ == "__main__":

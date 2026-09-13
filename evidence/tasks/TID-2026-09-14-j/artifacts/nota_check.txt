@@ -1,0 +1,4 @@
+  · 09-nota/CARD_001_bp344-accessibility.md: ADMITTED, 260 words
+  · 09-nota/CARD_002_environmental-planning-act.md: ADMITTED, 212 words
+
+✅ nota check: 2 canonical card(s), shape clean, index parity exact

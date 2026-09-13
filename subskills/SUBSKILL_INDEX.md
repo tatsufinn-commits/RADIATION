@@ -38,7 +38,7 @@ continuity system) · mimic (no use case) · drillmaster (teaching ≠ the sole 
 |---|---|---|---|
 | `compass` | Anti-drift: anchors the mission, classifies deviation | ALL modes | manual protocol (advisory — no machine control backs it yet) |
 | `curator` | CONDITIONAL passive: ingestion of touched sources | passive under @Radiation; invocable @Gather/@Decode; dormant @Data | manual protocol; ingest_collection.py is the tool it drives |
-| `sentinel` | Integrity watch: contradictions, ungraded claims, broken refs, decay | ALL modes | manual protocol; mechanized where: checks 1b/11/12/17 + regression locks |
+| `sentinel` | Integrity watch: contradictions, ungraded claims, broken refs, decay | ALL modes | manual protocol; mechanized where: checks 1.5/11/12/17 + regression locks |
 | `surgeon` | Chief passive: constitutional enforcement, halt authority | ALL modes, unconditional | manual protocol; mechanized where: validator FAIL-class gates (checks 2.5/3/11) + blocking CI |
 <!-- GENERATED:subskill-passives:END -->
 

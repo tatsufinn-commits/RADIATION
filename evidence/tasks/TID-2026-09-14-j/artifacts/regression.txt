@@ -1,0 +1,18 @@
+⏸  PENDING [KR-LAW-001] PD 1096: stairs serving more than 50 occupants shall not be less than  — raw primary full-text not yet in repo (P-04 recorded-not-held pending); S003 verified scope only, not this value
+⏸  PENDING [KR-LAW-002] PD 1096: stairs serving 50 or fewer occupants — minimum 0.90 m — same as KR-LAW-001
+⏸  PENDING [KR-LAW-003] PD 1096: stairs serving fewer than 10 occupants — minimum 0.75 m — same as KR-LAW-001
+⏸  PENDING [KR-LAW-004] PD 1096: stair headroom minimum 2.00 m — same as KR-LAW-001
+✅ PASS [KR-LAW-005] BP 344 IRR Amendments: accessible ramp gradient not steeper than 1:20 
+✅ PASS [KR-LAW-006] BP 344 IRR Amendments: ramp at 1:15 max length 10.50 m; length >10.50 
+✅ PASS [KR-LAW-007] BP 344 IRR Amendments: ramp minimum clear width 1200 mm
+⏸  PENDING [KR-LAW-008] RA 9514: exit travel distance 46 m unsprinklered / 61 m sprinklered — raw primary not in repo; values from TAMAKEE's list — must be re-verified against RADIATION-fetched primary before lock (P-01 §3 seed rule)
+✅ PASS [KR-LAW-009] PD 1096 Table VIII.1: R-2 Basic PSO 55/60; Com-2 PSO 75/85 (no-firewal
+✅ PASS [KR-STD-001] PEC (Philippine Electrical Code) held copy: 856 pages, [D] primary law
+✅ PASS [KR-BK-001] Barry, The Construction of Buildings 1 — Seventh edition (cover + titl
+✅ PASS [KR-BK-002] Barry, The Construction of Buildings 2 — Fifth edition (cover rendered
+✅ PASS [KR-BK-003] Barry, The Construction of Buildings 3 (Single Storey Frames) — Fourth
+✅ PASS [KR-CUR-001] K-CUR-006 census: 45 PDFs · 8,797 pages · 2,038 image-only (23.2 %) · 
+✅ PASS [KR-LAW-014] RA 10587 (Environmental Planning Act of 2013) repealed PD 1308 — the c
+✅ PASS [KR-LAW-009S] K-LAW-009 (PD 1308) carries the REPEALED-GENERATION marker — no stale 
+
+11 locked · 5 pending · 0 failed

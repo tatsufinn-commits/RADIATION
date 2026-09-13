@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.9.0 — 2026-09-14 — Binding (🟠 · the 4500 recheck remediated)
+- **Relay FULLY bound** (recheck's word accepted as spec): schemas executed RECURSIVELY (nested required/enum/pattern/minLength/minimum/items) · cross-object identity total — command stem↔internal id, outcome stem↔command_id AND task_id, plan↔task, base revisions agree everywhere · a foreign plan file is a HARD finding, never a silent skip · event sequences contiguous 1..N · timestamps must carry a timezone offset · causal refs must name known commands · verification.passed must attest a succeeded, digest-verified outcome. Self-test: 6→11 vectors — the recheck's five demonstrated mutations are permanent regressions (all FAIL now).
+- **Generated truth to the last line:** term-register counts and CI gate semantics are GENERATED blocks (derived from TERM1_DEADLINES.json and validate.yml); the lint's denylist expanded (21 items · NON-BLOCKING · never-be-blocked · checks-1b); "checks 1b" corrected to 1.5. The "NON-BLOCKING prose beside a BLOCKING workflow" contradiction is structurally impossible now.
+- **The seal moves into code:** APPLY auto-commits the sealed tree after its gates pass (idempotent on already-sealed trees; `--no-commit` opts out). PUSH remains the Commander's motor act — unchanged, unconditional, his alone.
+- **Honest boundary kept:** success_predicate strings remain declared intent — digests and linkage are enforced; semantic predicate evaluation stays staged with Product-2.
+- Version bump: MINOR → v2.9.0.
+
 ## v2.8.0 — 2026-09-14 — Last Mile (🟠 · the 4400 recheck remediated)
 - **Relay hardened to the recheck's spec:** schemas EXECUTED (required/const/enum/pattern/type) · outcome identity bound to file stem AND internal id (the CMD-MISMATCH mutation now FAILS) · projection.json parsed and required to equal the event-derived state (corrupted projections FAIL) · causation refs required on all command events with coverage checks · base-revision agreement · unique event ids + RFC-3339 monotonic timestamps · self-test 6/6 incl. the recheck's two mutations as permanent vectors.
 - **Prose cannot lie:** render_docs --check now LINTS guarded docs for hand-stated live facts outside generated markers (45 K-IDs / 33 checks / 4 locked / "No admitted Core cards" / "CI runs 2 of" / 13 scripts — all nine recheck hits eradicated at source).

@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v2.8.0
+**Last updated:** 2026-09-14 · **Version:** v2.9.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -47,12 +47,12 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v2.8.0** — the last mile (patch 4500): relay bundles are fully bound
-(schemas executed · identity · projection equality · causation · closed legacy
-list per II.10.6), prose cannot hand-state live facts (phrase lint in CI), the
-apply-report BLOCKS, and degraded mode is loud. Prior: 4400 reconciliation ·
-4300 compression law · 4200 the Commander's expansion
-(@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED in this file.
+**RADIATION v2.9.0** — binding (patch 4600): every bundle object is schema- and
+identity-bound (recursive execution, foreign plans hard-fail, verification
+attests succeeded outcomes — 11 negative vectors in CI), planner/CI facts are
+generated from data, and APPLY commits the sealed tree itself. Prior: 4500
+last mile · 4400 reconciliation · 4300 compression law · 4200 the Commander's
+expansion (@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED here.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*

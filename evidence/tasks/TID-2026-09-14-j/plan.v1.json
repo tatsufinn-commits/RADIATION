@@ -1,0 +1,34 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-4600",
+ "task_id": "TID-2026-09-14-j",
+ "base_revision": "47bf26e",
+ "policy": "fully-bound relay \u00b7 generated truth \u00b7 seal auto-commit (push stays the Commander's) \u00b7 predicate semantics stay Product-2 (labeled)",
+ "steps": [
+  {
+   "step_id": "S1",
+   "operation_class": "relay-binding",
+   "success_predicate": "relay --self-test 11/11"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "core-gate",
+   "success_predicate": "nota --check exit==0"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "structural",
+   "success_predicate": "status --strict exit==0 on clean tree"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "generated-truth",
+   "success_predicate": "render_docs --check exit==0 incl. expanded lint"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "regression",
+   "success_predicate": "11 locked / 0 failed"
+  }
+ ]
+}

@@ -64,7 +64,7 @@ def machine_facts():
 
 PASSIVE_ROWS = {
  "surgeon": ("Chief passive: constitutional enforcement, halt authority", "ALL modes, unconditional", "manual protocol; mechanized where: validator FAIL-class gates (checks 2.5/3/11) + blocking CI"),
- "sentinel": ("Integrity watch: contradictions, ungraded claims, broken refs, decay", "ALL modes", "manual protocol; mechanized where: checks 1b/11/12/17 + regression locks"),
+ "sentinel": ("Integrity watch: contradictions, ungraded claims, broken refs, decay", "ALL modes", "manual protocol; mechanized where: checks 1.5/11/12/17 + regression locks"),
  "compass": ("Anti-drift: anchors the mission, classifies deviation", "ALL modes", "manual protocol (advisory — no machine control backs it yet)"),
  "curator": ("CONDITIONAL passive: ingestion of touched sources", "passive under @Radiation; invocable @Gather/@Decode; dormant @Data", "manual protocol; ingest_collection.py is the tool it drives"),
 }
@@ -97,6 +97,36 @@ def capability_block():
                      f"{'yes' if it['network'] else 'no'} | {'yes' if it['ci'] else 'no'} |")
     return "\n".join(lines)
 
+def planner_register():
+    """Counts derived from the term register itself (4600) — never hand-typed."""
+    try:
+        d = json.load(open(R("Brain/short_term/plan/TERM1_DEADLINES.json"), encoding="utf-8"))
+        items = d.get("items", [])
+        courses = sorted({i.get("course","?") for i in items})
+        dated = sum(1 for i in items if i.get("date"))
+        blind = sum(1 for c in courses if not any(i.get("course")==c and i.get("date") for i in items))
+        return (f"**Term register (GENERATED from `Brain/short_term/plan/TERM1_DEADLINES.json` —"
+                f" hand edits here are a CI failure):** {len(courses)} courses · {len(items)} items"
+                f" · {dated} dated · {blind} deadline-blind course(s)")
+    except Exception as e:
+        return f"**Term register (GENERATED):** unreadable ({e})"
+
+def ci_enforcement():
+    """Gate semantics derived from the workflow file itself (4600)."""
+    wf = read(".github/workflows/validate.yml")
+    blocking = "continue-on-error" not in wf
+    relay_ci = "radiation_core.relay" in wf
+    lint_ci = "render_docs.py --check" in wf
+    status_st = "status.py --self-test" in wf
+    return ("**CI enforcement (GENERATED from `.github/workflows/validate.yml` —"
+            f" hand edits here are a CI failure):** apply-report: "
+            + ("BLOCKING (continue-on-error removed, 4500)" if blocking
+               else "NON-GATING (continue-on-error present)")
+            + f" · structural validator: BLOCKING · relay self-test+active: {'yes' if relay_ci else 'no'}"
+            + f" · generated-docs check + phrase lint: {'yes' if lint_ci else 'no'}"
+            + f" · dashboard date self-test: {'yes' if status_st else 'no'}")
+
+
 def block(name, body):
     return f"<!-- GENERATED:{name}:START -->\n{body}\n<!-- GENERATED:{name}:END -->"
 
@@ -104,14 +134,18 @@ def targets():
     p, a = subskill_blocks()
     return {
  "docs/SYSTEM_STATE.md": {"machine-facts": machine_facts()},
- "docs/CAPABILITIES.md": {"capability-inventory": capability_block()},
+ "docs/CAPABILITIES.md": {"capability-inventory": capability_block(),
+                          "planner-register": planner_register(),
+                          "ci-enforcement": ci_enforcement()},
  "subskills/SUBSKILL_INDEX.md": {"subskill-passives": p, "subskill-actives": a},
     }
 
 # 4500 phrase lint: hand-stated live numbers are how the drift class survived its
 # own fix. These patterns must never appear OUTSIDE generated markers in guarded docs.
 FORBIDDEN = [r"\b45 K-IDs\b", r"\b33 checks\b", r"\b4 locked\b", r"No admitted Core cards",
-             r"CI runs 2 of", r"\b26 form", r"\b13 scripts\b"]
+             r"CI runs 2 of", r"\b26 form", r"\b13 scripts\b",
+             r"\b6 courses \u00b7 21 items\b", r"\b21 items\b", r"NON-BLOCKING",
+             r"never be blocked", r"checks 1b\b"]
 
 MARK = re.compile(r"<!-- GENERATED:([a-z-]+):START -->\n.*?\n<!-- GENERATED:\1:END -->", re.S)
 

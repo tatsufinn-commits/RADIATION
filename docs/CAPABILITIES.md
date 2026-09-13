@@ -63,7 +63,7 @@ python3 scripts/plan_term.py --audit                       # audit the plan
 ```
 **Answers:** what to study this week, ranked. Prints the term brief, the ranked load, and
 — with `--ics` — *what moved* since the last run (added / moved / removed).
-**Reads** `Brain/short_term/plan/TERM1_DEADLINES.json` (6 courses · 21 items).
+**Reads** `Brain/short_term/plan/TERM1_DEADLINES.json` — live counts are GENERATED below (4600).
 **Gotchas:** without `--anchor` it plans in **weeks, not dates** — that is by design, not
 a bug. `--ics` reads a **local file only**, and **drops `RRULE`** (recurring events are
 not expanded). Nothing is written except an ICS snapshot beside the register.
@@ -196,8 +196,8 @@ python3 scripts/verify_apply.py --self-test
 actually land?" Version drift (README vs CHANGELOG), validator verdict, unsanctioned
 vehicles still in Brain/, committed transport (runners/PATCH_NOTES), shrine-lag
 (AI_RULES II.9), pending ratifications — one screen. CI runs it on every push,
-NON-BLOCKING, into the job summary: the tree reports its own apply state; a push can
-never be blocked by it, and a half-finished apply can never hide again.
+its result lands in the job summary. Enforcement mode is GENERATED below (4600):
+the workflow file is the single source of gate semantics — prose no longer states it.
 
 ## WHAT IS NOT HERE YET
 
@@ -239,3 +239,11 @@ Stated plainly so a session does not assume capability it lacks:
 | `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
 <!-- GENERATED:capability-inventory:END -->
+
+<!-- GENERATED:planner-register:START -->
+**Term register (GENERATED from `Brain/short_term/plan/TERM1_DEADLINES.json` — hand edits here are a CI failure):** 3 courses · 26 items · 8 dated · 2 deadline-blind course(s)
+<!-- GENERATED:planner-register:END -->
+
+<!-- GENERATED:ci-enforcement:START -->
+**CI enforcement (GENERATED from `.github/workflows/validate.yml` — hand edits here are a CI failure):** apply-report: BLOCKING (continue-on-error removed, 4500) · structural validator: BLOCKING · relay self-test+active: yes · generated-docs check + phrase lint: yes · dashboard date self-test: yes
+<!-- GENERATED:ci-enforcement:END -->
