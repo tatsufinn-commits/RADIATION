@@ -1,13 +1,34 @@
-# TERM CALENDAR — live LMS feed mirror
-**Status: NOT YET GENERATED — the daily cron is unarmed.**
+<!--
+  MACHINE-WRITTEN CALENDAR MIRROR — derived data from the live LMS feed.
+  Refreshed daily by the calendar cron (.github/workflows/ical_fetch.yml) when
+  armed, and on demand by any AI: running this tool with --public is
+  PRE-AUTHORIZED (derived-data autonomy — no permission needed, ever).
+  Check the Generated date against today; if stale, SAY SO instead of
+  trusting it. NEVER put a feed URL in this file or any committed file —
+  the URL lives only in the RADIATION_ICS_URL environment variable / secret.
+-->
 
-This file is machine-written by `scripts/ics_normalize.py --public` from the live
-LMS feed. It does not exist yet because arming requires, in order:
+# TERM CALENDAR — from the LMS feed
+**Generated:** 2026-09-13 13:14 · **zone:** Asia/Manila · **events:** 47
+**Upcoming:** 15
 
-1. rotate the feed URL exposed in commit `4a98e59` (history keeps it — rotation at source);
-2. store the new URL as the Actions secret `RADIATION_ICS_URL`;
-3. let the calendar cron run (or trigger it manually).
+## UPCOMING
+| When | Event | Source |
+|---|---|---|
+| 2026-09-12 23:59 | CW4* | single |
+| 2026-09-13 23:59 | Coursera Progress Report: Week 3 | single |
+| 2026-09-13 23:59 | Homework/Classwork 6: Internal Forces | single |
+| 2026-09-15 18:00–19:30 [1h30] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-09-19 12:00–15:00 [3h00] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-09-19 20:00 | Collaborative Work 1 (GW) | single |
+| 2026-09-22 18:00–19:30 [1h30] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-09-26 12:00–15:00 [3h00] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-09-29 18:00–19:30 [1h30] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-10-03 12:00–15:00 [3h00] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-10-03 20:00 | Assessment 4 | single |
+| 2026-10-06 18:00–19:30 [1h30] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-10-10 12:00–15:00 [3h00] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-10-13 18:00–19:30 [1h30] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
+| 2026-10-17 12:00–15:00 [3h00] | AR173-1P_A54_1Q2627: PLANNING 2 – FUNDAMENTALS OF URBAN DESIGN AND COMMUNITY ARCHITECTURE | single |
 
-Until then the authoritative schedule is the neighbour file `SCHEDULE.md`
-(the Commander's own transcription, published by amendment A1).
-No URL belongs in this file — ever. Validator check 22 fails the tree if one appears.
+*Summaries and locations are scrubbed of instructor names, room codes, sections, emails and URLs before they reach this file.*
