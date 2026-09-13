@@ -114,7 +114,8 @@ python3 scripts/ics_normalize.py --ics local.ics            # summary + delta
 python3 scripts/ics_normalize.py --ics local.ics --md       # AI-readable calendar
 python3 scripts/ics_normalize.py --ics local.ics --write    # durable .local artifacts
 python3 scripts/ics_normalize.py --fetch                    # URL from $RADIATION_ICS_URL
-python3 scripts/ics_normalize.py --self-test                # 19 fixture assertions
+python3 scripts/ics_normalize.py --public                 # COMMITTED scrubbed mirror
+python3 scripts/ics_normalize.py --self-test                # the self-test suite
 ```
 **Answers:** what is actually on the LMS calendar — *including every occurrence of a
 recurring event.* This is the ONE parser; `plan_term.py --ics` delegates to it.
@@ -135,9 +136,12 @@ names, room codes, sections, emails and URLs before it reaches any output.
 
 Stated plainly so a session does not assume capability it lacks:
 
-- **No scheduled fetch.** `ics_normalize.py --fetch` exists and works, but nothing runs
-  it automatically — there is no cron and no Actions job. You run it, or you wire it up.
-  The feed URL belongs in an Actions secret when you do.
+- **The scheduled fetch is BUILT but UNARMED.** `.github/workflows/ical_fetch.yml` runs
+  daily (01:30 Manila): it pulls the feed from the `RADIATION_ICS_URL` secret and commits
+  the scrubbed mirror `Brain/courses/CALENDAR.md` when the feed changed. It stays inert
+  until the secret exists — and the secret comes ONLY after the old URL is rotated
+  (the `4a98e59` exposure). Validator check 22 guards the mirror: URL inside it = FAIL,
+  older than 7 days = WARN.
 - **No note-card generator** for the Core (09-nota/) — cards are authored by sessions.
 - **CI runs 2 of the 7 scripts** (`validate.py` + `knowledge_regression.py`). The other
   five are session-invoked by hand. That is deliberate: they need arguments a runner

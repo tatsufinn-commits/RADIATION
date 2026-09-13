@@ -72,3 +72,13 @@ the Brain is the mass behind it.
 Brain content changes travel as 🟢 ordinary Patches (II.7.4a). The Brain in the
 live repository changes only by Commander-applied Patch — the AI's Brain writes
 during a session are proposals staged for the session Patch.
+
+## 6. WHAT IS *NOT* THE BRAIN
+- **`outputs/`** (repository root) — the session loading dock: one-off products an AI
+  delivered to the Commander (surveys, reviews, diagnoses). Not memory. Boot never
+  reads it; the validator (check 23) keeps it that way. If a product proves durable
+  knowledge, promote the knowledge INTO the Brain by the movement rules in §2 — the
+  artifact stays behind as the delivery receipt.
+- **`docs/shrine/`** — succession testaments: cross-session JUDGMENT. The Brain holds
+  facts and episodes; the shrine holds what the successor must know. Cite, never
+  duplicate (its CHARTER §0 is the authority on the division).

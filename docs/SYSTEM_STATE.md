@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v1.6.6
+**Last updated:** 2026-09-13 · **Version:** v1.7.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -44,15 +44,16 @@ graded items: `Brain/courses/INDEX.md`.
 
 ### What can be RUN
 `docs/CAPABILITIES.md` — **8 scripts** (validate · regression · plan_term ·
-ingest · anki · grade · decay). `docs/SKILLS.md` says how to think; that file says
+ingest · anki · grade · decay · ics_normalize). `docs/SKILLS.md` says how to think; that file says
 what can be executed.
 
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v1.6.6** — the calendar works: one ICS parser with recurrence expansion,
-overrides, EXDATE and a series-aware diff (`scripts/ics_normalize.py`). Previously:
-v1.6.5 — Situation Layer + Capability Registry. (Version history: `CHANGELOG.md` — the single source. It is not
+**RADIATION v1.7.0** — succession and signal: the shrine (`docs/shrine/`, recycled from
+Marciale-OS), the session loading dock (`outputs/`), the calendar's daily cron
+(built, armed only after the feed URL is rotated), and a committed calendar mirror.
+Previously: v1.6.6 — the calendar works (ICS normalizer). (Version history: `CHANGELOG.md` — the single source. It is not
 recited here any more; the recital was duplicated byte-for-byte and cost the boot budget.)
 
 ## CURRENT STATE *(corrected 2026-09-13 — this section was stale by nine patches)*
@@ -61,7 +62,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
   1,177.9 MB); one drill set forged and graded; mastery ledger seeded.
 - Six course records in `Brain/courses/` (K-CUR-007…012), the authoritative weekly
   timetable in `SCHEDULE.md`, term plan in `Brain/short_term/plan/`.
-- Machine Enforcement Layer live: `scripts/validate.py` (26 checks) +
+- Machine Enforcement Layer live: `scripts/validate.py` (29 checks) +
   `knowledge_regression.py` (4 locked · 5 pending) + CI on every push.
 - Registers live: TASK · PATCH · MASTERY · MISTAKE · DECAY · CONFLICT · KNOWLEDGE (45).
 - The Core (09-nota/) holds **no admitted cards yet** — genuine and still true.
@@ -69,6 +70,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
   at source** (no patch can revoke it); ② five vehicles still tracked under
   `Brain/courses/` (extraction verified complete — records already claim them deleted);
   ③ knowledge assertions: only 4 of 9 locked, blocked on raw primaries not yet in repo.
+  (②'s vehicles are re-homed by patch 2900's APPLY — the records become true at apply.)
 
 ## 🩺 COMPONENT HEALTH CHECKLIST
 | Component | Status |
@@ -89,14 +91,19 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 | Skill jurisdictions 01–09 | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |
 | The Core (09-nota/ cards) | 🕳️ EMPTY — first @Radiation session seeds it |
+| **Succession shrine** (`docs/shrine/`) | ✅ **SEEDED** — charter + living testament + heartbeat LOG (file-at-delivery doctrine, check 24) |
+| **Session outputs** (`outputs/`) | ✅ **CONTRACT LIVE** — check 23 enforces it |
+| **Calendar mirror** (`Brain/courses/CALENDAR.md`) | ⏳ BUILT, UNARMED — rotate, then arm |
 
 ## KNOWN GAPS / NEXT EXPECTED WORK
 - **Study output is the bottleneck, not infrastructure.** 1 mastery row exists and it is
   a fixture, not a Commander attempt. check 20.5 asks for a real `attempt:` marker.
 - Knowledge assertions: 5 of 9 PENDING on raw primaries (PD 1096 IRR, RA 9514 IRR).
-- **Calendar now ingestible** — `ics_normalize.py` expands recurrence, honours EXDATE/overrides and diffs by series. Still no *scheduled* fetch: you run it, or wire an Actions job.
+- **Calendar fully built** — expansion, overrides, series diff, the daily cron, and the committed mirror `Brain/courses/CALENDAR.md`. The cron is UNARMED until the feed URL is rotated and set as the secret; any AI may regenerate calendar artifacts locally without asking (derived-data autonomy).
 - `week1_start` unrecorded (see THE SITUATION).
 
 ## HANDOVER NOTE
 Boot per `docs/.readme`, read the last 3 `task_ledger` entries, then **read THE
-SITUATION above** before planning anything. Await the Commander.
+SITUATION above** before planning anything. If the task touches the system itself,
+read the newest testament in `docs/shrine/members/` first (CHARTER §3). Standing
+orders: `docs/COMMANDER_QUICKREF.md` §5. Await the Commander.

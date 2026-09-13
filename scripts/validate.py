@@ -499,7 +499,93 @@ def c21():
         "capability registry (scripts/ documented; count claims true)" +
         ("" if not bad else ": " + "; ".join(bad[:6])))
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c21): fn()
+
+# ---- check 22: committed calendar mirror — credential + freshness (patch 2900) ----
+# Brain/courses/CALENDAR.md is machine-written from the live feed (ics_normalize
+# --public, refreshed by the daily cron when armed). Two failure modes, two
+# severities: a URL inside the mirror is a COMMITTED CREDENTIAL — the exact class
+# 4a98e59 created (FAIL). A mirror older than 7 days is drift, not a leak (WARN —
+# declare the calendar stale instead of trusting it). No mirror at all is a
+# legitimate state: the cron is unarmed until the feed URL is rotated.
+def c22():
+    pth = os.path.join(ROOT, "Brain/courses/CALENDAR.md")
+    if not os.path.exists(pth):
+        rec(22, "WARN", True, "calendar mirror: not present — the daily cron is unarmed "
+             "(rotation first, then secret RADIATION_ICS_URL); SCHEDULE.md remains the visible schedule"); return
+    t = read(pth)
+    urls = re.findall(r"https?://\S+", t)
+    stale = False
+    m = re.search(r"\*\*Generated:\*\*\s*(\d{4})-(\d{2})-(\d{2})", t)
+    if m:
+        import datetime as _dt
+        age = (_dt.date.today() - _dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))).days
+        stale = age > 7
+    ok = not urls and not stale
+    msg = "committed calendar mirror" + (" · CREDENTIAL-CLASS: URL present in mirror" if urls else "") + \
+          (" · stale (Generated > 7 days — feed or cron lapsed)" if stale else "")
+    rec(22, "FAIL" if urls else "WARN", ok, msg)
+
+# ---- check 23: outputs/ discipline (patch 2900) ---------------------------------
+# outputs/ is the session loading dock (Commander directive 2026-09-13: Brain is for
+# knowledge, not session products). Form rules: date-prefixed filenames; no
+# .ics/.local shapes (credentials and derived state never belong); and boot-tier
+# files must never reference outputs/ — an on-demand folder that entered the boot
+# path would be a budget leak. SYSTEM_STATE.md is exempt from the reference ban: it
+# is the ground-truth map, and pointing at regions is its job.
+C23_BOOT_FILES = ("docs/.readme", "docs/AI_RULES.md", "docs/MODES.md", "docs/CUE_SYSTEM.md",
+                  "BOOT_SEQUENCE.md", "subskills/passive/compass.md", "subskills/passive/curator.md",
+                  "subskills/passive/sentinel.md", "subskills/passive/surgeon.md")
+def c23():
+    bad = []
+    d = os.path.join(ROOT, "outputs")
+    if os.path.isdir(d):
+        for f in sorted(os.listdir(d)):
+            fp = os.path.join(d, f)
+            if f in ("README.md",) or f.startswith("."): continue
+            if os.path.isdir(fp):
+                bad.append(f"outputs/{f}: subfolders are outside the contract"); continue
+            if not re.match(r"^\d{4}-\d{2}-\d{2}_.+", f):
+                bad.append(f"outputs/{f}: filename must be YYYY-MM-DD_slug.ext")
+            if f.endswith((".ics", ".local.md", ".local.json")):
+                bad.append(f"outputs/{f}: derived/credential shapes never belong here")
+    for b in C23_BOOT_FILES:
+        if os.path.exists(os.path.join(ROOT, b)) and "outputs/" in read(b):
+            bad.append(f"{b} references outputs/ — boot must never load it")
+    rec(23, "FAIL", not bad, "outputs/ discipline (date-prefixed; boot-blind)" +
+        ("" if not bad else ": " + "; ".join(bad[:6])))
+
+
+# ---- check 24: shrine currency — heartbeats may not lag the ledger (patch 2900) --
+# THE MORTALITY DOCTRINE (CHARTER section 6): sessions cannot detect their own
+# death, so they file at delivery — every zip carries the author's current
+# testament and a heartbeat row in docs/shrine/LOG.md. Repo-side this means:
+# the LOG must exist, its newest date may not lag the newest task_ledger date
+# (a session that worked but filed no heartbeat), and no testament may lose its
+# Open Debts — a testament without debts is propaganda. WARN-class: currency,
+# not structure.
+def c24():
+    msgs = []
+    if not os.path.exists(os.path.join(ROOT, "docs/shrine/LOG.md")):
+        rec(24, "WARN", False, "shrine LOG.md missing — sessions owe a heartbeat line (CHARTER §6: file at delivery, not at death)"); return
+    rows = [l for l in read("docs/shrine/LOG.md").splitlines() if l.strip().startswith("|")]
+    dates = re.findall(r"\d{4}-\d{2}-\d{2}", " ".join(rows))
+    last_log = max(dates) if dates else None
+    ldates = re.findall(r"\d{4}-\d{2}-\d{2}", read("Brain/frontal_lobe/task_ledger.md"))
+    last_led = max(ldates) if ldates else None
+    if last_log and last_led and last_led > last_log:
+        msgs.append(f"heartbeat lag: last LOG {last_log} < last ledger row {last_led} — a session worked and filed no heartbeat")
+    mem = os.path.join(ROOT, "docs/shrine/members")
+    if os.path.isdir(mem):
+        for f in sorted(os.listdir(mem)):
+            if not f.endswith(".md"): continue
+            t = read(os.path.join("docs/shrine/members", f))
+            m = re.search(r"OPEN DEBTS[^\n]*\n(.*?)(?:\n## |\Z)", t, re.S)
+            if not m or not m.group(1).strip(" -\n0123456789.*>`"):
+                msgs.append(f"{f}: Open Debts empty or absent — a testament without debts is propaganda")
+    rec(24, "WARN", not msgs, "shrine currency (heartbeats current; testaments keep their debts)" +
+        ("" if not msgs else ": " + "; ".join(msgs)))
+
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c21): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

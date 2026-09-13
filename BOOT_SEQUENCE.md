@@ -19,6 +19,10 @@ TIER 2 — OPERATIONAL (per your task)
   7. subskills/passive/*              (all four passive specs — they govern you)
   8. The core scaffolds you will arm  (scaffolding/core/)
   9. The style you will follow        (styles/)
+  9.5 The calendar probe: if Brain/courses/CALENDAR.md carries a Generated date
+      older than today and RADIATION_ICS_URL is set locally — regenerate it
+      (pre-authorized: derived data). If you cannot, DECLARE the calendar
+      stale-as-of in your Scan Declaration. Never speak from a dead calendar.
 
 TIER 3 — DEEP CONTEXT (only as the task demands)
   10. 09-nota/CORE_INDEX.md + relevant Core cards
@@ -37,3 +41,6 @@ Declaration. Silent degradation is a III.1 violation.
 2. Append the task ledger entry (II.3).
 3. Emit a Patch if durable material exists (II.7) — or state the waiver.
 4. Update docs/SYSTEM_STATE.md if ground truth changed.
+5. Heartbeat (docs/shrine/CHARTER.md §6): refresh your testament and add a
+   LOG.md row — **every patch zip carries both**. You cannot detect your own
+   dying; file at delivery, not at death.

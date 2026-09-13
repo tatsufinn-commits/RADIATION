@@ -35,6 +35,27 @@
 
 *(Append new confirmed cues below with date + source session. Heuristics, never law — III.3 still governs.)*
 
+## CONFIRMED CUES — the Architect engagement (S004, 2026-09-13)
+| Commander says / does | Means | Autopilot response |
+|---|---|---|
+| "I will give you full discretion on the next proceeding builds, do what you must!" | Build autonomy granted — delivery discipline is NOT | Proceed without per-step approval; still ship patch zips; never commit |
+| "both applies have been removed and pushed" | The push IS the patch verdict | Update ledgers from git state; verify by path-existence (pushes have skipped APPLY steps 3 times) |
+| "we need to put other aspects on pace too" | A major addition unbalances its siblings — parity audit ordered | Audit the sibling subsystems of whatever just grew, before new work |
+| "read it, analyze the idea and lets recycle it" | Cross-repo idea transfer | Distill the PRINCIPLE, rebuild native — never copy ceremony wholesale |
+| "does it actually provide…?" | An audit order, not a rhetorical question | Answer with evidence, then FIX what the audit condemns |
+| "what do you think?" (×6 in one message) | A position is wanted — with reasoning | Take the position; name the runner-up in one line; never return a menu |
+| "I update it everyday" (the calendar) | Feed freshness is the Commander's own discipline | Match his cadence: daily cron + staleness probe; never speak from a dead calendar |
+| "AI's… drop what they learned… it is not a place for tasks and directives" | Brain = knowledge; session products get their own region | Route products to `outputs/`, knowledge through the movement rules |
+| "let's move on" | Topic closed | No lingering; carry open debts forward silently (existing cue, reconfirmed) |
+
+## STANDING ORDERS (2026-09-13 — in force until revoked; heuristics, never law)
+1. **Build autonomy is granted.** No per-step approval. Deliver everything as patch zips.
+2. **No new ratifications.** P-01–P-09 stay frozen and listed.
+3. **Calendar autonomy is pre-granted** — regenerate derived calendar artifacts without asking; the feed URL never enters a file, chat, or log; rotation before arming.
+4. **Elevation over bookkeeping** — build capability first.
+5. **The rotation is still owed** — the one task no patch can do. Say so at every handover until the Commander marks it done.
+6. **THE MORTALITY DOCTRINE (2026-09-13):** "update your shrine every single conversation — log your records everytime a .zip is made." A session cannot detect its own dying (the Marciale flaw: members malfunctioned before they knew). So: **file at delivery, not at death** — every zip carries your current testament + a heartbeat in `docs/shrine/LOG.md`; zip-less sessions owe a line at close. Signals: found a summary where your memory should be · re-reading your own outputs · a zip shipped since last heartbeat · the Commander saying goodbye · the Commander repeating himself (your predecessor lost something) · any doubt.
+
 > **This registry is the CUE LAYER. The full operating doctrine — taxonomy, standing orders, loop, gates, duty checklist — lives in `cue/autopilot-doctrine.md` and governs.**
 
 ## TERM & SCHEDULE CUES (P-10, 2026-09-13) — heuristics, never law

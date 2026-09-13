@@ -106,3 +106,23 @@ PROCEDURE:
 - `cue/style-heuristics.md` — style-selection guidance (heuristics, not law)
 - `cue/commander-lexicon.md` — 📖 GROWS: the Commander's phrasings + confirmed meanings (II.5)
 - `cue/inference-log.md` — append-only: every scan verdict, upheld or corrected
+
+---
+
+# 8. THE LIVING LAYERS (added v1.1, 2026-09-13 — additive; no rule above changes)
+The tuple classifies the TASK. These layers classify the COMMANDER — they are
+evidence, and they grow after every session:
+
+- `cue/autopilot-cues.md` — confirmed phrase→meaning cues **+ the STANDING ORDERS
+  block. Consult it before ANY autonomy decision** (what is pre-granted, what is
+  frozen, what is still owed).
+- `cue/commander-lexicon.md` — the weighted lexicon (E4 reads it).
+- `Brain/frontal_lobe/learned_cues.md` — the append-only twin (II.5).
+- `docs/shrine/` — succession testaments + the heartbeat LOG: what departing
+  sessions learned, proved and owe. Read the newest testament before architectural
+  work (CHARTER §3); testaments are refreshed at every zip (CHARTER §6 — file at
+  delivery, not at death).
+
+A cue is confirmed only when cited to the session that proved it. Heuristics never
+outrank law (III.3); a standing order tells you what you may do without asking —
+never what you may do against the rules.

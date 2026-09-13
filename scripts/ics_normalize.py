@@ -44,6 +44,7 @@ DEADLINES = os.path.join(PLAN, "TERM1_DEADLINES.json")
 SNAPSHOT = os.path.join(PLAN, "ICS_SNAPSHOT.local.json")      # git-ignored
 OUT_MD = os.path.join(PLAN, "TERM1_CALENDAR.local.md")        # git-ignored
 OUT_JSON = os.path.join(PLAN, "TERM1_CALENDAR.local.json")    # git-ignored
+PUBLIC_MD = os.path.join(ROOT, "Brain", "courses", "CALENDAR.md")  # COMMITTED scrubbed mirror
 ENV_URL = "RADIATION_ICS_URL"
 DEFAULT_TZ = "Asia/Manila"
 
@@ -594,6 +595,19 @@ def fmt_dt(e):
     return s
 
 
+PUBLIC_BANNER = """<!--
+  MACHINE-WRITTEN CALENDAR MIRROR — derived data from the live LMS feed.
+  Refreshed daily by the calendar cron (.github/workflows/ical_fetch.yml) when
+  armed, and on demand by any AI: running this tool with --public is
+  PRE-AUTHORIZED (derived-data autonomy — no permission needed, ever).
+  Check the Generated date against today; if stale, SAY SO instead of
+  trusting it. NEVER put a feed URL in this file or any committed file —
+  the URL lives only in the RADIATION_ICS_URL environment variable / secret.
+-->"""
+def render_public(events, tz_name=DEFAULT_TZ):
+    """The committed mirror: scrubbed, diff-free, stable for git. Check 22 guards it."""
+    return PUBLIC_BANNER + "\n\n" + to_markdown(events, None, tz_name)
+
 def to_markdown(events, d=None, tz_name=DEFAULT_TZ):
     now = datetime.datetime.now(events[0]["start"].tzinfo) if events else None
     L = []
@@ -753,6 +767,11 @@ def self_test(verbose=True):
     occ = expand_rrule(ds, {"FREQ": "MONTHLY", "INTERVAL": 1, "BYDAY": ["2TU"], "COUNT": 3, "UNTIL": None})
     check("MONTHLY;BYDAY=2TU", len(occ) == 3 and all(o.day <= 14 and o.weekday() == 1 for o in occ))
 
+    # the committed mirror must never carry a URL (a committed credential is check 22's FAIL)
+    pub = render_public(expand_all(parse_ics(FIXTURE, DEFAULT_TZ), DEFAULT_TZ, horizon_days=None), DEFAULT_TZ)
+    check("public mirror: no URL in committed output", "http" not in pub)
+    # check 22 keys on the Generated line — the mirror must always carry it
+    check("public mirror: Generated date present", re.search(r"\*\*Generated:\*\*\s*\d{4}-\d{2}-\d{2}", pub) is not None)
     print(f"\n{'✅' if not fails else '❌'} ics_normalize self-test: {ok} passed, {len(fails)} failed")
     for f in fails:
         print("   ✗", f)
@@ -787,6 +806,7 @@ def main():
     p.add_argument("--md", action="store_true", help="print an AI-readable calendar")
     p.add_argument("--json", action="store_true", help="print machine-readable JSON")
     p.add_argument("--write", action="store_true", help="write the .local.md/.local.json artifacts")
+    p.add_argument("--public", action="store_true", help="write the COMMITTED scrubbed mirror Brain/courses/CALENDAR.md")
     p.add_argument("--window", type=int, default=180, help="days ahead to emit (default 180, 0=all)")
     p.add_argument("--no-diff", action="store_true", help="skip the snapshot comparison")
     p.add_argument("--include-cancelled", action="store_true")
@@ -843,6 +863,10 @@ def main():
         if not any(d.values()):
             print("     no change since last run")
 
+    if a.public:
+        os.makedirs(os.path.dirname(PUBLIC_MD), exist_ok=True)
+        open(PUBLIC_MD, "w", encoding="utf-8").write(render_public(events, a.tz))
+        print(f"   wrote {os.path.relpath(PUBLIC_MD, ROOT)} (committed mirror; the daily cron refreshes it)")
     if a.md or a.write:
         md = to_markdown(events, d, a.tz)
         if a.write:

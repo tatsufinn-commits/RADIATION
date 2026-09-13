@@ -73,3 +73,25 @@ Memory: curator → Brain/short_term → (triangulated) → Brain/long_term
 R→A→D is the intake spine · Incubate branches anywhere · Annotate+Triangulate
 run continuously on sources · Inspect→Overhaul is the maintenance loop ·
 Nota is terminal distillation — nothing enters the Core untriangulated.
+
+---
+
+## SKILL AUDIT (2026-09-13, ordered by the Commander)
+Question asked: *"does it actually provide the AI with necessary skills, prospects,
+perspective and narratives to follow?"* Verdict, criterion by criterion:
+
+- **Skills — strong.** The nine jurisdictions + the passive corps are complete for
+  knowledge work. No tenth skill is minted: term/calendar operations are tools
+  (`docs/CAPABILITIES.md`) + a routine (`Brain/cerebellum/routines/`), not a pipeline
+  stage — minting a skill per subsystem is how operating systems rot.
+- **Prospects — was thin, repaired.** The STANDING ORDERS block
+  (`cue/autopilot-cues.md`) + `docs/COMMANDER_QUICKREF.md` §5 now carry the direction:
+  build autonomy granted, elevation over bookkeeping, the rotation owed, content
+  famine named.
+- **Perspective — adequate.** `docs/.readme` §1 ("who you are") holds.
+- **Narratives — was starving, repaired.** `docs/shrine/` (charter + testaments) is
+  the narrative layer: what happened, what it cost, what the dead watch warns. Load
+  it at Tier 3.
+
+The honest residual: the pipeline is built and underfed — 15 governance patches
+against 3 content sessions (check 16's own warning). The skills exist; feed them.
