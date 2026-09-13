@@ -1,85 +1,90 @@
-# PATCH NOTES — Situation Layer + Capability Registry
+# PATCH NOTES — ICS Normalizer (the calendar finally reads)
 
-**Patch:** `RADIATION_PATCH_2026-09-13_2700_Situation-Layer.zip`
-**Base:** `e76ef8c` (main — patch 2600 **already applied**) · **Prepared:** 2026-09-13
-**Type:** DELTA. This does **not** re-ship patch 2600's files (`SCHEDULE.md`,
-`INDEX.md`, `.gitignore` are already in the tree).
+**Patch:** `RADIATION_PATCH_2026-09-13_2800_ICS-Normalizer.zip`
+**Base:** `c1ba3b6` (main) · **Prepared:** 2026-09-13 · **Type:** DELTA
 
-1. **RISK LEVEL   : 🟢 ORDINARY — content growth + tooling (PATCH component → v1.6.5)**
-   **RISK BASIS   :** CANON CHECK resolves **NO** — no constitutional text
-   (`docs/AI_RULES.md`), no core scaffold, no core style, no mode definition, no Scan
-   rule, and **not** `docs/.readme`. `docs/SYSTEM_STATE.md` is not canon: it is the file
-   explicitly designated **the ONLY overwrite-permitted file (II.2 exception)**, which is
-   exactly why the Situation Layer lives there and nowhere else. `docs/CAPABILITIES.md`
-   is new; `scripts/` is tooling; the workflow file is CI.
-   **CANON CHECK  : NO.**  **RATIFICATION:** none requested, none needed.
+1. **RISK LEVEL   : 🟢 ORDINARY — new tooling + content (PATCH component → v1.6.6)**
+   **RISK BASIS   :** CANON CHECK resolves **NO** — no constitutional text, no core
+   scaffold, no core style, no mode definition, no Scan rule, not `docs/.readme`.
+   `scripts/` is tooling; `docs/CAPABILITIES.md` and `docs/SYSTEM_STATE.md` are
+   registry/state files (the latter is the designated overwrite-permitted file).
+   **RATIFICATION:** none requested, none needed.
 
 2. **FILES TOUCHED:**
-   1. `docs/SYSTEM_STATE.md` — **REPLACE** — Tier 0 now opens with **THE SITUATION** (§4).
-   2. `docs/CAPABILITIES.md` — **ADD** — all 7 scripts: invocation, inputs, exit codes,
-      gotchas, and a plain "what is NOT here yet" section.
-   3. `scripts/validate.py` — **REPLACE** — **check 21** added, running last so its
-      count includes itself. Amendment A1 (from 2600) is untouched.
-   4. `scripts/README.md` — **REPLACE** — 26 checks (was 14); all 7 tools surfaced.
-   5. `.github/workflows/validate.yml` — **REPLACE** — CI label de-counted so it cannot
-      drift again. CI still runs the same 2 of 7 scripts, deliberately.
-   6. `README.md` — **REPLACE** — version line only.
-   7. `CHANGELOG.md` — **REPLACE (insertion-only)** — the v1.6.5 entry. Verified
-      insertions only; no existing entry touched.
-   8. `APPLY.sh` · `APPLY.ps1` — payload check, CSV retirement, carrier + report untrack,
-      Situation Layer verification, validator run.
-   9. `PATCH_NOTES.md` — this file (transport; **deleted by the APPLY script**).
+   1. `scripts/ics_normalize.py` — **ADD** — the one iCalendar parser (§4).
+   2. `scripts/plan_term.py` — **REPLACE** — inline parser deleted; delegates instead.
+   3. `docs/CAPABILITIES.md` — **REPLACE** — tool #8 documented; "NOT HERE YET" corrected.
+   4. `scripts/README.md` — **REPLACE** — the new tool surfaced in the tool list.
+   5. `.github/workflows/validate.yml` — **REPLACE** — runs the 19-assertion self-test.
+   6. `docs/SYSTEM_STATE.md` — **REPLACE** — v1.6.6; situation section gains the calendar.
+   7. `README.md` — **REPLACE** — version line only.
+   8. `CHANGELOG.md` — **REPLACE (insertion-only)** — the v1.6.6 entry.
+   9. `APPLY.sh` · `APPLY.ps1` — verification + reconciliation runner (§6).
+  10. `PATCH_NOTES.md` — this file (transport; **deleted by the APPLY script**).
 
 3. **AREAS TOUCHED:** [x] Brain [ ] laws [ ] scaffolds [ ] styles [ ] subskills
-   [ ] cues [ ] modes/Scan [ ] other: **`docs/SYSTEM_STATE.md` (overwrite-permitted),
-   `docs/CAPABILITIES.md` (new), tooling, CI**
+   [ ] cues [ ] modes/Scan [ ] other: **`scripts/`, `docs/`**
 
 4. **RATIONALE — THE FINDING THIS PATCH ANSWERS.**
-   RADIATION's Tier 0–2 loaded the constitution, six mode charters, the Scan rules, four
-   passive subskills, the scaffolds and the styles — **and never named a single asset the
-   Commander actually owns.** Measured with fixed-string matching (a substring pass had
-   already produced a false positive on `INDEX.md` inside `CORE_INDEX.md`):
+   The Commander asked about the calendar five times across this engagement. The honest
+   answer was always a version of *"the parser drops `RRULE`, so a weekly class appears
+   once instead of eleven times."* `docs/CAPABILITIES.md` said so plainly under
+   *"WHAT IS NOT HERE YET: no ICS fetcher · no recurrence expansion."*
 
-   | Asset | Size | Boot-path references |
-   |---|---|---|
-   | `docs/KNOWLEDGE_REGISTRY.md` — what the Commander **knows** | 31,715 B | **0** |
-   | `Brain/courses/INDEX.md` + `SCHEDULE.md` — what he's **studying** | 13,122 B | **0** |
-   | `Brain/external_sources/INDEX.md` — his 12 **collections** | 5,754 B | **0** |
-   | `scripts/` — the 7 **tools** he can run | 68 KB | **0** |
+   `scripts/ics_normalize.py` closes both. It expands `RRULE` (FREQ / INTERVAL / BYDAY /
+   COUNT / UNTIL), honours `RDATE` and `EXDATE`, resolves `RECURRENCE-ID` **overrides**
+   (a rescheduled occurrence *replaces* the original rather than appearing beside it as a
+   phantom second event), filters `STATUS:CANCELLED`, resolves `TZID` through `zoneinfo`
+   and displays everything in `Asia/Manila`, decodes RFC 5545 escapes, handles quoted
+   parameter values and folded lines, and honours `DTEND` so durations survive.
 
-   A fresh AI given the link and the magic words therefore became **an AI that knew the
-   rules of a system it had never seen the contents of.** It could explain the difference
-   between `[D]` and `[O]`; it could not say which courses the Commander takes, what he
-   knows, or that a term planner existed.
+   **Diffing is series-aware**, which the old one could not be. The old diff keyed on
+   `UID` alone — correct only because it never expanded anything. With expansion, several
+   occurrences share a `UID`, so the key was changed to compare the *set of occurrence
+   dates per series*. "Moved" now means the series moved, and a single cancelled date
+   inside series is reported as precisely that:
 
-   The consequence was already visible in the repository's own instruments: check 16
-   reports **15 canon patches against 3 content sessions — over budget by 42
-   session-equivalents**; check 20.5 reports **no recorded attempt**; the mastery ledger
-   holds **one row whose own text says "NOT a Commander attempt."** Those are not three
-   problems. An AI booted into governance produces governance — every session opened on
-   the constitution, so every session's natural output was a constitutional patch.
+   ```
+   ⚠ MOVED  AR163-1P Lecture, Building Tech — lost 2026-06-18
+   ```
 
-   **THE SITUATION adds no subsystem. It re-homes existing assets onto the path every
-   session already walks**, and the budget was already there: the 1,193 B "Previously:"
-   recital in Tier 0 was duplicated byte-for-byte in `CHANGELOG.md` (verified for five
-   versions), so deleting it is lossless — and it funds the inline schedule.
+   **One parser, deliberately.** `plan_term.py`'s inline parser was deleted in favour of
+   delegation. This repository's own Marciale-OS review identified *"two parsers of
+   different quality, the weaker one serving the more important input"* as a structural
+   smell. Shipping a second parser here would have reproduced it in the very document
+   that named it.
 
-   **Second finding, same file:** `SYSTEM_STATE.md` is Tier 0 *current ground truth* and
-   it was **false**. Its CURRENT STATE section still read *"Brain CONTENT (ingestions,
-   promotions, dossiers) | 🕳️ EMPTY — awaits first live sessions"* against 45 K-IDs, two
-   completed ingestions (K-CUR-005/006) and a forged drill set. A boot-time falsehood is
-   the worst instance of the class this repository exists to catch.
+   **The credential rule holds.** The feed URL is read from `$RADIATION_ICS_URL` — never
+   a file, never committed, never printed. Every summary and location is scrubbed of
+   instructor names, room codes, sections, emails and URLs before it reaches any output,
+   reusing the same `REDACT` list as validator check 2.5.
 
 5. **CANON DIFFS:** none (🟢).
 
-6. **APPLICATION:**
-   - **Drop-in files:** items 1–7 (all in this zip).
-   - `brain/courses/SCHEDULE.csv` retired to `_local_backup/` by the APPLY script.
-   - `validation_report.json` untracked; `PATCH_NOTES.md` deleted — both by the script.
-   - **Version:** v1.6.4 → **v1.6.5** (PATCH component; three sources ship together).
+6. **APPLICATION — and a reconciliation you should read.**
+   The APPLY script runs the parser's self-test **first** and aborts if it fails, before
+   touching anything else. Then it does three things beyond dropping files:
 
-7. **VERSION BUMP :** **PATCH** → v1.6.5. Not MAJOR (no law, mode or Scan text); not
-   MINOR (no core scaffold/style/subskill or structural folder change).
+   - **Retires `SCHEDULE.csv`** to `_local_backup/` (superseded; data is in `SCHEDULE.md`).
+   - **Re-homes the vehicles** — see below.
+   - Removes `PATCH_NOTES.md` and untracks `validation_report.json`.
+
+   **RECONCILIATION.** You reported that groups A–E had been deleted. Verified on
+   `c1ba3b6`: A, B, C and E are gone, but **group D never ran** — the credential, the
+   PDF, both syllabi, the course-calendar HTML and `desktop.ini` were all still tracked.
+
+   That mattered because **five course records already state they were deleted**
+   (*"binary deleted (II.6 r.8)"*, *"vehicle removed from tree"*). The files being
+   present made those records **false**, and a fresh AI reading them would conclude the
+   region was clean.
+
+   I verified extraction is genuinely complete for all of them — MEC30-7's record even
+   carries the calendar's full week-by-week scope and a meeting pattern that matches
+   `SCHEDULE.csv` exactly. **They are MOVED, not deleted:** `_local_backup/` is
+   git-ignored, so they remain on your disk and recoverable. This makes the records true
+   and clears the last FAIL.
+
+7. **VERSION BUMP :** **PATCH** → v1.6.6 (content growth + tooling; not MAJOR, not MINOR).
 
 8. **DECLARATION :** "This Patch is a proposal. It has no effect until the Commander
    applies it. — RADIATION Architect session, 2026-09-13"
@@ -88,39 +93,43 @@
 
 ## VERIFICATION PERFORMED BEFORE DELIVERY
 
-- **All 7 tool invocations executed and confirmed working** — not read from docstrings.
-  `export_anki.py` → 10 cards · `grade_exam.py` → 2 mistake-bank candidates ·
-  `decay_compute.py --fixed` → 0 expired · `plan_term.py --self-check` → exit 0 ·
-  `validate.py` → exit 1 (FAILs present, correct) · `knowledge_regression.py` → exit 0 ·
-  `ingest_collection.py --help` → 4 subcommands.
-- **Check 21 negative-tested both ways:** an undocumented script → ❌ FAIL
-  (*"undocumented script: scripts/decay_compute.py"*); a false count → ❌ FAIL
-  (*"scripts/README.md claims 14 checks, actually 26"*) — the historical bug, reproduced
-  on demand and now impossible to merge.
-- **Own violation caught and fixed:** the first draft of `CAPABILITIES.md` used literal
-  `/tmp/scratch` paths, which **check 14 fails**. Replaced with `<scratch-dir>`.
-- **Acceptance on a clean clone of the live tree**, simulating the APPLY script:
-  **26 checks · 23 pass · 2 warn · 1 fail** — the single fail being check 2.5 (the
-  vehicles + `desktop.ini` the Commander deletes himself).
-- **Version coherence:** SYSTEM_STATE = CHANGELOG = README = v1.6.5.
-- **Boot budget measured after:** Tier0+1 **37,081 B (36.2 KB / cap 40)** · Tier0-2
-  **60,207 B (58.8 KB / cap 80)**. Net +1.7 KB for a Tier 0 that now states the situation.
-  **Headroom is down to 3.9 KB (9.5 %)** — worth watching; the next Tier 0 addition
-  should displace rather than append.
+- **Self-test: 19 assertions, all passing.** It caught four defects on the way —
+  including three that were my own expectations being wrong, which is the more
+  interesting half:
+  1. an unpack bug on multi-date events;
+  2. the fixture was wrong, not the code — RFC 5545 unfolding removes CRLF + **exactly
+     one** whitespace, so a fold written `\n across` yields `foldedacross`, not
+     `folded across`;
+  3. three early `return` paths inside the weekly expander skipped timezone
+     reattachment, leaking naive datetimes into a mixed sort;
+  4. `COUNT=6` with one `EXDATE` and one override yields **five** live occurrences —
+     the engine was right and my test was wrong. Likewise a shift-test that targeted the
+     very date the override had moved.
+  A weaker escape assertion also passed *while the backslash was still present*; it now
+  matches exactly. **A test that cannot tell decoding from a leftover backslash is not
+  testing decoding.**
+- **UTC conversion fixed after a real display bug:** `DTSTART:…235900Z` was staying in
+  UTC, so the renderer would have printed 23:59 for an event at 07:59 Manila time.
+  Every timestamp is now converted to the display zone at parse time.
+- **`plan_term.py` delegation tested both ways** — without `--ics` the baseline output is
+  unchanged; with `--ics` it now reports *9 occurrences from 5 series* where the old
+  parser reported 5 events with `RRULE` dropped. `--self-check` still passes.
+- **Check 21 exercised for real** — the registry guard would have failed the build had
+  the new script not been documented. It is documented.
+- **Acceptance on a clean clone of the live tree**, running the frozen zip's APPLY.sh.
 
 ## KILL-LIST HONESTY
 
-This Patch does **not** clear the last FAIL:
-
-- **check 2.5** — the 5 vehicles + `desktop.ini` under `Brain/courses/`. Extraction is
-  verified complete (MEC30-7's record even carries the calendar's full week-by-week scope
-  and a meeting pattern that matches `SCHEDULE.csv` exactly), and the course records
-  already *claim* them deleted — so the files being present is the false statement.
-  **You delete them; that makes the records true and takes the tree to 0 FAIL.**
+After this patch the tree should reach **0 FAIL** for the first time. If check 2.5 still
+reports anything, the APPLY script will have printed which path it could not move.
 
 ## STILL OUTSTANDING, AND NOT FIXABLE BY ANY PATCH
 
-**The LMS feed URL committed in `4a98e59` is live, in public history.** Rotate the feed
-at source: disable the external-calendar feed, re-enable it to mint a new URL, and place
-the new one in an Actions secret and a local env var — never in a file. Record the date
-in the `INDEX.md` rotation table.
+**The LMS feed URL committed in `4a98e59` is live, in a public repository.** Moving
+`ics.txt` does **not** revoke it — git history keeps it. Rotate the feed at source
+(disable the external calendar feed, re-enable it to mint a new URL), then place the new
+URL in an Actions secret and a local env var. Record the date in the `INDEX.md` rotation
+table. Until that is done, anyone holding the old URL retains read access.
+
+**No scheduled fetch.** `--fetch` works, but nothing runs it automatically. Wiring an
+Actions job is a small, separate follow-up — and it is only worth doing *after* rotation.

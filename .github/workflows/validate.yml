@@ -13,3 +13,5 @@ jobs:
         run: python3 scripts/validate.py
       - name: Knowledge regression (locked assertions)
         run: python3 scripts/knowledge_regression.py
+      - name: ICS normalizer self-test (19 fixture assertions)
+        run: python3 scripts/ics_normalize.py --self-test

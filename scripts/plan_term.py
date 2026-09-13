@@ -79,49 +79,37 @@ def load_mastery():
             }
     return m
 
-# ── ICS (optional; the file is local and git-ignored) ────────────────────────
-def parse_ics(path):
+# ── ICS — DELEGATED. There is exactly ONE iCalendar parser in this repository:
+# scripts/ics_normalize.py. This file used to carry its own minimal one, which read
+# four fields and dropped RRULE — so a weekly class appeared once instead of eleven
+# times. Two parsers of different quality is the failure mode RADIATION's own review
+# identified in Marciale-OS; it is not repeated here.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    import ics_normalize as icsn
+except ImportError:                                   # shipped together; belt and braces
+    icsn = None
+
+
+def parse_ics(path, tz=None):
+    """Expanded, UID-keyed occurrences from the one parser."""
+    if icsn is None:
+        die("scripts/ics_normalize.py is missing — cannot read the ICS feed")
+    tzname = tz or icsn.DEFAULT_TZ
     with open(path, encoding="utf-8", errors="replace") as fh:
-        raw = fh.read()
-    raw = raw.replace("\r\n ", "").replace("\r\n\t", "")   # unfold
-    events = []
-    for blk in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", raw, re.S):
-        def g(k):
-            m = re.search(rf"^{k}[^:]*:(.*)$", blk, re.M)
-            return m.group(1).strip() if m else None
-        dt = g("DTSTART")
-        events.append({
-            "uid": g("UID") or "",
-            "summary": scrub(g("SUMMARY") or "(no summary)"),
-            "date": (f"{dt[:4]}-{dt[4:6]}-{dt[6:8]}" if dt and len(dt) >= 8 else None),
-            "status": (g("STATUS") or "").upper(),
-        })
-    return [e for e in events if e["date"]]
+        text = fh.read()
+    return icsn.expand_all(icsn.parse_ics(text, tzname), tzname, horizon_days=365)
+
 
 def ics_diff(events):
-    """The feed's real job: tell you something MOVED."""
-    old = {}
-    if os.path.exists(SNAPSHOT):
-        try:
-            old = {e["uid"]: e for e in json.load(open(SNAPSHOT, encoding="utf-8"))}
-        except Exception:
-            old = {}
-    new = {e["uid"]: e for e in events}
-    out = {"added": [], "moved": [], "removed": []}
-    for uid, e in new.items():
-        if uid not in old:
-            out["added"].append(e)
-        elif old[uid]["date"] != e["date"]:
-            out["moved"].append((old[uid], e))
-    for uid, e in old.items():
-        if uid not in new:
-            out["removed"].append(e)
-    try:
-        with open(SNAPSHOT, "w", encoding="utf-8") as fh:
-            json.dump(events, fh, indent=1)
-    except OSError:
-        pass
+    """Series-aware diff (see ics_normalize.diff). Shares the one snapshot file."""
+    if icsn is None:
+        return {"added": [], "moved": [], "removed": []}
+    old = icsn.rehydrate(icsn.load_snapshot())
+    out = icsn.diff(old, events) if old else {"added": [], "moved": [], "removed": []}
+    icsn.save_snapshot(events)
     return out
+
 
 # ── ranking: yield x proximity x deficit, arithmetic shown ───────────────────
 def rank(items, courses, mastery, week):
@@ -230,16 +218,25 @@ def brief(week, ics_path):
         else:
             ev = parse_ics(ics_path)
             dif = ics_diff(ev)
-            print(f"  ─ LMS FEED ─ {len(ev)} event(s) parsed, summaries scrubbed of identifiers")
+            series = len({e["uid"] for e in ev})
+            print(f"  ─ LMS FEED ─ {len(ev)} occurrences from {series} series, "
+                  f"summaries scrubbed of identifiers")
             print(f"    added {len(dif['added'])} · moved {len(dif['moved'])} · removed {len(dif['removed'])}")
-            for o, n in dif["moved"][:5]:
-                print(f"    ⚠ MOVED  {n['summary'][:44]}: {o['date']} → {n['date']}")
+            for m in dif["moved"][:5]:
+                bits = []
+                if m["lost"]:
+                    bits.append("lost " + ", ".join(x[:10] for x in m["lost"][:3]))
+                if m["gained"]:
+                    bits.append("gained " + ", ".join(x[:10] for x in m["gained"][:3]))
+                print(f"    ⚠ MOVED  {m['summary'][:44]} — {'; '.join(bits)}")
             for e in dif["added"][:5]:
-                print(f"      added  {e['summary'][:44]} ({e['date']})")
+                print(f"      added  {e['summary'][:44]} ({len(e['dates'])} date(s))")
             for e in dif["removed"][:5]:
-                print(f"      gone   {e['summary'][:44]} ({e['date']})")
+                print(f"      gone   {e['summary'][:44]} ({len(e['dates'])} date(s))")
             if not any(dif.values()):
                 print("      no change since last run")
+            if ev and series < len(ev):
+                print(f"      (the old parser reported {series} event(s) here — RRULE was dropped)")
             print()
 
     rows = rank(items, courses, mastery, week)

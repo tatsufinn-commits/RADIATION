@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v1.6.5
+**Last updated:** 2026-09-13 · **Version:** v1.6.6
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -43,15 +43,16 @@ Utilities, Building Technology, Professional Practice, …) · per-course readin
 graded items: `Brain/courses/INDEX.md`.
 
 ### What can be RUN
-`docs/CAPABILITIES.md` — **7 offline scripts** (validate · regression · plan_term ·
+`docs/CAPABILITIES.md` — **8 scripts** (validate · regression · plan_term ·
 ingest · anki · grade · decay). `docs/SKILLS.md` says how to think; that file says
 what can be executed.
 
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v1.6.5** — Situation Layer + Capability Registry; Tier 0 now states what the
-session is standing in. (Version history: `CHANGELOG.md` — the single source. It is not
+**RADIATION v1.6.6** — the calendar works: one ICS parser with recurrence expansion,
+overrides, EXDATE and a series-aware diff (`scripts/ics_normalize.py`). Previously:
+v1.6.5 — Situation Layer + Capability Registry. (Version history: `CHANGELOG.md` — the single source. It is not
 recited here any more; the recital was duplicated byte-for-byte and cost the boot budget.)
 
 ## CURRENT STATE *(corrected 2026-09-13 — this section was stale by nine patches)*
@@ -84,7 +85,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 | Brain/external_sources catalog | ✅ OPERATIONAL — 12 collections |
 | **Brain CONTENT** | ✅ **POPULATED** — 2 ingestions, 45 K-IDs, 1 drill set |
 | **Schedule record** | ✅ **PUBLISHED** — `Brain/courses/SCHEDULE.md` (A1) |
-| **Capability registry** | ✅ **POPULATED** — `docs/CAPABILITIES.md` (7 tools) |
+| **Capability registry** | ✅ **POPULATED** — `docs/CAPABILITIES.md` (8 tools) |
 | Skill jurisdictions 01–09 | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |
 | The Core (09-nota/ cards) | 🕳️ EMPTY — first @Radiation session seeds it |
@@ -93,7 +94,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 - **Study output is the bottleneck, not infrastructure.** 1 mastery row exists and it is
   a fixture, not a Commander attempt. check 20.5 asks for a real `attempt:` marker.
 - Knowledge assertions: 5 of 9 PENDING on raw primaries (PD 1096 IRR, RA 9514 IRR).
-- No ICS ingest yet — `plan_term.py --ics` is local-only and drops `RRULE`.
+- **Calendar now ingestible** — `ics_normalize.py` expands recurrence, honours EXDATE/overrides and diffs by series. Still no *scheduled* fetch: you run it, or wire an Actions job.
 - `week1_start` unrecorded (see THE SITUATION).
 
 ## HANDOVER NOTE

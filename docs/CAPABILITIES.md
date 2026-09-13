@@ -18,8 +18,8 @@ while the validator ran 25 — a count nobody could have got right by reading.
 
 - **Stdlib only** — no third-party packages, with one exception (`ingest_collection.py`
   needs PyMuPDF for PDF work).
-- **Offline** — none calls the network, except `ingest_collection.py`, which downloads
-  only from a URL you pass it explicitly.
+- **Offline** — none calls the network, except `ingest_collection.py` and
+  `ics_normalize.py --fetch`, both of which contact only a URL you supply explicitly.
 - **Non-destructive** — no script writes to the repository except `validate.py`
   (its own report, git-ignored) and `ingest_collection.py` (only on `--repo`, which
   refuses to render inside the tree). `grade_exam.py` and `decay_compute.py` **propose**
@@ -108,14 +108,36 @@ reproducible output. Arithmetic, not memory — and again, it proposes; it never
 
 ---
 
+### 8. `ics_normalize.py` — **the** iCalendar parser (RFC 5545 subset)
+```
+python3 scripts/ics_normalize.py --ics local.ics            # summary + delta
+python3 scripts/ics_normalize.py --ics local.ics --md       # AI-readable calendar
+python3 scripts/ics_normalize.py --ics local.ics --write    # durable .local artifacts
+python3 scripts/ics_normalize.py --fetch                    # URL from $RADIATION_ICS_URL
+python3 scripts/ics_normalize.py --self-test                # 19 fixture assertions
+```
+**Answers:** what is actually on the LMS calendar — *including every occurrence of a
+recurring event.* This is the ONE parser; `plan_term.py --ics` delegates to it.
+**Handles:** RRULE expansion (FREQ/INTERVAL/BYDAY/COUNT/UNTIL) · RDATE · EXDATE ·
+**RECURRENCE-ID overrides** (a rescheduled occurrence replaces the original instead of
+appearing beside it as a phantom) · `STATUS:CANCELLED` filtering · `TZID` resolved via
+`zoneinfo` and displayed in `Asia/Manila` · RFC 5545 escape decoding · quoted parameter
+values · line unfolding · `DTEND` durations.
+**Diffing is series-aware:** "moved" means the *series* moved, and a single cancelled
+date inside a series is reported as exactly that.
+**The URL rule:** the feed URL is a **credential**. It is read from the environment
+variable `RADIATION_ICS_URL` — never from a file, never committed, never printed.
+**Scrubbing is unconditional:** every summary and location is stripped of instructor
+names, room codes, sections, emails and URLs before it reaches any output.
+`--write` emits `Brain/short_term/plan/TERM1_CALENDAR.local.{md,json}` (git-ignored).
+
 ## WHAT IS NOT HERE YET
 
 Stated plainly so a session does not assume capability it lacks:
 
-- **No ICS fetcher.** `plan_term.py --ics` reads a local file only; the feed URL is a
-  credential and lives in an env var / Actions secret, never in the repo.
-- **No recurrence expansion.** `RRULE` is parsed to a frequency word and dropped.
-  A weekly class therefore appears once, not eleven times.
+- **No scheduled fetch.** `ics_normalize.py --fetch` exists and works, but nothing runs
+  it automatically — there is no cron and no Actions job. You run it, or you wire it up.
+  The feed URL belongs in an Actions secret when you do.
 - **No note-card generator** for the Core (09-nota/) — cards are authored by sessions.
 - **CI runs 2 of the 7 scripts** (`validate.py` + `knowledge_regression.py`). The other
   five are session-invoked by hand. That is deliberate: they need arguments a runner
