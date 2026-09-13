@@ -470,7 +470,36 @@ def c19():
                 bad.append(f"{f}:{i+1}")
     rec(19, "FAIL", not bad, "publisher rule: no [R] carried by blocklisted aggregator" + ("" if not bad else ": " + "; ".join(bad[:6])))
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205): fn()
+# ---- check 21: capability registry drift (patch 2700) ----------------------
+# WHY THIS EXISTS: scripts/README.md said "14 checks" for as long as the validator
+# ran 25, and CI repeated the number. A count nobody can get right by reading is a
+# count that will be wrong. This check makes the documented capability surface
+# self-verifying: every script must be named in the registry, and any check-count
+# claim must equal the real count. Runs LAST so the count includes every other check.
+def c21():
+    bad = []
+    reg = "docs/CAPABILITIES.md"
+    regtxt = read(reg) if os.path.exists(os.path.join(ROOT, reg)) else ""
+    if not regtxt:
+        bad.append(f"{reg} MISSING (the capability registry is the point)")
+    else:
+        scripts = sorted(f for f in os.listdir(os.path.join(ROOT, "scripts"))
+                         if f.endswith(".py")) if os.path.isdir(os.path.join(ROOT, "scripts")) else []
+        for s in scripts:
+            if s not in regtxt:
+                bad.append(f"undocumented script: scripts/{s}")
+    # the check-count claim, if any file makes one, must be true
+    n_checks = len(RESULTS) + 1          # +1: this check has not been recorded yet
+    for f in ("scripts/README.md",):
+        t = read(f) if os.path.exists(os.path.join(ROOT, f)) else ""
+        m = re.search(r"(\d+)\s+(?:structural\s+)?checks", t)
+        if m and int(m.group(1)) != n_checks:
+            bad.append(f"{f} claims {m.group(1)} checks, actually {n_checks}")
+    rec(21, "FAIL", not bad,
+        "capability registry (scripts/ documented; count claims true)" +
+        ("" if not bad else ": " + "; ".join(bad[:6])))
+
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c21): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

@@ -1,24 +1,73 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 (v1.6.4: schedule record published, amendment A1 — Commander-authorized)
-**Updated by:** Protocol Architect (Patch proposal; effective at Commander's push)
+**Last updated:** 2026-09-13 · **Version:** v1.6.5
+**Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
+
+---
+
+## 🎯 THE SITUATION — read this before anything else
+
+*This is what the session is standing **in**. The rest of the boot tells you how to
+behave; this tells you **where you are**. Keep it current — it is the difference
+between an AI that knows the rules and an AI that knows the situation.*
+
+**Who:** the Commander — Mapúa University, BS Architecture, ALE-bound.
+**Purpose of this repository:** a public, copy-pasteable assistant. Link + magic words
+→ an AI that knows the Commander's schedule, knowledge, sources and tools.
+**Term 1, AY 2026-2027: 6 courses · 18 units.**
+
+### Schedule — 36.0 contact-hours/week · **Wednesday and Sunday FREE**
+*(rooms and sections: `Brain/courses/SCHEDULE.md` — published at full fidelity)*
+
+```text
+Mon  07:30–12:00 AR163-1P            · 16:30–21:00 AR153P
+Tue  07:30–09:00 GED103 (online)     · 09:00–10:30 DSS10 · 18:00–21:00 AR173-1P
+Thu  07:30–09:00 GED103 (online)     · 09:00–10:30 DSS10
+Fri  09:00–12:00 AR163-1P (online)   · 15:00–16:30 MEC30-7 (online)
+                                     · 16:30–19:30 AR153P (online)
+Sat  07:30–09:00 GED103 (online)     · 09:00–10:30 DSS10 (online)
+                                     · 12:00–16:30 AR173-1P · 18:00–21:00 MEC30-7
+```
+**Heaviest:** Mon and Sat (9.0 h each). **Lightest weekday:** Thu (3.0 h).
+**50 % online** (18.0 h). Longest block 4.5 h — treat as unavailable.
+**Anchor:** `week1_start` **NOT recorded** — plan in WEEKS until the LMS ICS or the
+academic calendar supplies it. One date converts the whole term to absolute.
+
+### What the Commander KNOWS
+`docs/KNOWLEDGE_REGISTRY.md` — **45 K-IDs** (36 live). Highest-yield courses:
+**AR173-1P (9) · AR163-1P (8) · AR153P (8)** — the three carrying the licensure yield.
+
+### What can be REACHED
+`Brain/external_sources/INDEX.md` — **12 collections** (Law, Books, HOA, TOA, Building
+Utilities, Building Technology, Professional Practice, …) · per-course readings and
+graded items: `Brain/courses/INDEX.md`.
+
+### What can be RUN
+`docs/CAPABILITIES.md` — **7 offline scripts** (validate · regression · plan_term ·
+ingest · anki · grade · decay). `docs/SKILLS.md` says how to think; that file says
+what can be executed.
+
+---
 
 ## REPOSITORY VERSION
-RADIATION v1.6.4 — Schedule record published at full fidelity (amendment A1 to P-10 §3.3: `Brain/courses/SCHEDULE.md`, rooms permitted in that one record by Commander decision 2026-09-13; term load corrected 31.5 → 36.0 contact-h/week). Previously: v1.6.3 — Machine Enforcement Layer live (P-01 🟢 half; 🟠 closure clause awaiting ratification). Previously: v1.6.0 — II.8 Direct-Write/AUTO-PATCH absolute law + Autopilot Doctrine live. Previously: v1.5.6 — Test 2 PASSED (S002 boot + S003 Autopilot audit accepted); learnings folded in; hygiene round 2 pending deletion. Previously: v1.5.4 — Law collection (statutes+IRRs, NSCP >1 GB flagged) + Books 47 files. Previously: v1.5.3 — Novels registered (entertainment regime), Books/HOA manifests refreshed. Previously: v1.5.2 — cerebellum toolbox (20 tools) + recovery-ladder routine live. Previously: v1.5.1 — 7th collection (Building Technology, 50 files) registered. Previously: v1.5.0 — six modes (@Review, @Autopilot added), BOOT ASK law, autopilot cues seeded. Previously: v1.4.0 — temporal_lobe episodic region live (S001 enrolled) + frontal-lobe sentiment (opinions.md). Previously: v1.3.3 — founding + Patches Nos.1-7 + the field session's first Patch (Planning ingestion, v1.3.2) + hygiene fix (v1.3.3). First live ingestion complete: Planning 8/8 files, [D]-as-taught in short_term, DIGEST populated. Test 1 PASSED. No.6 (🟠, ratified) adds the
-Restraint Doctrine: Drive-capable sessions fetch manifest-first, necessity-
-vetted, hard-budgeted at 3 files/collection and 6/session, one-at-a-time,
-never mirroring. v1.2.1 (No.5) No.5 registers the first five
-external collections (HOA, Books, TOA, Building Utilities, Professional
-Practice) — all verified ACCESSIBLE with live-captured manifests. Effective
-at the Commander's push (IV.5).
+**RADIATION v1.6.5** — Situation Layer + Capability Registry; Tier 0 now states what the
+session is standing in. (Version history: `CHANGELOG.md` — the single source. It is not
+recited here any more; the recital was duplicated byte-for-byte and cost the boot budget.)
 
-## CURRENT STATE
-- All canonical docs written; system OPERATIONAL.
-- Brain: ALL FIVE regions present with READMEs (short_term, long_term,
-  subsidiary, cerebellum, frontal_lobe) — Grok-audit critical gap closed.
-- All nine skill jurisdictions carry operational READMEs + registers.
-- The Core (09-nota/) is empty: no cards admitted yet.
-- All registers/ledgers at founding-empty state with proper append-only headers.
+## CURRENT STATE *(corrected 2026-09-13 — this section was stale by nine patches)*
+- **Brain content is NOT empty.** 45 K-IDs registered (36 live); two full ingestions
+  completed (K-CUR-005 Building Utilities · K-CUR-006 Building Technology, 50 files /
+  1,177.9 MB); one drill set forged and graded; mastery ledger seeded.
+- Six course records in `Brain/courses/` (K-CUR-007…012), the authoritative weekly
+  timetable in `SCHEDULE.md`, term plan in `Brain/short_term/plan/`.
+- Machine Enforcement Layer live: `scripts/validate.py` (26 checks) +
+  `knowledge_regression.py` (4 locked · 5 pending) + CI on every push.
+- Registers live: TASK · PATCH · MASTERY · MISTAKE · DECAY · CONFLICT · KNOWLEDGE (45).
+- The Core (09-nota/) holds **no admitted cards yet** — genuine and still true.
+- **Three open items:** ① the LMS feed URL committed in `4a98e59` is **live — rotate it
+  at source** (no patch can revoke it); ② five vehicles still tracked under
+  `Brain/courses/` (extraction verified complete — records already claim them deleted);
+  ③ knowledge assertions: only 4 of 9 locked, blocked on raw primaries not yet in repo.
 
 ## 🩺 COMPONENT HEALTH CHECKLIST
 | Component | Status |
@@ -29,19 +78,24 @@ at the Commander's push (IV.5).
 | Autonomous Scan (docs/CUE_SYSTEM.md) | ✅ FULLY POPULATED |
 | Styles (10 skeletons + index) | ✅ POPULATED (v1.0 drafts; refine via use) |
 | Core scaffolds (8 + INDEX) | ✅ FULLY POPULATED |
-| Subskills (4 passive + 2 active, six-block specs) | ✅ FULLY POPULATED |
+| Subskills (4 passive + 2 active) | ✅ FULLY POPULATED |
 | Patch machinery (protocol, ledger, form) | ✅ FULLY POPULATED |
 | Brain STRUCTURE (5 regions + movement rules) | ✅ COMPLETE |
-| Brain/external_sources catalog (region + rules) | ✅ OPERATIONAL — 9 collections registered, all ACCESSIBLE (2026-09-12; Books re-verified ×3); Restraint Doctrine active (3/6 budget) |
-| Brain CONTENT (ingestions, promotions, dossiers) | 🕳️ EMPTY — awaits first live sessions |
-| Skill jurisdictions 01–09 (READMEs + registers) | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
+| Brain/external_sources catalog | ✅ OPERATIONAL — 12 collections |
+| **Brain CONTENT** | ✅ **POPULATED** — 2 ingestions, 45 K-IDs, 1 drill set |
+| **Schedule record** | ✅ **PUBLISHED** — `Brain/courses/SCHEDULE.md` (A1) |
+| **Capability registry** | ✅ **POPULATED** — `docs/CAPABILITIES.md` (7 tools) |
+| Skill jurisdictions 01–09 | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |
 | The Core (09-nota/ cards) | 🕳️ EMPTY — first @Radiation session seeds it |
 
 ## KNOWN GAPS / NEXT EXPECTED WORK
-- First live session: seed the Brain, validate the pipeline end-to-end.
-- Style skeletons refine through use (🟠 Patches).
+- **Study output is the bottleneck, not infrastructure.** 1 mastery row exists and it is
+  a fixture, not a Commander attempt. check 20.5 asks for a real `attempt:` marker.
+- Knowledge assertions: 5 of 9 PENDING on raw primaries (PD 1096 IRR, RA 9514 IRR).
+- No ICS ingest yet — `plan_term.py --ics` is local-only and drops `RRULE`.
+- `week1_start` unrecorded (see THE SITUATION).
 
 ## HANDOVER NOTE
-No session in progress. Next AI: boot per docs/.readme, read the last 3
-task_ledger entries, await the Commander.
+Boot per `docs/.readme`, read the last 3 `task_ledger` entries, then **read THE
+SITUATION above** before planning anything. Await the Commander.

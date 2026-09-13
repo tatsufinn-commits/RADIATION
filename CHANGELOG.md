@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.6.5 — 2026-09-13 — Situation Layer + Capability Registry (🟢)
+- `docs/SYSTEM_STATE.md` REWRITTEN — Tier 0 now opens with **THE SITUATION**: term, inline weekly schedule (36.0 h/wk, Wed+Sun free), what the Commander KNOWS (45 K-IDs), what can be REACHED (12 collections), what can be RUN (7 tools), and the missing `week1_start` anchor. MEASURED BEFORE WRITING: none of those four assets had a single boot-path reference. The nine-patch "Previously:" recital was deleted as lossless (duplicated byte-for-byte in this file, verified for all five versions) and funds the inline schedule. The stale CURRENT STATE section — which still read "Brain CONTENT EMPTY — awaits first live sessions" against 45 K-IDs and two completed ingestions — is corrected.
+- `docs/CAPABILITIES.md` ADDED — the executable half of the system: all 7 scripts with exact invocations, inputs, exit-code meaning and gotchas. Companion to `docs/SKILLS.md` (how the AI thinks) — this is what it can RUN. All 7 invocations were executed and confirmed before writing, not read from docstrings.
+- `scripts/validate.py` check 21 ADDED — capability drift guard: every script in `scripts/` must be named in CAPABILITIES.md, and any stated check count must be the TRUE count. Runs last so its count includes itself. Negative-tested both ways; the false-count test reproduces the historical bug on demand ("claims 14 checks, actually 26").
+- `scripts/README.md` corrected — 26 checks (was 14), all 7 tools surfaced. CI label de-counted so it cannot drift again.
+- Boot effect MEASURED: Tier0+1 36.2 KB of 40 (was 34.6 KB); Tier0-2 58.8 KB of 80.
+
 ## v1.6.4 — 2026-09-13 — Schedule Record + Location Amendment A1 (🟢)
 - `Brain/courses/SCHEDULE.md` ADDED — the authoritative weekly timetable (6 courses, 14 meetings, 36.0 h/week) at full fidelity incl. rooms and sections, by explicit Commander decision (amendment A1 to P-10 §3.3). Rationale on record: the public repo IS the delivery mechanism for a copy-pasteable assistant that knows the schedule.
 - `Brain/courses/INDEX.md` rule 3 amended — location identifiers permitted in the schedule record ONLY; instructor names, contacts and student identifiers remain absolutely banned there and everywhere. Term load CORRECTED 31.5 → 36.0 contact-h/week (the old figure was wrong on the total, the 07:30-start count and the evening-session days); error recorded, not silently edited.
