@@ -16,4 +16,5 @@
 | 2026-09-13 | S005 (the Architect) | — (no-patch analysis session) | repo/skill/Brain audit + neurons disposition v1 | [RETROACTIVE per II.9 violation clause — reason: Commander's no-patch order] · findings: 09-nota dormant, boot 95.5%, loop root-caused (tracked vehicles) · pack: analysis/ on the build side |
 | 2026-09-13 | S005 (the Architect) | — (no-patch research session) | selfdirectives-scaffold research (10 sources, ordered) | [RETROACTIVE per II.9 violation clause — reason: research-only turn] · headline: curated +16.2pp vs self-generated −1.3pp (SkillsBench) → the curation gate |
 | 2026-09-13 | S005 (the Architect) | 3700 | The Curation Gate | scaffold v1.1 (default-deny, curation gate, triggers, rollback, quota, compression ladder) · SD-GOV-012 · untrack seal attempted again (dies when the Commander commits) |
+| 2026-09-13 | S005 (the Architect) | 3800 | First Light — the Core's first card | CARD_001 (BP 344) admitted via the full gauntlet: 3 independent channels verified verbatim; the register caught a would-be re-opening of a resolved conflict BEFORE it reached the card — II.1's finest hour; 02-analyze exercised for the first time (B2) |
 

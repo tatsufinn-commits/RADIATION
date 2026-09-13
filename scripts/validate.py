@@ -651,9 +651,14 @@ def c24():
     if not os.path.exists(os.path.join(ROOT, "docs/shrine/LOG.md")):
         rec(24, "WARN", False, "shrine LOG.md missing — sessions owe a heartbeat line (CHARTER §6: file at delivery, not at death)"); return
     rows = [l for l in read("docs/shrine/LOG.md").splitlines() if l.strip().startswith("|")]
-    dates = re.findall(r"\d{4}-\d{2}-\d{2}", " ".join(rows))
+    import datetime as _dt
+    _today = _dt.date.today().isoformat()
+    # v2: activity dates cannot be in the future — ledger rows carry decay/plan dates too
+    # (e.g. a card's decay lands in the ledger's evidence column and read as "activity
+    # from next year", false-positiving the heartbeat lag). Filter to <= today.
+    dates = [d for d in re.findall(r"\d{4}-\d{2}-\d{2}", " ".join(rows)) if d <= _today]
     last_log = max(dates) if dates else None
-    ldates = re.findall(r"\d{4}-\d{2}-\d{2}", read("Brain/frontal_lobe/task_ledger.md"))
+    ldates = [d for d in re.findall(r"\d{4}-\d{2}-\d{2}", read("Brain/frontal_lobe/task_ledger.md")) if d <= _today]
     last_led = max(ldates) if ldates else None
     if last_log and last_led and last_led > last_log:
         msgs.append(f"heartbeat lag: last LOG {last_log} < last ledger row {last_led} — a session worked and filed no heartbeat")
@@ -715,8 +720,11 @@ def c25reg():
 def c26shrine():
     import subprocess
     lag = []
+    import datetime as _dt2
+    _today2 = _dt2.date.today().isoformat()
     def dmax(txt):
-        ds = re.findall(r"\d{4}-\d{2}-\d{2}", txt)
+        # activity dates cannot be in the future (decay/plan dates filter — see c24 v2)
+        ds = [d for d in re.findall(r"\d{4}-\d{2}-\d{2}", txt) if d <= _today2]
         return max(ds) if ds else None
     d_log = dmax(read("docs/shrine/LOG.md"))
     d_led = dmax(read("Brain/frontal_lobe/task_ledger.md"))

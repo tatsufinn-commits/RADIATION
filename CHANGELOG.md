@@ -4,6 +4,12 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.3.1 — 2026-09-13 — First Light: CARD_001 (🟢 CONTENT — the first Core card)
+- **`09-nota/CARD_001_bp344-accessibility.md`** — the first card ever admitted to the Core: BP 344's permit gate, conveyance duties, IRR delegation principle, penalties, dates — 3 independent channels verified verbatim (SRC-013 LawPhil · SRC-014 Legaldex carrying the Official Gazette imprint Vol. 80 No. 8 p.1103 · SRC-015 UN ESCAP/ILO reproduction), Shield-Stamped, decay 2027-09-13, full lineage block.
+- **The exam trap, defused and locked:** "1:12 vs 1:20" is a generation trap; the amended IRR of record = 1:20 (KR-LAW-005). The register's append-only memory outran the session's first instinct to re-open the resolved row — corroborated instead (SRC-015 is an original-generation copy).
+- **`02-analyze` exercised for the first time** (dormancy cured): claims × sources × ALE-yield matrix. `05-annotate` + `06-triangulate` both did real work. SD-3600-02 CLOSED; SD-3700-01 partial (1/5 relay-proof tasks).
+- Version bump: PATCH → v2.3.1.
+
 ## v2.3.0 — 2026-09-13 — The Curation Gate (🟠, Commander-ordered build)
 - **`proc_self-directive.md` → v1.1** — the Commander-ordered research (10 sources) applied to the self-directive scaffold: **default-deny** (an unclassifiable action = 🔴) + the classifier triad (irreversible? outside scope? destructive?) · **THE CURATION GATE** (no self-authored procedure self-promotes; promotion = Commander ratification OR validator verification + second-session use — SkillsBench 2026: curated +16.2pp vs self-generated −1.3pp) · **calibration honesty on T2** (self-preference/judge-overconfidence are measured; independent re-derivation = different path, judgment closes at T3) · **reflection triggers** (2 REPLANs / 50% budget / validator FAIL / scope growth force a reconsideration note) · **ROLLED-BACK closure** (revert + BUILD CUE + replay fixture before re-proposal) · **draw quota** (idle work inherits the session's tier ceiling; ≤2 self-directed tasks/session).
 - **`cue/standing-directives.json` +SD-GOV-012** "No self-authored procedure self-promotes" (registry: 12; enforcement → check 3.5 + the gate section).

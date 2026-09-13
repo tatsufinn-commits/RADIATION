@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v2.3.0
+**Last updated:** 2026-09-13 · **Version:** v2.3.1
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -50,7 +50,7 @@ what can be executed.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v2.3.0** — self-directed work is now CURATED work: proc_self-directive v1.1 (default-deny + classifier triad, the curation gate, reflection triggers, rollback closure, draw quota) + SD-GOV-012 + the compression ladder (episode→cue→directive promotion + verified-slowest decay). Previously: v2.2.0 — the Autopilot pipeline is INSPECTABLE: the neuron relay (`scaffolding/neurons/`, research-applied closed-loop design) records every 🟡 build at stage granularity; `proc_self-directive.md` operationalizes @selfdirectives; WAYFINDING routes the lost; TOOLBOX grades the rescue kit; the vehicle-resurrection loop is dead (untrack). Previously: v2.1.0 — enforcement sweep complete: apply state is AUDITABLE (verify_apply.py + CI non-blocking apply-report), the vehicle rule is generic, the shrine mandate (AI_RULES II.9) is law with teeth (check 26), and a 3200 payload omission (the A54 scrubber fix) was caught by regenerating and HEALED. Previously: v2.0.0 — applied governance: the Commander's research memo is IN the
+**RADIATION v2.3.1** — the Core has radiated: CARD_001 (BP 344) admitted via 3 independent channels; 02-analyze exercised; the 1:12/1:20 generation trap locked to KR-LAW-005. Previously: v2.3.0 — self-directed work is now CURATED work: proc_self-directive v1.1 (default-deny + classifier triad, the curation gate, reflection triggers, rollback closure, draw quota) + SD-GOV-012 + the compression ladder (episode→cue→directive promotion + verified-slowest decay). Previously: v2.2.0 — the Autopilot pipeline is INSPECTABLE: the neuron relay (`scaffolding/neurons/`, research-applied closed-loop design) records every 🟡 build at stage granularity; `proc_self-directive.md` operationalizes @selfdirectives; WAYFINDING routes the lost; TOOLBOX grades the rescue kit; the vehicle-resurrection loop is dead (untrack). Previously: v2.1.0 — enforcement sweep complete: apply state is AUDITABLE (verify_apply.py + CI non-blocking apply-report), the vehicle rule is generic, the shrine mandate (AI_RULES II.9) is law with teeth (check 26), and a 3200 payload omission (the A54 scrubber fix) was caught by regenerating and HEALED. Previously: v2.0.0 — applied governance: the Commander's research memo is IN the
 spec (typed directive records, enforcement map, tiered verification, authority
 hierarchy, trust-separated memory, goal discipline, stop conditions), the registry
 (`cue/standing-directives.json`) is machine-guarded by check 25, and `status.py`

@@ -8,3 +8,4 @@ Format: `| topic | card ID | date admitted | decay | lineage (dossier + workshee
 | Topic | Card | Admitted | Decay | Lineage |
 |---|---|---|---|---|
 | — | *(the Core is empty — system founding. The first @Radiation session will seed it.)* | — | — | — |
+| BP 344 Accessibility Law (permit gate, delegation principle, penalties, the 1:12/1:20 trap) | CARD_001 | 2026-09-13 | 2027-09-13 | ANNOT_SRC-013 + TRI_bp344-accessibility_2026-09-13 + matrix; KR-LAW-005 |
