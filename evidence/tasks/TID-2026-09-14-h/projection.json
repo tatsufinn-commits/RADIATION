@@ -1,0 +1,7 @@
+{
+ "task_id": "TID-2026-09-14-h",
+ "state": "COMPLETE",
+ "plan_id": "PLAN-4400",
+ "commands": 6,
+ "note": "Markdown neurons in scaffolding/neurons/ are the human-readable projection of this bundle; the bundle is authoritative (4400)."
+}

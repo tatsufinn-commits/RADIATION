@@ -1,0 +1,49 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Command",
+ "type": "object",
+ "required": [
+  "schema_version",
+  "command_id",
+  "task_id",
+  "plan_id",
+  "step_id",
+  "operation",
+  "issued_at"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "1.0"
+  },
+  "command_id": {
+   "type": "string"
+  },
+  "task_id": {
+   "type": "string"
+  },
+  "plan_id": {
+   "type": "string"
+  },
+  "step_id": {
+   "type": "string"
+  },
+  "operation": {
+   "enum": [
+    "read_file",
+    "run_validator",
+    "run_test",
+    "apply_patch",
+    "build_artifact",
+    "render_docs",
+    "stage_files"
+   ]
+  },
+  "issued_at": {
+   "type": "string"
+  },
+  "base_revision": {
+   "type": "string",
+   "minLength": 7
+  }
+ }
+}

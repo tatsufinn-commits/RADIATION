@@ -68,11 +68,20 @@ def main():
     findings_fail, findings_warn = [], []
     v_readme = parse_readme_version(read("README.md"))
     v_change = parse_changelog_top(read("CHANGELOG.md"))
-    r = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "validate.py")],
-                       capture_output=True, text=True)
-    out = (r.stdout or "") + (r.stderr or "")
-    tot = parse_totals(out)
-    fails = [l.strip() for l in out.splitlines() if l.startswith("\u274c")]
+    # v2 (4400): structured consumption — import the validator, never scrape stdout
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "scripts"))
+        import validate as _v
+        _results = _v.run_all()
+        _f, _w = _v._summary(_results)
+        tot = (str(len(_results)), str(len(_results)-len(_f)-len(_w)), str(len(_w)), str(len(_f)))
+        fails = [f"[check {r['check']}] {r['msg']}" for r in _f]
+    except Exception:
+        r = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "validate.py")],
+                           capture_output=True, text=True)
+        out = (r.stdout or "") + (r.stderr or "")
+        tot = parse_totals(out)
+        fails = [l.strip() for l in out.splitlines() if l.startswith("\u274c")]
     L = []
     L.append("=" * 66)
     L.append("  APPLY REPORT (verify_apply.py — read-only audit)")
@@ -96,8 +105,13 @@ def main():
     if runners:
         L.append(f"  hygiene    : transport still in tree: {', '.join(runners)} — delete post-apply, commit")
         findings_warn.append("apply transport committed — delete and push")
-    d_log = max(dates(read("docs/shrine/LOG.md")), default=None)
-    d_led = max(dates(read("Brain/frontal_lobe/task_ledger.md")), default=None)
+    # v2 (4400): first-column dates only — decay/evidence dates are not activity (F-07)
+    def _first_col(p):
+        ds = [m.group(1) for ln in read(p).splitlines()
+              for m in [re.match(r"\|\s*(\d{4}-\d{2}-\d{2})", ln.strip())] if m]
+        return max(ds, default=None)
+    d_log = _first_col("docs/shrine/LOG.md")
+    d_led = _first_col("Brain/frontal_lobe/task_ledger.md")
     hd = head_date()
     shrine = f"last heartbeat {d_log or 'NONE'}"
     if d_log and ((d_led and d_led > d_log) or (hd and hd > d_log)):

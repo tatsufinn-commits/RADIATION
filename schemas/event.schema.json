@@ -1,0 +1,51 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Event",
+ "type": "object",
+ "required": [
+  "seq",
+  "event_id",
+  "task_id",
+  "type",
+  "at",
+  "actor"
+ ],
+ "properties": {
+  "seq": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "event_id": {
+   "type": "string"
+  },
+  "task_id": {
+   "type": "string"
+  },
+  "type": {
+   "enum": [
+    "input.received",
+    "task.accepted",
+    "context.built",
+    "plan.proposed",
+    "plan.approved",
+    "command.proposed",
+    "command.authorized",
+    "execution.started",
+    "outcome.recorded",
+    "verification.passed",
+    "task.completed",
+    "task.blocked",
+    "replan"
+   ]
+  },
+  "at": {
+   "type": "string"
+  },
+  "actor": {
+   "type": "string"
+  },
+  "ref": {
+   "type": "string"
+  }
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Outcome",
+ "type": "object",
+ "required": [
+  "schema_version",
+  "command_id",
+  "task_id",
+  "result",
+  "evidence"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "1.0"
+  },
+  "command_id": {
+   "type": "string"
+  },
+  "task_id": {
+   "type": "string"
+  },
+  "result": {
+   "enum": [
+    "succeeded",
+    "failed",
+    "stale_precondition",
+    "policy_denied",
+    "timed_out",
+    "security_blocked"
+   ]
+  },
+  "revision_after": {
+   "type": "string"
+  },
+  "evidence": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "path",
+     "sha256"
+    ],
+    "properties": {
+     "path": {
+      "type": "string"
+     },
+     "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+     }
+    }
+   }
+  }
+ }
+}

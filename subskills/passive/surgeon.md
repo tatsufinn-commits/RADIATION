@@ -1,4 +1,6 @@
 # ⚡ SURGEON — Chief Passive (`subskills/passive/surgeon.md`)
+
+> **4400 LABELING LAW:** this passive is a protocol check executed in-context by the booted AI — advisory prose unless a machine control backs it (see docs/CAPABILITIES.md GENERATED inventory). It cannot halt a process by itself; it can make YOU stop, or the validator/CI will.
 **Class:** PASSIVE (unconditional, all modes) + Skill #8 dual citizenship
 **Constitutional basis:** IV.2 (Surgeon's Writ), I.1, III.5, III.6, II.7
 

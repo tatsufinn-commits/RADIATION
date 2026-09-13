@@ -1,4 +1,6 @@
 # 🧭 COMPASS — Anti-Drift Organ (`subskills/passive/compass.md`)
+
+> **4400 LABELING LAW:** this passive is a protocol check executed in-context by the booted AI — advisory prose unless a machine control backs it (see docs/CAPABILITIES.md GENERATED inventory). It cannot halt a process by itself; it can make YOU stop, or the validator/CI will.
 **Class:** PASSIVE (all modes)
 **Constitutional basis:** III.6 (Anchor birth), III.9 (drift-triggered recovery)
 

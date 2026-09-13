@@ -1,0 +1,67 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "TaskEnvelope",
+ "type": "object",
+ "required": [
+  "schema_version",
+  "task_id",
+  "source",
+  "principal",
+  "received_at",
+  "mode_hint",
+  "base_revision",
+  "idempotency_key"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "1.0"
+  },
+  "task_id": {
+   "type": "string",
+   "pattern": "^TID-\\d{4}-\\d{2}-\\d{2}-[a-z]$"
+  },
+  "source": {
+   "type": "object",
+   "required": [
+    "kind",
+    "trust"
+   ],
+   "properties": {
+    "kind": {
+     "enum": [
+      "commander",
+      "cue",
+      "standing_order"
+     ]
+    },
+    "artifact_ref": {
+     "type": "string"
+    },
+    "trust": {
+     "enum": [
+      "root",
+      "delegated"
+     ]
+    }
+   }
+  },
+  "principal": {
+   "type": "string"
+  },
+  "received_at": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "mode_hint": {
+   "type": "string"
+  },
+  "base_revision": {
+   "type": "string",
+   "minLength": 7
+  },
+  "idempotency_key": {
+   "type": "string",
+   "minLength": 8
+  }
+ }
+}

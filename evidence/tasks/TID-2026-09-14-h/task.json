@@ -1,0 +1,14 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-h",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "uploads/RADIATION_issues_2_to_6_remediation_plan.md",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T12:40:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "c9592bba7699928260c38de08b0929676a40114e",
+ "idempotency_key": "4400-reconciliation-superset"
+}

@@ -1,0 +1,39 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-4400",
+ "task_id": "TID-2026-09-14-h",
+ "base_revision": "c9592bba7699928260c38de08b0929676a40114e",
+ "policy": "P-09 frozen; II.10 active; supersedes 4200/4300 payloads",
+ "steps": [
+  {
+   "step_id": "S1",
+   "operation_class": "core-gate",
+   "success_predicate": "nota --check exit==0 on canonical cards"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "relay-semantic",
+   "success_predicate": "relay --self-test 3/3 AND active 0 findings"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "structured-reports",
+   "success_predicate": "status --strict exit==0 on clean tree"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "generated-docs",
+   "success_predicate": "render_docs --check exit==0"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "apply-audit",
+   "success_predicate": "verify_apply --self-test 6/6"
+  },
+  {
+   "step_id": "S6",
+   "operation_class": "regression",
+   "success_predicate": "11 locked / 0 failed"
+  }
+ ]
+}

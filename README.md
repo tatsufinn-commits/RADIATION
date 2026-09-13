@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v2.6.0 · Ratified by THE COMMANDER · 2026-09-14
+**Version:** v2.7.0 · Ratified by THE COMMANDER · 2026-09-14
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 
@@ -23,8 +23,9 @@ Repository: https://github.com/tatsufinn-commits/RADIATION.git
 @[MODE] | STYLE: [style or AUTO] | TOPIC: [your task]
 ```
 
-No mode declared? The AI runs the **Autonomous Scan** and infers your intent —
-asking, never guessing, when uncertain.
+No mode declared? The AI runs the **Autonomous Scan**, then — per the BOOT ASK law
+(AI_RULES III.6 annex) — **asks you which mode and topic** before working. Never infers
+a mode at boot. Task clarifications follow the Scan's confidence gate (III.3).
 
 ## 🎛️ The Six Modes
 | Mode | Purpose |

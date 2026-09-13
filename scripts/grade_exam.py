@@ -5,6 +5,11 @@ Scores against the STORED key only (never memory). Prints report + proposed
 mastery_ledger row; never writes registers itself."""
 import json, sys, datetime
 def arg(f): return sys.argv[sys.argv.index(f)+1]
+# v2 (4400, auditor F-08): the attempt date is an input, not the build date.
+if "--attempted-at" in sys.argv:
+    ATTEMPTED = datetime.date.fromisoformat(sys.argv[sys.argv.index("--attempted-at")+1])
+else:
+    ATTEMPTED = datetime.date.today()
 S = json.load(open(arg("--set"), encoding="utf-8"))
 A = json.load(open(arg("--answers"), encoding="utf-8"))
 answers, meta = A["answers"], A.get("meta", "")
@@ -27,9 +32,9 @@ for it in S["items"]:
         print(f"     rationale: {it['rationale'][:120]}")
 n = len(S["items"]); pct = 100*score//n
 interval = 7 if pct >= 90 else (3 if pct >= 70 else 1)
-nxt = (datetime.date(2026,9,12) + datetime.timedelta(days=interval)).isoformat()
+nxt = (ATTEMPTED + datetime.timedelta(days=interval)).isoformat()
 catstr = ", ".join(f"{k}×{v}" for k, v in sorted(cats.items())) or "—"
 print(f"\nSCORE: {score}/{n} ({pct}%) · error cats: {catstr} · next review: {nxt} (+{interval}d)")
-print(f"proposed mastery row: | {S['target']} | 2026-09-12 | {score}/{n} | {catstr} | +1 attempt | {nxt} | (compare prior) |")
+print(f"proposed mastery row: | {S['target']} | {ATTEMPTED.isoformat()} | {score}/{n} | {catstr} | +1 attempt | {nxt} | (compare prior) |")
 for i, g, k, c in misses:
     print(f"mistake-bank candidate: {i} answered {g} (key {k}, cat {c}) — file if genuine, tagged with attempt provenance")

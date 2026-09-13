@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "note": "Pre-runtime relay traces: filename-triple rule only; lifecycle content historical_unverified (never reconstructed). Canonical bundles begin at TID-2026-09-14-h.",
+ "legacy_tids": [
+  "2026-09-13-a",
+  "2026-09-13-b",
+  "2026-09-13-c",
+  "2026-09-13-d",
+  "2026-09-13-e",
+  "2026-09-13-f",
+  "2026-09-14-g"
+ ]
+}

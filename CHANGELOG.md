@@ -4,6 +4,15 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.7.0 — 2026-09-14 — Reconciliation (🟠 · due-diligence remediation, Milestones A–C)
+- **Milestone A — the seal:** APPLY runners cross-remove (both platforms), check 3 flags committed runners, APPLY prints the exact seal commands. Main goes green on apply + commit + push.
+- **F-03 dead:** nota.py aligned to the CANONICAL contract (09-nota/CARD_###, core-card/v1 front matter, exact index parity) — CI now validates the real admitted cards (CARD_001/CARD_002 migrated, content untouched). New check 29.
+- **F-04 dead:** check 27 rewritten onto radiation_core.relay — task bundles (envelope/plan/commands/outcomes/events) with digest-verified evidence, state-machine transitions, and Markdown projection fidelity; 3/3 negative vectors; pre-runtime TIDs marked legacy_trace (never fabricated).
+- **F-06 dead:** scripts/render_docs.py generates machine facts from reality (checks, locks, K-IDs, cards, subskills incl. fetch/overule, script inventory, CI coverage); render --check fails CI on drift. The false "26 checks"/"4 passives + 2 actives"/"45 K-IDs" class cannot return silently.
+- **F-07/F-08 dead:** validator exposes a structured JSON API (--json, importable run_all); status/verify_apply consume it; activity dates read first-table-column only (no more 2027-decay false alerts); grade_exam takes --attempted-at.
+- **F-05 honesty:** passives labeled protocol checks (in-context, advisory unless machine-backed) in .readme, the 4 passive specs, and the generated roster; mode-inference contradiction resolved per the ratified BOOT ASK law (README aligned).
+- **Milestone D (policy gateway / executor runtime) STAGED** — requires the Commander's explicit Product-2 scope ratification (plan §5.1). Version bump: MINOR → v2.7.0.
+
 ## v2.6.0 — 2026-09-14 — Compression (🟠 · Commander-ordered tier-1 update)
 - **II.10 LEDGER COMPRESSION enacted** (direct order; staged P-09 stays frozen & listed): boot ≥95 % of cap → next patch reclaims · history archives whole, never deletes · boot docs carry state, not narrative · relay fades to one active TID cycle.
 - **SYSTEM_STATE truth-up:** the per-version recital moved to CHANGELOG (this file) — 10.5 KB → 5.0 KB; stale claims corrected (33 checks · 11/0 · Core = 2 cards · 13 directives).

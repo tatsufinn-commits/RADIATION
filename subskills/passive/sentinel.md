@@ -1,4 +1,6 @@
 # 🔍 SENTINEL — Integrity Watch (`subskills/passive/sentinel.md`)
+
+> **4400 LABELING LAW:** this passive is a protocol check executed in-context by the booted AI — advisory prose unless a machine control backs it (see docs/CAPABILITIES.md GENERATED inventory). It cannot halt a process by itself; it can make YOU stop, or the validator/CI will.
 **Class:** PASSIVE (all modes)
 **Constitutional basis:** I.1, I.2, I.4, I.5, II.2 · lineage: Marciale-OS @sentinel, adapted
 

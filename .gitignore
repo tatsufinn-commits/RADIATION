@@ -71,3 +71,7 @@ PATCH_NOTES.md
 Brain/courses/SCHEDULE.csv
 Brain/courses/0_CALLENDER/readme.txt
 
+
+# ── 3e. LOCAL RUNTIME (patch 4400) — task bundles live committed under evidence/;
+# runtime/ is the local working area the remediation plan reserves (gitignored)
+runtime/

@@ -1,6 +1,20 @@
+---
+schema_version: core-card/v1
+id: CARD_001
+status: ADMITTED
+admitted_at: 2026-09-13
+decay_at: 2027-09-13
+shield:
+  worksheet_ids: [TRI_bp344-accessibility_2026-09-13]
+lineage:
+  dossier_refs: []
+  annotation_refs: [ANNOT_SRC-013_bp344-statute]
+  source_ids: [SRC-013, SRC-014, SRC-015]
+---
 # ☢️ CARD_001 — BP 344, the Accessibility Law (`09-nota/CARD_001_bp344-accessibility.md`)
 **First card ever admitted to the Core.** Admitted 2026-09-13 · Decay: **2027-09-13** (stable-domain, 1yr — sweep amendments at refresh) · **Status: Shield-Stamped** (TRI_bp344-accessibility_2026-09-13).
 
+## ANSWER
 **Answer first:** No permit for construction, repair, or renovation of public-use buildings,
 educational institutions, airports, sports and recreation complexes, shopping centers, public
 parking, workplaces, or public utilities shall be granted unless the owner installs
@@ -19,6 +33,7 @@ on approval **[D, §6]**; published in the Official Gazette Vol. 80 No. 8 p.1103
 amended IRR of record sets ramps at **1:20** (KR-LAW-005, locked); 1:12 circulates in
 pre-amendment copies (and survives as the swimming-pool transfer slope) **[D, register-resolved]**.
 
+## LINEAGE
 **Lineage:** ingest 2026-09-12 (S003, LawPhil) → ANNOT_SRC-013_bp344-statute →
 TRI_bp344-accessibility_2026-09-13 (3 independent channels: SRC-013 LawPhil · SRC-014 Legaldex+OG
 imprint · SRC-015 UN ESCAP/ILO) → matrix 2026-09-13_bp344-accessibility. Krates: KR-LAW-005.

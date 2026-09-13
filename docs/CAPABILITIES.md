@@ -35,7 +35,7 @@ while the validator ran 25 — a count nobody could have got right by reading.
 ```
 python3 scripts/validate.py
 ```
-**Answers:** is the repository structurally sound? 26 form-and-resolvability checks.
+**Answers:** is the repository structurally sound? The GENERATED inventory below carries the live check/script counts — this prose no longer states numbers (4400).
 Never truth — form. **Writes** `validation_report.json` (git-ignored).
 **Read the exit code, not the vibe:** exit 1 = at least one ❌ FAIL → the session is
 **not closable**; fix it or report the failure honestly. ⚠️ WARN entries are
@@ -216,3 +216,25 @@ Stated plainly so a session does not assume capability it lacks:
 - **CI runs 2 of the 7 scripts** (`validate.py` + `knowledge_regression.py`). The other
   five are session-invoked by hand. That is deliberate: they need arguments a runner
   cannot guess.
+
+<!-- GENERATED:capability-inventory:START -->
+
+### INVENTORY (GENERATED — reality, not memory; hand edits here are a CI failure)
+
+| Script | Purpose | Writes | Network | In CI |
+|---|---|---|---|---|
+| `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
+| `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
+| `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |
+| `grade_exam.py` | P-05 drill grader (stdlib port of TAMAKEE grade-exam.js). | no | no | no |
+| `ics_normalize.py` | the ONE iCalendar parser for RADIATION (RFC 5545 subset). | yes | yes | yes |
+| `ingest_collection.py` | RADIATION collection ingestion harness (P-10 Phase 2). | yes | yes | no |
+| `knowledge_regression.py` | RADIATION knowledge-regression suite — P-01 §3. | no | no | yes |
+| `module_scaffold.py` | born-valid study modules (patch 3000). | yes | no | yes |
+| `nota.py` | the Core card tool (patch 3000; canonical contract per 4400). | yes | no | yes |
+| `plan_term.py` | RADIATION term planner (P-10 Phase 1-3). | no | no | no |
+| `render_docs.py` | generated-facts pipeline (patch 4400; auditor plan item 5). | yes | yes | yes |
+| `status.py` | the Swarm Dashboard (patch 3300, SD-3300-02). | no | no | no |
+| `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
+| `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
+<!-- GENERATED:capability-inventory:END -->

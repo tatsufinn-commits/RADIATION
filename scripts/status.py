@@ -13,17 +13,34 @@ def read(p):
     try: return open(R(p), encoding="utf-8").read()
     except OSError: return ""
 def last_date(text):
-    ds = re.findall(r"\d{4}-\d{2}-\d{2}", text)
+    """v2 (4400): the FIRST COLUMN of table rows only — decay/evidence dates in
+    later cells are not activity (auditor F-07: a 2027 decay read as 2027 work)."""
+    ds = []
+    for ln in text.splitlines():
+        m = re.match(r"\|\s*(\d{4}-\d{2}-\d{2})", ln.strip())
+        if m: ds.append(m.group(1))
     return max(ds) if ds else None
 
 
 def validator_block():
-    r = subprocess.run([sys.executable, R("scripts/validate.py")],
-                       capture_output=True, text=True)
-    out = (r.stdout or "") + (r.stderr or "")
-    m = re.search(r"(\d+) checks run · (\d+) pass · (\d+) warn · (\d+) fail", out)
-    fails = [l.strip() for l in out.splitlines() if l.startswith("❌")]
-    return (m.groups() if m else ("?", "?", "?", "?")), fails, ("census skipped" in out or "SKIPPED" in out)
+    """v2 (4400): consume the validator's structured API (import run_all) — no
+    presentation scraping. Falls back to the human line only if the import fails."""
+    try:
+        sys.path.insert(0, R("scripts"))
+        import validate as _v
+        results = _v.run_all()
+        fails, warns = _v._summary(results)
+        online_skipped = any(("census skipped" in r["msg"] or "SKIPPED" in r["msg"]) for r in results)
+        return (str(len(results)), str(len(results)-len(fails)-len(warns)),
+                str(len(warns)), str(len(fails))), \
+               [f"[check {r['check']}] {r['msg']}" for r in fails], online_skipped
+    except Exception:
+        r = subprocess.run([sys.executable, R("scripts/validate.py")],
+                           capture_output=True, text=True)
+        out = (r.stdout or "") + (r.stderr or "")
+        m = re.search(r"(\d+) checks run · (\d+) pass · (\d+) warn · (\d+) fail", out)
+        fails = [l.strip() for l in out.splitlines() if l.startswith("❌")]
+        return (m.groups() if m else ("?", "?", "?", "?")), fails, False
 
 
 def calendar_block(today):
@@ -112,4 +129,17 @@ def main():
 
 
 if __name__ == "__main__":
+    if "--strict" in sys.argv:
+        res = None
+        try:
+            sys.path.insert(0, R("scripts"))
+            import validate as _v
+            res = _v.run_all()
+        except Exception:
+            res = None
+        if res is None: sys.exit(2)
+        f, _w = _v._summary(res)
+        print(f"strict: {len(res)} checks, {len(f)} FAIL-class finding(s)")
+        sys.exit(1 if f else 0)
+
     sys.exit(main())

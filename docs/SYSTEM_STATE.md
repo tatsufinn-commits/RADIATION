@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v2.6.0
+**Last updated:** 2026-09-14 · **Version:** v2.7.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -46,10 +46,13 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v2.6.0** — II.10 LEDGER COMPRESSION enacted by direct Commander order
-(patch 4300): boot ≥95 % of cap → the next patch reclaims; history archives whole,
-never deletes; boot docs state current truth and cite their source of record; the
-relay keeps one active TID cycle. Machine: 33 checks · regression 11 locked · 0 failed.
+**RADIATION v2.7.0** — the due-diligence reconciliation (patch 4400): the Core gate
+validates the real cards (check 29), the relay judges content not filenames
+(radiation_core bundles), generated facts cannot drift in silence (render_docs +
+CI), the validator exposes a structured JSON API, and APPLY is a cross-removing
+seal transaction. II.10 Ledger Compression (4300) stands. Machine: 34 checks ·
+regression 11 locked · 0 failed. Prior: 4300 compression law · 4200 the
+Commander's expansion (@Fetch/@Overule/OPEN_SOURCES bank).
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*
@@ -93,3 +96,7 @@ Boot per `docs/.readme`, read the last 3 `task_ledger` entries, then THE
 SITUATION above. If the task touches the system itself, read the newest testament
 in `docs/shrine/members/` first (CHARTER §3). Standing orders:
 `docs/COMMANDER_QUICKREF.md` §5. Await the Commander.
+
+<!-- GENERATED:machine-facts:START -->
+**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 34 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 14 (7 exercised in CI)
+<!-- GENERATED:machine-facts:END -->

@@ -6,7 +6,7 @@ Stdlib only. Offline BY DEFAULT. The ONLY network use is check 13's external-lin
 census, and it runs solely when RADIATION_ONLINE=1 (set it in CI, never in a
 session — sessions stay offline by law).
 """
-import hashlib, json, os, re, sys
+import hashlib, json, os, re, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS = []
 def rec(check, sev, ok, msg):
@@ -184,9 +184,9 @@ def c3():
         for d in dn:
             if d in ("append_blocks","append-blocks"): bad.append(os.path.relpath(os.path.join(dp,d),ROOT)+"/")
         for f in fn:
-            if "_REPLACEMENT" in f or "_STAGED" in f or "_DIFF" in f or f == "PATCH_NOTES.md":
+            if "_REPLACEMENT" in f or "_STAGED" in f or "_DIFF" in f or f in ("PATCH_NOTES.md","APPLY.sh","APPLY.ps1"):
                 bad.append(os.path.relpath(os.path.join(dp,f),ROOT))
-    rec(3, "FAIL", not bad, "no transport artifacts or carriers in tree (II.8.2 + closure rule: *_STAGED/*_DIFF/PATCH_NOTES)" + ("" if not bad else ": " + "; ".join(bad)) + (" · REMEDY: delete the carrier — it is transport, not record (APPLY removes it)" if bad else ""))
+    rec(3, "FAIL", not bad, "no transport artifacts or carriers in tree (II.8.2 + closure rule: *_STAGED/*_DIFF/PATCH_NOTES/APPLY runners)" + ("" if not bad else ": " + "; ".join(bad)) + (" · REMEDY: delete the carrier — it is transport, not record (APPLY removes it)" if bad else ""))
 # ---- check 3b: scaffolding/core/ closed set — every file named in its INDEX ----
 def c3b():
     idx = read("scaffolding/core/INDEX.md")
@@ -734,28 +734,55 @@ def c27relay():
     if not os.path.isdir(nd):
         rec(27, "WARN", True, "neuron relay absent — Autopilot runs without persistent task records (3600 ships it)")
         return
-    stages = (("sensoryneurons", "intake"), ("interneurons", "reasoning"), ("motorneurons", "orders"))
-    bad = []
-    files = {}
-    for stage, suffix in stages:
-        sd = os.path.join(nd, stage)
-        fs = sorted(f for f in os.listdir(sd) if f.endswith(".md")) if os.path.isdir(sd) else []
-        files[stage] = fs
-        if not any(f.startswith("TEMPLATE") for f in fs):
-            bad.append(f"{stage}: TEMPLATE record missing")
-    # chain rule: every TID needs all three stages — no orphans, no gaps (spec v2 §5)
+    if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
+    try:
+        from radiation_core import relay as _relay
+    except Exception as e:
+        rec(27, "FAIL", False, f"relay engine unavailable: {e}")
+        return
+    findings = _relay.validate_active()
+    stages = (("sensoryneurons","intake"),("interneurons","reasoning"),("motorneurons","orders"))
     tids = set()
     for stage, suffix in stages:
-        for f in files[stage]:
-            m = re.match(r"TID-(.+)_" + suffix + r"\.md$", f)
-            if m: tids.add(m.group(1))
-    for tid in sorted(tids):
-        for stage, suffix in stages:
-            expected = f"TID-{tid}_{suffix}.md"
-            if expected not in files[stage]:
-                bad.append(f"{tid}: chain gap — {stage}/{expected} missing")
-    rec(27, "FAIL", not bad, f"neuron relay ({len(tids)} TID chains)" +
-        ("" if not bad else ": " + "; ".join(bad[:6]) + " · REMEDY: relay records are a chain — complete or retire the TID (scaffolding/neurons/README.md)"))
+        sd = os.path.join(nd, stage)
+        for f in (sorted(x for x in os.listdir(sd) if x.endswith(".md")) if os.path.isdir(sd) else []):
+            mm = re.match(r"TID-(.+)_" + suffix + r"\.md$", f)
+            if mm: tids.add(mm.group(1))
+    legacy_active = len(tids & _relay.load_legacy())
+    rec(27, "FAIL", not findings,
+        f"neuron relay semantic ({len(tids)} active TIDs: {legacy_active} legacy_trace, {len(tids)-legacy_active} canonical bundle(s))" +
+        ("" if not findings else ": " + "; ".join(findings[:6]) + " · REMEDY: fix the task bundle (evidence/tasks/<TID>/) or mark a pre-runtime trace legacy in evidence/tasks/legacy_manifest.json"))
+
+
+# ---- check 29: Core card gate — real cards, real envelope, exact parity (4400) ----
+def c29core():
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    try:
+        import nota as _nota
+    except Exception as e:
+        rec(29, "FAIL", False, f"core card gate: nota import failed: {e}")
+        return
+    files = _nota.canonical_cards()
+    problems, seen, parsed = [], {}, {}
+    for path in files:
+        c, probs, _w = _nota.parse_card(path)
+        parsed[path] = c
+        problems.extend(probs)
+        if c and c.get("cid"):
+            seen[c["cid"]] = seen.get(c["cid"], 0) + 1
+    idx = _nota.index_rows()
+    for cid, n in idx.items():
+        if cid not in seen: problems.append(f"CORE_INDEX lists {cid} but no card file carries it")
+        if n > 1: problems.append(f"CORE_INDEX has {n} rows for {cid}")
+    for c in parsed.values():
+        if c and c.get("status") == "ADMITTED" and c.get("cid") not in idx:
+            problems.append(f"{c['cid']} is ADMITTED without a CORE_INDEX row")
+    for cid, n in seen.items():
+        if n > 1: problems.append(f"{cid}: {n} files carry the ID")
+    admitted = sum(1 for c in parsed.values() if c and c.get("status") == "ADMITTED")
+    rec(29, "FAIL", not problems,
+        f"core cards: {len(files)} canonical ({admitted} admitted), envelope core-card/v1, index parity exact" +
+        ("" if not problems else ": " + "; ".join(problems[:6]) + " · REMEDY: run nota.py --check and fix the envelope/index"))
 
 # ---- check 26: shrine freshness (AI_RULES II.9 — THE SHRINE MANDATE) --------
 def c26shrine():
@@ -764,8 +791,13 @@ def c26shrine():
     import datetime as _dt2
     _today2 = (_dt2.date.today() + _dt2.timedelta(days=1)).isoformat()
     def dmax(txt):
-        # activity dates cannot be in the future (decay/plan dates filter — see c24 v2)
-        ds = [d for d in re.findall(r"\d{4}-\d{2}-\d{2}", txt) if d <= _today2]
+        # v2 (4400): activity = the FIRST COLUMN of ledger/shrine TABLE rows only.
+        # In-row dates (decay_at, evidence, plans) are not activity — a 2027 decay
+        # date must never read as "a session worked in 2027" (auditor F-07).
+        ds = []
+        for ln in txt.splitlines():
+            m = re.match(r"\|\s*(\d{4}-\d{2}-\d{2})", ln.strip())
+            if m and m.group(1) <= _today2: ds.append(m.group(1))
         return max(ds) if ds else None
     d_log = dmax(read("docs/shrine/LOG.md"))
     d_led = dmax(read("Brain/frontal_lobe/task_ledger.md"))
@@ -787,13 +819,46 @@ def c26shrine():
         "shrine heartbeat current — II.9 MANDATE: every conversation files one" if ok
         else "shrine lags: " + "; ".join(lag) + " · REMEDY: append today's heartbeat row to docs/shrine/LOG.md (II.9)")
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c21): fn()
-fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
-warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
-for r in RESULTS:
-    icon = "✅ PASS" if r["ok"] else ("❌ FAIL" if r["severity"]=="FAIL" else "⚠️ WARN")
-    print(f"{icon}  [check {r['check']}] {r['msg']}")
-print(f"\n{len(RESULTS)} checks run · {len(RESULTS)-len(fails)-len(warns)} pass · {len(warns)} warn · {len(fails)} fail")
-with open(os.path.join(ROOT,"validation_report.json"),"w") as fh:
-    json.dump(RESULTS, fh, indent=1)
-sys.exit(1 if fails else 0)
+CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21)
+
+def run_all():
+    """Structured entry point (4400): returns the findings list. Import-safe —
+    importing this module never runs checks or writes files."""
+    global RESULTS
+    RESULTS = []
+    for fn in CHECKS: fn()
+    return RESULTS
+
+def _summary(results):
+    fails = [r for r in results if r["severity"] == "FAIL" and not r["ok"]]
+    warns = [r for r in results if r["severity"] == "WARN" and not r["ok"]]
+    return fails, warns
+
+def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
+    as_json = "--json" in argv
+    results = run_all()
+    fails, warns = _summary(results)
+    if as_json:
+        rev = None
+        try:
+            rev = subprocess.run(["git","-C",ROOT,"log","-1","--format=%H"],
+                                 capture_output=True, text=True).stdout.strip() or None
+        except Exception:
+            pass
+        print(json.dumps({"schema_version":"radiation.validation/1","revision":rev,
+                          "results":results,
+                          "summary":{"checks":len(results),"pass":len(results)-len(fails)-len(warns),
+                                     "warn":len(warns),"fail":len(fails)}}))
+    else:
+        for r in results:
+            icon = "✅ PASS" if r["ok"] else ("❌ FAIL" if r["severity"]=="FAIL" else "⚠️ WARN")
+            print(f"{icon}  [check {r['check']}] {r['msg']}")
+        print(f"\n{len(results)} checks run · {len(results)-len(fails)-len(warns)} pass · {len(warns)} warn · {len(fails)} fail")
+    with open(os.path.join(ROOT,"validation_report.json"),"w") as fh:
+        json.dump(results, fh, indent=1)
+    return 1 if fails else 0
+
+if __name__ == "__main__":
+    sys.exit(main())

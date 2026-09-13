@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-h",
+ "result": "succeeded",
+ "revision_after": "c9592bba7699928260c38de08b0929676a40114e",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-h/artifacts/nota_check.txt",
+   "sha256": "88a4a9ab8578a39366b66b110452add93b21b1c23dea5fcf4323cd9c1dcacd82"
+  }
+ ]
+}

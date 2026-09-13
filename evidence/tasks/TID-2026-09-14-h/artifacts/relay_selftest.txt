@@ -1,0 +1,4 @@
+  vector 1 valid bundle clean -> PASS
+  vector 2 tampered evidence caught -> PASS
+  vector 3 unauthorized execution caught -> PASS
+relay self-test: 3/3 vectors

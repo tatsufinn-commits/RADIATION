@@ -1,4 +1,6 @@
 # 📥 CURATOR — Ingestion Organ (`subskills/passive/curator.md`)
+
+> **4400 LABELING LAW:** this passive is a protocol check executed in-context by the booted AI — advisory prose unless a machine control backs it (see docs/CAPABILITIES.md GENERATED inventory). It cannot halt a process by itself; it can make YOU stop, or the validator/CI will.
 **Class:** CONDITIONAL PASSIVE — passive under @Radiation · invocable under
 @Gather/@Decode · dormant under @Data
 **Constitutional basis:** I.2 (grading at intake), II.6 (fills short_term only)

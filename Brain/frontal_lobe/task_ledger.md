@@ -78,3 +78,7 @@ Format: `| date | mode | task (one line) | outcome | deliverable path | patch fi
 | 2026-09-14 | S005 (the Architect) | 4300 (Compression): II.10 enacted (P-09 stays frozen) · SYSTEM_STATE truth-up + recital → CHANGELOG (10.5→5.0 KB) · voice purge across canon · TID a–e → _archive (f active) · check 15 II.10 gauge | done | AI_RULES II.10 · SYSTEM_STATE · neurons/_archive | 4300 |
 
 | 2026-09-14 | S005 (the Architect) | attempt: 4300 executed in patch_build22 (superset of 4200); validator + regression + dual-path acceptance before ship | done | 48-file payload | 4300 |
+| 2026-09-14 | THE COMMANDER | ORDER: "read, analyze and integrate this plan in order to address the issues" (remediation plan, issues 2–6) | integrated in 4400 | uploads/RADIATION_issues_2_to_6_remediation_plan.md | 4400 |
+| 2026-09-14 | S005 (the Architect) | 4400 (Reconciliation): F-02 runner cross-remove + c3 transport net · F-03 nota→canonical CARD contract (+check 29, front matter, index parity) · F-04 c27 semantic bundles + projection fidelity (negative-tested) · F-06 render_docs generated facts + drift CI · F-07/08 structured API + clock fixes · plan §5.1 fork: Milestones A–C built, D staged for Product-2 scope ratification | done | radiation_core/, schemas/, evidence/tasks/TID-2026-09-14-h/, scripts/×6 | 4400 |
+| 2026-09-14 | S005 (the Architect) | attempt: 4400 executed in patch_build22 (superset of 4200+4300); 34-check validator + dual-path acceptance before ship | done | 60+-file payload | 4400 |
+
