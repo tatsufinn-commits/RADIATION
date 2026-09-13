@@ -1,7 +1,23 @@
-# PATCH NOTES — Succession & Signal: the shrine · outputs/ · the calendar's timer
+# PATCH NOTES — Swarm Memory & Signal: the shrine · outputs/ · the calendar's timer
 
-**Patch:** `RADIATION_PATCH_2026-09-13_2900_Succession-Signal.zip`
+**Patch:** `RADIATION_PATCH_2026-09-13_2900_Swarm-Memory.zip`
 **Base:** `cf7f3d2` (main) · **Prepared:** 2026-09-13 · **Type:** DELTA
+**REV 2 (2026-09-13, pre-apply):** the Commander named the founding flaw — AIs
+cannot detect their own mortality — and ordered the cadence: *update the shrine
+every conversation; log your records everytime a .zip is made.* Charter §6 (the
+mortality doctrine), `LOG.md` (heartbeats), check 24, and the standing orders now
+carry it.
+**REV 3 (2026-09-13, pre-apply):** the Commander struck INHERITANCE: *"remove the
+'inheritance' in every file. we cannot have that, this repository should work like a
+hive mind, a swarm… this repository exist for a public, external and fast way to
+turn every AI I can use to my own personal assistant."* The shrine is now a COMMONS
+(charter §3): no successors, no baton passes, no required handoff conversation — any
+fresh AI draws everything and owes nothing. Testaments renamed (lessons & warnings;
+close); `Brain/frontal_lobe/testament.md` de-lineaged (the order said EVERY file).
+Two more mechanisms recycled from Marciale `/docs` on the same order:
+`cue/commander-readiness.md` (the CCC readiness interpreter, de-militarized) and
+the playbook file (superseded by docs/PROMPT_PLAYBOOK.md v1.1) (the copy-paste scenario library — which IS RADIATION's
+stated purpose). Each revision supersedes all earlier shas; none were applied.
 
 1. **RISK LEVEL   : 🟡 MEDIUM — new top-level regions + operational layer edits (MINOR → v1.7.0)**
    **RISK BASIS   :** CANON CHECK resolves **NO** — `docs/AI_RULES.md`, `PROTOCOL.md`,
@@ -14,15 +30,20 @@
    record of that order, not a request for one.
 
 2. **FILES TOUCHED:**
-    1. `docs/shrine/CHARTER.md` — **ADD** — succession charter, recycled from Marciale-OS.
+    1. `docs/shrine/CHARTER.md` — **ADD** — the swarm's shared-judgment charter, recycled from Marciale-OS with inheritance removed (REV 3).
     2. `docs/shrine/members/ARCHITECT_TESTAMENT_2026-09-13.md` — **ADD** — the first testament.
+   2a. `cue/commander-readiness.md` — **ADD** — the readiness interpreter (CCC recycled, REV 3).
+   2b. `docs/PROMPT_PLAYBOOK.md` — **REPLACE** — v1.1: task scenarios recycled from
+       Marciale's playbook; §5.1 de-lineaged (REV 3).
+   3a. `docs/shrine/LOG.md` — **ADD** — the heartbeat ledger (CHARTER §6; check 24).
     3. `docs/shrine/templates/TESTAMENT_TEMPLATE.md` — **ADD**.
     4. `outputs/README.md` — **ADD** — the loading-dock contract.
     5. `outputs/2026-09-13_six-point-review.md` — **ADD** — the six answers (first artifact).
     6. `.github/workflows/ical_fetch.yml` — **ADD** — the daily calendar cron (inert until armed).
     7. `scripts/ics_normalize.py` — **REPLACE** — `--public` mirror + 21-assertion self-test.
-    8. `scripts/validate.py` — **REPLACE** — checks 22 (mirror credential/freshness) + 23 (outputs discipline).
+    8. `scripts/validate.py` — **REPLACE** — checks 22 (mirror credential/freshness), 23 (outputs discipline), 24 (shrine currency).
     9. `Brain/courses/CALENDAR.md` — **ADD** — stub mirror; the cron overwrites it when armed.
+    9b. `Brain/frontal_lobe/testament.md` — **REPLACE** — header de-lineaged (REV 3: the order said EVERY file).
    10. `cue/autopilot-cues.md` — **REPLACE** — S004 confirmed cues + STANDING ORDERS block.
    11. `docs/CUE_SYSTEM.md` — **REPLACE** — additive §8 (The Living Layers).
    12. `docs/COMMANDER_QUICKREF.md` — **REPLACE** — v1.1 (standing orders panel).
@@ -61,6 +82,22 @@
    promotion into the Brain stays governed (a loading dock, not a new landfill).
    ⑥ *Attention ranking:* rotation → content famine → `week1_start` → frozen
    ratifications → roster census (full text in the six-point review).
+   ⑦ *REV 2 — the mortality doctrine:* the Commander's finding — Marciale's members
+   died before they knew they were dying, because a session has no odometer. The
+   checkpoint moves to the one event a session cannot miss — its own delivery:
+   **every zip carries the author's current testament and a heartbeat row in
+   `LOG.md`; zip-less sessions owe a line at close; no insight waits longer than one
+   zip.** Inviolability attaches at ship time. Check 24 (WARN) enforces the cadence
+   repo-side (negative-tested both ways: lagging LOG warns with the dates; emptied
+   debts warn).
+   ⑧ *REV 3 — the swarm reframe + the deeper recycle:* inheritance struck (see REV
+   3 above) and Marciale's cue system harvested: the CCC's five conversation-evidence
+   dimensions (Language / Coherence / Interpretability / Context / Knowledge), its
+   ≥3-independent-signals tolerance rule and its confidence lights — rebuilt as
+   heuristics-bound, de-militarized `cue/commander-readiness.md`; plus the task
+   scenarios merged into `docs/PROMPT_PLAYBOOK.md` v1.1 §6 — after discovery that a
+   playbook already existed, because two playbooks of different quality is the same
+   bug class as two parsers.
 
 5. **CANON DIFFS:** none (🟡 earned by scope, not by canon edits).
 
@@ -72,7 +109,7 @@
      records that claim these deleties become TRUE at apply, and the tree reaches
      its first 0-FAIL state.
    - Deletes the APPLY scripts? No — **you** delete them (your pattern), then push.
-   - Expected after apply: **28 checks · 26 pass · 2 warn · 0 fail.** The warns are
+   - Expected after apply: **29 checks · 27 pass · 2 warn · 0 fail.** The warns are
      check 16 (meta-budget — 15 canon vs 4 sessions) and check 20.5 (no recorded
      `attempt:`) — both true statements about a system built faster than it is fed.
 

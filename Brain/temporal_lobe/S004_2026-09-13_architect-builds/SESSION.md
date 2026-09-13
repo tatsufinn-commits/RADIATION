@@ -16,6 +16,11 @@
   so AI's can drop it there instead" ⑥ "what do you think needs more attention for
   our plans?"
 
+LATER ORDERS (same chat): "update your shrine every single conversation… log a your
+records everytime a .zip is made" · "remove the 'inheritance' in every file. we
+cannot have that, this repository should work like a hive mind, a swarm… mainly the
+cue system, analyze it further and recycle what you may deem necessary."
+
 ## SCAN DECLARATION (compressed)
 DELIVERABLE corpus (patch + analysis) · PERMANENCE stored · DEPTH exhaustive.
 Confidence HIGH. Standing orders consulted: build autonomy granted; deliver as zip.

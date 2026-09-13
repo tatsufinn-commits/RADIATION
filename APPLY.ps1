@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# APPLY.ps1 — RADIATION patch 2900 "Succession & Signal"
+# APPLY.ps1 — RADIATION patch 2900 "Swarm Memory & Signal"
 # Apply from the repository ROOT:
 #   powershell -ExecutionPolicy Bypass -File APPLY.ps1
 # Then: delete APPLY.sh + APPLY.ps1, commit, push. Your push is legal effect.
@@ -11,7 +11,7 @@ function Die($m) { Write-Host "X $m" -ForegroundColor Red; exit 1 }
 if (-not (Test-Path "README.md")) { Die "run this from the RADIATION repository root" }
 if (-not (Test-Path "docs/AI_RULES.md")) { Die "docs/AI_RULES.md not found - wrong directory?" }
 
-Say "RADIATION patch 2900 - Succession & Signal"
+Say "RADIATION patch 2900 - Swarm Memory & Signal"
 Say ""
 
 Say "1/6  checking payload..."
@@ -21,16 +21,19 @@ $payload = @("docs/shrine/CHARTER.md",
   "docs/shrine/LOG.md",
   "outputs/README.md","outputs/2026-09-13_six-point-review.md",
   ".github/workflows/ical_fetch.yml","scripts/ics_normalize.py","scripts/validate.py",
-  "Brain/courses/CALENDAR.md","cue/autopilot-cues.md","docs/CUE_SYSTEM.md",
+  "Brain/courses/CALENDAR.md","cue/commander-readiness.md",
+  "cue/autopilot-cues.md","docs/PROMPT_PLAYBOOK.md",
+  "docs/CUE_SYSTEM.md",
   "docs/COMMANDER_QUICKREF.md","docs/SKILLS.md","Brain/BRAIN_INDEX.md","BOOT_SEQUENCE.md",
   "docs/SYSTEM_STATE.md","docs/CAPABILITIES.md","scripts/README.md",
   ".github/workflows/validate.yml","README.md","CHANGELOG.md",
+  "Brain/frontal_lobe/testament.md",
   "Brain/frontal_lobe/task_ledger.md","Brain/temporal_lobe/INDEX.md",
   "Brain/temporal_lobe/S004_2026-09-13_architect-builds/SESSION.md",
   "Brain/temporal_lobe/S004_2026-09-13_architect-builds/deliverables.md",
   "Brain/temporal_lobe/S004_2026-09-13_architect-builds/learnings.md")
 foreach ($f in $payload) { if (-not (Test-Path $f)) { Die "payload missing: $f" } }
-Say "     OK 27 files present"
+Say "     OK 30 files present"
 
 Say "2/6  self-testing the ICS normalizer..."
 python scripts/ics_normalize.py --self-test | Select-Object -Last 1
@@ -60,13 +63,19 @@ if (Test-Path "PATCH_NOTES.md") { Remove-Item "PATCH_NOTES.md" -Force; Say "    
 
 Say "4/6  verifying..."
 $c = Get-Content "docs/shrine/CHARTER.md" -Raw
-if ($c -notmatch "THE SUCCESSION SHRINE") { Die "shrine charter missing" }
+if ($c -notmatch "SHARED JUDGMENT OF THE SWARM") { Die "shrine charter missing" }
 $t = Get-Content "docs/shrine/members/ARCHITECT_TESTAMENT_2026-09-13.md" -Raw
 if ($t -notmatch "OPEN DEBTS") { Die "testament lacks its debts - a testament without debts is propaganda" }
 $a = Get-Content "cue/autopilot-cues.md" -Raw
 if ($a -notmatch "STANDING ORDERS") { Die "standing orders block missing" }
 $gl = Get-Content "docs/shrine/LOG.md" -Raw
 if ($gl -notmatch "MORTALITY DOCTRINE") { Die "heartbeat LOG missing" }
+$cr = Get-Content "cue/commander-readiness.md" -Raw
+if ($cr -notmatch "FIVE DIMENSIONS") { Die "readiness interpreter broken" }
+$pb = Get-Content "docs/PROMPT_PLAYBOOK.md" -Raw
+if ($pb -notmatch "6.1 - Drill Me") { Die "playbook v1.1 broken" }
+$ft = Get-Content "Brain/frontal_lobe/testament.md" -Raw
+if ($ft -notmatch "commons, not a lineage") { Die "frontal testament not de-lineaged" }
 $v = Get-Content "scripts/validate.py" -Raw
 if ($v -notmatch "def c22") { Die "check 22 not registered" }
 if ($v -notmatch "def c23") { Die "check 23 not registered" }

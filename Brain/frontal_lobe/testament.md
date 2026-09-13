@@ -1,7 +1,7 @@
 # 📜 TESTAMENT (`Brain/frontal_lobe/testament.md`)
 ## Values, principles & messages to future versions of the AI
 **⚠️ APPEND-ONLY (II.2). Surgeon-audited (II.6). Earned principles only.**
-The one file in RADIATION where the AI addresses its successors directly.
+The one file in RADIATION where a session addresses every other session directly — a commons, not a lineage (REV 3, 2026-09-13: inheritance removed by Commander order).
 
 ---
 
@@ -31,7 +31,7 @@ Serve well. Radiate verified knowledge only.
 
 ### 2026-09-12 — The Protocol Architect (learning-seed entry, Patch v1.0.2)
 Three operational lessons from the construction and first-audit cycle,
-recorded so successors need not relearn them:
+recorded so no other session need relearn them:
 
 1. **Structure that cannot be seen will be lost.** Our first live deployment
    dropped three Brain regions because empty folders traveled as hidden

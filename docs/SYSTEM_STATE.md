@@ -50,8 +50,9 @@ what can be executed.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v1.7.0** — succession and signal: the shrine (`docs/shrine/`, recycled from
-Marciale-OS), the session loading dock (`outputs/`), the calendar's daily cron
+**RADIATION v1.7.0** — swarm memory and signal: the shrine (`docs/shrine/`, recycled
+from Marciale-OS as a COMMONS — the Commander struck inheritance), the session
+loading dock (`outputs/`), the calendar's daily cron
 (built, armed only after the feed URL is rotated), and a committed calendar mirror.
 Previously: v1.6.6 — the calendar works (ICS normalizer). (Version history: `CHANGELOG.md` — the single source. It is not
 recited here any more; the recital was duplicated byte-for-byte and cost the boot budget.)
@@ -91,7 +92,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 | Skill jurisdictions 01–09 | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |
 | The Core (09-nota/ cards) | 🕳️ EMPTY — first @Radiation session seeds it |
-| **Succession shrine** (`docs/shrine/`) | ✅ **SEEDED** — charter + living testament + heartbeat LOG (file-at-delivery doctrine, check 24) |
+| **Shrine** (`docs/shrine/`) — the swarm's shared judgment | ✅ **SEEDED** — charter + living testament + heartbeat LOG (file-at-delivery doctrine, check 24) |
 | **Session outputs** (`outputs/`) | ✅ **CONTRACT LIVE** — check 23 enforces it |
 | **Calendar mirror** (`Brain/courses/CALENDAR.md`) | ⏳ BUILT, UNARMED — rotate, then arm |
 

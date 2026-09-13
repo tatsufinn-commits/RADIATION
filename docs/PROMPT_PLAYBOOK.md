@@ -1,6 +1,9 @@
 # 📖 THE PROMPT PLAYBOOK (`docs/PROMPT_PLAYBOOK.md`)
 ## Mode-Classified Copy-Paste Instances for the Commander
-**Version:** 1.0.0 | How to use: find your scenario, copy the box, paste into any AI chat.
+**Version:** 1.1.0 | How to use: find your scenario, copy the box, paste into any AI chat.
+**v1.1 (2026-09-13):** §6 task scenarios recycled from the Marciale-OS playbook
+(Commander order: recycle the cue system); §5.1 de-lineaged — a relieved chat is
+continuity, not succession.
 
 ---
 
@@ -128,7 +131,7 @@ works, why it works, what it depends on, and a reuse-readiness assessment.
 
 # 🔁 CONTINUITY INSTANCES
 
-### 5.1 — Watch-Relief Handover (rate-limit succession)
+### 5.1 — Relief Handover (rate-limit continuity)
 ```text
 You are relieving a rate-limited AI mid-session on RADIATION.
 Read this repository, and act as per .readme — then read docs/SYSTEM_STATE.md
@@ -150,3 +153,54 @@ Patch verdict for [patch filename]: [APPLIED / PARTIAL — kept: … / REJECTED 
 Update the Patch Ledger (append block) and, if the verdict reveals a misread
 preference, add the lexicon entry per II.5. Then stand by for the next task.
 ```
+
+---
+
+# 📋 TASK SCENARIOS (v1.1 — recycled from the Marciale-OS playbook)
+
+Mode-shaped instances are above; these are life-shaped — the situation finds the mode.
+
+### 6.1 — Drill Me
+```text
+Drill me on [COURSE] — [topic if specific]. Grade my answers.
+```
+@Review + `grade_exam.py`. Attempts are recorded (`attempt:`) — the mastery clock
+only moves on recorded attempts.
+
+### 6.2 — Ingest a Collection
+```text
+Ingest this collection into the Brain: [LINK]. Manifest first, then extract.
+```
+@Gather + `ingest_collection.py`: manifest-first, type-gated, DIGEST + registry
+objects; binaries deleted after extraction.
+
+### 6.3 — Second Opinion (multi-AI cross-check)
+```text
+Here's another AI's plan: [PASTE]. Review it against the repository's state —
+what's wrong, what's missing, what's already built.
+```
+Recycled from Marciale's multi-AI cross-check. Answered from the validator, the
+ledgers and the registry — not from vibes.
+
+### 6.4 — Calendar Catch-Up
+```text
+Catch the calendar up.
+```
+Pre-authorized derived-data refresh (any AI, no asking): regenerate from the feed
+(env `RADIATION_ICS_URL`), report the delta by series. The URL never enters a file
+or chat.
+
+### 6.5 — I'm Lost
+```text
+I'm lost — bring me back up to speed. No new work.
+```
+Orientation protocol: SYSTEM_STATE, validator status, open debts, the three smallest
+next steps. Nothing else.
+
+### 6.6 — Session Close
+```text
+Session close.
+```
+The mirror of boot: triage short_term, append the ledger row, emit a patch or state
+the waiver, refresh the shrine testament + heartbeat (CHARTER §6 — file at delivery,
+not at death).

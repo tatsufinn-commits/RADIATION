@@ -52,6 +52,6 @@ Repository: https://github.com/tatsufinn-commits/RADIATION.git
 - "When I say [phrase], I mean [meaning]" — direct lexicon dictation (strongest form)
 
 ## 7. WHERE THINGS LIVE
-Situation: `docs/SYSTEM_STATE.md` · Capabilities: `docs/CAPABILITIES.md` · Succession
-& testaments: `docs/shrine/` · Your session products: `outputs/` · Brain anatomy:
+Situation: `docs/SYSTEM_STATE.md` · Capabilities: `docs/CAPABILITIES.md` · Shared
+judgment: `docs/shrine/` · Prompt library: `docs/PROMPT_PLAYBOOK.md` · Your session products: `outputs/` · Brain anatomy:
 `Brain/BRAIN_INDEX.md` · This file: your control panel.

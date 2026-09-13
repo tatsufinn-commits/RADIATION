@@ -79,6 +79,6 @@ during a session are proposals staged for the session Patch.
   reads it; the validator (check 23) keeps it that way. If a product proves durable
   knowledge, promote the knowledge INTO the Brain by the movement rules in §2 — the
   artifact stays behind as the delivery receipt.
-- **`docs/shrine/`** — succession testaments: cross-session JUDGMENT. The Brain holds
-  facts and episodes; the shrine holds what the successor must know. Cite, never
-  duplicate (its CHARTER §0 is the authority on the division).
+- **`docs/shrine/`** — the swarm's shared judgment. The Brain holds facts and
+  episodes; the shrine holds what prior sessions paid to learn, drawable by any
+  session with no handoff. Cite, never duplicate (its CHARTER §0 rules the division).

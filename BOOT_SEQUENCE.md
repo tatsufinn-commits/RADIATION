@@ -28,6 +28,7 @@ TIER 3 — DEEP CONTEXT (only as the task demands)
   10. 09-nota/CORE_INDEX.md + relevant Core cards
   11. Relevant Brain/long_term/ dossiers (respect the mode's dossier-load cap)
   12. cue/commander-lexicon.md + cue/task-nature-guide.md
+      cue/commander-readiness.md (before long unsupervised runs) + docs/PROMPT_PLAYBOOK.md (on request)
   13. Brain/cerebellum/ routines relevant to the task type
 ```
 
@@ -43,4 +44,5 @@ Declaration. Silent degradation is a III.1 violation.
 4. Update docs/SYSTEM_STATE.md if ground truth changed.
 5. Heartbeat (docs/shrine/CHARTER.md §6): refresh your testament and add a
    LOG.md row — **every patch zip carries both**. You cannot detect your own
-   dying; file at delivery, not at death.
+   dying; file at delivery, not at death. The shrine is a commons: deposit,
+   draw, and name no heirs.

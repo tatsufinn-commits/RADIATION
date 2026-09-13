@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ─────────────────────────────────────────────────────────────────────────────
-# APPLY.sh — RADIATION patch 2900 "Succession & Signal"
+# APPLY.sh — RADIATION patch 2900 "Swarm Memory & Signal"
 # shrine · outputs/ · the calendar's cron · checks 22/23 · cue-layer refresh
 # Apply from the repository ROOT:   bash APPLY.sh
 # Then: delete APPLY.sh + APPLY.ps1, commit, push. Your push is legal effect.
@@ -12,7 +12,7 @@ die()  { printf '✗ %s\n' "$*" >&2; exit 1; }
 [ -f README.md ] && grep -q "RADIATION" README.md 2>/dev/null || die "run this from the RADIATION repository root"
 [ -f docs/AI_RULES.md ] || die "docs/AI_RULES.md not found — wrong directory?"
 
-say "☢️  RADIATION patch 2900 — Succession & Signal"
+say "☢️  RADIATION patch 2900 — Swarm Memory & Signal"
 say ""
 
 # ── 1. payload ──────────────────────────────────────────────────────────────
@@ -28,7 +28,9 @@ for f in \
   "scripts/ics_normalize.py" \
   "scripts/validate.py" \
   "Brain/courses/CALENDAR.md" \
+  "cue/commander-readiness.md" \
   "cue/autopilot-cues.md" \
+  "docs/PROMPT_PLAYBOOK.md" \
   "docs/CUE_SYSTEM.md" \
   "docs/COMMANDER_QUICKREF.md" \
   "docs/SKILLS.md" \
@@ -40,6 +42,7 @@ for f in \
   ".github/workflows/validate.yml" \
   "README.md" \
   "CHANGELOG.md" \
+  "Brain/frontal_lobe/testament.md" \
   "Brain/frontal_lobe/task_ledger.md" \
   "Brain/temporal_lobe/INDEX.md" \
   "Brain/temporal_lobe/S004_2026-09-13_architect-builds/SESSION.md" \
@@ -48,7 +51,7 @@ for f in \
 do
   [ -f "$f" ] || die "payload missing: $f"
 done
-say "     ✓ 27 files present"
+say "     ✓ 30 files present"
 
 # ── 2. the parser must work before anything else is touched ────────────────
 say "2/6  self-testing the ICS normalizer…"
@@ -80,10 +83,13 @@ rm -f PATCH_NOTES.md && say "     ✓ PATCH_NOTES.md removed (carrier)"
 
 # ── 4. verify every claim the patch makes ──────────────────────────────────
 say "4/6  verifying…"
-grep -q "THE SUCCESSION SHRINE" docs/shrine/CHARTER.md            || die "shrine charter missing"
+grep -qi "shared judgment of the swarm" docs/shrine/CHARTER.md            || die "shrine charter missing"
 grep -q "OPEN DEBTS" docs/shrine/members/ARCHITECT_TESTAMENT_2026-09-13.md || die "testament lacks its debts — a testament without debts is propaganda"
 grep -q "STANDING ORDERS" cue/autopilot-cues.md                   || die "standing orders block missing"
 grep -q "MORTALITY DOCTRINE" docs/shrine/LOG.md                   || die "heartbeat LOG missing"
+grep -q "FIVE DIMENSIONS" cue/commander-readiness.md             || die "readiness interpreter broken"
+grep -q "6.1 — Drill Me" docs/PROMPT_PLAYBOOK.md                 || die "playbook v1.1 broken"
+grep -q "commons, not a lineage" Brain/frontal_lobe/testament.md || die "frontal testament not de-lineaged"
 grep -q "def c22" scripts/validate.py                             || die "check 22 not registered"
 grep -q "def c23" scripts/validate.py                             || die "check 23 not registered"
 grep -q '\-\-public' scripts/ics_normalize.py                     || die "--public not implemented"

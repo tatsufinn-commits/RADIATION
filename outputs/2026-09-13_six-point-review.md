@@ -48,7 +48,7 @@ The repair is *not* a tenth skill — term operations are tools+routines, and mi
 skill for everything is how systems rot. The repair is the **shrine** (narrative:
 what happened, what it cost, what the dead watch warns) plus a **STANDING ORDERS**
 block in the cue layer (prospects: full discretion granted, no ratifications now,
-rotation outstanding). An AI that loads the boot tiers + latest testament now inherits
+rotation outstanding). An AI that loads the boot tiers + latest testament now draws
 a story, not just a rulebook. Remaining honest gap: **content famine** — 15 governance
 patches vs 3 content sessions (check 16's own warning). The skills exist; they are
 underfed.
@@ -131,7 +131,7 @@ session housekeeping. But the fix is a **loading dock, not a landfill**:
 ---
 *Prepared by the Architect session (S004), 2026-09-13. The shrine testament
 (`docs/shrine/members/ARCHITECT_TESTAMENT_2026-09-13.md`) carries the same warnings in
-succession form — read it first.*
+shrine form — read it first.*
 
 ---
 
@@ -147,3 +147,16 @@ close; validator check 24 (WARN) guards the cadence repo-side; inviolability att
 at ship time. Charter §6 codifies it, with the six mortality signals a session CAN
 detect. Recorded here because a review that praised a shrine without seeing its
 founding flaw owes the record the correction.
+
+---
+
+## ADDENDUM — REV 3: inheritance struck (2026-09-13)
+
+§1 above reports Marciale's design faithfully — and Marciale IS a lineage: wills to
+named successors, baton passes, training conversations. The Commander struck all of
+it for RADIATION: *"this repository should work like a hive mind, a swarm… a public,
+external and fast way to turn every AI I can use to my own personal assistant."*
+RADIATION adopts only the commons: the shrine is a shared judgment pool — deposit at
+every zip, draw by anyone, name no heirs, train no one. What §1 called "the
+inheritance doctrine" exists here as THE COMMONS DOCTRINE (charter §3). This
+addendum is the correction of record; §1 stands as the analysis of Marciale.

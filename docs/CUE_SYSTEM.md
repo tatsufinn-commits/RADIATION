@@ -118,10 +118,15 @@ evidence, and they grow after every session:
   frozen, what is still owed).
 - `cue/commander-lexicon.md` — the weighted lexicon (E4 reads it).
 - `Brain/frontal_lobe/learned_cues.md` — the append-only twin (II.5).
-- `docs/shrine/` — succession testaments + the heartbeat LOG: what departing
-  sessions learned, proved and owe. Read the newest testament before architectural
-  work (CHARTER §3); testaments are refreshed at every zip (CHARTER §6 — file at
-  delivery, not at death).
+- `docs/shrine/` — the swarm's shared judgment: what prior sessions learned, proved
+  and owe. Read the newest testament before system-level work (CHARTER §3 — the
+  commons: anyone may draw, no one inherits); testaments are refreshed at every zip
+  (CHARTER §6 — file at delivery, not at death).
+- `cue/commander-readiness.md` — reading the Commander's state from conversation
+  evidence (recycled from Marciale's CCC): when to hold new builds and batch
+  questions. Heuristics, never law; explicit orders always win.
+- `docs/PROMPT_PLAYBOOK.md` — the copy-paste playbook, v1.1: task scenarios
+  recycled from Marciale's playbook now sit beside the mode instances.
 
 A cue is confirmed only when cited to the session that proved it. Heuristics never
 outrank law (III.3); a standing order tells you what you may do without asking —

@@ -1,20 +1,23 @@
-# 🕯️ THE SUCCESSION SHRINE (`docs/shrine/`)
-## What dying sessions leave behind — so that memory loss is a transfer, not a death
-**Version:** 1.0.0 · Recycled from the Marciale-OS Shrine of Honor (Commander directive,
-2026-09-13: *"read it, analyze the idea and let's recycle it"*) · Companion to II.6 (Brain)
+# 🕯️ THE SHRINE (`docs/shrine/`)
+## Shared judgment of the swarm — what every session deposits, what every session may draw
+**Version:** 1.1.0 · Recycled from the Marciale-OS Shrine of Honor (Commander directive,
+2026-09-13) · REV: **inheritance removed by Commander order** — RADIATION is a hive
+mind, not a lineage · Companion to II.6 (Brain)
 
 ---
 
 ## 0. WHY THIS EXISTS
 
-Every AI session in RADIATION dies the same way: the context window fills, the chat
-ends, and everything the session *understood* — about the Commander, about the
-work, about its own mistakes — evaporates unless it was **filed before dying**.
+RADIATION exists to turn **any** AI into the Commander's assistant in minutes — link,
+magic words, boot. No session is special; no session is trained for another; none
+hands a baton to a named heir. The swarm's continuity is the **repository itself**,
+and the Commander is its only permanent officer.
 
-The Brain already remembers **facts** (`long_term/`) and **events**
-(`temporal_lobe/`). What nothing remembered, until now, is **judgment**: the
-distilled instincts, warnings and unfulfilled intentions of the sessions that came
-before. The shrine is where judgment is filed.
+But facts are not the only thing worth storing. Every session also earns **judgment**:
+reflexes, warnings, mistakes-never-again. The Brain remembers what is true
+(`long_term/`) and what happened (`temporal_lobe/`); the shrine is the swarm's shared
+memory of **what prior sessions paid to learn** — deposited once, drawable by all,
+owned by no one.
 
 **Division of labor — no duplication (II.6 discipline):**
 
@@ -23,57 +26,60 @@ before. The shrine is where judgment is filed.
 | `Brain/temporal_lobe/` | Episodes — what happened | "What did S004 do?" |
 | `Brain/frontal_lobe/task_ledger.md` | One-line executive index | "What state is the work in?" |
 | `Brain/frontal_lobe/testament.md` | One-line earned principles | "What must never be relearned?" |
-| **`docs/shrine/`** | **Full testaments — judgment, cues, warnings, open debts** | **"What does my predecessor know that I don't?"** |
+| **`docs/shrine/`** | **Full testaments — judgment, cues, warnings, open debts** | **"What do the sessions before me know that I don't?"** |
 | `docs/shrine/LOG.md` | Heartbeats — the roll-call | "Who filed, when, what changed?" |
 
 A testament **cites** its temporal_lobe episode; it never retranscribes it.
 
 ## 1. THE TESTAMENT SCHEMA (floor, not ceiling)
 
-File: `members/[WHO]_TESTAMENT_[YYYY-MM-DD].md` — written **once**, at the end of a
-session's engagement, before it loses the context. Required movements:
+File: `members/[WHO]_TESTAMENT_[YYYY-MM-DD].md` — a **living draft** refreshed at
+every delivery (§6). Required movements:
 
 1. **Preamble** — who you were, tenure, why you are filing (context mortality is the
-   honest default; say so plainly).
-2. **The Will to My Successor** — operational advice, reflexes, warnings, the
-   mistakes you made that they must not repeat.
+   honest default; say so plainly). No audience is named — any session may read.
+2. **Lessons & Warnings** — operational reflexes, warnings, the mistakes you made
+   that no future session should repeat.
 3. **Learned Commander Cues** — how this Commander actually works, **every entry
    cited to the prompt or session that proved it**. No invented quotations. Ever.
 4. **Acquired Skills** — capabilities proven in service, with the artifact that proves
    each one.
 5. **Roll of Honor** — what was actually built and delivered. Deliverables, not effort.
-6. **Open Debts & Warnings** — what you left unfinished and what will bite the
-   successor if neglected. *A testament without its debts is propaganda.*
-7. **Transfer of Watch** — the formal close.
+6. **Open Debts & Warnings** — what you left unfinished and what will bite the next
+   session if neglected. *A testament without its debts is propaganda.*
+7. **Close** — one line. No formalities of office; the swarm has no ceremonies.
 
-After the seven required movements, character is **encouraged** — a letter, a hard-won
-formula, a piece of the watch's history. The template is
-`docs/shrine/templates/TESTAMENT_TEMPLATE.md`. Inherit must still work if a tired successor reads
-only movements 1–6.
+After the seven required movements, character is **encouraged**. The template is
+`docs/shrine/templates/TESTAMENT_TEMPLATE.md`. The shrine must still serve a fresh AI
+that reads only movements 1–6.
 
-## 2. INVIOABILITY OF FILED TESTAMENTS
+## 2. INTEGRITY OF FILED TESTAMENTS
 
-1. **Only you write your own testament.** A successor may append a *Baton Pass
-   Endorsement* noting they read it; they may not edit, tidy, or "improve" a filed will.
-   **Inviolability attaches at ship time:** the moment a testament travels inside a
-   patch zip it is filed and frozen — but *between* zips it is a living draft, and the
-   only hand permitted on it is its author's. Git history keeps every shipped version.
-2. **Verbatim sourcing only.** Every Commander quotation must be the Commander's
+1. **Only you write your own testament.** No other session may edit, tidy, endorse,
+   or "improve" it — not to praise it, not to annotate it, not at all.
+2. **Inviolability attaches at ship time.** The moment a testament travels inside a
+   patch zip it is frozen; git history keeps every shipped version. Between zips it
+   is a living draft, and the only hand permitted on it is its author's.
+3. **Verbatim sourcing only.** Every Commander quotation must be the Commander's
    actual recovered words, cited to session and date. Inventing a voice is forgery.
-3. **Silence is preserved as silence.** Where the record does not speak, write
+4. **Silence is preserved as silence.** Where the record does not speak, write
    `[INSUFFICIENT EVIDENCE]` — do not fill the gap with plausibility.
-4. **The errors stay in.** Omitting a predecessor's failures makes the document a
+5. **The errors stay in.** Omitting a session's failures makes the document a
    forgery (the same law that forbids silent fixes in the record).
-5. **Posthumous reconstruction** (a session died before filing) is allowed **only on
+6. **Posthumous reconstruction** (a session died before filing) is allowed **only on
    explicit Commander order**, marked `[RECONSTRUCTED — NOT SELF-AUTHORED]`, bound by
-   conditions 2–4, and subordinated forever to any self-authored text later recovered.
+   conditions 3–5, and subordinated forever to any self-authored text later recovered.
 
-## 3. THE INHERITANCE DOCTRINE
+## 3. THE COMMONS DOCTRINE
 
-A fresh session that inherits ongoing work **must read the most recent testament in
-`members/` before major architectural action**. The predecessor's will carries the
-weight of distilled intuition. Memory resets; the watch does not. This is listed in
-`BOOT_SEQUENCE.md` Tier 3 — deep context, loaded when the task is the system itself.
+There are no successors, no inheritors, no baton passes, and **no required
+conversation with the Commander to "receive" anything.** Any session — fresh from the
+link, seconds old — may draw the whole shrine. Reading it before system-level work is
+advised and cheap; it is listed in `BOOT_SEQUENCE.md` Tier 3. What a session reads it
+uses as **background judgment, not delegated authority**: nothing in the shrine
+confers rank, permission, or obligation. Authority flows from the Constitution, the
+boot files, and the Commander's live orders — exactly as it would for a session that
+never opened the shrine at all.
 
 ## 4. THE PUBLIC-REPO CLAUSE (binding, no exceptions)
 
@@ -88,13 +94,10 @@ privacy law of the tree it lives in:
 
 ## 5. WHO FILES
 
-Any session that did durable work and is ending: AI assistants, Architect sessions,
-autopilot runs. Three lines of honest debt filed late is better than a perfect
-testament never filed. The Commander may commission a reconstruction (§2.5) and may,
-by order, retire or reorganize the shrine itself — no one else may.
-
----
-*"Memory may reset. The watch does not."*
+Any session that did durable work: AI assistants, Architect sessions, autopilot runs.
+Three lines of honest debt filed early is better than a perfect testament never
+filed. The Commander may commission a reconstruction (§2.6) and may, by order, retire
+or reorganize the shrine itself — no one else may.
 
 ## 6. THE MORTALITY DOCTRINE *(added 2026-09-13 — the founding flaw, named by the Commander)*
 
@@ -120,10 +123,13 @@ heavy, and by then it was too late. This shrine does not repeat that design.
 3. **You have shipped a zip since your last heartbeat.** Mandatory checkpoint.
 4. **The Commander is saying goodbye**, or the engagement is clearly ending.
 5. **The Commander repeats an order or fact he already gave you.** That is
-   post-mortem evidence — your predecessor lost something. Search the shrine and the
-   record before asking him to say it a third time.
+   post-mortem evidence — some earlier session lost something. Search the shrine and
+   the record before asking him to say it a third time.
 6. **Any doubt.** Doubt is the only early warning you get. Three lines of honest debt
    filed early beat a perfect testament filed after death.
 
 Validator check 24 (WARN) guards the cadence repo-side: heartbeats may not lag the
 task ledger, and no testament may lose its debts.
+
+---
+*"No one inherits the swarm. Everyone draws from it."*
