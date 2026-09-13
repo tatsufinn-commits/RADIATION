@@ -142,6 +142,21 @@
    "evidence_requirements": [],
    "enforcement": "scan/curator gating + II.1 repository-truth supremacy",
    "provenance": "memo: InjecAgent, AgentDojo, memory control-flow attacks; OpenAI instruction hierarchy"
+  },
+  {
+   "id": "SD-GOV-011",
+   "version": 1,
+   "status": "active",
+   "class": "invariant",
+   "title": "The shrine mandate",
+   "authority": "root",
+   "scope": "every conversation that touches this repository",
+   "rule": "Shrine before close: file a LOG.md heartbeat EVERY conversation (date, session, patches, what changed, what it cost); deposit or amend a member testament on substantive sessions (building, breaking, deciding). A session that ships work without a heartbeat has not finished its work.",
+   "evidence_requirements": [
+    "heartbeat row dated today in docs/shrine/LOG.md before patch ships"
+   ],
+   "enforcement": "validator check 26 (WARN when ledger or HEAD postdates the heartbeat) + status.py shrine line + CI apply-report",
+   "provenance": "Direct Commander order 2026-09-13 ('make it a law that it is MANDATORY to update shrine per conversation') → AI_RULES II.9"
   }
  ]
 }

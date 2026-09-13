@@ -54,6 +54,10 @@ REDACT = [
     (r"\b(?:Instructor|Professors?|Prof\.)\s*[:\-]?\s*[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+", "[INSTRUCTOR REDACTED]"),
     (r"\b(?:S|NW|SW|SE|NE)\d{3}\b", "[ROOM REDACTED]"),
     (r"\b(?:Section|Sec\.)\s+[A-Z]{1,2}\d{1,3}\b", "[SECTION REDACTED]"),
+    # bare section tokens riding inside event titles ("AR173-1P_A54_1Q2627") — the
+    # validator's CV_DENY_LOCATION caught the mirror carrying them (probe-caught
+    # 2026-09-13): keep this list in step with validate.py CV_DENY_LOCATION.
+    (r"(?<![A-Za-z0-9])(?:E01|A54|C5)(?![A-Za-z0-9])", "[SECTION REDACTED]"),
     (r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+", "[EMAIL REDACTED]"),
     (r"https?://\S+", "[URL REDACTED]"),
 ]
@@ -771,6 +775,8 @@ def self_test(verbose=True):
     # the committed mirror must never carry a URL (a committed credential is check 22's FAIL)
     pub = render_public(expand_all(parse_ics(FIXTURE, DEFAULT_TZ), DEFAULT_TZ, horizon_days=None), DEFAULT_TZ)
     check("public mirror: no URL in committed output", "http" not in pub)
+    # bare section codes inside underscore-joined titles must still scrub (\b fails here)
+    check("section token inside underscores scrubbed", "A54" not in scrub("AR173-1P_A54_1Q2627 lecture"))
     # check 22 keys on the Generated line — the mirror must always carry it
     check("public mirror: Generated date present", re.search(r"\*\*Generated:\*\*\s*\d{4}-\d{2}-\d{2}", pub) is not None)
     print(f"\n{'✅' if not fails else '❌'} ics_normalize self-test: {ok} passed, {len(fails)} failed")

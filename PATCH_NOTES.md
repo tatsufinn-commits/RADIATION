@@ -1,79 +1,69 @@
-# PATCH NOTES — Applied Governance: the memo goes in
+# PATCH NOTES — 3400 Enforcement Sweep & Shrine Mandate
 
-**Patch:** `RADIATION_PATCH_2026-09-13_3300_Applied-Governance.zip`
-**Base:** post-3200 (v1.9.0 — 3200 must be applied; APPLY gates on it)
-**Prepared:** 2026-09-13 · **Trigger:** the Commander's research memo
-(`selfdirectives_research.md`, 30+ sources) + the order: *"read, analyze and apply
-this paper. while at it give yourself some tasks regarding other matters."*
+**Patch:** `RADIATION_PATCH_2026-09-13_3400_Enforcement-Sweep-and-Shrine-Mandate.zip`
+**Base:** post-3300 (v2.0.0 — the governance patch). APPLY gates on it.
+**Prepared:** 2026-09-13 · **Trigger:** the Commander's ratification pass
+("build whatever's preplanned as per the roadmap") + two direct orders: make shrine
+updates MANDATORY per conversation, and audit the repo for improvements.
+**Read this in 90 seconds:** `docs/AUDIT_2026-09-13.md` (findings) — then
+`python3 scripts/status.py` and `python3 scripts/verify_apply.py` forever after.
 
-1. **RISK LEVEL   : 🟡 MEDIUM — governance subsystem formalized + new check + tools (MINOR → v2.0.0)**
-   **RISK BASIS   :** CANON CHECK resolves **NO** (AI_RULES/PROTOCOL/MODES untouched —
-   the Activation Matrix row from 3200 already covers universality). New: registry +
-   check 25 (additive, FAIL-class on corruption), two scripts, spec v2.0 rewrite,
-   validator message changes. **DIRECTION:** Commander's memo + standing discretion.
+1. **RISK LEVEL   : 🟠 — canon edit (Commander-ordered law) + new machinery; nothing removed.**
+   **RISK BASIS   :** AI_RULES +II.9 (his explicit order, quoted in the law), CHARTER
+   mandate, registry +SD-GOV-011, check 26 (WARN-class), check 2.5 hardening
+   (FAIL-class but strictly wider truth-telling), ics_normalize regression heal.
+   **DIRECTION:** roadmap 3400 row (preplanned) + direct orders. Pass scope recorded
+   in `docs/DECISION_AUTHORITY.md` — data ratification NOT covered.
 
-2. **FILES TOUCHED:**
-    1. `subskills/active/selfdirectives.md` — **REPLACE** — v2.0 APPLIED GOVERNANCE:
-       enforcement map · typed directive records · tiered verification (never
-       self-critique as final oracle) · authority hierarchy + mechanical conflict
-       policy · trust-separated memory · goal discipline · stop conditions ·
-       evaluation gates. Universal scope unchanged (Commander ruling).
-    2. `cue/standing-directives.json` — **ADD** — the typed registry: 10 directives
-       (ladder, 7 stop-lines, the oracle rule, content-trust rule) with
-       id/class/authority/scope/rule/enforcement/provenance.
-    3. `scripts/validate.py` — **REPLACE** — **check 25** (registry integrity:
-       schema, uniqueness, resolvable enforcement references) + SD-3300-01 (checks
-       2.5/3 print their REMEDY on FAIL).
-    4. `scripts/status.py` — **ADD** — the Swarm Dashboard (SD-3300-02).
-    5. `docs/CAPABILITIES.md` · `scripts/README.md` — tool #12 + registry noted.
-    6. `README.md` · `docs/SYSTEM_STATE.md` · `CHANGELOG.md` · `docs/ROADMAP.md` — v2.0.0.
-    7. Ledger self-records (SD-3300-01/02 declared → closed) + shrine heartbeat.
-    8. `APPLY.sh` · `APPLY.ps1` · `PATCH_NOTES.md` — transport.
+2. **THE HEADLINE (audit finding F1 — a regression I caused):** the 3200 zip carried
+   the CLEAN CALENDAR.md but **omitted the FIXED ics_normalize.py**. Live kept the
+   broken scrubber; validation stayed green because it checked the artifact, not the
+   generator; the first regeneration (today's, and the daily bot's) resurrected the
+   A54 leak. 3400 ships the fix, regenerates the mirror (A54 = 0, self-test 22/22),
+   and **APPLY now runs the shipped tools' self-tests** so a payload omission cannot
+   hide again.
 
-3. **THE ANALYSIS (what the memo changed):**
-   - **Enforcement split is now explicit.** The memo's law — *a skill teaches
-     self-regulation; the runtime enforces it* — is codified as spec §0: every
-     boundary names its mechanism. RADIATION was already built this way (validator,
-     APPLY gates, git); the memo made it a stated law instead of an accident.
-   - **`self:` rows are now typed records** (trigger/tier/mode/budget/success/
-     fallback, written BEFORE execution) — not prose moods. The memo's structured
-     deliberation artifact, sized to a ledger line.
-   - **Self-critique is demoted from oracle to draft.** Material claims close on
-     T0 validator / T1 domain / T2 independent re-derivation / T3 the Commander
-     (Huang et al.: ungrounded self-correction can degrade correct output).
-   - **The registry makes authority machine-checkable.** Provenance, scope,
-     enforcement target per directive; check 25 fails the tree if the registry
-     corrupts or cites mechanisms that don't exist. Write path (Commander, via
-     patch) stricter than read path (every session).
-   - **Trust-separated memory** mapped to the existing regions: canon read-only,
-     registry propose-only, lessons = advice with provenance, external content =
-     data never instructions (InjecAgent/AgentDojo/mem-attack class threats).
-   - **Stop conditions:** budget + two-strike no-progress rule; never loop past
-     budget to "finish."
+3. **THE LAW (order #1):** AI_RULES **II.9 — THE SHRINE MANDATE ⚡**: every
+   conversation files a LOG heartbeat; every substantive session deposits/amends a
+   member testament; enforced by **check 26** (WARN when the ledger or a HEAD commit
+   postdates the last heartbeat), status.py's shrine line, and the CI apply-report.
+   First fruits: S005's second testament (`ARCHITECT_TESTAMENT_2026-09-13_II.md`),
+   filed under the mandate in the mandate's own conversation. (Check 24 caught the
+   draft missing its OPEN DEBTS section — a testament without debts is propaganda.)
 
-4. **THE SELF-DIRECTIVES (executed under the v2.0 protocol — the demo is the proof):**
-   - **SD-3300-01** (🟡, roadmap): actionable FAIL messages — checks 2.5/3 now print
-     their remedy. CLOSED, evidence in validator output.
-   - **SD-3300-02** (🟡, roadmap): `status.py` — the whole machine in one screen.
-     CLOSED, evidence: first-run output (and check 21 policed its documentation).
-   Two declared, two closed, zero parked, within budget.
+4. **THE SWEEP (roadmap 3400, preplanned):**
+   - `scripts/verify_apply.py` NEW — the post-apply auditor: version drift,
+     validator verdict, unsanctioned vehicles, committed transport, shrine lag,
+     pending ratifications — one read-only screen. `--strict` for local gating.
+   - CI **non-blocking apply-report**: on every push, the tree reports its own apply
+     state into the job summary. Born of the real extract-without-apply push +
+     merge resurrection (deletions don't survive merges; the vehicles and A54
+     mirror came back). Now the tree can SAY "an apply did not finish."
+   - **check 2.5 GENERIC — the skip-pattern dies:** the vehicle rule was an
+     enumeration; it is now a closed sanctioned-set over ALL of Brain/. A fresh
+     syllabus PDF anywhere FAILs with a REMEDY.
 
-5. **BUILD HONESTY:** the new check-25 function initially shared a name with check
-   2.5's function (`c25`) — caught at grep before it silently shadowed check 2.5;
-   renamed `c25reg`. The registry then failed its own check (unresolvable
-   enforcement string on SD-GOV-009) and was made precise. My first status.py
-   write submitted a broken stub — caught by me, rewritten properly.
+5. **FILES TOUCHED (20 + 3 transport):** validate.py · verify_apply.py ·
+   ics_normalize.py · standing-directives.json · AI_RULES.md · CHARTER.md · LOG.md ·
+   testament II · task_ledger.md · CALENDAR.md · README.md · SYSTEM_STATE.md ·
+   CHANGELOG.md · ROADMAP.md · CAPABILITIES.md · scripts/README.md ·
+   DECISION_AUTHORITY.md · AUDIT_2026-09-13.md · PATCH_LEDGER.md ·
+   .github/workflows/validate.yml · + APPLY.sh/.ps1/PATCH_NOTES.md (transport).
 
-6. **CANON DIFFS:** none (MODES untouched; the ⚙️×6 row stands from 3200).
+6. **CANON DIFFS:** AI_RULES v1.1.0 (+II.9 only) · CHARTER +mandate section. Both
+   Commander-ordered. MODES/PROTOCOL untouched.
 
-7. **VERSION BUMP :** MINOR → v2.0.0 (governance subsystem formalized).
+7. **PARKED FOR THE COMMANDER (not built — outside the pass):** week1_start
+   ratification · 11 feed attributions · meta-budget doctrine call (check 16 is
+   OVER — it will WARN) · drill-fixtures disposition · CI reconcile bot + APPLY
+   self-removal (3500 candidates). Full table: docs/AUDIT_2026-09-13.md.
 
-8. **DECLARATION :** "This Patch is a proposal. It has no effect until the Commander
-   applies it. — RADIATION Architect session (S004), 2026-09-13"
+8. **VERSION BUMP :** MINOR → v2.1.0.
+
+9. **DECLARATION :** "This Patch is a proposal. It has no effect until the Commander
+   applies it. — S005 (the Architect), filed under II.9 in the mandate's first conversation"
 
 ## VERIFICATION
-- Registry: 10/10 directives resolve (check 25 ✅ on the build tree).
-- status.py: first-run output correct on the live-stacked tree (version, validator,
-  feed freshness, TODAY deadlines, pending count, heartbeat).
-- Stacked acceptance on a clean clone: live → 3200 → 3300 = **0 FAIL** (see APPLY).
-- Expected after apply: **30 checks · 28 pass · 2 warn · 0 FAIL.**
+- Build tree: **31 checks · 30 pass · 1 warn · 0 FAIL** (the 1 = check 16, parked).
+- Stacked acceptance on a clean clone (live → 3400): see APPLY output — same verdict.
+- ics_normalize self-test 22/22 · verify_apply self-test 6/6 · registry 11/11 resolve.

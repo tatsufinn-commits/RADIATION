@@ -87,8 +87,9 @@ meta-budget WARNs stay honestly lit until then. Zero build items behind them.
 | **3200** | ✅ DELIVERED — @SELFDIRECTIVES (Commander-proposed; UNIVERSAL — all modes; ladder + stop-lines) | `verify_apply.py` · check 2.5 non-`.md` fix · actionable FAIL messages · the persona squad was REJECTED (anti-swarm) · this file ships with 3200 | The skip-pattern dies; autonomy is bounded and coded |
 | **3200** | Swarm Dashboard | status.py (planned, not yet built) — one screen: validator verdict · calendar staleness · shrine LOG lag · ledger tail · boot budget · open debts (validator WARNs included) | You, or any fresh AI, know the whole machine's state in one command |
 | **3300** | ✅ DELIVERED — Applied Governance: the Commander's memo applied (spec v2.0, directive registry + check 25, status.py, FAIL remedies) | the swarm self-governs inside a machine-checked envelope |
-| **3400** | Enforcement Sweep (remainder) | `verify_apply.py` · check 2.5 non-`.md` hardening · CI non-blocking apply-report | the skip-pattern dies permanently |
-| **3500+** | reserved | candidates: pending-item attribution UX · plan_term snapshot · depth per need | — |
+| **3400** | ✅ DELIVERED — Enforcement Sweep & Shrine Mandate | `verify_apply.py` + CI non-blocking apply-report · check 2.5 GENERIC (skip-pattern dead) · **AI_RULES II.9** shrine mandate + check 26 · 3200 payload omission healed (ics_normalize) | apply state is auditable; the shrine files itself into law |
+| **3500+** | reserved — candidates from the 3400 audit | pending-item attribution UX · plan_term snapshot · APPLY self-removal (runners die at end of run) · payload-completeness probe (APPLY runs every shipped tool's self-test) · meta-budget rebalance (check 16 is OVER — needs a Commander doctrine call) · drill-fixtures disposition ("no drills" ruling vs nota/export_anki fixtures) | his pick |
+
 
 **Cadence (proposed default):** you apply patch N + clear your queue → I verify the
 live tree from git → I build N+100. One patch in flight at a time. Veto freely.

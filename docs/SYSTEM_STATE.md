@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v2.0.0
+**Last updated:** 2026-09-13 · **Version:** v2.1.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -43,14 +43,14 @@ Utilities, Building Technology, Professional Practice, …) · per-course readin
 graded items: `Brain/courses/INDEX.md`.
 
 ### What can be RUN
-`docs/CAPABILITIES.md` — **12 scripts** (validate · regression · plan_term ·
+`docs/CAPABILITIES.md` — **13 scripts** (validate · regression · plan_term ·
 ingest · anki · grade · decay · ics_normalize · nota · module_scaffold). `docs/SKILLS.md` says how to think; that file says
 what can be executed.
 
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v2.0.0** — applied governance: the Commander's research memo is IN the
+**RADIATION v2.1.0** — enforcement sweep complete: apply state is AUDITABLE (verify_apply.py + CI non-blocking apply-report), the vehicle rule is generic, the shrine mandate (AI_RULES II.9) is law with teeth (check 26), and a 3200 payload omission (the A54 scrubber fix) was caught by regenerating and HEALED. Previously: v2.0.0 — applied governance: the Commander's research memo is IN the
 spec (typed directive records, enforcement map, tiered verification, authority
 hierarchy, trust-separated memory, goal discipline, stop conditions), the registry
 (`cue/standing-directives.json`) is machine-guarded by check 25, and `status.py`
@@ -76,7 +76,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
   1,177.9 MB); one drill set forged and graded; mastery ledger seeded.
 - Six course records in `Brain/courses/` (K-CUR-007…012), the authoritative weekly
   timetable in `SCHEDULE.md`, term plan in `Brain/short_term/plan/`.
-- Machine Enforcement Layer live: `scripts/validate.py` (30 checks) +
+- Machine Enforcement Layer live: `scripts/validate.py` (31 checks) +
   `knowledge_regression.py` (9 locked · 5 pending) + CI on every push (now incl. the
   external-link census, `RADIATION_ONLINE=1`).
 - Registers live: TASK · PATCH · MASTERY · MISTAKE · DECAY · CONFLICT · KNOWLEDGE (45).

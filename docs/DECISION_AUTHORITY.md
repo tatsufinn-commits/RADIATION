@@ -113,3 +113,15 @@ first — EVIDENCE: `docs/SKILLS.md` binds all nine skills to those folders;
 RECOMMENDED ALTERNATIVE: convert empty folders to pointer READMEs (reversible).
 CONSEQUENCE OF OVERRIDING: execute exactly as ordered on confirmation, log the
 challenge + outcome in the episode and inference-log. Then obey.
+
+---
+**2026-09-13 — THE RATIFICATION PASS (granted; scope recorded by the grant-holder).**
+The Commander, unavailable (deadline work), granted: *"I will grant you the
+'ratification pass' to build whatever's preplanned as per the roadmap."* Recorded
+reading: it pre-ratifies patch builds executing **existing preplanned ROADMAP rows**
+(here: 3400 Enforcement Sweep) plus the explicitly ordered shrine mandate (II.9).
+It does **NOT** cover: data ratification (`week1_start`, the 11 feed attributions),
+new scope (3500+ candidates), canon beyond the ordered law, or any 🔴 deletion.
+Power that defines its own limits is the failure mode the 3300 memo exists to
+prevent — so the limits are written here, by the holder, no wider than granted.
+

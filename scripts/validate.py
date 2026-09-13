@@ -138,26 +138,43 @@ CV_LOCATION_PATTERNS = [
 CV_PATTERNS = CV_IDENT_PATTERNS + CV_LOCATION_PATTERNS
 def c25():
     bad = []
+    # 3400 HARDENING — the skip-pattern dies permanently. The vehicle rule used to be
+    # an ENUMERATION of known offenders inside Brain/courses/ only; a fresh syllabus
+    # PDF dropped anywhere else in Brain/ sailed through. The rule is now GENERIC over
+    # all of Brain/: records are .md; the sanctioned non-.md set is closed and small.
+    brain = os.path.join(ROOT, "Brain")
+    def sanctioned(p):
+        if p in CV_ALLOW_DATA:            return True   # amendment A2: the committed LMS feed
+        if p.startswith("Brain/short_term/plan/") and p.endswith(".json"):
+            return True                                  # the deadline register the planner eats
+        if p.startswith("Brain/short_term/drills/"):
+            return True                                  # drill fixtures (nota/export_anki own these)
+        return False
+    if os.path.isdir(brain):
+        for dp, dn, fn in os.walk(brain):
+            for f in sorted(fn):
+                p = os.path.relpath(os.path.join(dp, f), ROOT)
+                if f.endswith(".md") or f == ".gitkeep" or sanctioned(p):
+                    continue
+                bad.append(f"{p} (unsanctioned vehicle)")
+    # Identifier scan: Brain/courses/ text records. Amendment A1 (patch 2600): the
+    # Commander's own timetable is the one record where location identifiers are
+    # permitted — a room may appear there, a name may not.
     root = os.path.join(ROOT, "Brain/courses")
     if os.path.isdir(root):
         for dp, dn, fn in os.walk(root):
             for f in sorted(fn):
                 p = os.path.relpath(os.path.join(dp, f), ROOT)
-                if not f.endswith(".md"):
-                    if p in CV_ALLOW_DATA:
-                        continue          # amendment A2: the committed LMS feed
-                    bad.append(f"{p} (non-markdown vehicle)"); continue
+                if not (f.endswith(".md") or f.endswith(".txt")): continue
+                if p in CV_ALLOW_DATA: continue
                 t = read(p)
-                # Amendment A1 (patch 2600): the Commander's own timetable is the one
-                # record where location identifiers are permitted. It still carries the
-                # full identifier rule set — a room may appear there, a name may not.
                 waived = p in CV_ALLOW_LOCATION
                 for w in (CV_DENY_OTHER if waived else CV_DENY):
                     if cv_denied(t, w): bad.append(f"{p} (published token: {w})")
                 for pat, what in (CV_IDENT_PATTERNS if waived else CV_PATTERNS):
                     m = re.search(pat, t)
                     if m: bad.append(f"{p} ({what}: {m.group(0)[:24]})")
-    rec(2.5, "FAIL", not bad, "Brain/courses/ records-only + no identifiers" + ("" if not bad else ": " + "; ".join(bad[:6])) + REMEDY_VEHICLES if bad else "Brain/courses/ records-only + no identifiers — clean")
+    rec(2.5, "FAIL", not bad, "Brain/ records-only + no identifiers (generic vehicle rule, 3400)" + ("" if not bad else ": " + "; ".join(bad[:6])) + REMEDY_VEHICLES if bad else "Brain/ records-only + no identifiers — clean (generic vehicle rule, 3400)")
 
 # ---- check 3: forbidden transport artifacts (II.8.2) -----------------------
 def c3():
@@ -694,7 +711,34 @@ def c25reg():
     rec(25, "FAIL", not bad, f"standing-directive registry ({len(ids)} directives)" +
         ("" if not bad else ": " + "; ".join(bad[:6])))
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c25reg,c21): fn()
+# ---- check 26: shrine freshness (AI_RULES II.9 — THE SHRINE MANDATE) --------
+def c26shrine():
+    import subprocess
+    lag = []
+    def dmax(txt):
+        ds = re.findall(r"\d{4}-\d{2}-\d{2}", txt)
+        return max(ds) if ds else None
+    d_log = dmax(read("docs/shrine/LOG.md"))
+    d_led = dmax(read("Brain/frontal_lobe/task_ledger.md"))
+    head = None
+    try:
+        head = subprocess.run(["git","-C",ROOT,"log","-1","--format=%cs"],
+                              capture_output=True, text=True).stdout.strip() or None
+    except Exception:
+        pass
+    if d_log is None:
+        lag.append("LOG.md has no dated heartbeat")
+    else:
+        if d_led and d_led > d_log:
+            lag.append(f"ledger activity {d_led} postdates last heartbeat {d_log}")
+        if head and head > d_log:
+            lag.append(f"HEAD commit {head} postdates last heartbeat {d_log}")
+    ok = not lag
+    rec(26, "WARN", ok,
+        "shrine heartbeat current — II.9 MANDATE: every conversation files one" if ok
+        else "shrine lags: " + "; ".join(lag) + " · REMEDY: append today's heartbeat row to docs/shrine/LOG.md (II.9)")
+
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c26shrine,c25reg,c21): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

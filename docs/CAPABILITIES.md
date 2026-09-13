@@ -179,11 +179,24 @@ marked), the `feed_pending` attribution count, and the shrine heartbeat's curren
 against the ledger. Runs the validator in a subprocess; modifies nothing. The first
 command any fresh AI (or the Commander) runs instead of asking "what's next."
 **Also in 3300:** `cue/standing-directives.json` — the typed directive registry
-(id/class/authority/scope/rule/enforcement/provenance per directive; 10 standing
+(id/class/authority/scope/rule/enforcement/provenance per directive; 11 standing
 directives incl. the autonomy ladder and the seven stop-lines). **Check 25** fails
 the tree if the registry corrupts, loses its enforcement mapping, or references
 mechanisms that don't exist — the research memo's "prose never enforces" made
 machine-checkable.
+
+### 13. `verify_apply.py` — the post-apply auditor (read-only)
+```
+python3 scripts/verify_apply.py            # report, always exit 0
+python3 scripts/verify_apply.py --strict   # exit 1 on FAIL-class findings
+python3 scripts/verify_apply.py --self-test
+```
+**Answers the question the 3200 incident taught us to ask:** "did the last apply
+actually land?" Version drift (README vs CHANGELOG), validator verdict, unsanctioned
+vehicles still in Brain/, committed transport (runners/PATCH_NOTES), shrine-lag
+(AI_RULES II.9), pending ratifications — one screen. CI runs it on every push,
+NON-BLOCKING, into the job summary: the tree reports its own apply state; a push can
+never be blocked by it, and a half-finished apply can never hide again.
 
 ## WHAT IS NOT HERE YET
 

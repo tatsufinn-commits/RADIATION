@@ -133,3 +133,19 @@ task ledger, and no testament may lose its debts.
 
 ---
 *"No one inherits the swarm. Everyone draws from it."*
+
+---
+
+## THE MANDATE (AI_RULES II.9 — Commander order, 2026-09-13)
+
+Filing here is no longer a courtesy. It is **mandatory per conversation**:
+
+| Conversation type | LOG heartbeat | Member testament |
+|---|---|---|
+| Any touch of the repo | **REQUIRED** | — |
+| Build / break / decision | **REQUIRED** | **REQUIRED** (deposit or amend) |
+| Routine apply only | **REQUIRED** | optional |
+
+The validator (check 26), `status.py`, and the CI apply-report all watch the gap
+between the last heartbeat and the last real activity. **A session that ships work
+without a heartbeat has not finished its work.**

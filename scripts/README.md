@@ -11,13 +11,13 @@ python3 scripts/validate.py && python3 scripts/knowledge_regression.py
 - CI (`.github/workflows/validate.yml`) runs both on every push and PR.
 - Exemptions for historical files live in `docs/ARCHIVE_NOTES.md` — additions there are 🟢 but must be justified in the patch notes.
 
-## The other ten scripts
+## The other eleven scripts
 `validate.py` and `knowledge_regression.py` are the closure pair. Five more tools exist
 for session work — **the full registry, with exact invocations, inputs and gotchas, is
 `docs/CAPABILITIES.md`.** Read it before doing by hand what a script already does:
 `plan_term.py` · `ingest_collection.py` · `export_anki.py` · `grade_exam.py` ·
 `decay_compute.py` · `ics_normalize.py` · `nota.py` · `module_scaffold.py` ·
-`deadline_feed.py` · `status.py`.
+`deadline_feed.py` · `status.py` · `verify_apply.py`.
 
 **Check 21 enforces this directory against that registry:** every `.py` here must be
 named in `docs/CAPABILITIES.md`, and the check count stated above must be the true one.

@@ -22,3 +22,15 @@ jobs:
       - name: External link census (check 13, online)
         env: {RADIATION_ONLINE: "1"}
         run: python3 scripts/validate.py
+
+  apply-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Apply report (non-blocking — files the state, never gates a push)
+        continue-on-error: true
+        run: |
+          python3 scripts/verify_apply.py --self-test
+          python3 scripts/verify_apply.py --strict | tee "${GITHUB_STEP_SUMMARY}"
