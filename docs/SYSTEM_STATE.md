@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v1.7.0
+**Last updated:** 2026-09-13 · **Version:** v1.8.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -43,14 +43,17 @@ Utilities, Building Technology, Professional Practice, …) · per-course readin
 graded items: `Brain/courses/INDEX.md`.
 
 ### What can be RUN
-`docs/CAPABILITIES.md` — **8 scripts** (validate · regression · plan_term ·
-ingest · anki · grade · decay · ics_normalize). `docs/SKILLS.md` says how to think; that file says
+`docs/CAPABILITIES.md` — **10 scripts** (validate · regression · plan_term ·
+ingest · anki · grade · decay · ics_normalize · nota · module_scaffold). `docs/SKILLS.md` says how to think; that file says
 what can be executed.
 
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v1.7.0** — swarm memory and signal: the shrine (`docs/shrine/`, recycled
+**RADIATION v1.8.0** — the emission layer: the Core and the modules are now
+TOOL-GUARDED (`nota.py`, `module_scaffold.py` — born-valid output, shape enforced),
+the regression net holds 9 locked assertions, and check 13's link census runs in CI.
+Previously: v1.7.0 — swarm memory and signal: the shrine (`docs/shrine/`, recycled
 from Marciale-OS as a COMMONS — the Commander struck inheritance), the session
 loading dock (`outputs/`), the calendar's daily cron
 (built, armed only after the feed URL is rotated), and a committed calendar mirror.
@@ -64,13 +67,14 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 - Six course records in `Brain/courses/` (K-CUR-007…012), the authoritative weekly
   timetable in `SCHEDULE.md`, term plan in `Brain/short_term/plan/`.
 - Machine Enforcement Layer live: `scripts/validate.py` (29 checks) +
-  `knowledge_regression.py` (4 locked · 5 pending) + CI on every push.
+  `knowledge_regression.py` (9 locked · 5 pending) + CI on every push (now incl. the
+  external-link census, `RADIATION_ONLINE=1`).
 - Registers live: TASK · PATCH · MASTERY · MISTAKE · DECAY · CONFLICT · KNOWLEDGE (45).
 - The Core (09-nota/) holds **no admitted cards yet** — genuine and still true.
 - **Three open items:** ① the LMS feed URL committed in `4a98e59` is **live — rotate it
   at source** (no patch can revoke it); ② five vehicles still tracked under
   `Brain/courses/` (extraction verified complete — records already claim them deleted);
-  ③ knowledge assertions: only 4 of 9 locked, blocked on raw primaries not yet in repo.
+  ③ knowledge assertions: 9 of 14 locked (the BU/BT render-verified values are now pinned); 5 still pending on the PD 1096 IRR full-text.
   (②'s vehicles are re-homed by patch 2900's APPLY — the records become true at apply.)
 
 ## 🩺 COMPONENT HEALTH CHECKLIST
@@ -91,7 +95,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 | **Capability registry** | ✅ **POPULATED** — `docs/CAPABILITIES.md` (8 tools) |
 | Skill jurisdictions 01–09 | ✅ STRUCTURAL / 🕳️ artifacts await sessions |
 | cue/ lexicon + inference log | 🌱 SEEDED — grows via II.5 |
-| The Core (09-nota/ cards) | 🕳️ EMPTY — first @Radiation session seeds it |
+| The Core (09-nota/) | 🧰 TOOLING LIVE (`nota.py`) — shape guarded; no admitted card yet |
 | **Shrine** (`docs/shrine/`) — the swarm's shared judgment | ✅ **SEEDED** — charter + living testament + heartbeat LOG (file-at-delivery doctrine, check 24) |
 | **Session outputs** (`outputs/`) | ✅ **CONTRACT LIVE** — check 23 enforces it |
 | **Calendar mirror** (`Brain/courses/CALENDAR.md`) | ⏳ BUILT, UNARMED — rotate, then arm |

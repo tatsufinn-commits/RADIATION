@@ -103,6 +103,66 @@
    "decay_class": "stable-domain",
    "locked": true,
    "pending_reason": null
+  },
+  {
+   "id": "KR-STD-001",
+   "claim": "PEC (Philippine Electrical Code) held copy: 856 pages, [D] primary law, K-STD-004 — 2009 edition",
+   "value_pattern": "\\*\\*856\\*\\*",
+   "assert_in": "Brain/external_sources/building-utilities.md",
+   "appears_in": [],
+   "source_kid": "K-STD-004",
+   "decay_class": "stable-domain",
+   "locked": true,
+   "pending_reason": null,
+   "lock_note": "Locked 2026-09-13 (S004). The edition/table values were page-render settled during K-CUR-005 after the text-order extraction was found silently wrong (ledger 2400); 856 pp + [D] primary status live in the BU digest manifest. · appears_in emptied: the script ENFORCES the pattern in every appears_in path, and the registry cites K-STD-004 by id, not by page count (first lock attempt failed exactly there — the net works)."
+  },
+  {
+   "id": "KR-BK-001",
+   "claim": "Barry, The Construction of Buildings 1 — Seventh edition (cover + title page rendered and read)",
+   "value_pattern": "\\*\\*Seventh edition\\*\\*",
+   "assert_in": "Brain/external_sources/building-technology.md",
+   "appears_in": [],
+   "source_kid": "K-BK-007",
+   "decay_class": "stable-domain",
+   "locked": true,
+   "pending_reason": null,
+   "lock_note": "Locked 2026-09-13 (S004). Render-verified during K-CUR-006 (edition table, BT digest §editions). Volume 5 stays UNLOCKED by design: the digest says render inconclusive — do not cite an edition."
+  },
+  {
+   "id": "KR-BK-002",
+   "claim": "Barry, The Construction of Buildings 2 — Fifth edition (cover rendered and read)",
+   "value_pattern": "\\*\\*Fifth edition\\*\\*",
+   "assert_in": "Brain/external_sources/building-technology.md",
+   "appears_in": [],
+   "source_kid": "K-BK-007",
+   "decay_class": "stable-domain",
+   "locked": true,
+   "pending_reason": null,
+   "lock_note": "Locked 2026-09-13 (S004). Render-verified, K-CUR-006."
+  },
+  {
+   "id": "KR-BK-003",
+   "claim": "Barry, The Construction of Buildings 3 (Single Storey Frames) — Fourth edition (cover rendered and read)",
+   "value_pattern": "\\*\\*Fourth edition\\*\\*",
+   "assert_in": "Brain/external_sources/building-technology.md",
+   "appears_in": [],
+   "source_kid": "K-BK-007",
+   "decay_class": "stable-domain",
+   "locked": true,
+   "pending_reason": null,
+   "lock_note": "Locked 2026-09-13 (S004). Render-verified, K-CUR-006."
+  },
+  {
+   "id": "KR-CUR-001",
+   "claim": "K-CUR-006 census: 45 PDFs · 8,797 pages · 2,038 image-only (23.2 %) · 6 thin",
+   "value_pattern": "8,797 pages[^\\n]*2,038 image-only \\(23\\.2 %\\)",
+   "assert_in": "Brain/external_sources/building-technology.md",
+   "appears_in": [],
+   "source_kid": "K-CUR-006",
+   "decay_class": "stable-domain",
+   "locked": true,
+   "pending_reason": null,
+   "lock_note": "Locked 2026-09-13 (S004). The collection census was measured, not assumed (ledger 2500); pins the text-blindness number the recovery ladder depends on."
   }
  ]
 }

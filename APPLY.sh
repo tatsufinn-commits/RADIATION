@@ -1,64 +1,63 @@
 #!/usr/bin/env bash
 # ─────────────────────────────────────────────────────────────────────────────
-# APPLY.sh — RADIATION patch 2900 "Swarm Memory & Signal"
-# shrine · outputs/ · the calendar's cron · checks 22/23 · cue-layer refresh
+# APPLY.sh — RADIATION patch 3000 "Core Emission & The Net"
+# nota.py · module_scaffold.py · 9 locked assertions · check 13 online · check 18 hardening
+# DEPENDENCY: requires patch 2900 (v1.7.0) ALREADY APPLIED — this patch is built on it.
 # Apply from the repository ROOT:   bash APPLY.sh
-# Then: delete APPLY.sh + APPLY.ps1, commit, push. Your push is legal effect.
+# Then: delete APPLY.sh + APPLY.ps1, commit, push.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 say()  { printf '%s\n' "$*"; }
 die()  { printf '✗ %s\n' "$*" >&2; exit 1; }
 
 [ -f README.md ] && grep -q "RADIATION" README.md 2>/dev/null || die "run this from the RADIATION repository root"
-[ -f docs/AI_RULES.md ] || die "docs/AI_RULES.md not found — wrong directory?"
 
-say "☢️  RADIATION patch 2900 — Swarm Memory & Signal"
+# ── 0. DEPENDENCY GATE ──────────────────────────────────────────────────────
+# Gates on a file 2900 delivers and this zip does NOT carry (extract-at-root would
+# overwrite the version line before any version check could read it — caught in
+# stacked acceptance).
+if [ ! -f docs/shrine/CHARTER.md ] || ! grep -qi "commons" docs/shrine/CHARTER.md 2>/dev/null; then
+  die "patch 2900 (Swarm-Memory) is NOT applied yet — apply RADIATION_PATCH_2026-09-13_2900_Swarm-Memory.zip FIRST. This patch is built on top of it."
+fi
+say "☢️  RADIATION patch 3000 — Core Emission & The Net"
+say "     dependency gate: v1.7.0 present ✓"
 say ""
 
 # ── 1. payload ──────────────────────────────────────────────────────────────
 say "1/6  checking payload…"
 for f in \
-  "docs/shrine/CHARTER.md" \
-  "docs/shrine/members/ARCHITECT_TESTAMENT_2026-09-13.md" \
-  "docs/shrine/templates/TESTAMENT_TEMPLATE.md" \
-  "docs/shrine/LOG.md" \
-  "outputs/README.md" \
-  "outputs/2026-09-13_six-point-review.md" \
-  ".github/workflows/ical_fetch.yml" \
-  "scripts/ics_normalize.py" \
+  "scripts/nota.py" \
+  "scripts/module_scaffold.py" \
   "scripts/validate.py" \
-  "Brain/courses/CALENDAR.md" \
-  "cue/commander-readiness.md" \
+  "tests/knowledge_assertions.json" \
+  "docs/CAPABILITIES.md" \
+  "scripts/README.md" \
+  ".github/workflows/validate.yml" \
+  "docs/SYSTEM_STATE.md" \
+  "README.md" \
+  "CHANGELOG.md" \
   "cue/autopilot-cues.md" \
+  "cue/commander-readiness.md" \
   "docs/PROMPT_PLAYBOOK.md" \
   "docs/CUE_SYSTEM.md" \
   "docs/COMMANDER_QUICKREF.md" \
   "docs/SKILLS.md" \
   "Brain/BRAIN_INDEX.md" \
-  "BOOT_SEQUENCE.md" \
-  "docs/SYSTEM_STATE.md" \
-  "docs/CAPABILITIES.md" \
-  "scripts/README.md" \
-  ".github/workflows/validate.yml" \
-  "README.md" \
-  "CHANGELOG.md" \
   "Brain/frontal_lobe/testament.md" \
-  "Brain/frontal_lobe/task_ledger.md" \
-  "Brain/temporal_lobe/INDEX.md" \
-  "Brain/temporal_lobe/S004_2026-09-13_architect-builds/SESSION.md" \
-  "Brain/temporal_lobe/S004_2026-09-13_architect-builds/deliverables.md" \
-  "Brain/temporal_lobe/S004_2026-09-13_architect-builds/learnings.md"
+  "docs/shrine/CHARTER.md"
 do
   [ -f "$f" ] || die "payload missing: $f"
 done
-say "     ✓ 30 files present"
+say "     ✓ 19 files present"
 
-# ── 2. the parser must work before anything else is touched ────────────────
-say "2/6  self-testing the ICS normalizer…"
-python3 scripts/ics_normalize.py --self-test | tail -1 || die "self-test failed — STOPPING, nothing else changed"
+# ── 2. tools must prove themselves before anything is touched ──────────────
+say "2/6  self-testing the new tools…"
+python3 scripts/nota.py --self-test | tail -1        || die "nota self-test failed — STOPPING"
+python3 scripts/module_scaffold.py --self-test | tail -1 || die "module_scaffold self-test failed — STOPPING"
+python3 scripts/ics_normalize.py --self-test | tail -1 || die "ICS self-test failed — STOPPING"
 
-# ── 3. reconciliation your last three pushes skipped (idempotent) ──────────
-say "3/6  reconciliation (the records claim these were deleted — making it true)…"
+# ── 3. idempotent reconciliation (from 2900; runs only if steps were skipped) ──
+say "3/6  reconciliation (idempotent — skipped steps from earlier applies, if any)…"
 moved=0
 for f in \
   "Brain/courses/SCHEDULE.csv" \
@@ -74,47 +73,41 @@ do
     d="_local_backup/$(dirname "$f")"; mkdir -p "$d"; mv "$f" "$d/"; moved=$((moved+1))
   fi
 done
-[ "$moved" -gt 0 ] && say "     ✓ $moved file(s) → _local_backup/ (recoverable; not destroyed)" || say "     – already reconciled"
+[ "$moved" -gt 0 ] && say "     ✓ $moved leftover file(s) → _local_backup/" || say "     – already reconciled"
 find Brain/courses -mindepth 1 -type d -empty -delete 2>/dev/null || true
+rm -f PATCH_NOTES.md
 if git ls-files --error-unmatch validation_report.json >/dev/null 2>&1; then
   git rm --cached --quiet validation_report.json; say "     ✓ validation_report.json untracked"
-else say "     – validation_report.json not tracked"; fi
-rm -f PATCH_NOTES.md && say "     ✓ PATCH_NOTES.md removed (carrier)"
+fi
 
 # ── 4. verify every claim the patch makes ──────────────────────────────────
 say "4/6  verifying…"
-grep -qi "shared judgment of the swarm" docs/shrine/CHARTER.md            || die "shrine charter missing"
-grep -q "OPEN DEBTS" docs/shrine/members/ARCHITECT_TESTAMENT_2026-09-13.md || die "testament lacks its debts — a testament without debts is propaganda"
-grep -q "STANDING ORDERS" cue/autopilot-cues.md                   || die "standing orders block missing"
-grep -q "MORTALITY DOCTRINE" docs/shrine/LOG.md                   || die "heartbeat LOG missing"
-grep -q "FIVE DIMENSIONS" cue/commander-readiness.md             || die "readiness interpreter broken"
-grep -q "6.1 — Drill Me" docs/PROMPT_PLAYBOOK.md                 || die "playbook v1.1 broken"
-grep -q "commons, not a lineage" Brain/frontal_lobe/testament.md || die "frontal testament not de-lineaged"
-grep -q "def c22" scripts/validate.py                             || die "check 22 not registered"
-grep -q "def c23" scripts/validate.py                             || die "check 23 not registered"
-grep -q '\-\-public' scripts/ics_normalize.py                     || die "--public not implemented"
-grep -q "RADIATION_ICS_URL" .github/workflows/ical_fetch.yml || die "cron workflow broken"
-grep -q "v1.7.0" README.md                                        || die "version not v1.7.0"
-python3 -c "import ast;ast.parse(open('scripts/validate.py').read());ast.parse(open('scripts/ics_normalize.py').read())" || die "syntax error"
-say "     ✓ shrine · testament · standing orders · checks 22/23 · --public · cron · v1.7.0"
+grep -q "never admits" scripts/nota.py                              || die "nota.py contract broken"
+grep -q "index_state" scripts/module_scaffold.py                    || die "module_scaffold broken"
+grep -q "RADIATION_ONLINE" scripts/validate.py                      || die "check 13 online gate missing"
+grep -q "## DRILL\\b" scripts/validate.py || grep -q 'DRILL\\b' scripts/validate.py || die "check 18 hardening missing"
+grep -q "KR-CUR-001" tests/knowledge_assertions.json                || die "new locked assertions missing"
+grep -q "module_scaffold" docs/CAPABILITIES.md                      || die "registry not updated (check 21 will fail)"
+grep -q "nota.py" docs/CAPABILITIES.md                              || die "registry not updated (check 21 will fail)"
+grep -q "v1.8.0" README.md                                          || die "version not v1.8.0"
+python3 -c "import ast;[ast.parse(open(f).read()) for f in ('scripts/nota.py','scripts/module_scaffold.py','scripts/validate.py')]" || die "syntax error"
+say "     ✓ tools · online gate · check-18 hardening · 9 locked · registry · v1.8.0"
 
 # ── 5. run everything ──────────────────────────────────────────────────────
 say "5/6  running the full check suite…"
 python3 scripts/knowledge_regression.py | tail -1
+python3 scripts/nota.py --check | tail -1
 python3 scripts/validate.py 2>&1 | tail -3
 
 # ── 6. close ───────────────────────────────────────────────────────────────
 say "6/6  done."
 say ""
 say "════════════════════════════════════════════════════════════════════"
-say "Expected: 29 checks · 27 pass · 2 warn · 0 FAIL — the first clean tree."
+say "Expected: 29 checks · 27 pass · 2 warn · 0 FAIL · 9 locked / 5 pending."
+say "Offline here; CI now also runs the link census (RADIATION_ONLINE=1)."
 say ""
 say "Now: delete APPLY.sh and APPLY.ps1, commit, push."
 say ""
-say "⚠️  STILL OWED, and only you can do it: ROTATE THE FEED URL exposed in"
-say "    4a98e59 (history keeps it — this is public). Then, in order:"
-say "    1. repo Settings → Secrets → Actions → new secret:"
-say "         RADIATION_ICS_URL = <the NEW feed URL>"
-say "    2. trigger .github/workflows/calendar-daily once (or wait for 01:30 Manila)"
-say "    3. CALENDAR.md becomes real, and the timer takes over."
+say "⚠️  STILL OWED: rotate the feed URL exposed in 4a98e59, then set the"
+say "    RADIATION_ICS_URL secret — the calendar cron is built and waiting."
 say "════════════════════════════════════════════════════════════════════"

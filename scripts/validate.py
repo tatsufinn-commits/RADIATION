@@ -2,7 +2,9 @@
 """RADIATION structural validator — P-01 Machine Enforcement Layer.
 Checks FORM and RESOLVABILITY only. Never judges truth. Never modifies files.
 Exit 0 = no FAIL-class findings. Exit 1 = at least one FAIL.
-Stdlib only. No network (check 13 skipped offline by design).
+Stdlib only. Offline BY DEFAULT. The ONLY network use is check 13's external-link
+census, and it runs solely when RADIATION_ONLINE=1 (set it in CI, never in a
+session — sessions stay offline by law).
 """
 import hashlib, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -275,7 +277,44 @@ def c12():
     rec(12, "FAIL", not bad, "filename hygiene" + ("" if not bad else ": " + "; ".join(bad[:6])))
 # ---- check 13: external URLs (offline skip) ------------------------------------
 def c13():
-    rec(13, "WARN", True, "external URL check SKIPPED (offline by design; run manually if needed)")
+    # v2 (patch 3000): the check existed as a permanent SKIP — a guard that never
+    # guarded. Online mode is opt-in by environment (RADIATION_ONLINE=1): sessions
+    # stay offline by law; CI runs it with the network. WARN-class: external link
+    # rot is real but external — it must inform closure, never block it.
+    if os.environ.get("RADIATION_ONLINE") != "1":
+        rec(13, "WARN", True, "external URL check SKIPPED (offline by design; CI runs it with RADIATION_ONLINE=1)")
+        return
+    urls = set()
+    for f in md_files():
+        if IS_EX(f): continue          # archive-exempt files cite known-historical sources
+        for m in re.finditer(r"https?://[^\s\)\>\]`]+", read(f)):
+            u = m.group(0).rstrip(".,;")
+            if "<" in u or ">" in u: continue   # <FILE_ID>-style placeholders are documentation, not links
+            urls.add(u)
+    dead, checked = [], 0
+    import urllib.request, urllib.error
+    for u in sorted(urls)[:40]:        # census, not a crawl
+        checked += 1
+        try:
+            req = urllib.request.Request(u, method="HEAD",
+                headers={"User-Agent": "Mozilla/5.0 (RADIATION link census)"})
+            with urllib.request.urlopen(req, timeout=6) as r:
+                if r.status >= 400: dead.append(f"{u} [{r.status}]")
+        except urllib.error.HTTPError as e:
+            if e.code >= 400:
+                try:  # some hosts 405 the HEAD — retry with GET before calling it dead
+                    req = urllib.request.Request(u,
+                        headers={"User-Agent": "Mozilla/5.0 (RADIATION link census)"})
+                    with urllib.request.urlopen(req, timeout=6) as r:
+                        if r.status >= 400: dead.append(f"{u} [{r.status}]")
+                except Exception as e2:
+                    dead.append(f"{u} [{getattr(e2,'code','err')}]")
+        except Exception as e:
+            dead.append(f"{u} [err]")
+    cap = f" (capped at 40 of {len(urls)})" if len(urls) > 40 else ""
+    rec(13, "WARN", not dead,
+        f"external links: {checked} checked{cap} — " +
+        ("all reachable" if not dead else "DEAD/UNREACHABLE: " + "; ".join(dead[:5])))
 # ---- check 14: session-local paths in artifacts --------------------------------
 def c14():
     bad = []
@@ -384,7 +423,10 @@ def c18():
         if lvl >= 4 and (traps < 8 or worked < 2): bad.append(f"{f}: L{lvl} needs >=8 traps & >=2 worked (has {traps}/{worked})")
         if lvl == 5:
             drill = len(re.findall(r"^\s*Q\d+", t, re.M))
-            if "DRILL" not in t or drill < 10: bad.append(f"{f}: L5 claims but drill absent/short ({drill} items)")
+            # v2 (patch 3000): bare "DRILL" matched any substring ("## DRILLS" passed
+            # with zero drill items). A section HEADING is now required, word-bounded.
+            if not re.search(r"^##\s+DRILL\b", t, re.M) or drill < 10:
+                bad.append(f"{f}: L5 claims but drill absent/short ({drill} items)")
             if "CASE STUD" not in t.upper(): bad.append(f"{f}: L5 without case studies")
     mdir = os.path.join(ROOT, "Brain/long_term/modules")
     if os.path.isdir(mdir):

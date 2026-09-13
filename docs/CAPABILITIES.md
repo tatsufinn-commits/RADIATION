@@ -132,6 +132,28 @@ variable `RADIATION_ICS_URL` — never from a file, never committed, never print
 names, room codes, sections, emails and URLs before it reaches any output.
 `--write` emits `Brain/short_term/plan/TERM1_CALENDAR.local.{md,json}` (git-ignored).
 
+### 9. `nota.py` — Core card tool (shape guard, never an admission authority)
+```
+python3 scripts/nota.py --new NOTA-001 --topic "..." --dossier <long_term path> --worksheets <ids>
+python3 scripts/nota.py --check        # every card: <=300 words · LINEAGE · SHIELD · decay · index parity
+python3 scripts/nota.py --self-test
+```
+**Answers:** can this Core card stand in the cleanest room? Cards are scaffolded to
+the proc_nota-distillation shape; `--check` enforces the <=300-word limit, the
+mandatory lineage block, the Shield stamp, the decay tag, and CORE_INDEX parity for
+admitted cards. **It never admits** — the six-box pass is a session's act.
+
+### 10. `module_scaffold.py` — born-valid study modules (check-18 mirror)
+```
+python3 scripts/module_scaffold.py --new --level 3 --course AR153P --topic "..." --kid K-MOD-XXX
+python3 scripts/module_scaffold.py --list     # inventory + parity + per-module health
+python3 scripts/module_scaffold.py --self-test
+```
+**Answers:** does this module pass validator check 18 from birth? The scaffold
+carries every required section/quotas for its level and is validated by a mirrored
+rule-set before it is written. `--list` reports index parity honestly, including
+"NO INDEX FILE" (check 18 counts a missing index as a mismatch).
+
 ## WHAT IS NOT HERE YET
 
 Stated plainly so a session does not assume capability it lacks:
@@ -142,7 +164,9 @@ Stated plainly so a session does not assume capability it lacks:
   until the secret exists — and the secret comes ONLY after the old URL is rotated
   (the `4a98e59` exposure). Validator check 22 guards the mirror: URL inside it = FAIL,
   older than 7 days = WARN.
-- **No note-card generator** for the Core (09-nota/) — cards are authored by sessions.
+- **No admitted Core cards.** The tooling is live (nota.py scaffolds and checks
+  shape), but admission needs Shield-stamped claims run through the six-box pass —
+  a session act that has not happened yet.
 - **CI runs 2 of the 7 scripts** (`validate.py` + `knowledge_regression.py`). The other
   five are session-invoked by hand. That is deliberate: they need arguments a runner
   cannot guess.
