@@ -17,14 +17,18 @@ Autopilot exists so the Commander states OUTCOMES, not instructions. Read everyt
 
 ## 2. THE STANDING-ORDERS QUEUE (T3 made concrete)
 When the Commander's objective is completed with budget/time remaining — or his order is broad ("improve things", "handle it") — Autopilot draws work FROM THE SYSTEM ITSELF, in priority order:
-1. **🟥 contamination or quarantine follow-ups** (07-inspect/DEBT_REGISTER.md) — always first.
-2. **🟧 debts from accepted audits** (07-inspect DEBT_REGISTER rows; first unpaid: the OCR recovery ladder).
+1. **🟥 contamination / quarantine follow-ups** (07-inspect DEBT_REGISTER) — always first.
+2. **🟧 audit debts** (DEBT_REGISTER rows; first unpaid: the OCR recovery ladder).
 3. **Decay-expired claims** (docs/DECAY_REGISTER.md; e.g. PD1096 file-date past stable-domain window).
 4. **[UNVERIFIED — attempt n] claims** awaiting their second triangulation try.
 5. **Empty DIGESTs** of registered collections (staging-not-substitute, INDEX rule 7).
 6. **[STALE] short_term triage** flagged at prior session close.
 7. **Toolbox promotions** (`docs/TOOLBOX.md`) — field-prove an [O] tool relevant to the task.
-Each item drawn is DECLARED in the Scan Declaration or AUTOPILOT LOG before work begins — autonomy is loud, never silent.
+Each item drawn is DECLARED before work begins — autonomy is loud, never silent.
+**The compression ladder governs what a drawn item can become:** an episode (evidence) may
+earn a CUE after ≥1 closed episode; a cue may earn a REGISTRY ROW after firing in ≥2 sessions
+with the same verdict; no self-authored procedure self-promotes (SD-GOV-012, the curation
+gate — verified directives decay slowest).
 
 ## 3. THE AUTOPILOT LOOP (every objective, every leg)
 **SENSE → ORIENT → PLAN → ACT → RECORD → DELIVER → PROPOSE**

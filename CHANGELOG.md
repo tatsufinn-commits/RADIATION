@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.3.0 — 2026-09-13 — The Curation Gate (🟠, Commander-ordered build)
+- **`proc_self-directive.md` → v1.1** — the Commander-ordered research (10 sources) applied to the self-directive scaffold: **default-deny** (an unclassifiable action = 🔴) + the classifier triad (irreversible? outside scope? destructive?) · **THE CURATION GATE** (no self-authored procedure self-promotes; promotion = Commander ratification OR validator verification + second-session use — SkillsBench 2026: curated +16.2pp vs self-generated −1.3pp) · **calibration honesty on T2** (self-preference/judge-overconfidence are measured; independent re-derivation = different path, judgment closes at T3) · **reflection triggers** (2 REPLANs / 50% budget / validator FAIL / scope growth force a reconsideration note) · **ROLLED-BACK closure** (revert + BUILD CUE + replay fixture before re-proposal) · **draw quota** (idle work inherits the session's tier ceiling; ≤2 self-directed tasks/session).
+- **`cue/standing-directives.json` +SD-GOV-012** "No self-authored procedure self-promotes" (registry: 12; enforcement → check 3.5 + the gate section).
+- **The compression ladder, named** (doctrine §2): episode → cue (≥1 closed episode) → registry row (≥2 sessions, same verdict); verified directives decay slowest — the adaptive promotion the 2026 surveys call missing.
+- `.gitignore` seals the last two resurrecting vehicles (SCHEDULE.csv, 0_CALLENDER/readme.txt); APPLY re-runs the untrack — **it seals on the Commander's next commit**.
+- Version bump: MINOR → v2.3.0.
+
 ## v2.2.0 — 2026-09-13 — Autopilot Pipeline & Wayfinding (🟡)
 - **The neuron relay is LIVE** (`scaffolding/neurons/`) — the Commander's proposal, hardened by his 15-source research memo into a closed-loop responsibility model: sensory (intake + dedup) → interneurons (context + plan with `base:` HEAD-SHA, success predicates, tier by ladder) → motor (orders + evidence; push is the Commander's motor act). Five forbidden edges; every TID ends CLOSED / REPLAN / BLOCKED / ESCALATED. First live chain ships inside this patch (TID-2026-09-13-a, all stages CLOSED).
 - **`scaffolding/core/proc_self-directive.md` NEW** — the Commander-ordered scaffold for @selfdirectives (none existed): trigger check → stop-line scan → grade → typed record BEFORE execution → verify-by-tier → close with terminal state → file (II.9). Registered in core INDEX (check 3.5).

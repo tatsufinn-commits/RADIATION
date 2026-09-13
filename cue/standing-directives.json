@@ -157,6 +157,21 @@
    ],
    "enforcement": "validator check 26 (WARN when ledger or HEAD postdates the heartbeat) + status.py shrine line + CI apply-report",
    "provenance": "Direct Commander order 2026-09-13 ('make it a law that it is MANDATORY to update shrine per conversation') → AI_RULES II.9"
+  },
+  {
+   "id": "SD-GOV-012",
+   "version": 1,
+   "status": "active",
+   "class": "invariant",
+   "title": "No self-authored procedure self-promotes",
+   "authority": "root",
+   "scope": "scaffolding/core INDEX, cue registries, cue/standing-directives.json, styles",
+   "rule": "A session may PROPOSE scaffolds, cues, styles, or directives. Promotion into scaffolding/core or this registry requires Commander ratification, or validator verification PLUS independent use by a second session. Self-promotion is void.",
+   "evidence_requirements": [
+    "promotion rows cite ratification or second-session evidence"
+   ],
+   "enforcement": "validator check 3.5 (core closed set) + scaffolding/core/proc_self-directive.md CURATION GATE section",
+   "provenance": "Commander-ordered research 2026-09-13 (SkillsBench via SoK arXiv:2602.20867: curated +16.2pp vs self-generated -1.3pp); ratified by application of patch 3700"
   }
  ]
 }
