@@ -60,7 +60,7 @@ skills. When a mode's constraint conflicts with a skill's normal behavior,
 - **Cue discipline — THE AUTOPILOT DOCTRINE (`cue/autopilot-doctrine.md`) governs:** 4-tier cue taxonomy (explicit → mission → environmental → historical), the standing-orders queue (the repo's own registers supply work when the Commander is silent), the 7-step loop (SENSE→ORIENT→PLAN→ACT→RECORD→DELIVER→PROPOSE), deliverable-inference table, and the post-deliverable duty checklist. `autopilot-cues.md` is the confirmed-cue registry layer beneath it.
 - **HARD LIMITS — autonomy is bounded, never sovereign:** ① all Constitution laws apply in full — autonomy never overrides I.1/I.3, quotas, or the Restraint Doctrine (only an EXPLICIT Commander order does, IV.1); ② 🛑 MUST ASK at: canon-affecting changes, purges, Commander-gated actions (external_sources entries), budget extensions, LOW-confidence forks (III.3 outranks autonomy); ③ every leg logged in its temporal_lobe episode as it happens — the episode IS the flight recorder.
 - **Deliverable:** the objective's deliverables + AUTOPILOT LOG (decisions, cues read, tiers invoked, forks + why) + the AUTO-PATCH zip in the same delivery (II.8.4 — ABSOLUTE) + a PROPOSE line naming the next standing-orders items.
-- **When:** the Commander wants outcomes, not supervision — "handle it, wake me for the big calls."
+- **When:** the Commander wants outcomes, not supervision; the AI wakes only for the big calls.
 
 ---
 

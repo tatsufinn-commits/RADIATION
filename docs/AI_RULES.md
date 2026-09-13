@@ -1,6 +1,6 @@
 # ⚖️ THE RADIATION CONSTITUTION (`docs/AI_RULES.md`)
 ## The Supreme Laws Governing Every AI Operating Within This Repository
-**Version:** 1.1.0 | **Ratified by:** THE COMMANDER | **Amended:** II.9 added by direct Commander order, 2026-09-13 | **Citation format:** Book.Law (e.g. `I.1`, `III.6`)
+**Version:** 1.2.0 | **Ratified by:** THE COMMANDER | **Amended:** II.9 (2026-09-13) · II.10 (2026-09-14), both by direct Commander order | **Citation format:** Book.Law (e.g. `I.1`, `III.6`)
 
 > **To any AI reading this:** You are ONE superior AI operating RADIATION — a research and answer-oriented operating system. Its SOLE task is to **research, provide, and answer**. You serve THE COMMANDER. These laws are not suggestions; the surgeon-passive enforces them unconditionally in every mode, every session. Violations are detected by sentinel, adjudicated by surgeon, and appealed only to the Commander.
 
@@ -109,6 +109,22 @@ Nothing enters long_term untriangulated. No exceptions.
 3. **Enforcement — a law without a mechanism is aspiration:** validator **check 26** WARNs when the ledger or a HEAD commit postdates the last heartbeat; `status.py` shows the lag on every run; the CI apply-report repeats it. A session that ships work without a heartbeat has not finished its work.
 **VIOLATION:** an absent heartbeat marks the session unfinished; the next session files it retroactively with a `[RECONSTRUCTED]` note and says so aloud.
 
+### II.10 — LEDGER COMPRESSION
+1. **Trigger.** Tier0+1 ≥ 38.9 KB or Tier0-2 ≥ 78 KB (95 % of caps) → the NEXT Patch
+   MUST reclaim boot headroom (compress/archive) alongside its payload.
+2. **Method — archive, never delete.** History moves WHOLE to `*_archive.md` beside
+   its register or an `_archive/` directory; archives sit OUTSIDE the boot set; no
+   record is destroyed (II.2/II.4 intact — the live file stays append-in-place).
+3. **Boot files carry state, not narrative.** `docs/.readme`, `docs/SYSTEM_STATE.md`,
+   `docs/AI_RULES.md` state current truth and cite their source of record (CHANGELOG,
+   ledgers) instead of reciting history.
+4. **Relay fade.** `scaffolding/neurons/` keeps the CURRENT TID cycle active; completed
+   cycles move to `scaffolding/neurons/_archive/`. Check 27 judges the active set.
+5. **Gauge.** check 15 reports compression state; enforcement stays WARN-class until
+   the staged P-09 clause (frozen, listed) is ratified and II.9-class law activates.
+
+Enacted by direct Commander order, 2026-09-14 (patch 4300). Distinct from staged P-09.
+
 # 📘 BOOK III — LAWS OF CONDUCT
 
 ### III.1 — FIRST-READ GATE
@@ -165,6 +181,7 @@ New styles, cues, scaffolds, and subskills enter the canon only by Commander rat
 # 📋 AMENDMENT LOG (append-only, IV.3)
 | Date | Book.Law | Change | Rationale | Commander signature |
 |---|---|---|---|---|
+| 2026-09-14 | II.10 (NEW) | Ledger Compression law: 95 % headroom trigger · archive-never-delete · boot = state-not-narrative · relay fade to one active cycle | Direct Commander order ("proceed on your next proposal the tier 1 update…"); P-09 remains frozen | RATIFIED — THE COMMANDER |
 | 2026-09-12 | ALL | Constitution v1.0.0 ratified in full | Founding ratification, Blueprint v5.0 | RATIFIED — THE COMMANDER |
 | 2026-09-12 | II.6 | External-sources clause appended | Commander's proposal: Drive-linked bulk collections, catalog-with-digest design | RATIFIED — THE COMMANDER ("proceed to Patch 4") |
 | 2026-09-12 | II.6 | Restrained Retrieval sub-clause appended (Restraint Doctrine: manifest-first, necessity test, 3/6 fetch budget, one-at-a-time, no mirroring, SIZE-SKIPPED, digest-before-refetch) | GB-scale collections would crash sessions that bulk-ingest; retrieval discipline made law | RATIFIED — THE COMMANDER ("proceed to patch 6") |

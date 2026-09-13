@@ -5,7 +5,7 @@ boundary), the 3300 law it honors: *the AI never improvises an exception — the
 the exception-granter.* Registry row: SD-GOV-013.
 
 ## WHAT IT IS
-When the Commander is time-boxed ("fighting for my life in 2-3 hour deadlines"), @Overule
+When the Commander is time-boxed (hard 2–3 hour deadline windows), @Overule
 compresses AI-SIDE friction on HIS explicit trigger. It overrules rules **the AI flagged on
 itself** — it never touches law, privacy, or evidence.
 

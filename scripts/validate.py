@@ -379,6 +379,7 @@ def c15():
         f"Tier0-2={t02} B ({t02/1024:.1f} KB / cap 80) · ~{t02//4} tokens · "
         f"task_ledger boot-effective (last 3 rows)={tl_eff} B · "
         f"enforcement={'FAIL-class (EVAL-FIRST ratified)' if ratified else 'WARN-class (P-09 pending ratification)'}"
+        + (" · II.10 compression: ACTIVE" if "II.10 — LEDGER COMPRESSION" in read("docs/AI_RULES.md") else " · II.10 compression: OFF")
         + (" · WAIVER ACTIVE" if waived else ""))
 # ---- check 16: canon-vs-content meta-budget ratio (P-09; reporting) -------------
 def c16():

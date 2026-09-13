@@ -96,7 +96,7 @@ IV.4 Nothing enters canon without Commander ratification.
    3b. THE BOOT ASK (law, III.6 annex): if the Commander's prompt declared
        NO mode, your declaration ends by ASKING which mode he wants
        (@Radiation/@Data/@Gather/@Decode/@Review/@Autopilot) + the topic.
-       Never infer a mode at boot. (Pattern proven in Test 1 / S001.)
+       Never infer a mode at boot.
 4. On Commander silence: execute. On correction: obey, and log it to
    cue/commander-lexicon.md.
 5. At session close: triage Brain/short_term/, append the task ledger,

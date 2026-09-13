@@ -1,23 +1,24 @@
 #!/usr/bin/env bash
-# APPLY.sh — RADIATION patch 4200 "Expansion" (requires 4100/v2.4.2) — self-removing
+# APPLY.sh — RADIATION patch 4300 "Compression" (superset of 4200; base: live fd5485a / v2.4.2) — self-removing
 set -euo pipefail
 say(){ printf '%s\n' "$*"; }; die(){ printf '✗ %s\n' "$*" >&2; exit 1; }
 [ -f README.md ] || die "run from the repository root"
 grep -q "BUILD CUES" cue/autopilot-cues.md 2>/dev/null || die "4100 content missing (3500 restoration) — extract 4100 first"
 [ -f tests/knowledge_assertions.json ] || die "4100 not applied (assertions missing)"
-say "☢️  RADIATION patch 4200 — Expansion (gate: 4100 ✓)"
-for f in docs/OPEN_SOURCES.md subskills/active/fetch.md subskills/active/overule.md \
-         cue/standing-directives.json docs/MODES.md scripts/validate.py docs/TOOLBOX.md docs/WAYFINDING.md \
-         09-nota/CARD_002_environmental-planning-act.md 09-nota/CORE_INDEX.md \
-         05-annotate/ANNOT_RA-10587_pd1308-repeal.md 06-triangulate/TRI_ra10587-repeal_2026-09-13.md \
-         06-triangulate/CONFLICT_REGISTER.md docs/KNOWLEDGE_REGISTRY.md 01-research/REFERENCES.md \
-         07-inspect/DEBT_REGISTER.md Brain/short_term/notes/PLANNING_reviewer.md \
-         scaffolding/neurons/sensoryneurons/TID-2026-09-13-f_intake.md \
-         scaffolding/neurons/interneurons/TID-2026-09-13-f_reasoning.md \
-         scaffolding/neurons/motorneurons/TID-2026-09-13-f_orders.md \
-         Brain/frontal_lobe/task_ledger.md docs/shrine/LOG.md docs/PATCH_LEDGER.md \
-         CHANGELOG.md README.md docs/SYSTEM_STATE.md docs/ROADMAP.md; do [ -f "$f" ] || die "payload missing: $f"; done
-say "     ✓ 27 payload files"
+say "☢️  RADIATION patch 4300 — Compression (gate: 4100 ✓ · supersedes 4200)"
+P="docs/OPEN_SOURCES.md subskills/active/fetch.md subskills/active/overule.md cue/standing-directives.json docs/MODES.md scripts/validate.py docs/TOOLBOX.md docs/WAYFINDING.md docs/AI_RULES.md docs/.readme \
+09-nota/CARD_002_environmental-planning-act.md 09-nota/CORE_INDEX.md 05-annotate/ANNOT_RA-10587_pd1308-repeal.md 06-triangulate/TRI_ra10587-repeal_2026-09-13.md 06-triangulate/CONFLICT_REGISTER.md docs/KNOWLEDGE_REGISTRY.md 01-research/REFERENCES.md 07-inspect/DEBT_REGISTER.md Brain/short_term/notes/PLANNING_reviewer.md \
+scaffolding/neurons/sensoryneurons/TID-2026-09-13-f_intake.md scaffolding/neurons/interneurons/TID-2026-09-13-f_reasoning.md scaffolding/neurons/motorneurons/TID-2026-09-13-f_orders.md \
+scaffolding/neurons/sensoryneurons/TID-2026-09-14-g_intake.md scaffolding/neurons/interneurons/TID-2026-09-14-g_reasoning.md scaffolding/neurons/motorneurons/TID-2026-09-14-g_orders.md \
+scaffolding/neurons/_archive/README.md \
+scaffolding/neurons/_archive/TID-2026-09-13-a_intake.md scaffolding/neurons/_archive/TID-2026-09-13-a_reasoning.md scaffolding/neurons/_archive/TID-2026-09-13-a_orders.md \
+scaffolding/neurons/_archive/TID-2026-09-13-b_intake.md scaffolding/neurons/_archive/TID-2026-09-13-b_reasoning.md scaffolding/neurons/_archive/TID-2026-09-13-b_orders.md \
+scaffolding/neurons/_archive/TID-2026-09-13-c_intake.md scaffolding/neurons/_archive/TID-2026-09-13-c_reasoning.md scaffolding/neurons/_archive/TID-2026-09-13-c_orders.md \
+scaffolding/neurons/_archive/TID-2026-09-13-d_intake.md scaffolding/neurons/_archive/TID-2026-09-13-d_reasoning.md scaffolding/neurons/_archive/TID-2026-09-13-d_orders.md \
+scaffolding/neurons/_archive/TID-2026-09-13-e_intake.md scaffolding/neurons/_archive/TID-2026-09-13-e_reasoning.md scaffolding/neurons/_archive/TID-2026-09-13-e_orders.md \
+Brain/frontal_lobe/task_ledger.md docs/shrine/LOG.md docs/PATCH_LEDGER.md CHANGELOG.md README.md docs/SYSTEM_STATE.md docs/ROADMAP.md"
+n=0; for f in $P; do [ -f "$f" ] || die "payload missing: $f"; n=$((n+1)); done
+say "     ✓ $n payload files"
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git rm -r --cached --ignore-unmatch --quiet \
     "Brain/courses/SCHEDULE.csv" "Brain/courses/desktop.ini" "Brain/courses/0_CALLENDER/readme.txt" "Brain/courses/0_CALLENDER/ics.txt" \
@@ -37,8 +38,18 @@ for f in "Brain/courses/SCHEDULE.csv" "Brain/courses/desktop.ini" "Brain/courses
   if [ -f "$f" ]; then d="_local_backup/$(dirname "$f")"; mkdir -p "$d"; mv "$f" "$d/"; moved=$((moved+1)); fi
 done
 [ "$moved" -gt 0 ] && say "     ✓ $moved vehicle(s) re-homed" || say "     – vehicles already reconciled"
+faded=0
+for pair in "sensoryneurons intake" "interneurons reasoning" "motorneurons orders"; do
+  set -- $pair; stage=$1; sufx=$2
+  for t in a b c d e; do f="scaffolding/neurons/$stage/TID-2026-09-13-${t}_${sufx}.md"
+    [ -f "$f" ] || continue
+    git rm -q --ignore-unmatch "$f" 2>/dev/null || true; rm -f "$f"; faded=$((faded+1))
+  done
+done
+say "     ✓ relay faded: $faded TID record(s) → _archive/ (II.10.4; never deleted)"
 rm -f PATCH_NOTES.md
-grep -q "v2.5.0" README.md || die "version not v2.5.0"
+grep -q "v2.6.0" README.md || die "version not v2.6.0"
+grep -q "II.10 — LEDGER COMPRESSION" docs/AI_RULES.md || die "II.10 absent"
 python3 -c "import json;d=json.load(open('cue/standing-directives.json'));ids=[x['id'] for x in d['directives']];assert len(ids)==13 and 'SD-GOV-013' in ids" || die "registry not at 13"
 python3 scripts/knowledge_regression.py 2>&1 | tail -1
 python3 scripts/status.py | head -3

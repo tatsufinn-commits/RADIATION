@@ -16,7 +16,7 @@ know where things go. Start here. Law lives in `docs/AI_RULES.md`; this page is 
 | `scripts/` | the machinery (validator, status, verify_apply, planner…). `docs/CAPABILITIES.md` = the catalog |
 | `docs/shrine/` | shared judgment: LOG heartbeats + member testaments (II.9: file per conversation) |
 
-## 2. THE ROUTING TREE — "I have X. Where does it go?"
+## 2. THE ROUTING TREE — input in hand; where does it go?
 1. Knowledge someone should remember? → `Brain/` (movement rules; never canon)
 2. A session product (reviewer, audit, card)? → its skill jurisdiction / `09-nota`
 3. A standing behavior or reflex? → `cue/` (append-only)

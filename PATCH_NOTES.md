@@ -1,32 +1,27 @@
-# PATCH NOTES — 4200 Expansion (the Commander's three proposals)
-**Patch:** `RADIATION_PATCH_2026-09-14_4200_Expansion.zip` · **Base:** post-4100 (v2.4.2) · 🟠 · v2.5.0
-**Trigger:** "I propose an expansion of the open sources... the ability of the AI and Modes to use
-subskills as part of its autonomy... 1. @Overule... 2. @Fetch" — proposals = orders with judgment.
+# PATCH NOTES — 4300 Compression (Commander-ordered tier-1 update)
+**Patch:** `RADIATION_PATCH_2026-09-14_4300_Compression.zip` · **Base:** live fd5485a (v2.4.2) · 🟠 · v2.6.0
+**SUPERSET of 4200:** apply this ONE patch — it carries every 4200 file. Do not extract 4200.
+**Trigger:** "proceed on your next proposal the tier 1 update since the space is insufficient…
+additionally, clean the repository of the ARCHITECT's remarks, quotes, and other unnecessary texts."
 
-1. **OPEN_SOURCES → `docs/OPEN_SOURCES.md`:** your 50-category catalog (735 lines, access-labeled),
-   provenance header added, [O]-until-used grading per TOOLBOX rules. The bank any AI pulls from.
-2. **@Fetch (UNIVERSAL ⚙️×6):** the retrieval strategist — Brain → registers → the bank →
-   TOOLBOX [I] → online via scout (scout stays the gated executor; ask-gates unchanged).
-   Cross-referencing built in: name the independent channels BEFORE fetching.
-3. **@Overule (COMMANDER-TRIGGERED ⚙️×6\\*):** the deadline gear. Overrules AI-FLAGGED rules
-   only (WARN-and-proceed, ceremony compression, decide+declare forks, self-budgets, THE
-   BATCH-ASK — one upfront ask, then silent). NEVER: stop-lines, constitution, privacy checks,
-   validator-as-evidence. Make-good debts logged. **SD-GOV-013** (registry: 13).
-4. **Subskills in mode autonomy — codified:** ⚙️ subskills invoke 🟢 silent / 🟡 declared-in-Scan / 🔴 gated.
-5. **FORENSICS ×2, repaired here:** (a) the universal `selfdirectives ⚙️×6` matrix row was
-   silently LOST to merge churn — RESTORED, and **check 28** (33rd check, +/− tested) pins all
-   matrix rows; (b) **4000's content was never applied** (CARD_002 etc. missing, regression
-   locks failing on live) — REMEDIATED (regression 11/0 again).
-6. **ABSORPTION — 0000/0100 SUPERSEDED:** your separate @Autopilot session (quiz briefing + MEC30-7 Q1 reviewer, 2026-09-14) emitted auto-patches that were never applied. Its ledger/heartbeat records are merged HERE; applying 4200 preserves that history. If you ever recover those two zips: do NOT apply them — their ledgers predate 4200 and would revert rows. Byte-exact reviewer/briefing files stay in that session's workspace; say the word and a follow-up patch carries them in full.
-7. **CONVERGENCE:** live v2.4.2 → apply 4200 alone (it carries the 4000 gap). No 3900/4000
-   extract needed anymore — 4200 supersedes their shared state.
-8. **BOOT WATCH:** 39.9/40 KB — the compression law (ledger archive) is now URGENT and waits
-   on your ratification. Next machinery patch should pair with it.
-9. **FILES (24 payload):** OPEN_SOURCES · fetch.md · overule.md · registry · MODES · validate.py ·
-   TOOLBOX · WAYFINDING · 4000 remediation set (CARD_002, CORE_INDEX, ANNOT, TRI, CONFLICT,
-   K-REGISTRY, REFERENCES, DEBT, reviewer, TID-e×3) · TID-f×3 · ledger · LOG · PATCH_LEDGER ·
-   CHANGELOG · README · SYSTEM_STATE · ROADMAP · + transport (self-removing).
-10. **VERIFICATION:** 33 checks · 32 pass · 1 warn · 0 FAIL · check 28 +/− · regression 11/0 ·
-   boot 39.9/40 PASS.
-11. **DECLARATION:** "This Patch is a proposal. It has no effect until the Commander applies
-    it. — S005, relay TID-2026-09-13-f"
+1. **II.10 LEDGER COMPRESSION enacted** (direct order — staged P-09 stays frozen & listed):
+   boot ≥95 % of cap → next patch reclaims · history ARCHIVES WHOLE, never deletes · boot docs
+   carry state, not narrative · relay fades to one active TID cycle. Check 15 now reports the
+   II.10 gauge.
+2. **THE SPACE FIX, delivered:** SYSTEM_STATE 10.5 → 5.0 KB — the per-version recital moved to
+   CHANGELOG (its declared single source) and stale claims corrected (33 checks · 11/0 ·
+   Core = 2 cards · 13 directives). Boot Tier0+1: ~41.2 → ~37.3 KB (headroom restored; the new
+   law was written inside the space it reclaimed).
+3. **ARCHITECT-VOICE PURGE:** editorial remarks and invented quotes removed from MODES, TOOLBOX,
+   WAYFINDING, overule, .readme, and patch-ledger lesson columns. Records, signatures, and
+   law-required verbatims (TID intake, amendment log) kept. Zero records destroyed.
+4. **TID FADE (II.10.4):** relay cycles a–e → `scaffolding/neurons/_archive/` (16 files); cycle f
+   stays active; TID-g records this patch. Check 27 judges the active set.
+5. **Still aboard from 4200 (unchanged):** @Fetch · @Overule + SD-GOV-013 · OPEN_SOURCES bank ·
+   invocation semantics · check 28 · 4000 remediation (CARD_002).
+6. **APPLY:** same gates as before; re-untracks the 7 vehicles, re-homes them to _local_backup/,
+   fades the old TIDs, verifies v2.6.0 + II.10 + registry 13, then self-removes. COMMIT + push seals.
+7. **VERIFICATION target:** 33 checks · 32 pass · 1 warn (check 16 meta-budget, standing) ·
+   0 FAIL · regression 11 locked / 0 failed.
+8. **DECLARATION:** "This Patch is a proposal. It has no effect until the Commander applies
+   it. — S005, relay TID-2026-09-14-g"

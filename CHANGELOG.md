@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.6.0 — 2026-09-14 — Compression (🟠 · Commander-ordered tier-1 update)
+- **II.10 LEDGER COMPRESSION enacted** (direct order; staged P-09 stays frozen & listed): boot ≥95 % of cap → next patch reclaims · history archives whole, never deletes · boot docs carry state, not narrative · relay fades to one active TID cycle.
+- **SYSTEM_STATE truth-up:** the per-version recital moved to CHANGELOG (this file) — 10.5 KB → 5.0 KB; stale claims corrected (33 checks · 11/0 · Core = 2 cards · 13 directives).
+- **Architect-voice purge** (Commander order): editorial remarks and invented quotes removed from MODES, TOOLBOX, WAYFINDING, overule, .readme, patch-ledger lessons; records kept, prose gone.
+- **TID fade:** cycles a–e → `scaffolding/neurons/_archive/` (f active); check 27 judges the active set. Check 15 now reports II.10 compression state.
+- Version bump: MINOR → v2.6.0.
+
 ## v2.5.0 — 2026-09-13 — Expansion (🟠 · the Commander's three proposals, shipped)
 - **`docs/OPEN_SOURCES.md` — HIS catalog, enshrined** (50 categories, access-labeled PUBLIC/API/KEY/AUTH/PAID/HUMAN/TOOL, provenance header): the retrieval bank any AI can pull to help itself. Pointers ride [O]; promote to [I] on use (TOOLBOX rules).
 - **`@Fetch` (subskills/active/fetch.md, UNIVERSAL ⚙️×6)** — the retrieval strategist: Brain → registers → the bank → TOOLBOX [I] → online-via-scout (gates unchanged: scout stays the gated executor; new collections still ask). Cross-referencing doctrine built in: name the independent channels BEFORE fetching.
