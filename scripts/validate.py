@@ -86,8 +86,18 @@ def c2():
 # NOTE (v2, after self-test): an earlier revision flagged the bare WORD
 # "Instructor" and failed the course records that state the exclusion. The rule
 # targets VALUES, never vocabulary — a name-bearing label is required to match.
-CV_DENY = ["S308","S300","S303","S301","NW408","SW200","SW304","E01","A54","C5",
-           "calendarFeed","@mapua.edu"]
+# ── AMENDMENT A1 (2026-09-13, patch 2600) ────────────────────────────────────
+# Commander's decision: "I permit 2 — the full CSV in the repo." The schedule is
+# published at full fidelity because RADIATION is a copy-paste public assistant:
+# the repo link + magic words must be enough for a fresh AI to know the schedule.
+# The location rules are therefore SPLIT OUT of the identifier rules, and waived
+# for exactly one path (CV_ALLOW_LOCATION). The identifier rules — instructor
+# names, contacts, emails, URLs — still apply INSIDE that file, and the location
+# rules still apply to every other file in the tree and to the term register.
+CV_DENY_LOCATION = ["S308","S300","S303","S301","NW408","SW200","SW304","E01","A54","C5"]
+CV_DENY_OTHER    = ["calendarFeed","@mapua.edu"]
+CV_DENY = CV_DENY_LOCATION + CV_DENY_OTHER
+CV_ALLOW_LOCATION = {"Brain/courses/SCHEDULE.md"}   # amendment A1 — the one permitted timetable
 # v4: a denied CODE is a token, not a substring. The v3 rule used `w in t`, so the
 # section code "C5" matched inside "EC5" (Eurocode 5) — a false positive on legitimate
 # domain content, and one that would recur in every structural-design record. The intent
@@ -98,10 +108,12 @@ def cv_denied(text, token):
     if re.fullmatch(r"[A-Za-z]{1,3}\d{1,3}", token):
         return re.search(r"(?<![A-Za-z0-9])" + re.escape(token) + r"(?![A-Za-z0-9])", text) is not None
     return token in text
-CV_PATTERNS = [
+CV_IDENT_PATTERNS = [
     (r"https?://", "URL/credential"),
     (r"\b(?:Instructor|Professors?|Prof\.)\s*[:\-\u2013]?\s*(?:is\s+|was\s+)?[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}", "instructor name"),
     (r"\b(?:Consultation|Email|Contact)\s*(?:Schedule|Hours|Address)?\s*[:\-\u2013]\s*[A-Za-z0-9._%+-]+@", "contact detail"),
+]
+CV_LOCATION_PATTERNS = [
     # v3: rooms are S3xx / NW4xx / SW2xx — but S001-S003 are SESSION ids and
     # legitimately appear in this region. The pattern excludes S0xx so the check
     # cannot fail on a session citation.
@@ -110,6 +122,9 @@ CV_PATTERNS = [
     (r"\b(?:E|W)[1-9]\d{2}\b", "room code"),
     (r"\b(?:Section|Sec\.)\s+[A-Z]{1,2}\d{1,3}\b", "section code"),
 ]
+# CV_PATTERNS keeps its original meaning (identifier + location) for every caller
+# that has no allowance. Only check 2.5 consults CV_ALLOW_LOCATION.
+CV_PATTERNS = CV_IDENT_PATTERNS + CV_LOCATION_PATTERNS
 def c25():
     bad = []
     root = os.path.join(ROOT, "Brain/courses")
@@ -120,9 +135,13 @@ def c25():
                 if not f.endswith(".md"):
                     bad.append(f"{p} (non-markdown vehicle)"); continue
                 t = read(p)
-                for w in CV_DENY:
+                # Amendment A1 (patch 2600): the Commander's own timetable is the one
+                # record where location identifiers are permitted. It still carries the
+                # full identifier rule set — a room may appear there, a name may not.
+                waived = p in CV_ALLOW_LOCATION
+                for w in (CV_DENY_OTHER if waived else CV_DENY):
                     if cv_denied(t, w): bad.append(f"{p} (published token: {w})")
-                for pat, what in CV_PATTERNS:
+                for pat, what in (CV_IDENT_PATTERNS if waived else CV_PATTERNS):
                     m = re.search(pat, t)
                     if m: bad.append(f"{p} ({what}: {m.group(0)[:24]})")
     rec(2.5, "FAIL", not bad, "Brain/courses/ records-only + no identifiers" + ("" if not bad else ": " + "; ".join(bad[:6])))

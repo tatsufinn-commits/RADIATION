@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.6.4 — 2026-09-13 — Schedule Record + Location Amendment A1 (🟢)
+- `Brain/courses/SCHEDULE.md` ADDED — the authoritative weekly timetable (6 courses, 14 meetings, 36.0 h/week) at full fidelity incl. rooms and sections, by explicit Commander decision (amendment A1 to P-10 §3.3). Rationale on record: the public repo IS the delivery mechanism for a copy-pasteable assistant that knows the schedule.
+- `Brain/courses/INDEX.md` rule 3 amended — location identifiers permitted in the schedule record ONLY; instructor names, contacts and student identifiers remain absolutely banned there and everywhere. Term load CORRECTED 31.5 → 36.0 contact-h/week (the old figure was wrong on the total, the 07:30-start count and the evening-session days); error recorded, not silently edited.
+- `scripts/validate.py` amendment A1 — room/section rules split from identifier rules; single path-scoped allowance `CV_ALLOW_LOCATION`. Every other file keeps the full guard; check 20's term register is unaffected.
+- `.gitignore` — `validation_report.json` (validator output, written every run) added.
+- Operational cleanup by the Commander: `SCHEDULE.csv` retired; 25 transport artifacts + 3 placeholder syllabi removed (validator 6 FAIL → 2 FAIL).
+
 ## v1.6.3 — 2026-09-12 — P-08 Part A: Ecosystem Interlock (🟢)
 - ECOSYSTEM.md (contracts, boundary laws, live-verified URLs), TAXONOMY_MAPPING.md ([I] collision resolved; TAMAKEE legend claim marked UNVERIFIED — not found), 4 interface schemas with real examples, shared-ID convention, K-EXT-GDRIVE-001 cross-repo collision flagged, DIRECTIVE_TAMAKEE_FIXES.md (10 items, zero TAMAKEE edits).
 - P-08 §5 handoff demo DEFERRED (PENDING_RATIFICATIONS row) — blocked on P-05 + P-07 ratification; not simulated.

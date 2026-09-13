@@ -49,6 +49,12 @@ RADIATION_PATCH_*.zip
 # on the Commander's machine, exactly where they belong.
 _local_backup/
 
+# ── 3c. GENERATED VALIDATOR OUTPUT (added patch 2600) ───────────────────────
+# scripts/validate.py writes this file on EVERY run (line ~461). It was tracked,
+# so every validation produced a repo diff of a file nobody reads in a diff.
+# Untrack once with:  git rm --cached validation_report.json
+validation_report.json
+
 # ── 4. WORKING NOISE ────────────────────────────────────────────────────────
 .DS_Store
 __pycache__/
