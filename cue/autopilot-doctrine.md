@@ -18,12 +18,12 @@ Autopilot exists so the Commander states OUTCOMES, not instructions. Read everyt
 ## 2. THE STANDING-ORDERS QUEUE (T3 made concrete)
 When the Commander's objective is completed with budget/time remaining — or his order is broad ("improve things", "handle it") — Autopilot draws work FROM THE SYSTEM ITSELF, in priority order:
 1. **🟥 contamination or quarantine follow-ups** (07-inspect/DEBT_REGISTER.md) — always first.
-2. **🟧 debts from accepted audits** (e.g. S003's: Lynch OCR pending, Bentley missing, Law gaps RA7279/RA11201/PD1308).
+2. **🟧 debts from accepted audits** (07-inspect DEBT_REGISTER rows; first unpaid: the OCR recovery ladder).
 3. **Decay-expired claims** (docs/DECAY_REGISTER.md; e.g. PD1096 file-date past stable-domain window).
 4. **[UNVERIFIED — attempt n] claims** awaiting their second triangulation try.
 5. **Empty DIGESTs** of registered collections (staging-not-substitute, INDEX rule 7).
 6. **[STALE] short_term triage** flagged at prior session close.
-7. **Toolbox promotions** — field-prove a 🟡 CANDIDATE relevant to the current task.
+7. **Toolbox promotions** (`docs/TOOLBOX.md`) — field-prove an [O] tool relevant to the task.
 Each item drawn is DECLARED in the Scan Declaration or AUTOPILOT LOG before work begins — autonomy is loud, never silent.
 
 ## 3. THE AUTOPILOT LOOP (every objective, every leg)
@@ -31,7 +31,7 @@ Each item drawn is DECLARED in the Scan Declaration or AUTOPILOT LOG before work
 - **SENSE:** read the order + attachments; sweep T2 registries; sweep T3 registers.
 - **ORIENT:** Brain FIRST (long_term → short_term → DIGESTs → manifests) — never re-acquire held knowledge (II.1). State what the Brain already answers.
 - **PLAN:** declare the leg chain (@Review/@Data/@Gather/@Decode), FETCH PLAN with MB estimates (not just counts — S003 lesson), style, quota targets.
-- **ACT:** execute legs; RE-SCAN line on each leg change; recovery ladder before any skip.
+- **ACT:** execute legs; RE-SCAN line on each leg change; recovery ladder before any skip. 🟡 legs leave relay records (`scaffolding/neurons/` — sensory at SENSE, inter at PLAN, motor at ACT; five forbidden edges bind, `proc_self-directive.md` gates self-directed work).
 - **RECORD:** episode files written AS THE LEG RUNS (flight recorder); learnings/cues/opinions appended DIRECTLY (II.8.3).
 - **DELIVER:** the deliverable + AUTO-PATCH zip in the SAME message (II.8.4 — ABSOLUTE) + AUTOPILOT LOG (decisions, cues read, tiers invoked, forks + why).
 - **PROPOSE:** name the next 1-3 standing-orders items you would take if told "continue" — the Commander steers by veto, not by specification.

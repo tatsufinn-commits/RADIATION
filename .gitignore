@@ -61,3 +61,11 @@ __pycache__/
 *.pyc
 .venv/
 node_modules/
+
+# ── 3d. PATCH TRANSPORT (patch 3600) — apply runners are transport, not record ──
+# They ship in zips, run once, and should never re-enter history (they kept getting
+# committed). IGNORED so extraction noise dies; APPLY still runs them from disk.
+APPLY.sh
+APPLY.ps1
+PATCH_NOTES.md
+

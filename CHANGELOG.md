@@ -4,6 +4,15 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.2.0 — 2026-09-13 — Autopilot Pipeline & Wayfinding (🟡)
+- **The neuron relay is LIVE** (`scaffolding/neurons/`) — the Commander's proposal, hardened by his 15-source research memo into a closed-loop responsibility model: sensory (intake + dedup) → interneurons (context + plan with `base:` HEAD-SHA, success predicates, tier by ladder) → motor (orders + evidence; push is the Commander's motor act). Five forbidden edges; every TID ends CLOSED / REPLAN / BLOCKED / ESCALATED. First live chain ships inside this patch (TID-2026-09-13-a, all stages CLOSED).
+- **`scaffolding/core/proc_self-directive.md` NEW** — the Commander-ordered scaffold for @selfdirectives (none existed): trigger check → stop-line scan → grade → typed record BEFORE execution → verify-by-tier → close with terminal state → file (II.9). Registered in core INDEX (check 3.5).
+- **`docs/WAYFINDING.md` NEW** — the lost-AI page: the map, the routing tree, self-location commands, the recovery ladder. **`docs/TOOLBOX.md` NEW** — the open-source rescue kit ([O]→[I] promotion rule; first row: OCR for the 2,038-page debt).
+- **The resurrection loop DIES here:** 3400-F3's root cause was tracked vehicle files; this patch's APPLY runs `git rm --cached` on them and `.gitignore` now covers patch transport (APPLY.sh / APPLY.ps1 / PATCH_NOTES.md).
+- `scripts/status.py` +pipeline line (reads the relay's Status fields — the projection, never private module state). Doctrine §3 binds the loop to the relay, net-zero boot bytes.
+- Four self-directives DECLARED for the road ahead (SD-3600-01..04: Phase-0 relay proof · the first Core card · check-27 design · TOOLBOX promotions).
+- Version bump: MINOR → v2.2.0. (3500 applies FIRST — this patch gates on it.)
+
 ## v2.1.0 — 2026-09-13 — Enforcement Sweep & Shrine Mandate (🟠)
 - **AI_RULES II.9 THE SHRINE MANDATE** (direct Commander order: "make it a law that it is MANDATORY to update shrine per conversation"): LOG heartbeat EVERY conversation, member testament on every substantive session, enforcement via new **check 26** (WARNs when the ledger or HEAD postdates the last heartbeat) + status.py + the CI apply-report. First testaments under the mandate: S005's second deposit. Registry: +SD-GOV-011.
 - **`scripts/verify_apply.py` NEW** — the post-apply auditor (roadmap 3400): one read-only screen answering "did the last apply land?" — version drift README↔CHANGELOG, validator verdict, unsanctioned vehicles, committed transport, shrine lag, pending ratifications. `--strict` for local gating; CI runs it NON-BLOCKING (continue-on-error, posts to the job summary) so the tree can say "an apply did not finish" on every push.

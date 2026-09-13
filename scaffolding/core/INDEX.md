@@ -9,6 +9,7 @@
 | `proc_triangulation-gauntlet.md` | process | Triangulate (triangulator) | ALL modes (@Data: stripped — steps 1,2,4) | 06-triangulate/ + short_term copy |
 | `proc_inspection-audit.md` | process | Inspect (inspector) | all audits | 07-inspect/ + short_term copy |
 | `proc_nota-distillation.md` | process | Nota (scribe) | every Core admission | card → 09-nota/, sheet → short_term |
+| `proc_self-directive.md` | the self-directive procedure: trigger → stop-lines → grade → typed record → verify-by-tier → close | @selfdirectives (ALL modes, ⚙️×6) | MANDATORY before any self-directed 🟡/🔴 action (3600, Commander-ordered) |
 | `proc_ingestion-run.md` | process | curator subskill | every ingestion | accompanies ingest file in short_term |
 | `proc_decode-map.md` | process | @Decode mode | every repository decode | assembles into msr.md deliverable |
 | `form_patch-notes.md` | form | the Patch Protocol (II.7) | every Patch emitted | PATCH_NOTES.md inside the zip |

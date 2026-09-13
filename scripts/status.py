@@ -81,6 +81,25 @@ def main():
         print(f"    {dt} {mark:9} {c:9} {t[:44]}")
     if pending: print(f"    WARNING {pending} feed items await your attribution (feed_pending)")
 
+    pipe = []
+    ndir = R("scaffolding/neurons")
+    if os.path.isdir(ndir):
+        for stage in ("sensoryneurons", "interneurons", "motorneurons"):
+            sd = os.path.join(ndir, stage)
+            if os.path.isdir(sd):
+                for f in sorted(os.listdir(sd)):
+                    if f.startswith("TID_") and f.endswith(".md"):
+                        try:
+                            m = re.search(r"Status:\s*([A-Za-z]+(?:\(\d\))?)",
+                                          open(os.path.join(sd, f), encoding="utf-8").read(2048))
+                            st = m.group(1) if m else "?"
+                        except OSError:
+                            st = "?"
+                        if st not in ("CLOSED",):
+                            pipe.append(f"{f[4:14]}…{st}")
+    print("  pipeline  : " + (f"{len(pipe)} in flight: {', '.join(pipe[:4])}" if pipe
+                              else "nothing in flight (all TIDs CLOSED)"))
+
     log = read("docs/shrine/LOG.md"); led = read("Brain/frontal_lobe/task_ledger.md")
     hb, ld = last_date(log), last_date(led)
     beat = f"last heartbeat {hb}" if hb else "no heartbeats"
