@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v1.9.0
+**Last updated:** 2026-09-13 · **Version:** v2.0.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -43,14 +43,18 @@ Utilities, Building Technology, Professional Practice, …) · per-course readin
 graded items: `Brain/courses/INDEX.md`.
 
 ### What can be RUN
-`docs/CAPABILITIES.md` — **11 scripts** (validate · regression · plan_term ·
+`docs/CAPABILITIES.md` — **12 scripts** (validate · regression · plan_term ·
 ingest · anki · grade · decay · ics_normalize · nota · module_scaffold). `docs/SKILLS.md` says how to think; that file says
 what can be executed.
 
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v1.9.0** — the swarm can self-govern: `@selfdirectives` (Commander-proposed,
+**RADIATION v2.0.0** — applied governance: the Commander's research memo is IN the
+spec (typed directive records, enforcement map, tiered verification, authority
+hierarchy, trust-separated memory, goal discipline, stop conditions), the registry
+(`cue/standing-directives.json`) is machine-guarded by check 25, and `status.py`
+gives the whole machine in one screen. Previously: v1.9.0 — the swarm can self-govern: `@selfdirectives` (Commander-proposed,
 built on recycled Marciale standing-order laws) grades every autonomous act
 🟢/🟡/🔴 and closes with evidence. Previously: v1.8.1 — the calendar is FED: the LMS feed is a committed file
 (`Brain/courses/0_CALLENDER/TERM1_FEED.txt`), the Deadline Engine merged it into the
@@ -72,7 +76,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
   1,177.9 MB); one drill set forged and graded; mastery ledger seeded.
 - Six course records in `Brain/courses/` (K-CUR-007…012), the authoritative weekly
   timetable in `SCHEDULE.md`, term plan in `Brain/short_term/plan/`.
-- Machine Enforcement Layer live: `scripts/validate.py` (29 checks) +
+- Machine Enforcement Layer live: `scripts/validate.py` (30 checks) +
   `knowledge_regression.py` (9 locked · 5 pending) + CI on every push (now incl. the
   external-link census, `RADIATION_ONLINE=1`).
 - Registers live: TASK · PATCH · MASTERY · MISTAKE · DECAY · CONFLICT · KNOWLEDGE (45).
@@ -92,7 +96,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 | Autonomous Scan (docs/CUE_SYSTEM.md) | ✅ FULLY POPULATED |
 | Styles (10 skeletons + index) | ✅ POPULATED (v1.0 drafts; refine via use) |
 | Core scaffolds (8 + INDEX) | ✅ FULLY POPULATED |
-| Subskills (4 passive + 3 active) | ✅ FULLY POPULATED — `selfdirectives` added 2026-09-13 |
+| Subskills (4 passive + 3 active) | ✅ FULLY POPULATED — `selfdirectives` v2.0 APPLIED GOVERNANCE (memo-applied; registry check 25) |
 | Patch machinery (protocol, ledger, form) | ✅ FULLY POPULATED |
 | Brain STRUCTURE (5 regions + movement rules) | ✅ COMPLETE |
 | Brain/external_sources catalog | ✅ OPERATIONAL — 12 collections |

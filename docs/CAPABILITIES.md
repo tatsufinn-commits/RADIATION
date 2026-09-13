@@ -169,6 +169,22 @@ counted and skipped. Re-runs are no-ops (feed_id hashing). First run (2026-09-13
 `cb5ec95` feed): 20 meeting instances filtered · 8 stale skipped · 3 Coursera
 records anchored to real dates · 16 added · 11 UNATTRIBUTED pending Commander.
 
+### 12. `status.py` — the Swarm Dashboard (one screen, read-only)
+```
+python3 scripts/status.py
+```
+**Answers:** where does the machine stand RIGHT NOW — validator verdict (+ the FAIL
+lines), calendar feed freshness + mirror age, the next dated deadlines (TODAY
+marked), the `feed_pending` attribution count, and the shrine heartbeat's currency
+against the ledger. Runs the validator in a subprocess; modifies nothing. The first
+command any fresh AI (or the Commander) runs instead of asking "what's next."
+**Also in 3300:** `cue/standing-directives.json` — the typed directive registry
+(id/class/authority/scope/rule/enforcement/provenance per directive; 10 standing
+directives incl. the autonomy ladder and the seven stop-lines). **Check 25** fails
+the tree if the registry corrupts, loses its enforcement mapping, or references
+mechanisms that don't exist — the research memo's "prose never enforces" made
+machine-checkable.
+
 ## WHAT IS NOT HERE YET
 
 Stated plainly so a session does not assume capability it lacks:

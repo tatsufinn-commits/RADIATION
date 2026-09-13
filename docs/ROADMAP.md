@@ -84,10 +84,11 @@ meta-budget WARNs stay honestly lit until then. Zero build items behind them.
 | Patch | Name | Contents | Unblocks |
 |---|---|---|---|
 | **3100** | ✅ DELIVERED — The Deadline Engine | **deadline ingestion: map the 47 feed items → courses (content-based), filter 21 stale, merge into `TERM1_DEADLINES.json`, write `week1_start=2026-08-24` (flagged inferred)** · `ics_normalize.py` auto-detects `Brain/courses/0_CALLENDER/TERM1_FEED.txt` · CI regenerates `CALENDAR.md` from the committed feed · staleness guard (check 22 upgrade) | The planner finally eats live data; the three deadline-blind courses get dates |
-| **3200** | ✅ DELIVERED — @SELFDIRECTIVES (Commander-proposed; the autonomy ladder + stop-lines) | `verify_apply.py` · check 2.5 non-`.md` fix · actionable FAIL messages · the persona squad was REJECTED (anti-swarm) · this file ships with 3200 | The skip-pattern dies; autonomy is bounded and coded |
+| **3200** | ✅ DELIVERED — @SELFDIRECTIVES (Commander-proposed; UNIVERSAL — all modes; ladder + stop-lines) | `verify_apply.py` · check 2.5 non-`.md` fix · actionable FAIL messages · the persona squad was REJECTED (anti-swarm) · this file ships with 3200 | The skip-pattern dies; autonomy is bounded and coded |
 | **3200** | Swarm Dashboard | status.py (planned, not yet built) — one screen: validator verdict · calendar staleness · shrine LOG lag · ledger tail · boot budget · open debts (validator WARNs included) | You, or any fresh AI, know the whole machine's state in one command |
-| **3300** | Enforcement Sweep | `verify_apply.py` · check 2.5 non-`.md` hardening · actionable FAIL messages · CI non-blocking apply-report | the skip-pattern dies permanently |
-| **3400+** | reserved | candidates: pending-item attribution UX · plan_term snapshot · depth per need | — |
+| **3300** | ✅ DELIVERED — Applied Governance: the Commander's memo applied (spec v2.0, directive registry + check 25, status.py, FAIL remedies) | the swarm self-governs inside a machine-checked envelope |
+| **3400** | Enforcement Sweep (remainder) | `verify_apply.py` · check 2.5 non-`.md` hardening · CI non-blocking apply-report | the skip-pattern dies permanently |
+| **3500+** | reserved | candidates: pending-item attribution UX · plan_term snapshot · depth per need | — |
 
 **Cadence (proposed default):** you apply patch N + clear your queue → I verify the
 live tree from git → I build N+100. One patch in flight at a time. Veto freely.

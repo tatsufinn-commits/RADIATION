@@ -8,4 +8,5 @@
 | 2026-09-13 | S004 (the Architect) | 2900 · REV 2 · **REV 3** | rotation (standing) → still open | **THE MORTALITY DOCTRINE** added at the Commander's finding: **file at delivery, not at death** — sessions cannot detect their own mortality. REV 3: inheritance struck — the shrine is a commons; readiness interpreter + prompt playbook recycled |
 | 2026-09-13 | S004 (the Architect) | 3100 | 5 old vehicle-debts → closed at apply | deadline engine live; feed merged (26+11); week1_start inferred |
 | 2026-09-13 | S004 (the Architect) | 3200 | marciale autonomy harvest → closed | @selfdirectives live (🟢/🟡/🔴 ladder, 7 stop-lines); persona squad rejected |
+| 2026-09-13 | S004 (the Architect) | 3300 | memo applied → governance mechanized | spec v2.0; registry + check 25; status.py; two self-directives declared and closed under the protocol |
 

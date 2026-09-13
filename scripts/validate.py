@@ -105,6 +105,10 @@ CV_ALLOW_LOCATION = {"Brain/courses/SCHEDULE.md"}   # amendment A1 — the one p
 # so it is a .txt). It is DATA, not a record — one named exemption, identifier scan
 # still applies to it, and everything else in the region stays records-only.
 CV_ALLOW_DATA = {"Brain/courses/0_CALLENDER/TERM1_FEED.txt"}
+
+# SD-3300-01: FAIL messages carry their remedy — a validator that names a wound
+# without naming the treatment makes the Commander do the plumbing.
+REMEDY_VEHICLES = " · REMEDY: run APPLY.sh from your latest patch (idempotent — it re-homes these to _local_backup/), or move them yourself + git rm --cached"
 # v4: a denied CODE is a token, not a substring. The v3 rule used `w in t`, so the
 # section code "C5" matched inside "EC5" (Eurocode 5) — a false positive on legitimate
 # domain content, and one that would recur in every structural-design record. The intent
@@ -153,7 +157,7 @@ def c25():
                 for pat, what in (CV_IDENT_PATTERNS if waived else CV_PATTERNS):
                     m = re.search(pat, t)
                     if m: bad.append(f"{p} ({what}: {m.group(0)[:24]})")
-    rec(2.5, "FAIL", not bad, "Brain/courses/ records-only + no identifiers" + ("" if not bad else ": " + "; ".join(bad[:6])))
+    rec(2.5, "FAIL", not bad, "Brain/courses/ records-only + no identifiers" + ("" if not bad else ": " + "; ".join(bad[:6])) + REMEDY_VEHICLES if bad else "Brain/courses/ records-only + no identifiers — clean")
 
 # ---- check 3: forbidden transport artifacts (II.8.2) -----------------------
 def c3():
@@ -165,7 +169,7 @@ def c3():
         for f in fn:
             if "_REPLACEMENT" in f or "_STAGED" in f or "_DIFF" in f or f == "PATCH_NOTES.md":
                 bad.append(os.path.relpath(os.path.join(dp,f),ROOT))
-    rec(3, "FAIL", not bad, "no transport artifacts or carriers in tree (II.8.2 + closure rule: *_STAGED/*_DIFF/PATCH_NOTES)" + ("" if not bad else ": " + "; ".join(bad)))
+    rec(3, "FAIL", not bad, "no transport artifacts or carriers in tree (II.8.2 + closure rule: *_STAGED/*_DIFF/PATCH_NOTES)" + ("" if not bad else ": " + "; ".join(bad)) + (" · REMEDY: delete the carrier — it is transport, not record (APPLY removes it)" if bad else ""))
 # ---- check 3b: scaffolding/core/ closed set — every file named in its INDEX ----
 def c3b():
     idx = read("scaffolding/core/INDEX.md")
@@ -647,7 +651,50 @@ def c24():
     rec(24, "WARN", not msgs, "shrine currency (heartbeats current; testaments keep their debts)" +
         ("" if not msgs else ": " + "; ".join(msgs)))
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c21): fn()
+
+# ---- check 25: standing-directive registry integrity (patch 3300) --------------
+# The registry (cue/standing-directives.json) is the typed source of truth for the
+# swarm's bounded autonomy. Prose never enforces; a directive that lost its
+# enforcement mapping, authority, or provenance is not governance — it is a mood.
+# Schema: unique active ids, known classes/authority, non-empty rule+scope, and an
+# enforcement reference that resolves to a real mechanism (validator check number,
+# repo file, or named law/protocol).
+def c25reg():
+    import json as _json
+    pth = os.path.join(ROOT, "cue/standing-directives.json")
+    if not os.path.exists(pth):
+        rec(25, "WARN", True, "directive registry absent — @selfdirectives runs on prose only (patch 3300 ships it)"); return
+    try:
+        d = _json.load(open(pth, encoding="utf-8"))
+    except Exception as e:
+        rec(25, "FAIL", False, f"directive registry unparseable: {e}"); return
+    bad, ids = [], set()
+    classes = {"invariant", "constraint", "goal", "procedure", "preference", "lesson"}
+    auths = {"root", "commander", "authorized_user", "user", "memory", "external"}
+    for dr in d.get("directives", []):
+        i = dr.get("id", "?")
+        if i in ids: bad.append(f"{i}: duplicate id")
+        ids.add(i)
+        if dr.get("status") != "active": continue
+        if dr.get("class") not in classes: bad.append(f"{i}: bad class {dr.get('class')!r}")
+        if dr.get("authority") not in auths: bad.append(f"{i}: bad authority {dr.get('authority')!r}")
+        if not dr.get("rule"): bad.append(f"{i}: empty rule")
+        if not dr.get("scope"): bad.append(f"{i}: empty scope")
+        en = dr.get("enforcement", "")
+        if not en: bad.append(f"{i}: NO ENFORCEMENT — prose is not governance"); continue
+        resolves = False
+        for m in re.findall(r"checks? (\d+(?:\.\d+)?)", en):
+            if any(str(r["check"]) == m for r in RESULTS): resolves = True
+        for m in re.findall(r"([A-Za-z0-9_/\.\-]+\.(?:py|json|md|sh|ps1|yml))", en):
+            if os.path.exists(os.path.join(ROOT, m)): resolves = True
+        if re.search(r"surgeon|push|patch risk|II\.3|git credentials|ledger audit|never-manufacture|scan/curator", en):
+            resolves = True
+        if not resolves: bad.append(f"{i}: enforcement does not resolve: {en[:48]!r}")
+    if not d.get("directives"): bad.append("registry holds no directives")
+    rec(25, "FAIL", not bad, f"standing-directive registry ({len(ids)} directives)" +
+        ("" if not bad else ": " + "; ".join(bad[:6])))
+
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c25reg,c21): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:
