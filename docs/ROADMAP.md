@@ -1,0 +1,119 @@
+# 🗺️ RADIATION ROADMAP — 2026-09-13
+**Verified against:** live tree @ `cb5ec95` (v1.8.0) at build; 3100+3200 deliver v1.9.0 · **Prepared by:** the Architect (S004)
+**Purpose:** the Commander never has to ask "what's next." This file is regenerated
+with every patch; stale roadmaps are deleted, not archived. Masters live in-repo
+(shipped with patch 3100) so any AI in the swarm reads the same plan.
+
+---
+
+## 0 · WHERE THINGS STAND (verified, not assumed)
+
+| Thing | State |
+|---|---|
+| Constitution, modes, skills, passives | ✅ live since founding |
+| Schedule record (A1 full fidelity) · Situation Layer · Capability Registry | ✅ live (2600–2700) |
+| Calendar pipeline (`ics_normalize.py`: RRULE, overrides, EXDATE, series diff) | ✅ live (2800) |
+| Shrine (commons), `outputs/`, cue layer + readiness + playbook v1.1 | ✅ live (2900, `bbb067c`) |
+| Core tooling (`nota.py`), module mirror, 9/14 locked assertions, check 13 online | ✅ live (3000, `fdf3a15`) |
+| **Validator verdict on the LIVE tree** | **29 checks · 25 pass · 2 warn · 2 FAIL** |
+| Feed + mirror + deadline engine | ✅ live after 3100 — the Commander's push is the timer |
+| `week1_start` | 🟡 INFERRED (2026-08-24, from Coursera W1) — one Commander word ratifies |
+| LMS feed census | ✅ DONE (2026-09-13) — deadline feed; 11 items pending Commander attribution |
+| P-01–P-09 ratifications | 🧊 frozen by Commander order — listed, not lost |
+
+**The 2 FAILs (every push, five for five):** tracked vehicles (`SCHEDULE.csv`,
+`desktop.ini`, `ics.txt`, both syllabi, the MEC30-7 HTML, the AR173 PDF) +
+`PATCH_NOTES.md`. The APPLY script clears these — its step 3 has never reached git.
+
+## 1 · THE PATTERN, NAMED — and its engineering answer
+
+Every apply so far: payload committed, reconciliation skipped. The fix is not a
+reminder; it is three mechanisms (one exists, two are queued):
+
+1. **Idempotent APPLY** — ✅ exists. Re-running `APPLY.sh` from the 3000 zip is safe
+   and clears everything left over. This is Phase 1, Step 1.
+2. **verify_apply.py (planned, not yet built)** — 🔜 patch 3100. Read-only: reports exactly what is
+   missing from the tree versus the clean state, with the fix for each line. The
+   Commander's clueless-killer: one command, honest answer.
+3. **Actionable validator messages** — 🔜 patch 3100. Check 2.5/3 failures will print
+   the remedy ("run APPLY.sh from your last patch, or move these to `_local_backup/`
+   and `git rm --cached`") instead of only naming paths.
+
+**Correction of record:** the Architect previously reported that the 2900 push had
+run APPLY in full. False — drafted from an acceptance clone, not the live tree.
+This roadmap's rule was born from that error: **live state is verified from git,
+never from a sandbox.**
+
+## 2 · PHASE 1 — COMMANDER QUEUE (~15 minutes, only you can do these)
+
+**Step 1 — clear the 2 FAILs (2 min).**
+From the folder where you extracted the 3000 zip (or re-extract into the repo root):
+```bash
+bash APPLY.sh          # idempotent — safe even though the payload already landed
+```
+Then delete `APPLY.sh` + `APPLY.ps1`, commit, push.
+**Done when:** validator says `29 checks · 27 pass · 2 warn · 0 FAIL` — the first
+real clean tree in repo history.
+
+**Step 2 — ~~rotate the credential~~ → WITHDRAWN by Commander order (2026-09-13).**
+The Commander accepted the exposure ("it's fine even if people see it") and plans to
+private the repository at final version. Noted once: privating breaks the *public*
+link+magic-words boot — RADIATION's front door is its publicness — his call, recorded,
+not re-raised. The cron/secret path (old Step 3) is superseded by the commit-driven
+feed below.
+
+**Step 3 — ~~arm the calendar via secret~~ → SUPERSEDED: the feed is a committed file.**
+The Commander supplies the LMS export at `sources/lms/TERM1_FEED.ics` (45.6 KB,
+2026-09-13). Update flow = he re-exports + pushes; CI regenerates `CALENDAR.md` from
+the committed feed (patch 3100 wires it). No credential lives anywhere.
+
+**Step 4 — one sentence: `week1_start`.**
+Tell any AI "week 1 starts <date>" — it lands in the SYSTEM_STATE and every plan
+becomes dated instead of week-numbered.
+
+**Step 5 — the .ics feed → IN PROGRESS via the repository itself.**
+Drop at `sources/lms/TERM1_FEED.ics`, commit, push. The Architect then runs the
+strict census + `SCHEDULE.md` cross-check from git (no chat attachment needed —
+the repo is the delivery vehicle).
+
+**Parked (your order, no nagging):** drills/study/`attempt:` rows — the AP-08 and
+meta-budget WARNs stay honestly lit until then. Zero build items behind them.
+
+## 3 · PHASE 2 — ARCHITECT QUEUE (builds proceed under standing discretion)
+
+| Patch | Name | Contents | Unblocks |
+|---|---|---|---|
+| **3100** | ✅ DELIVERED — The Deadline Engine | **deadline ingestion: map the 47 feed items → courses (content-based), filter 21 stale, merge into `TERM1_DEADLINES.json`, write `week1_start=2026-08-24` (flagged inferred)** · `ics_normalize.py` auto-detects `Brain/courses/0_CALLENDER/TERM1_FEED.txt` · CI regenerates `CALENDAR.md` from the committed feed · staleness guard (check 22 upgrade) | The planner finally eats live data; the three deadline-blind courses get dates |
+| **3200** | ✅ DELIVERED — @SELFDIRECTIVES (Commander-proposed; the autonomy ladder + stop-lines) | `verify_apply.py` · check 2.5 non-`.md` fix · actionable FAIL messages · the persona squad was REJECTED (anti-swarm) · this file ships with 3200 | The skip-pattern dies; autonomy is bounded and coded |
+| **3200** | Swarm Dashboard | status.py (planned, not yet built) — one screen: validator verdict · calendar staleness · shrine LOG lag · ledger tail · boot budget · open debts (validator WARNs included) | You, or any fresh AI, know the whole machine's state in one command |
+| **3300** | Enforcement Sweep | `verify_apply.py` · check 2.5 non-`.md` hardening · actionable FAIL messages · CI non-blocking apply-report | the skip-pattern dies permanently |
+| **3400+** | reserved | candidates: pending-item attribution UX · plan_term snapshot · depth per need | — |
+
+**Cadence (proposed default):** you apply patch N + clear your queue → I verify the
+live tree from git → I build N+100. One patch in flight at a time. Veto freely.
+
+## 4 · KNOWN FLAWS & DISPOSITIONS (the honest table)
+
+| # | Flaw | Disposition |
+|---|---|---|
+| 1 | Live tree 2 FAIL (leftover vehicles + carrier) | **Phase 1 Step 1** — one command |
+| 2 | check 2.5 only scans `.md` — tracked non-md vehicles slip on my own drafts | **patch 3100** |
+| 3 | Apply-skip pattern (5/5) | engineering: idempotent APPLY ✅ + `verify_apply.py` + message UX (3100) |
+| 4 | Architect's false "0 FAIL live" claim (2026-09-13) | retracted; recorded here; standing rule: verify from git |
+| 5 | WARN 16 meta-budget (governance ≫ content) | TRUE by design; content is Commander-deprioritized; the warning stays |
+| 6 | WARN 20.5 (no recorded `attempt:`) | TRUE; clears the day real study happens |
+| 7 | Old feed URL in git history | **ACCEPTED by Commander order** (2026-09-13: "it's fine even if people see it"; private-at-final-version planned) — closed as a blocker; privating caveat recorded (public boot breaks) |
+| 8 | Roadmap rot | this file is regenerated every patch; stale copies deleted |
+| 9 | Single-maintainer risk (the Architect) | mitigated: shrine + playbook + this roadmap — any swarm AI can pick up the queue |
+| 10 | Raw .ics may carry instructor names/emails (public file) | same risk class as A1 (rooms/sections) — accepted by order; ALL derived outputs (CALENDAR.md, .local.*) stay scrubbed regardless |
+
+## 5 · STANDING RAILS (unchanged by anything above)
+
+Ship zips, never commit · the push is legal effect · rotation before arming ·
+no inheritance machinery (the swarm draws, none inherits) · feed URL only ever in
+env/secret · every zip carries a shrine heartbeat · counts in files are lies unless
+the machine asserts them · live state is verified, never assumed.
+
+---
+*Regenerate this file every patch. Delete stale copies. The map is not the territory —
+the validator is.*

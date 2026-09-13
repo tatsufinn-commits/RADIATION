@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-13 · **Version:** v1.8.1
+**Last updated:** 2026-09-13 · **Version:** v1.9.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -50,7 +50,9 @@ what can be executed.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v1.8.1** — the calendar is FED: the LMS feed is a committed file
+**RADIATION v1.9.0** — the swarm can self-govern: `@selfdirectives` (Commander-proposed,
+built on recycled Marciale standing-order laws) grades every autonomous act
+🟢/🟡/🔴 and closes with evidence. Previously: v1.8.1 — the calendar is FED: the LMS feed is a committed file
 (`Brain/courses/0_CALLENDER/TERM1_FEED.txt`), the Deadline Engine merged it into the
 register (37 items · 19 dated · week1_start = 2026-08-24, inferred), and CI
 regenerates the calendar mirror from it on every push — the Commander's own push
@@ -90,7 +92,7 @@ recited here any more; the recital was duplicated byte-for-byte and cost the boo
 | Autonomous Scan (docs/CUE_SYSTEM.md) | ✅ FULLY POPULATED |
 | Styles (10 skeletons + index) | ✅ POPULATED (v1.0 drafts; refine via use) |
 | Core scaffolds (8 + INDEX) | ✅ FULLY POPULATED |
-| Subskills (4 passive + 2 active) | ✅ FULLY POPULATED |
+| Subskills (4 passive + 3 active) | ✅ FULLY POPULATED — `selfdirectives` added 2026-09-13 |
 | Patch machinery (protocol, ledger, form) | ✅ FULLY POPULATED |
 | Brain STRUCTURE (5 regions + movement rules) | ✅ COMPLETE |
 | Brain/external_sources catalog | ✅ OPERATIONAL — 12 collections |

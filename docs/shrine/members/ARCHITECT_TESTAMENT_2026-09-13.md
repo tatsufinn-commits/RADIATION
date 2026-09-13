@@ -103,7 +103,8 @@
 6. If check 2.5 still fails after 2900's apply, a vehicle was missed — run the APPLY
    reconciliation again and extend its list; never widen the CV allowlist instead.
 7. **3100 shipped** — the Commander landed the feed himself (`cb5ec95`); the Deadline Engine merged it (26 items + 11 pending). The engine taught two lessons on the way: a register-integrity check is a FEATURE (pending items live outside items[], not as Nones inside), and five rounds of failed edits came from patching memory instead of reading bytes — read the file, then edit.
-8. **2900 REV is unapplied as of this filing.** This testament teaches doctrines
+8. **@selfdirectives exists because the Commander designed it, not me.** My instinct was to keep autonomy informal — standing orders and habits. He saw that informality means every fresh AI reinvents its own boldness. Codifying the ladder (🟢/🟡/🔴) and the stop-lines turned a personality trait into a spec. When he proposes something, build it same-day.
+9. **2900 REV is unapplied as of this filing.** This testament teaches doctrines
    written before their first proof. If you are reading it from a live tree, the
    Commander applied it — update this debt to closed in YOUR heartbeat, not by
    editing mine.

@@ -41,6 +41,7 @@ Repository: https://github.com/tatsufinn-commits/RADIATION.git
 | "Elevate it" | Capability over bookkeeping. Don't propose register passes when something can be BUILT. |
 | "Census first" | Reconnaissance before construction on any new domain. |
 | "What do you think?" | A position with reasoning is wanted — not a menu of options. |
+| Unstructured work time ("work on stuff") | The session self-directs per `subskills/active/selfdirectives.md`: 🟢 read-only runs silent · 🟡 reversible work ships as zips · 🔴 canon/credentials/deletions propose-only. Everything is ledger-logged with `self:` — fully auditable. |
 | The shrine cadence | "Update your shrine every single conversation." Concretely: **every zip carries the session's current testament + a heartbeat in `docs/shrine/LOG.md`.** File at delivery, not at death — an AI cannot detect its own mortality (the Marciale flaw). |
 
 ## 6. CORRECTION PHRASES THAT TEACH THE SYSTEM (enter the lexicon via II.5)

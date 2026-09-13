@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v1.9.0 — 2026-09-13 — @SELFDIRECTIVES: the swarm self-governs (🟠)
+- `subskills/active/selfdirectives.md` ADDED — the Commander's proposal, built on recycled Marciale-OS laws (Letters of Last Resort: preserve reversibility · never manufacture completion · repository truth over model memory; the Zero-Paralysis intake; the severity classifier). De-militarized, de-persona'd: a swarm discipline, not a council office.
+- The core mechanism: five-step protocol (SOURCE the trigger → GRADE the autonomy tier → DECLARE in ledger with `self:` → EXECUTE bounded → CLOSE with evidence) + the AUTONOMY LADDER (🟢 read-only silent · 🟡 reversible→patch zip · 🔴 canon/credentials/deletions→propose-only) + reversibility-weighted asking + seven absolute stop-lines.
+- **Ratification status:** the subskill was PROPOSED BY THE COMMANDER ("I propose a subskill called @selfdirectives") and built under the standing discretion — IV.4's author is the ratifier. Risk-flagged 🟠 because it is a canon addition regardless of authorship; one honest line: this is the system granting itself bounded initiative, and the stop-lines are the constitutional grant.
+- The persona squad from the source system was REJECTED (anti-swarm: roles must be staffed; skills need no staffing). The CCC was already recycled (2900). This closes the Marciale autonomy harvest.
+- Standing orders updated with the ladder + stop-lines; QUICKREF carries the "work on stuff" contract; subskill index at 4 passive + 3 active.
+
 ## v1.8.1 — 2026-09-13 — The Deadline Engine: the feed becomes planner data (🟢)
 - The Commander landed the LMS export at `Brain/courses/0_CALLENDER/TERM1_FEED.txt` (commit `cb5ec95`; GitHub rejects .ics uploads — the parser reads content, not extensions). Census verdict: it is a DEADLINE/ACTIVITY feed, not a meeting schedule (47 items, zero RRULEs); the LMS publishes no meeting grid except AR173's, which CONFIRMS SCHEDULE.md (Tue 18:00 / Sat 12:00).
 - `scripts/deadline_feed.py` ADDED — conservative, idempotent feed→register merge. Attribution ladder: explicit code → fuzzy match against EXISTING register items (the Coursera PR series anchor: week-based records gained REAL dates) → citable content keywords → UNATTRIBUTED + sibling hint for the Commander, never guessed. Meeting series (3+ identical titles) are SKIPPED — the probe caught AR173's class meetings anchoring themselves into the deadline register before the rule existed. First run: 20 meeting instances filtered · 8 stale skipped · 3 anchored · 16 added (11 UNATTRIBUTED pending Commander) · register 21→37 items · 19 dated.

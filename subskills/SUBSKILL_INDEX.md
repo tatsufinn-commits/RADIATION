@@ -22,6 +22,7 @@ MISSION · TRIGGERS · ACTIONS · FORBIDDEN · FAILURE MODES · OUTPUTS.
 |---|---|---|
 | `scout` | Source-necessity gatekeeper; builds the Acquisition Plan BEFORE prospector acquires | @Gather, @Decode, @Radiation |
 | `colony` | Bulk link/resource-dump triage; feeds curator's ingestion queue | @Gather, @Decode, @Radiation |
+| `selfdirectives` | Self-governed task generation: sources a cue, grades the autonomy tier (🟢 silent / 🟡 patch / 🔴 propose-only), executes bounded, closes with evidence | ALL modes (declared + logged) |
 
 ## PROPOSALS
 New subskills are drafted into `subskills/proposals/` and enter canon only by
