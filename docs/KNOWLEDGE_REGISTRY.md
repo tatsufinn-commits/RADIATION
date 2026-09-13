@@ -84,7 +84,7 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 
 ## K-LAW-007 — RA 7279 Urban Development & Housing Act (UDHA 1992)
 - Canonical path: — | Source record: S003 F-10; official PDF dhsud.gov.ph/wp-content/uploads/Laws_Issuances/01_Laws/RA_7279.pdf
-- Tier: TIER-1 | Type: statute | Status: RECORDED-NOT-HELD | Grade basis: [D] at source | Last verified: | Freq: 1yr
+- Tier: TIER-1 | Type: statute | Status: RECORDED-NOT-HELD | Grade basis: [D] at source | Last verified: 2026-09-13 (LawPhil mirror §1–3 verbatim, SRC-016) | Freq: 1yr
 - Domain: ALE-Planning | Confidence: HIGH (existence) | Conflicts: — | Used by: PLANNING_reviewer A5 (cited, unheld)
 - Notes: NOT in Law collection (27 files checked, S003). DEBT_REGISTER row exists.
 
@@ -96,9 +96,10 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 
 ## K-LAW-009 — PD 1308 Environmental Planning profession law
 - Canonical path: — | Source record: S003 F-16
-- Tier: TIER-1 | Type: statute | Status: RECORDED-NOT-HELD | Last verified: | Freq: 1yr
-- Domain: ALE-Planning | Conflicts: — | Used by: PLANNING_reviewer A5
-- Notes: absent from both Law and Professional-Practice collections.
+- Tier: TIER-1 | Type: statute | Status: **REPEALED-GENERATION** (see Supersedes/by) | Grade basis: [D] for what it stated | Last verified: 2026-09-13 (LawPhil mirror: title/scope verbatim, SRC-016) | Freq: 1yr
+- Domain: ALE-Planning | Conflicts: CONFLICT_REGISTER row 3 | Used by: PLANNING_reviewer A5 (⚑ EXAM NOTE appended 2026-09-13)
+- Supersedes/by: — / **K-LAW-014 (RA 10587, 2013 — §42 repeal, [D×3])**
+- Notes: absent from both Law and Professional-Practice collections. STALE-GENERATION correction 2026-09-13 (S005): this row previously carried no supersession marker; as-taught answer-of-record unchanged (P-07) — see CARD_002. Historical ancestor only.
 
 ## K-LAW-010 — PD 705 Revised Forestry Code
 - Canonical path: — | Source record: S003 F-17
@@ -340,3 +341,12 @@ contains no knowledge objects; recorded here so the omission reads as design, no
 - Status: VERIFIED (existence + extraction) | Grade basis: [D] for published formulas/standards as stated | Last verified: 2026-09-13 | Freq: 1yr | Decay: stable-domain
 - Domain: ALE-BU | Confidence: MEDIUM | Conflicts: — | Used by: AR153P (K-CUR-012)
 - Notes: The book's own bookmark tree is numeric page labels (001..349), not a subject TOC — **subject navigation must be built at first module use**, not assumed. Its electrical values are drawn from the PEC and must be **re-cited to K-STD-004 (or its current edition), never to the handbook** (the same rule the Structural collection states for NSCP-derived values).
+
+## K-LAW-014 — RA 10587 Environmental Planning Act of 2013
+- Canonical path: — | Source record: SRC-017 (LawPhil, fetched 2026-09-13 verbatim) · SRC-018 (Official Gazette) · SRC-019 (UP CIDS 2025 [R])
+- Tier: TIER-1 | Type: statute | Status: VERIFIED-via-mirrors (×3 channels) | Grade basis: [D] | Last verified: 2026-09-13 (incl. §42 repeal clause + §43 effectivity) | Freq: 1yr | Decay: stable-domain
+- Domain: ALE-Planning | Depth: — | Confidence: HIGH | Conflicts: row 3 (resolved-as-annotation)
+- Supersedes/by: **K-LAW-009 (PD 1308, §42)** / —
+- Used by: PLANNING_reviewer ⚑ EXAM NOTE · CARD_002
+- Notes: the CURRENT profession law. Key deltas vs PD 1308: env-planning degree required for licensure (transitional allied-masters + 3-yr OJT, 5-yr window); §24 vested rights; scope broadened (teaching, expert witness, permits compliance). Collection PDF still absent (Commander-side, DEBT_REGISTER).
+

@@ -276,3 +276,14 @@ against the primary sources before relying on them.
 
 ## RE-GRADE APPEND — 2026-09-12 (P-07 publisher rule)
 Part A1 theory-timeline web elevations reverted [R]→[O] (aggregator-supported; see audit RE-GRADE APPEND). Study value unchanged — the [D]-as-taught grade carries the exam authority; the [O] marks the *web triangulation* strength honestly. Lawful re-elevation path: Time-Saver page-cites or primary texts.
+
+---
+
+⚑ **EXAM NOTE (2026-09-13, S005 — TRRA/CONFLICT_REGISTER row 3):** the laws table cites
+**PD 1308** as "Environmental Planning Act" — it was **REPEALED in 2013 by RA 10587**
+(Environmental Planning Act of 2013, §42; approved May 27, 2013). What changed: licensure now
+requires an environmental-planning degree (transitional masters + 3-yr OJT route, 5-year
+window); PD-1308 registrants were vested automatically (§24). **Answer-of-record for exams
+stays as-taught (PD 1308) until the Commander rules; KNOW RA 10587 as the current law.**
+Evidence: TRI_ra10587-repeal_2026-09-13 · CARD_002.
+

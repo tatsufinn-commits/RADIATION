@@ -2,7 +2,7 @@
 **Tier-3 reference (never boots) · 🟢 docs · patch 3600.** "I'm stuck — what open-source
 thing unblocks me?" Answer here. Rules (SD-GOV-010): tools are DATA — a tool enters at
 **[O]** (observed/reported) until **this repo runs it successfully** → **[I]** (implemented).
-Promotions logged in the row. Draw order: this list → cue BUILD CUES → the Wayfinding ladder.
+Promotions logged in the row. Draw order: the **bank** (`docs/OPEN_SOURCES.md` — the Commander's 50-category source catalog, @Fetch's library) → this list ([I] tools we've run) → cue BUILD CUES → the Wayfinding ladder.
 
 | Problem | Tool (open-source) | Why OSS / note | Grade | Used in |
 |---|---|---|---|---|

@@ -652,10 +652,12 @@ def c24():
         rec(24, "WARN", False, "shrine LOG.md missing — sessions owe a heartbeat line (CHARTER §6: file at delivery, not at death)"); return
     rows = [l for l in read("docs/shrine/LOG.md").splitlines() if l.strip().startswith("|")]
     import datetime as _dt
-    _today = _dt.date.today().isoformat()
-    # v2: activity dates cannot be in the future — ledger rows carry decay/plan dates too
+    _today = (_dt.date.today() + _dt.timedelta(days=1)).isoformat()
+    # v3: activity dates cannot be in the future — ledger rows carry decay/plan dates too
     # (e.g. a card's decay lands in the ledger's evidence column and read as "activity
-    # from next year", false-positiving the heartbeat lag). Filter to <= today.
+    # from next year", false-positiving the heartbeat lag). Tolerance = +1 day to absorb
+    # timezone/clock skew between the committer's machine and whatever clock runs this
+    # check (CI runs UTC; PH is UTC+8 — a late-night PH commit is "tomorrow" in UTC).
     dates = [d for d in re.findall(r"\d{4}-\d{2}-\d{2}", " ".join(rows)) if d <= _today]
     last_log = max(dates) if dates else None
     ldates = [d for d in re.findall(r"\d{4}-\d{2}-\d{2}", read("Brain/frontal_lobe/task_ledger.md")) if d <= _today]
@@ -716,6 +718,15 @@ def c25reg():
     rec(25, "FAIL", not bad, f"standing-directive registry ({len(ids)} directives)" +
         ("" if not bad else ": " + "; ".join(bad[:6])))
 
+# ---- check 28: activation matrix integrity (patch 4200) --------------------
+def c28matrix():
+    t = read("docs/MODES.md")
+    need = ["ACTIVATION MATRIX", "selfdirectives (active)", "scout (active)", "colony (active)",
+            "fetch (active)", "overule (Commander-triggered)"]
+    bad = [f"matrix row/section missing: {n}" for n in need if n not in t]
+    rec(28, "FAIL", not bad, "activation matrix integrity (universal subskills pinned)" +
+        ("" if not bad else ": " + "; ".join(bad) + " · REMEDY: restore the row in docs/MODES.md — canon must not silently regress (the universal ruling was lost once before this check existed)"))
+
 # ---- check 27: neuron relay chain integrity (patch 3900, SD-3600-03) -------
 def c27relay():
     nd = os.path.join(ROOT, "scaffolding", "neurons")
@@ -750,7 +761,7 @@ def c26shrine():
     import subprocess
     lag = []
     import datetime as _dt2
-    _today2 = _dt2.date.today().isoformat()
+    _today2 = (_dt2.date.today() + _dt2.timedelta(days=1)).isoformat()
     def dmax(txt):
         # activity dates cannot be in the future (decay/plan dates filter — see c24 v2)
         ds = [d for d in re.findall(r"\d{4}-\d{2}-\d{2}", txt) if d <= _today2]
@@ -775,7 +786,7 @@ def c26shrine():
         "shrine heartbeat current — II.9 MANDATE: every conversation files one" if ok
         else "shrine lags: " + "; ".join(lag) + " · REMEDY: append today's heartbeat row to docs/shrine/LOG.md (II.9)")
 
-for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c27relay,c26shrine,c25reg,c21): fn()
+for fn in (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c21): fn()
 fails = [r for r in RESULTS if r["severity"] == "FAIL" and not r["ok"]]
 warns = [r for r in RESULTS if r["severity"] == "WARN" and not r["ok"]]
 for r in RESULTS:

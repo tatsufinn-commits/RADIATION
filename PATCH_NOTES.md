@@ -1,31 +1,32 @@
-# PATCH NOTES — 4100 Recalibration
-**Patch:** `RADIATION_PATCH_2026-09-13_4100_Recalibration.zip` · **Base:** post-4000 (v2.4.1) · 🟡 · v2.4.2
-**Trigger:** the Commander, in person: "why are you looking for building codes...? our goal is
-building and elevating the repository." — a task-selection correction, now machinery.
+# PATCH NOTES — 4200 Expansion (the Commander's three proposals)
+**Patch:** `RADIATION_PATCH_2026-09-14_4200_Expansion.zip` · **Base:** post-4100 (v2.4.2) · 🟠 · v2.5.0
+**Trigger:** "I propose an expansion of the open sources... the ability of the AI and Modes to use
+subskills as part of its autonomy... 1. @Overule... 2. @Fetch" — proposals = orders with judgment.
 
-1. **THE CORRECTION, ENCODED:** doctrine §2 priority — open-ended "proceed" orders mean
-   CAPABILITY/ELEVATION work first; contamination second; content debts draw ONLY on explicit
-   content orders or declared idle windows. Confirmed-cue row + ledger record + inference-log
-   CORRECTED verdict (II.5 growth, II.2 append).
-2. **3500 PAYLOAD REMEDIATED (found by git forensics):** the Cue-Renewal patch was NEVER
-   extracted on your machine — its unique files (the 6+7 cue lessons, 4 lexicon entries,
-   inference rows, TICKET_001) existed nowhere in the repo. Restored byte-identical from the
-   3500 zip; correction row appended. Lesson filed: extract-without-apply is invisible to
-   APPLY gates (they only run inside APPLY) — the CI apply-report is the control that matches
-   your actual workflow. **CHECK IT AFTER YOU PUSH — it has been reporting true state all along.**
-3. **REGRESSION LOCKS:** KR-LAW-014 (RA 10587 must survive in card + registry) · KR-LAW-009S
-   (REPEALED-GENERATION marker). 11 locked · 5 pending · 0 failed. Verified knowledge is
-   machine-guarded now — the content work's durable residue.
-4. **APPLY RUNNERS SELF-REMOVE** at end of run (the old 3500-candidate — built).
-5. **CONVERGENCE ORDER (your workflow):** extract **3900 → 4000 → 4100, in that order**
-   (4100 carries the most-current shared state files, so it goes last). Running the APPLYs is
-   optional in your workflow — but 4100's APPLY runs the untrack that kills the vehicle loop,
-   and **only a COMMIT after it seals it.**
-6. **BOOT WATCH:** 39.6/40 KB — the ledger drives it. A ledger-compression law (archive CLOSED
-   rows to temporal_lobe with pointers) is proposed — 🔴-adjacent (II.2), your call.
-7. **FILES (14 payload):** autopilot-cues · commander-lexicon · inference-log · TICKET_001 ·
-   autopilot-doctrine · knowledge_assertions.json · task_ledger · LOG · PATCH_LEDGER ·
+1. **OPEN_SOURCES → `docs/OPEN_SOURCES.md`:** your 50-category catalog (735 lines, access-labeled),
+   provenance header added, [O]-until-used grading per TOOLBOX rules. The bank any AI pulls from.
+2. **@Fetch (UNIVERSAL ⚙️×6):** the retrieval strategist — Brain → registers → the bank →
+   TOOLBOX [I] → online via scout (scout stays the gated executor; ask-gates unchanged).
+   Cross-referencing built in: name the independent channels BEFORE fetching.
+3. **@Overule (COMMANDER-TRIGGERED ⚙️×6\\*):** the deadline gear. Overrules AI-FLAGGED rules
+   only (WARN-and-proceed, ceremony compression, decide+declare forks, self-budgets, THE
+   BATCH-ASK — one upfront ask, then silent). NEVER: stop-lines, constitution, privacy checks,
+   validator-as-evidence. Make-good debts logged. **SD-GOV-013** (registry: 13).
+4. **Subskills in mode autonomy — codified:** ⚙️ subskills invoke 🟢 silent / 🟡 declared-in-Scan / 🔴 gated.
+5. **FORENSICS ×2, repaired here:** (a) the universal `selfdirectives ⚙️×6` matrix row was
+   silently LOST to merge churn — RESTORED, and **check 28** (33rd check, +/− tested) pins all
+   matrix rows; (b) **4000's content was never applied** (CARD_002 etc. missing, regression
+   locks failing on live) — REMEDIATED (regression 11/0 again).
+6. **ABSORPTION — 0000/0100 SUPERSEDED:** your separate @Autopilot session (quiz briefing + MEC30-7 Q1 reviewer, 2026-09-14) emitted auto-patches that were never applied. Its ledger/heartbeat records are merged HERE; applying 4200 preserves that history. If you ever recover those two zips: do NOT apply them — their ledgers predate 4200 and would revert rows. Byte-exact reviewer/briefing files stay in that session's workspace; say the word and a follow-up patch carries them in full.
+7. **CONVERGENCE:** live v2.4.2 → apply 4200 alone (it carries the 4000 gap). No 3900/4000
+   extract needed anymore — 4200 supersedes their shared state.
+8. **BOOT WATCH:** 39.9/40 KB — the compression law (ledger archive) is now URGENT and waits
+   on your ratification. Next machinery patch should pair with it.
+9. **FILES (24 payload):** OPEN_SOURCES · fetch.md · overule.md · registry · MODES · validate.py ·
+   TOOLBOX · WAYFINDING · 4000 remediation set (CARD_002, CORE_INDEX, ANNOT, TRI, CONFLICT,
+   K-REGISTRY, REFERENCES, DEBT, reviewer, TID-e×3) · TID-f×3 · ledger · LOG · PATCH_LEDGER ·
    CHANGELOG · README · SYSTEM_STATE · ROADMAP · + transport (self-removing).
-8. **VERIFICATION:** 32 checks · 31 pass · 1 warn · 0 FAIL · regression 11/0 · check 15 PASS.
-9. **DECLARATION:** "This Patch is a proposal. It has no effect until the Commander applies
-   it. — S005"
+10. **VERIFICATION:** 33 checks · 32 pass · 1 warn · 0 FAIL · check 28 +/− · regression 11/0 ·
+   boot 39.9/40 PASS.
+11. **DECLARATION:** "This Patch is a proposal. It has no effect until the Commander applies
+    it. — S005, relay TID-2026-09-13-f"

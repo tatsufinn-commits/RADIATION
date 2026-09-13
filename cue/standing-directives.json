@@ -172,6 +172,22 @@
    ],
    "enforcement": "validator check 3.5 (core closed set) + scaffolding/core/proc_self-directive.md CURATION GATE section",
    "provenance": "Commander-ordered research 2026-09-13 (SkillsBench via SoK arXiv:2602.20867: curated +16.2pp vs self-generated -1.3pp); ratified by application of patch 3700"
+  },
+  {
+   "id": "SD-GOV-013",
+   "version": 1,
+   "status": "active",
+   "class": "constraint",
+   "title": "The Override Boundary (@Overule)",
+   "authority": "commander",
+   "scope": "all modes, session-scoped activations",
+   "rule": "Only the Commander may invoke @Overule. It overrules AI-FLAGGED rules only (WARN cautions except privacy/vehicles, self-defaults, ceremony, detail-fork asks, self-budgets) - never the seven stop-lines, never constitution law, never the Commander's own words, never the validator as evidence. Every activation declares scope + expiry; every overuled item logs a make-good debt.",
+   "evidence_requirements": [
+    "activation declaration in session record",
+    "overule: rows in task_ledger (II.3 audit)"
+   ],
+   "enforcement": "subskills/active/overule.md charter + task_ledger audit (II.3)",
+   "provenance": "Commander proposal 2026-09-13 ('fighting for my life in 2-3 hour tight deadlines') + 3300 boundary (the Commander, not the AI, grants exceptions)"
   }
  ]
 }

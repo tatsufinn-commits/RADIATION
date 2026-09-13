@@ -4,6 +4,15 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v2.5.0 — 2026-09-13 — Expansion (🟠 · the Commander's three proposals, shipped)
+- **`docs/OPEN_SOURCES.md` — HIS catalog, enshrined** (50 categories, access-labeled PUBLIC/API/KEY/AUTH/PAID/HUMAN/TOOL, provenance header): the retrieval bank any AI can pull to help itself. Pointers ride [O]; promote to [I] on use (TOOLBOX rules).
+- **`@Fetch` (subskills/active/fetch.md, UNIVERSAL ⚙️×6)** — the retrieval strategist: Brain → registers → the bank → TOOLBOX [I] → online-via-scout (gates unchanged: scout stays the gated executor; new collections still ask). Cross-referencing doctrine built in: name the independent channels BEFORE fetching.
+- **`@Overule` (subskills/active/overule.md, COMMANDER-TRIGGERED ⚙️×6\*)** — the deadline gear: overrules AI-FLAGGED rules only (WARN-and-proceed, ceremony compression, detail-fork decide+declare, self-budgets, THE BATCH-ASK). NEVER: the seven stop-lines, constitution, privacy checks, the validator as evidence. Every use logs a make-good debt. Registry: **SD-GOV-013** (13 directives).
+- **Subskills as part of mode autonomy — codified** (MODES matrix legend): ⚙️ subskills invoke 🟢 silent (read-only) · 🟡 declared-in-Scan · 🔴 gated — the ladder stays the governor.
+- **Canon restoration + pinning:** the universal `selfdirectives ⚙️×6` matrix row had been silently lost to merge churn — RESTORED, and **check 28** (33rd check, FAIL-class) now pins all matrix rows so canon cannot evaporate again.
+- **4000 content remediated:** CARD_002 + ANNOT/TRI + K-LAW-009/014 corrections + SRC-016..019 + ⚑ reviewer note were never applied (extraction skip) — restored; regression locks pass again (11/0).
+- Version bump: MINOR → v2.5.0.
+
 ## v2.4.2 — 2026-09-13 — Recalibration (🟡 · Commander correction, in person)
 - **Task selection corrected at the source:** "our goal is building and elevating the repository." Doctrine §2 now reads: open-ended proceeds = CAPABILITY work first; contamination second; content debts ONLY on explicit content orders or declared idle windows. Confirmed-cue row + ledger record + inference-log CORRECTED verdict filed (II.5).
 - **3500 payload REMEDIATED:** git forensics showed the Cue-Renewal patch was never extracted on the Commander's machine — its unique files (cue lessons incl. the 7 BUILD CUES, 4 lexicon entries, inference rows, TICKET_001) existed nowhere in the repo. Restored byte-identical from the 3500 zip, correction row appended. Method lesson: extraction gaps are invisible to APPLY gates that never run — the CI apply-report is the control that matches his workflow.

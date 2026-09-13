@@ -83,8 +83,11 @@ skills. When a mode's constraint conflicts with a skill's normal behavior,
 | curator | ❌ dormant | ⚙️ invocable | ⚙️ invocable | ✅ passive | ✅ passive | per leg |
 | scout (active) | ❌ | ⚙️ | ⚙️ | ⚙️ | ✅ MANDATORY | ✅ |
 | colony (active) | ❌ | ⚙️ | ⚙️ | ⚙️ | ❌ | per leg |
+| selfdirectives (active) | ⚙️ | ⚙️ | ⚙️ | ⚙️ | ⚙️ | ⚙️ |
+| fetch (active) | ⚙️ | ⚙️ | ⚙️ | ⚙️ | ⚙️ | ⚙️ |
+| overule (Commander-triggered) | ⚙️* | ⚙️* | ⚙️* | ⚙️* | ⚙️* | ⚙️* |
 
-✅ = active per loadout · ⚙️ = invocable on declared judgment · ❌ = not available
+✅ = active per loadout · ⚙️ = invocable on declared judgment · ❌ = not available · ⚙️×6 rows = UNIVERSAL (Commander ruling 3200; selfdirectives restored + fetch + overule per his 4200 proposal) · \* = Commander-triggered only (SD-GOV-013) · AUTONOMOUS INVOCATION of ⚙️ subskills: 🟢 silent when read-only · 🟡 declared in the Scan · 🔴 gated
 
 **Degradation rule:** an AI that cannot load Boot Tier 2 must declare it and may
 NOT run @Radiation. It operates @Data or @Gather-lean only, and says so in its

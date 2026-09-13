@@ -19,4 +19,8 @@ Format: `| ID | origin | type 1°/2° | tier | first acquired | sessions used |`
 | SRC-013 | lawphil.net/statutes/bataspam/bp1983/bp_344_1983.html (Arellano Law Foundation mirror) | 1° (statute text) | statute | 2026-09-12 (S003 ingest, P-04 demo); re-fetched + verified 2026-09-13 (S005) | S003, S005 |
 | SRC-014 | legaldex.com BP 344 mirror (carries OG imprint: Vol. 80 No. 8 p.1103, Feb 20 1984; P.B. 1817) | 1° (mirror w/ Gazette imprint) | statute | 2026-09-13 (S005) | S005 |
 | SRC-015 | UN ESCAP / International Labour Office reproduction: BP 344 + Amended IRR (hosted arki-reviewer; ORIGINAL-generation IRR text) | 1° + IRR (intl-body copy) | statute/IRR | 2026-09-13 (S005) | S005 |
+| SRC-016 | lawphil.net (RA 7279 UDHA 1992 + PD 1308 1978 mirrors, fetched 2026-09-13) | 1° (statute text) | statute | 2026-09-13 (S005 queue sweep) | S005 |
+| SRC-017 | lawphil.net/statutes/repacts/ra2013/ra_10587_2013.html (fetched, verbatim incl. §42–43) | 1° (statute text) | statute | 2026-09-13 (S005) | S005 |
+| SRC-018 | Official Gazette (officialgazette.gov.ph + mirror) RA 10587 full text | 1° (official publication) | statute | 2026-09-13 (S005) | S005 |
+| SRC-019 | UP CIDS, "The State of Environmental Planning Education in the Philippines after RA No. 10587" (2025) | 2° (academic study) | research | 2026-09-13 (S005) | S005 |
 
