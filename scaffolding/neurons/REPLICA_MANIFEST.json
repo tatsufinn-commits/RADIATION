@@ -86,5 +86,10 @@
       "purpose": "intentional historical snapshot",
       "load_policy": "archive_not_boot_context"
     }
-  ]
+  ],
+  "ratification": {
+    "status": "commander-review-requested",
+    "scope_note": "12 pairs = the COMPLETE declared tranche (reasoning+intake+orders x a-d, 2026-09-13 records). Narrowing to 4 would fail check 11 again or delete Commander-retained records; reduce only by explicit Commander order naming the pairs to drop.",
+    "date": "2026-09-14"
+  }
 }

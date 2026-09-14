@@ -69,6 +69,74 @@
         "status": "commander-reviewed",
         "notes": "Commander-authored note describing the 0_CALLENDER feed; no personal data claimed or invented."
       }
+    },
+    {
+      "path": "Brain/courses/DSS10_INTRODUCTION_TO_DATA_SCIENCE/SOIT_DSS10_1Q_ Syllabus.docx",
+      "sha256": "sha256:99e388eccc2fc804621fa5cc86cacb157924fed5b88e711a0e1392764dda3fd9",
+      "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "role": "source_of_readable_derivative",
+      "load_policy": "on_demand_only",
+      "derivative_path": "Brain/courses/DSS10_INTRODUCTION_TO_DATA_SCIENCE/SOIT_DSS10_1Q_Syllabus.md",
+      "conversion": {
+        "status": "commander-prepared",
+        "verified_on": "2026-09-14",
+        "limitations": "DOCX restored from commit 9c29eff (5500 gate review); MD conversion made by the Commander in 22c8147; static validation does not inspect inside the binary."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "Restored 2026-09-14 by explicit gate-review remediation of the retention ruling; rights judgment remains the Commander's."
+      }
+    },
+    {
+      "path": "Brain/courses/GED103_READINGS_IN_PHILIPPINE_HISTORY/GED103 Syllabus_Q12627.docx",
+      "sha256": "sha256:eae44c07445e48f77aef95d4c78ee40652bca55c0c8141adcb92a061e4c5905a",
+      "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "role": "source_of_readable_derivative",
+      "load_policy": "on_demand_only",
+      "derivative_path": "Brain/courses/GED103_READINGS_IN_PHILIPPINE_HISTORY/GED103_Syllabus_Q12627.md",
+      "conversion": {
+        "status": "commander-prepared",
+        "verified_on": "2026-09-14",
+        "limitations": "DOCX restored from commit 9c29eff (5500 gate review); MD conversion made by the Commander in 22c8147; static validation does not inspect inside the binary."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "Restored 2026-09-14 by explicit gate-review remediation of the retention ruling; rights judgment remains the Commander's."
+      }
+    },
+    {
+      "path": "Brain/courses/MEC30-7_STATICS_OF_RIGID_BODIES_FOR_CE/MEC30-7 Course Calendar 1Q.html",
+      "sha256": "sha256:495da86995575418f4dd51b67c9e8a2e934c6fdf3bf482b277dc9afeada76af1",
+      "media_type": "text/html",
+      "role": "source_of_readable_derivative",
+      "load_policy": "on_demand_only",
+      "derivative_path": "Brain/courses/MEC30-7_STATICS_OF_RIGID_BODIES_FOR_CE/MEC30-7_Course_Calendar.md",
+      "conversion": {
+        "status": "commander-prepared",
+        "verified_on": "2026-09-14",
+        "limitations": "HTML restored from commit 9c29eff (5500 gate review); MD conversion made by the Commander in 22c8147."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "Restored 2026-09-14 by explicit gate-review remediation of the retention ruling; rights judgment remains the Commander's."
+      }
+    },
+    {
+      "path": "Brain/courses/0_CALLENDER/TERM1_FEED.txt",
+      "sha256": "sha256:9b3f614843cc4d12d6b93a9d4b05f6f3fdd85c457558caf7874e89f0c177f9e9",
+      "media_type": "text/plain",
+      "role": "data_feed",
+      "load_policy": "on_demand_only",
+      "derivative_path": null,
+      "conversion": {
+        "status": "not_applicable",
+        "verified_on": "2026-09-14",
+        "limitations": "Raw machine calendar feed (LMS export committed as .txt because GitHub rejects .ics); no conversion involved."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "Amendment A2 (patch 3100, Commander order): committed feed DATA the hivemind needs; identifier-scan exemption per A2, now ALSO digest-bound here (5500)."
+      }
     }
   ]
 }

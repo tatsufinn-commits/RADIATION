@@ -11,3 +11,7 @@ All items retrieved **2026-09-14** by the S005 session web sweep. Tiers: **[O]**
 | Reasoning/non-reasoning Fast variants; grok-code-fast-1 rates | https://intuitionlabs.ai/articles/ai-api-pricing-comparison-grok-gemini-openai-claude | [S] | 2026-08-09 |
 
 **Gaps:** no official xAI status page confirmed in this sweep — declared unverified in the profile. Consumer-X training defaults must never be attributed to the API.
+
+**5500 gate-review additions (2026-09-14):**
+
+| Official models & pricing (grok-4.6; 500K ctx; $2/$6; cutoff 2026-02-01; alias policy) | https://docs.x.ai/developers/models | [O] | retrieved 2026-09-14 (gate-review sweep) |

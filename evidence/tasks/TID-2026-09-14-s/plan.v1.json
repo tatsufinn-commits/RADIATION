@@ -1,0 +1,34 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-5500",
+ "task_id": "TID-2026-09-14-s",
+ "base_revision": "d8f06fc1e5d691e282eb05d5724ea01d6b3362db",
+ "policy": "apply the gate review exactly; no weakening; no fabrication; Candidate C deferred to its own order",
+ "steps": [
+  {
+   "step_id": "S1",
+   "operation_class": "ruling-reconciliation",
+   "success_predicate": "corpus 8/8 declared; replica ratification recorded"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "control-plane",
+   "success_predicate": "control_plane self-test 38/38 incl. 5500 vectors"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "activation",
+   "success_predicate": "pass self-test 16/16 incl. provider table"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "ci-truth",
+   "success_predicate": "verify_apply --strict rc==0; workflow pipefail+diagnostics"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "harness",
+   "success_predicate": "unittest discover >=1 test, all pass (check 39)"
+  }
+ ]
+}

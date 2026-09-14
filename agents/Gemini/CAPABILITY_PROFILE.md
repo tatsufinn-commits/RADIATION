@@ -30,3 +30,10 @@
 | Creative | strong | image/video generation models |
 
 **Routing:** load `agents/Gemini/` only when the host is explicitly known as Gemini/Google; otherwise the generic CAP path.
+
+---
+
+## Gate-review corrections (5500, 2026-09-14 — supersedes the compressed privacy summary above)
+- **Official models** [O, ai.google.dev/gemini-api/docs/models — retrieved 2026-09-14 via gate-review sweep]: stable line = **Gemini 3.8 / 3.7 / 3.6 / 3.5 Flash**; **Gemini 3.1 Pro is PREVIEW** — lifecycle status is part of the record; the 3.1-Pro-as-current-line framing above is **corrected**.
+- **Official pricing** [O, ai.google.dev/gemini-api/docs/pricing] — exact per-ID entries; the aggregator tables above are historical comparison evidence.
+- **Data handling — decomposed per surface** [O, logs-policy + abuse-monitoring docs]: paid-API project logs are private to the project with **default maximum 55-day retention (7/14/28/55-day settings)**; **abuse monitoring separately retains API prompts, context, and output up to 55 days** for policy enforcement; optional dataset sharing/training unchanged. "Private to the project" is NOT "not retained" and NOT "not reviewable under defined conditions" — record surface, purpose, and retention separately for any deployment decision.

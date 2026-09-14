@@ -12,3 +12,9 @@ All items retrieved **2026-09-14** by the S005 session web sweep. Tiers: **[O]**
 | Operational status (canonical) | https://status.cloud.google.com | [O] | canonical, check live |
 
 **Conflicts/gaps:** consumer-Gemini retention details are [U]/[S] — the official consumer help page is the review trigger before quoting. API/consumer/enterprise surfaces must never be merged in claims.
+
+**5500 gate-review additions (2026-09-14):**
+
+| Official models page (stable 3.8/3.7/3.6/3.5 Flash; 3.1 Pro PREVIEW) | https://ai.google.dev/gemini-api/docs/models | [O] | retrieved 2026-09-14 (gate-review sweep) |
+| Official pricing page | https://ai.google.dev/gemini-api/docs/pricing | [O] | retrieved 2026-09-14 (gate-review sweep) |
+| Abuse monitoring (API prompts/context/output retained up to 55 days) | https://ai.google.dev/gemini-api/docs/usage-policies | [O] | retrieved 2026-09-14 (gate-review sweep) |

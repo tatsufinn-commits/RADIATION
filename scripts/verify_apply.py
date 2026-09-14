@@ -40,18 +40,28 @@ def head_date():
         return None
 
 def vehicle_audit():
-    """The 3400 generic rule, mirrored read-only for the report."""
-    bad = []
-    brain = os.path.join(ROOT, "Brain")
-    for dp, dn, fn in os.walk(brain):
-        for f in fn:
-            p = os.path.relpath(os.path.join(dp, f), ROOT)
-            if f.endswith(".md") or f == ".gitkeep": continue
-            if p in ("Brain/courses/0_CALLENDER/TERM1_FEED.txt",): continue
-            if p.startswith("Brain/short_term/plan/") and p.endswith(".json"): continue
-            if p.startswith("Brain/short_term/drills/"): continue
-            bad.append(p)
-    return sorted(bad)
+    """5500: the 5300 declared-corpus rule, mirrored read-only for the report.
+    Exact manifest entries are sanctioned; everything else under Brain/ that is
+    not a Markdown record keeps the generic rule. Never recommends removing
+    declared corpus assets to clear itself."""
+    try:
+        sys.path.insert(0, ROOT)
+        import validate as V
+    except Exception:
+        return []
+    bad, declared = V._corpus_contract_violations(V.ROOT)
+    return sorted(V._brain_vehicle_violations(V.ROOT, declared))
+
+
+def corpus_contract_findings():
+    """5500: digest/derivative/path violations of the declared corpus contract."""
+    try:
+        sys.path.insert(0, ROOT)
+        import validate as V
+    except Exception:
+        return []
+    bad, _declared = V._corpus_contract_violations(V.ROOT)
+    return bad
 
 def main():
     if "--self-test" in sys.argv:
@@ -101,9 +111,16 @@ def main():
 
     veh = vehicle_audit()
     if veh:
-        L.append(f"  vehicles   : {len(veh)} unsanctioned non-record file(s) still in Brain/ — APPLY did not run")
+        L.append(f"  vehicles   : {len(veh)} undeclared non-record file(s) still in Brain/")
         for p in veh[:6]: L.append("    " + p)
-        findings_fail.append("vehicles present — run APPLY.sh from the latest patch (idempotent)")
+        findings_fail.append("vehicles present — declare them in Brain/courses/COURSE_CORPUS_MANIFEST.json "
+                             "or move them out of Brain/ (APPLY runners are retired; never re-add them)")
+    else:
+        L.append("  vehicles   : none — Brain/ is records + declared corpus")
+    cc = corpus_contract_findings()
+    if cc:
+        for x in cc[:4]: L.append("    corpus-contract: " + x)
+        findings_fail.append(f"course-corpus contract violated x{len(cc)} — fix the manifest or the files")
     else:
         L.append("  vehicles   : none — Brain/ is records-only")
     runners = [p for p in ("APPLY.sh", "APPLY.ps1", "PATCH_NOTES.md") if read(p)]

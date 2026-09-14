@@ -48,12 +48,28 @@ def _load_schema(name):
         except Exception: _SCHEMAS[name] = None
     return _SCHEMAS[name]
 
+def _fits(v, spec):
+    """Trial validation for applicators (oneOf): does v fit this subschema?"""
+    out: list[str] = []
+    _validate_against(v, spec, "trial", out)
+    return not out
+
+
 def _validate_against(v, spec, where, out):
     """Recursive execution of the schema subset our contracts use: type,
     required, properties (nested), items (arrays), const, enum, pattern,
-    minLength, minimum. Schemas are law at every depth (4600)."""
+    minLength, minimum, oneOf, maxItems — and bool is NOT an integer.
+    Schemas are law at every depth (4600); the executor now covers every
+    construct our shipped schemas rely on (5500 gate review)."""
     if not isinstance(spec, dict): return
+    if "oneOf" in spec:
+        hits = sum(1 for s in spec["oneOf"] if isinstance(s, dict) and _fits(v, s))
+        if hits != 1:
+            out.append(f"{where}: oneOf violated (matched {hits} of "
+                       f"{len(spec['oneOf'])} subschemas)")
     ty = spec.get("type")
+    if ty == "integer" and (isinstance(v, bool) or not isinstance(v, int)):
+        out.append(f"{where}: must be integer (bool is not an integer)"); return
     if ty == "object":
         if not isinstance(v, dict):
             out.append(f"{where}: must be object"); return
@@ -66,6 +82,8 @@ def _validate_against(v, spec, where, out):
     if ty == "array":
         if not isinstance(v, list):
             out.append(f"{where}: must be array"); return
+        if "maxItems" in spec and len(v) > spec["maxItems"]:
+            out.append(f"{where}: more than maxItems {spec['maxItems']}")
         if "items" in spec:
             for i, item in enumerate(v):
                 _validate_against(item, spec["items"], f"{where}[{i}]", out)
@@ -124,7 +142,7 @@ def validate_bundle(tid, d):
     plans = [f for f in os.listdir(d) if re.match(r"plan(\.v\d+)?\.json$",f)]
     if not plans: out.append(f"{tid}: no plan JSON")
     plan = None
-    for pf in sorted(plans):
+    for pf in sorted(plans, key=_plan_version):
         try: p = json.load(open(os.path.join(d,pf),encoding="utf-8"))
         except Exception as e: out.append(f"{tid}: {pf} unparseable: {e}"); continue
         _schema_check(p, "plan.schema.json", f"{tid}/{pf}", out)
@@ -257,9 +275,10 @@ def render_neuron(tid, bundle_dir, stage):
     file is a view of it. Hand edits break file==render and fail check 27."""
     env = json.load(open(os.path.join(bundle_dir, "task.json"), encoding="utf-8"))
     plan = None
-    for pf in sorted(f for f in os.listdir(bundle_dir) if re.match(r"plan(\.v\d+)?\.json$", f)):
+    for pf in sorted((f for f in os.listdir(bundle_dir)
+                      if re.match(r"plan(\.v\d+)?\.json$", f)), key=_plan_version):
         pj = json.load(open(os.path.join(bundle_dir, pf), encoding="utf-8"))
-        if pj.get("task_id") == tid: plan = pj; break
+        if pj.get("task_id") == tid: plan = pj  # 5500: HIGHEST numeric version wins
     cdir = os.path.join(bundle_dir, "commands")
     cmds = sorted(f for f in os.listdir(cdir) if f.endswith(".json")) if os.path.isdir(cdir) else []
     odir = os.path.join(bundle_dir, "outcomes")
@@ -369,6 +388,13 @@ def _make_vector_bundle():
     open(os.path.join(d,"events.ndjson"),"w").write("\n".join(json.dumps(e) for e in ev))
     json.dump({"task_id":tid,"state":"COMPLETE"}, open(os.path.join(d,"projection.json"),"w"))
     return root, d, tid
+
+
+def _plan_version(name: str) -> int:
+    """5500: EXPLICIT numeric version rule for plan files — plan.v2 sorts
+    before plan.v10, and a bare plan.json ranks as v0. Lexical order lied."""
+    m = re.search(r"\.v(\d+)\.json$", name)
+    return int(m.group(1)) if m else 0
 
 
 def self_test():
@@ -482,8 +508,37 @@ def self_test():
     ok += v12
     print(f"  vector 12 hand-edited projection caught -> {'PASS' if v12 else (base, drifted)}")
     shutil.rmtree(root)
-    print(f"relay self-test: {ok}/12 vectors")
-    return 0 if ok == 12 else 1
+    # ── 5500 gate-review vectors: schema execution + numeric versioning ──
+    import radiation_core.relay as _self
+    bad_tid = {"type": "execution", "task_id": "../not-a-valid-task-id",
+               "payload": {"v": 2}, "digest": "x"}
+    outb: list[str] = []
+    _self._schema_check(bad_tid, "control_receipt.schema.json", "exploit", outb)
+    v13 = any("oneOf" in x for x in outb); ok += v13
+    print(f"  vector 13 schema oneOf executes (bad task_id caught) -> {'PASS' if v13 else 'FAIL'}")
+    big = {"schema_name": "radiation.control.manifest/1",
+           "files": [{"path": f"f{i}.md", "content": "x"} for i in range(21)]}
+    outm: list[str] = []
+    _self._schema_check(big, "control_manifest.schema.json", "manifest", outm)
+    v14 = any("maxItems" in x for x in outm); ok += v14
+    print(f"  vector 14 schema maxItems executes (21 files caught) -> {'PASS' if v14 else 'FAIL'}")
+    outi: list[str] = []
+    _self._schema_check({"seq": True}, "event.schema.json", "event", outi)
+    v15 = any("must be integer" in x for x in outi); ok += v15
+    print(f"  vector 15 bool rejected as integer -> {'PASS' if v15 else 'FAIL'}")
+    rootv, dv, tidv = _make_vector_bundle()
+    p2 = json.load(open(os.path.join(dv, "plan.v1.json")))
+    if os.path.exists(os.path.join(dv, "plan.v1.json")): os.remove(os.path.join(dv, "plan.v1.json"))
+    a2 = dict(p2); a2["plan_id"] = "PLAN-V2-MARK"
+    a10 = dict(p2); a10["plan_id"] = "PLAN-V10-MARK"
+    json.dump(a2, open(os.path.join(dv, "plan.v2.json"), "w"))
+    json.dump(a10, open(os.path.join(dv, "plan.v10.json"), "w"))
+    rend = render_neuron(tidv, dv, "reasoning")
+    v16 = "PLAN-V10-MARK" in rend and "PLAN-V2-MARK" not in rend; ok += v16
+    shutil.rmtree(rootv, ignore_errors=True)
+    print(f"  vector 16 plan.v10 beats plan.v2 (numeric, not lexical) -> {'PASS' if v16 else 'FAIL'}")
+    print(f"relay self-test: {ok}/16 vectors")
+    return 0 if ok == 16 else 1  # 5500: total tracked; success exits ZERO
 
 
 if __name__ == "__main__":

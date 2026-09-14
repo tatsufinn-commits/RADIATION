@@ -21,8 +21,8 @@
             "not": {"anyOf": [{"pattern": "\\.\\."}, {"pattern": "\\\\"}, {"pattern": "^/"}]}
           },
           "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
-          "media_type": {"enum": ["text/csv", "application/pdf", "text/plain"]},
-          "role": {"enum": ["source_of_readable_derivative", "environment_metadata", "reference_note"]},
+          "media_type": {"enum": ["text/csv", "application/pdf", "text/plain", "text/html", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]},
+          "role": {"enum": ["source_of_readable_derivative", "environment_metadata", "reference_note", "data_feed"]},
           "load_policy": {"enum": ["on_demand_only", "exclude_from_ai_ingestion"]},
           "derivative_path": {
             "type": ["string", "null"],
@@ -60,7 +60,7 @@
                      "required": ["derivative_path"]}
           },
           {
-            "if": {"properties": {"role": {"enum": ["environment_metadata", "reference_note"]}}},
+            "if": {"properties": {"role": {"enum": ["environment_metadata", "reference_note", "data_feed"]}}},
             "then": {"properties": {"derivative_path": {"type": "null", "enum": [null]}}}
           }
         ]

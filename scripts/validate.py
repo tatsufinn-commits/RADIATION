@@ -237,7 +237,7 @@ def _brain_vehicle_violations(root, declared):
     def sanctioned(p):
         if p == "Brain/courses/COURSE_CORPUS_MANIFEST.json":
             return True                                  # 5300 E1: the contract file itself
-        if p in CV_ALLOW_DATA:            return True   # amendment A2: the committed LMS feed
+        # A2 feed: NO path-only escape since 5500 — it is digest-bound in the manifest
         if p.startswith("Brain/short_term/plan/") and p.endswith(".json"):
             return True                                  # the deadline register the planner eats
         if p.startswith("Brain/short_term/drills/"):
@@ -1117,8 +1117,46 @@ def c38agents():
         "dated provider profiles w/ sources + routing matrix — a handoff, NOT an elevation" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
+# ---- check 39: test harness + tool registry (5500 gate review) -------------
+def c39gates():
+    bad = []
+    # (a) a harness that discovers ZERO tests is an explicit failure
+    r = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests"],
+                       cwd=ROOT, capture_output=True, text=True, timeout=1200)
+    m = re.search(r"Ran (\d+) tests?", r.stdout + r.stderr)  # unittest prints to stderr
+    if not m or int(m.group(1)) < 1:
+        bad.append("unittest discover found 0 tests — a harness that runs nothing is not a harness")
+    elif r.returncode != 0:
+        bad.append(f"unittest discover FAILED (rc={r.returncode}): "
+                   + (r.stdout + r.stderr).strip().splitlines()[-1][:90])
+    # (b) tool registry: present, schema-EXECUTED, entries resolve, coverage complete
+    reg_p = os.path.join(ROOT, "tools", "TOOL_REGISTRY.json")
+    if not os.path.exists(reg_p):
+        bad.append("tools/TOOL_REGISTRY.json missing (the tool catalog is law)")
+    else:
+        try:
+            reg = json.load(open(reg_p, encoding="utf-8"))
+        except Exception as e:
+            reg = {}
+            bad.append(f"TOOL_REGISTRY unparseable: {e}")
+        out: list[str] = []
+        _schema_check(reg, "tool_registry.schema.json", "tool registry", out)
+        bad.extend(out[:4])
+        for tool in reg.get("tools", []):
+            if not os.path.exists(os.path.join(ROOT, tool.get("entry", ""))):
+                bad.append(f"registry: {tool.get('name')!r} entry missing on disk: {tool.get('entry')}")
+        scripts = sorted(f for f in os.listdir(os.path.join(ROOT, "scripts"))
+                         if f.endswith(".py")) if os.path.isdir(os.path.join(ROOT, "scripts")) else []
+        entries = {os.path.basename(tool.get("entry", "")) for tool in reg.get("tools", [])}
+        for s in scripts:
+            if s not in entries:
+                bad.append(f"scripts/{s} not registered in TOOL_REGISTRY")
+    rec(39, "FAIL", not bad, "test harness + tool registry (5500): discoverable tests "
+        "exist and pass · every tool registered with entry + self-test verb · registry "
+        "schema-EXECUTED" + ("" if not bad else ": " + "; ".join(bad[:4])))
+
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
-          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control,c38agents)
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control,c38agents,c39gates)
 
 def run_all():
     """Structured entry point (4400): returns the findings list. Import-safe —

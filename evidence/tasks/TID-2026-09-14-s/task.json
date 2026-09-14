@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-s",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: \"read this review and apply it!\"",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T23:00:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "d8f06fc1e5d691e282eb05d5724ea01d6b3362db",
+ "idempotency_key": "5500-gatewright-repairs",
+ "operator_notes": {
+  "intake": "Order: \"read this review and apply it!\" (5400 implementation + model-research gate review). Mode: repair+build (@Autopilot).",
+  "reasoning": "5500 Gatewright = review \u00a78 gates 1-7: (1) three removed course sources RESTORED from 9c29eff + declared (retention ruling stands; veto-able); (2) TERM1_FEED digest-bound as data_feed, CV_ALLOW_DATA path-only escape removed; (3) replica 12-pair tranche carries ratification record (commander-review-requested); (4) pass profile binds to Arena_AI only + table fixtures x5+ambiguous; (5) control-plane: transactional preflight, NDJSON line-context findings, decision_digest semantic binding (digest-consistent tamper caught), relay oneOf/maxItems/bool executed, numeric plan selection; (6) CI: shell bash pipefail, failure diagnostics step, verify_apply contract-aware (strict rc 0), relay success-exits-1 fixed; (7) tests/ harness (14) + TOOL_REGISTRY (20 tools, check 39) + hostile-content fixtures. \u00a74.3 volatile claims corrected to official primaries. Gate 8 (Candidate C catalog) awaits Commander packaging order.",
+  "orders": "PLAN-5500, 5 steps green. Delivery: RADIATION_PATCH_2026-09-14_5500_Gatewright.zip (v3.7.0). Push: the Commander's, always."
+ }
+}

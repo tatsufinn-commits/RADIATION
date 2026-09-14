@@ -40,6 +40,18 @@ claim is invented anywhere in the manifest. `distribution_review: commander-revi
 records that the Commander directed retention (brief §0, amendment A1 for the CSV) —
 it records custody intent, not a copyright analysis.
 
+## Completeness (5500 gate review)
+
+Every non-Markdown file under `Brain/courses/` is a manifest entry — **no
+path-only exceptions remain**: the A2 calendar feed (`TERM1_FEED.txt`) is now
+digest-bound as `role: data_feed` (its identifier-scan exemption under A2
+continues, documented here), and the three original source files the Commander's
+conversion commit had removed (two DOCX, one HTML) were **restored from commit
+`9c29eff`** and declared with their derivative mappings. Conversion status is
+`commander-prepared` (the Commander made the MD conversions in `22c8147`); the
+restoration itself was the 5500 remediation of the retention ruling — flagged in
+PATCH_NOTES for Commander veto.
+
 ## Load policy
 
 `retrieved_by: on_demand_only` — a session reads the corpus derivatives when the task

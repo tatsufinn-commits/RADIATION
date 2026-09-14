@@ -75,3 +75,10 @@ Brain/courses/0_CALLENDER/readme.txt
 # ── 3e. LOCAL RUNTIME (patch 4400) — task bundles live committed under evidence/;
 # runtime/ is the local working area the remediation plan reserves (gitignored)
 runtime/
+
+# 5500 gate review: DECLARED corpus assets are never ignored — the restored
+# source files must seal (gitignore had banned binary vehicle types; declared
+# entries are exempt by Commander ruling, and an unsealed declaration lies).
+!Brain/courses/DSS10_INTRODUCTION_TO_DATA_SCIENCE/*.docx
+!Brain/courses/GED103_READINGS_IN_PHILIPPINE_HISTORY/*.docx
+!Brain/courses/MEC30-7_STATICS_OF_RIGID_BODIES_FOR_CE/*.html

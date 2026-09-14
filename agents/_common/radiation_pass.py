@@ -144,7 +144,10 @@ def run_pass(host_label: str, repo: str = ROOT) -> dict:
     except Exception as e:
         boundary = {"error": f"resolver unavailable: {e}"[:120]}
     profile = None
-    if routed["route"] == "provider":
+    # 5500 gate review: a posture profile binds to ITS provider only. The Arena
+    # profile must never ride on a ChatGPT/Claude/Gemini/Grok route — other
+    # providers get explicit declared absence until their own profile exists.
+    if routed.get("provider") == "Arena_AI":
         pp = os.path.join(ROOT, "scaffolding", "hosts", "arena_agent_mode.json")
         if os.path.isfile(pp):
             try:
@@ -217,6 +220,21 @@ def self_test(repo: str = ROOT) -> int:
         and rg["profile"] is None and rg["proofs"] == []
         and rg["honesty_selfcheck"] == "clean",
         str(rg["observation"])[:80])
+    for label, prov in (("ChatGPT", "ChatGPT"), ("Claude", "Claude"),
+                        ("Gemini", "Gemini"), ("Grok", "Grok"),
+                        ("Arena Agent Mode", "Arena_AI")):
+        rp = run_pass(label, repo)
+        want_profile = prov == "Arena_AI"
+        vec(f"table: {prov} routes to its folder with correct profile discipline",
+            rp["routing"]["route"] == "provider" and rp["routing"]["provider"] == prov
+            and ((rp["profile"] or {}).get("host_label") == "Arena Agent Mode") is want_profile
+            and rp["honesty_selfcheck"] == "clean"
+            and any(("declared absence" in u) == (not want_profile) for u in rp["unknowns"]),
+            str({"provider": rp["routing"]["provider"], "profile": rp["profile"]}))
+    amb = run_pass("gpt? claude? maybe?", repo)
+    vec("table: ambiguous label takes the generic path (no invented profile)",
+        amb["routing"]["route"] == "generic" and amb["profile"] is None
+        and amb["honesty_selfcheck"] == "clean")
     ru2 = run_pass("Definitely-Unknown-Host-42", ghost)
     vec("cross-root + unknown host still refused, uncertainty declared",
         ru2["routing"]["route"] == "generic"

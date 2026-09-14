@@ -35,3 +35,10 @@
 | Creative | adequate | image generation reported; per-session tool check required |
 
 **Routing:** load `agents/Arena_AI/` ONLY when the host is explicitly known/observed as Arena Agent Mode; verify the tool surface with the probe before promising anything; record unknowns in the pass output.
+
+---
+
+## Gate-review corrections (5500, 2026-09-14)
+- Product page affordances observed in the gate-review retrieval [O, arena.ai/agent]: Agent Mode, **file upload**, and a **"Connect your GitHub"** affordance. Tool/file/network/push authority remains **session-specific and must be locally observed** (probe) — a product marketing affordance grants nothing.
+- **Policy URLs:** guessed `/privacy` and `/terms` paths returned **404 / reCAPTCHA** in that retrieval. Catalog value: **unverified — official policy URL and applicable surface NOT confirmed**; this is a standing review trigger, not evidence that no policy exists.
+- The hard red lines above are unchanged and now carry this retrieval evidence.

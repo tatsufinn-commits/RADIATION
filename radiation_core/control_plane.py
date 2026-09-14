@@ -212,7 +212,19 @@ def verify_chain(path: str = RECEIPTS_PATH) -> list[str]:
     only with a fresh matching approval. Legacy (v1) receipts verify
     structurally under their documented legacy scope (docs/THREAT_MODEL.md)."""
     problems: list[str] = []
-    chain = read_chain(path)
+    # 5500: malformed NDJSON is a FINDING with line context, never an exception
+    chain: list[dict] = []
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            for lineno, ln in enumerate(fh, 1):
+                ln = ln.strip()
+                if not ln:
+                    continue
+                try:
+                    chain.append(json.loads(ln))
+                except Exception as e:
+                    problems.append(f"line {lineno}: unparseable NDJSON receipt "
+                                    f"({type(e).__name__}) — chain not verifiable past this line")
     prev = GENESIS_PREV
     consumed: set[str] = set()
     for i, e in enumerate(chain):
@@ -230,6 +242,11 @@ def verify_chain(path: str = RECEIPTS_PATH) -> list[str]:
         if e.get("payload", {}).get("v") != 2:
             continue  # legacy (v1) entries: structural checks only
         pl = e.get("payload", {})
+        if e.get("type") == "decision" and isinstance(pl.get("decision"), dict):
+            dds = pl.get("decision_digest")
+            if not dds or _digest(pl["decision"]) != dds:
+                problems.append(f"entry {i}: decision payload does not hash to its "
+                                "decision_digest (semantic field tampered or stale)")
         if e.get("type") == "execution":
             dd = pl.get("decision_digest")
             dec = next((x for x in chain[:i] if x.get("type") == "decision"
@@ -382,7 +399,11 @@ def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
                 "reason": ("no unconsumed approval matching this exact manifest "
                            "content — approve first, and each approval executes once"),
                 "files": [], "refused": []}
-    # ---- manifest shape + bounds
+    # ---- 5500: TRANSACTIONAL preflight — a mixed-validity manifest writes NOTHING.
+    # Every item (shape, target safety, per-file + aggregate bounds) is validated
+    # before the task directory or any target is created; the write phase only
+    # runs on a fully clean preflight. (Per-file atomicity is rename; batch
+    # atomicity is this preflight.)
     _sch: list[str] = []
     _schema_check(manifest, "control_manifest.schema.json", "manifest", _sch)
     for x in _sch[:3]:
@@ -390,23 +411,26 @@ def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
     files = manifest.get("files", []) if isinstance(manifest.get("files"), list) else []
     if len(files) > MAX_FILES:
         refused.append({"path": "(manifest)", "reason": f"more than {MAX_FILES} files"})
+    planned: list[tuple[str, bytes, str]] = []
     total = 0
+    for item in files:
+        rel = item.get("path", "")
+        target, why = _safe_target(task_dir, rel)
+        if target is None:
+            refused.append({"path": rel, "reason": why})
+            continue
+        data = item.get("content", "").encode("utf-8")
+        total += len(data)
+        if len(data) > MAX_FILE_BYTES or total > MAX_TOTAL_BYTES:
+            refused.append({"path": rel, "reason": "resource bounds exceeded "
+                            "(per-file or aggregate cap, II.11)"})
+            continue
+        planned.append((rel, data, target))
     written: list[dict] = []
     if not refused:
         os.makedirs(base := os.path.realpath(_drafts_root), exist_ok=True)
         os.makedirs(task_dir, exist_ok=True)
-        for item in files:
-            rel = item.get("path", "")
-            target, why = _safe_target(task_dir, rel)
-            if target is None:
-                refused.append({"path": rel, "reason": why})
-                continue
-            data = item.get("content", "").encode("utf-8")
-            total += len(data)
-            if len(data) > MAX_FILE_BYTES or total > MAX_TOTAL_BYTES:
-                refused.append({"path": rel, "reason": "resource bounds exceeded "
-                                "(per-file or aggregate cap, II.11)"})
-                continue
+        for rel, data, target in planned:  # preflight passed: write phase
             tmp = target + ".tmp-cp"
             with open(tmp, "wb") as fh:
                 fh.write(data)
@@ -623,6 +647,47 @@ def self_test() -> int:
                       "bounds_mismatch", "replay", "written_outside",
                       "written_bad_sha", "legacy_v1_ok", "decision_reuse_ok"):
             _sem_chain(_kind)
+
+        # ── 5500 regressions: transactionality, parsing, semantic binding ──
+        TQ = "TID-2026-01-01-tx"
+        decide(TQ, "workspace_draft", "commander_order", path=chain)
+        mOK = MS([{"path": "first-valid.md", "content": "ok"}])
+        mBIG = MS([{"path": "too-big.md", "content": "x" * (MAX_FILE_BYTES + 1)}])
+        mMixed = {"schema_name": "radiation.control.manifest/1",
+                  "files": mOK["files"] + mBIG["files"]}
+        approve(TQ, mMixed, path=chain)
+        rtx = execute_draft(TQ, mMixed, path=chain, _drafts_root=drafts)
+        vec("5500: mixed-validity manifest is transactional (no partial writes)",
+            not rtx["executed"] and rtx["refused"]
+            and not os.path.exists(os.path.join(drafts, TQ, "first-valid.md")),
+            f"executed={rtx['executed']} refused={len(rtx['refused'])}")
+        rok = execute_draft(TQ, mOK, path=chain, _drafts_root=drafts)
+        vec("5500: after a refused batch, nothing executes without a fresh content-bound "
+            "approval (approvals bind exact manifest content; refusals consume)",
+            not rok["executed"] and "approval" in rok.get("reason", ""),
+            rok.get("reason", "")[:70])
+
+        badp = os.path.join(tmp, "bad.ndjson")
+        open(badp, "w", encoding="utf-8").write("{not-json}\n")
+        fbad = verify_chain(badp)
+        vec("5500: malformed NDJSON yields a line-context finding, not an exception",
+            len(fbad) >= 1 and "line 1" in fbad[0] and "unparseable" in fbad[0],
+            "; ".join(fbad)[:80])
+
+        ents = [json.loads(l) for l in open(chain, encoding="utf-8") if l.strip()]
+        idx = next(i for i, e in enumerate(ents)
+                   if e.get("type") == "decision" and e.get("task_id") == TQ)
+        ents[idx]["payload"]["decision"]["reasons"] = ["forged reason"]
+        for j in range(idx, len(ents)):  # re-hash forward: digest-consistent chain
+            if j > idx:
+                ents[j]["prev"] = ents[j - 1]["digest"]
+            ents[j]["digest"] = _digest(ents[j])
+        tpath2 = os.path.join(tmp, "dectamper.ndjson")
+        open(tpath2, "w", encoding="utf-8").write(
+            "\n".join(json.dumps(e, sort_keys=True) for e in ents) + "\n")
+        fdec = verify_chain(tpath2)
+        vec("5500: decision semantic-field tamper caught even in a digest-consistent chain",
+            any("does not hash" in x for x in fdec), "; ".join(fdec)[:80])
 
         bad_al = json.loads(json.dumps(al))
         bad_al["operations"]["canonical"]["tool"] = "sneaky_executor"

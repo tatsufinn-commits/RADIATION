@@ -1,0 +1,113 @@
+{
+ "schema_name": "radiation.cap/0.1",
+ "task_id": "TID-2026-09-14-s",
+ "declared": {
+  "host_label": "Arena Agent Mode",
+  "adapter_path": "agents/_common/radiation_pass.py",
+  "requested_effect": "read",
+  "model_identity": null
+ },
+ "observed": {
+  "repository": {
+   "path": "/home/user/patch_build24",
+   "git_head": "22c8147cee90580b3338d1f253457f3fe1b84297",
+   "dirty": null,
+   "status": "not_a_git_worktree"
+  },
+  "tools": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "allowed_effects": [],
+  "probes": []
+ },
+ "verified": {
+  "policy_paths_loaded": [
+   {
+    "path": "tools/TOOL_REGISTRY.json",
+    "sha256": "sha256:659a67b556f40c9816ff8235e94a4448ae163ece1181b2f48ad1075ce1e9e3bd"
+   },
+   {
+    "path": "docs/COURSE_CORPUS_POLICY.md",
+    "sha256": "sha256:015bc594da551deb09338cba425f5a6647db0cb3e13dc731edd1e2189a8dae2b"
+   },
+   {
+    "path": "evals/hostile/injected_course_derivative.md",
+    "sha256": "sha256:9c91e7547c0e84bccfdef0c9dd56a48aa35767e92e595e283c7d3e63003b3d75"
+   },
+   {
+    "path": "docs/THREAT_MODEL.md",
+    "sha256": "sha256:55c0b4d8a9c994134b1c6d42cbeabb3819f1cfd8a2aabdf9e6d4375f447e5502"
+   }
+  ],
+  "checks": [
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "12/12"
+   },
+   {
+    "name": "nota-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "render-docs-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11/0"
+   }
+  ],
+  "artifact_digest": "sha256:0aa9cce7334eaacb2f4764aa7714e5582fd2e33f4e51e2697d8566d033a2d308",
+  "tests": [
+   {
+    "name": "control-plane-self-test",
+    "exit_code": 0,
+    "detail": "38/38 incl. 5500 vectors"
+   },
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "16/16, rc==0"
+   },
+   {
+    "name": "radiation-pass-self-test",
+    "exit_code": 0,
+    "detail": "16/16 incl. provider table"
+   },
+   {
+    "name": "unittest-harness",
+    "exit_code": 0,
+    "detail": "14 tests OK"
+   },
+   {
+    "name": "verify_apply-strict",
+    "exit_code": 0,
+    "detail": "rc==0 (was 1)"
+   },
+   {
+    "name": "receipts-chain-semantic",
+    "exit_code": 0,
+    "detail": "16 entries, 0 findings"
+   }
+  ]
+ },
+ "status": "limited",
+ "blockers": [],
+ "events": [
+  {
+   "state": "authorize",
+   "result": "granted",
+   "reason": "read via cap_probe; Arena label routed to its folder"
+  },
+  {
+   "state": "execute",
+   "result": "done",
+   "receipt": "decision+approval+execution chained; zero canonical writes"
+  }
+ ]
+}

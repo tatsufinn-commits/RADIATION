@@ -1,0 +1,146 @@
+{
+ "schema_name": "radiation.tool_registry/1",
+ "generated_by": "S005 (the Architect) \u2014 5500 gate review \u00a73.2 deliverable, 2026-09-14",
+ "tools": [
+  {
+   "name": "validate",
+   "entry": "scripts/validate.py",
+   "self_test_verb": "python3 scripts/validate.py",
+   "zero_write": false,
+   "description": "structural validator (CI law); writes validation_report.json"
+  },
+  {
+   "name": "relay",
+   "entry": "radiation_core/relay.py",
+   "self_test_verb": "python3 -m radiation_core.relay --self-test",
+   "zero_write": true,
+   "description": "canonical bundle validation + neuron rendering"
+  },
+  {
+   "name": "control_plane",
+   "entry": "radiation_core/control_plane.py",
+   "self_test_verb": "python3 -m radiation_core.control_plane --self-test",
+   "zero_write": false,
+   "description": "II.11 cooperative policy flow (drafts only; canonical = Commander)"
+  },
+  {
+   "name": "cap_verify",
+   "entry": "scripts/cap_verify.py",
+   "self_test_verb": "python3 scripts/cap_verify.py --self-test",
+   "zero_write": true,
+   "description": "CAP record verifier"
+  },
+  {
+   "name": "cap_probe",
+   "entry": "scripts/cap_probe.py",
+   "self_test_verb": "python3 scripts/cap_probe.py --self-test",
+   "zero_write": true,
+   "description": "read-only capability probe"
+  },
+  {
+   "name": "radiation_pass",
+   "entry": "agents/_common/radiation_pass.py",
+   "self_test_verb": "python3 agents/_common/radiation_pass.py --self-test",
+   "zero_write": true,
+   "description": "RADIATION PASS handoff (zero-write by proof)"
+  },
+  {
+   "name": "contract_tests",
+   "entry": "scripts/contract_tests.py",
+   "self_test_verb": "python3 scripts/contract_tests.py",
+   "zero_write": true,
+   "description": "E1/E2 negative fixtures on temp trees"
+  },
+  {
+   "name": "knowledge_regression",
+   "entry": "scripts/knowledge_regression.py",
+   "self_test_verb": "python3 scripts/knowledge_regression.py",
+   "zero_write": false,
+   "description": "locked knowledge assertions (11)"
+  },
+  {
+   "name": "nota",
+   "entry": "scripts/nota.py",
+   "self_test_verb": "python3 scripts/nota.py --check",
+   "zero_write": false,
+   "description": "core card tool (writes only via explicit verbs)"
+  },
+  {
+   "name": "render_docs",
+   "entry": "scripts/render_docs.py",
+   "self_test_verb": "python3 scripts/render_docs.py --check",
+   "zero_write": false,
+   "description": "generated-docs truth"
+  },
+  {
+   "name": "verify_apply",
+   "entry": "scripts/verify_apply.py",
+   "self_test_verb": "python3 scripts/verify_apply.py --self-test",
+   "zero_write": false,
+   "description": "apply report (writes only its report file)"
+  },
+  {
+   "name": "status",
+   "entry": "scripts/status.py",
+   "self_test_verb": "python3 scripts/status.py --self-test",
+   "zero_write": false,
+   "description": "status dashboard"
+  },
+  {
+   "name": "ics_normalize",
+   "entry": "scripts/ics_normalize.py",
+   "self_test_verb": "python3 scripts/ics_normalize.py --self-test",
+   "zero_write": true,
+   "description": "ICS normalizer"
+  },
+  {
+   "name": "module_scaffold",
+   "entry": "scripts/module_scaffold.py",
+   "self_test_verb": "python3 scripts/module_scaffold.py --self-test",
+   "zero_write": true,
+   "description": "module scaffold"
+  },
+  {
+   "name": "plan_term",
+   "entry": "scripts/plan_term.py",
+   "self_test_verb": "python3 scripts/plan_term.py --self-check",
+   "zero_write": false,
+   "description": "term register generator"
+  },
+  {
+   "name": "decay_compute",
+   "entry": "scripts/decay_compute.py",
+   "self_test_verb": "python3 scripts/decay_compute.py",
+   "zero_write": true,
+   "description": "decay computation (read-only)"
+  },
+  {
+   "name": "export_anki",
+   "entry": "scripts/export_anki.py",
+   "self_test_verb": "python3 scripts/export_anki.py",
+   "zero_write": false,
+   "description": "Anki export"
+  },
+  {
+   "name": "grade_exam",
+   "entry": "scripts/grade_exam.py",
+   "self_test_verb": "python3 scripts/grade_exam.py",
+   "zero_write": false,
+   "description": "exam grading"
+  },
+  {
+   "name": "deadline_feed",
+   "entry": "scripts/deadline_feed.py",
+   "self_test_verb": "python3 scripts/deadline_feed.py",
+   "zero_write": false,
+   "description": "deadline feed"
+  },
+  {
+   "name": "ingest_collection",
+   "entry": "scripts/ingest_collection.py",
+   "self_test_verb": "python3 scripts/ingest_collection.py",
+   "zero_write": false,
+   "description": "collection ingestion"
+  }
+ ]
+}

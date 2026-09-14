@@ -296,6 +296,18 @@ Stated plainly so a session does not assume capability it lacks:
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
 <!-- GENERATED:capability-inventory:END -->
 
+## §20 — Gate-repair layer (5500, 5400 gate review)
+
+| Capability | Mechanism | Enforcement |
+|---|---|---|
+| Complete corpus declaration | 8 digest-bound assets incl. restored sources + `data_feed` (check 2.5) | NO path-only exceptions; A2 scan-exemption documented; restoration veto-able by Commander |
+| Replica tranche ratification | `ratification` field in REPLICA_MANIFEST (check 11) | 12 pairs = complete tranche; narrowing = explicit Commander order |
+| Transactional drafts | `execute_draft` preflight-then-write (check 37) | mixed-validity manifest writes NOTHING; regression-proven |
+| Executed schemas | relay `_validate_against`: oneOf · maxItems · bool≠integer | the `task_id` exploit class fails closed; plan selection numeric |
+| Per-provider profile truth | radiation_pass (check 38) | Arena profile binds ONLY to Arena_AI; table-driven fixtures ×5 + ambiguous |
+| CI truth | workflow `shell: bash` (-eo pipefail) + failure diagnostics step | `tee` cannot mask a red strict report; public log-tail on failure |
+| Test harness + tool registry | `tests/` (14 tests) + `tools/TOOL_REGISTRY.json` (check 39) | zero-test discovery = explicit failure; registry schema-EXECUTED, coverage-complete |
+
 ## §19 — Survey layer (5400, architect brief E6)
 
 | Capability | Mechanism | Discipline |

@@ -1,0 +1,67 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "radiation.tool_registry/1",
+ "description": "Catalog of RADIATION tools (5500 gate review): entry, self-test verb, zero-write truth. Executed by check 39.",
+ "type": "object",
+ "required": [
+  "schema_name",
+  "tools"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "schema_name": {
+   "const": "radiation.tool_registry/1"
+  },
+  "generated_by": {
+   "type": "string"
+  },
+  "tools": {
+   "type": "array",
+   "minItems": 10,
+   "maxItems": 64,
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "entry",
+     "self_test_verb",
+     "zero_write",
+     "description"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]{2,40}$"
+     },
+     "entry": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_/.-]+\\.(py|md)$",
+      "not": {
+       "anyOf": [
+        {
+         "pattern": "\\.\\."
+        },
+        {
+         "pattern": "^/"
+        }
+       ]
+      }
+     },
+     "self_test_verb": {
+      "type": "string",
+      "pattern": "^python3? [A-Za-z0-9_/. -]+$"
+     },
+     "zero_write": {
+      "type": "boolean"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 140
+     }
+    }
+   }
+  }
+ }
+}

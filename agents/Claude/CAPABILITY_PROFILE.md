@@ -30,3 +30,10 @@
 | Creative | strong | long-form prose |
 
 **Routing:** load `agents/Claude/` only when the host is explicitly known as Claude/Anthropic; otherwise the generic CAP path.
+
+---
+
+## Gate-review corrections (5500, 2026-09-14 — supersedes conflicting prose above)
+- **Official models overview** [O, platform.claude.com/docs/en/models/overview — retrieved 2026-09-14 via gate-review sweep]: lists current **Fable 5.1, Opus 5, Sonnet 5, Haiku 4.5 with exact API IDs, context windows, knowledge cutoffs, pricing, thinking/effort settings, and model-versioning guidance.** The Sonnet-5 price conflict above is **superseded by the official page** (recorded here as comparison evidence only).
+- **Official API surface** [O, claude.com/platform/api]. **[Local re-verification = standing review trigger]**
+- Routing implication: capability judgments survive; exact IDs/statuses/pricing come from the overview page, never from aggregators.

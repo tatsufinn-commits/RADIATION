@@ -70,6 +70,13 @@ This module adds *receipted, bounded, replay-proof* handling for the narrow
 class of work a session chooses to route through it. That is all it has ever
 been able to promise; now the promises say so.
 
+## Concurrency precondition
+The receipt chain is append-only under **single-writer discipline** — a
+precondition of every claim above, not an enforced lock. This is NOT a
+concurrent append ledger: two writers racing the same chain file is outside
+the cooperative model (5500 gate review). A locking/atomic-append strategy
+remains possible future work; until then, one writer per checkout.
+
 ## Receipt eras
 The chain is append-only and spans mechanism generations. Legacy (v1)
 receipts — the genesis ratification record and the pre-approval TID…-n

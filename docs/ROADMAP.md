@@ -107,6 +107,7 @@ meta-budget WARNs stay honestly lit until then. Zero build items behind them.
 | **5200** | ✅ DELIVERED — Activation (review E4) | AGENTS.md · 5 exact provider folders · RADIATION PASS machine (9 vectors) · check 38 · boot tier clean · v3.4.0 | 2026-09-14 |
 | **5300** | ✅ DELIVERED — Sanction (architect brief E1–E5) | declared course corpus · replica contract (12 pairs) · receipt digest-binding · schema task-ID grammar · honest threat model · pass cross-root refusal · v3.5.0 | 2026-09-14 |
 | **5400** | ✅ DELIVERED — Survey (architect brief E6) | 5 dated profiles + 5 source registers + routing matrix + method · conflicts recorded, gaps declared · check 38 lints the layer · v3.6.0 | 2026-09-14 |
+| **5500** | ✅ DELIVERED — Gatewright (5400 gate review §8 gates 1–7) | sources restored + feed digest-bound · transactional receipts · executed schemas · per-provider profiles · CI pipefail+diagnostics · test harness + TOOL_REGISTRY (check 39) · Candidate-C catalog = NEXT (gate 8, awaits Commander packaging order) · v3.7.0 | 2026-09-14 |
 | **3500+** | reserved — candidates from the 3400 audit | pending-item attribution UX · plan_term snapshot · APPLY self-removal (runners die at end of run) · payload-completeness probe (APPLY runs every shipped tool's self-test) · meta-budget rebalance (check 16 is OVER — needs a Commander doctrine call) · drill-fixtures disposition ("no drills" ruling vs nota/export_anki fixtures) | his pick |
 
 

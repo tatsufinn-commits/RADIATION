@@ -1,0 +1,14 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0002",
+ "task_id": "TID-2026-09-14-s",
+ "result": "succeeded",
+ "revision_after": "d8f06fc1e5d691e282eb05d5724ea01d6b3362db",
+ "finished_at": "2026-09-14T23:22:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-s/artifacts/gate_regressions.txt",
+   "sha256": "0aa9cce7334eaacb2f4764aa7714e5582fd2e33f4e51e2697d8566d033a2d308"
+  }
+ ]
+}

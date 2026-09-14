@@ -29,3 +29,10 @@
 | Creative | strong | image + long-form generation |
 
 **Routing:** load `agents/ChatGPT/` only when the host is explicitly known as ChatGPT/OpenAI; otherwise the generic CAP path — never infer a provider from output style.
+
+---
+
+## Gate-review corrections (5500, 2026-09-14 — supersedes conflicting prose above)
+- **Official model catalog** [O, developers.openai.com/api/docs/models — retrieved 2026-09-14 via gate-review sweep]: the official API catalog currently recommends **`gpt-6-astra`**, **`gpt-5.6-terra`**, **`gpt-5.6-luna`** — exact IDs, ~1.05M-token context values, tools, reasoning settings, cutoffs, and pricing stated on the page. **[Local re-verification = standing review trigger]**
+- **Official pricing** [O, openai.com/business/pricing/#api]. The GPT-5.4/5.5 and o-series price tables above are **historical secondary snapshots (comparison evidence only)** — not a current-line record.
+- Routing implication: suitability judgments above survive; every price/lineup row must be re-read from the official pages before any spend or routing decision.

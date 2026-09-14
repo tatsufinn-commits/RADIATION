@@ -30,3 +30,9 @@
 | Creative | adequate | |
 
 **Routing:** load `agents/Grok/` only when the host is explicitly known as Grok/xAI; otherwise the generic CAP path.
+
+---
+
+## Gate-review corrections (5500, 2026-09-14 — primary-source promotion)
+- **Official model page** [O, docs.x.ai/developers/models — retrieved 2026-09-14 via gate-review sweep]: lists **`grok-4.6`** with 500K context, **$2/$6 per MTok**, configurable reasoning, tool features, and a **Feb 1, 2026 knowledge cutoff**; real-time data **requires search tools** (API); documents **alias vs dated-ID behavior** (aliases track latest, dated IDs pin). The benchlm tables above are corroborated secondary comparison evidence; the official page is primary.
+- Every additional Grok model needs its own live status/ID record before routing use.

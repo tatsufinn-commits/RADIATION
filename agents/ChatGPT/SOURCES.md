@@ -13,3 +13,8 @@ All items retrieved **2026-09-14** by the S005 session web sweep. Tiers: **[O]**
 | Operational status (canonical) | https://status.openai.com | [O] | canonical, check live |
 
 **Conflicts/gaps:** aggregator rates vary by crawl date — official page wins. Consumer-ChatGPT training default [S, humla 2026-07-28] should be confirmed against OpenAI's own consumer policy page before quoting.
+
+**5500 gate-review additions (2026-09-14):**
+
+| Official model catalog (exact IDs: gpt-6-astra, gpt-5.6-terra, gpt-5.6-luna; 1.05M ctx) | https://developers.openai.com/api/docs/models | [O] | retrieved 2026-09-14 (gate-review sweep) |
+| Official business/API pricing | https://openai.com/business/pricing/#api | [O] | retrieved 2026-09-14 (gate-review sweep) |

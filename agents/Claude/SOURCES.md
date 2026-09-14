@@ -13,3 +13,8 @@ All items retrieved **2026-09-14** by the S005 session web sweep. Tiers: **[O]**
 | Operational status (canonical) | https://status.anthropic.com | [O] | canonical, check live |
 
 **Conflicts/gaps:** Sonnet 5 pricing conflict ($2/$10 benchlm 2026-09-11 vs $3/$15 puter 2026-09-08 + pecollective 2026-04-22) — flagged in the profile; consumer-training-default direction conflicts between terms.law and anonyme summaries — resolve against anthropic.com/legal/privacy.
+
+**5500 gate-review additions (2026-09-14):**
+
+| Official models overview (exact IDs/statuses/pricing; resolves Sonnet-5 conflict) | https://platform.claude.com/docs/en/models/overview | [O] | retrieved 2026-09-14 (gate-review sweep) |
+| Official API platform page | https://claude.com/platform/api | [O] | retrieved 2026-09-14 (gate-review sweep) |
