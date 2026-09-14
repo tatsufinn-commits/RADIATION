@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-15 · **Version:** v3.10.0
+**Last updated:** 2026-09-15 · **Version:** v3.10.1
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,16 +49,11 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.10.0** — almanac (5800): the Candidate C catalog upgraded from
-pointers to captured facts — all four official surfaces re-retrieved 2026-09-15;
-14 records; exact IDs for the OpenAI flagship four (incl. gpt-5.6-sol) and the
-Anthropic lineup (Sonnet-5 price conflict RESOLVED: $2/$10); Gemini endpoint
-table; grok-4.6 re-confirmed with alias policy. Prior: **v3.9.1** calibrate
-(5710, Atlas review) · **v3.9.0** atlas (5700) · **v3.8.0** verity (5600) ·
-**v3.7.0** gatewright · **v3.6.0** survey · **v3.5.0** sanction · **v3.4.0**
-activation (5200) · 5100 truebound · 5000 five thousand · 4900 probe · 4800
-attest · 4700 sealwright · 4600 binding · 4500 last mile · 4400 reconciliation ·
-4300 compression law · 4200 expansion. Machine facts: GENERATED here.
+**RADIATION v3.10.1** — recount (5810): the pushed 5800 tree briefly held 15
+active records against a claimed 14; now 14, PROVABLY — enforced supersedes,
+evidence bound to the registered source object, GENERATED inventory, retrieval
+receipts, S2/S3 demoted to historical leads. Prior — v3.10.0 almanac (5800):
+pointers became captured facts.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*

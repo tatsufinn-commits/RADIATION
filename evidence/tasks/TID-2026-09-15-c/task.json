@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "task_id": "TID-2026-09-15-c",
+  "source": {
+    "kind": "commander",
+    "artifact_ref": "chat: \"read, analyze and apply!\" \u2014 the independent 5800 research-track review (H1/H2, R2/R3), uploaded 2026-09-15",
+    "trust": "root"
+  },
+  "principal": "commander",
+  "received_at": "2026-09-15T07:44:45+08:00",
+  "mode_hint": "autopilot",
+  "base_revision": "027c78639ef50f13a697e709890543b1a1f1dfc8",
+  "idempotency_key": "5810-recount-integrity-repair",
+  "operator_notes": {
+    "intake": "Order: read, analyze and apply the 5800 review. Verified on public main 027c786: 15 active records against a claimed 14 (H1) \u2014 the push carried the zip extraction, not the APPLY result; the runner's retirement never executed. Checker silent (candidate/confirmed namespaces disjoint). Narrow catalog-integrity repair ordered per the review's step 1.",
+    "reasoning": "H1: stale provisional anthropic__fable-5-1 retired; confirmed record declares explicit supersedes; checker R7 rejects any declared target still active \u2014 the defect class is now CI-visible, not silent. H2: typed evidence binds to the REGISTERED SOURCE OBJECT (url + retrieved_on, R8). R9: INVENTORY.generated.txt machine-derived, drift = finding. R3: fresh same-day receipts for O11-O14 (selected-extract digests; instrument limits disclosed). R2 minimal-in-hotfix: S2/S3 demoted to historical leads; policy_attribute_confidence separated from identity confidence on the 4 Anthropic records; primary-source compliance refresh remains the next gated order. Sealed evidence (bundle-b manifest wording) is NOT edited \u2014 provenance kept; bundle-c supersedes the false inventory.",
+    "orders": "PLAN-5810: S0 verify-base \u2713 (027c786 cloned; H1 reproduced: 15 records, checker 0 findings \u2014 silence confirmed) \u00b7 S1 record-migration \u00b7 S2 checker-upgrade (R7/R8/R9, 24 vectors) \u00b7 S3 evidence-receipts \u00b7 S4 seal (docs + bundle + full gates). Push: the Commander's, always."
+  }
+}

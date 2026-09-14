@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "command_id": "CMD-0002",
+  "task_id": "TID-2026-09-15-c",
+  "plan_id": "PLAN-5810",
+  "step_id": "S2",
+  "operation": "apply_patch",
+  "detail": "model_research_check: R7 supersedes integrity + R8 url/date register binding + R9 machine-derived INVENTORY.generated.txt; self-test 21 -> 24 vectors",
+  "issued_at": "2026-09-15T07:44:56+08:00",
+  "base_revision": "027c78639ef50f13a697e709890543b1a1f1dfc8"
+}

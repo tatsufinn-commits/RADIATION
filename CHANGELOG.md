@@ -4,6 +4,21 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.1 — 2026-09-15 — RECOUNT (5810)
+Integrity repair per the independent 5800 research-track review (H1/H2, R2/R3).
+The 5800 push (`027c786`) shipped the zip EXTRACTION, not the APPLY result: the
+runner's retirement of the superseded candidate record never executed, so the
+public tree briefly held 15 active records while claiming 14. Repair: the stale
+provisional `anthropic__fable-5-1` record retired; the confirmed record now
+declares an explicit `supersedes` relation and the checker REJECTS any declared
+target still active (the duplicate class is structurally detectable — CI goes
+red, never silently wrong again). Typed evidence now binds to the REGISTERED
+SOURCE OBJECT (url + retrieved_on, not just id/tier — H2). Record schema 0.3;
+`INVENTORY.generated.txt` is machine-derived and drift-checked; fresh same-day
+retrieval receipts for O11–O14; S2/S3 marked historical-leads-only with
+attribute-level policy confidence separated (R2). Checker battery 21 → 24
+vectors. Still 14 records — now provably.
+
 ## v3.10.0 — 2026-09-15 — ALMANAC (5800)
 The next planned update: Candidate C record expansion by live official
 retrieval (no runtime — the evidence discipline is the mechanism). All four

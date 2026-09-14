@@ -1,0 +1,21 @@
+H1 DEFECT-CLASS DETECTION PROOF (bundle-internal, 5810)
+checker: scripts/model_research_check.py (R7 supersedes + R9 generated inventory)
+
+STAGE 1 — the exact pushed 027c786 state under the NEW checker (before any 5810 payload):
+  ✗ records/anthropic__fable-5-1__api__undeclared.json.schema_name: const violated (want 'radiation.model_research_record/0.3')
+  ✗ catalogs/model_research/INVENTORY.generated.txt is stale or hand-edited — regenerate: python3 scripts/model_research_check.py --inventory (it must be GENERATED from records/, never written)
+  model_research catalog: 2 finding(s) (research layer only — grants nothing)
+  -> NOT silent: the stale set is a finding (stale/edited inventory vs records/) — CI red.
+
+STAGE 2 — 027c786 + the 5810 payload (supersedes declared, retirement not yet run):
+  ✗ records/anthropic__fable-5-1__api__undeclared.json.schema_name: const violated (want 'radiation.model_research_record/0.3')
+  ✗ records/anthropic__claude-fable-5-1__api__undeclared.json: supersedes target anthropic__fable-5-1__api__undeclared.json is STILL ACTIVE in records/ — retire the superseded record (the candidate/confirmed duplicate class, 5810 review H1)
+  ✗ catalogs/model_research/INVENTORY.generated.txt is stale or hand-edited — regenerate: python3 scripts/model_research_check.py --inventory (it must be GENERATED from records/, never written)
+  model_research catalog: 3 finding(s) (research layer only — grants nothing)
+  -> the surviving target itself is named: STILL ACTIVE (review H1's exact class).
+
+STAGE 3 — post-APPLY (retirement executed; the shipped tree state):
+  model_research catalog: 0 finding(s) (research layer only — grants nothing)
+
+verdict: every defect stage is a checker finding; only the repaired state is clean.
+The 5800 silence (0 findings beside a false '14') is structurally closed.

@@ -117,3 +117,4 @@ Format: `| date | mode | task (one line) | outcome | deliverable path | patch fi
 | 2026-09-15 | S005 (the Architect) | 5710 (Calibrate): F1–F5 hardened with permanent negative tests; every claim matched to its mechanism | done | 6/6 acceptance criteria | 5710 |
 | 2026-09-15 | THE COMMANDER | ORDER: proceed to the next planned update (5710 pushed as 511bcb0) | integrated in 5800 | chat + git log 511bcb0 | 5800 |
 | 2026-09-15 | S005 (the Architect) | 5800 (Almanac): 4 surfaces re-retrieved, catalog 5 → 14 records, exact IDs/values captured | done | record expansion order | 5800 |
+| 2026-09-15 | S005 (the Architect) | 5810 Recount: "read, analyze and apply!" — stale Fable retired + supersedes enforced, evidence register-bound, inventory GENERATED | done | record-integrity repair order | 5810 |

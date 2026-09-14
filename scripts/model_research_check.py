@@ -31,13 +31,27 @@
   R6 filename bind  : the filename must equal
                       <provider>__<identifier-slug>__<surface>__<region>.json
                       — a record cannot masquerade under another's name.
+  R7 supersedes     : (5810, review H1) a confirmed record may declare
+                      `supersedes: [retired filenames]` — the explicit
+                      candidate-to-confirmed replacement relation. Any
+                      listed file still active in records/ is a finding:
+                      the 027c786 class (a provisional record surviving
+                      beside its declared confirmed successor) is now
+                      structurally detectable, without string heuristics.
+  R8 register bind  : (5810, review H2) typed evidence binds to the
+                      REGISTERED SOURCE OBJECT, not just its id/tier:
+                      evidence.url and evidence.retrieved_on must equal
+                      the register row's url/retrieved_on.
+  R9 live inventory : catalogs/model_research/INVENTORY.generated.txt is
+                      machine-derived (--inventory); hand edits or drift
+                      from the active records/ set are a finding.
 
 RESEARCH LAYER ONLY: an entry grants no tool, effect, identity, privacy
 guarantee, or legal conclusion. Record schema: central
 `schemas/model_research_record.schema.json` (so check 40's coverage law sees
 it); the catalog's schemas/ directory holds a pointer, by declaration.
 
---self-test runs the 21-vector negative battery against temp catalog copies.
+--self-test runs the 24-vector negative battery against temp catalog copies.
 Exit: 0 clean, 1 findings.
 """
 import copy
@@ -59,6 +73,7 @@ RECORD_SCHEMA = "model_research_record.schema.json"
 REGISTER_SCHEMA = "model_research_register.schema.json"
 BOOT_MANIFEST = "BOOT_SEQUENCE.md"
 REVIEW_WINDOW_DAYS = 90  # documented in catalogs/model_research/README.md
+INVENTORY = os.path.join(CATALOG, "INVENTORY.generated.txt")  # R9: GENERATED, never hand-edited
 
 
 def _iso(s):
@@ -131,6 +146,7 @@ def catalog_findings(root=ROOT):
     rdir = os.path.join(cat, "records")
     keys = set()
     records = []
+    byname = {}
     if os.path.isdir(rdir):
         for f in sorted(os.listdir(rdir)):
             if not f.endswith(".json"):
@@ -181,6 +197,21 @@ def catalog_findings(root=ROOT):
                         bad.append(f"{where}: {field} source_id {sid!r} tier "
                                    f"{ev.get('tier')!r} != register tier "
                                    f"{reg_ids[sid].get('tier')!r}")
+                    if sid in reg_ids:
+                        # R8 (5810, review H2): bind the evidence to the
+                        # registered source OBJECT — url and retrieval date,
+                        # not merely the id/tier pair.
+                        if ev.get("url") is not None and ev.get("url") != reg_ids[sid].get("url"):
+                            bad.append(f"{where}: {field} source_id {sid!r} url "
+                                       f"does not bind to the register row "
+                                       f"(evidence.url must equal the registered url)")
+                        if (ev.get("retrieved_on") is not None
+                                and reg_ids[sid].get("retrieved_on") is not None
+                                and ev.get("retrieved_on") != reg_ids[sid].get("retrieved_on")):
+                            bad.append(f"{where}: {field} source_id {sid!r} retrieved_on "
+                                       f"{ev.get('retrieved_on')!r} != register row "
+                                       f"{reg_ids[sid].get('retrieved_on')!r} (typed evidence "
+                                       f"binds to the registered source object)")
                     if ev.get("retrieved_on") and _iso(ev.get("retrieved_on")) is None:
                         bad.append(f"{where}: {field} retrieved_on is not a real "
                                    f"calendar day: {ev.get('retrieved_on')!r}")
@@ -205,11 +236,39 @@ def catalog_findings(root=ROOT):
             if f != want:
                 bad.append(f"{where}: filename does not bind to the declared "
                            f"identifier/status (want {want})")
+            byname[f] = rec
             records.append(rec)
     else:
         bad.append(f"{CATALOG}/records/ missing")
     if not records:
         bad.append("no records found (the catalog is declared, it must exist)")
+    # R7 (5810, review H1): supersedes targets must be GONE from the active set
+    seen_targets = {}
+    for fname, rec in sorted(byname.items()):
+        for tgt in rec.get("supersedes") or []:
+            if tgt in seen_targets:
+                bad.append(f"records/{fname}: duplicate supersedes target {tgt} "
+                           f"(also declared by records/{seen_targets[tgt]})")
+            seen_targets[tgt] = fname
+            if (not isinstance(tgt, str) or not tgt.endswith(".json")
+                    or "/" in tgt or os.path.basename(tgt) != tgt):
+                bad.append(f"records/{fname}: supersedes entry {tgt!r} is not a bare "
+                           "record filename")
+            elif tgt in byname:
+                bad.append(f"records/{fname}: supersedes target {tgt} is STILL ACTIVE "
+                           "in records/ — retire the superseded record (the "
+                           "candidate/confirmed duplicate class, 5810 review H1)")
+    # R9 (5810): the committed inventory must equal the machine-derived one
+    inv_p = os.path.join(root, INVENTORY)
+    if os.path.isfile(inv_p):
+        try:
+            have = open(inv_p, encoding="utf-8").read()
+        except (OSError, UnicodeDecodeError):
+            have = None
+        if have != render_inventory(byname):
+            bad.append("catalogs/model_research/INVENTORY.generated.txt is stale or "
+                       "hand-edited — regenerate: python3 scripts/model_research_check.py "
+                       "--inventory (it must be GENERATED from records/, never written)")
     # ---- R4 non-boot scan over the DERIVED boot graph
     marker = "catalogs/model_research"
     for rel in sorted(_boot_scan_set(root)):
@@ -224,13 +283,45 @@ def catalog_findings(root=ROOT):
     return bad
 
 
+def render_inventory(byname):
+    lines = ["RECORD INVENTORY \u2014 GENERATED by scripts/model_research_check.py "
+             "--inventory (5810, review H1: machine-derived from records/, never hand-written)",
+             f"active records: {len(byname)} \u00b7 this file is verified against the live "
+             "directory on every check; regenerate after ANY record change", ""]
+    for fname in sorted(byname):
+        r = byname[fname]
+        ident = r.get("exact_model_id") if r.get("exact_id_verified") is True \
+            else "candidate:" + str(r.get("candidate_model_label"))
+        lines.append(f"{fname}: {r.get('provider')}/{ident} status={r.get('status')} "
+                     f"conf={r.get('confidence')} ctx={r.get('context_window')} "
+                     f"cutoff={r.get('knowledge_cutoff')} gaps={len(r.get('known_gaps') or [])}")
+    return "\n".join(lines) + "\n"
+
+
+def write_inventory(root=ROOT):
+    f = catalog_findings(root)
+    if f:
+        print("\n".join("\u2717 " + x for x in f[:6]))
+        print(f"--inventory refused: {len(f)} finding(s) \u2014 repair the catalog first")
+        return 1
+    rdir = os.path.join(root, CATALOG, "records")
+    byname = {}
+    for fn in sorted(os.listdir(rdir)):
+        if fn.endswith(".json"):
+            byname[fn] = json.load(open(os.path.join(rdir, fn), encoding="utf-8"))
+    txt = render_inventory(byname)
+    open(os.path.join(root, INVENTORY), "w", encoding="utf-8").write(txt)
+    print(f"INVENTORY.generated.txt written: {len(byname)} records (machine-derived)")
+    return 0
+
+
 def check(root=ROOT):
     return catalog_findings(root)
 
 
 def self_test():
     ok = 0
-    total = 21
+    total = 24
     cat_src = os.path.join(ROOT, CATALOG)
 
     def temp_catalog(mutate_record=None, mutate_register=None, boot_file=None,
@@ -338,6 +429,20 @@ def self_test():
     case("19 filename not bound to identifier rejected", lambda: temp_catalog(rename_record="zzz__wrong__api__undeclared.json"), "filename does not bind")
     case("20 docs/.readme boot reference rejected (First-Read Gate)", lambda: temp_catalog(boot_file="docs/.readme"), "NON-BOOT SCAN HIT")
     case("21 transitive boot-graph reference rejected (passive spec)", lambda: temp_catalog(boot_file="subskills/passive/compass.md"), "NON-BOOT SCAN HIT")
+    def ev_url_drift(m): m["declarations"][0]["url"] = "https://invalid.example/not-the-registered-url"
+    def supersedes_active(m):
+        active = sorted(f for f in os.listdir(os.path.join(cat_src, "records"))
+                        if f.endswith(".json"))
+        m["supersedes"] = [active[0]]
+    def reg_date_drift(r):
+        r["sources"][:] = [row if row.get("tier") != "O"
+                           else dict(row, retrieved_on="2026-01-01") for row in r["sources"]]
+    case("22 evidence url drifts from register row rejected (5810 H2)",
+         lambda: temp_catalog(mutate_record=ev_url_drift), "url does not bind")
+    case("23 evidence retrieved_on drifts from register row rejected (5810 H2)",
+         lambda: temp_catalog(mutate_register=reg_date_drift), "!= register row")
+    case("24 supersedes target still active rejected (5810 H1)",
+         lambda: temp_catalog(mutate_record=supersedes_active), "STILL ACTIVE")
     print(f"model_research_check self-test: {ok}/{total} vectors")
     return 0 if ok == total else 1
 
@@ -345,6 +450,14 @@ def self_test():
 def main(argv=None):
     if "--self-test" in (argv or sys.argv[1:]):
         return self_test()
+    if "--inventory" in (argv or sys.argv[1:]):
+        return write_inventory()
+    if "--check-inventory-only" in (argv or sys.argv[1:]):
+        f = [x for x in check() if "INVENTORY.generated.txt" in x]
+        for x in f:
+            print("✗", x)
+        print("inventory freshness:", "STALE" if f else "current")
+        return 1 if f else 0
     f = check()
     for x in f:
         print("✗", x)

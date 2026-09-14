@@ -36,7 +36,16 @@ observations kept separate; unknowns explicit; aliases and dated IDs separate.
 8. **Confidence + review_after mandatory.** Every record decays; each carries a
    re-review date.
 
-## Layout (14 records as of 5800 Almanac, 2026-09-15)
+## Layout (14 records as of 5810 Recount, 2026-09-15)
+
+> **Integrity note (5810, per the 5800 research-track review):** the pushed 5800
+> tree (`027c786`) briefly held **15** active records — the zip cannot delete
+> files, and the runner's retirement of the superseded candidate
+> (`anthropic__fable-5-1…`) never executed there. Repair: the record schema is
+> 0.3; the confirmed record declares `supersedes` and the checker rejects any
+> declared target still active; `INVENTORY.generated.txt` is GENERATED from
+> `records/` and drift-checked on every run. Provenance stays in git history +
+> bundle evidence; exactly one active record per model × surface × region.
 ```
 schemas/    model_research_record.schema.json (EXECUTED — check 40 + 41)
 records/    one JSON record per exact model × surface × region

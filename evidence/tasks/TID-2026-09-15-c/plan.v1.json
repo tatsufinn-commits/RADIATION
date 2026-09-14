@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "PLAN-5810",
+  "task_id": "TID-2026-09-15-c",
+  "base_revision": "027c78639ef50f13a697e709890543b1a1f1dfc8",
+  "policy": "workspace_draft under II.11; canonical_apply stays the Commander's motor act",
+  "steps": [
+    {
+      "step_id": "S0",
+      "operation_class": "verify-base",
+      "success_predicate": "public main 027c786 cloned; H1 verified as reported (15 active records, claimed 14; checker silent)"
+    },
+    {
+      "step_id": "S1",
+      "operation_class": "record-migration",
+      "success_predicate": "stale provisional record retired (provenance in git history); confirmed record declares supersedes; active records == 14"
+    },
+    {
+      "step_id": "S2",
+      "operation_class": "contract-held",
+      "success_predicate": "checker R7 supersedes + R8 register-object binding + R9 generated inventory; battery 24/24; defect class demonstrably detected on a reconstructed tree"
+    },
+    {
+      "step_id": "S3",
+      "operation_class": "evidence-receipts",
+      "success_predicate": "O11-O14 receipts captured 2026-09-15 with digests; S2/S3 demoted to historical leads; policy_attribute_confidence separated"
+    },
+    {
+      "step_id": "S4",
+      "operation_class": "seal",
+      "success_predicate": "docs v3.10.1 truth-clean; full gates green on fresh clones; Path A/B identical"
+    }
+  ]
+}

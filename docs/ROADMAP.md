@@ -1,5 +1,5 @@
 # 🗺️ RADIATION ROADMAP — 2026-09-13
-**Verified against:** live tree @ `511bcb0` (v3.9.1) at 5800 build · **Maintained by:** the Architect (current: S005) — front-matter refreshed 5800 (was stale since the 3100 era)
+**Verified against:** live tree @ `027c786` (v3.10.0) at 5810 build · **Maintained by:** the Architect (current: S005) — front-matter refreshed 5800 (was stale since the 3100 era)
 **Purpose:** the Commander never has to ask "what's next." This file is regenerated
 with every patch; stale roadmaps are deleted, not archived. Masters live in-repo
 (shipped with patch 3100) so any AI in the swarm reads the same plan.
@@ -141,7 +141,9 @@ the machine asserts them · live state is verified, never assumed.
 | **5700** | ✅ DELIVERED — Atlas (Candidate C design) | non-boot model-research catalog (schema executed, checker, 5 seed records) · harness DESIGN (9 dimensions, capture + redaction law) · deployment-matrix DESIGN · registry 22 · checks 42 · implementations = separate gated orders · v3.9.0 | 2026-09-14 |
 | **5710** | ✅ DELIVERED — Calibrate (Atlas review hardening) | F1 boot-graph-derived non-boot scan (.readme + transitive vectors) · F2 typed evidence + register binding, real dates, 90-day window · F3 exact/candidate identifier split + filename binding · F4 executor recursion ($defs/if/then) + registry reference/test binding + realpath containment · F5 doc-truth drift repaired · v3.9.1 | 2026-09-15 |
 
+| **5800** | ✅ DELIVERED — Almanac (record expansion) | 4 official surfaces re-retrieved 2026-09-15 · catalog 5 → 14 records · exact IDs + values captured (Sonnet-5 $2/$10 resolved; gpt-5.6-sol; Gemini endpoint table; grok-4.6 alias policy) · register O11–O14 · specialized/media ids logged, not recorded · v3.10.0 | 2026-09-15 |
+| **5810** | ✅ DELIVERED — Recount (5800 review hardening) | H1 Fable migration: stale provisional record retired + explicit `supersedes` relation, checker rejects surviving targets · H2 evidence binds to the registered source object (url + date) · R9 machine-derived `INVENTORY.generated.txt` (drift = finding) · R3 retrieval receipts for O11–O14 · R2 S2/S3 demoted to historical leads, policy_attribute_confidence separated · schema 0.3 · battery 24 vectors | Commander: "read, analyze and apply!" | the catalog counts what it contains · v3.10.1 | 2026-09-15 |
+
 ---
 *Regenerate this file every patch. Delete stale copies. The map is not the territory —
 the validator is.*
-| **5800** | ✅ DELIVERED — Almanac (record expansion) | 4 official surfaces re-retrieved 2026-09-15 · catalog 5 → 14 records · exact IDs + values captured (Sonnet-5 $2/$10 resolved; gpt-5.6-sol; Gemini endpoint table; grok-4.6 alias policy) · register O11–O14 · specialized/media ids logged, not recorded · v3.10.0 | 2026-09-15 |

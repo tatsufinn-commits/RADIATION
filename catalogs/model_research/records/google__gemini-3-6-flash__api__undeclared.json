@@ -1,46 +1,46 @@
 {
- "schema_name": "radiation.model_research_record/0.2",
- "provider": "Google",
- "family": "Gemini",
- "exact_model_id": "gemini-3.6-flash",
- "exact_id_verified": true,
- "candidate_model_label": "gemini-3.6-flash",
- "surface": "api",
- "region": "undeclared",
- "status": "confirmed",
- "retrieved_on": "2026-09-15",
- "review_after": "2026-12-14",
- "context_window": "not captured (per-model pages)",
- "knowledge_cutoff": "not captured",
- "modalities": [
-  "multimodal family (declared)"
- ],
- "reasoning_effort": "per-model thinking (not captured)",
- "tools": [
-  "function calling (family-level; per-model not captured)"
- ],
- "retention_training_mode": "Paid-API logs private to the project, default max 55-day retention (7/14/28/55); abuse monitoring up to 55 days; training only on contributed datasets [O8, 2026-09-14]. 'Private to project' is NOT 'not retained'.",
- "license_aup": "Google API Terms + AUP; Unpaid Services dataset-contribution terms apply to training [O8]",
- "declarations": [
-  {
-   "tier": "O",
-   "source_id": "O13",
-   "url": "https://ai.google.dev/gemini-api/docs/models",
-   "retrieved_on": "2026-09-15",
-   "claim": "gemini-3.6-flash: endpoint ID captured from the official model table; lifecycle stable; balances speed and multimodal capabilities"
-  }
- ],
- "safety_evidence": [],
- "independent_evidence": [],
- "local_observations": [],
- "known_gaps": [
-  "context window + knowledge cutoff not captured (per-model pages)",
-  "region undeclared",
-  "version-name patterns section not captured",
-  "no local observations yet"
- ],
- "documentation_completeness": "endpoint ID + lifecycle captured; numeric specs not on this page",
- "confidence": "medium",
- "aliases": [],
- "dated_ids": []
+  "schema_name": "radiation.model_research_record/0.3",
+  "provider": "Google",
+  "family": "Gemini",
+  "exact_model_id": "gemini-3.6-flash",
+  "exact_id_verified": true,
+  "candidate_model_label": "gemini-3.6-flash",
+  "surface": "api",
+  "region": "undeclared",
+  "status": "confirmed",
+  "retrieved_on": "2026-09-15",
+  "review_after": "2026-12-14",
+  "context_window": "not captured (per-model pages)",
+  "knowledge_cutoff": "not captured",
+  "modalities": [
+    "multimodal family (declared)"
+  ],
+  "reasoning_effort": "per-model thinking (not captured)",
+  "tools": [
+    "function calling (family-level; per-model not captured)"
+  ],
+  "retention_training_mode": "Paid-API logs private to the project, default max 55-day retention (7/14/28/55); abuse monitoring up to 55 days; training only on contributed datasets [O8, 2026-09-14]. 'Private to project' is NOT 'not retained'.",
+  "license_aup": "Google API Terms + AUP; Unpaid Services dataset-contribution terms apply to training [O8]",
+  "declarations": [
+    {
+      "tier": "O",
+      "source_id": "O13",
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "retrieved_on": "2026-09-15",
+      "claim": "gemini-3.6-flash: endpoint ID captured from the official model table; lifecycle stable; balances speed and multimodal capabilities"
+    }
+  ],
+  "safety_evidence": [],
+  "independent_evidence": [],
+  "local_observations": [],
+  "known_gaps": [
+    "context window + knowledge cutoff not captured (per-model pages)",
+    "region undeclared",
+    "version-name patterns section not captured",
+    "no local observations yet"
+  ],
+  "documentation_completeness": "endpoint ID + lifecycle captured; numeric specs not on this page",
+  "confidence": "medium",
+  "aliases": [],
+  "dated_ids": []
 }

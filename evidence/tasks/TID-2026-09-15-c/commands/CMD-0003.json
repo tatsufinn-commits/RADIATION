@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "command_id": "CMD-0003",
+  "task_id": "TID-2026-09-15-c",
+  "plan_id": "PLAN-5810",
+  "step_id": "S3",
+  "operation": "build_artifact",
+  "detail": "receipts/2026-09-15__O11..O14 (live captures, excerpt digests); register: receipt notes + S2/S3 historical-lead demotions; policy_attribute_confidence on Anthropic records",
+  "issued_at": "2026-09-15T07:44:57+08:00",
+  "base_revision": "027c78639ef50f13a697e709890543b1a1f1dfc8"
+}

@@ -24,7 +24,7 @@ for the OpenAI/Anthropic flagship lines and the Gemini endpoint table
   evidence, independent evidence, local observations, known gaps,
   documentation completeness, confidence, review_after — plus
   `exact_id_verified` (strict boolean) and separate `aliases` / `dated_ids`.
-- **14 records** (5700 seeds expanded 5800: OpenAI flagship four incl. `gpt-5.6-sol`; Anthropic four with exact IDs — the Sonnet-5 price conflict resolved by the official page; Gemini stable line + 3.1 Pro PREVIEW with captured endpoint IDs; xAI re-confirmed). Origins:
+- **14 records** (5700 seeds expanded 5800: OpenAI flagship four incl. `gpt-5.6-sol`; Anthropic four with exact IDs — the Sonnet-5 price conflict resolved by the official page; Gemini stable line + 3.1 Pro PREVIEW with captured endpoint IDs; xAI re-confirmed; 5810 retired the superseded Fable candidate that the 5800 push had left active — 15 files briefly, 14 records, now enforced). Origins:
   Anthropic `fable-5-1` provisional — id string not captured; Google
   `gemini-3-1-pro-preview` provisional — PREVIEW lifecycle declared; xAI
   `grok-4.6` confirmed with cutoff 2026-02-01). Every gap is a named gap;

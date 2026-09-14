@@ -1211,8 +1211,8 @@ def c41():
     rst = subprocess.run([sys.executable, "scripts/model_research_check.py", "--self-test"],
                          cwd=ROOT, capture_output=True, text=True,
                          timeout=300, stdin=subprocess.DEVNULL)
-    if rst.returncode != 0 or "21/21" not in (rst.stdout + rst.stderr):
-        bad.append("model_research_check self-test not 21/21")
+    if rst.returncode != 0 or "24/24" not in (rst.stdout + rst.stderr):
+        bad.append("model_research_check self-test not 24/24")
     rec(41, "FAIL", not bad, "model-research catalog (5700+5710): records schema-EXECUTED · "
         "typed evidence bound to the register · real-date + 90-day-window discipline · "
         "filename-bound identifiers · non-boot scan over the BOOT_SEQUENCE-derived graph" +

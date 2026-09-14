@@ -1,0 +1,5 @@
+42 checks run · 39 pass · 3 warn · 0 fail
+⚠️ WARN  [check 11.6] replica tranche authority — OPEN GOVERNED EXCEPTION (status: commander-review-requested): pairs admitted provisionally, NOT Commander-ratified; decision options: docs/REPLICA_DECISION.md
+⚠️ WARN  [check 16] meta-budget: 36 canon(orange) patches vs 4 content sessions (law allows 1 per 3 => OVER budget by 104 session-equivalents)
+⚠️ WARN  [check 20.5] planner theater guard: plan exists and the last 3 task_ledger rows record no attempt — plans are not progress (AP-08). Record one with the marker `attempt:` (see Brain/short_term/plan/README.md)
+(digest fixed-point capture: outcome evidence references these final bytes)

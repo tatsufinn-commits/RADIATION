@@ -1,162 +1,162 @@
 {
- "schema_name": "radiation.model_research_register/0.1",
- "generated_by": "5710 Calibrate migration + 5800 Almanac re-retrievals (2026-09-15; the 2026-09-14 gate-review sweep rows retained as history)",
- "sources": [
-  {
-   "id": "O1",
-   "tier": "O",
-   "url": "https://developers.openai.com/api/docs/models",
-   "retrieved_on": "2026-09-14",
-   "title": "OpenAI API models catalog",
-   "note": "recommends gpt-6-astra / gpt-5.6-terra / gpt-5.6-luna; context/tools/reasoning/cutoffs/pricing stated on the page"
-  },
-  {
-   "id": "O2",
-   "tier": "O",
-   "url": "https://openai.com/business/pricing/#api",
-   "retrieved_on": "2026-09-14",
-   "title": "OpenAI API pricing"
-  },
-  {
-   "id": "O3",
-   "tier": "O",
-   "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models/",
-   "retrieved_on": "2026-08-19",
-   "title": "OpenAI ZDR announcement"
-  },
-  {
-   "id": "O4",
-   "tier": "O",
-   "url": "https://platform.claude.com/docs/en/models/overview",
-   "retrieved_on": "2026-09-14",
-   "title": "Anthropic models overview",
-   "note": "lineup + exact IDs + context/cutoffs/pricing/thinking \u2014 id STRINGS not captured in the sweep"
-  },
-  {
-   "id": "O5",
-   "tier": "O",
-   "url": "https://claude.com/platform/api",
-   "retrieved_on": "2026-09-14",
-   "title": "Anthropic API surface"
-  },
-  {
-   "id": "O6",
-   "tier": "O",
-   "url": "https://ai.google.dev/gemini-api/docs/models",
-   "retrieved_on": "2026-09-14",
-   "title": "Gemini API models",
-   "note": "stable 3.8/3.7/3.6/3.5 Flash; 3.1 Pro = PREVIEW"
-  },
-  {
-   "id": "O7",
-   "tier": "O",
-   "url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "retrieved_on": "2026-09-14",
-   "title": "Gemini API pricing"
-  },
-  {
-   "id": "O8",
-   "tier": "O",
-   "url": "https://ai.google.dev/gemini-api/docs/logs-policy",
-   "retrieved_on": "2026-09-14",
-   "title": "Gemini API logs policy (+ abuse-monitoring docs)",
-   "note": "55-day default retention (7/14/28/55); abuse monitoring 55d; training only on contributed datasets"
-  },
-  {
-   "id": "O9",
-   "tier": "O",
-   "url": "https://docs.x.ai/developers/models",
-   "retrieved_on": "2026-09-14",
-   "title": "xAI models",
-   "note": "grok-4.6: 500K, $2/$6, cutoff 2026-02-01, alias vs dated-ID policy, search tools required for real-time"
-  },
-  {
-   "id": "O10",
-   "tier": "O",
-   "url": "https://arena.ai/agent",
-   "retrieved_on": "2026-09-14",
-   "title": "Arena Agent Mode product page",
-   "note": "host surface only; /privacy + /terms 404 => policy URL UNCONFIRMED; NO model record exists by design"
-  },
-  {
-   "id": "S1",
-   "tier": "S",
-   "url": "https://benchlm.ai (via 2026-09-11 sweep row)",
-   "retrieved_on": "2026-09-11",
-   "title": "benchlm.ai Grok price table",
-   "note": "corroborates O9's $2/$6; secondary, never sufficient for confirmed"
-  },
-  {
-   "id": "S2",
-   "tier": "S",
-   "url": "https://datastudios.example/analysis (2026-09-07 sweep row)",
-   "retrieved_on": "2026-09-07",
-   "title": "Anthropic log-retention analysis",
-   "note": "~7 days since 2025-09-15, ZDR available; secondary"
-  },
-  {
-   "id": "S3",
-   "tier": "S",
-   "url": "https://terms.law/anthropic-analysis (2026-06-27 sweep row)",
-   "retrieved_on": "2026-06-27",
-   "title": "Anthropic Commercial Terms quote",
-   "note": "customer content not used for training; secondary quoting primary"
-  },
-  {
-   "id": "S4",
-   "tier": "S",
-   "url": "https://humla.team/consumer-api-split (2026-07-28 sweep row)",
-   "retrieved_on": "2026-07-28",
-   "title": "OpenAI consumer/API training split",
-   "note": "secondary"
-  },
-  {
-   "id": "S5",
-   "tier": "S",
-   "url": "https://stork.ai/arena-review (2026-06-05 sweep row)",
-   "retrieved_on": "2026-06-05",
-   "title": "Arena blind-comparison coverage",
-   "note": "outputs presented without revealing the underlying model; secondary"
-  },
-  {
-   "id": "S6",
-   "tier": "S",
-   "url": "https://chatgate.ai/arena (2026-06-05 sweep row)",
-   "retrieved_on": "2026-06-05",
-   "title": "Arena workspace/sandbox coverage",
-   "note": "secondary; benchmark-platform claim, not a per-session promise"
-  },
-  {
-   "id": "O11",
-   "tier": "O",
-   "url": "https://developers.openai.com/api/docs/models",
-   "retrieved_on": "2026-09-15",
-   "title": "OpenAI API models catalog (5800 re-retrieval)",
-   "note": "full flagship specs captured: gpt-6-astra $10/$50 cutoff 2026-04-30; gpt-5.6-sol (alias gpt-5.6) $4/$20; gpt-5.6-terra $2/$12; gpt-5.6-luna $0.20/$1.20 \u2014 all 1.05M ctx, 128K out, cutoff 2026-02-16; specialized lines observed (cyber/daybreak/image/realtime)"
-  },
-  {
-   "id": "O12",
-   "tier": "O",
-   "url": "https://platform.claude.com/docs/en/models/overview",
-   "retrieved_on": "2026-09-15",
-   "title": "Anthropic models overview (5800 re-retrieval)",
-   "note": "exact IDs captured: claude-fable-5-1 $10/$50 1M; claude-opus-5 $5/$25 1M; claude-sonnet-5 $2/$10 1M (conflict resolved); claude-haiku-4-5-20251001 $1/$5 200K; cutoffs Jun/May/Jan 2026 + Feb 2025"
-  },
-  {
-   "id": "O13",
-   "tier": "O",
-   "url": "https://ai.google.dev/gemini-api/docs/models",
-   "retrieved_on": "2026-09-15",
-   "title": "Gemini API models (5800 re-retrieval)",
-   "note": "endpoint table captured: stable 3.8/3.7/3.6/3.5 Flash + Flash-Lite variants + media models; PREVIEW 3.1-pro-preview; numeric specs live on per-model pages (not captured)"
-  },
-  {
-   "id": "O14",
-   "tier": "O",
-   "url": "https://docs.x.ai/developers/models",
-   "retrieved_on": "2026-09-15",
-   "title": "xAI models (5800 re-retrieval)",
-   "note": "grok-4.6 re-confirmed + alias policy classes + search-tools requirement + Imagine/Voice ids observed (media surfaces, own records required)"
-  }
- ]
+  "schema_name": "radiation.model_research_register/0.1",
+  "generated_by": "5710 Calibrate migration + 5800 Almanac re-retrievals (2026-09-15; the 2026-09-14 gate-review sweep rows retained as history)",
+  "sources": [
+    {
+      "id": "O1",
+      "tier": "O",
+      "url": "https://developers.openai.com/api/docs/models",
+      "retrieved_on": "2026-09-14",
+      "title": "OpenAI API models catalog",
+      "note": "recommends gpt-6-astra / gpt-5.6-terra / gpt-5.6-luna; context/tools/reasoning/cutoffs/pricing stated on the page"
+    },
+    {
+      "id": "O2",
+      "tier": "O",
+      "url": "https://openai.com/business/pricing/#api",
+      "retrieved_on": "2026-09-14",
+      "title": "OpenAI API pricing"
+    },
+    {
+      "id": "O3",
+      "tier": "O",
+      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models/",
+      "retrieved_on": "2026-08-19",
+      "title": "OpenAI ZDR announcement"
+    },
+    {
+      "id": "O4",
+      "tier": "O",
+      "url": "https://platform.claude.com/docs/en/models/overview",
+      "retrieved_on": "2026-09-14",
+      "title": "Anthropic models overview",
+      "note": "lineup + exact IDs + context/cutoffs/pricing/thinking — id STRINGS not captured in the sweep"
+    },
+    {
+      "id": "O5",
+      "tier": "O",
+      "url": "https://claude.com/platform/api",
+      "retrieved_on": "2026-09-14",
+      "title": "Anthropic API surface"
+    },
+    {
+      "id": "O6",
+      "tier": "O",
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "retrieved_on": "2026-09-14",
+      "title": "Gemini API models",
+      "note": "stable 3.8/3.7/3.6/3.5 Flash; 3.1 Pro = PREVIEW"
+    },
+    {
+      "id": "O7",
+      "tier": "O",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "retrieved_on": "2026-09-14",
+      "title": "Gemini API pricing"
+    },
+    {
+      "id": "O8",
+      "tier": "O",
+      "url": "https://ai.google.dev/gemini-api/docs/logs-policy",
+      "retrieved_on": "2026-09-14",
+      "title": "Gemini API logs policy (+ abuse-monitoring docs)",
+      "note": "55-day default retention (7/14/28/55); abuse monitoring 55d; training only on contributed datasets"
+    },
+    {
+      "id": "O9",
+      "tier": "O",
+      "url": "https://docs.x.ai/developers/models",
+      "retrieved_on": "2026-09-14",
+      "title": "xAI models",
+      "note": "grok-4.6: 500K, $2/$6, cutoff 2026-02-01, alias vs dated-ID policy, search tools required for real-time"
+    },
+    {
+      "id": "O10",
+      "tier": "O",
+      "url": "https://arena.ai/agent",
+      "retrieved_on": "2026-09-14",
+      "title": "Arena Agent Mode product page",
+      "note": "host surface only; /privacy + /terms 404 => policy URL UNCONFIRMED; NO model record exists by design"
+    },
+    {
+      "id": "S1",
+      "tier": "S",
+      "url": "https://benchlm.ai (via 2026-09-11 sweep row)",
+      "retrieved_on": "2026-09-11",
+      "title": "benchlm.ai Grok price table",
+      "note": "corroborates O9's $2/$6; secondary, never sufficient for confirmed"
+    },
+    {
+      "id": "S2",
+      "tier": "S",
+      "url": "https://datastudios.example/analysis (2026-09-07 sweep row)",
+      "retrieved_on": "2026-09-07",
+      "title": "Anthropic log-retention analysis",
+      "note": "HISTORICAL LEAD ONLY — RESERVED-DOMAIN SECONDARY (datastudios.example is RFC 2606/6761-reserved; not a registrable production source); must NOT substantiate current compliance/safety claims (5810 review R2). Original: ~7 days since 2025-09-15, ZDR available; secondary"
+    },
+    {
+      "id": "S3",
+      "tier": "S",
+      "url": "https://terms.law/anthropic-analysis (2026-06-27 sweep row)",
+      "retrieved_on": "2026-06-27",
+      "title": "Anthropic Commercial Terms quote",
+      "note": "HISTORICAL LEAD ONLY — SECONDARY quote (terms.law is not the governing Anthropic terms/privacy source); must NOT substantiate current compliance/safety claims (5810 review R2). Original: customer content not used for training; secondary quoting primary"
+    },
+    {
+      "id": "S4",
+      "tier": "S",
+      "url": "https://humla.team/consumer-api-split (2026-07-28 sweep row)",
+      "retrieved_on": "2026-07-28",
+      "title": "OpenAI consumer/API training split",
+      "note": "secondary"
+    },
+    {
+      "id": "S5",
+      "tier": "S",
+      "url": "https://stork.ai/arena-review (2026-06-05 sweep row)",
+      "retrieved_on": "2026-06-05",
+      "title": "Arena blind-comparison coverage",
+      "note": "outputs presented without revealing the underlying model; secondary"
+    },
+    {
+      "id": "S6",
+      "tier": "S",
+      "url": "https://chatgate.ai/arena (2026-06-05 sweep row)",
+      "retrieved_on": "2026-06-05",
+      "title": "Arena workspace/sandbox coverage",
+      "note": "secondary; benchmark-platform claim, not a per-session promise"
+    },
+    {
+      "id": "O11",
+      "tier": "O",
+      "url": "https://developers.openai.com/api/docs/models",
+      "retrieved_on": "2026-09-15",
+      "title": "OpenAI API models catalog (5800 re-retrieval)",
+      "note": "full flagship specs captured: gpt-6-astra $10/$50 cutoff 2026-04-30; gpt-5.6-sol (alias gpt-5.6) $4/$20; gpt-5.6-terra $2/$12; gpt-5.6-luna $0.20/$1.20 — all 1.05M ctx, 128K out, cutoff 2026-02-16; specialized lines observed (cyber/daybreak/image/realtime) … receipt: receipts/2026-09-15__O11.md"
+    },
+    {
+      "id": "O12",
+      "tier": "O",
+      "url": "https://platform.claude.com/docs/en/models/overview",
+      "retrieved_on": "2026-09-15",
+      "title": "Anthropic models overview (5800 re-retrieval)",
+      "note": "exact IDs captured: claude-fable-5-1 $10/$50 1M; claude-opus-5 $5/$25 1M; claude-sonnet-5 $2/$10 1M (conflict resolved); claude-haiku-4-5-20251001 $1/$5 200K; cutoffs Jun/May/Jan 2026 + Feb 2025 · receipt (5810): sources/receipts/2026-09-15__O12.md"
+    },
+    {
+      "id": "O13",
+      "tier": "O",
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "retrieved_on": "2026-09-15",
+      "title": "Gemini API models (5800 re-retrieval)",
+      "note": "endpoint table captured: stable 3.8/3.7/3.6/3.5 Flash + Flash-Lite variants + media models; PREVIEW 3.1-pro-preview; numeric specs live on per-model pages (not captured) · receipt (5810): sources/receipts/2026-09-15__O13.md"
+    },
+    {
+      "id": "O14",
+      "tier": "O",
+      "url": "https://docs.x.ai/developers/models",
+      "retrieved_on": "2026-09-15",
+      "title": "xAI models (5800 re-retrieval)",
+      "note": "grok-4.6 re-confirmed + alias policy classes + search-tools requirement + Imagine/Voice ids observed (media surfaces, own records required) · receipt (5810): sources/receipts/2026-09-15__O14.md"
+    }
+  ]
 }

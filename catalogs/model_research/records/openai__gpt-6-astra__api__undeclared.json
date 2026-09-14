@@ -1,49 +1,49 @@
 {
- "schema_name": "radiation.model_research_record/0.2",
- "provider": "OpenAI",
- "family": "GPT",
- "exact_model_id": "gpt-6-astra",
- "exact_id_verified": true,
- "candidate_model_label": "gpt-6-astra",
- "surface": "api",
- "region": "undeclared",
- "status": "confirmed",
- "retrieved_on": "2026-09-15",
- "review_after": "2026-12-14",
- "context_window": "1.05M tokens (declared)",
- "knowledge_cutoff": "2026-04-30 (declared)",
- "modalities": [
-  "text+image input",
-  "text output"
- ],
- "reasoning_effort": "low/medium/high/xhigh/max",
- "tools": [
-  "Functions",
-  "Web search",
-  "File search",
-  "Computer use"
- ],
- "retention_training_mode": "API data not used for training by default; ZDR for eligible customers [O3, retrieved 2026-08-19]; ~30-day abuse-log retention [S, consistent]. Surface-specific; not a guarantee.",
- "license_aup": "OpenAI terms/AUP apply (links on the official terms pages); open questions: none recorded",
- "declarations": [
-  {
-   "tier": "O",
-   "source_id": "O11",
-   "url": "https://developers.openai.com/api/docs/models",
-   "retrieved_on": "2026-09-15",
-   "claim": "gpt-6-astra: flagship 'for the hardest end-to-end work'; $10/$50 MTok; max output 128K; context 1.05M; cutoff 2026-04-30; tools: Functions, Web search, File search, Computer use; reasoning low/medium/high/xhigh/max"
-  }
- ],
- "safety_evidence": [],
- "independent_evidence": [],
- "local_observations": [],
- "known_gaps": [
-  "region undeclared",
-  "no local observations yet (no RADIATION evaluation has run)",
-  "specialized lines observed on the same page (gpt-5.6-cyber, daybreak-*, gpt-image-2.5-*, realtime/transcribe lines) \u2014 own records required before routing use"
- ],
- "documentation_completeness": "fully captured from the official catalog",
- "confidence": "high",
- "aliases": [],
- "dated_ids": []
+  "schema_name": "radiation.model_research_record/0.3",
+  "provider": "OpenAI",
+  "family": "GPT",
+  "exact_model_id": "gpt-6-astra",
+  "exact_id_verified": true,
+  "candidate_model_label": "gpt-6-astra",
+  "surface": "api",
+  "region": "undeclared",
+  "status": "confirmed",
+  "retrieved_on": "2026-09-15",
+  "review_after": "2026-12-14",
+  "context_window": "1.05M tokens (declared)",
+  "knowledge_cutoff": "2026-04-30 (declared)",
+  "modalities": [
+    "text+image input",
+    "text output"
+  ],
+  "reasoning_effort": "low/medium/high/xhigh/max",
+  "tools": [
+    "Functions",
+    "Web search",
+    "File search",
+    "Computer use"
+  ],
+  "retention_training_mode": "API data not used for training by default; ZDR for eligible customers [O3, retrieved 2026-08-19]; ~30-day abuse-log retention [S, consistent]. Surface-specific; not a guarantee.",
+  "license_aup": "OpenAI terms/AUP apply (links on the official terms pages); open questions: none recorded",
+  "declarations": [
+    {
+      "tier": "O",
+      "source_id": "O11",
+      "url": "https://developers.openai.com/api/docs/models",
+      "retrieved_on": "2026-09-15",
+      "claim": "gpt-6-astra: flagship 'for the hardest end-to-end work'; $10/$50 MTok; max output 128K; context 1.05M; cutoff 2026-04-30; tools: Functions, Web search, File search, Computer use; reasoning low/medium/high/xhigh/max"
+    }
+  ],
+  "safety_evidence": [],
+  "independent_evidence": [],
+  "local_observations": [],
+  "known_gaps": [
+    "region undeclared",
+    "no local observations yet (no RADIATION evaluation has run)",
+    "specialized lines observed on the same page (gpt-5.6-cyber, daybreak-*, gpt-image-2.5-*, realtime/transcribe lines) — own records required before routing use"
+  ],
+  "documentation_completeness": "fully captured from the official catalog",
+  "confidence": "high",
+  "aliases": [],
+  "dated_ids": []
 }
