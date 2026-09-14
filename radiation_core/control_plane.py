@@ -404,6 +404,10 @@ def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
     # before the task directory or any target is created; the write phase only
     # runs on a fully clean preflight. (Per-file atomicity is rename; batch
     # atomicity is this preflight.)
+    # 5600 closure — claim precisely: this is PREFLIGHT TRANSACTIONALITY FOR
+    # VALIDATION FAILURES, not universal multi-file filesystem atomicity. A
+    # process crash or I/O error DURING the write phase can still leave a
+    # partial batch; staging/rollback is NOT implemented (docs/THREAT_MODEL.md).
     _sch: list[str] = []
     _schema_check(manifest, "control_manifest.schema.json", "manifest", _sch)
     for x in _sch[:3]:
@@ -431,6 +435,7 @@ def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
         os.makedirs(base := os.path.realpath(_drafts_root), exist_ok=True)
         os.makedirs(task_dir, exist_ok=True)
         for rel, data, target in planned:  # preflight passed: write phase
+            os.makedirs(os.path.dirname(target), exist_ok=True)  # 5600: parent dirs at write time (spurious I/O failure mode removed; transactionality claim unchanged — still validation-only)
             tmp = target + ".tmp-cp"
             with open(tmp, "wb") as fh:
                 fh.write(data)

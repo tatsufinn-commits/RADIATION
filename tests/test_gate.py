@@ -26,7 +26,7 @@ class DeepSelfTests(unittest.TestCase):
 
     def test_relay_self_test(self):
         out = self._run(["-m", "radiation_core.relay", "--self-test"])
-        self.assertIn("16/16", out)
+        self.assertIn("23/23", out)
 
     def test_control_plane_self_test(self):
         out = self._run(["-m", "radiation_core.control_plane", "--self-test"])

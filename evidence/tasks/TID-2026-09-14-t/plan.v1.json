@@ -1,0 +1,44 @@
+{
+ "plan_id": "PLAN-5600",
+ "task_id": "TID-2026-09-14-t",
+ "base_revision": "2681ee3051b2556c88fe71051a16d935f00f70c4",
+ "steps": [
+  {
+   "step_id": "S0",
+   "operation_class": "ci-truth",
+   "success_predicate": "full workflow simulation green under real Python 3.11.16 (before-failure preserved as evidence)"
+  },
+  {
+   "step_id": "S1",
+   "operation_class": "replica-authority",
+   "success_predicate": "check 11.6 emits OPEN GOVERNED EXCEPTION; decision brief lists all 12 pairs with options A/B"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "registry-contract",
+   "success_predicate": "21 tools validate under schema /2 + code-level rules; checker self-test 13/13"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "schema-honesty",
+   "success_predicate": "executor closed set, instance-type dispatch; check 40 green over all shipped schemas"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "claim-sharpening",
+   "success_predicate": "preflight-transactionality wording exact in THREAT_MODEL + control_plane"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "hostile-reframe",
+   "success_predicate": "fixtures reframed + 3 new shapes; inertness under deterministic consumers proven"
+  },
+  {
+   "step_id": "S6",
+   "operation_class": "provider-consolidation",
+   "success_predicate": "profiles consolidated; routing de-decisionalized; verify_apply label corrected"
+  }
+ ],
+ "schema_version": "1.0",
+ "policy": "workspace_draft under II.11; canonical_apply stays the Commander's motor act"
+}

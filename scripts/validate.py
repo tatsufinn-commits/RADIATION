@@ -8,7 +8,7 @@ session — sessions stay offline by law).
 """
 import hashlib, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from radiation_core.relay import _schema_check  # ONE schema executor (II.11)
+from radiation_core.relay import _schema_check, unsupported_keywords  # ONE schema executor (II.11)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS = []
 def rec(check, sev, ok, msg):
@@ -124,6 +124,17 @@ def _corpus_contract_violations(root):
 
 
 # ---- 5300 E2: sanctioned replica contract ----------------------------------
+def _replica_open_exception(rat):
+    """5600 closure: fail-closed authority visibility.
+
+    Only an explicit 'commander-ratified' status closes the open governed
+    exception; anything else — including a MISSING ratification record —
+    stays visibly open. A 'requested' review must never be indistinguishable
+    from a ratified PASS (and must never self-ratify).
+    """
+    return rat != "commander-ratified"
+
+
 def _replica_contract(root):
     """Exactly the declared pairs may be byte-identical; every other duplicate
     still fails. Both sides are hash-bound: drift fails, silence is not kept."""
@@ -150,7 +161,8 @@ def _replica_contract(root):
         hr = "sha256:" + hashlib.sha256(open(os.path.join(root, r), "rb").read()).hexdigest()
         if hc != hr or hc != pr.get("sha256"):
             bad.append(f"replica drift: {c} <-> {r} (hash-bound contract violated)")
-    return (bad, allowed)
+    rat = m.get("ratification", {}).get("status") if isinstance(m.get("ratification"), dict) else None
+    return (bad, allowed, rat)
 
 
 def _dup_scan(root, allowed):
@@ -384,7 +396,16 @@ def c11():
     # 5300 E2: the four declared active/archive replica pairs are exempt — but
     # hash-bound: a drifted twin fails via _replica_contract, and any duplicate
     # NOT declared as an exact sanctioned pair still fails below.
-    r_bad, allowed = _replica_contract(ROOT)
+    r_bad, allowed, rat = _replica_contract(ROOT)
+    # 5600 closure: the tranche's authority state is a VISIBLY open governed
+    # exception while un-ratified — never a silently ratified PASS.
+    if _replica_open_exception(rat):
+        rec(11.6, "WARN", False,
+            "replica tranche authority — OPEN GOVERNED EXCEPTION (status: "
+            f"{rat or 'no ratification record'}): pairs admitted provisionally, NOT "
+            "Commander-ratified; decision options: docs/REPLICA_DECISION.md")
+    else:
+        rec(11.6, "WARN", True, "replica tranche authority (Commander-ratified)")
     bad, sets = _dup_scan(ROOT, allowed)
     warn = []
     fl = list(sets)
@@ -1121,42 +1142,62 @@ def c38agents():
 def c39gates():
     bad = []
     # (a) a harness that discovers ZERO tests is an explicit failure
+    # RADIATION_VALIDATION_CTX tells the harness that validate.py is the
+    # PARENT process: tests that would spawn validate again must skip —
+    # validate→harness→validate is an infinite recursion, not a test.
+    _ctx = {**os.environ, "RADIATION_VALIDATION_CTX": "1"}
     r = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests"],
-                       cwd=ROOT, capture_output=True, text=True, timeout=1200)
+                       cwd=ROOT, capture_output=True, text=True, timeout=1200,
+                       env=_ctx, stdin=subprocess.DEVNULL)
     m = re.search(r"Ran (\d+) tests?", r.stdout + r.stderr)  # unittest prints to stderr
     if not m or int(m.group(1)) < 1:
         bad.append("unittest discover found 0 tests — a harness that runs nothing is not a harness")
     elif r.returncode != 0:
         bad.append(f"unittest discover FAILED (rc={r.returncode}): "
                    + (r.stdout + r.stderr).strip().splitlines()[-1][:90])
-    # (b) tool registry: present, schema-EXECUTED, entries resolve, coverage complete
-    reg_p = os.path.join(ROOT, "tools", "TOOL_REGISTRY.json")
-    if not os.path.exists(reg_p):
-        bad.append("tools/TOOL_REGISTRY.json missing (the tool catalog is law)")
-    else:
+    # (b) tool registry: ONE checker entry point — schema-executed + code-level
+    # semantic rules (5600 closure Step 2; the checker self-carries its own
+    # 13-vector negative battery)
+    rchk = subprocess.run([sys.executable, "scripts/tool_registry_check.py"],
+                          cwd=ROOT, capture_output=True, text=True,
+                          timeout=300, stdin=subprocess.DEVNULL)
+    if rchk.returncode != 0:
+        tail = (rchk.stdout + rchk.stderr).strip().splitlines()
+        bad.append("tool_registry_check FAILED: " + (tail[-1][:100] if tail else "rc=1"))
+    rst = subprocess.run([sys.executable, "scripts/tool_registry_check.py", "--self-test"],
+                         cwd=ROOT, capture_output=True, text=True,
+                         timeout=300, stdin=subprocess.DEVNULL)
+    if rst.returncode != 0 or "13/13" not in (rst.stdout + rst.stderr):
+        bad.append("tool_registry_check self-test not 13/13")
+    rec(39, "FAIL", not bad, "test harness + tool registry (5500+5600): discoverable tests "
+        "exist and pass · registry is a bounded contract (schema-EXECUTED + code-level "
+        "rules, self-tested)" + ("" if not bad else ": " + "; ".join(bad[:4])))
+
+# ---- check 40: schema keyword coverage (5600 closure Step 3) ----------------
+def c40():
+    """Every shipped schema must use ONLY keywords the ONE executor executes
+    (or documented annotations). A schema claim the executor cannot enforce
+    is a silent freebie — a build failure, never a shrug."""
+    bad = []
+    n = 0
+    sdir = os.path.join(ROOT, "schemas")
+    for f in sorted(os.listdir(sdir)) if os.path.isdir(sdir) else []:
+        if not f.endswith(".json"):
+            continue
+        n += 1
         try:
-            reg = json.load(open(reg_p, encoding="utf-8"))
+            spec = json.load(open(os.path.join(sdir, f), encoding="utf-8"))
         except Exception as e:
-            reg = {}
-            bad.append(f"TOOL_REGISTRY unparseable: {e}")
-        out: list[str] = []
-        _schema_check(reg, "tool_registry.schema.json", "tool registry", out)
-        bad.extend(out[:4])
-        for tool in reg.get("tools", []):
-            if not os.path.exists(os.path.join(ROOT, tool.get("entry", ""))):
-                bad.append(f"registry: {tool.get('name')!r} entry missing on disk: {tool.get('entry')}")
-        scripts = sorted(f for f in os.listdir(os.path.join(ROOT, "scripts"))
-                         if f.endswith(".py")) if os.path.isdir(os.path.join(ROOT, "scripts")) else []
-        entries = {os.path.basename(tool.get("entry", "")) for tool in reg.get("tools", [])}
-        for s in scripts:
-            if s not in entries:
-                bad.append(f"scripts/{s} not registered in TOOL_REGISTRY")
-    rec(39, "FAIL", not bad, "test harness + tool registry (5500): discoverable tests "
-        "exist and pass · every tool registered with entry + self-test verb · registry "
-        "schema-EXECUTED" + ("" if not bad else ": " + "; ".join(bad[:4])))
+            bad.append(f"schemas/{f} unparseable: {e}")
+            continue
+        uk = unsupported_keywords(spec)
+        if uk:
+            bad.append(f"schemas/{f}: keywords the executor does not execute: {uk}")
+    rec(40, "FAIL", not bad, f"schema keyword coverage (5600): {n} schemas within the "
+        "executor's executed set + legal annotations" + ("" if not bad else ": " + "; ".join(bad[:4])))
 
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
-          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control,c38agents,c39gates)
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control,c38agents,c39gates,c40)
 
 def run_all():
     """Structured entry point (4400): returns the findings list. Import-safe —

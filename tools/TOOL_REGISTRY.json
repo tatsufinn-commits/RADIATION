@@ -1,146 +1,547 @@
 {
- "schema_name": "radiation.tool_registry/1",
- "generated_by": "S005 (the Architect) \u2014 5500 gate review \u00a73.2 deliverable, 2026-09-14",
+ "schema_name": "radiation.tool_registry/2",
+ "generated_by": "5600 Verity closure (Architect S005, 2026-09-14; Commander review pending)",
  "tools": [
   {
-   "name": "validate",
-   "entry": "scripts/validate.py",
-   "self_test_verb": "python3 scripts/validate.py",
-   "zero_write": false,
-   "description": "structural validator (CI law); writes validation_report.json"
+   "id": "validate",
+   "entrypoint": "scripts/validate.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "temporary",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "declared",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 900,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/validate.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "structural validator (CI law); offline by default, online link census only with RADIATION_ONLINE=1; writes validation_report.json (removed before any seal)"
   },
   {
-   "name": "relay",
-   "entry": "radiation_core/relay.py",
-   "self_test_verb": "python3 -m radiation_core.relay --self-test",
-   "zero_write": true,
-   "description": "canonical bundle validation + neuron rendering"
+   "id": "relay",
+   "entrypoint": "radiation_core/relay.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "task_evidence",
+    "receipts_chain"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 -m radiation_core.relay --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "bundle verifier + the ONE schema executor; read-only over evidence trees"
   },
   {
-   "name": "control_plane",
-   "entry": "radiation_core/control_plane.py",
-   "self_test_verb": "python3 -m radiation_core.control_plane --self-test",
-   "zero_write": false,
-   "description": "II.11 cooperative policy flow (drafts only; canonical = Commander)"
+   "id": "control_plane",
+   "entrypoint": "radiation_core/control_plane.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "tracked_derived",
+   "approval": "commander_order_assertion",
+   "data_classes": [
+    "task_evidence",
+    "receipts_chain"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "no",
+   "timeout_seconds": 600,
+   "cap_mapping": [],
+   "test_command": "python3 -m radiation_core.control_plane --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "II.11 control plane: decide/approve/execute_draft append digest-bound receipts under evidence/; canonical_apply stays the Commander's motor act"
   },
   {
-   "name": "cap_verify",
-   "entry": "scripts/cap_verify.py",
-   "self_test_verb": "python3 scripts/cap_verify.py --self-test",
-   "zero_write": true,
-   "description": "CAP record verifier"
+   "id": "cap_verify",
+   "entrypoint": "scripts/cap_verify.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "capability_records"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/cap_verify.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "verifies tracked cap records (seal + schema + negative vectors); authority flows only through the control plane"
   },
   {
-   "name": "cap_probe",
-   "entry": "scripts/cap_probe.py",
-   "self_test_verb": "python3 scripts/cap_probe.py --self-test",
-   "zero_write": true,
-   "description": "read-only capability probe"
+   "id": "cap_probe",
+   "entrypoint": "scripts/cap_probe.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "capability_records"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/cap_probe.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "capability probe: builds candidate cap records for Commander review; emits three-state dirty (null = could not determine)"
   },
   {
-   "name": "radiation_pass",
-   "entry": "agents/_common/radiation_pass.py",
-   "self_test_verb": "python3 agents/_common/radiation_pass.py --self-test",
-   "zero_write": true,
-   "description": "RADIATION PASS handoff (zero-write by proof)"
+   "id": "radiation_pass",
+   "entrypoint": "agents/_common/radiation_pass.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "provider_research"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 agents/_common/radiation_pass.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "host-to-provider handoff pass; a handoff, not an elevation \u2014 grants nothing"
   },
   {
-   "name": "contract_tests",
-   "entry": "scripts/contract_tests.py",
-   "self_test_verb": "python3 scripts/contract_tests.py",
-   "zero_write": true,
-   "description": "E1/E2 negative fixtures on temp trees"
+   "id": "contract_tests",
+   "entrypoint": "scripts/contract_tests.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "temporary",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/contract_tests.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "E1/E2 contract fixtures over throwaway temp trees; no repo writes"
   },
   {
-   "name": "knowledge_regression",
-   "entry": "scripts/knowledge_regression.py",
-   "self_test_verb": "python3 scripts/knowledge_regression.py",
-   "zero_write": false,
-   "description": "locked knowledge assertions (11)"
+   "id": "knowledge_regression",
+   "entrypoint": "scripts/knowledge_regression.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/knowledge_regression.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "locked knowledge assertions; read-only over the tree"
   },
   {
-   "name": "nota",
-   "entry": "scripts/nota.py",
-   "self_test_verb": "python3 scripts/nota.py --check",
-   "zero_write": false,
-   "description": "core card tool (writes only via explicit verbs)"
+   "id": "nota",
+   "entrypoint": "scripts/nota.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "tracked_derived",
+   "approval": "none",
+   "data_classes": [
+    "course_corpus"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "conditional",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/nota.py --check",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "core card tool: shape check + index parity; write mode regenerates canonical cards under Brain/"
   },
   {
-   "name": "render_docs",
-   "entry": "scripts/render_docs.py",
-   "self_test_verb": "python3 scripts/render_docs.py --check",
-   "zero_write": false,
-   "description": "generated-docs truth"
+   "id": "render_docs",
+   "entrypoint": "scripts/render_docs.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "tracked_derived",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/render_docs.py --check",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "regenerates tracked docs from records; --check proves docs match reality"
   },
   {
-   "name": "verify_apply",
-   "entry": "scripts/verify_apply.py",
-   "self_test_verb": "python3 scripts/verify_apply.py --self-test",
-   "zero_write": false,
-   "description": "apply report (writes only its report file)"
+   "id": "verify_apply",
+   "entrypoint": "scripts/verify_apply.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata",
+    "course_corpus"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/verify_apply.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "post-apply auditor: corpus-aware truth about the sealed tree; BLOCKING in CI"
   },
   {
-   "name": "status",
-   "entry": "scripts/status.py",
-   "self_test_verb": "python3 scripts/status.py --self-test",
-   "zero_write": false,
-   "description": "status dashboard"
+   "id": "status",
+   "entrypoint": "scripts/status.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/status.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "status dashboard with date semantics; read-only"
   },
   {
-   "name": "ics_normalize",
-   "entry": "scripts/ics_normalize.py",
-   "self_test_verb": "python3 scripts/ics_normalize.py --self-test",
-   "zero_write": true,
-   "description": "ICS normalizer"
+   "id": "ics_normalize",
+   "entrypoint": "scripts/ics_normalize.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "temporary",
+   "approval": "none",
+   "data_classes": [
+    "course_corpus"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/ics_normalize.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "ICS calendar normalizer; writes normalized output only where the operator points"
   },
   {
-   "name": "module_scaffold",
-   "entry": "scripts/module_scaffold.py",
-   "self_test_verb": "python3 scripts/module_scaffold.py --self-test",
-   "zero_write": true,
-   "description": "module scaffold"
+   "id": "module_scaffold",
+   "entrypoint": "scripts/module_scaffold.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "temporary",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/module_scaffold.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "scaffolds new module skeletons at operator-named paths; self-test uses temp dirs"
   },
   {
-   "name": "plan_term",
-   "entry": "scripts/plan_term.py",
-   "self_test_verb": "python3 scripts/plan_term.py --self-check",
-   "zero_write": false,
-   "description": "term register generator"
+   "id": "plan_term",
+   "entrypoint": "scripts/plan_term.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/plan_term.py --self-check",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "term register truth checks; read-only"
   },
   {
-   "name": "decay_compute",
-   "entry": "scripts/decay_compute.py",
-   "self_test_verb": "python3 scripts/decay_compute.py",
-   "zero_write": true,
-   "description": "decay computation (read-only)"
+   "id": "decay_compute",
+   "entrypoint": "scripts/decay_compute.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/decay_compute.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "decay register computations; read-only"
   },
   {
-   "name": "export_anki",
-   "entry": "scripts/export_anki.py",
-   "self_test_verb": "python3 scripts/export_anki.py",
-   "zero_write": false,
-   "description": "Anki export"
+   "id": "export_anki",
+   "entrypoint": "scripts/export_anki.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "ignored_local",
+   "approval": "none",
+   "data_classes": [
+    "course_corpus"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/export_anki.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "exports Anki decks to operator-named output; outside tracked records"
   },
   {
-   "name": "grade_exam",
-   "entry": "scripts/grade_exam.py",
-   "self_test_verb": "python3 scripts/grade_exam.py",
-   "zero_write": false,
-   "description": "exam grading"
+   "id": "grade_exam",
+   "entrypoint": "scripts/grade_exam.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read"
+   ],
+   "mutation_scope": "none",
+   "approval": "none",
+   "data_classes": [
+    "course_corpus"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "conditional",
+   "timeout_seconds": 120,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/grade_exam.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "exam grading over declared course corpus; read-only"
   },
   {
-   "name": "deadline_feed",
-   "entry": "scripts/deadline_feed.py",
-   "self_test_verb": "python3 scripts/deadline_feed.py",
-   "zero_write": false,
-   "description": "deadline feed"
+   "id": "deadline_feed",
+   "entrypoint": "scripts/deadline_feed.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "ignored_local",
+   "approval": "none",
+   "data_classes": [
+    "course_corpus"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "no",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/deadline_feed.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "rebuilds the local deadline register from declared corpus dates"
   },
   {
-   "name": "ingest_collection",
-   "entry": "scripts/ingest_collection.py",
-   "self_test_verb": "python3 scripts/ingest_collection.py",
-   "zero_write": false,
-   "description": "collection ingestion"
+   "id": "ingest_collection",
+   "entrypoint": "scripts/ingest_collection.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "ignored_local",
+   "approval": "none",
+   "data_classes": [
+    "course_corpus"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "no",
+   "timeout_seconds": 300,
+   "cap_mapping": [],
+   "test_command": "python3 scripts/ingest_collection.py",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "ingests course collections to operator-named JSON; outside tracked records"
+  },
+  {
+   "id": "tool_registry_check",
+   "entrypoint": "scripts/tool_registry_check.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "temporary",
+   "approval": "none",
+   "data_classes": [
+    "repository_metadata"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [
+    "TID-2026-09-14-t"
+   ],
+   "test_command": "python3 scripts/tool_registry_check.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "ONE entry point for this registry's contract: schema-executed + code-level semantic rules; self-test writes temp mutant fixtures (5600 Step 2)"
   }
  ]
 }

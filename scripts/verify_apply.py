@@ -122,7 +122,7 @@ def main():
         for x in cc[:4]: L.append("    corpus-contract: " + x)
         findings_fail.append(f"course-corpus contract violated x{len(cc)} — fix the manifest or the files")
     else:
-        L.append("  vehicles   : none — Brain/ is records-only")
+        L.append("  corpus      : contract clean — Brain/ is records + declared corpus")
     runners = [p for p in ("APPLY.sh", "APPLY.ps1", "PATCH_NOTES.md") if read(p)]
     if runners:
         L.append(f"  hygiene    : transport still in tree: {', '.join(runners)} — delete post-apply, commit")

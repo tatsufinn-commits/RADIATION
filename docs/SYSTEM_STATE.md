@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v3.7.0
+**Last updated:** 2026-09-14 · **Version:** v3.8.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,15 +49,16 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.7.0** — gatewright (5500): gate review applied — sources restored, feed
-digest-bound, transactional receipts, schemas executed, per-provider profiles, CI
-pipefail, harness + registry (check 39). Prior: v3.6.0 survey — dated, tier-labeled
-provider research layer (non-boot). Prior: **v3.5.0** sanction — corpus + replicas declared, receipts digest-bound, pass refuses cross-root · **v3.4.0** — activation (patch 5200):
-provider routing for known hosts (AGENTS.md + agents/), the pass handing observations,
-bounds, proofs — not powers. Prior: 5100 truebound · 5000 five thousand (II.11) · 4900
-probe · 4800 attest · 4700 sealwright · 4600 binding · 4500 last mile ·
-4400 reconciliation · 4300 compression law · 4200 the Commander's expansion
-(@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED here.
+**RADIATION v3.8.0** — verity (5600): 5500 closure — CI root-caused under the
+real 3.11 pin (relay f-strings), replica tranche a visible OPEN GOVERNED
+EXCEPTION (check 11.6 + decision brief), tool registry a bounded contract
+(21 tools, one checker), schema executor a closed set (check 40), preflight
+claim sharpened, fixtures reframed, profiles consolidated, routing
+de-decisionalized. Prior: **v3.7.0** gatewright (5500) ·
+**v3.6.0** survey · **v3.5.0** sanction · **v3.4.0** activation (5200) · 5100
+truebound · 5000 five thousand (II.11) · 4900 probe · 4800 attest · 4700
+sealwright · 4600 binding · 4500 last mile · 4400 reconciliation · 4300
+compression law · 4200 expansion. Machine facts: GENERATED here.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*
@@ -104,5 +105,5 @@ in `docs/shrine/members/` first (CHARTER §3). Standing orders:
 `docs/COMMANDER_QUICKREF.md` §5. Await the Commander.
 
 <!-- GENERATED:machine-facts:START -->
-**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 39 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 17 (8 exercised in CI)
+**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 41 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 18 (8 exercised in CI)
 <!-- GENERATED:machine-facts:END -->

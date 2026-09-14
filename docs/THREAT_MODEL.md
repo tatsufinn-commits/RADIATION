@@ -77,6 +77,15 @@ concurrent append ledger: two writers racing the same chain file is outside
 the cooperative model (5500 gate review). A locking/atomic-append strategy
 remains possible future work; until then, one writer per checkout.
 
+### Write-phase guarantees, stated exactly (5600)
+Draft execution is transactional **for validation failures only**: a manifest
+rejected by preflight (shape, target safety, bounds) leaves NO target files
+behind — that is the tested guarantee. It is NOT universal multi-file
+filesystem atomicity: a process crash or I/O error *during the write phase*
+can still leave a partial batch. Staging/rollback is not implemented; if a
+deployment ever needs crash-atomic batches, that is new mechanism with new
+tests — not a relabeled claim.
+
 ## Receipt eras
 The chain is append-only and spans mechanism generations. Legacy (v1)
 receipts — the genesis ratification record and the pre-approval TID…-n

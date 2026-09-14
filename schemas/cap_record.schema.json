@@ -26,7 +26,7 @@
      "properties": {
       "path": {"type": "string"},
       "git_head": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
-      "dirty": {"type": "boolean"},
+      "dirty": {"anyOf": [{"type": "boolean"}, {"type": "null"}], "description": "three-state probe result: true/false, or null = probe could not determine (cap_probe emits null when git status is unavailable)"},
       "status": {"enum": ["mounted", "not_mounted", "not_a_git_worktree", "unknown"]}
      }
     },

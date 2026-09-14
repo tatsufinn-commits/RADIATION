@@ -1,0 +1,15 @@
+PROVIDER CONSOLIDATION (5600 Step 6), captured live
+====================================================
+5 profiles restructured: official current records at top ([O, URL, retrieved
+2026-09-14], re-verification = standing trigger); superseded volatile claims
+moved to dated History sections (comparison evidence only).
+Key consolidated facts: OpenAI catalog gpt-6-astra / gpt-5.6-terra /
+gpt-5.6-luna (~1.05M ctx) · Claude exact IDs (Sonnet-5 price conflict
+superseded) · Gemini stable 3.8/3.7/3.6/3.5 Flash, 3.1 Pro PREVIEW, 55-day
+logs/abuse retention decomposed per surface · xAI grok-4.6 500K $2/$6 cutoff
+2026-02-01, alias policy documented · Arena policy URLs 404 => UNCONFIRMED
+(standing trigger).
+Routing matrix de-decisionalized: strong/strongest cells are UNMEASURED
+IMPRESSIONS; a named RADIATION local evaluation + declared confidence is
+required before any such cell becomes a decision rule (CAPABILITIES §21).
+verify_apply contradictory 'records-only' label fixed.

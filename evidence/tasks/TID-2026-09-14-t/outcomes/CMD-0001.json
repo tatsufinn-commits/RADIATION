@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-t",
+ "plan_id": "PLAN-5600",
+ "step_id": "S0",
+ "operation": "run_validator",
+ "issued_at": "2026-09-14T23:11:00+08:00",
+ "base_revision": "2681ee3051b2556c88fe71051a16d935f00f70c4",
+ "result": "succeeded",
+ "revision_after": "2681ee3051b2556c88fe71051a16d935f00f70c4",
+ "finished_at": "2026-09-14T23:31:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-t/artifacts/ci_repro_311.txt",
+   "sha256": "e20f0d9c160ee1673bcb0c27a6e680fc3089dfee0843cb0ed39ffba7d90aa79a"
+  }
+ ]
+}

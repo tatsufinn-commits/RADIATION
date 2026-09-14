@@ -1,0 +1,10 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-t",
+ "plan_id": "PLAN-5600",
+ "step_id": "S0",
+ "operation": "run_validator",
+ "issued_at": "2026-09-14T23:11:00+08:00",
+ "base_revision": "2681ee3051b2556c88fe71051a16d935f00f70c4"
+}

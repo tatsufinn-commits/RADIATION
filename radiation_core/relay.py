@@ -55,39 +55,99 @@ def _fits(v, spec):
     return not out
 
 
+_SCHEMA_KEYWORDS_EXECUTED = {
+    "type", "required", "properties", "items", "additionalProperties",
+    "const", "enum", "pattern", "minLength", "maxLength",
+    "minimum", "maximum", "minItems", "maxItems",
+    "oneOf", "anyOf", "allOf", "not", "if", "then",
+}
+# $defs/definitions are containers (recursed); $schema/title/description are
+# annotations; `format` is ANNOTATION-ONLY in JSON Schema 2020-12 unless a
+# format-assertion vocabulary is declared — we do not assert formats, and the
+# coverage scan must not criminalize a legal annotation.
+_SCHEMA_META_ANNOTATIONS = {"$schema", "title", "description", "$defs", "definitions", "format"}
+
+
+def unsupported_keywords(spec, acc=None):
+    """5600 closure: keywords a schema USES but this executor does NOT execute.
+
+    A schema is a claim; the executor is its truth. validate check 40 runs
+    this over every shipped schema — an unexecuted keyword in a shipped
+    schema is a build failure, never a silent freebie."""
+    if acc is None: acc = []
+    if isinstance(spec, dict):
+        for k, sub in spec.items():
+            if k in _SCHEMA_META_ANNOTATIONS:
+                continue
+            if k == "properties":
+                for p in sub.values(): unsupported_keywords(p, acc)
+            elif k in ("items", "not", "additionalProperties"):
+                if isinstance(sub, dict): unsupported_keywords(sub, acc)
+            elif k in ("oneOf", "anyOf", "allOf"):
+                for s in sub: unsupported_keywords(s, acc)
+            elif k not in _SCHEMA_KEYWORDS_EXECUTED and k not in acc:
+                acc.append(k)
+    return acc
+
+
 def _validate_against(v, spec, where, out):
-    """Recursive execution of the schema subset our contracts use: type,
-    required, properties (nested), items (arrays), const, enum, pattern,
-    minLength, minimum, oneOf, maxItems — and bool is NOT an integer.
-    Schemas are law at every depth (4600); the executor now covers every
-    construct our shipped schemas rely on (5500 gate review)."""
+    """Recursive execution of the schema subset our contracts use — and the
+    set is CLOSED: type (boolean strict; bool is NOT an integer), required,
+    properties, additionalProperties (false | schema), items, const, enum,
+    pattern, minLength, maxLength, minimum, maximum, minItems, maxItems,
+    oneOf, anyOf, allOf, not. `unsupported_keywords` + validate check 40
+    enforce that no shipped schema uses anything outside this set (5600):
+    a schema claim the executor cannot execute is a build failure, never a
+    silent freebie."""
     if not isinstance(spec, dict): return
+    if "allOf" in spec:
+        for s in spec["allOf"]:
+            if isinstance(s, dict): _validate_against(v, s, where, out)
     if "oneOf" in spec:
         hits = sum(1 for s in spec["oneOf"] if isinstance(s, dict) and _fits(v, s))
         if hits != 1:
             out.append(f"{where}: oneOf violated (matched {hits} of "
                        f"{len(spec['oneOf'])} subschemas)")
-    ty = spec.get("type")
-    if ty == "integer" and (isinstance(v, bool) or not isinstance(v, int)):
-        out.append(f"{where}: must be integer (bool is not an integer)"); return
-    if ty == "object":
-        if not isinstance(v, dict):
-            out.append(f"{where}: must be object"); return
+    if "anyOf" in spec:
+        hits = sum(1 for s in spec["anyOf"] if isinstance(s, dict) and _fits(v, s))
+        if hits < 1:
+            out.append(f"{where}: anyOf violated (matched 0 of "
+                       f"{len(spec['anyOf'])} subschemas)")
+    if "not" in spec and isinstance(spec["not"], dict) and _fits(v, spec["not"]):
+        out.append(f"{where}: 'not' violated (matched the forbidden subschema)")
+    if "if" in spec and isinstance(spec["if"], dict) and _fits(v, spec["if"]):
+        then = spec.get("then")
+        if isinstance(then, dict): _validate_against(v, then, where, out)
+    # Constraints apply by INSTANCE type (JSON Schema semantics) — gating
+    # them on a DECLARED type made typeless subschemas (if/then/anyOf arms)
+    # vacuous. Type assertions happen at the bottom, without early returns.
+    if isinstance(v, dict):
         for r in spec.get("required", []):
             if r not in v: out.append(f"{where}: schema-required field {r!r} missing")
         props = spec.get("properties", {})
+        ap = spec.get("additionalProperties", True)
         for k, rv in v.items():
             if k in props: _validate_against(rv, props[k], f"{where}.{k}", out)
-        return
-    if ty == "array":
-        if not isinstance(v, list):
-            out.append(f"{where}: must be array"); return
+            elif ap is False:
+                out.append(f"{where}: unknown property {k!r} (additionalProperties: false)")
+            elif isinstance(ap, dict): _validate_against(rv, ap, f"{where}.{k}", out)
+    if isinstance(v, list):
+        if "minItems" in spec and len(v) < spec["minItems"]:
+            out.append(f"{where}: fewer than minItems {spec['minItems']}")
         if "maxItems" in spec and len(v) > spec["maxItems"]:
             out.append(f"{where}: more than maxItems {spec['maxItems']}")
         if "items" in spec:
             for i, item in enumerate(v):
                 _validate_against(item, spec["items"], f"{where}[{i}]", out)
-        return
+    ty = spec.get("type")
+    if ty == "boolean" and not isinstance(v, bool):
+        out.append(f"{where}: must be boolean (strict: true/false; 1/0/null are not booleans)")
+    if ty == "object" and not isinstance(v, dict):
+        out.append(f"{where}: must be object")
+    if ty == "array" and not isinstance(v, list):
+        out.append(f"{where}: must be array")
+    if ty == "integer" and (isinstance(v, bool) or not isinstance(v, int)):
+        out.append(f"{where}: must be integer (bool is not an integer)")
     if "const" in spec and v != spec["const"]:
         out.append(f"{where}: const violated (want {spec['const']!r})")
     if "enum" in spec and v not in spec["enum"]:
@@ -96,11 +156,16 @@ def _validate_against(v, spec, where, out):
         out.append(f"{where}: {v!r} fails pattern {spec['pattern']!r}")
     if "minLength" in spec and isinstance(v, str) and len(v) < spec["minLength"]:
         out.append(f"{where}: shorter than minLength {spec['minLength']}")
-    if "minimum" in spec and isinstance(v, int) and not isinstance(v, bool) and v < spec["minimum"]:
+    if "maxLength" in spec and isinstance(v, str) and len(v) > spec["maxLength"]:
+        out.append(f"{where}: longer than maxLength {spec['maxLength']}")
+    if "minimum" in spec and isinstance(v, (int, float)) and not isinstance(v, bool) and v < spec["minimum"]:
         out.append(f"{where}: {v!r} below minimum {spec['minimum']}")
+    if "maximum" in spec and isinstance(v, (int, float)) and not isinstance(v, bool) and v > spec["maximum"]:
+        out.append(f"{where}: {v!r} above maximum {spec['maximum']}")
     if ty == "string" and not isinstance(v, str): out.append(f"{where}: must be string")
     if ty == "integer" and not isinstance(v, int): out.append(f"{where}: must be integer")
     if ty == "number" and not isinstance(v, (int, float)): out.append(f"{where}: must be number")
+    if ty == "null" and v is not None: out.append(f"{where}: must be null")
 
 
 def _schema_check(obj, name, where, out):
@@ -150,7 +215,7 @@ def validate_bundle(tid, d):
         if str(p.get("base_revision")) != str(env.get("base_revision")):
             out.append(f"{tid}/{pf}: plan base_revision disagrees with envelope (revision drift)")
         for st in p.get("steps",[]):
-            _req(st,["step_id","operation_class","success_predicate"],f"{tid}/{pf}:{st.get("step_id")}",out)
+            _req(st,["step_id","operation_class","success_predicate"],f"{tid}/{pf}:{st.get('step_id')}",out)
         if str(p.get("task_id")) != tid:
             out.append(f"{tid}/{pf}: plan file belongs to a foreign task {p.get('task_id')!r} — never silently skipped (4600)")
             continue
@@ -170,11 +235,11 @@ def validate_bundle(tid, d):
         if str(c.get("command_id")) != cid:
             out.append(f"{tid}/commands/{cid}: command identity mismatch — file stem says {cid!r}, internal command_id says {c.get('command_id')!r}")
         _req(c,["command_id","task_id","plan_id","step_id","operation"],f"{tid}/commands/{cid}",out)
-        if c.get("operation") not in OPS: out.append(f"{tid}/commands/{cid}: operation {c.get("operation")!r} outside the allowlist")
+        if c.get("operation") not in OPS: out.append(f"{tid}/commands/{cid}: operation {c.get('operation')!r} outside the allowlist")
         if c.get("task_id") != tid: out.append(f"{tid}/commands/{cid}: cross-task command (causation broken)")
-        if plan and c.get("plan_id") != plan.get("plan_id"): out.append(f"{tid}/commands/{cid}: references plan {c.get("plan_id")!r}, bundle plan is {plan.get("plan_id")!r}")
+        if plan and c.get("plan_id") != plan.get("plan_id"): out.append(f"{tid}/commands/{cid}: references plan {c.get('plan_id')!r}, bundle plan is {plan.get('plan_id')!r}")
         steps = {s.get("step_id") for s in (plan or {}).get("steps",[])}
-        if plan and c.get("step_id") not in steps: out.append(f"{tid}/commands/{cid}: step {c.get("step_id")!r} not in approved plan")
+        if plan and c.get("step_id") not in steps: out.append(f"{tid}/commands/{cid}: step {c.get('step_id')!r} not in approved plan")
         if "base_revision" in c and str(c.get("base_revision")) != str(env.get("base_revision")):
             out.append(f"{tid}/commands/{cid}: command base_revision disagrees with envelope")
         if cid not in outs: out.append(f"{tid}/commands/{cid}: no outcome recorded")
@@ -184,14 +249,14 @@ def validate_bundle(tid, d):
         if str(o.get("task_id")) != tid:
             out.append(f"{tid}/outcomes/{oid}: outcome task_id mismatch (foreign outcome — {o.get('task_id')!r})")
         if o.get("result") not in ("succeeded","failed","stale_precondition","policy_denied","timed_out","security_blocked"):
-            out.append(f"{tid}/outcomes/{oid}: illegal result {o.get("result")!r}")
+            out.append(f"{tid}/outcomes/{oid}: illegal result {o.get('result')!r}")
         # identity binding (4500): file stem MUST equal the internal command_id
         if str(o.get("command_id")) != oid:
-            out.append(f"{tid}/outcomes/{oid}: outcome identity mismatch - file stem says {oid!r}, internal command_id says {o.get("command_id")!r}")
+            out.append(f"{tid}/outcomes/{oid}: outcome identity mismatch - file stem says {oid!r}, internal command_id says {o.get('command_id')!r}")
         for ev in o.get("evidence",[]):
             ep = os.path.join(ROOT, ev.get("path",""))
-            if not os.path.isfile(ep): out.append(f"{tid}/outcomes/{oid}: evidence path missing: {ev.get("path")}")
-            elif ev.get("sha256") != _sha(ep): out.append(f"{tid}/outcomes/{oid}: evidence digest mismatch: {ev.get("path")}")
+            if not os.path.isfile(ep): out.append(f"{tid}/outcomes/{oid}: evidence path missing: {ev.get('path')}")
+            elif ev.get("sha256") != _sha(ep): out.append(f"{tid}/outcomes/{oid}: evidence digest mismatch: {ev.get('path')}")
         if o.get("result") == "failed" and oid in cmds: out.append(f"{tid}/outcomes/{oid}: failed command has no replan event or follow-up")
     # events: order, transitions, uniqueness, timestamps, causation
     ej = os.path.join(d,"events.ndjson")
@@ -207,9 +272,9 @@ def validate_bundle(tid, d):
             except Exception as ex: out.append(f"{tid}/events.ndjson: unparseable line: {ex}"); continue
             _schema_check(e, "event.schema.json", f"{tid}/events", out)
             _req(e,["seq","event_id","task_id","type","at","actor"],f"{tid}/events",out)
-            if e.get("task_id") != tid: out.append(f"{tid}/events: foreign task_id {e.get("task_id")!r}")
+            if e.get("task_id") != tid: out.append(f"{tid}/events: foreign task_id {e.get('task_id')!r}")
             seqs.append(e.get("seq"))
-            if e.get("event_id") in eids: out.append(f"{tid}/events: duplicate event_id {e.get("event_id")!r}")
+            if e.get("event_id") in eids: out.append(f"{tid}/events: duplicate event_id {e.get('event_id')!r}")
             eids.add(e.get("event_id"))
             ts = e.get("at","")
             try:
@@ -217,7 +282,7 @@ def validate_bundle(tid, d):
                 if dt.tzinfo is None or dt.utcoffset() is None:
                     out.append(f"{tid}/events: timestamp without timezone offset {ts!r} (RFC-3339 requires one)")
                 if last_dt is not None and dt < last_dt:
-                    out.append(f"{tid}/events: timestamps not monotonic at {e.get("event_id")!r}")
+                    out.append(f"{tid}/events: timestamps not monotonic at {e.get('event_id')!r}")
                 last_dt = dt
             except Exception:
                 out.append(f"{tid}/events: non-RFC3339 timestamp {ts!r}")
@@ -264,7 +329,7 @@ def validate_bundle(tid, d):
             if proj.get("task_id") != tid: out.append(f"{tid}: projection.json task_id mismatch")
             derived = state if done else "INCOMPLETE"
             if proj.get("state") != derived:
-                out.append(f"{tid}: projection.json state {proj.get("state")!r} != event-derived state {derived!r} (projection is rebuildable, never hand-edited)")
+                out.append(f"{tid}: projection.json state {proj.get('state')!r} != event-derived state {derived!r} (projection is rebuildable, never hand-edited)")
     return out
 
 STAGE_MAP = (("intake", "sensoryneurons"), ("reasoning", "interneurons"), ("orders", "motorneurons"))
@@ -537,8 +602,50 @@ def self_test():
     v16 = "PLAN-V10-MARK" in rend and "PLAN-V2-MARK" not in rend; ok += v16
     shutil.rmtree(rootv, ignore_errors=True)
     print(f"  vector 16 plan.v10 beats plan.v2 (numeric, not lexical) -> {'PASS' if v16 else 'FAIL'}")
-    print(f"relay self-test: {ok}/16 vectors")
-    return 0 if ok == 16 else 1  # 5500: total tracked; success exits ZERO
+    # ── 5600 closure vectors: the executor covers EXACTLY what schemas use ──
+    outap: list[str] = []
+    _self._validate_against({"a": 1, "evil": 2},
+                            {"type": "object", "properties": {"a": {"type": "integer"}},
+                             "additionalProperties": False}, "ap", outap)
+    v17 = any("unknown property" in x for x in outap); ok += v17
+    print(f"  vector 17 additionalProperties:false rejects unknown keys -> {'PASS' if v17 else 'FAIL'}")
+    outany: list[str] = []
+    _self._validate_against(3, {"anyOf": [{"const": 1}, {"const": 2}]}, "any", outany)
+    v18 = len(outany) == 1 and "anyOf" in outany[0]; ok += v18
+    print(f"  vector 18 anyOf executes (0 matches caught) -> {'PASS' if v18 else 'FAIL'}")
+    outnot: list[str] = []
+    _self._validate_against(5, {"type": "integer", "not": {"const": 5}}, "not", outnot)
+    v19 = len(outnot) == 1 and "'not' violated" in outnot[0]; ok += v19
+    print(f"  vector 19 not executes (forbidden match caught) -> {'PASS' if v19 else 'FAIL'}")
+    outml: list[str] = []
+    _self._validate_against("abcd", {"type": "string", "maxLength": 3}, "ml", outml)
+    outmi: list[str] = []
+    _self._validate_against([1], {"type": "array", "minItems": 2, "items": {}}, "mi", outmi)
+    v20 = any("maxLength" in x for x in outml) and any("minItems" in x for x in outmi); ok += v20
+    print(f"  vector 20 maxLength + minItems execute -> {'PASS' if v20 else 'FAIL'}")
+    outb1: list[str] = []
+    _self._validate_against(1, {"type": "boolean"}, "b1", outb1)
+    outb2: list[str] = []
+    _self._validate_against(True, {"type": "boolean"}, "b2", outb2)
+    v21 = len(outb1) == 1 and not outb2; ok += v21
+    print(f"  vector 21 boolean type is strict (1 is not true) -> {'PASS' if v21 else 'FAIL'}")
+    v22 = _self.unsupported_keywords({"type": "object", "contains": {"type": "string"}}) == ["contains"]
+    ok += v22
+    print(f"  vector 22 keyword-coverage scan names unsupported keywords -> {'PASS' if v22 else 'FAIL'}")
+    outif1: list[str] = []
+    _self._validate_against({"role": "data_feed", "digest": "x"},
+                            {"type": "object", "properties": {"role": {"type": "string"}},
+                             "if": {"properties": {"role": {"const": "data_feed"}}},
+                             "then": {"required": ["digest"]}}, "c1", outif1)
+    outif2: list[str] = []
+    _self._validate_against({"role": "data_feed"},
+                            {"type": "object", "properties": {"role": {"type": "string"}},
+                             "if": {"properties": {"role": {"const": "data_feed"}}},
+                             "then": {"required": ["digest"]}}, "c2", outif2)
+    v23 = not outif1 and len(outif2) == 1 and "digest" in outif2[0]; ok += v23
+    print(f"  vector 23 if/then executes (conditional fires and abstains) -> {'PASS' if v23 else 'FAIL'}")
+    print(f"relay self-test: {ok}/23 vectors")
+    return 0 if ok == 23 else 1  # 5500: total tracked; success exits ZERO
 
 
 if __name__ == "__main__":

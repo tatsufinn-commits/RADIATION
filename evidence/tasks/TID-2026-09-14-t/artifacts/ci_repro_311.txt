@@ -1,0 +1,29 @@
+═══ BEFORE FIX — reproduce CI red (Python 3.11.16, matching CI pin) ═══
+$ uv run --python 3.11 python scripts/validate.py
+    from radiation_core.relay import _schema_check  # ONE schema executor (II.11)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/live14/radiation_core/relay.py", line 153
+    _req(st,["step_id","operation_class","success_predicate"],f"{tid}/{pf}:{st.get("step_id")}",out)
+                                                                                    ^^^^^^^
+SyntaxError: f-string: unmatched '('
+
+$ uv run --python 3.11 python -m compileall (full sweep)
+  File "radiation_core/relay.py", line 153
+SyntaxError: f-string: unmatched '('
+═══ AFTER FIX — full workflow simulation (Python 3.11.16, CI step order) ═══
+39 checks run · 37 pass · 2 warn · 0 fail
+11 locked · 5 pending · 0 failed
+✅ ics_normalize self-test: 22 passed, 0 failed
+✅ nota check: 2 canonical card(s), shape clean, index parity exact
+module_scaffold rc=0
+render_docs --check rc=0
+relay self-test: 16/16 vectors
+relay: 0 finding(s)
+status rc=0
+py_compile rc=0
+── apply-report job ──
+verify_apply --self-test rc=0
+verify_apply --strict rc=0
+── full test harness ──
+
+OK

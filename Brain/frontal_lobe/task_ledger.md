@@ -109,4 +109,5 @@ Format: `| date | mode | task (one line) | outcome | deliverable path | patch fi
 | 2026-09-14 | S005 (the Architect) | 5400 (Survey): 5 dated profiles + source registers + matrix + method; conflicts recorded, gaps declared; Arena identity unknowable | done | sweep 2026-09-14 | 5400 |
 | 2026-09-14 | THE COMMANDER | ORDER: apply the 5400 gate review | integrated in 5500 | RADIATION_5400_GATE_REVIEW | 5500 |
 | 2026-09-14 | S005 (the Architect) | 5500 (Gatewright): sources restored, feed digest-bound, transactional receipts, schemas executed, per-provider profiles, CI pipefail, harness + registry (check 39), claims → primaries | done | gates 1–7; gate 8 awaits | 5500 |
-
+| 2026-09-14 | THE COMMANDER (via research team) | ORDER: 5500 closure backlog (Deliverable A) before Candidate C | integrated in 5600 | RADIATION_ARCHITECT_5500_CLOSURE_AND_CANDIDATE_C_BUILD_MESSAGE | 5600 |
+| 2026-09-14 | S005 (the Architect) | 5600 (Verity): CI root-caused under real 3.11, replica authority visible, registry bounded contract, schema honesty (check 40), claims sharpened, fixtures reframed, providers consolidated | done | Deliverable A; Deliverable B gated | 5600 |

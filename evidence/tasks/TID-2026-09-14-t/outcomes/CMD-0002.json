@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0002",
+ "task_id": "TID-2026-09-14-t",
+ "plan_id": "PLAN-5600",
+ "step_id": "S1",
+ "operation": "read_file",
+ "issued_at": "2026-09-14T23:12:00+08:00",
+ "base_revision": "2681ee3051b2556c88fe71051a16d935f00f70c4",
+ "result": "succeeded",
+ "revision_after": "2681ee3051b2556c88fe71051a16d935f00f70c4",
+ "finished_at": "2026-09-14T23:32:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-t/artifacts/replica_inventory.txt",
+   "sha256": "0be71b42c7141be5bdf34d5617d75c98c01c5c4e4406400fb9cc27e815d67d57"
+  }
+ ]
+}

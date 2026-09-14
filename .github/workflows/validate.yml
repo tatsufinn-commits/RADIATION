@@ -20,9 +20,18 @@ jobs:
         if: failure()
         run: |
           { echo "## validate.py output (tail, published because logs are admin-only)"
+            echo ""
+            echo "env: $(python3 --version) · runner ${RUNNER_OS:-unknown} · sha ${GITHUB_SHA:-unknown}"
             echo '```'
             tail -40 validate_output.txt
             echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Attach failure-only diagnostic artifact (public download, no admin gate)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validate-failure-diagnostics
+          path: validate_output.txt
+          if-no-files-found: ignore
       - name: Knowledge regression (locked assertions)
         run: python3 scripts/knowledge_regression.py
       - name: ICS normalizer self-test
@@ -54,4 +63,11 @@ jobs:
       - name: Apply report (BLOCKING since 4500 — a red seal must block, not advise)
         run: |
           python3 scripts/verify_apply.py --self-test
-          python3 scripts/verify_apply.py --strict | tee "${GITHUB_STEP_SUMMARY}"
+          python3 scripts/verify_apply.py --strict 2>&1 | tee apply_report.txt "${GITHUB_STEP_SUMMARY}"
+      - name: Attach apply-report diagnostic artifact (public download, no admin gate)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apply-report-diagnostics
+          path: apply_report.txt
+          if-no-files-found: ignore

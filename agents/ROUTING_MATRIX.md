@@ -1,5 +1,7 @@
 # ROUTING MATRIX — RADIATION task classes × providers (5400)
 
+**These values are UNMEASURED IMPRESSIONS (secondary-source impressions and session anecdotes). They are NOT a decision rule: routing on any "strong/strongest" cell requires a named RADIATION local evaluation with a declared confidence level (evaluation harness contract: see docs/CAPABILITIES.md §21). Until such an evaluation exists, routing follows host identity + task class only — never these words.**
+
 `reviewed_on: 2026-09-14` · Companion to `agents/AGENT_INDEX.md` (the routing RULE lives there and in the pass; this matrix is decision support, not authority).
 
 **Hard rules (unchanged by this matrix):**
@@ -10,7 +12,7 @@
 | Task class | ChatGPT | Claude | Gemini | Grok | Arena_AI (host) |
 |---|---|---|---|---|---|
 | Research | strong | strong | strong | adequate | strong (probe tools first) |
-| Corpus navigation | strong | strong | **strongest** (1–2M ctx) | strong | strong |
+| Corpus navigation | strong | strong | strong (1–2M ctx) | strong | strong |
 | Scaffolding | strong | strong | strong | strong | strong |
 | Governance/cue work | adequate | **strong** | adequate | adequate | strong (this repo's home surface) |
 | Implementation/review | strong | strong | strong | strong | strong |

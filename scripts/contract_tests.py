@@ -113,7 +113,7 @@ def main() -> int:
         root = os.path.join(tmp, "replica-" + name.replace(" ", "-"))
         os.makedirs(root)
         mk_replica(root, **kw)
-        bad, allowed = V._replica_contract(root)
+        bad, allowed, _rat = V._replica_contract(root)
         if dup_check:
             dbad, _sets = V._dup_scan(root, allowed)
             bad = bad + dbad

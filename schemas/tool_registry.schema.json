@@ -1,65 +1,69 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "title": "radiation.tool_registry/1",
- "description": "Catalog of RADIATION tools (5500 gate review): entry, self-test verb, zero-write truth. Executed by check 39.",
+ "title": "radiation.tool_registry/2",
+ "description": "Bounded tool contract (5500-closure Step 2): every runnable RADIATION tool with entry, IO schema refs, effects, mutation scope, approval class, data classes, network, credentials, idempotency, timeout, cap mapping, test command, observability. Executed by scripts/tool_registry_check.py via the ONE schema executor; semantic contradictions are code-level rules there. Local and non-authorizing: a registry entry grants nothing.",
  "type": "object",
- "required": [
-  "schema_name",
-  "tools"
- ],
+ "required": ["schema_name", "generated_by", "tools"],
  "additionalProperties": false,
  "properties": {
-  "schema_name": {
-   "const": "radiation.tool_registry/1"
-  },
-  "generated_by": {
-   "type": "string"
-  },
+  "schema_name": {"const": "radiation.tool_registry/2"},
+  "generated_by": {"type": "string", "minLength": 8, "maxLength": 120},
   "tools": {
    "type": "array",
-   "minItems": 10,
+   "minItems": 20,
    "maxItems": 64,
    "items": {
     "type": "object",
-    "required": [
-     "name",
-     "entry",
-     "self_test_verb",
-     "zero_write",
-     "description"
-    ],
+    "required": ["id", "entrypoint", "version", "inputs_schema", "outputs_schema",
+                 "effects", "mutation_scope", "approval", "data_classes", "network",
+                 "credential_handling", "idempotency", "timeout_seconds",
+                 "cap_mapping", "test_command", "observability", "description"],
     "additionalProperties": false,
     "properties": {
-     "name": {
+     "id": {"type": "string", "pattern": "^[a-z0-9_-]{2,40}$"},
+     "entrypoint": {
       "type": "string",
-      "pattern": "^[a-z0-9_-]{2,40}$"
+      "pattern": "^[A-Za-z0-9_][A-Za-z0-9_/.-]*\\.py$",
+      "not": {"anyOf": [{"pattern": "\\.\\."}, {"pattern": "^/"}]},
+      "description": "repo-relative path; containment is re-enforced as a code-level rule (defense in depth)"
      },
-     "entry": {
-      "type": "string",
-      "pattern": "^[A-Za-z0-9_/.-]+\\.(py|md)$",
-      "not": {
-       "anyOf": [
-        {
-         "pattern": "\\.\\."
-        },
-        {
-         "pattern": "^/"
-        }
-       ]
-      }
+     "version": {"type": "string", "pattern": "^[0-9]+$"},
+     "inputs_schema": {"anyOf": [{"type": "string", "pattern": "^schemas/[A-Za-z0-9_/.-]+\\.json$", "not": {"pattern": "\\.\\."}}, {"type": "null"}]},
+     "outputs_schema": {"anyOf": [{"type": "string", "pattern": "^schemas/[A-Za-z0-9_/.-]+\\.json$", "not": {"pattern": "\\.\\."}}, {"type": "null"}]},
+     "effects": {
+      "type": "array", "minItems": 1, "maxItems": 4,
+      "items": {"enum": ["read", "write", "network", "exec"]}
      },
-     "self_test_verb": {
-      "type": "string",
-      "pattern": "^python3? [A-Za-z0-9_/. -]+$"
+     "mutation_scope": {
+      "enum": ["none", "temporary", "ignored_local", "evidence_draft",
+               "tracked_derived", "canonical_none"],
+      "description": "highest-persistence write the tool may produce: none=no writes; temporary=auto-cleaned temp only; ignored_local=gitignored working areas; evidence_draft=draft evidence; tracked_derived=regenerates tracked files from records; canonical_none=may stage canonical-adjacent drafts, mutates no canonical bytes itself (canonical change is only ever the Commander's motor act)"
      },
-     "zero_write": {
-      "type": "boolean"
+     "approval": {
+      "enum": ["none", "commander_order_assertion", "commander_motor_act"],
+      "description": "the authority class the tool's effects rest on; an assertion RECORDS an order, it never IS authorization"
      },
-     "description": {
-      "type": "string",
-      "minLength": 8,
-      "maxLength": 140
-     }
+     "data_classes": {
+      "type": "array", "minItems": 1, "maxItems": 6,
+      "items": {"type": "string", "minLength": 3, "maxLength": 40}
+     },
+     "network": {"enum": ["none", "declared"]},
+     "credential_handling": {"enum": ["none", "host_held", "prohibited"]},
+     "idempotency": {"enum": ["yes", "no", "conditional"]},
+     "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600},
+     "cap_mapping": {
+      "type": "array", "minItems": 0, "maxItems": 8,
+      "items": {"type": "string", "pattern": "^TID-[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z]$"},
+      "description": "task ids of cap records (evidence/tasks/<TID>/artifacts/cap_record_build.json) whose seal covers this tool's gate; existence is a code-level rule"
+     },
+     "test_command": {"type": "string", "minLength": 4, "maxLength": 160},
+     "observability": {
+      "type": "object",
+      "required": ["content_capture"],
+      "additionalProperties": false,
+      "properties": {"content_capture": {"const": "off_by_default"}}
+     },
+     "description": {"type": "string", "minLength": 8, "maxLength": 200}
     }
    }
   }

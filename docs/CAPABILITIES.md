@@ -292,6 +292,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `plan_term.py` | RADIATION term planner (P-10 Phase 1-3). | no | no | no |
 | `render_docs.py` | generated-facts pipeline (patch 4400; auditor plan item 5). | yes | yes | yes |
 | `status.py` | the Swarm Dashboard (patch 3300, SD-3300-02). | no | no | yes |
+| `tool_registry_check.py` | tool_registry_check — ONE entry point for the tool-registry contract (5600). | yes | no | no |
 | `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
 <!-- GENERATED:capability-inventory:END -->
@@ -332,3 +333,8 @@ Stated plainly so a session does not assume capability it lacks:
 <!-- GENERATED:ci-enforcement:START -->
 **CI enforcement (GENERATED from `.github/workflows/validate.yml` — hand edits here are a CI failure):** apply-report: BLOCKING (continue-on-error removed, 4500) · structural validator: BLOCKING · relay self-test+active: yes · generated-docs check + phrase lint: yes · dashboard date self-test: yes
 <!-- GENERATED:ci-enforcement:END -->
+
+## §21 — Closure contracts (5600)
+- **Tool registry** (`tools/TOOL_REGISTRY.json`, schema /2, 21 tools): entry, IO schema refs, effects, mutation_scope (`none|temporary|ignored_local|evidence_draft|tracked_derived|canonical_none`), approval (`none|commander_order_assertion|commander_motor_act`), data classes, network, credentials, idempotency, timeout, cap mapping, test command, observability. ONE checker entry point: `scripts/tool_registry_check.py` — schema-EXECUTED plus code-level contradiction/containment/coverage rules, 13-vector negative self-test, executed by validate check 39. A registry entry grants nothing (no MCP, no endpoint, no runtime).
+- **Schema honesty** (check 40): every shipped schema uses only keywords the ONE executor executes (plus documented annotations; `format` is annotation-only per 2020-12); the executor applies constraints by INSTANCE type — typeless subschemas were vacuous before 5600 and are law now.
+- **Evaluation gate (Candidate C — research design only, GATED)**: no "strong/strongest" wording becomes a routing decision rule without a named RADIATION local evaluation and a declared confidence level. The future harness must capture exact model id, provider, host/surface, region, effort, enabled-tool allowlist, prompt/contract/fixture revisions + digests, date, harness version, evaluator/rubric, metrics, retries, limitations — and never upload private corpus text or credentials to obtain a result.

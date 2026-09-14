@@ -4,6 +4,23 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.8.0 — 2026-09-14 — VERITY (5600)
+5500 closure (research-team order): CI truth — the public red root-caused under
+the real 3.11 pin (3.12+ f-strings in relay.py killed both jobs at their first
+step), fixed and regression-pinned (tee-mask semantics, workflow shell/pin/
+artifact assertions, 3.12+ tripwire); failure-only diagnostic artifacts; replica
+tranche now a visible OPEN GOVERNED EXCEPTION (check 11.6) with a decision brief;
+TOOL_REGISTRY becomes a bounded contract (mutation_scope / approval / effects /
+network / credentials / idempotency / timeout / cap_mapping — 21 tools) with ONE
+checker entry point and a 13-vector negative battery; the schema executor becomes
+a CLOSED SET executed by instance type (additionalProperties, anyOf, allOf, not,
+if/then made real, minItems, maxLength, boolean strictness) with keyword-coverage
+check 40; control-plane guarantee sharpened to preflight transactionality for
+validation failures; hostile-content fixtures reframed (proven vs NOT proven) plus
+three new shapes; provider profiles consolidated (official records up, volatile
+snapshots to dated history); routing matrix de-decisionalized; verify_apply label
+corrected.
+
 ## v3.7.0 — 2026-09-14 — Gatewright (🟠 · 5400 gate review implemented: stop/repair gates 1–7)
 - **Commander-ruling reconciliation:** the three removed course sources (2 DOCX + MEC30-7 HTML) **restored from `9c29eff`** and declared (review §8.1a direction — the retention ruling stands, restoration implements it; veto-able); `TERM1_FEED.txt` digest-bound in the corpus manifest as `data_feed` — **the path-only `CV_ALLOW_DATA` vehicle escape is removed** (A2 scan-exemption documented, now also hash-bound); the 12-pair replica tranche carries an explicit **ratification record** (`commander-review-requested`, narrowing = Commander order only).
 - **Control-plane correctness (§3.3):** mixed-validity manifests are **transactional** (preflight-then-write; no partial writes) · malformed NDJSON yields a **line-context finding, never an exception** · decision payloads must **hash to their recorded `decision_digest`** (negative fixture re-hashes the whole chain and STILL catches it) · single-writer concurrency stated as precondition in THREAT_MODEL.

@@ -1,6 +1,6 @@
 # CAPABILITY PROFILE — Arena AI / Arena Agent Mode (HOST profile)
 
-`reviewed_on: 2026-09-14` · Review trigger: any Arena product/policy change, or 90 days (re-review by 2026-12-13) · Maintainer: S005 (Architect)
+`reviewed_on: 2026-09-14` · `consolidated: 5600 (2026-09-14)` · Review trigger: any Arena product/policy change, or 90 days (re-review by 2026-12-13) · Maintainer: S005 (Architect)
 
 **What this profile is:** research notes about a SESSION-CONTINGENT HOST, written for routing decisions inside this repository. It is not a claim about any model, and it confers no access.
 
@@ -11,7 +11,7 @@
 - **No conflation with unrelated products** that share the name "arena" (battle/arena games, LMS tools, other comparison sites) — connection claims require dated evidence.
 
 ## Capabilities (as attributable to the HOST, not to any model)
-- **Agent workflow surface:** browsing/research, code execution, deep research, model comparison are listed by the product's own page [Official, arena.ai/agent, retrieved 2026-09-14]. Third-party coverage describes web search, image generation, file attachments, and a sandbox/bash environment [Secondary, chatgate.ai 2026-06-05; stork.ai 2026-06-05].
+- **Agent workflow surface:** browsing/research, code execution, deep research, model comparison are listed by the product's own page [Official, arena.ai/agent, retrieved 2026-09-14]; the same retrieval observed **file upload** and a **"Connect your GitHub"** affordance — product affordances grant nothing; tool/file/network/push authority stays session-specific and must be locally observed (probe). Third-party coverage describes web search, image generation, file attachments, and a sandbox/bash environment [Secondary, chatgate.ai 2026-06-05; stork.ai 2026-06-05].
 - **Execution environment:** folder-based workspace with file handling and bash execution [Secondary, chatgate.ai 2026-06-05] — consistent with what an in-session probe may catalog; verify per session via `scripts/cap_probe.py`.
 - **Modality coverage:** text, code, image, video, vision, document, search evaluation [Secondary, stork.ai 2026-06-05 — benchmark-platform claim, not a per-session capability promise].
 - **Long context / rates / latency:** NOT stated — session-contingent and model-dependent; no claim made. **[Unverified — review trigger]**
@@ -21,7 +21,7 @@
 - Reliability signals: no official status page identified in this sweep. **[Unverified — review trigger]**
 
 ## Safety, policy, privacy
-- No Arena-specific privacy/retention document was found in this sweep. **Do not paste what you cannot lose; treat session content per the platform's terms when published.** **[Unverified — review trigger: official privacy/terms link needed]**
+- **Policy URLs:** guessed `/privacy` and `/terms` paths returned **404 / reCAPTCHA** in the 2026-09-14 gate-review retrieval. Catalog value: **unverified — official policy URL and applicable surface NOT confirmed**; a standing review trigger, not evidence that no policy exists. No Arena-specific privacy/retention document was found in this sweep. **Do not paste what you cannot lose; treat session content per the platform's terms when published.** **[Unverified — review trigger: official privacy/terms link needed]**
 
 ## RADIATION task suitability [Assessment — ours, based on the observed session + sources above]
 | Task class | Suitability | Note |
@@ -34,11 +34,6 @@
 | Documentation | strong | file workspace + rendering |
 | Creative | adequate | image generation reported; per-session tool check required |
 
+*Values are unmeasured impressions — no named RADIATION local evaluation exists yet; this table is never a routing decision rule (see `agents/ROUTING_MATRIX.md` header).*
+
 **Routing:** load `agents/Arena_AI/` ONLY when the host is explicitly known/observed as Arena Agent Mode; verify the tool surface with the probe before promising anything; record unknowns in the pass output.
-
----
-
-## Gate-review corrections (5500, 2026-09-14)
-- Product page affordances observed in the gate-review retrieval [O, arena.ai/agent]: Agent Mode, **file upload**, and a **"Connect your GitHub"** affordance. Tool/file/network/push authority remains **session-specific and must be locally observed** (probe) — a product marketing affordance grants nothing.
-- **Policy URLs:** guessed `/privacy` and `/terms` paths returned **404 / reCAPTCHA** in that retrieval. Catalog value: **unverified — official policy URL and applicable surface NOT confirmed**; this is a standing review trigger, not evidence that no policy exists.
-- The hard red lines above are unchanged and now carry this retrieval evidence.

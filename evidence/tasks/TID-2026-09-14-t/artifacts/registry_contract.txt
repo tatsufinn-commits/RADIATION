@@ -1,0 +1,17 @@
+TOOL_REGISTRY v2 — bounded contract (5600 Step 2), captured live
+=================================================================
+21 tools · schema radiation.tool_registry/2 · checker: scripts/tool_registry_check.py
+Fields per tool: id, entrypoint, version, inputs/outputs_schema, effects,
+mutation_scope (none|temporary|ignored_local|evidence_draft|tracked_derived|
+canonical_none), approval (none|commander_order_assertion|commander_motor_act),
+data_classes, network, credential_handling, idempotency, timeout_seconds,
+cap_mapping, test_command, observability, description.
+Code-level rules (JSON Schema cannot express cleanly — stated as code):
+  R1 path containment (no .., no absolute, exists)   R2 id uniqueness
+  R3 coverage closure (scripts/ + radiation_core/ + agents/_common/)
+  R4 contradiction rules (read-only => no approval/no scope; approval => write;
+     scope none => no write effect; network none => no network effect;
+     host_held => declared)
+  R5 cap_mapping -> existing cap records
+Checker self-test: 13 vectors (clean + 12 negatives from the closure order).
+A registry entry GRANTS nothing — no MCP, no endpoint, no runtime.

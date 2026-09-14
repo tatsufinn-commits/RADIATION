@@ -183,6 +183,7 @@ def run_pass(host_label: str, repo: str = ROOT) -> dict:
 
 
 def self_test(repo: str = ROOT) -> int:
+    import shutil
     import subprocess
     import tempfile
     vecs: list[tuple[str, bool, str]] = []
@@ -213,7 +214,10 @@ def self_test(repo: str = ROOT) -> int:
     vec("unknown-host output also claim-free", ru["honesty_selfcheck"] == "clean")
 
     ghost = tempfile.mkdtemp(prefix="pass-crossroot-")
-    rg = run_pass("Arena Agent Mode", ghost)
+    try:
+        rg = run_pass("Arena Agent Mode", ghost)
+    finally:
+        shutil.rmtree(ghost, ignore_errors=True)
     vec("cross-root --repo -> explicit protocol_target_mismatch (no profile, no repo-relative proofs)",
         rg["routing"].get("protocol_target_mismatch") is True
         and rg["observation"]["repository_status"] == "protocol_target_mismatch"
@@ -243,9 +247,11 @@ def self_test(repo: str = ROOT) -> int:
         str(ru2["routing"])[:80])
 
     # zero-write proof on a disposable COPY (works on any root, git or not)
+    # 5600: the proof cleans up after itself — the zero-write vector must not
+    # litter /tmp with a ~6 MB repo copy per run (leak found at closure).
+    zw_ok, zw_d = False, ""
+    tmp = tempfile.mkdtemp(prefix="pass-nowrite-")
     try:
-        import shutil
-        tmp = tempfile.mkdtemp(prefix="pass-nowrite-")
         dst = os.path.join(tmp, "copy")
         shutil.copytree(repo, dst,
                         ignore=shutil.ignore_patterns(".git", "__pycache__"),
@@ -253,10 +259,12 @@ def self_test(repo: str = ROOT) -> int:
         n0 = sum(len(fs) for _, _, fs in os.walk(dst))
         run_pass("Arena Agent Mode", dst)
         n1 = sum(len(fs) for _, _, fs in os.walk(dst))
-        vec("pass performs zero writes (copy census unchanged)",
-            n0 == n1, f"files {n0}->{n1}")
+        zw_ok, zw_d = n0 == n1, f"files {n0}->{n1}"
     except Exception as e:
-        vec("pass performs zero writes (copy census unchanged)", False, str(e)[:80])
+        zw_d = str(e)[:80]
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    vec("pass performs zero writes (copy census unchanged)", zw_ok, zw_d)
 
     ok = sum(1 for _, p, _ in vecs if p)
     for name, p, d in vecs:
