@@ -10,5 +10,10 @@
  "received_at": "2026-09-14T20:00:00+08:00",
  "mode_hint": "autopilot",
  "base_revision": "e7f0f7f",
- "idempotency_key": "4500-lastmile-superset"
+ "idempotency_key": "4500-lastmile-superset",
+ "operator_notes": {
+  "intake": "Order: \"proceed to 4500!\". Links: RADIATION_4400_recheck.md (research-team recheck of 4400 \u2014 all claims verified against pushed HEAD e7f0f7f before build), 4400, II.10.6. Mode: build (@Autopilot).",
+  "reasoning": "Recheck remediation adopted verbatim: schemas executed not decorative; outcome identity + projection equality + causation coverage; phrase lint kills hand-stated live facts; degraded mode loud + strict-refused; apply-report blocking; legacy list CLOSED by law (II.10.6). Tier: canon (check-27 contract + CI semantics). Risks: TARGET/ALLOWED conflation (caught by own vectors, fixed); quote-eating generators (counter: marker-slice editing).",
+  "orders": "PLAN-4500, 5 steps verified. Evidence: artifacts/ (relay 6/6, nota 2/2, clean-tree validate, render --check + lint, regression 11/0). Delivery: RADIATION_PATCH_2026-09-14_4500_LastMile.zip (superset 4200-4400). Push: the Commander's."
+ }
 }

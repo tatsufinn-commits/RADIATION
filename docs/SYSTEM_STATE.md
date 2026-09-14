@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v2.9.0
+**Last updated:** 2026-09-14 · **Version:** v3.0.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -9,6 +9,8 @@
 
 Boot files carry state, not narrative (II.10). History: `CHANGELOG.md` + the ledgers.
 
+**Identity:** a validated LLM workflow scaffold with durable records and
+human/LLM-operated protocols — not an autonomous multi-agent runtime (4700).
 **Who:** the Commander — Mapúa University, BS Architecture, ALE-bound.
 **Purpose:** a public, copy-pasteable assistant. Link + magic words → an AI that knows
 the Commander's schedule, knowledge, sources and tools.
@@ -47,12 +49,12 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v2.9.0** — binding (patch 4600): every bundle object is schema- and
-identity-bound (recursive execution, foreign plans hard-fail, verification
-attests succeeded outcomes — 11 negative vectors in CI), planner/CI facts are
-generated from data, and APPLY commits the sealed tree itself. Prior: 4500
-last mile · 4400 reconciliation · 4300 compression law · 4200 the Commander's
-expansion (@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED here.
+**RADIATION v3.0.0** — sealwright (patch 4700): the canonical bundle IS the
+record and every neuron is a rendered projection of it (file==render, 12 CI
+vectors); a failed seal fails loudly; the planner block speaks only in
+plan_term's voice. Prior: 4600 binding · 4500 last mile · 4400 reconciliation ·
+4300 compression law · 4200 the Commander's expansion
+(@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED here.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*

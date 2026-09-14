@@ -104,8 +104,8 @@ def _req(obj, fields, where, out):
     for f in fields:
         if f not in obj or obj[f] in (None,"",[]): out.append(f"{where}: missing required field {f!r}")
 
-def load_legacy():
-    p = os.path.join(EVID,"legacy_manifest.json")
+def load_legacy(evid_dir=None):
+    p = os.path.join(evid_dir or EVID, "legacy_manifest.json")
     try: return set(json.load(open(p,encoding="utf-8"))["legacy_tids"])
     except Exception: return set()
 
@@ -249,10 +249,56 @@ def validate_bundle(tid, d):
                 out.append(f"{tid}: projection.json state {proj.get("state")!r} != event-derived state {derived!r} (projection is rebuildable, never hand-edited)")
     return out
 
-def validate_active(neurons_dir=None):
-    """The check-27 engine: legacy triple rule + canonical bundle rule + projection fidelity."""
+STAGE_MAP = (("intake", "sensoryneurons"), ("reasoning", "interneurons"), ("orders", "motorneurons"))
+
+def render_neuron(tid, bundle_dir, stage):
+    """Render one Markdown neuron projection FROM the canonical bundle (4700).
+    Deterministic: same bundle -> same bytes. The bundle is the record; this
+    file is a view of it. Hand edits break file==render and fail check 27."""
+    env = json.load(open(os.path.join(bundle_dir, "task.json"), encoding="utf-8"))
+    plan = None
+    for pf in sorted(f for f in os.listdir(bundle_dir) if re.match(r"plan(\.v\d+)?\.json$", f)):
+        pj = json.load(open(os.path.join(bundle_dir, pf), encoding="utf-8"))
+        if pj.get("task_id") == tid: plan = pj; break
+    cdir = os.path.join(bundle_dir, "commands")
+    cmds = sorted(f for f in os.listdir(cdir) if f.endswith(".json")) if os.path.isdir(cdir) else []
+    odir = os.path.join(bundle_dir, "outcomes")
+    ototal = oks = 0
+    if os.path.isdir(odir):
+        for f in sorted(x for x in os.listdir(odir) if x.endswith(".json")):
+            o = json.load(open(os.path.join(odir, f), encoding="utf-8")); ototal += 1
+            oks += (o.get("result") == "succeeded")
+    nev = sum(1 for l in open(os.path.join(bundle_dir, "events.ndjson"), encoding="utf-8") if l.strip())
+    proj_state = "—"
+    ppath = os.path.join(bundle_dir, "projection.json")
+    if os.path.isfile(ppath):
+        try: proj_state = json.load(open(ppath, encoding="utf-8")).get("state", "—")
+        except Exception: pass
+    src = env.get("source", {}) or {}
+    folder = dict(STAGE_MAP)[stage]
+    title = stage.upper()
+    notes = (env.get("operator_notes") or {}).get(stage) or "(no operator notes)"
+    out = [f"# {tid} — {title} · RENDERED PROJECTION (4700)",
+           f"> Rendered from `evidence/tasks/{tid}/` by `radiation_core.relay.render_neuron`.",
+           "> Projection, not the record: hand edits FAIL check 27 (file must equal render output).",
+           "",
+           f"- **Task:** {tid} · **Mode hint:** {env.get('mode_hint','—')} · **Base revision:** {env.get('base_revision','—')}",
+           f"- **Source:** {src.get('kind','—')} · {src.get('artifact_ref','—')} · trust={src.get('trust','—')}",
+           f"- **Received:** {env.get('received_at','—')}",
+           f"- **Plan:** {(plan or {}).get('plan_id','—')} · {len((plan or {}).get('steps',[]))} step(s)",
+           f"- **Commands:** {len(cmds)} · outcomes succeeded: {oks}/{ototal} · **Events:** {nev} · **Final state:** {proj_state}",
+           "",
+           f"## NOTES — {title}", ""]
+    out.extend(notes.rstrip().splitlines())
+    return "\n".join(out).rstrip() + "\n"
+
+
+def validate_active(neurons_dir=None, evid_dir=None):
+    """The check-27 engine: legacy triple rule + canonical bundles whose Markdown
+    projections MUST equal render_neuron output (4700: the bundle is the record)."""
     findings = []
     nd = neurons_dir or os.path.join(ROOT,"scaffolding","neurons")
+    evid = evid_dir or EVID
     stages = (("sensoryneurons","intake"),("interneurons","reasoning"),("motorneurons","orders"))
     tids, files = set(), {}
     legacy = load_legacy()
@@ -271,16 +317,20 @@ def validate_active(neurons_dir=None):
             if not all(trip): findings.append(f"TID-{tid} (legacy_trace): incomplete filename triple")
             continue
         if not all(trip): findings.append(f"TID-{tid}: incomplete filename triple")
-        # projection fidelity (4400): Markdown neurons are rendered projections of
-        # the bundle - a motor record of gibberish must never pass again.
+        # projection fidelity (4700): the neuron MUST equal render_neuron(bundle).
+        # The bundle is the authoritative record; Markdown is a rendered view.
+        bdir = os.path.join(evid, f"TID-{tid}")
         for stage,suf in stages:
             fp = os.path.join(nd,stage,f"TID-{tid}_{suf}.md")
-            body = open(fp,encoding="utf-8",errors="replace").read() if os.path.isfile(fp) else ""
-            if f"TID-{tid}" not in body:
-                findings.append(f"TID-{tid}: {stage} projection does not name its TID (hand-authored drift)")
-            if "evidence/tasks/" not in body:
-                findings.append(f"TID-{tid}: {stage} projection carries no bundle evidence link")
-        findings.extend(validate_bundle(f"TID-{tid}", os.path.join(EVID,f"TID-{tid}")))
+            actual = open(fp,encoding="utf-8").read() if os.path.isfile(fp) else ""
+            try:
+                expected = render_neuron(f"TID-{tid}", bdir, suf)
+            except Exception as e:
+                findings.append(f"TID-{tid}: {stage} unrenderable (bundle unreadable: {e})")
+                continue
+            if actual != expected:
+                findings.append(f"TID-{tid}: {stage} projection drifts from the canonical bundle — re-render, never hand-edit (4700)")
+        findings.extend(validate_bundle(f"TID-{tid}", bdir))
     return findings
 
 
@@ -411,8 +461,29 @@ def self_test():
     f11 = validate_bundle(tid, d)
     v11 = any(("below minimum" in x) or ("contiguous" in x) for x in f11); ok += v11
     print(f"  vector 11 seq below minimum caught -> {'PASS' if v11 else 'FAIL'}")
+    # vector 12 (4700): a hand-edited neuron projection must fail file==render
     shutil.rmtree(root)
-    return 0 if ok == 11 else 1
+    root, d, tid = _make_vector_bundle()
+    e = json.load(open(os.path.join(d, "task.json")))
+    e["operator_notes"] = {"intake": "born", "reasoning": "born", "orders": "born"}
+    json.dump(e, open(os.path.join(d, "task.json"), "w"))
+    nd = os.path.join(root, "scaffolding", "neurons")
+    for stage_name, folder in STAGE_MAP:
+        os.makedirs(os.path.join(nd, folder), exist_ok=True)
+        open(os.path.join(nd, folder, "TEMPLATE_" + stage_name + ".md"), "w").write("template")
+        open(os.path.join(nd, folder, "TID-2026-09-14-z_" + stage_name + ".md"), "w", encoding="utf-8").write(
+            render_neuron(tid, d, stage_name))
+    evid = os.path.join(root, "evidence", "tasks")
+    base = validate_active(neurons_dir=nd, evid_dir=evid)
+    v12a = (len(base) == 0)
+    open(os.path.join(nd, "motorneurons", "TID-2026-09-14-z_orders.md"), "a", encoding="utf-8").write("\nHAND EDIT\n")
+    drifted = validate_active(neurons_dir=nd, evid_dir=evid)
+    v12 = v12a and any("projection drifts" in x for x in drifted)
+    ok += v12
+    print(f"  vector 12 hand-edited projection caught -> {'PASS' if v12 else (base, drifted)}")
+    shutil.rmtree(root)
+    print(f"relay self-test: {ok}/12 vectors")
+    return 0 if ok == 12 else 1
 
 
 if __name__ == "__main__":

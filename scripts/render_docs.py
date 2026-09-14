@@ -7,7 +7,7 @@ between the markers; narrative outside them stays hand-written. If reality and
 docs disagree, CI fails (render_docs --check) — the drift class the audit named
 is closed by generation, not by vigilance.
 Stdlib only. Exit 0 = in sync (--check) or written (--apply); 1 = drift."""
-import json, os, re, sys
+import json, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def R(p): return os.path.join(ROOT, p)
@@ -98,18 +98,25 @@ def capability_block():
     return "\n".join(lines)
 
 def planner_register():
-    """Counts derived from the term register itself (4600) — never hand-typed."""
+    """Counts derived from plan_term's OWN report (4700). The 4600 block re-
+    implemented the counting logic and drifted (3 courses/2 blind vs the real
+    6/3) — generated-wrong is still wrong. Now: parse the tool's report line;
+    the tool is the single source, this generator owns no logic."""
     try:
-        d = json.load(open(R("Brain/short_term/plan/TERM1_DEADLINES.json"), encoding="utf-8"))
-        items = d.get("items", [])
-        courses = sorted({i.get("course","?") for i in items})
-        dated = sum(1 for i in items if i.get("date"))
-        blind = sum(1 for c in courses if not any(i.get("course")==c and i.get("date") for i in items))
-        return (f"**Term register (GENERATED from `Brain/short_term/plan/TERM1_DEADLINES.json` —"
-                f" hand edits here are a CI failure):** {len(courses)} courses · {len(items)} items"
-                f" · {dated} dated · {blind} deadline-blind course(s)")
+        r = subprocess.run([sys.executable, R("scripts/plan_term.py"), "--self-check"],
+                           capture_output=True, text=True, timeout=60)
+        out = (r.stdout or "") + (r.stderr or "")
+        m = re.search(r"(\d+) course\(s\), (\d+) item\(s\), (\d+) deadline-blind", out)
+        if not m:
+            last = out.strip().splitlines()[-1][:90] if out.strip() else "no output"
+            return ("**Term register (GENERATED from `scripts/plan_term.py --self-check`):**"
+                    f" UNPARSEABLE — plan_term said: {last}")
+        return ("**Term register (GENERATED from `scripts/plan_term.py --self-check` — the tool"
+                f" is the single source; hand edits here are a CI failure):** {m.group(1)} courses"
+                f" · {m.group(2)} items · {m.group(3)} deadline-blind course(s)")
     except Exception as e:
-        return f"**Term register (GENERATED):** unreadable ({e})"
+        return f"**Term register (GENERATED from plan_term):** FAILED ({e})"
+
 
 def ci_enforcement():
     """Gate semantics derived from the workflow file itself (4600)."""

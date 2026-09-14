@@ -241,7 +241,7 @@ Stated plainly so a session does not assume capability it lacks:
 <!-- GENERATED:capability-inventory:END -->
 
 <!-- GENERATED:planner-register:START -->
-**Term register (GENERATED from `Brain/short_term/plan/TERM1_DEADLINES.json` — hand edits here are a CI failure):** 3 courses · 26 items · 8 dated · 2 deadline-blind course(s)
+**Term register (GENERATED from `scripts/plan_term.py --self-check` — the tool is the single source; hand edits here are a CI failure):** 6 courses · 26 items · 3 deadline-blind course(s)
 <!-- GENERATED:planner-register:END -->
 
 <!-- GENERATED:ci-enforcement:START -->

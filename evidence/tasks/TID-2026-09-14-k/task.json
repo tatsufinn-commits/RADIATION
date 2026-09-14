@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-k",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: 'proceed to 4700!'",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T23:55:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "b1e92bf",
+ "idempotency_key": "4700-sealwright-superset",
+ "operator_notes": {
+  "intake": "Order: \"proceed to 4700!\". Links: the research team's fourth review (raw chat, 4600 recheck) \u2014 items verified against pushed HEAD b1e92bf incl. both new defects; 4600; II.10.6. Mode: build (@Autopilot).",
+  "reasoning": "Their list, verbatim: (1) seal \u2014 runner auto-commits (already live; their test reproduced it); (2) APPLY exits nonzero on failed auto-commit \u2014 fixed both runners, die() on commit failure; (3) planner block drifted (3/2 vs real 6/3) \u2014 generator now PARSES plan_term --self-check output, owns zero counting logic; (4) bundle authority \u2014 render_neuron(): neurons MUST equal render(bundle), h/i/j migrated (narrative moved into operator_notes), vector 12 added, 'the bundle is the record' wording adopted into boot docs + neurons README; (5) control plane \u2014 stays STAGED (Product-2). Legacy-count precision in docs (7 traces; f+g active legacy). Version v3.0.0: the first version whose Markdown cannot lie about its own bundles.",
+  "orders": "PLAN-4700, 5 steps verified. Evidence: artifacts/ (relay 12/12 \u00b7 nota 2/2 \u00b7 clean-tree strict 0 FAIL \u00b7 render --check green incl. planner truth \u00b7 regression 11/0). Delivery: RADIATION_PATCH_2026-09-14_4700_Sealwright.zip (superset 4200-4600). Push: the Commander's, always."
+ }
+}

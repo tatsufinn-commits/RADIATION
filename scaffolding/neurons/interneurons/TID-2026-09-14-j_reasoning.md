@@ -1,7 +1,13 @@
-# TID-2026-09-14-j — REASONING (interneurons) · CANONICAL BUNDLE #3
-- **base:** 47bf26e (his main — validator 30 pass · 3 FAIL, fifth unsealed payload)
-- **context:** recheck remediation verbatim: recursive schema execution (nested required/enum/minLength/minimum/items) · cross-object identity total (command stem↔ID, outcome↔command+task, plan↔task, revisions agree) · foreign plan = hard finding (worst of the five mutations) · contiguous seqs · tz-bearing RFC-3339 · causal refs name known commands · verification.passed attests a succeeded, digest-verified outcome · the five mutations = vectors 7–11 (suite 6→11) · planner/CI-gate facts GENERATED from data · lint expanded · runner auto-commits the sealed tree (--no-commit opts out)
-- **tuple:** (capability/hygiene, stored, working) → @Autopilot build leg · tier 🟠 · citations: IV.1, II.10, recheck items 2/5/6
-- **plan:** S1 relay binding (11/11) · S2 core gate · S3 structural (clean-tree strict) · S4 generated truth · S5 regression — trace: evidence/tasks/TID-2026-09-14-j/
-- **budget:** one patch (superset of 4200–4500) · **fallback:** park + report · **risks:** recursion depth trivial at these sizes; auto-commit must be idempotent on sealed trees
-- **Status:** PLANNED → EXECUTED → VERIFIED
+# TID-2026-09-14-j — REASONING · RENDERED PROJECTION (4700)
+> Rendered from `evidence/tasks/TID-2026-09-14-j/` by `radiation_core.relay.render_neuron`.
+> Projection, not the record: hand edits FAIL check 27 (file must equal render output).
+
+- **Task:** TID-2026-09-14-j · **Mode hint:** autopilot · **Base revision:** 47bf26e
+- **Source:** commander · chat: 'proceed to your proposed 4600!' · trust=root
+- **Received:** 2026-09-14T23:00:00+08:00
+- **Plan:** PLAN-4600 · 5 step(s)
+- **Commands:** 5 · outcomes succeeded: 5/5 · **Events:** 31 · **Final state:** COMPLETE
+
+## NOTES — REASONING
+
+Recheck remediation verbatim: recursive schema execution; total cross-object identity; foreign plan = hard finding (worst of the five mutations); contiguous seqs; tz-bearing RFC-3339; causal refs name known commands; verification.attests-succeeded binding; the five mutations = vectors 7-11 (suite 6->11); planner/CI facts GENERATED from data; lint expanded; runner auto-commits the sealed tree (--no-commit opts out). Tier: canon. Risks: TARGET/ALLOWED-class state bugs (vectors catch); generator quoting (marker-slice editing).

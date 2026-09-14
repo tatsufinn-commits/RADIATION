@@ -42,3 +42,11 @@ exists because of the resurrection loop, 3400 F3).
 ## 5. STATUS LINE
 `scripts/status.py` reads the `Status:` fields here (the projection — private module state
 is forbidden by edge 2). Keep the field exact: `Status: PLANNED|EXECUTED|VERIFIED|CLOSED|REPLAN(n)|BLOCKED|ESCALATED`.
+
+## THE MODEL (4700 — research-team wording, adopted)
+Canonical task bundle = machine-checkable audit record (`evidence/tasks/<TID>/`).
+Markdown neurons = human-facing projections RENDERED from the bundle by
+`radiation_core.relay.render_neuron` — file must equal render output or check 27
+fails; hand edits are structurally meaningless. Calling this a "neural execution
+architecture" would overstate it: it is durable, validated record-keeping.
+

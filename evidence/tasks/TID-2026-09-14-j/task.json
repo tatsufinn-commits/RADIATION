@@ -10,5 +10,10 @@
  "received_at": "2026-09-14T23:00:00+08:00",
  "mode_hint": "autopilot",
  "base_revision": "47bf26e",
- "idempotency_key": "4600-binding-superset"
+ "idempotency_key": "4600-binding-superset",
+ "operator_notes": {
+  "intake": "Order: \"proceed to your proposed 4600!\". Links: RADIATION_4500_latest_recheck.md (third review \u2014 every claim reproduced, incl. all five relay mutations), 4500, II.10.6. Mode: build (@Autopilot).",
+  "reasoning": "Recheck remediation verbatim: recursive schema execution; total cross-object identity; foreign plan = hard finding (worst of the five mutations); contiguous seqs; tz-bearing RFC-3339; causal refs name known commands; verification.attests-succeeded binding; the five mutations = vectors 7-11 (suite 6->11); planner/CI facts GENERATED from data; lint expanded; runner auto-commits the sealed tree (--no-commit opts out). Tier: canon. Risks: TARGET/ALLOWED-class state bugs (vectors catch); generator quoting (marker-slice editing).",
+  "orders": "PLAN-4600, 5 steps verified. Evidence: artifacts/ (relay 11/11, nota 2/2, clean-tree strict 0 FAIL, render --check green incl. lint, regression 11/0). Delivery: RADIATION_PATCH_2026-09-14_4600_Binding.zip (superset 4200-4500). Push: the Commander's, always."
+ }
 }

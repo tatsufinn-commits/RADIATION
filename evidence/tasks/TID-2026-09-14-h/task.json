@@ -10,5 +10,10 @@
  "received_at": "2026-09-14T12:40:00+08:00",
  "mode_hint": "autopilot",
  "base_revision": "c9592bba7699928260c38de08b0929676a40114e",
- "idempotency_key": "4400-reconciliation-superset"
+ "idempotency_key": "4400-reconciliation-superset",
+ "operator_notes": {
+  "intake": "Order: \"read, analyze and integrate this plan in order to address the issues\" (attachment: RADIATION_issues_2_to_6_remediation_plan.md, issues 2-6). Links: the audit it remediates (RADIATION_technical_due_diligence.md, rev c9592bba), 4300, II.10, P-09 (frozen). Plan Milestones A-C built; D staged for Product-2 scope ratification. Mode: build (@Autopilot, Commander order).",
+  "reasoning": "Integration decisions: (1) A+B+C built, D staged; (2) discovery over configuration \u2014 generated facts computed from reality, no new YAML drift surface; (3) no fabricated history \u2014 TIDs a-g legacy_trace, TID-h the first canonical bundle; (4) ratified BOOT ASK law wins the mode-conflict fork. Tier: canon touch (check 27 contract, check 29 NEW, card front matter). Risks: quote/escape sabotage of scripted edits (hit 3x, recovered); pin collisions; boot budget.",
+  "orders": "PLAN-4400, 6 steps verified. Evidence: artifacts/ (nota 2/2 cards, relay self-test, status strict 0, render --check 0 drift, verify_apply 6/6, regression 11/0). Delivery: RADIATION_PATCH_2026-09-14_4400_Reconciliation.zip (superset \u2014 one apply seals main). Push: the Commander's."
+ }
 }

@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.0.0 — 2026-09-14 — Sealwright (🟠 · the 4600 recheck remediated)
+- **The bundle is the record; neurons are its shadow:** `render_neuron()` renders each Markdown neuron FROM the canonical bundle; check 27 now enforces file==render. Hand-edited neurons are structurally meaningless (vector 12). h/i/j migrated — narrative lives in bundle `operator_notes`. Model wording ("canonical bundle = machine-checkable audit record; Markdown = human-facing projection") adopted into the boot docs.
+- **A failed seal finally fails:** APPLY's auto-commit is REQUIRED — commit failure exits nonzero in both runners (recheck item 2; silent-continue defect owned).
+- **The planner block lost its own opinions:** the GENERATED term-register block is parsed from `plan_term.py --self-check`'s own report — the generator owns zero counting logic (the 4600 block's 3-courses/2-blind drift is impossible now).
+- **Identity adopted verbatim:** "a validated LLM workflow scaffold with durable records and human/LLM-operated protocols" — in the front door (docs/.readme), SYSTEM_STATE, and the neurons README.
+- Relay self-test 11→12 vectors; summary line restored (a 4600 slice had silently eaten it — owned). Legacy-count precision: 7 traces; f+g remain active legacy. MINOR-epoch bump → v3.0.0.
+
 ## v2.9.0 — 2026-09-14 — Binding (🟠 · the 4500 recheck remediated)
 - **Relay FULLY bound** (recheck's word accepted as spec): schemas executed RECURSIVELY (nested required/enum/pattern/minLength/minimum/items) · cross-object identity total — command stem↔internal id, outcome stem↔command_id AND task_id, plan↔task, base revisions agree everywhere · a foreign plan file is a HARD finding, never a silent skip · event sequences contiguous 1..N · timestamps must carry a timezone offset · causal refs must name known commands · verification.passed must attest a succeeded, digest-verified outcome. Self-test: 6→11 vectors — the recheck's five demonstrated mutations are permanent regressions (all FAIL now).
 - **Generated truth to the last line:** term-register counts and CI gate semantics are GENERATED blocks (derived from TERM1_DEADLINES.json and validate.yml); the lint's denylist expanded (21 items · NON-BLOCKING · never-be-blocked · checks-1b); "checks 1b" corrected to 1.5. The "NON-BLOCKING prose beside a BLOCKING workflow" contradiction is structurally impossible now.
