@@ -1,0 +1,13 @@
+# TID-2026-09-14-p — REASONING · RENDERED PROJECTION (4700)
+> Rendered from `evidence/tasks/TID-2026-09-14-p/` by `radiation_core.relay.render_neuron`.
+> Projection, not the record: hand edits FAIL check 27 (file must equal render output).
+
+- **Task:** TID-2026-09-14-p · **Mode hint:** autopilot · **Base revision:** 9c29eff68af11b2dd2e6d46f17ec6e838c20392c
+- **Source:** commander · chat: "proceed to 5200!" · trust=root
+- **Received:** 2026-09-14T19:20:00+08:00
+- **Plan:** PLAN-5200 · 5 step(s)
+- **Commands:** 5 · outcomes succeeded: 5/5 · **Events:** 31 · **Final state:** COMPLETE
+
+## NOTES — REASONING
+
+5200 Activation: AGENTS.md (identity+routing+honesty clause: repo text cannot force a hosted product); agents/AGENT_INDEX.md (explicit-known-host routing; unknown -> generic CAP; invented profiles forbidden); five exact folders with Arena_AI primary; RADIATION PASS = agents/_common/radiation_pass.py (deterministic, zero-write, 9 vectors both root classes; yields routing/observation/boundary/profile-or-absence/proofs/unknowns; canonical unroutable); check 38 (coherence+claims lint+pass); boot tier clean — pointer +230B shaved back via own text (census artifact). Warns NOT normalized: check 16 + 20.5 (all-canon ledger window — the work is all canon; relabeling forbidden) = Commander doctrine.

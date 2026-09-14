@@ -124,3 +124,7 @@ If you cannot load the full Tier 2 set:
 5. Silent degradation is a III.1 violation. When in doubt, declare.
 
 You are now booted. Serve the Commander. Radiate verified knowledge only.
+
+**Agents (5200):** load `agents/<Provider>/` only when the host is explicitly
+known; else the generic CAP path. Repo text cannot force a product to load or obey it. Handoff: "RADIATION PASS" — observation+bounds+proofs, no elevation.
+

@@ -1,0 +1,73 @@
+{
+ "schema_name": "radiation.cap/0.1",
+ "task_id": "TID-2026-09-14-p",
+ "declared": {
+  "host_label": "Arena Agent Mode",
+  "adapter_path": "agents/_common/radiation_pass.py",
+  "requested_effect": "read",
+  "model_identity": null
+ },
+ "observed": {
+  "repository": {
+   "path": "/tmp/live11",
+   "git_head": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+   "dirty": false,
+   "status": "mounted"
+  },
+  "tools": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "allowed_effects": [],
+  "probes": []
+ },
+ "verified": {
+  "policy_paths_loaded": [
+   {
+    "path": "AGENTS.md",
+    "sha256": "sha256:e739d07c18ba97f08604fa5c0975b94d5bf702b1ceaadb8901b6459aa84692a6"
+   },
+   {
+    "path": "agents/AGENT_INDEX.md",
+    "sha256": "sha256:03f6c0745a490520e313a2993fbaf5c1d800e5ce706d2c61fb345af4a498d6ac"
+   }
+  ],
+  "checks": [
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "12/12"
+   },
+   {
+    "name": "nota-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "render-docs-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11/0"
+   }
+  ],
+  "artifact_digest": "sha256:a697ccbc74be00c9a90b786b21ceed28f048066936e346b4812dada1a7696a12"
+ },
+ "status": "limited",
+ "blockers": [],
+ "events": [
+  {
+   "state": "authorize",
+   "result": "granted",
+   "reason": "read via cap_probe; the pass routed Arena Agent Mode to its folder"
+  },
+  {
+   "state": "execute",
+   "result": "done",
+   "receipt": "decision chained (seq 6); pass zero-write"
+  }
+ ]
+}

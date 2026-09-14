@@ -1,0 +1,49 @@
+{
+ "schema_name": "radiation.pass/0.1",
+ "host_label_declared": "Arena Agent Mode",
+ "routing": {
+  "route": "provider",
+  "provider": "Arena_AI",
+  "boot_path": "agents/Arena_AI/BOOT.md"
+ },
+ "observation": {
+  "repository_path": "/tmp/live11",
+  "repository_status": "mounted",
+  "git_head": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+  "dirty": false,
+  "tools_exposed_by_this_server": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "effects_exposed_by_this_server": []
+ },
+ "boundary": {
+  "read": {
+   "status": "authorized",
+   "tool": "cap_probe"
+  },
+  "canonical_apply": {
+   "status": "commander_motor_act",
+   "tool": null,
+   "note": "canonical_apply is the Commander's motor act \u2014 outside every agent runtime (II.11)"
+  }
+ },
+ "profile": {
+  "host_label": "Arena Agent Mode",
+  "requested_effects": [
+   "read"
+  ],
+  "model_identity": null
+ },
+ "unknowns": [
+  "host tool surface is session-contingent; only the probe's catalog is real",
+  "model identity unknowable \u2014 the host label is not an identity claim"
+ ],
+ "proofs": [
+  "python3 -m radiation_core.relay --self-test",
+  "python3 scripts/cap_verify.py --tree",
+  "python3 -m radiation_core.control_plane verify"
+ ],
+ "pass_is": "a handoff (observation+bounds+proofs), not an elevation; zero writes performed",
+ "honesty_selfcheck": "clean"
+}

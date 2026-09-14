@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0005",
+ "task_id": "TID-2026-09-14-p",
+ "result": "succeeded",
+ "revision_after": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-p/artifacts/relay_selftest.txt",
+   "sha256": "12eb07667e78694e36cdfb008c47526f26515d743a17b755cbefc80fc68df4f1"
+  }
+ ]
+}

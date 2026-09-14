@@ -4,6 +4,12 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.4.0 — 2026-09-14 — Activation (🟠 · review E4, the provider layer)
+- **`AGENTS.md`** (root): provider-neutral entrypoint — identity line, boot pointer, routing, the pass, the honesty clause (repo text cannot force a hosted product to load or obey anything).
+- **`agents/AGENT_INDEX.md` + the five exact folders** (`ChatGPT/ Gemini/ Grok/ Claude/ Arena_AI/`): a runtime loads its folder ONLY when the host is explicitly known/observed; unknown/ambiguous → generic CAP path, uncertainty declared, no invented profiles. `Arena_AI/` is the primary testbed profile.
+- **`RADIATION PASS`** = `agents/_common/radiation_pass.py`: deterministic, read-only, zero-write; yields routing, observation (or explicit non-availability), the II.11 boundary (canonical = `commander_motor_act`, no tool), the posture profile (or declared absence), verification proofs, and recorded unknowns. Self-test 9/9 (routing · fallback · claim-free · zero-write · read-only Arena · unroutable canonical).
+- **Check 38** in CI: folder/index coherence, claims lint (no first-person identity/power claims), pass self-test. Provider docs are OUT of the boot tiers (Tier0+1 pointer only; byte census in the bundle evidence).
+
 ## v3.3.1 — 2026-09-14 — Truebound (🟠 · the excellence review, implemented)
 The research team's v3.3.0 review demonstrated two exploitable defects and several overstated claims. Every finding was implemented; their two repros are now permanent fail-closed regression vectors (self-test 25/25, check 37).
 - **Escape class dead:** strict task-ID grammar + pinned drafts base + component-wise containment (traversal, absolute, backslash, symlink escapes all refuse). Their `task_id='../escaped-task'` repro: refused at decide, refused at execute.

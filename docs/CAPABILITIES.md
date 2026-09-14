@@ -243,6 +243,15 @@ grammar, pinned base, and content-bound SINGLE-USE approvals (substitution/repla
 fail closed); receipts are tamper-EVIDENT, not immutable. Limits are law:
 `docs/THREAT_MODEL.md`. Full detail: `docs/CONTROL_PLANE.md`.
 
+### 17. Provider activation layer (5200) · prompt-side protocol
+`AGENTS.md` (root) routes explicitly-known hosts to `agents/<Provider>/` (five exact
+folders; `Arena_AI` is the primary testbed profile); unknown hosts get the generic CAP
+path and declare uncertainty. `RADIATION PASS` = `agents/_common/radiation_pass.py` —
+deterministic, read-only, zero-write: routing · observation · II.11 boundary ·
+profile-or-absence · proofs · unknowns. Check 38 tests routing, coherence, claim-free
+output. THE LIMIT: repository text cannot force a hosted product to discover, load,
+or obey any of this — convention, not proof.
+
 ## WHAT IS NOT HERE YET
 
 Stated plainly so a session does not assume capability it lacks:

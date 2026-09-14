@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-p",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: \"proceed to 5200!\"",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T19:20:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+ "idempotency_key": "5200-activation-superset",
+ "operator_notes": {
+  "intake": "Order: \"proceed to 5200!\" (review E4 provider activation layer). Links: excellence review \u00a76 minimum shape + \u00a78-E4 gate, GitHub research memo (Arena testbed posture), 5100 boundary. Mode: build (@Autopilot).",
+  "reasoning": "5200 Activation: AGENTS.md (identity+routing+honesty clause: repo text cannot force a hosted product); agents/AGENT_INDEX.md (explicit-known-host routing; unknown -> generic CAP; invented profiles forbidden); five exact folders with Arena_AI primary; RADIATION PASS = agents/_common/radiation_pass.py (deterministic, zero-write, 9 vectors both root classes; yields routing/observation/boundary/profile-or-absence/proofs/unknowns; canonical unroutable); check 38 (coherence+claims lint+pass); boot tier clean \u2014 pointer +230B shaved back via own text (census artifact). Warns NOT normalized: check 16 + 20.5 (all-canon ledger window \u2014 the work is all canon; relabeling forbidden) = Commander doctrine.",
+  "orders": "PLAN-5200, 5 steps green; pass routed the Arena label and performed zero writes. Delivery: RADIATION_PATCH_2026-09-14_5200_Activation.zip (superset 4200\u20135100, v3.4.0). Push: the Commander's, always."
+ }
+}

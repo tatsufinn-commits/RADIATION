@@ -1,0 +1,7 @@
+# Tier0+1 byte census (5200)
+
+before pointer+shave cycle: 40,912 B (post-5100 clean tree)
+after pointer added, own text shaved to match: see below
+cap: 40,960 B — status: UNDER (check 15 PASS)
+
+✅ PASS  [check 15] boot-byte budget: Tier0+1=40957 B (40.0 KB / cap 40) · Tier0-2=67172 B (65.6 KB / cap 80) · ~16793 tokens · task_ledger boot-effective (last 3 rows)=1289 B · enforcement=WARN-class (P-09 pending ratification) · II.10 compression: ACTIVE

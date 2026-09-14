@@ -1,0 +1,11 @@
+PASS known host routes to its provider folder
+  PASS pass yields all five sections
+  PASS no identity/access claims in output
+  PASS Arena declared posture is read-only
+  PASS canonical_apply unroutable in the pass boundary
+  PASS unknown host gets safe neutral fallback (no invented profile)
+  PASS unknown-host output also claim-free
+  PASS unmounted root -> explicit non-availability, not failure
+  PASS pass performs zero writes (copy census unchanged)
+radiation_pass self-test: 9/9 vectors
+the pass is a handoff, not an elevation — limits: docs/THREAT_MODEL.md

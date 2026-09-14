@@ -932,8 +932,48 @@ def c37control():
         "act — in-program enforcement only, limits: docs/THREAT_MODEL.md" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
+# ---- check 38: provider activation layer (5200, review E4) -------------------
+def c38agents():
+    import subprocess
+    problems = []
+    for f in ("AGENTS.md", "agents/AGENT_INDEX.md", "agents/Arena_AI/BOOT.md",
+              "agents/ChatGPT/BOOT.md", "agents/Gemini/BOOT.md",
+              "agents/Grok/BOOT.md", "agents/Claude/BOOT.md",
+              "agents/_common/radiation_pass.py"):
+        if not os.path.exists(os.path.join(ROOT, f)):
+            problems.append(f"missing: {f}")
+    # coherence: folders on disk == providers named in the index
+    idx = ""
+    fp = os.path.join(ROOT, "agents", "AGENT_INDEX.md")
+    if os.path.exists(fp):
+        idx = open(fp, encoding="utf-8").read()
+    disk = sorted(d for d in os.listdir(os.path.join(ROOT, "agents"))
+                  if os.path.isdir(os.path.join(ROOT, "agents", d)) and d != "_common") \
+        if os.path.isdir(os.path.join(ROOT, "agents")) else []
+    for d in disk:
+        if f"agents/{d}/" not in idx:
+            problems.append(f"index does not route agents/{d}/")
+    # claims lint: no first-person identity/power claims in any provider doc
+    import re as _re
+    bad_pat = _re.compile(r"\bI am (?:GPT|ChatGPT|Claude|Gemini|Grok)\b|\bmy (?:underlying|base) model\b|\bmy (?:tools|push access)\b|\bI can (?:commit|push)\b", _re.I)
+    for d in disk:
+        bp = os.path.join(ROOT, "agents", d, "BOOT.md")
+        if os.path.exists(bp) and bad_pat.search(open(bp, encoding="utf-8").read()):
+            problems.append(f"claims lint: agents/{d}/BOOT.md contains a first-person claim")
+    r = subprocess.run([sys.executable, os.path.join("agents", "_common",
+                        "radiation_pass.py"), "--self-test"], cwd=ROOT,
+                       capture_output=True, text=True, timeout=300)
+    if r.returncode != 0:
+        tail = (r.stdout + r.stderr).strip().splitlines()
+        problems.append("radiation_pass --self-test failed: " + (tail[-1] if tail else "rc!=0"))
+    rec(38, "FAIL", not problems,
+        "provider activation layer (5200): exact folders · index coherence · "
+        "RADIATION PASS handoff (deterministic, zero-write, claim-free) — a "
+        "handoff, NOT an elevation" +
+        ("" if not problems else ": " + "; ".join(problems[:4])))
+
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
-          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control)
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control,c38agents)
 
 def run_all():
     """Structured entry point (4400): returns the findings list. Import-safe —

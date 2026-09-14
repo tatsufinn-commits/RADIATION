@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-p",
+ "result": "succeeded",
+ "revision_after": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-p/artifacts/pass_selftest.txt",
+   "sha256": "bcd74f7c25857e87fbe64b7b6d5ed43c93c10922c6f2d4cd581ea28698a3c133"
+  }
+ ]
+}
