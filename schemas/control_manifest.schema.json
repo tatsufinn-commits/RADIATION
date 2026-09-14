@@ -1,0 +1,36 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Control-plane draft manifest (radiation.control.manifest/1)",
+ "description": "5000/5100: shape contract for draft-executor manifests. Resource bounds (file count, per-file and aggregate bytes, extension allowlist) are enforced in code \u2014 check 37 exercises them.",
+ "type": "object",
+ "required": [
+  "schema_name",
+  "files"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.control.manifest/1"
+  },
+  "files": {
+   "type": "array",
+   "maxItems": 20,
+   "items": {
+    "type": "object",
+    "required": [
+     "path",
+     "content"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*\\\\)[A-Za-z0-9][A-Za-z0-9_./-]*$"
+     },
+     "content": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}

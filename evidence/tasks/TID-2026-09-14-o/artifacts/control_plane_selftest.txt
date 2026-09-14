@@ -1,0 +1,27 @@
+PASS allowlist loads + schema-executes
+  PASS read authorized for any source (tool: cap_probe)
+  PASS draft authorized for commander-order assertion (tool: draft_executor)
+  PASS draft refused on session initiative alone (policy key)
+  PASS canonical_apply -> commander_motor_act, NO tool bound
+  PASS no execution without a chained decision receipt
+  PASS no execution without a content-bound approval (manifest substitution dead)
+  PASS approve+execute: bounded write, receipted, inside drafts root
+  PASS replay refused: approval consumed by first execution
+  PASS task_id traversal refused: '../escaped-task'
+  PASS task_id traversal refused: '/abs/path'
+  PASS task_id traversal refused: 'TID-2026-01-01-..\\win'
+  PASS task_id traversal refused: '..\\escaped'
+  PASS task_id traversal refused: 'TID-2026-01-01-x/../../out'
+  PASS well-formed task with valid approval executes, contained
+  PASS manifest refusal: ../ in manifest path
+  PASS manifest refusal: absolute manifest path
+  PASS manifest refusal: symlink manifest target
+  PASS manifest refusal: disallowed extension
+  PASS manifest refusal: per-file byte cap
+  PASS manifest refusal: manifest shape violation
+  PASS receipt chain verifies (structural + semantic)
+  PASS chain tamper caught
+  PASS reordered chain caught
+  PASS tampered allowlist caught (canonical tool must stay null)
+control_plane self-test: 25/25 vectors
+boundary: cooperative in-program policy flow (docs/THREAT_MODEL.md); canonical_apply stays the Commander's motor act

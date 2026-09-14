@@ -1,0 +1,71 @@
+{
+ "schema_name": "radiation.cap/0.1",
+ "task_id": "TID-2026-09-14-o",
+ "declared": {
+  "host_label": "Arena Agent Mode",
+  "adapter_path": "radiation_core/control_plane.py",
+  "requested_effect": "workspace_draft",
+  "model_identity": null
+ },
+ "observed": {
+  "repository": {
+   "path": "/home/user/patch_build22",
+   "status": "not_a_git_worktree"
+  },
+  "tools": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "allowed_effects": [],
+  "probes": []
+ },
+ "verified": {
+  "policy_paths_loaded": [
+   {
+    "path": "docs/.readme",
+    "sha256": "sha256:7fed5a6e4df45733307ce6ca58b075b07022ad4d16719acd0209f528f3e49e00"
+   },
+   {
+    "path": "docs/THREAT_MODEL.md",
+    "sha256": "sha256:487d79688ea804c88a2eff169b8e281893620ec554d9eb2f52f61f2ecffe4042"
+   }
+  ],
+  "checks": [
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "12/12"
+   },
+   {
+    "name": "nota-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "render-docs-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11/0"
+   }
+  ],
+  "artifact_digest": "sha256:459afc60853386dbd8c51d3d3763cc0bf961d29fb40d8d467849ee47ad495bba"
+ },
+ "status": "ready",
+ "blockers": [],
+ "events": [
+  {
+   "state": "authorize",
+   "result": "granted",
+   "reason": "two-key (source label = assertion, per 5100); approval content-bound + single-use"
+  },
+  {
+   "state": "execute",
+   "result": "done",
+   "receipt": "chain seq 5, replay attempt refused (recorded evidence)"
+  }
+ ]
+}

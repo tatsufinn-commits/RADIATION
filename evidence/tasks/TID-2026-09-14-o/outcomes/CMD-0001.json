@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-o",
+ "result": "succeeded",
+ "revision_after": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-o/artifacts/control_plane_selftest.txt",
+   "sha256": "d1b35f2a8f645024dbdc2f02f50f762d71a4f0d2387f97d99ea65f8f9ba7cd63"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v3.3.0
+**Last updated:** 2026-09-14 · **Version:** v3.3.1
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,14 +49,14 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.3.0** — five thousand (patch 5000): the ratified II.11
-control plane — a two-key resolver, an approval boundary with no tool for
-canonical effects, a drafts-bounded executor that refuses to act without a
-chained decision, and an immutable receipt ledger whose genesis entry IS the
-ratification. Operated tooling, never a self-scheduling runtime. Prior: 4900
-probe · 4800 attest · 4700 sealwright · 4600 binding · 4500 last mile · 4400
-reconciliation · 4300 compression law · 4200 the Commander's expansion
-(@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED here.
+**RADIATION v3.3.1** — truebound (patch 5100): the control plane's claims
+now match its mechanism — strict task grammar and a pinned drafts base,
+content-bound single-use approvals, tamper-EVIDENT (not immutable) receipts,
+and docs/THREAT_MODEL.md as the authority on limits. Prior: 5000 five
+thousand (II.11 ratified) · 4900 probe · 4800 attest · 4700 sealwright ·
+4600 binding · 4500 last mile · 4400 reconciliation · 4300 compression law ·
+4200 the Commander's expansion (@Fetch/@Overule/OPEN_SOURCES bank). Machine
+facts: GENERATED here.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*

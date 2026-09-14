@@ -237,11 +237,11 @@ python3 -m radiation_core.control_plane execute --task TID --manifest M.json
 python3 -m radiation_core.control_plane verify                       # receipts chain
 python3 -m radiation_core.control_plane --self-test                  # 11 vectors (check 37)
 ```
-Operated tooling, not a runtime: two-key resolver (policy key + tool key), capability
-allowlist as schema-executed data, approval boundary structural (`canonical_apply`
-binds NO tool at any source level), draft executor bounded to
-`evidence/drafts/<task_id>/` refusing to act without a chained decision receipt, and
-an append-only hash-chained receipt ledger. Full law: `docs/CONTROL_PLANE.md`.
+Operated, cooperative tooling (not a runtime): two-key resolver, schema-executed
+allowlist, structural approval boundary, drafts-bounded executor with strict task
+grammar, pinned base, and content-bound SINGLE-USE approvals (substitution/replay
+fail closed); receipts are tamper-EVIDENT, not immutable. Limits are law:
+`docs/THREAT_MODEL.md`. Full detail: `docs/CONTROL_PLANE.md`.
 
 ## WHAT IS NOT HERE YET
 

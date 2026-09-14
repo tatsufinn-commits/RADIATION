@@ -24,6 +24,7 @@
    "enum": [
     "genesis",
     "decision",
+    "approval",
     "execution",
     "verification"
    ]

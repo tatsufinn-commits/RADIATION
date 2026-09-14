@@ -1,0 +1,4 @@
+✓ evidence/tasks/TID-2026-09-14-l/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-m/artifacts/cap_record_build.json ('blocked', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-n/artifacts/cap_record_build.json ('ready', sealed)
+cap_verify --tree: 3/3 tracked records verify

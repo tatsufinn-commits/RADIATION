@@ -283,8 +283,40 @@ def self_test(repo: str) -> int:
     return 0 if ok == len(vecs) else 1
 
 
+def verify_tree(root: str = ROOT) -> int:
+    """Enumerate every tracked CAP record and verify it (seal + schema; live
+    fidelity happened at build time — review-5100 decision for historical
+    records). Fails if none found or any record has findings."""
+    import glob
+    records = sorted(glob.glob(os.path.join(root, "evidence", "tasks", "*",
+                                             "artifacts", "cap_record_build.json")))
+    if not records:
+        print("cap_verify --tree: NO tracked CAP records found (coverage failure)")
+        return 1
+    bad = 0
+    for rp in records:
+        try:
+            doc = json.load(open(rp, encoding="utf-8"))
+        except Exception as e:
+            print(f"  ✗ {os.path.relpath(rp, root)}: unparsable ({e})")
+            bad += 1
+            continue
+        f = verify_record(doc, root, live=False) + check_redaction(doc)
+        rel = os.path.relpath(rp, root)
+        if f:
+            for x in f:
+                print(f"  ✗ {rel}: {x}")
+            bad += 1
+        else:
+            print(f"  ✓ {rel} ({doc.get('status')!r}, sealed)")
+    print(f"cap_verify --tree: {len(records) - bad}/{len(records)} tracked records verify")
+    return 1 if bad else 0
+
+
 def main() -> int:
     args = sys.argv[1:]
+    if args and args[0] == "--tree":
+        return verify_tree(args[1] if len(args) > 1 else ROOT)
     if args and args[0] == "--self-test":
         repo = args[1] if len(args) > 1 else ROOT
         return self_test(repo)

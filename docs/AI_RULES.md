@@ -110,18 +110,17 @@ Nothing enters long_term untriangulated. No exceptions.
 **VIOLATION:** an absent heartbeat marks the session unfinished; the next session files it retroactively with a `[RECONSTRUCTED]` note and says so aloud.
 
 ### II.10 — LEDGER COMPRESSION
-### II.11 — CONTROL PLANE (ratified 5000)
-1. The control plane is **operated tooling**: it executes only what a session explicitly
-   requests through it; it never schedules itself. RADIATION remains a validated LLM
-   workflow scaffold with durable records and human/LLM-operated protocols.
-2. Two keys gate every effect: policy (source rank vs the executed allowlist) AND tool
-   (a least-privilege tool must exist). No execution without a chained decision receipt.
-3. `canonical_apply` and push remain **the Commander's motor acts**: the resolver answers
-   `commander_motor_act` and binds no tool, at any source level.
-4. The draft executor is bounded to `evidence/drafts/<task_id>/` (symlink-safe
-   containment; no subprocess, no network, no canonical writes).
-5. Every decision and execution appends to the immutable hash-chained receipt ledger
-   (`evidence/control_plane/receipts.ndjson`); CI verifies the chain (check 37).
+### II.11 — CONTROL PLANE (ratified 5000 · amended 5100)
+1. Operated tooling: executes only what a session routes through it; never schedules
+   itself.
+2. Two keys per effect: policy (source rank vs executed allowlist) AND tool. A `--source`
+   label is an ASSERTION, not a credential. No execution without a chained decision AND
+   an unconsumed content-bound single-use approval (exact manifest digest).
+3. `canonical_apply`/push stay **the Commander's motor acts**: no tool, any source level.
+4. Executor bounds: strict task grammar, pinned base, `evidence/drafts/<task_id>/` only;
+   no subprocess, network, or canonical writes.
+5. Receipts are tamper-EVIDENT hash-linked — NOT immutable. Limits/upgrade path:
+   docs/THREAT_MODEL.md; CI check 37.
 
 1. **Trigger.** Tier0+1 ≥ 38.9 KB or Tier0-2 ≥ 78 KB (95 % of caps) → the NEXT Patch
    MUST reclaim boot headroom (compress/archive) alongside its payload.
@@ -201,9 +200,10 @@ New styles, cues, scaffolds, and subskills enter the canon only by Commander rat
 |---|---|---|---|---|
 | 2026-09-14 | II.10 (NEW) | Ledger Compression law: 95 % headroom trigger · archive-never-delete · boot = state-not-narrative · relay fade to one active cycle | Direct Commander order ("proceed on your next proposal the tier 1 update…"); P-09 remains frozen | RATIFIED — THE COMMANDER |
 | 2026-09-14 | II.10.6 | Legacy exemption list CLOSED at 7 traces — new tasks ship canonical bundles or check 27 fails | Recheck of patch 4400 (research team): "do not admit any new TID to the legacy exemption list" — adopted as law by Commander order ("proceed to 4500") | RATIFIED — THE COMMANDER |
-| 2026-09-14 | ALL annex | Identity + CAP boundary made law: validated LLM workflow scaffold, not an autonomous runtime; cap_verify VERIFIES records only (control plane then STAGED — ratified later, II.11) | GitHub-ecosystem research (external PoC 6/6 · 5/5); "proceed to build 4800!" | RATIFIED — THE COMMANDER |
-| 2026-09-14 | ALL annex | CAP expansion (4900): host posture profiles DECLARATIVE only (no tool claims; model_identity null; Commander-only effects unpinnable); C-4 redaction EXECUTED in cap_verify; unavailability is a first-class result | research Phase C-2; "proceed to 4900 probe!" | RATIFIED — THE COMMANDER |
+| 2026-09-14 | ALL annex | Identity + CAP boundary made law: validated LLM workflow scaffold, not an autonomous runtime; cap_verify VERIFIES records only (control plane then STAGED — ratified later, II.11) | GitHub research (PoC 6/6 · 5/5); "proceed to build 4800!" | RATIFIED — THE COMMANDER |
+| 2026-09-14 | ALL annex | CAP expansion (4900): posture profiles DECLARATIVE only (no tool claims; model_identity null); C-4 redaction EXECUTED; unavailability is first-class | research Phase C-2; "proceed to 4900 probe!" | RATIFIED — THE COMMANDER |
 | 2026-09-14 | II.11 | CONTROL PLANE ratified & landed (5000): operated tooling · two-key resolver · drafts-bounded executor · receipt chain · canonical/push stay Commander motor acts | Commander selected "Product-2 package" when asked which 5000 (explicit F4 ratification; genesis receipt entry 0) | RATIFIED — THE COMMANDER |
+| 2026-09-14 | II.11 (amended) | 5100: claims = mechanism (source labels are assertions · receipts tamper-evident, not immutable) | excellence review broke the boundary; both repros now fail closed | RATIFIED — THE COMMANDER |
 | 2026-09-12 | ALL | Constitution v1.0.0 ratified in full | Founding ratification, Blueprint v5.0 | RATIFIED — THE COMMANDER |
 | 2026-09-12 | II.6 | External-sources clause appended | Commander's proposal: Drive-linked bulk collections, catalog-with-digest design | RATIFIED — THE COMMANDER ("proceed to Patch 4") |
 | 2026-09-12 | II.6 | Restrained Retrieval sub-clause appended (Restraint Doctrine: manifest-first, necessity test, 3/6 fetch budget, one-at-a-time, no mirroring, SIZE-SKIPPED, digest-before-refetch) | GB-scale collections would crash sessions that bulk-ingest; retrieval discipline made law | RATIFIED — THE COMMANDER ("proceed to patch 6") |

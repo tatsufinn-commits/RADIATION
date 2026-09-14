@@ -1,0 +1,34 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-5100",
+ "task_id": "TID-2026-09-14-o",
+ "base_revision": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+ "policy": "excellence-review remediation; claims matched to mechanism",
+ "steps": [
+  {
+   "step_id": "S1",
+   "operation_class": "control-plane",
+   "success_predicate": "control_plane --self-test 25/25 exit==0"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "core-gate",
+   "success_predicate": "nota --check exit==0"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "structural",
+   "success_predicate": "status --strict clean tree"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "generated-truth",
+   "success_predicate": "render --check exit==0"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "regression",
+   "success_predicate": "relay 12/12 + cap --tree exit==0"
+  }
+ ]
+}

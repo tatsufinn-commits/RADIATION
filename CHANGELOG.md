@@ -4,6 +4,15 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.3.1 — 2026-09-14 — Truebound (🟠 · the excellence review, implemented)
+The research team's v3.3.0 review demonstrated two exploitable defects and several overstated claims. Every finding was implemented; their two repros are now permanent fail-closed regression vectors (self-test 25/25, check 37).
+- **Escape class dead:** strict task-ID grammar + pinned drafts base + component-wise containment (traversal, absolute, backslash, symlink escapes all refuse). Their `task_id='../escaped-task'` repro: refused at decide, refused at execute.
+- **Forgery contained honestly:** source labels are documented ASSERTIONS, not credentials; execution additionally requires an unconsumed CONTENT-BOUND single-use approval (exact manifest digest) — manifest substitution and replay fail closed. Runner path overrides removed.
+- **Claims matched to mechanism:** receipts are tamper-EVIDENT, not immutable; the module is a cooperative in-program policy flow, not a hostile-agent boundary. `docs/THREAT_MODEL.md` states limits, threat model, and the Commander's upgrade options (signing key, sandbox, chain anchoring).
+- **Coverage:** check 35 now enumerates and verifies EVERY tracked CAP record (`cap_verify --tree`); check 36 coherence-lints host profiles (stale "STAGED" wording caught); manifest schema EXECUTED with resource bounds.
+- **Boot budget honest:** Tier0+1 back under the 40 KiB cap (40,958 B) by compressing this cycle's own additions — no semantics hidden.
+- E1 (his two release blockers) closes via APPLY+push; E4 (provider activation layer) proposed as 5200.
+
 ## v3.3.0 — 2026-09-14 — Five Thousand (🟠 · II.11 CONTROL PLANE, ratified)
 - **The Product-2 package lands, by explicit ratification:** the Commander selected "Product-2 package" when asked which 5000 this is. The staged-since-4400 control plane is now `radiation_core/control_plane.py` — and the genesis receipt (entry 0) records the ratification itself.
 - **Two-key resolver:** policy key (source rank vs the executed allowlist) AND tool key (a least-privilege tool must exist) before any effect. Pure decision function; decisions are receipted.

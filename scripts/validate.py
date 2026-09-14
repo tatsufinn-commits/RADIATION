@@ -837,10 +837,20 @@ def c35cap():
     if r.returncode != 0:
         tail = (r.stdout + r.stderr).strip().splitlines()
         problems.append("cap_verify --self-test failed: " + (tail[-1] if tail else "rc!=0"))
+    # review-5100: EVERY tracked CAP record is enumerated and verified in CI
+    # (seal + schema; live fidelity is proven at build time and recorded in
+    # the bundle — the deliberate historical-records decision).
+    r = subprocess.run([sys.executable, os.path.join("scripts", "cap_verify.py"),
+                        "--tree"], cwd=ROOT, capture_output=True, text=True,
+                       timeout=300)
+    if r.returncode != 0:
+        tail = (r.stdout + r.stderr).strip().splitlines()
+        problems.append("cap_verify --tree failed: " + (tail[-1] if tail else "rc!=0"))
     rec(35, "FAIL", not problems,
-        "CAP records verify (schema EXECUTED · seal digest · verifier registry · "
-        "identity null · honest blocked/verified) — verifies records; authority "
-        "flows only through the ratified control plane (II.11, 5000)" +
+        "CAP records verify (ALL tracked records enumerated, seal+schema · "
+        "negative vectors · registry · identity null · C-4 redaction) — "
+        "verifies records; authority flows only through the II.11 control "
+        "plane; limits: docs/THREAT_MODEL.md" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
 # ---- check 36: CAP probe + host posture (4900 Probe) -------------------------
@@ -867,10 +877,28 @@ def c36probe():
     if r.returncode != 0:
         tail = (r.stdout + r.stderr).strip().splitlines()
         problems.append("cap_probe --self-test failed: " + (tail[-1] if tail else "rc!=0"))
+    # review-5100 coherence: profile prose must not contradict the ratified
+    # state, and declared postures must exist in the executed allowlist
+    try:
+        prof = json.load(open(os.path.join(ROOT, "scaffolding", "hosts",
+                                           "arena_agent_mode.json"), encoding="utf-8"))
+        allow = json.load(open(os.path.join(ROOT, "scaffolding", "control_plane",
+                                            "allowlist.json"), encoding="utf-8"))
+        allow_effects = {s.get("effect") for s in allow.get("operations", {}).values()
+                         if isinstance(s, dict)}
+        for phrase in ("STAGED (Product-2)", "awaits Product-2 ratification"):
+            if phrase in json.dumps(prof):
+                problems.append(f"profile staleness: {phrase!r} contradicts the "
+                                "ratified control plane")
+        for fx in prof.get("posture", {}).get("requested_effects", []):
+            if fx not in allow_effects:
+                problems.append(f"profile posture {fx!r} has no allowlist operation")
+    except Exception as e:
+        problems.append(f"profile coherence check error: {e}")
     rec(36, "FAIL", not problems,
         "CAP probe + host posture (read-only surface · containment · allowlist · "
-        "profile schema-executed) — OBSERVES only; authority flows only through the "
-        "ratified control plane (II.11, 5000)" +
+        "profile schema-executed · coherence-linted) — OBSERVES only; authority "
+        "flows only through the II.11 control plane; limits: docs/THREAT_MODEL.md" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
 # ---- check 37: control plane (II.11, ratified 5000) --------------------------
@@ -898,9 +926,10 @@ def c37control():
         tail = (r.stdout + r.stderr).strip().splitlines()
         problems.append("control_plane --self-test failed: " + (tail[-1] if tail else "rc!=0"))
     rec(37, "FAIL", not problems,
-        "control plane (II.11, ratified 5000): two-key resolver · bounded draft "
-        "executor · hash-chained receipts · canonical_apply = Commander motor act, "
-        "no tool at any source level" +
+        "control plane (II.11, amended 5100): cooperative in-program policy flow · "
+        "strict task grammar + pinned drafts base · content-bound single-use "
+        "approvals · tamper-evident receipt chain · canonical = Commander motor "
+        "act — in-program enforcement only, limits: docs/THREAT_MODEL.md" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,

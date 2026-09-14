@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0005",
+ "task_id": "TID-2026-09-14-o",
+ "result": "succeeded",
+ "revision_after": "9c29eff68af11b2dd2e6d46f17ec6e838c20392c",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-o/artifacts/cap_tree.txt",
+   "sha256": "6faedef6d9a6da53b5b934480996a38389e87f976e0d1425c9ec10ea3a095aa2"
+  }
+ ]
+}
