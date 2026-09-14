@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0003",
+ "task_id": "TID-2026-09-15-a",
+ "plan_id": "PLAN-5710",
+ "step_id": "S2",
+ "operation": "build_artifact",
+ "issued_at": "2026-09-15T00:43:00+08:00",
+ "base_revision": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "result": "succeeded",
+ "revision_after": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "finished_at": "2026-09-15T00:53:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-15-a/artifacts/acceptance_6of6.txt",
+   "sha256": "91e08d7f2c2013060b2d3a847d4565095321628980f45151abced1f9b5a0881e"
+  }
+ ]
+}

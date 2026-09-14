@@ -1,0 +1,44 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-5710",
+ "task_id": "TID-2026-09-15-a",
+ "base_revision": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "policy": "workspace_draft under II.11; canonical_apply stays the Commander's motor act",
+ "steps": [
+  {
+   "step_id": "S0",
+   "operation_class": "verify-base",
+   "success_predicate": "fresh clone at 5817f8d; review probes reproduced before fixing"
+  },
+  {
+   "step_id": "S1",
+   "operation_class": "f1-nonboot-scan",
+   "success_predicate": ".readme + transitive vectors fail; scan derived from BOOT_SEQUENCE"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "f2-typed-evidence",
+   "success_predicate": "register binding + real dates + 90d window; 5 repro cases fail"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "f3-identifier-split",
+   "success_predicate": "exact/candidate split enforced; filename binding"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "f4-scanner-registry",
+   "success_predicate": "recursion + reference/test binding + containment; permanent vectors"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "f5-doc-truth",
+   "success_predicate": "roadmap/counts/dates match executable reality"
+  },
+  {
+   "step_id": "S6",
+   "operation_class": "seal",
+   "success_predicate": "6/6 acceptance criteria; Path A/B identical"
+  }
+ ]
+}

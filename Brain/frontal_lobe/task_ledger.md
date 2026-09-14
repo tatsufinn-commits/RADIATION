@@ -113,3 +113,5 @@ Format: `| date | mode | task (one line) | outcome | deliverable path | patch fi
 | 2026-09-14 | S005 (the Architect) | 5600 (Verity): CI root-caused under real 3.11, replica authority visible, registry bounded contract, schema honesty (check 40), claims sharpened, fixtures reframed, providers consolidated | done | Deliverable A; Deliverable B gated | 5600 |
 | 2026-09-14 | THE COMMANDER | ORDER: proceed to the next update (Deliverable B) | integrated in 5700 | chat: "the update was accepted and pushed to git, proceed to the next update!" | 5700 |
 | 2026-09-14 | S005 (the Architect) | 5700 (Atlas): Candidate C research design — catalog + harness design + deployment-matrix design, proposal only | done | Deliverable B; implementations = separate gated orders | 5700 |
+| 2026-09-15 | THE COMMANDER | ORDER: "read this review and apply" (Atlas independent review) | integrated in 5710 | RADIATION_5700_ATLAS_INDEPENDENT_REVIEW_2026-09-15 | 5710 |
+| 2026-09-15 | S005 (the Architect) | 5710 (Calibrate): F1–F5 hardened with permanent negative tests; every claim matched to its mechanism | done | 6/6 acceptance criteria | 5710 |

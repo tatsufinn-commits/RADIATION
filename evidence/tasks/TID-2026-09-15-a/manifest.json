@@ -1,0 +1,13 @@
+{
+ "schema_name": "radiation.control.manifest/1",
+ "files": [
+  {
+   "path": "artifacts/boot_scan_set.txt",
+   "content": "NON-BOOT SCAN SET \u2014 derived live at 5710 build (F1)\n====================================================\nsource: BOOT_SEQUENCE.md (the mandatory boot manifest) \u2014 path tokens +\nwildcard-directory expansion + floor {BOOT_SEQUENCE.md, docs/.readme,\ncue/CUE_INDEX.md, README.md}. Scan hits (any boot-graph file referencing\ncatalogs/model_research) are build failures via check 41.\nLanguage law: \"scan\", never \"asserted\", until the full transitive boot graph\nis provably covered.\n"
+  },
+  {
+   "path": "artifacts/acceptance_6of6.txt",
+   "content": "5710 ACCEPTANCE CRITERIA \u2014 6/6 (captured live)\n===============================================\n1. non-boot test rejects docs/.readme + every canonical boot-manifest path .... vector 20 + derived-scan floor\n2. spoofed tiers / impossible dates / stale reviews / blank-undated registers . vectors 8, 11, 13, 16, 17, 18\n3. unverified identifiers cannot masquerade as exact ids ..................... vectors 14, 15, 19 (if/then + filename binding)\n4. 5600 recursion + registry reference/test-binding fixed, permanent tests ... relay vector 24; registry vectors 14, 15 (R6/R7/R8)\n5. roadmap placement / schema path / date convention / counts match reality .. F5 batch (measured: 25 tests, 22 tools, 38-vector cp)\n6. validator, unit suite, catalog self-test, relay, CAP, PASS, cp, strict, whitespace, CI pass at the new SHA ... sealed-tree proof + Commander's push\n"
+  }
+ ]
+}

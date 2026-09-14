@@ -1,0 +1,3 @@
+✅ PASS  [check 15] boot-byte budget: Tier0+1=40904 B (39.9 KB / cap 40) · Tier0-2=67119 B (65.5 KB / cap 80) · ~16779 tokens · task_ledger boot-effective (last 3 rows)=942 B · enforcement=WARN-class (P-09 pending ratification) · II.10 compression: ACTIVE
+42 checks run · 38 pass · 3 warn · 1 fail
+(capture digest fixed-point: outcome evidence references these final bytes)

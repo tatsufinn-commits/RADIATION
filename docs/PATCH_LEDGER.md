@@ -2,6 +2,8 @@
 ## Append-only record of every Patch emitted and its verdict (II.7.6)
 **⚠️ APPEND-ONLY (II.2).** New entries at the bottom. Verdicts update the row's verdict cell only.
 
+*Date convention (5710): ledger dates record the BUILD date; the release/push date is the Commander's commit date and may differ (e.g. 5700 built 2026-09-14, pushed 2026-09-15).*
+
 | Date | Patch filename | Risk | Areas | Verdict | Lesson |
 |---|---|:---:|---|---|---|
 | 2026-09-12 | RADIATION_PATCH_2026-09-12_1500_Brain-Completion-and-Structural-Hardening.zip | 🟢 | Brain, jurisdictions, scaffold index, SYSTEM_STATE | RATIFIED — awaiting Commander push | Structure must be visible: .gitkeep transport loss root-caused |
@@ -65,3 +67,4 @@
 | 2026-09-14 | RADIATION_PATCH_2026-09-14_5500_Gatewright.zip | 🟠 | gate review §8 gates 1–7: ruling reconciliation (restored sources, digest-bound feed, ratification record) · transactional receipts · executed schemas · per-provider profiles · CI pipefail + diagnostics · harness + TOOL_REGISTRY (check 39) · volatile claims → primaries | Commander: "read this review and apply it!" | the review that audited the auditor's work — every finding became a regression · v3.7.0 |
 | 2026-09-14 | RADIATION_PATCH_2026-09-14_5600_Verity.zip | 🟠 | 5500 closure: CI truth (3.11 pin honored, tee-mask + workflow regressions, failure artifacts) · replica authority visible (check 11.6 + REPLICA_DECISION) · registry as bounded contract (21 tools, tool_registry_check, 13 vectors) · schema executor closed set + check 40 · preflight-transactionality sharpened · hostile fixtures reframed +3 shapes · profiles consolidated · routing de-decisionalized | Research team: closure order before Candidate C | claims exactly true, contracts executable · v3.8.0 |
 | 2026-09-14 | RADIATION_PATCH_2026-09-14_5700_Atlas.zip | 🟠 | Deliverable B: Candidate C research DESIGN — non-boot catalog (schema executed + checker + non-boot assertion, 5 seed records), harness design (9 dims, capture, redaction), deployment-matrix design (4 classes × axes) | Commander: "proceed to the next update!" | maps, not territory — records grant nothing · v3.9.0 |
+| 2026-09-15 | RADIATION_PATCH_2026-09-15_5710_Calibrate.zip | 🟠 | Atlas review F1–F5: boot-graph-derived non-boot scan · typed register-bound evidence + real dates + 90-day window · exact/candidate identifier split + filename binding · scanner recursion ($defs/if/then) + registry reference/test binding + realpath containment · doc-truth drift repaired | Commander: "read this review and apply" | claims matched to mechanism · v3.9.1 |

@@ -3,8 +3,9 @@
 > **RESEARCH DESIGN ONLY · NO RUNTIME / DEPLOYMENT AUTHORITY.**
 > This layer records, organizes, and gates *knowledge about models*. It grants
 > nothing: no tool, no effect, no identity, no privacy guarantee, no legal
-> conclusion. It is **non-boot** — no boot-tier file references it, and check 41
-> enforces that boundary.
+> conclusion. It is **non-boot** — check 41 runs a non-boot SCAN over the
+> BOOT_SEQUENCE-derived boot graph (incl. the docs/.readme First-Read Gate and
+> transitive passive specs); a hit is a build failure.
 
 ## What this layer is
 The 5400 gate review (§5) and the 5600 closure order (Deliverable B) require a
@@ -47,6 +48,9 @@ decision_matrices/  DEPLOYMENT_MATRIX_DESIGN.md — per-deployment analysis (DES
 ## Tooling
 `scripts/model_research_check.py` (registry: `model_research_check`) —
 schema-executed via the ONE executor, plus code-level rules: record uniqueness
-on (exact_model_id, surface, region), date sanity, confirmed⇒verified id +
-official declaration, and the **non-boot assertion** (no boot-tier file may
-reference this catalog). Executed by validate check 41.
+on (identifier, surface, region) with verified tokens and candidate labels in
+disjoint namespaces, REAL calendar dates + the 90-day review window, typed
+evidence bound to `catalogs/model_research/sources/REGISTER.json` (tier + date), filename binding,
+`confirmed` ⇒ verified id + register-bound official declaration, and the
+**non-boot scan** over the BOOT_SEQUENCE-derived graph. Executed by validate
+check 41. 5710 review rule 6 in force: Arena has no record by design.

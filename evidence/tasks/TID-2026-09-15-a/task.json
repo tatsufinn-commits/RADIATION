@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-15-a",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: \"read this review and apply\" (RADIATION_5700_ATLAS_INDEPENDENT_REVIEW_2026-09-15)",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-15T00:30:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "idempotency_key": "5710-calibrate-hardening",
+ "operator_notes": {
+  "intake": "Order: apply the Atlas independent review (disposition: accept + focused hardening; six acceptance criteria). Reviewer HEAD 5817f8d; CI green there. Mode: repair+build (@Autopilot).",
+  "reasoning": "5710 Calibrate = claims matched to mechanism. F1: non-boot SCAN derived from BOOT_SEQUENCE.md (path tokens + wildcard expansion + floor: manifest itself, docs/.readme First-Read Gate, cue/CUE_INDEX.md, README) with .readme + transitive passive-spec negative vectors; language says scan. F2: typed evidence {tier enum, source_id, url, retrieved_on, claim}; executed typed REGISTER.json; real-calendar dates (fromisoformat); 90-day review window; confirmed = verified id + register-bound O-declaration at the record's retrieval date; spoofed tiers/impossible dates/stale reviews/blank registers all fail. F3: exact_model_id nullable + reserved for verified tokens; candidate_model_label required when unverified (allOf if/then); disjoint uniqueness namespaces; filename binding. F4: unsupported_keywords flag-then-recurse through $defs/definitions + if/then/else (relay vector 24); registry checker binds non-null schema refs, test_command to entrypoint, realpath containment (+2 vectors, 15 total); metadata-only-vs-schema-bound language. F5: ROADMAP 5700 row re-tabled + 5710 row; CAPABILITIES measured counts (25 tests, 22 tools, 38-vector cp); CONTROL_PLANE 25->38; checker docstring path; build-vs-release date convention in PATCH_LEDGER. Bundle u outcomes repointed to internal snapshots (live-file binding defect repaired).",
+  "orders": "PLAN-5710 green. Delivery: RADIATION_PATCH_2026-09-15_5710_Calibrate.zip (v3.9.1). Push: the Commander's, always."
+ }
+}

@@ -1,9 +1,7 @@
 {
- "schema_name": "radiation.model_research_record/0.1",
+ "schema_name": "radiation.model_research_record/0.2",
  "provider": "OpenAI",
  "family": "GPT",
- "exact_model_id": "gpt-6-astra",
- "exact_id_verified": true,
  "surface": "api",
  "region": "undeclared",
  "status": "confirmed",
@@ -21,12 +19,38 @@
  "retention_training_mode": "API data not used for training by default; ZDR for eligible customers [O, openai.com ZDR post, retrieved 2026-08-19]; ~30-day abuse-log retention [S, consistent]. Surface-specific; not a guarantee.",
  "license_aup": "OpenAI terms/AUP apply (official links on the pricing/terms pages); open questions: none recorded yet",
  "declarations": [
-  "[O, developers.openai.com/api/docs/models \u2014 retrieved 2026-09-14 via gate-review sweep]: catalog recommends gpt-6-astra with tools, reasoning settings, cutoffs, pricing stated on the page",
-  "[O, openai.com/business/pricing/#api \u2014 retrieved 2026-09-14]: per-id pricing lives here (values not captured)"
+  {
+   "tier": "O",
+   "source_id": "O1",
+   "url": "https://developers.openai.com/api/docs/models",
+   "retrieved_on": "2026-09-14",
+   "claim": "catalog recommends gpt-6-astra; context/tools/reasoning/cutoffs/pricing stated on the page"
+  },
+  {
+   "tier": "O",
+   "source_id": "O2",
+   "url": "https://openai.com/business/pricing/#api",
+   "retrieved_on": "2026-09-14",
+   "claim": "per-id pricing lives on the official pricing page (values not captured)"
+  }
  ],
- "safety_evidence": [],
+ "safety_evidence": [
+  {
+   "tier": "O",
+   "source_id": "O3",
+   "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models/",
+   "retrieved_on": "2026-08-19",
+   "claim": "API data not used for training by default; ZDR for eligible customers"
+  }
+ ],
  "independent_evidence": [
-  "[S, multiple 2026-06..09]: GPT-5.x price tables \u2014 HISTORICAL comparison evidence only (History section of agents/ChatGPT/CAPABILITY_PROFILE.md)"
+  {
+   "tier": "S",
+   "source_id": "S4",
+   "url": "https://humla.team/consumer-api-split (2026-07-28 sweep row)",
+   "retrieved_on": "2026-07-28",
+   "claim": "consumer/API training split; historical comparison evidence only"
+  }
  ],
  "local_observations": [],
  "known_gaps": [
@@ -39,5 +63,8 @@
  "documentation_completeness": "model id + context + tool/reasoning/cutoff/pricing stated on official pages; values partially captured",
  "confidence": "medium",
  "aliases": [],
- "dated_ids": []
+ "dated_ids": [],
+ "exact_model_id": "gpt-6-astra",
+ "candidate_model_label": "gpt-6-astra",
+ "exact_id_verified": true
 }

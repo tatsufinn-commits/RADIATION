@@ -1,0 +1,130 @@
+{
+ "schema_name": "radiation.cap/0.1",
+ "task_id": "TID-2026-09-15-a",
+ "declared": {
+  "host_label": "Arena Agent Mode",
+  "adapter_path": "agents/_common/radiation_pass.py",
+  "requested_effect": "read",
+  "model_identity": null
+ },
+ "observed": {
+  "repository": {
+   "path": "/home/user/patch_build27",
+   "git_head": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+   "dirty": true,
+   "status": "mounted"
+  },
+  "tools": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "allowed_effects": [],
+  "probes": []
+ },
+ "verified": {
+  "policy_paths_loaded": [
+   {
+    "path": "schemas/model_research_record.schema.json",
+    "sha256": "sha256:723db8e2a0b490dc24ba6b2f613cd62a70de0032e6557718443fbac84077c6ac"
+   },
+   {
+    "path": "schemas/model_research_register.schema.json",
+    "sha256": "sha256:1c9b54ab162407b21626abc49b09df46fc7a7fcf76b4380251a46e7be2aacc8d"
+   },
+   {
+    "path": "scripts/model_research_check.py",
+    "sha256": "sha256:bb39d4028fa7b4e010e0668cda9ef6441c98897b7e1cbe3a98d8d35df387b0c7"
+   },
+   {
+    "path": "scripts/tool_registry_check.py",
+    "sha256": "sha256:8864d8b048af336971e0ea9e9d25acd528a19db9a48746d88657c93512ae62c5"
+   },
+   {
+    "path": "radiation_core/relay.py",
+    "sha256": "sha256:43f9ffbbb139102380962f7054da81a68f79d52b0ede42b9f57f33e812c57c72"
+   },
+   {
+    "path": "catalogs/model_research/sources/REGISTER.json",
+    "sha256": "sha256:a743573e27f4fb8ccc2575188f2d60c06063e45b94b2721d2f23b5d9f41da818"
+   },
+   {
+    "path": "docs/THREAT_MODEL.md",
+    "sha256": "sha256:0e38d2ba89d91692688e23c6c69d5acc428e19fe42df1c094ebabe7192c39852"
+   }
+  ],
+  "checks": [
+   {
+    "name": "validate-full",
+    "exit_code": 0,
+    "detail": "42 checks \u00b7 39 pass \u00b7 3 warn \u00b7 0 fail"
+   },
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "24/24 (incl. F4 recursion vector)"
+   },
+   {
+    "name": "render-docs-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11 locked \u00b7 5 pending \u00b7 0 failed"
+   }
+  ],
+  "tests": [
+   {
+    "name": "control-plane-self-test",
+    "exit_code": 0,
+    "detail": "38/38"
+   },
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "24/24, rc==0"
+   },
+   {
+    "name": "radiation-pass-self-test",
+    "exit_code": 0,
+    "detail": "16/16"
+   },
+   {
+    "name": "unittest-harness",
+    "exit_code": 0,
+    "detail": "25 tests OK"
+   },
+   {
+    "name": "model-research-check",
+    "exit_code": 0,
+    "detail": "21/21 + catalog clean"
+   },
+   {
+    "name": "tool-registry-check",
+    "exit_code": 0,
+    "detail": "15/15 (R6-R8 incl.)"
+   },
+   {
+    "name": "verify_apply-strict",
+    "exit_code": 0,
+    "detail": "rc==0"
+   }
+  ],
+  "artifact_digest": "sha256:6c65a5e0a626355cf06a3b09647fdddb18b6ab0e0e6c7c639f92101cee073605"
+ },
+ "status": "limited",
+ "blockers": [],
+ "events": [
+  {
+   "state": "authorize",
+   "result": "granted",
+   "reason": "read via cap_probe; Arena label routed to its folder; model_identity stays null"
+  },
+  {
+   "state": "execute",
+   "result": "done",
+   "receipt": "decision+approval+execution chained (27-entry chain); zero canonical writes"
+  }
+ ]
+}

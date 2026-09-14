@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-15-a",
+ "plan_id": "PLAN-5710",
+ "step_id": "S0",
+ "operation": "run_validator",
+ "issued_at": "2026-09-15T00:41:00+08:00",
+ "base_revision": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "result": "succeeded",
+ "revision_after": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "finished_at": "2026-09-15T00:51:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-15-a/artifacts/boot_scan_set.txt",
+   "sha256": "63ba4b91f92decdc7d93aa7451f50541960dec88c1a48c208141c162118b4990"
+  }
+ ]
+}

@@ -4,6 +4,26 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.9.1 — 2026-09-15 — CALIBRATE (5710)
+Atlas independent review hardening — claims matched to mechanism: (F1) the
+non-boot invariant is now a scan DERIVED from BOOT_SEQUENCE.md (path tokens +
+wildcard expansion + First-Read Gate floor), with docs/.readme and transitive
+passive-spec negative vectors, and every mention says "scan"; (F2) catalog
+evidence is TYPED (tier enum + source_id + url + retrieved_on + claim),
+bound to an executed source register, with real-calendar dates (fromisoformat),
+the documented 90-day review window, and register/date-bound `confirmed`
+discipline — spoofed tiers, impossible dates, stale reviews, and blank/undated
+registers fail; (F3) `exact_model_id` is reserved for VERIFIED provider tokens
+(nullable + if/then-enforced); unverified candidates carry
+`candidate_model_label` under a disjoint uniqueness namespace with filename
+binding; (F4) the schema keyword scan now recurses through $defs/definitions
+and if/then/else (flag-then-recurse), and the registry checker binds non-null
+schema references, test commands to entrypoints, and realpath containment;
+(F5) roadmap placement, capability counts (measured: 25 tests, 22 tools,
+38-vector control plane), the checker docstring path, and the build-vs-release
+date convention are repaired. All five findings with permanent negative tests
+(21-vector catalog battery, 15-vector registry battery, 24-vector relay).
+
 ## v3.9.0 — 2026-09-14 — ATLAS (5700)
 Deliverable B — the Candidate C research design, proposal only: a non-boot
 model-research catalog (radiation.model_research_record/0.1 executed; checker

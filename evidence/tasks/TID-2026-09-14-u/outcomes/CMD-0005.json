@@ -12,8 +12,8 @@
  "finished_at": "2026-09-14T23:00:00+08:00",
  "evidence": [
   {
-   "path": "evidence/tasks/TID-2026-09-14-u/artifacts/cap_record_build.json",
-   "sha256": "93791ae8e69ee255129ba9c7b965180f77c2a79e6c9f35e73c81e7d680c3af75"
+   "path": "evidence/tasks/TID-2026-09-14-u/artifacts/catalog_contract.txt",
+   "sha256": "98d78f864e0351ec3dddefddcad53e4d92916209cc10f1dad53d07b260bd1017"
   }
  ]
 }

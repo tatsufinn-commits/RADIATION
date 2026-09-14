@@ -69,24 +69,37 @@ _SCHEMA_META_ANNOTATIONS = {"$schema", "title", "description", "$defs", "definit
 
 
 def unsupported_keywords(spec, acc=None):
-    """5600 closure: keywords a schema USES but this executor does NOT execute.
-
-    A schema is a claim; the executor is its truth. validate check 40 runs
-    this over every shipped schema — an unexecuted keyword in a shipped
-    schema is a build failure, never a silent freebie."""
+    """5600 closure; 5710 hardening: keywords a schema USES but this executor
+    does NOT execute — found RECURSIVELY through every subschema-bearing
+    container ($defs/definitions included: keywords there are still claims,
+    and if/then/else branches are conditionally executed law). A schema is a
+    claim; the executor is its truth. validate check 40 runs this over every
+    shipped schema — an unexecuted keyword anywhere in a shipped schema is a
+    build failure, never a silent freebie."""
     if acc is None: acc = []
     if isinstance(spec, dict):
         for k, sub in spec.items():
             if k in _SCHEMA_META_ANNOTATIONS:
+                # $defs/definitions are containers of claims, not annotations:
+                # recurse so an unexecuted keyword cannot hide there (5710).
+                if k in ("$defs", "definitions") and isinstance(sub, dict):
+                    for d in sub.values(): unsupported_keywords(d, acc)
                 continue
-            if k == "properties":
-                for p in sub.values(): unsupported_keywords(p, acc)
-            elif k in ("items", "not", "additionalProperties"):
-                if isinstance(sub, dict): unsupported_keywords(sub, acc)
-            elif k in ("oneOf", "anyOf", "allOf"):
-                for s in sub: unsupported_keywords(s, acc)
-            elif k not in _SCHEMA_KEYWORDS_EXECUTED and k not in acc:
+            # FLAG FIRST if the keyword itself is not executed...
+            if k not in _SCHEMA_KEYWORDS_EXECUTED and k not in acc:
                 acc.append(k)
+            # ...THEN recurse into its subschemas either way (claims live
+            # inside claims; hiding a bad keyword under a good one is the
+            # 5710 F4 bug class).
+            if k in ("properties", "patternProperties"):
+                if isinstance(sub, dict):
+                    for p2 in sub.values(): unsupported_keywords(p2, acc)
+            elif k in ("items", "not", "additionalProperties", "if", "then",
+                       "else", "propertyNames", "contains", "additionalItems"):
+                if isinstance(sub, dict): unsupported_keywords(sub, acc)
+            elif k in ("oneOf", "anyOf", "allOf", "prefixItems"):
+                for s in sub:
+                    if isinstance(s, dict): unsupported_keywords(s, acc)
     return acc
 
 
@@ -644,8 +657,14 @@ def self_test():
                              "then": {"required": ["digest"]}}, "c2", outif2)
     v23 = not outif1 and len(outif2) == 1 and "digest" in outif2[0]; ok += v23
     print(f"  vector 23 if/then executes (conditional fires and abstains) -> {'PASS' if v23 else 'FAIL'}")
-    print(f"relay self-test: {ok}/23 vectors")
-    return 0 if ok == 23 else 1  # 5500: total tracked; success exits ZERO
+    v24 = (_self.unsupported_keywords(
+              {"$defs": {"x": {"contains": {"type": "string"}}}}) == ["contains"]
+           and _self.unsupported_keywords(
+              {"if": {"type": "object"}, "then": {"contains": {"type": "string"}}}) == ["contains"])
+    ok += v24
+    print(f"  vector 24 coverage scan recurses $defs and if/then (contains found) -> {'PASS' if v24 else 'FAIL'}")
+    print(f"relay self-test: {ok}/24 vectors")
+    return 0 if ok == 24 else 1  # 5500: total tracked; success exits ZERO
 
 
 if __name__ == "__main__":

@@ -1167,8 +1167,8 @@ def c39gates():
     rst = subprocess.run([sys.executable, "scripts/tool_registry_check.py", "--self-test"],
                          cwd=ROOT, capture_output=True, text=True,
                          timeout=300, stdin=subprocess.DEVNULL)
-    if rst.returncode != 0 or "13/13" not in (rst.stdout + rst.stderr):
-        bad.append("tool_registry_check self-test not 13/13")
+    if rst.returncode != 0 or "15/15" not in (rst.stdout + rst.stderr):
+        bad.append("tool_registry_check self-test not 15/15")
     rec(39, "FAIL", not bad, "test harness + tool registry (5500+5600): discoverable tests "
         "exist and pass · registry is a bounded contract (schema-EXECUTED + code-level "
         "rules, self-tested)" + ("" if not bad else ": " + "; ".join(bad[:4])))
@@ -1211,10 +1211,11 @@ def c41():
     rst = subprocess.run([sys.executable, "scripts/model_research_check.py", "--self-test"],
                          cwd=ROOT, capture_output=True, text=True,
                          timeout=300, stdin=subprocess.DEVNULL)
-    if rst.returncode != 0 or "10/10" not in (rst.stdout + rst.stderr):
-        bad.append("model_research_check self-test not 10/10")
-    rec(41, "FAIL", not bad, "model-research catalog (5700): records schema-EXECUTED · "
-        "uniqueness/date/confirmed discipline · NON-BOOT asserted" +
+    if rst.returncode != 0 or "21/21" not in (rst.stdout + rst.stderr):
+        bad.append("model_research_check self-test not 21/21")
+    rec(41, "FAIL", not bad, "model-research catalog (5700+5710): records schema-EXECUTED · "
+        "typed evidence bound to the register · real-date + 90-day-window discipline · "
+        "filename-bound identifiers · non-boot scan over the BOOT_SEQUENCE-derived graph" +
         ("" if not bad else ": " + "; ".join(bad[:4])))
 
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,

@@ -32,7 +32,7 @@ python3 -m radiation_core.control_plane decide  --task TID-… --effect workspac
 python3 -m radiation_core.control_plane approve --task TID-… --manifest M.json   # content-bound, single-use
 python3 -m radiation_core.control_plane execute --task TID-… --manifest M.json
 python3 -m radiation_core.control_plane verify                                   # structural + semantic
-python3 -m radiation_core.control_plane --self-test                              # 25 vectors, check 37
+python3 -m radiation_core.control_plane --self-test                              # 38 vectors, check 37
 ```
 No production path overrides (`--receipts` / `--drafts-root` were removed in 5100 —
 the review's finding: they let a caller re-point the boundary; dependency injection

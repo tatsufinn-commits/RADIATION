@@ -1,0 +1,8 @@
+5710 ACCEPTANCE CRITERIA — 6/6 (captured live)
+===============================================
+1. non-boot test rejects docs/.readme + every canonical boot-manifest path .... vector 20 + derived-scan floor
+2. spoofed tiers / impossible dates / stale reviews / blank-undated registers . vectors 8, 11, 13, 16, 17, 18
+3. unverified identifiers cannot masquerade as exact ids ..................... vectors 14, 15, 19 (if/then + filename binding)
+4. 5600 recursion + registry reference/test-binding fixed, permanent tests ... relay vector 24; registry vectors 14, 15 (R6/R7/R8)
+5. roadmap placement / schema path / date convention / counts match reality .. F5 batch (measured: 25 tests, 22 tools, 38-vector cp)
+6. validator, unit suite, catalog self-test, relay, CAP, PASS, cp, strict, whitespace, CI pass at the new SHA ... sealed-tree proof + Commander's push

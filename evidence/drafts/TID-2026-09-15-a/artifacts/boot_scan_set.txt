@@ -1,0 +1,8 @@
+NON-BOOT SCAN SET — derived live at 5710 build (F1)
+====================================================
+source: BOOT_SEQUENCE.md (the mandatory boot manifest) — path tokens +
+wildcard-directory expansion + floor {BOOT_SEQUENCE.md, docs/.readme,
+cue/CUE_INDEX.md, README.md}. Scan hits (any boot-graph file referencing
+catalogs/model_research) are build failures via check 41.
+Language law: "scan", never "asserted", until the full transitive boot graph
+is provably covered.

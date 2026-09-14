@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0006",
+ "task_id": "TID-2026-09-15-a",
+ "plan_id": "PLAN-5710",
+ "step_id": "S5",
+ "operation": "render_docs",
+ "issued_at": "2026-09-15T00:46:00+08:00",
+ "base_revision": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "result": "succeeded",
+ "revision_after": "5817f8d18bbbf8cbb850347f93f0acaee8331b78",
+ "finished_at": "2026-09-15T00:56:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-15-a/artifacts/cap_record_build.json",
+   "sha256": "344272f4e5597b399ec5b166d4031659d7dabf0a66a79fe3afd0b3d72133a71f"
+  }
+ ]
+}

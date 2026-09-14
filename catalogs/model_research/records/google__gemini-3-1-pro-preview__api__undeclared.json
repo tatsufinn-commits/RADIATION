@@ -1,9 +1,7 @@
 {
- "schema_name": "radiation.model_research_record/0.1",
+ "schema_name": "radiation.model_research_record/0.2",
  "provider": "Google",
  "family": "Gemini",
- "exact_model_id": "gemini-3-1-pro-preview",
- "exact_id_verified": false,
  "surface": "api",
  "region": "undeclared",
  "status": "provisional",
@@ -21,9 +19,27 @@
  "retention_training_mode": "paid-API logs private to the project, default max 55-day retention (7/14/28/55 settings); abuse monitoring separately retains prompts/context/output up to 55 days; training only on explicitly contributed datasets [O logs-policy 2026-09-14]. 'Private to the project' is NOT 'not retained'.",
  "license_aup": "Google API Terms + AUP; Unpaid Services dataset-contribution terms apply to training [O]",
  "declarations": [
-  "[O, ai.google.dev/gemini-api/docs/models \u2014 retrieved 2026-09-14 via gate-review sweep]: stable line = 3.8/3.7/3.6/3.5 Flash; Gemini 3.1 Pro is PREVIEW \u2014 lifecycle status is part of the record",
-  "[O, ai.google.dev/gemini-api/docs/pricing \u2014 retrieved 2026-09-14]: per-id entries (values not captured)",
-  "[O, ai.google.dev/gemini-api/docs/logs-policy + abuse-monitoring docs \u2014 retrieved 2026-09-14]"
+  {
+   "tier": "O",
+   "source_id": "O6",
+   "url": "https://ai.google.dev/gemini-api/docs/models",
+   "retrieved_on": "2026-09-14",
+   "claim": "stable line = 3.8/3.7/3.6/3.5 Flash; Gemini 3.1 Pro is PREVIEW (lifecycle status part of the record)"
+  },
+  {
+   "tier": "O",
+   "source_id": "O7",
+   "url": "https://ai.google.dev/gemini-api/docs/pricing",
+   "retrieved_on": "2026-09-14",
+   "claim": "per-id pricing entries (values not captured)"
+  },
+  {
+   "tier": "O",
+   "source_id": "O8",
+   "url": "https://ai.google.dev/gemini-api/docs/logs-policy",
+   "retrieved_on": "2026-09-14",
+   "claim": "55-day default log retention; abuse monitoring up to 55 days; training only on contributed datasets"
+  }
  ],
  "safety_evidence": [],
  "independent_evidence": [],
@@ -38,5 +54,8 @@
  "documentation_completeness": "official pages declare lineup/lifecycle/pricing/retention; this record captured the framing + pointers",
  "confidence": "low",
  "aliases": [],
- "dated_ids": []
+ "dated_ids": [],
+ "exact_model_id": null,
+ "candidate_model_label": "gemini-3-1-pro-preview",
+ "exact_id_verified": false
 }

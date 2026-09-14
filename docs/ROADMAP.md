@@ -137,7 +137,9 @@ no inheritance machinery (the swarm draws, none inherits) · feed URL only ever 
 env/secret · every zip carries a shrine heartbeat · counts in files are lies unless
 the machine asserts them · live state is verified, never assumed.
 
+| **5700** | ✅ DELIVERED — Atlas (Candidate C design) | non-boot model-research catalog (schema executed, checker, 5 seed records) · harness DESIGN (9 dimensions, capture + redaction law) · deployment-matrix DESIGN · registry 22 · checks 42 · implementations = separate gated orders · v3.9.0 | 2026-09-14 |
+| **5710** | ✅ DELIVERED — Calibrate (Atlas review hardening) | F1 boot-graph-derived non-boot scan (.readme + transitive vectors) · F2 typed evidence + register binding, real dates, 90-day window · F3 exact/candidate identifier split + filename binding · F4 executor recursion ($defs/if/then) + registry reference/test binding + realpath containment · F5 doc-truth drift repaired · v3.9.1 | 2026-09-15 |
+
 ---
 *Regenerate this file every patch. Delete stale copies. The map is not the territory —
 the validator is.*
-| **5700** | ✅ DELIVERED — Atlas (Candidate C design) | non-boot model-research catalog (schema executed, checker, 5 seed records) · harness DESIGN (9 dimensions, capture + redaction law) · deployment-matrix DESIGN · registry 22 · checks 42 · implementations = separate gated orders · v3.9.0 | 2026-09-14 |

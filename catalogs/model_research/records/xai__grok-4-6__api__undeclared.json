@@ -1,9 +1,7 @@
 {
- "schema_name": "radiation.model_research_record/0.1",
+ "schema_name": "radiation.model_research_record/0.2",
  "provider": "xAI",
  "family": "Grok",
- "exact_model_id": "grok-4.6",
- "exact_id_verified": true,
  "surface": "api",
  "region": "undeclared",
  "status": "confirmed",
@@ -22,11 +20,23 @@
  "retention_training_mode": "API: no training on inputs/outputs without explicit permission [Official FAQ quote via secondary, aiprovidertrust.com verified 2026-08-25]; ~30-day encrypted abuse-audit retention [S]; enterprise ZDR sales-gated [S]",
  "license_aup": "xAI terms/AUP; enterprise terms sales-gated \u2014 open question",
  "declarations": [
-  "[O, docs.x.ai/developers/models \u2014 retrieved 2026-09-14 via gate-review sweep]: grok-4.6 \u2014 500K context, $2/$6 per MTok, configurable reasoning, tool features, cutoff Feb 1 2026; real-time data REQUIRES search tools; alias vs dated-ID behavior documented (aliases track latest, dated ids pin)"
+  {
+   "tier": "O",
+   "source_id": "O9",
+   "url": "https://docs.x.ai/developers/models",
+   "retrieved_on": "2026-09-14",
+   "claim": "grok-4.6: 500K context, $2/$6 per MTok, configurable reasoning, cutoff 2026-02-01; real-time data requires search tools; alias vs dated-ID behavior documented"
+  }
  ],
  "safety_evidence": [],
  "independent_evidence": [
-  "[S, benchlm.ai 2026-09-11]: $2/$6 corroborates the official page (HISTORY section of agents/Grok/CAPABILITY_PROFILE.md)"
+  {
+   "tier": "S",
+   "source_id": "S1",
+   "url": "https://benchlm.ai (via 2026-09-11 sweep row)",
+   "retrieved_on": "2026-09-11",
+   "claim": "$2/$6 corroborates the official page (secondary; HISTORY section of agents/Grok/CAPABILITY_PROFILE.md)"
+  }
  ],
  "local_observations": [],
  "known_gaps": [
@@ -39,5 +49,8 @@
  "documentation_completeness": "model page declares id/context/pricing/cutoff/alias policy; captured almost fully",
  "confidence": "medium",
  "aliases": [],
- "dated_ids": []
+ "dated_ids": [],
+ "exact_model_id": "grok-4.6",
+ "candidate_model_label": "grok-4.6",
+ "exact_id_verified": true
 }

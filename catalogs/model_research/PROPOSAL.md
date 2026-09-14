@@ -34,8 +34,9 @@ retrievals already verified in this repo (`catalogs/model_research/sources/SOURC
   this repo's history is the one it refuses to model.
 - **Checker** `scripts/model_research_check.py` — schema-executed + code-level
   rules (uniqueness on exact_model_id × surface × region, date sanity,
-  confirmed⇒verified id + official declaration, non-boot assertion), with its
-  own negative-vector self-test; wired into validate check 41 and the tool
+  confirmed⇒verified id + register-bound official declaration, real-date +
+  90-day-window discipline, typed evidence, filename binding, non-boot scan),
+  with its own negative-vector self-test (21 vectors); wired into validate check 41 and the tool
   registry (22 tools).
 
 ## 2 · What is designed but deliberately NOT built (the gates)
@@ -66,7 +67,7 @@ mentioned them.
 
 ## 3 · What this layer will never do
 - Grant a tool, effect, identity, privacy guarantee, or legal conclusion.
-- Enter boot context (check 41 enforces the boundary).
+- Enter boot context (check 41 scans the BOOT_SEQUENCE-derived graph; hits fail the build).
 - Replace `agents/<Provider>/BOOT.md` host/session handoff files.
 - Call any provider, ship an SDK, or host an endpoint (standing law).
 

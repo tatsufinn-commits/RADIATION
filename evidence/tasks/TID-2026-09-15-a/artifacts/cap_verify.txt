@@ -1,0 +1,12 @@
+✓ evidence/tasks/TID-2026-09-14-l/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-m/artifacts/cap_record_build.json ('blocked', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-n/artifacts/cap_record_build.json ('ready', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-o/artifacts/cap_record_build.json ('ready', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-p/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-q/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-r/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-s/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-t/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-14-u/artifacts/cap_record_build.json ('limited', sealed)
+  ✓ evidence/tasks/TID-2026-09-15-a/artifacts/cap_record_build.json ('limited', sealed)
+cap_verify --tree: 11/11 tracked records verify

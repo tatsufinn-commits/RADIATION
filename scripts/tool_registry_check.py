@@ -18,6 +18,16 @@ express cleanly. Those rules are CODE-LEVEL checks, stated as such:
        - credential_handling == "host_held"  => network == "declared"
   R5 cap_mapping        : every entry points at an existing cap record
                           (evidence/tasks/<TID>/artifacts/cap_record_build.json)
+  R6 schema refs        : non-null inputs_schema/outputs_schema must exist on
+                          disk (5710: dangling references were accepted)
+  R7 test binding       : test_command must reference the entrypoint — either
+                          the path itself or "-m <module>" for its module
+                          (5710: 'definitely-nonexistent --oops' passed)
+  R8 containment        : realpath(entrypoint) stays inside the repo root
+
+Binding language (5710): entries with NULL IO schema fields are
+METADATA-ONLY (descriptive), not schema-bound; entry/test-command/containment
+rules apply to every entry either way.
 
 Zero-write display truth is DERIVED, not stored: mutation_scope "none" means
 the tool writes nothing. The registry is local and non-authorizing: an entry
@@ -92,6 +102,25 @@ def code_level_findings(reg, root=ROOT):
             bad.append(f"{t.get('id')}: network none but network effect declared")
         if t.get("credential_handling") == "host_held" and t.get("network") != "declared":
             bad.append(f"{t.get('id')}: host_held credentials without a declared network")
+        # R6 schema references must exist when declared (5710)
+        for field in ("inputs_schema", "outputs_schema"):
+            ref = t.get(field)
+            if ref is not None and not os.path.isfile(os.path.join(root, ref)):
+                bad.append(f"{t.get('id')}: {field} points at a missing file: {ref!r}")
+        # R7 test_command must bind to the entrypoint (5710)
+        cmd = str(t.get("test_command", ""))
+        toks = cmd.split()
+        bound = ep in cmd
+        if not bound and "-m" in toks:
+            mod = os.path.normpath(ep)[:-3].replace(os.sep, ".")
+            bound = mod in toks
+        if not bound:
+            bad.append(f"{t.get('id')}: test_command does not reference the "
+                       f"entrypoint ({ep!r} absent from {cmd!r})")
+        # R8 realpath containment (5710)
+        real = os.path.realpath(os.path.join(root, ep))
+        if not real.startswith(os.path.realpath(root) + os.sep):
+            bad.append(f"{t.get('id')}: entrypoint escapes the repo root by realpath")
     return bad
 
 
@@ -118,7 +147,7 @@ def _mutate(base, fn):
 
 def self_test():
     ok = 0
-    total = 13  # vector 1 (clean) + 12 negative cases
+    total = 15  # vector 1 (clean) + 14 negative cases
     reg = json.load(open(os.path.join(ROOT, REG), encoding="utf-8"))
 
     def rejects(mut, label):
@@ -161,6 +190,8 @@ def self_test():
         m["tools"][2]["approval"] = "commander_motor_act"
         m["tools"][2]["effects"] = ["read"]
     def coverage_hole(m): m["tools"] = [t for t in m["tools"] if t["id"] != "validate"]
+    def dangling_ref(m): m["tools"][0]["inputs_schema"] = "schemas/no-such-file.json"
+    def unbound_test(m): m["tools"][0]["test_command"] = "definitely-nonexistent --oops"
 
     cases = [
         ("unknown top-level property", unknown_top, "unknown property"),
@@ -175,6 +206,8 @@ def self_test():
         ("duplicate ids", dup_id, "duplicate tool id"),
         ("read-only canonical action", contradiction, "contradiction"),
         ("coverage hole", coverage_hole, "not registered"),
+        ("dangling schema reference", dangling_ref, "missing file"),
+        ("test_command unbound to entrypoint", unbound_test, "does not reference"),
     ]
     for i, (label, fn, needle) in enumerate(cases, start=2):
         f = run_mutant(_mutate(reg, fn))

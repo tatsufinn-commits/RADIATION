@@ -235,7 +235,7 @@ python3 -m radiation_core.control_plane resolve --effect read --source session_i
 python3 -m radiation_core.control_plane decide  --task TID --effect workspace_draft --source commander_order
 python3 -m radiation_core.control_plane execute --task TID --manifest M.json
 python3 -m radiation_core.control_plane verify                       # receipts chain
-python3 -m radiation_core.control_plane --self-test                  # 11 vectors (check 37)
+python3 -m radiation_core.control_plane --self-test                  # 38 vectors (check 37)
 ```
 Operated, cooperative tooling (not a runtime): two-key resolver, schema-executed
 allowlist, structural approval boundary, drafts-bounded executor with strict task
@@ -287,7 +287,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `ics_normalize.py` | the ONE iCalendar parser for RADIATION (RFC 5545 subset). | yes | yes | yes |
 | `ingest_collection.py` | RADIATION collection ingestion harness (P-10 Phase 2). | yes | yes | no |
 | `knowledge_regression.py` | RADIATION knowledge-regression suite — P-01 §3. | no | no | yes |
-| `model_research_check.py` | model_research_check — ONE entry point for the Candidate C catalog contract (5700). | no | no | no |
+| `model_research_check.py` | model_research_check — ONE entry point for the Candidate C catalog contract. | yes | no | no |
 | `module_scaffold.py` | born-valid study modules (patch 3000). | yes | no | yes |
 | `nota.py` | the Core card tool (patch 3000; canonical contract per 4400). | yes | no | yes |
 | `plan_term.py` | RADIATION term planner (P-10 Phase 1-3). | no | no | no |
@@ -308,7 +308,7 @@ Stated plainly so a session does not assume capability it lacks:
 | Executed schemas | relay `_validate_against`: oneOf · maxItems · bool≠integer | the `task_id` exploit class fails closed; plan selection numeric |
 | Per-provider profile truth | radiation_pass (check 38) | Arena profile binds ONLY to Arena_AI; table-driven fixtures ×5 + ambiguous |
 | CI truth | workflow `shell: bash` (-eo pipefail) + failure diagnostics step | `tee` cannot mask a red strict report; public log-tail on failure |
-| Test harness + tool registry | `tests/` (14 tests) + `tools/TOOL_REGISTRY.json` (check 39) | zero-test discovery = explicit failure; registry schema-EXECUTED, coverage-complete |
+| Test harness + tool registry | `tests/` (25 tests) + `tools/TOOL_REGISTRY.json` (check 39) | zero-test discovery = explicit failure; registry schema-EXECUTED + reference/test-bound, coverage-complete |
 
 ## §19 — Survey layer (5400, architect brief E6)
 
@@ -336,11 +336,11 @@ Stated plainly so a session does not assume capability it lacks:
 <!-- GENERATED:ci-enforcement:END -->
 
 ## §21 — Closure contracts (5600)
-- **Tool registry** (`tools/TOOL_REGISTRY.json`, schema /2, 21 tools): entry, IO schema refs, effects, mutation_scope (`none|temporary|ignored_local|evidence_draft|tracked_derived|canonical_none`), approval (`none|commander_order_assertion|commander_motor_act`), data classes, network, credentials, idempotency, timeout, cap mapping, test command, observability. ONE checker entry point: `scripts/tool_registry_check.py` — schema-EXECUTED plus code-level contradiction/containment/coverage rules, 13-vector negative self-test, executed by validate check 39. A registry entry grants nothing (no MCP, no endpoint, no runtime).
+- **Tool registry** (`tools/TOOL_REGISTRY.json`, schema /2, 22 tools): entry, IO schema refs, effects, mutation_scope (`none|temporary|ignored_local|evidence_draft|tracked_derived|canonical_none`), approval (`none|commander_order_assertion|commander_motor_act`), data classes, network, credentials, idempotency, timeout, cap mapping, test command, observability. ONE checker entry point: `scripts/tool_registry_check.py` — schema-EXECUTED plus code-level contradiction/containment/coverage/reference-existence/test-binding/realpath rules, 15-vector negative self-test, executed by validate check 39. Null-IO entries are metadata-only (not schema-bound); binding rules apply regardless. A registry entry grants nothing (no MCP, no endpoint, no runtime).
 - **Schema honesty** (check 40): every shipped schema uses only keywords the ONE executor executes (plus documented annotations; `format` is annotation-only per 2020-12); the executor applies constraints by INSTANCE type — typeless subschemas were vacuous before 5600 and are law now.
 - **Evaluation gate (Candidate C — research design only, GATED)**: no "strong/strongest" wording becomes a routing decision rule without a named RADIATION local evaluation and a declared confidence level. The future harness must capture exact model id, provider, host/surface, region, effort, enabled-tool allowlist, prompt/contract/fixture revisions + digests, date, harness version, evaluator/rubric, metrics, retries, limitations — and never upload private corpus text or credentials to obtain a result.
 
 ## §22 — Model-research catalog (5700, Candidate C design)
-- **Layer** (`catalogs/model_research/`, NON-BOOT — check 41 asserts no boot-tier reference): one record per EXACT model × surface × region; schema `radiation.model_research_record/0.1` (central `schemas/`, executed); checker `scripts/model_research_check.py` (uniqueness, date sanity, confirmed⇒verified id + official declaration, non-boot, sources register; 10-vector self-test). Records grant nothing.
+- **Layer** (`catalogs/model_research/`, NON-BOOT — check 41 runs a non-boot scan over the BOOT_SEQUENCE-derived graph incl. docs/.readme + transitive passive specs): one record per EXACT model × surface × region; schema `radiation.model_research_record/0.2` (central `schemas/`, executed; typed evidence objects, exact/candidate identifier split, filename binding); typed source register (`catalogs/model_research/sources/REGISTER.json`, executed); checker `scripts/model_research_check.py` (uniqueness, real-calendar dates + 90-day review window, confirmed⇒verified id + register-bound official declaration at the record's retrieval date, non-boot scan, register discipline; 21-vector self-test). Records grant nothing.
 - **Evaluation gate (unchanged, §21):** "strong/strongest" becomes a decision rule only via a named RADIATION local evaluation with declared confidence — the harness DESIGN (`catalogs/model_research/evals/HARNESS_DESIGN.md`) specifies dimensions, capture blocks, and redaction law; implementation is its own gated order.
 - **Deployment matrix:** structure only (`catalogs/model_research/decision_matrices/DEPLOYMENT_MATRIX_DESIGN.md`); one deployment per order; questions stay questions.
