@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v3.0.0
+**Last updated:** 2026-09-15 · **Version:** v3.1.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,11 +49,12 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.0.0** — sealwright (patch 4700): the canonical bundle IS the
-record and every neuron is a rendered projection of it (file==render, 12 CI
-vectors); a failed seal fails loudly; the planner block speaks only in
-plan_term's voice. Prior: 4600 binding · 4500 last mile · 4400 reconciliation ·
-4300 compression law · 4200 the Commander's expansion
+**RADIATION v3.1.0** — attest (patch 4800): capability records are evidence
+objects with a seal that breaks on hand-edit; cap_verify checks them in CI
+(verification only — the runtime control plane stays STAGED, Product-2), and
+APPLY proves the whole payload verbosely before it seals. Prior: 4700
+sealwright · 4600 binding · 4500 last mile · 4400 reconciliation · 4300
+compression law · 4200 the Commander's expansion
 (@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED here.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
@@ -101,5 +102,5 @@ in `docs/shrine/members/` first (CHARTER §3). Standing orders:
 `docs/COMMANDER_QUICKREF.md` §5. Await the Commander.
 
 <!-- GENERATED:machine-facts:START -->
-**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 34 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 14 (8 exercised in CI)
+**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 35 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 15 (8 exercised in CI)
 <!-- GENERATED:machine-facts:END -->

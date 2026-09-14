@@ -39,7 +39,7 @@ make research rigorous, verified, and reusable — with zero hallucination.
 **Identity (4700, adopted from the research team's assessment):** RADIATION is a
 *validated LLM workflow scaffold with durable records and human/LLM-operated
 protocols* — not an autonomous multi-agent runtime. Cues, skills, passives and
-neurons shape an operator LLM's behavior; they are not executable components.
+neurons shape an operator LLM's behavior; they are not executable components. **CAP boundary (4800):** `cap_verify` verifies capability records — it never grants effect authority; the runtime control plane stays STAGED (Product-2).
 
 ## 3. READ ORDER (full specification: BOOT_SEQUENCE.md)
 TIER 0 (always): this file → docs/SYSTEM_STATE.md → last 3 task_ledger entries

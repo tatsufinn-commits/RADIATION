@@ -14,5 +14,6 @@ Promotions logged in the row. Draw order: the **bank** (`docs/OPEN_SOURCES.md` �
 | Git forensics (what really happened) | `git log --graph`, `git ls-files`, `git rm --cached` | the resurrection-loop hunt; untrack fix ships in 3600 | [I] | 3400/3600 |
 | Machine state / apply audit | our `scripts/status.py` · `scripts/verify_apply.py` | built in-repo | [I] | 3300/3400 |
 | Structural enforcement pattern | our `scripts/validate.py` (30+ checks, REMEDY lines) | the model: name the mechanism or admit the boundary is aspiration | [I] | 2600–3400 |
+| CAP record verification (declared/observed/verified, sealed digests) | our `scripts/cap_verify.py` + `schemas/cap_record.schema.json` (check 35) | external PoC proven first (6/6 · 5/5), then admitted — research memo Phase C gate | [I] | 4800 |
 
 *(Append rows with date + session. A row without a grade is invalid — I.2.)*

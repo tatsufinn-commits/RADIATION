@@ -1,0 +1,83 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "CAP capability-activation record (radiation.cap/0.1)",
+ "description": "Evidence object for a capability-activation session: declared intent, runtime-observed facts, deterministic verification. 4800 Attest. cap_verify VERIFIES records; runtime authority stays STAGED (Product-2).",
+ "type": "object",
+ "required": ["schema_name", "task_id", "declared", "observed", "verified", "status", "blockers", "events"],
+ "properties": {
+  "schema_name": {"const": "radiation.cap/0.1"},
+  "task_id": {"type": "string", "minLength": 1},
+  "declared": {
+   "type": "object",
+   "required": ["host_label", "adapter_path", "requested_effect", "model_identity"],
+   "properties": {
+    "host_label": {"type": "string", "minLength": 1},
+    "adapter_path": {"type": "string", "minLength": 1},
+    "requested_effect": {"enum": ["read", "workspace_draft", "canonical_apply"]},
+    "model_identity": {"const": null}
+   }
+  },
+  "observed": {
+   "type": "object",
+   "required": ["repository", "tools", "allowed_effects", "probes"],
+   "properties": {
+    "repository": {
+     "type": "object",
+     "properties": {
+      "path": {"type": "string"},
+      "git_head": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+      "dirty": {"type": "boolean"},
+      "status": {"enum": ["mounted", "not_mounted", "not_a_git_worktree", "unknown"]}
+     }
+    },
+    "tools": {"type": "array", "items": {"type": "string"}},
+    "allowed_effects": {"type": "array", "items": {"type": "string"}},
+    "probes": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": ["command", "exit_code"],
+      "properties": {
+       "command": {"type": "array", "items": {"type": "string"}},
+       "exit_code": {"type": "integer"},
+       "stdout_head": {"type": "string"}
+      }
+     }
+    }
+   }
+  },
+  "verified": {
+   "type": "object",
+   "required": ["policy_paths_loaded", "checks", "artifact_digest"],
+   "properties": {
+    "policy_paths_loaded": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+       "path": {"type": "string", "minLength": 1},
+       "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+     }
+    },
+    "checks": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": ["name", "exit_code"],
+      "properties": {
+       "name": {"type": "string", "minLength": 1},
+       "exit_code": {"type": "integer", "minimum": 0},
+       "detail": {"type": "string"}
+      }
+     }
+    },
+    "artifact_digest": {"type": "string", "pattern": "^(sha256:[0-9a-f]{64})?$"}
+   }
+  },
+  "status": {"enum": ["new", "limited", "ready", "blocked", "verified"]},
+  "blockers": {"type": "array", "items": {"type": "string"}},
+  "events": {"type": "array", "items": {"type": "object"}}
+ }
+}

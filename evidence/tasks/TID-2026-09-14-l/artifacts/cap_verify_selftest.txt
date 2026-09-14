@@ -1,0 +1,7 @@
+PASS honest blocked record passes (unmounted root)
+  PASS verified-without-mount caught as fabricated
+  PASS honest blocked record passes
+  PASS tampered record caught (head/verifier/seal)
+  PASS identity claim caught
+cap_verify self-test: 5/5 vectors
+boundary: cap_verify VERIFIES records; runtime authority stays STAGED (Product-2)

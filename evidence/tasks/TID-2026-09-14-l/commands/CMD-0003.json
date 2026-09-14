@@ -1,0 +1,10 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0003",
+ "task_id": "TID-2026-09-14-l",
+ "plan_id": "PLAN-4800",
+ "step_id": "S3",
+ "operation": "run_validator",
+ "issued_at": "2026-09-15T00:21:00+08:00",
+ "base_revision": "aad62e6d2182d297a70898425f36ff7be852b406"
+}

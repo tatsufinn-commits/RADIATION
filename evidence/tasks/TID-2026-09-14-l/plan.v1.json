@@ -1,0 +1,34 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-4800",
+ "task_id": "TID-2026-09-14-l",
+ "base_revision": "aad62e6d2182d297a70898425f36ff7be852b406",
+ "policy": "Phase C-1 verification-only; control plane untouched (Product-2)",
+ "steps": [
+  {
+   "step_id": "S1",
+   "operation_class": "cap-authority",
+   "success_predicate": "cap_verify --self-test exit==0"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "core-gate",
+   "success_predicate": "nota --check exit==0"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "structural",
+   "success_predicate": "status --strict exit==0 on clean tree"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "generated-truth",
+   "success_predicate": "render --check exit==0"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "regression",
+   "success_predicate": "relay self-test 12/12 exit==0"
+  }
+ ]
+}

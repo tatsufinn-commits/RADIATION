@@ -1,0 +1,68 @@
+{
+ "schema_name": "radiation.cap/0.1",
+ "task_id": "TID-2026-09-14-l",
+ "declared": {
+  "host_label": "Arena Agent Mode",
+  "adapter_path": "cap_poc (external) -> scripts/cap_verify.py",
+  "requested_effect": "workspace_draft",
+  "model_identity": null
+ },
+ "observed": {
+  "repository": {
+   "path": "/home/user/patch_build22",
+   "status": "not_mounted"
+  },
+  "tools": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "allowed_effects": [],
+  "probes": []
+ },
+ "verified": {
+  "policy_paths_loaded": [
+   {
+    "path": "docs/.readme",
+    "sha256": "sha256:a19af7f85d20dc83972cd2f03864a1fa2d4c86c1a2b987c39f61dc1235460c54"
+   },
+   {
+    "path": "docs/AI_RULES.md",
+    "sha256": "sha256:3a3929e24baf9a095cb4a6ddf4ecfaa19400dc7f3a0e1d69a654d40d5609e8a5"
+   }
+  ],
+  "checks": [
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "12/12 vectors"
+   },
+   {
+    "name": "nota-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "render-docs-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11 locked / 0 failed"
+   }
+  ],
+  "artifact_digest": "sha256:4ec41d7d2797ae69177a3d6a434fab44f959cc53c650a2c8cc32e3a0e666014b"
+ },
+ "status": "limited",
+ "blockers": [
+  "effect_denied_by_tool_absence"
+ ],
+ "events": [
+  {
+   "state": "authorize",
+   "result": "denied",
+   "reason": "two-key: policy grants workspace_draft (Commander order 4800); CAP surface exposes no draft tool \u2014 host tools executed this build OUTSIDE the CAP surface, recorded honestly"
+  }
+ ]
+}

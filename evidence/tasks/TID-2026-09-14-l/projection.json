@@ -1,0 +1,7 @@
+{
+ "task_id": "TID-2026-09-14-l",
+ "state": "COMPLETE",
+ "plan_id": "PLAN-4800",
+ "commands": 5,
+ "note": "Canonical bundle #5 (4800). Ships the first dogfooded CAP record; neurons born-rendered."
+}

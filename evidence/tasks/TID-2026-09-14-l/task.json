@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-l",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: 'proceed to build 4800!'",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-15T00:20:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "aad62e6d2182d297a70898425f36ff7be852b406",
+ "idempotency_key": "4800-attest-superset",
+ "operator_notes": {
+  "intake": "Order: \"proceed to build 4800!\" (build plan Track A, Phase C-1 as scoped, riders IN). Links: GitHub-ecosystem research memo (Phase C), CAP PoC (6/6 \u00b7 5/5), 4700, II.10.6. Mode: build (@Autopilot).",
+  "reasoning": "4800 Attest: schemas/cap_record.schema.json EXECUTED via relay's ONE schema executor (no second implementation \u2014 4700 lesson); scripts/cap_verify.py (structure \u00b7 identity null \u00b7 vocabularies \u00b7 seal digest \u00b7 verifier registry \u00b7 honest blocked/verified \u00b7 live fidelity) with self-test 5/5 unmounted + 4/4 mounted; validate.py check 35 runs it in CI. Riders: payload-completeness probe (APPLY runs every shipped tool's self-test VERBOSE \u2014 also killed the stale 'want 11/11' silent-gate straggler) and opinions.md restored from caa754b (4200 had markdown-mangled it). Boundary printed in tool/docstrings/CI label: cap_verify VERIFIES; authority stays STAGED (Product-2).",
+  "orders": "PLAN-4800, 5 steps verified green. Delivery: RADIATION_PATCH_2026-09-14_4800_Attest.zip (superset 4200\u20134700, v3.1.0). Push: the Commander's, always."
+ }
+}

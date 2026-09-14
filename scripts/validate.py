@@ -819,8 +819,32 @@ def c26shrine():
         "shrine heartbeat current — II.9 MANDATE: every conversation files one" if ok
         else "shrine lags: " + "; ".join(lag) + " · REMEDY: append today's heartbeat row to docs/shrine/LOG.md (II.9)")
 
+# ---- check 35: CAP records (4800 Attest) ------------------------------------
+def c35cap():
+    import subprocess
+    problems = []
+    if not os.path.exists(os.path.join(ROOT, "schemas", "cap_record.schema.json")):
+        problems.append("schemas/cap_record.schema.json missing")
+    else:
+        try:
+            json.load(open(os.path.join(ROOT, "schemas", "cap_record.schema.json"),
+                           encoding="utf-8"))
+        except Exception as e:
+            problems.append(f"schema unparsable: {e}")
+    r = subprocess.run([sys.executable, os.path.join("scripts", "cap_verify.py"),
+                        "--self-test"], cwd=ROOT, capture_output=True, text=True,
+                       timeout=300)
+    if r.returncode != 0:
+        tail = (r.stdout + r.stderr).strip().splitlines()
+        problems.append("cap_verify --self-test failed: " + (tail[-1] if tail else "rc!=0"))
+    rec(35, "FAIL", not problems,
+        "CAP records verify (schema EXECUTED · seal digest · verifier registry · "
+        "identity null · honest blocked/verified) — verifies records ONLY; runtime "
+        "authority stays STAGED (Product-2)" +
+        ("" if not problems else ": " + "; ".join(problems[:4])))
+
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
-          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21)
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap)
 
 def run_all():
     """Structured entry point (4400): returns the findings list. Import-safe —

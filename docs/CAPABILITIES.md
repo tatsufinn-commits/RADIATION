@@ -199,6 +199,20 @@ vehicles still in Brain/, committed transport (runners/PATCH_NOTES), shrine-lag
 its result lands in the job summary. Enforcement mode is GENERATED below (4600):
 the workflow file is the single source of gate semantics — prose no longer states it.
 
+### 14. `cap_verify.py` — CAP record verifier (4800 Attest) · verification-only
+```
+python3 scripts/cap_verify.py RECORD.json [--repo ROOT]   # exit 0 iff 0 findings
+python3 scripts/cap_verify.py --self-test                 # negative vectors, CI (check 35)
+```
+Verifies `radiation.cap/0.1` capability-activation records: schema EXECUTED with the
+same executor as every contract schema, `model_identity` must stay null, seal digest
+recomputed (hand-edits break the seal), verifier names checked against RADIATION's own
+CLI registry, honest `blocked` accepted, "verified" only with green checks + live
+observation. **BOUNDARY: cap_verify VERIFIES records — it does NOT enforce runtime
+authority.** The typed resolver, capability allowlist, approval boundary and isolated
+executor remain STAGED (Product-2). Provenance: external PoC (`6/6` acceptance vectors,
+`5/5` discrimination) before a single line entered the tree.
+
 ## WHAT IS NOT HERE YET
 
 Stated plainly so a session does not assume capability it lacks:
@@ -224,6 +238,7 @@ Stated plainly so a session does not assume capability it lacks:
 
 | Script | Purpose | Writes | Network | In CI |
 |---|---|---|---|---|
+| `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
 | `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |
