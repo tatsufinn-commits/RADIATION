@@ -102,6 +102,7 @@ meta-budget WARNs stay honestly lit until then. Zero build items behind them.
 | **4700** | ✅ DELIVERED — Sealwright (4600 recheck remediated) | bundle=record/neurons=render (file==render, vector 12) · seal exit-codes REQUIRED · planner block parsed from plan_term · identity sentence adopted · v3.0.0 | 2026-09-14 |
 | **4800** | ✅ DELIVERED — Attest (research Phase C-1, verification-only) | cap_record schema EXECUTED + cap_verify (check 35 CI) · payload-completeness probe · opinions.md restored from caa754b · TID-l + first dogfooded CAP record · v3.1.0 | 2026-09-15 |
 | **4900** | ✅ DELIVERED — Probe (research Phase C-2 + C-4) | cap_probe (2 tools · empty effects · containment · allowlist) · host posture profile (declarative-only) · C-4 redaction EXECUTED in cap_verify · check 36 CI · v3.2.0 | 2026-09-14 |
+| **5000** | ✅ DELIVERED — FIVE THOUSAND (II.11 control plane, ratified) | two-key resolver · structural approval boundary · drafts-bounded executor · immutable receipt chain (genesis = the ratification) · check 37 CI · v3.3.0 | 2026-09-14 |
 | **3500+** | reserved — candidates from the 3400 audit | pending-item attribution UX · plan_term snapshot · APPLY self-removal (runners die at end of run) · payload-completeness probe (APPLY runs every shipped tool's self-test) · meta-budget rebalance (check 16 is OVER — needs a Commander doctrine call) · drill-fixtures disposition ("no drills" ruling vs nota/export_anki fixtures) | his pick |
 
 

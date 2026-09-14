@@ -16,5 +16,6 @@ Promotions logged in the row. Draw order: the **bank** (`docs/OPEN_SOURCES.md` �
 | Structural enforcement pattern | our `scripts/validate.py` (30+ checks, REMEDY lines) | the model: name the mechanism or admit the boundary is aspiration | [I] | 2600–3400 |
 | CAP record verification (declared/observed/verified, sealed digests) | our `scripts/cap_verify.py` + `schemas/cap_record.schema.json` (check 35) | external PoC proven first (6/6 · 5/5), then admitted — research memo Phase C gate | [I] | 4800 |
 | Read-only capability probe + host posture profiles | our `scripts/cap_probe.py` + `schemas/host_profile.schema.json` (check 36) | Phase C-2: declare posture, observe reality, never conflate; C-4 redaction policy executed | [I] | 4900 |
+| Control plane (two-key resolver · bounded executor · chained receipts) | our `radiation_core/control_plane.py` + allowlist-as-data (check 37) | the research memo's full architecture: declaration→observation→enforcement→receipt, landed only by explicit ratification | [I] | 5000 |
 
 *(Append rows with date + session. A row without a grade is invalid — I.2.)*

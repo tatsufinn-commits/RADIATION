@@ -209,8 +209,8 @@ same executor as every contract schema, `model_identity` must stay null, seal di
 recomputed (hand-edits break the seal), verifier names checked against RADIATION's own
 CLI registry, honest `blocked` accepted, "verified" only with green checks + live
 observation, and the C-4 redaction classes (docs/CAP_RECORD_POLICY.md) executed over
-every string value. **BOUNDARY: cap_verify VERIFIES records — it does NOT enforce
-runtime authority.** The typed resolver, capability allowlist, approval boundary and isolated
+every string value. **BOUNDARY: cap_verify VERIFIES records; since 5000 authority
+flows only through the ratified control plane (II.11).** The typed resolver, capability allowlist, approval boundary and isolated
 executor remain STAGED (Product-2). Provenance: external PoC (`6/6` acceptance vectors,
 `5/5` discrimination) before a single line entered the tree.
 
@@ -226,9 +226,22 @@ allowlisted commands only, symlink-safe path containment. Executes host posture
 profiles (`radiation.host/0.1`, `scaffolding/hosts/arena_agent_mode.json`) — a profile
 DECLARES posture; the probe OBSERVES reality; declaration is never treated as
 observation (A2A lesson). Unavailability is first-class: `not_mounted` and
-`not_a_git_worktree` are results, not errors. **BOUNDARY: cap_probe OBSERVES — it
-never grants authority.** The resolver/allowlist/approval boundary/executor remain
-STAGED (Product-2).
+`not_a_git_worktree` are results, not errors. **BOUNDARY: cap_probe OBSERVES; since
+5000 authority flows only through the ratified control plane (II.11).**
+
+### 16. `radiation_core.control_plane` — the ratified control plane (5000, II.11)
+```
+python3 -m radiation_core.control_plane resolve --effect read --source session_initiative
+python3 -m radiation_core.control_plane decide  --task TID --effect workspace_draft --source commander_order
+python3 -m radiation_core.control_plane execute --task TID --manifest M.json
+python3 -m radiation_core.control_plane verify                       # receipts chain
+python3 -m radiation_core.control_plane --self-test                  # 11 vectors (check 37)
+```
+Operated tooling, not a runtime: two-key resolver (policy key + tool key), capability
+allowlist as schema-executed data, approval boundary structural (`canonical_apply`
+binds NO tool at any source level), draft executor bounded to
+`evidence/drafts/<task_id>/` refusing to act without a chained decision receipt, and
+an append-only hash-chained receipt ledger. Full law: `docs/CONTROL_PLANE.md`.
 
 ## WHAT IS NOT HERE YET
 

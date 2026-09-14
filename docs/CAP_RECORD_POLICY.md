@@ -46,6 +46,8 @@ executes structure. Prose never enforces alone.
   re-render/re-probe, never hand-edit.
 
 ## Boundary
-`cap_verify` VERIFIES records and `cap_probe` OBSERVES surfaces. Neither
-GRANTS authority. The typed cue/mode resolver, capability allowlist, approval
-boundary and isolated executor remain STAGED (Product-2 ratification).
+`cap_verify` VERIFIES records and `cap_probe` OBSERVES surfaces. Since the
+Commander's Product-2 ratification (5000, II.11), effect authority flows ONLY
+through `radiation_core.control_plane` — the two-key resolver, the drafts-root-
+bounded executor, and the hash-chained receipts. `canonical_apply` remains the
+Commander's motor act, outside every runtime path.

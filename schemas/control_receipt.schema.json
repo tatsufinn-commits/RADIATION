@@ -1,0 +1,50 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Control-plane receipt (radiation.control.receipt/1) \u2014 immutable chain entry",
+ "type": "object",
+ "required": [
+  "schema_name",
+  "seq",
+  "type",
+  "task_id",
+  "recorded_at",
+  "payload",
+  "prev",
+  "digest"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.control.receipt/1"
+  },
+  "seq": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "type": {
+   "enum": [
+    "genesis",
+    "decision",
+    "execution",
+    "verification"
+   ]
+  },
+  "task_id": {
+   "type": "string"
+  },
+  "recorded_at": {
+   "type": "string",
+   "minLength": 1
+  },
+  "payload": {
+   "type": "object"
+  },
+  "prev": {
+   "type": "string",
+   "pattern": "^sha256:[0-9a-f]{64}$"
+  },
+  "digest": {
+   "type": "string",
+   "pattern": "^sha256:[0-9a-f]{64}$"
+  }
+ }
+}

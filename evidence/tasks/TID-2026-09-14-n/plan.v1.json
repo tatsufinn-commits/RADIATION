@@ -1,0 +1,34 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-5000",
+ "task_id": "TID-2026-09-14-n",
+ "base_revision": "f770eb9545bd69ea60fef41981cd406f4fd367c6",
+ "policy": "II.11 ratified; executor bounded to drafts root; canonical effects stay Commander motor acts",
+ "steps": [
+  {
+   "step_id": "S1",
+   "operation_class": "control-plane",
+   "success_predicate": "control_plane --self-test exit==0"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "core-gate",
+   "success_predicate": "nota --check exit==0"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "structural",
+   "success_predicate": "status --strict exit==0 on clean tree"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "generated-truth",
+   "success_predicate": "render --check exit==0"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "regression",
+   "success_predicate": "relay self-test 12/12 exit==0"
+  }
+ ]
+}

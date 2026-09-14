@@ -1,0 +1,1 @@
+receipts chain intact: 3 entries, hash-linked

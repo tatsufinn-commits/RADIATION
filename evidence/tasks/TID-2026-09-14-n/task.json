@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-n",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: 'proceed to 5000!' + Product-2 ratification",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T17:20:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "f770eb9545bd69ea60fef41981cd406f4fd367c6",
+ "idempotency_key": "5000-fivethousand-superset",
+ "operator_notes": {
+  "intake": "Order: \"proceed to 5000!\"; asked which 5000 (Product-2 package / consolidation / consolidation+draft), THE COMMANDER selected \"Product-2 package\" \u2014 the explicit F4/Product-2 ratification. Links: 4400+ staging lineage, research memo Phase C, CAP PoC, 4800, 4900, II.10.6. Mode: build (@Autopilot).",
+  "reasoning": "5000 Five Thousand: II.11 landed. radiation_core/control_plane.py: two-key resolver (pure), allowlist as schema-executed data (canonical.tool const null \u2014 the approval boundary is structural), drafts-bounded executor refusing to act without a chained authorized decision, immutable hash-chained receipts (genesis entry 0 = the ratification itself). check 37 CI (11 vectors: tamper \u00b7 containment \u00b7 no-decision \u00b7 allowlist mutation). Boundary wording updated tree-wide: authority flows only through II.11; canonical_apply/push stay the Commander's motor acts. Boot budget 192 B over cap \u2014 WARN-class, P-09 + check-16 doctrine pending, reported not hidden. Dialect lesson struck twice more (prev-pattern; payload-key) \u2014 always re-verify after schema wiring.",
+  "orders": "PLAN-5000, 5 steps verified green; the plane itself executed this bundle's draft, receipted. Delivery: RADIATION_PATCH_2026-09-14_5000_FiveThousand.zip (superset 4200\u20134900, v3.3.0). Push: the Commander's, always."
+ }
+}

@@ -1,0 +1,98 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Control-plane capability allowlist (radiation.control.allowlist/1)",
+ "description": "5000: policy-as-data for the two-key law. canonical_apply can NEVER carry a tool (const null) \u2014 the approval boundary is structural, not prose. Executed by radiation_core.control_plane (check 37).",
+ "type": "object",
+ "required": [
+  "schema_name",
+  "operations",
+  "notes"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.control.allowlist/1"
+  },
+  "operations": {
+   "type": "object",
+   "required": [
+    "observe",
+    "draft",
+    "canonical"
+   ],
+   "properties": {
+    "observe": {
+     "type": "object",
+     "required": [
+      "effect",
+      "tool",
+      "min_source"
+     ],
+     "properties": {
+      "effect": {
+       "const": "read"
+      },
+      "tool": {
+       "const": "cap_probe"
+      },
+      "min_source": {
+       "enum": [
+        "session_initiative",
+        "standing_policy",
+        "commander_order"
+       ]
+      }
+     }
+    },
+    "draft": {
+     "type": "object",
+     "required": [
+      "effect",
+      "tool",
+      "min_source"
+     ],
+     "properties": {
+      "effect": {
+       "const": "workspace_draft"
+      },
+      "tool": {
+       "const": "draft_executor"
+      },
+      "min_source": {
+       "enum": [
+        "standing_policy",
+        "commander_order"
+       ]
+      }
+     }
+    },
+    "canonical": {
+     "type": "object",
+     "required": [
+      "effect",
+      "tool",
+      "min_source",
+      "commander_motor_act"
+     ],
+     "properties": {
+      "effect": {
+       "const": "canonical_apply"
+      },
+      "tool": {
+       "const": null
+      },
+      "min_source": {
+       "const": "commander_order"
+      },
+      "commander_motor_act": {
+       "const": true
+      }
+     }
+    }
+   }
+  },
+  "notes": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}

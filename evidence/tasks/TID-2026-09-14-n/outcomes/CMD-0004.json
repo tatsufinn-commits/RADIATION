@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0004",
+ "task_id": "TID-2026-09-14-n",
+ "result": "succeeded",
+ "revision_after": "f770eb9545bd69ea60fef41981cd406f4fd367c6",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-n/artifacts/render_check.txt",
+   "sha256": "1fadceac7704f1284daebec43c2546853b8d6bc05d61ae45413c945e9f0f7d6f"
+  }
+ ]
+}

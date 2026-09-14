@@ -1,0 +1,13 @@
+PASS allowlist loads + schema-executes
+  PASS read authorized for any source (tool: cap_probe)
+  PASS draft authorized for commander order (tool: draft_executor)
+  PASS draft refused on session initiative alone (policy key)
+  PASS canonical_apply -> commander_motor_act, NO tool bound
+  PASS no execution without a chained decision receipt
+  PASS execution after decision: bounded write + chained receipt
+  PASS containment: drafts-root escape refused
+  PASS receipt chain verifies intact
+  PASS chain tamper caught
+  PASS tampered allowlist caught (canonical tool must stay null)
+control_plane self-test: 11/11 vectors
+boundary: OPERATED tooling (II.11) — it never schedules itself; canonical_apply stays the Commander's motor act

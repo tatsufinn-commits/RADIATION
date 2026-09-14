@@ -1,0 +1,22 @@
+{
+ "schema_name": "radiation.control.allowlist/1",
+ "operations": {
+  "observe": {
+   "effect": "read",
+   "tool": "cap_probe",
+   "min_source": "session_initiative"
+  },
+  "draft": {
+   "effect": "workspace_draft",
+   "tool": "draft_executor",
+   "min_source": "standing_policy"
+  },
+  "canonical": {
+   "effect": "canonical_apply",
+   "tool": null,
+   "min_source": "commander_order",
+   "commander_motor_act": true
+  }
+ },
+ "notes": "Two-key law as data (5000, II.11): a policy key (min_source rank) AND a tool key must both pass. canonical_apply binds no tool at any source level \u2014 it is the Commander's motor act. Source ranking: session_initiative < standing_policy < commander_order."
+}

@@ -1,0 +1,2 @@
+strict: 37 checks, 0 FAIL-class finding(s)
+(captured on the clean pre-ship tree, transport parked)

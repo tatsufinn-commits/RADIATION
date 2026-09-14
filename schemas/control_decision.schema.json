@@ -1,0 +1,63 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Control-plane decision (radiation.control.decision/1)",
+ "type": "object",
+ "required": [
+  "schema_name",
+  "task_id",
+  "effect",
+  "source",
+  "status",
+  "tool",
+  "bounds",
+  "reasons",
+  "decided_at",
+  "digest"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.control.decision/1"
+  },
+  "task_id": {
+   "type": "string"
+  },
+  "effect": {
+   "enum": [
+    "read",
+    "workspace_draft",
+    "canonical_apply"
+   ]
+  },
+  "source": {
+   "enum": [
+    "session_initiative",
+    "standing_policy",
+    "commander_order"
+   ]
+  },
+  "status": {
+   "enum": [
+    "authorized",
+    "refused",
+    "commander_motor_act"
+   ]
+  },
+  "bounds": {
+   "type": "object"
+  },
+  "reasons": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "decided_at": {
+   "type": "string",
+   "minLength": 1
+  },
+  "digest": {
+   "type": "string",
+   "pattern": "^sha256:[0-9a-f]{64}$"
+  }
+ }
+}

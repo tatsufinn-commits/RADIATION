@@ -9,9 +9,10 @@
 ═══════════════════════════════════════════════════════════════════════════
  BOUNDARY (4900): cap_probe OBSERVES. It has no mutation surface — the
  effect catalog is structurally EMPTY, commands are allowlisted tuples, and
- paths are containment-checked against symlinks. It never grants effect
- authority; the typed resolver, capability allowlist, approval boundary and
- isolated executor remain STAGED (Product-2). Unavailability is a
+ paths are containment-checked against symlinks. Effect authority flows
+ ONLY through the ratified control plane (II.11, 5000) — two-key resolver,
+ bounded executor, chained receipts; canonical_apply stays the Commander's
+ motor act. Unavailability is a
  first-class result: not_mounted / not_a_git_worktree / auth states are
  reported, never converted into success or hallucinated permission.
 ═══════════════════════════════════════════════════════════════════════════
@@ -210,7 +211,8 @@ def self_test(repo: str) -> int:
         if not p:
             print(f"  FAIL {name} -> {d}")
     print(f"cap_probe self-test: {ok}/{len(vecs)} vectors")
-    print("boundary: cap_probe OBSERVES only; authority stays STAGED (Product-2)")
+    print("boundary: cap_probe OBSERVES only; authority flows only through the "
+          "ratified control plane (II.11, 5000)")
     return 0 if ok == len(vecs) else 1
 
 

@@ -6,10 +6,10 @@
 
 ═══════════════════════════════════════════════════════════════════════════
  BOUNDARY (4700 research adoption): cap_verify VERIFIES capability records.
- It does NOT enforce runtime authority. The typed cue/mode resolver,
- capability allowlist, approval boundary and isolated executor remain
- STAGED under Product-2 ratification. A green CAP record is evidence,
- never a grant of effect authority. Push stays the Commander's motor act.
+ Since the Commander's Product-2 ratification (5000, II.11), authority
+ flows ONLY through radiation_core.control_plane: two-key resolver, bounded
+ draft executor, hash-chained receipts. cap_verify still only VERIFIES
+ records. canonical_apply stays the Commander's motor act.
 ═══════════════════════════════════════════════════════════════════════════
 
 Checks performed on a record (radiation.cap/0.1):
@@ -278,8 +278,8 @@ def self_test(repo: str) -> int:
         ok += passed
         print(f"  {'PASS' if passed else 'FAIL'} {name}" + (f" -> {detail}" if detail and not passed else ""))
     print(f"cap_verify self-test: {ok}/{len(vecs)} vectors")
-    print("boundary: cap_verify VERIFIES records; runtime authority stays "
-          "STAGED (Product-2)")
+    print("boundary: cap_verify VERIFIES records; authority flows only through "
+          "the ratified control plane (II.11, 5000)")
     return 0 if ok == len(vecs) else 1
 
 

@@ -839,8 +839,8 @@ def c35cap():
         problems.append("cap_verify --self-test failed: " + (tail[-1] if tail else "rc!=0"))
     rec(35, "FAIL", not problems,
         "CAP records verify (schema EXECUTED · seal digest · verifier registry · "
-        "identity null · honest blocked/verified) — verifies records ONLY; runtime "
-        "authority stays STAGED (Product-2)" +
+        "identity null · honest blocked/verified) — verifies records; authority "
+        "flows only through the ratified control plane (II.11, 5000)" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
 # ---- check 36: CAP probe + host posture (4900 Probe) -------------------------
@@ -869,11 +869,42 @@ def c36probe():
         problems.append("cap_probe --self-test failed: " + (tail[-1] if tail else "rc!=0"))
     rec(36, "FAIL", not problems,
         "CAP probe + host posture (read-only surface · containment · allowlist · "
-        "profile schema-executed) — OBSERVES only; authority stays STAGED (Product-2)" +
+        "profile schema-executed) — OBSERVES only; authority flows only through the "
+        "ratified control plane (II.11, 5000)" +
+        ("" if not problems else ": " + "; ".join(problems[:4])))
+
+# ---- check 37: control plane (II.11, ratified 5000) --------------------------
+def c37control():
+    import subprocess
+    problems = []
+    for f in ("radiation_core/control_plane.py",
+              "scaffolding/control_plane/allowlist.json",
+              "schemas/control_allowlist.schema.json",
+              "schemas/control_decision.schema.json",
+              "schemas/control_receipt.schema.json",
+              "evidence/control_plane/receipts.ndjson"):
+        if not os.path.exists(os.path.join(ROOT, f)):
+            problems.append(f"missing: {f}")
+    r = subprocess.run([sys.executable, "-m", "radiation_core.control_plane",
+                        "verify"], cwd=ROOT, capture_output=True, text=True,
+                       timeout=120)
+    if r.returncode != 0:
+        tail = (r.stdout + r.stderr).strip().splitlines()
+        problems.append("receipts chain broken: " + (tail[-1] if tail else "rc!=0"))
+    r = subprocess.run([sys.executable, "-m", "radiation_core.control_plane",
+                        "--self-test"], cwd=ROOT, capture_output=True, text=True,
+                       timeout=300)
+    if r.returncode != 0:
+        tail = (r.stdout + r.stderr).strip().splitlines()
+        problems.append("control_plane --self-test failed: " + (tail[-1] if tail else "rc!=0"))
+    rec(37, "FAIL", not problems,
+        "control plane (II.11, ratified 5000): two-key resolver · bounded draft "
+        "executor · hash-chained receipts · canonical_apply = Commander motor act, "
+        "no tool at any source level" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
-          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe)
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control)
 
 def run_all():
     """Structured entry point (4400): returns the findings list. Import-safe —

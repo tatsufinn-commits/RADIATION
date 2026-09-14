@@ -4,6 +4,14 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.3.0 — 2026-09-14 — Five Thousand (🟠 · II.11 CONTROL PLANE, ratified)
+- **The Product-2 package lands, by explicit ratification:** the Commander selected "Product-2 package" when asked which 5000 this is. The staged-since-4400 control plane is now `radiation_core/control_plane.py` — and the genesis receipt (entry 0) records the ratification itself.
+- **Two-key resolver:** policy key (source rank vs the executed allowlist) AND tool key (a least-privilege tool must exist) before any effect. Pure decision function; decisions are receipted.
+- **The approval boundary is structural:** `canonical_apply` binds NO tool at any source level — even a commander order makes the runtime answer `commander_motor_act`, not execute. Push stays the Commander's motor act, as it has always been.
+- **Isolated draft-only executor:** writes only under `evidence/drafts/<task_id>/` (symlink-safe containment), no subprocess, no network, no canonical writes — and refuses to run without a chained authorized decision receipt.
+- **Immutable receipts:** append-only `evidence/control_plane/receipts.ndjson`, hash-chained; `verify` recomputes everything; CI check 37 runs 11 negative vectors (tamper, containment, no-decision, allowlist mutation).
+- Boundary wording updated everywhere: authority flows ONLY through the II.11 control plane; cap_verify VERIFIES, cap_probe OBSERVES; the honest-identity line still governs.
+
 ## v3.2.0 — 2026-09-14 — Probe (🟠 · research Phase C-2 + C-4 rider)
 - **`scripts/cap_probe.py`** — the two-tool read-only probe, in-tree: attestation + contained digest; allowlisted commands only; symlink-safe containment; **empty effect catalog** (no mutation surface exists to misuse); `not_mounted` / `not_a_git_worktree` are first-class results. Self-test 5/5 vectors; check 36 in CI.
 - **Host posture profiles:** `schemas/host_profile.schema.json` + `scaffolding/hosts/arena_agent_mode.json` (`radiation.host/0.1`) — DECLARATIVE only: no tool claims (host surfaces are session-contingent), `model_identity` structurally null, Commander-only effects can never be posture. `--profile` prints declared-vs-observed; declaration is never treated as observation (A2A lesson).
