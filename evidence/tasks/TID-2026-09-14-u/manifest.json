@@ -1,0 +1,17 @@
+{
+ "schema_name": "radiation.control.manifest/1",
+ "files": [
+  {
+   "path": "artifacts/record_inventory.txt",
+   "content": "RECORD INVENTORY \u2014 5 seed records (5700; generated live)\nevidence standard: confirmed requires exact_id_verified + [O] declaration (checker R3)\nArena Agent Mode: NO record by design \u2014 model identity unknowable in-session\n\nanthropic__fable-5-1__api__undeclared.json: Anthropic / fable-5-1 (api, undeclared) status=provisional exact_id_verified=False confidence=low review_after=2026-12-13 \u2014 gaps: 5 named; local_observations: EMPTY (no local evaluation has run)\ngoogle__gemini-3-1-pro-preview__api__undeclared.json: Google / gemini-3-1-pro-preview (api, undeclared) status=provisional exact_id_verified=False confidence=low review_after=2026-12-13 \u2014 gaps: 5 named; local_observations: EMPTY (no local evaluation has run)\nopenai__gpt-5-6-terra__api__undeclared.json: OpenAI / gpt-5.6-terra (api, undeclared) status=confirmed exact_id_verified=True confidence=low review_after=2026-12-13 \u2014 gaps: 3 named; local_observations: EMPTY (no local evaluation has run)\nopenai__gpt-6-astra__api__undeclared.json: OpenAI / gpt-6-astra (api, undeclared) status=confirmed exact_id_verified=True confidence=medium review_after=2026-12-13 \u2014 gaps: 5 named; local_observations: EMPTY (no local evaluation has run)\nxai__grok-4-6__api__undeclared.json: xAI / grok-4.6 (api, undeclared) status=confirmed exact_id_verified=True confidence=medium review_after=2026-12-13 \u2014 gaps: 5 named; local_observations: EMPTY (no local evaluation has run)\n"
+  },
+  {
+   "path": "artifacts/catalog_contract.txt",
+   "content": "CATALOG CONTRACT (5700 Step 1), captured live\n==============================================\nradiation.model_research_record/0.1 \u2014 26 required fields (closure-order list +\nexact_id_verified + aliases/dated_ids separation); schema lives CENTRALLY at\nschemas/ so check 40's keyword coverage sees it (declared deviation from the\nexample layout; pointer file left in catalogs/model_research/schemas/).\nChecker: scripts/model_research_check.py \u2014 R1 uniqueness (model,surface,region)\n\u00b7 R2 date sanity \u00b7 R3 confirmed=>verified id + [O] declaration \u00b7 R4 NON-BOOT\n(no boot-tier file may reference the catalog) \u00b7 R5 sources register.\nSelf-test: 10 vectors (duplicate key, missing date, unconfirmed-confirmed,\nbad enum, rogue field, backwards dates, path traversal, bool-as-int,\nboot violation, clean).\nThe layer GRANTS NOTHING. Non-boot is a checked invariant.\n"
+  },
+  {
+   "path": "artifacts/design_digests.txt",
+   "content": "DESIGN DIGESTS (5700 Step 3), captured live\n=============================================\nsha256:c67debef1118467357c1591e2a3d26a876c13f8a12744e358cdce9ea5f723a4a  catalogs/model_research/evals/HARNESS_DESIGN.md\nsha256:7c1f2ce1b30fbe42ab07c3cec5e0c5238fe3706c35d953770c7dd5054aa2a8c1  catalogs/model_research/decision_matrices/DEPLOYMENT_MATRIX_DESIGN.md\nsha256:f386a274b6f35f122909ca6bdc262d679bdf35e40b8970687b126595894bc754  catalogs/model_research/PROPOSAL.md\nsha256:c69189e9439763c542fc79c3bc3dec697a81e6c67fd93b33f6dbabcf689007dc  catalogs/model_research/sources/SOURCES_2026-09-14.md\n\nHarness: 9 evaluation dimensions, mandatory capture block, redaction law (no private corpus/credentials uploaded; digest-bound synthetic fixtures), no cross-model score. Deployment matrix: 4 classes x analysis axes, one deployment per gated order, questions stay questions.\n"
+  }
+ ]
+}

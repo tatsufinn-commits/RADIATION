@@ -1,0 +1,9 @@
+RECORD INVENTORY — 5 seed records (5700; generated live)
+evidence standard: confirmed requires exact_id_verified + [O] declaration (checker R3)
+Arena Agent Mode: NO record by design — model identity unknowable in-session
+
+anthropic__fable-5-1__api__undeclared.json: Anthropic / fable-5-1 (api, undeclared) status=provisional exact_id_verified=False confidence=low review_after=2026-12-13 — gaps: 5 named; local_observations: EMPTY (no local evaluation has run)
+google__gemini-3-1-pro-preview__api__undeclared.json: Google / gemini-3-1-pro-preview (api, undeclared) status=provisional exact_id_verified=False confidence=low review_after=2026-12-13 — gaps: 5 named; local_observations: EMPTY (no local evaluation has run)
+openai__gpt-5-6-terra__api__undeclared.json: OpenAI / gpt-5.6-terra (api, undeclared) status=confirmed exact_id_verified=True confidence=low review_after=2026-12-13 — gaps: 3 named; local_observations: EMPTY (no local evaluation has run)
+openai__gpt-6-astra__api__undeclared.json: OpenAI / gpt-6-astra (api, undeclared) status=confirmed exact_id_verified=True confidence=medium review_after=2026-12-13 — gaps: 5 named; local_observations: EMPTY (no local evaluation has run)
+xai__grok-4-6__api__undeclared.json: xAI / grok-4.6 (api, undeclared) status=confirmed exact_id_verified=True confidence=medium review_after=2026-12-13 — gaps: 5 named; local_observations: EMPTY (no local evaluation has run)

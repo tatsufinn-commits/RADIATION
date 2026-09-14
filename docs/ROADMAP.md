@@ -140,3 +140,4 @@ the machine asserts them · live state is verified, never assumed.
 ---
 *Regenerate this file every patch. Delete stale copies. The map is not the territory —
 the validator is.*
+| **5700** | ✅ DELIVERED — Atlas (Candidate C design) | non-boot model-research catalog (schema executed, checker, 5 seed records) · harness DESIGN (9 dimensions, capture + redaction law) · deployment-matrix DESIGN · registry 22 · checks 42 · implementations = separate gated orders · v3.9.0 | 2026-09-14 |

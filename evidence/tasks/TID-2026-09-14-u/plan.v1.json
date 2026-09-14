@@ -1,0 +1,39 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-5700",
+ "task_id": "TID-2026-09-14-u",
+ "base_revision": "78c01ded97e94c14de411b533dba457c0ac70db6",
+ "policy": "workspace_draft under II.11; canonical_apply stays the Commander's motor act",
+ "steps": [
+  {
+   "step_id": "S0",
+   "operation_class": "verify-base",
+   "success_predicate": "fresh clone at 78c01de; public CI green confirmed via API"
+  },
+  {
+   "step_id": "S1",
+   "operation_class": "catalog-contract",
+   "success_predicate": "schema executed centrally; checker 10/10; records clean"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "seed-records",
+   "success_predicate": "5 records honest to captured facts; gaps named; observations empty"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "design-docs",
+   "success_predicate": "harness + deployment-matrix designs delivered, no runtime"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "wiring",
+   "success_predicate": "registry 22; check 41 green; non-boot assertion holds"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "seal",
+   "success_predicate": "Path A/B acceptance green; A identical B"
+  }
+ ]
+}

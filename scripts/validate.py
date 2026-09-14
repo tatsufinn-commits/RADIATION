@@ -1196,8 +1196,29 @@ def c40():
     rec(40, "FAIL", not bad, f"schema keyword coverage (5600): {n} schemas within the "
         "executor's executed set + legal annotations" + ("" if not bad else ": " + "; ".join(bad[:4])))
 
+# ---- check 41: model-research catalog (5700 Candidate C design) -------------
+def c41():
+    """The research layer is law at its own boundary: records schema-EXECUTED,
+    uniqueness + date + confirmed-discipline enforced, and NON-BOOT asserted
+    (no boot-tier file references the catalog)."""
+    bad = []
+    rchk = subprocess.run([sys.executable, "scripts/model_research_check.py"],
+                          cwd=ROOT, capture_output=True, text=True,
+                          timeout=300, stdin=subprocess.DEVNULL)
+    if rchk.returncode != 0:
+        tail = (rchk.stdout + rchk.stderr).strip().splitlines()
+        bad.append("model_research_check FAILED: " + (tail[-1][:100] if tail else "rc=1"))
+    rst = subprocess.run([sys.executable, "scripts/model_research_check.py", "--self-test"],
+                         cwd=ROOT, capture_output=True, text=True,
+                         timeout=300, stdin=subprocess.DEVNULL)
+    if rst.returncode != 0 or "10/10" not in (rst.stdout + rst.stderr):
+        bad.append("model_research_check self-test not 10/10")
+    rec(41, "FAIL", not bad, "model-research catalog (5700): records schema-EXECUTED · "
+        "uniqueness/date/confirmed discipline · NON-BOOT asserted" +
+        ("" if not bad else ": " + "; ".join(bad[:4])))
+
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
-          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control,c38agents,c39gates,c40)
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe,c37control,c38agents,c39gates,c40,c41)
 
 def run_all():
     """Structured entry point (4400): returns the findings list. Import-safe —

@@ -150,7 +150,10 @@ def self_test():
     def abs_ep(m): m["tools"][0]["entrypoint"] = "/etc/evil.py"
     def missing_ep(m): m["tools"][0]["entrypoint"] = "scripts/does_not_exist.py"
     def bool_timeout(m): m["tools"][0]["timeout_seconds"] = True
-    def too_few(m): del m["tools"][0]; del m["tools"][1]
+    def too_few(m):
+        # always ONE below the bound, whatever the registry's size
+        while len(m["tools"]) >= 20:
+            m["tools"].pop()
     def too_many(m): m["tools"] = [dict(m["tools"][0], id=f"t{i}") for i in range(65)]
     def overlong(m): m["tools"][0]["description"] = "x" * 201
     def dup_id(m): m["tools"][1]["id"] = m["tools"][0]["id"]

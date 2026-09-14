@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0005",
+ "task_id": "TID-2026-09-14-u",
+ "plan_id": "PLAN-5700",
+ "step_id": "S4",
+ "operation": "run_validator",
+ "issued_at": "2026-09-14T23:55:00+08:00",
+ "base_revision": "78c01ded97e94c14de411b533dba457c0ac70db6",
+ "result": "succeeded",
+ "revision_after": "78c01ded97e94c14de411b533dba457c0ac70db6",
+ "finished_at": "2026-09-14T23:00:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-u/artifacts/cap_record_build.json",
+   "sha256": "93791ae8e69ee255129ba9c7b965180f77c2a79e6c9f35e73c81e7d680c3af75"
+  }
+ ]
+}

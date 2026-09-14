@@ -1,0 +1,43 @@
+{
+ "schema_name": "radiation.model_research_record/0.1",
+ "provider": "xAI",
+ "family": "Grok",
+ "exact_model_id": "grok-4.6",
+ "exact_id_verified": true,
+ "surface": "api",
+ "region": "undeclared",
+ "status": "confirmed",
+ "retrieved_on": "2026-09-14",
+ "review_after": "2026-12-13",
+ "context_window": "500K tokens (declared)",
+ "knowledge_cutoff": "2026-02-01 (declared on the model page)",
+ "modalities": [
+  "text"
+ ],
+ "reasoning_effort": "configurable reasoning (declared)",
+ "tools": [
+  "tool calling",
+  "search tools (required for real-time data)"
+ ],
+ "retention_training_mode": "API: no training on inputs/outputs without explicit permission [Official FAQ quote via secondary, aiprovidertrust.com verified 2026-08-25]; ~30-day encrypted abuse-audit retention [S]; enterprise ZDR sales-gated [S]",
+ "license_aup": "xAI terms/AUP; enterprise terms sales-gated \u2014 open question",
+ "declarations": [
+  "[O, docs.x.ai/developers/models \u2014 retrieved 2026-09-14 via gate-review sweep]: grok-4.6 \u2014 500K context, $2/$6 per MTok, configurable reasoning, tool features, cutoff Feb 1 2026; real-time data REQUIRES search tools; alias vs dated-ID behavior documented (aliases track latest, dated ids pin)"
+ ],
+ "safety_evidence": [],
+ "independent_evidence": [
+  "[S, benchlm.ai 2026-09-11]: $2/$6 corroborates the official page (HISTORY section of agents/Grok/CAPABILITY_PROFILE.md)"
+ ],
+ "local_observations": [],
+ "known_gaps": [
+  "dated version id not captured (alias policy known; pinned ids not)",
+  "cached-input rate not captured officially",
+  "region undeclared",
+  "every additional Grok model needs its own live record before routing use",
+  "no local observations yet"
+ ],
+ "documentation_completeness": "model page declares id/context/pricing/cutoff/alias policy; captured almost fully",
+ "confidence": "medium",
+ "aliases": [],
+ "dated_ids": []
+}

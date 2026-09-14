@@ -4,6 +4,17 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.9.0 — 2026-09-14 — ATLAS (5700)
+Deliverable B — the Candidate C research design, proposal only: a non-boot
+model-research catalog (radiation.model_research_record/0.1 executed; checker
+with uniqueness/date/confirmed-discipline/non-boot rules, 10 vectors; five seed
+records from the 2026-09-14 official sweep — gaps named, observations empty,
+Arena has no record by design), a local-evaluation HARNESS DESIGN (nine
+dimensions, mandatory capture blocks, redaction law, no cross-model score), a
+deployment-matrix DESIGN (four deployment classes × analysis axes, one
+deployment per order), registry at 22 tools, checks at 42. No SDK, no runtime,
+no endpoints — research design only.
+
 ## v3.8.0 — 2026-09-14 — VERITY (5600)
 5500 closure (research-team order): CI truth — the public red root-caused under
 the real 3.11 pin (3.12+ f-strings in relay.py killed both jobs at their first

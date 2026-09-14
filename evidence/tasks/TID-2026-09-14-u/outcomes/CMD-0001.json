@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-u",
+ "plan_id": "PLAN-5700",
+ "step_id": "S0",
+ "operation": "run_validator",
+ "issued_at": "2026-09-14T23:51:00+08:00",
+ "base_revision": "78c01ded97e94c14de411b533dba457c0ac70db6",
+ "result": "succeeded",
+ "revision_after": "78c01ded97e94c14de411b533dba457c0ac70db6",
+ "finished_at": "2026-09-14T23:56:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-u/artifacts/record_inventory.txt",
+   "sha256": "fb02ddadd8cecb05426afed2bc51c8102e9386f87da5fbcadb17357612774e98"
+  }
+ ]
+}

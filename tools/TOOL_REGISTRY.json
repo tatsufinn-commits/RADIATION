@@ -542,6 +542,34 @@
     "content_capture": "off_by_default"
    },
    "description": "ONE entry point for this registry's contract: schema-executed + code-level semantic rules; self-test writes temp mutant fixtures (5600 Step 2)"
+  },
+  {
+   "id": "model_research_check",
+   "entrypoint": "scripts/model_research_check.py",
+   "version": "1",
+   "inputs_schema": null,
+   "outputs_schema": null,
+   "effects": [
+    "read",
+    "write"
+   ],
+   "mutation_scope": "temporary",
+   "approval": "none",
+   "data_classes": [
+    "provider_research"
+   ],
+   "network": "none",
+   "credential_handling": "none",
+   "idempotency": "yes",
+   "timeout_seconds": 120,
+   "cap_mapping": [
+    "TID-2026-09-14-u"
+   ],
+   "test_command": "python3 scripts/model_research_check.py --self-test",
+   "observability": {
+    "content_capture": "off_by_default"
+   },
+   "description": "Candidate C catalog contract: schema-executed records + uniqueness/date/confirmed/non-boot rules; self-test writes temp catalog copies (5700; research layer only)"
   }
  ]
 }

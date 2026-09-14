@@ -1,0 +1,41 @@
+{
+ "schema_name": "radiation.model_research_record/0.1",
+ "provider": "Anthropic",
+ "family": "Claude",
+ "exact_model_id": "fable-5-1",
+ "exact_id_verified": false,
+ "surface": "api",
+ "region": "undeclared",
+ "status": "provisional",
+ "retrieved_on": "2026-09-14",
+ "review_after": "2026-12-13",
+ "context_window": "declared on the models overview (value not captured)",
+ "knowledge_cutoff": "declared per-model on the overview (not captured)",
+ "modalities": [
+  "text"
+ ],
+ "reasoning_effort": "declared configurable on the official page (settings not captured)",
+ "tools": [
+  "tool calling (declared)"
+ ],
+ "retention_training_mode": "API/Commercial: customer content not used for training [S quoting Commercial Terms, terms.law 2026-06-27]; API log retention ~7 days since 2025-09-15, ZDR available [S, datastudios 2026-09-07]",
+ "license_aup": "Anthropic Commercial Terms + AUP; consumer terms differ \u2014 open question: consumer training-default direction (secondaries disagree; anthropic.com/legal/privacy is the trigger)",
+ "declarations": [
+  "[O, platform.claude.com/docs/en/models/overview \u2014 retrieved 2026-09-14 via gate-review sweep]: lists Fable 5.1, Opus 5, Sonnet 5, Haiku 4.5 with exact API IDs, context windows, cutoffs, pricing, thinking/effort settings",
+  "[O, claude.com/platform/api \u2014 retrieved 2026-09-14]"
+ ],
+ "safety_evidence": [],
+ "independent_evidence": [],
+ "local_observations": [],
+ "known_gaps": [
+  "exact id STRING not captured (family name recorded; id token unconfirmed)",
+  "context/cutoff/pricing values not captured",
+  "Sonnet-5 price conflict in secondaries superseded by the official page; official values not captured",
+  "region undeclared",
+  "no local observations yet"
+ ],
+ "documentation_completeness": "official overview declares everything; this record captured only the lineup + pointers",
+ "confidence": "low",
+ "aliases": [],
+ "dated_ids": []
+}

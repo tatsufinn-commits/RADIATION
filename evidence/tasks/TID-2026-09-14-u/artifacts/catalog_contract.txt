@@ -1,0 +1,13 @@
+CATALOG CONTRACT (5700 Step 1), captured live
+==============================================
+radiation.model_research_record/0.1 — 26 required fields (closure-order list +
+exact_id_verified + aliases/dated_ids separation); schema lives CENTRALLY at
+schemas/ so check 40's keyword coverage sees it (declared deviation from the
+example layout; pointer file left in catalogs/model_research/schemas/).
+Checker: scripts/model_research_check.py — R1 uniqueness (model,surface,region)
+· R2 date sanity · R3 confirmed=>verified id + [O] declaration · R4 NON-BOOT
+(no boot-tier file may reference the catalog) · R5 sources register.
+Self-test: 10 vectors (duplicate key, missing date, unconfirmed-confirmed,
+bad enum, rogue field, backwards dates, path traversal, bool-as-int,
+boot violation, clean).
+The layer GRANTS NOTHING. Non-boot is a checked invariant.

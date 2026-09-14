@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0002",
+ "task_id": "TID-2026-09-14-u",
+ "plan_id": "PLAN-5700",
+ "step_id": "S1",
+ "operation": "run_test",
+ "issued_at": "2026-09-14T23:52:00+08:00",
+ "base_revision": "78c01ded97e94c14de411b533dba457c0ac70db6",
+ "result": "succeeded",
+ "revision_after": "78c01ded97e94c14de411b533dba457c0ac70db6",
+ "finished_at": "2026-09-14T23:57:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-u/artifacts/catalog_contract.txt",
+   "sha256": "98d78f864e0351ec3dddefddcad53e4d92916209cc10f1dad53d07b260bd1017"
+  }
+ ]
+}

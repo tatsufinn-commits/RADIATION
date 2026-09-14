@@ -1,0 +1,42 @@
+{
+ "schema_name": "radiation.model_research_record/0.1",
+ "provider": "Google",
+ "family": "Gemini",
+ "exact_model_id": "gemini-3-1-pro-preview",
+ "exact_id_verified": false,
+ "surface": "api",
+ "region": "undeclared",
+ "status": "provisional",
+ "retrieved_on": "2026-09-14",
+ "review_after": "2026-12-13",
+ "context_window": "not captured (2M-class claimed by secondaries \u2014 comparison evidence only)",
+ "knowledge_cutoff": "not captured",
+ "modalities": [
+  "text"
+ ],
+ "reasoning_effort": "thinking/effort settings declared per-model on the official page (not captured)",
+ "tools": [
+  "tool calling (declared)"
+ ],
+ "retention_training_mode": "paid-API logs private to the project, default max 55-day retention (7/14/28/55 settings); abuse monitoring separately retains prompts/context/output up to 55 days; training only on explicitly contributed datasets [O logs-policy 2026-09-14]. 'Private to the project' is NOT 'not retained'.",
+ "license_aup": "Google API Terms + AUP; Unpaid Services dataset-contribution terms apply to training [O]",
+ "declarations": [
+  "[O, ai.google.dev/gemini-api/docs/models \u2014 retrieved 2026-09-14 via gate-review sweep]: stable line = 3.8/3.7/3.6/3.5 Flash; Gemini 3.1 Pro is PREVIEW \u2014 lifecycle status is part of the record",
+  "[O, ai.google.dev/gemini-api/docs/pricing \u2014 retrieved 2026-09-14]: per-id entries (values not captured)",
+  "[O, ai.google.dev/gemini-api/docs/logs-policy + abuse-monitoring docs \u2014 retrieved 2026-09-14]"
+ ],
+ "safety_evidence": [],
+ "independent_evidence": [],
+ "local_observations": [],
+ "known_gaps": [
+  "exact id STRING not captured (status token 'preview' recorded from the page framing)",
+  "stable-line siblings (3.8/3.7/3.6/3.5 Flash) need their own records before any routing use",
+  "context/cutoff values not captured",
+  "region undeclared",
+  "no local observations yet"
+ ],
+ "documentation_completeness": "official pages declare lineup/lifecycle/pricing/retention; this record captured the framing + pointers",
+ "confidence": "low",
+ "aliases": [],
+ "dated_ids": []
+}
