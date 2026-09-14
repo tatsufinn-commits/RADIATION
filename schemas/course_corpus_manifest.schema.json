@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "radiation.course_corpus.manifest/1",
+  "description": "Declared course-corpus admission contract (5300, review E1). Every non-Markdown file below Brain/courses/ must be an exact entry here (or a narrow legacy allowance). Hash-bound: a changed digest fails. A checksum is NOT a permission grant; rights/privacy/redistribution judgments remain the Commander's (docs/COURSE_CORPUS_POLICY.md).",
+  "type": "object",
+  "required": ["schema_name", "retrieved_by", "assets"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_name": {"const": "radiation.course_corpus.manifest/1"},
+    "retrieved_by": {"description": "Load-policy default for the corpus: sessions read derivatives on demand; sources only when explicitly tasked.", "const": "on_demand_only"},
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "media_type", "role", "load_policy", "conversion", "distribution_review"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^Brain/courses/[A-Za-z0-9][A-Za-z0-9 ._()/&,'+!~-]*$",
+            "not": {"anyOf": [{"pattern": "\\.\\."}, {"pattern": "\\\\"}, {"pattern": "^/"}]}
+          },
+          "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "media_type": {"enum": ["text/csv", "application/pdf", "text/plain"]},
+          "role": {"enum": ["source_of_readable_derivative", "environment_metadata", "reference_note"]},
+          "load_policy": {"enum": ["on_demand_only", "exclude_from_ai_ingestion"]},
+          "derivative_path": {
+            "type": ["string", "null"],
+            "pattern": "^Brain/courses/.*\\.md$"
+          },
+          "conversion": {
+            "type": "object",
+            "required": ["status", "verified_on", "limitations"],
+            "additionalProperties": false,
+            "properties": {
+              "status": {"enum": ["commander-prepared", "pre_existing", "not_applicable"]},
+              "verified_on": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+              "limitations": {
+                "type": "string",
+                "minLength": 16,
+                "maxLength": 256,
+                "not": {"anyOf": [{"pattern": "lossless"}, {"pattern": "perfect"}, {"pattern": "complete conversion"}]}
+              }
+            }
+          },
+          "distribution_review": {
+            "type": "object",
+            "required": ["status", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "status": {"enum": ["commander-reviewed", "pending-review"]},
+              "notes": {"type": "string", "minLength": 16, "maxLength": 256}
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"role": {"const": "source_of_readable_derivative"}}},
+            "then": {"properties": {"derivative_path": {"type": "string", "minLength": 1}},
+                     "required": ["derivative_path"]}
+          },
+          {
+            "if": {"properties": {"role": {"enum": ["environment_metadata", "reference_note"]}}},
+            "then": {"properties": {"derivative_path": {"type": "null", "enum": [null]}}}
+          }
+        ]
+      }
+    }
+  }
+}

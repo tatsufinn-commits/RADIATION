@@ -1,0 +1,90 @@
+{
+  "schema_name": "radiation.replica.manifest/1",
+  "retrieval_rule": "Only the active neuron regions (sensoryneurons/ \u00b7 interneurons/ \u00b7 motorneurons/) are ordinary working context; the _archive/ replicas are evidence/history and must never be loaded into an assistant context alongside their canonical twin.",
+  "pairs": [
+    {
+      "canonical_path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-a_intake.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-a_intake.md",
+      "sha256": "sha256:da030339be055d4640810c85f1e7b8b344b811664fbe25c8af20172948a79dd6",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/motorneurons/TID-2026-09-13-a_orders.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-a_orders.md",
+      "sha256": "sha256:3557ce4ff08f8f14b0f28996c414c933af2dce71a5ceea1424e8ce06e838f71a",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/interneurons/TID-2026-09-13-a_reasoning.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-a_reasoning.md",
+      "sha256": "sha256:84defe88f27e9467f13c862995cc6dfd3fd09e6e4ae165c15deb6feaabf6b2e2",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-b_intake.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-b_intake.md",
+      "sha256": "sha256:a96f30aad1fe31872c8ca602d1cac3d06deb825a742628eb64ed3b78155648af",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/motorneurons/TID-2026-09-13-b_orders.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-b_orders.md",
+      "sha256": "sha256:df1b5896b50950535251641ba89c2c8b2172260d17d2270bace90bedd8aa94aa",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/interneurons/TID-2026-09-13-b_reasoning.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-b_reasoning.md",
+      "sha256": "sha256:427761a28d8053060082bd784e6986ea85ee1b66cd5a3a3ed2263aa59e2770ad",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-c_intake.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-c_intake.md",
+      "sha256": "sha256:0cd5aca611d8ffde31579dec03c82caaf7adf6ee3226f51e4f2935335dafdf73",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/motorneurons/TID-2026-09-13-c_orders.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-c_orders.md",
+      "sha256": "sha256:11bab0c1930deb1fbee3453d7dd7f29334e7b03c39860595182532d2b39c9084",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/interneurons/TID-2026-09-13-c_reasoning.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-c_reasoning.md",
+      "sha256": "sha256:4d645b021e6c5eae26406de845a023959017c2dee0efdcdfac9d9ac025a894b8",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-d_intake.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-d_intake.md",
+      "sha256": "sha256:9dc3c9d3ec5b580afccc9abad50f7e25a7366e5188448ae084872bab51e90086",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/motorneurons/TID-2026-09-13-d_orders.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-d_orders.md",
+      "sha256": "sha256:0172c57009f94d8e973010c248b28f0f8b13a237ab10db2b9897f48aac82f218",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    },
+    {
+      "canonical_path": "scaffolding/neurons/interneurons/TID-2026-09-13-d_reasoning.md",
+      "replica_path": "scaffolding/neurons/_archive/TID-2026-09-13-d_reasoning.md",
+      "sha256": "sha256:3d032e69ac2e34d5f9eb833cbf6e8530a23bfac93f6b7dcf27df34ec5058bbc3",
+      "purpose": "intentional historical snapshot",
+      "load_policy": "archive_not_boot_context"
+    }
+  ]
+}

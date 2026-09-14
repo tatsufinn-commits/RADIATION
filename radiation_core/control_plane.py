@@ -196,11 +196,21 @@ def append_entry(entry_type: str, task_id: str, payload: dict,
     return entry
 
 
+def _drafts_prefix() -> str:
+    """ROOT-relative production draft root (forward slashes) + trailing sep."""
+    return os.path.relpath(DRAFTS_ROOT, ROOT).replace(os.sep, "/") + "/"
+
+
 def verify_chain(path: str = RECEIPTS_PATH) -> list[str]:
     """Structural (schema, seq, prev-link, digest) for every entry; SEMANTIC
-    checks for v2 receipts: executions must reference a preceding matching
-    unconsumed approval and a preceding authorized decision for the same
-    task; approvals and decisions are single-use."""
+    checks for v2 receipts: an execution must bind BY DIGEST the exact
+    preceding decision and approval it claims — same task, authorized,
+    workspace_draft effect, draft_executor tool — with manifest digest,
+    effect and bounds equal to the approval payload, and written entries
+    confined to the production draft root. An approval is single-use (one
+    execution). The decision is task-scoped policy context: it may be reused
+    only with a fresh matching approval. Legacy (v1) receipts verify
+    structurally under their documented legacy scope (docs/THREAT_MODEL.md)."""
     problems: list[str] = []
     chain = read_chain(path)
     prev = GENESIS_PREV
@@ -221,13 +231,20 @@ def verify_chain(path: str = RECEIPTS_PATH) -> list[str]:
             continue  # legacy (v1) entries: structural checks only
         pl = e.get("payload", {})
         if e.get("type") == "execution":
-            dec_ok = any(x.get("type") == "decision" and x.get("task_id") == e.get("task_id")
-                         and x.get("payload", {}).get("decision", {}).get("status") == "authorized"
-                         and x.get("payload", {}).get("decision", {}).get("effect") == "workspace_draft"
-                         for x in chain[:i])
-            if not dec_ok:
-                problems.append(f"entry {i}: orphan execution — no preceding authorized "
-                                "decision for this task")
+            dd = pl.get("decision_digest")
+            dec = next((x for x in chain[:i] if x.get("type") == "decision"
+                        and x.get("digest") == dd), None)
+            if dec is None:
+                problems.append(f"entry {i}: execution decision_digest matches no "
+                                "preceding decision receipt (forged or stale)")
+            else:
+                dj = dec.get("payload", {}).get("decision", {})
+                if (dec.get("task_id") != e.get("task_id")
+                        or dj.get("status") != "authorized"
+                        or dj.get("effect") != "workspace_draft"
+                        or dj.get("tool") != "draft_executor"):
+                    problems.append(f"entry {i}: bound decision does not authorize this "
+                                    "execution (task/status/effect/tool mismatch)")
             apd = pl.get("approval_digest")
             ap = next((x for x in chain[:i] if x.get("type") == "approval"
                        and x.get("digest") == apd and x.get("task_id") == e.get("task_id")), None)
@@ -237,6 +254,31 @@ def verify_chain(path: str = RECEIPTS_PATH) -> list[str]:
                 problems.append(f"entry {i}: replay — approval {apd[:19]}… already consumed")
             else:
                 consumed.add(apd)
+                apl = ap.get("payload", {})
+                if pl.get("manifest_sha256") != apl.get("manifest_sha256"):
+                    problems.append(f"entry {i}: execution manifest does not match its "
+                                    "approval (manifest substitution)")
+                if pl.get("effect") != apl.get("effect"):
+                    problems.append(f"entry {i}: execution effect differs from the "
+                                    "approved effect")
+                for b in ("max_files", "max_file_bytes", "max_total_bytes"):
+                    if b in pl and pl.get(b) != apl.get(b):
+                        problems.append(f"entry {i}: execution bound {b!r} differs "
+                                        "from its approval")
+                if pl.get("executed") and not pl.get("refused"):
+                    # path eras: base-relative (5300+) or ROOT-relative (pre-5300
+                    # production receipts); anything else is outside draft scope
+                    pref0 = (e.get("task_id") or "") + "/"
+                    pref1 = _drafts_prefix() + pref0
+                    for w in pl.get("written", []):
+                        wp = w.get("path", "") if isinstance(w, dict) else ""
+                        wp = wp.replace(os.sep, "/") if isinstance(wp, str) else ""
+                        if ((not wp.startswith(pref0) and not wp.startswith(pref1))
+                                or ".." in wp.split("/")
+                                or not isinstance(w.get("sha256"), str)
+                                or not re.fullmatch(r"sha256:[0-9a-f]{64}", w["sha256"])):
+                            problems.append(f"entry {i}: written entry outside production "
+                                            f"draft scope or malformed: {str(w)[:56]}")
     return problems
 
 
@@ -269,11 +311,11 @@ def approve(task_id: str, manifest: dict, path: str = RECEIPTS_PATH) -> dict:
 
 
 # -------------------------------------------------------------------- executor
-def _validate_task_dir(task_id: str, drafts_root: str) -> tuple[str | None, str]:
+def _validate_task_dir(task_id: str, drafts_base: str) -> tuple[str | None, str]:
     """Strict grammar + pinned base + descendant check (review 5100)."""
     if not TASK_ID_RE.fullmatch(task_id):
         return None, f"task_id fails strict grammar (TID-YYYY-MM-DD-slug): {task_id!r}"
-    base = os.path.realpath(drafts_root)
+    base = os.path.realpath(drafts_base)
     task_dir = os.path.realpath(os.path.join(base, task_id))
     if os.path.dirname(task_dir) != base:
         return None, "task directory escapes the pinned drafts base (containment, II.11)"
@@ -306,12 +348,12 @@ def _safe_target(task_dir: str, rel: str) -> tuple[str | None, str]:
 
 
 def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
-                  drafts_root: str = DRAFTS_ROOT) -> dict:
+                  _drafts_root: str = DRAFTS_ROOT) -> dict:
     """Draft-only executor. Requires: strict task grammar, pinned base, an
     unconsumed content-bound approval, and a chained authorized decision.
     Writes atomically (temp sibling + rename) inside the task dir only."""
     refused: list[dict] = []
-    task_dir, reason = _validate_task_dir(task_id, drafts_root)
+    task_dir, reason = _validate_task_dir(task_id, _drafts_root)  # 5300 E4: production CLI pins DRAFTS_ROOT; this kwarg is an isolated-root TEST seam
     if task_dir is None:
         return {"executed": False, "reason": reason, "files": [], "refused": []}
     # ---- decision receipt must exist and be authorized (nearest, v-aware)
@@ -351,7 +393,7 @@ def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
     total = 0
     written: list[dict] = []
     if not refused:
-        os.makedirs(base := os.path.realpath(drafts_root), exist_ok=True)
+        os.makedirs(base := os.path.realpath(_drafts_root), exist_ok=True)
         os.makedirs(task_dir, exist_ok=True)
         for item in files:
             rel = item.get("path", "")
@@ -371,7 +413,7 @@ def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
                 fh.flush()
                 os.fsync(fh.fileno())
             os.replace(tmp, target)  # same-directory atomic rename
-            written.append({"path": os.path.relpath(target, ROOT),
+            written.append({"path": os.path.relpath(target, base),
                             "bytes": len(data),
                             "sha256": "sha256:" + hashlib.sha256(data).hexdigest()})
     entry = append_entry("execution", task_id, {
@@ -379,6 +421,9 @@ def execute_draft(task_id: str, manifest: dict, path: str = RECEIPTS_PATH,
         "refused": refused, "approval_digest": ap["digest"],
         "decision_digest": dec_entry.get("digest", ""),
         "manifest_sha256": md,
+        "max_files": ap["payload"].get("max_files"),
+        "max_file_bytes": ap["payload"].get("max_file_bytes"),
+        "max_total_bytes": ap["payload"].get("max_total_bytes"),
         "executed": bool(written) and not refused}, path)
     return {"executed": bool(written) and not refused,
             "reason": "" if not refused else "some items refused (see refused)",
@@ -428,21 +473,21 @@ def self_test() -> int:
         decide(T1, "workspace_draft", "commander_order", path=chain)
         r0b = execute_draft(T1, {"schema_name": "radiation.control.manifest/1",
                                 "files": [{"path": "x.md", "content": "hi"}]},
-                                path=chain, drafts_root=drafts)
+                                path=chain, _drafts_root=drafts)
         vec("no execution without a content-bound approval (manifest substitution dead)",
             not r0b["executed"] and "approval" in r0b["reason"])
 
         m1 = {"schema_name": "radiation.control.manifest/1",
               "files": [{"path": "draft.md", "content": "# ok\n"}]}
         approve(T1, m1, path=chain)
-        r2 = execute_draft(T1, m1, path=chain, drafts_root=drafts)
+        r2 = execute_draft(T1, m1, path=chain, _drafts_root=drafts)
         vec("approve+execute: bounded write, receipted, inside drafts root",
             r2["executed"] and len(r2["files"]) == 1
             and r2["files"][0]["path"].replace(os.sep, "/").startswith("evidence/drafts/")
             == ("evidence/drafts/" in r2["files"][0]["path"].replace(os.sep, "/")),
             str([f["path"] for f in r2["files"]]))
 
-        r3 = execute_draft(T1, m1, path=chain, drafts_root=drafts)
+        r3 = execute_draft(T1, m1, path=chain, _drafts_root=drafts)
         vec("replay refused: approval consumed by first execution",
             not r3["executed"], r3["reason"][:60])
 
@@ -454,17 +499,18 @@ def self_test() -> int:
         approve(E, mE, path=chain)
         for bad in ("../escaped-task", "/abs/path", "TID-2026-01-01-..\\win",
                     "..\\escaped", "TID-2026-01-01-x/../../out"):
-            rE = execute_draft(bad, mE, path=chain, drafts_root=drafts)
+            rE = execute_draft(bad, mE, path=chain, _drafts_root=drafts)
             esc = rE["executed"] or any(f["path"] and ".." in f["path"] for f in rE["files"])
             vec(f"task_id traversal refused: {bad!r}",
                 not rE["executed"] and not esc)
             if rE["executed"]:
                 break
-        probe = execute_draft(E, mE, path=chain, drafts_root=drafts)
+        probe = execute_draft(E, mE, path=chain, _drafts_root=drafts)
         outside_leak = os.path.exists(os.path.join(tmp, "escaped-task"))
         inside = probe["executed"] and all(
-            os.path.realpath(f["path"]).startswith(os.path.realpath(drafts) + os.sep)
-            for f in probe["files"])
+            os.path.realpath(os.path.join(drafts, f["path"])).startswith(
+                os.path.realpath(drafts) + os.sep)
+            for f in probe["files"])  # 5300: recorded paths are drafts-base-relative
         vec("well-formed task with valid approval executes, contained",
             probe["executed"] and inside and not outside_leak,
             f"executed={probe['executed']} leak={outside_leak}")
@@ -486,7 +532,7 @@ def self_test() -> int:
         ):
             mB = bad_m
             approve(E, mB, path=chain)
-            rB = execute_draft(E, mB, path=chain, drafts_root=drafts)
+            rB = execute_draft(E, mB, path=chain, _drafts_root=drafts)
             leaked = any("escape" in f["path"] or "passwd" in f["path"] for f in rB["files"])
             vec(f"manifest refusal: {label}", (not rB["executed"] or label.startswith("manifest"))
                 and not leaked, str(rB["refused"])[:70])
@@ -504,6 +550,79 @@ def self_test() -> int:
         open(rpath, "w", encoding="utf-8").write(
             "\n".join(json.dumps(e, sort_keys=True) for e in reord) + "\n")
         vec("reordered chain caught", verify_chain(rpath) != [])
+
+        # ── 5300 E3 regressions: executions must bind exact receipts ──
+        MS = lambda fl: {"schema_name": "radiation.control.manifest/1", "files": fl}
+        def _dig(c, typ, T):
+            return next(e for e in read_chain(c)
+                        if e.get("type") == typ and e.get("task_id") == T)["digest"]
+        def _sem_chain(kind):
+            c2 = os.path.join(tmp, "sem-" + kind + ".ndjson")
+            T, U = "TID-2026-01-01-sem", "TID-2026-01-01-other"
+            mA, mB = MS([{"path": "a.md", "content": "A"}]), MS([{"path": "b.md", "content": "B"}])
+            def exe(apd, ddig, msha, extra=None, written=None, executed=False):
+                plx = {"v": 2, "effect": "workspace_draft",
+                       "written": written or [], "refused": [],
+                       "approval_digest": apd, "decision_digest": ddig,
+                       "manifest_sha256": msha, "executed": executed}
+                if extra:
+                    plx.update(extra)
+                return append_entry("execution", T, plx, path=c2)
+            if kind == "decision_reuse_ok":
+                decide(T, "workspace_draft", "commander_order", path=c2)
+                ddig = _dig(c2, "decision", T)
+                for apx, mx in ((approve(T, mA, path=c2), mA), (approve(T, mB, path=c2), mB)):
+                    exe(apx["digest"], ddig, manifest_digest(mx))
+                f2 = verify_chain(c2)
+                vec("E3: decision reuse WITH fresh matching approvals verifies clean",
+                    f2 == [], "; ".join(f2)[:80])
+                return
+            decide(T, "workspace_draft", "commander_order", path=c2)
+            if kind == "other_task_decision":
+                decide(U, "workspace_draft", "commander_order", path=c2)
+            ddig = _dig(c2, "decision", U if kind == "other_task_decision" else T)
+            ap1 = approve(T, mA, path=c2)
+            msha = ap1["payload"]["manifest_sha256"]
+            if kind == "forged_decision":
+                exe(ap1["digest"], "sha256:" + "f" * 64, msha)
+            elif kind == "other_task_decision":
+                exe(ap1["digest"], ddig, msha)
+            elif kind == "manifest_mismatch":
+                apB = approve(T, mB, path=c2)
+                exe(ap1["digest"], ddig, manifest_digest(mB))
+                _ = apB
+            elif kind == "bounds_mismatch":
+                exe(ap1["digest"], ddig, msha, extra={"max_files": 999})
+            elif kind == "replay":
+                exe(ap1["digest"], ddig, msha)
+                exe(ap1["digest"], ddig, msha)
+            elif kind == "written_outside":
+                exe(ap1["digest"], ddig, msha, written=[
+                    {"path": "Brain/task_ledger.md", "bytes": 9,
+                     "sha256": "sha256:" + "a" * 64}], executed=True)
+            elif kind == "written_bad_sha":
+                exe(ap1["digest"], ddig, msha, written=[
+                    {"path": T + "/ok.md", "bytes": 9, "sha256": "deadbeef"}], executed=True)
+            elif kind == "legacy_v1_ok":
+                append_entry("execution", T, {"v": 1, "effect": "workspace_draft",
+                             "written": [], "refused": [], "executed": False}, path=c2)
+                f2 = verify_chain(c2)
+                vec("E3: legacy v1 execution verifies structurally (documented scope)",
+                    f2 == [], "; ".join(f2)[:80])
+                return
+            f2 = verify_chain(c2)
+            expect = {"forged_decision": "matches no",
+                      "other_task_decision": "does not authorize",
+                      "manifest_mismatch": "manifest substitution",
+                      "bounds_mismatch": "differs", "replay": "replay",
+                      "written_outside": "written entry outside",
+                      "written_bad_sha": "written entry outside"}[kind]
+            vec(f"E3: {kind} caught", len(f2) == 1 and expect in f2[0],
+                "; ".join(f2)[:80])
+        for _kind in ("forged_decision", "other_task_decision", "manifest_mismatch",
+                      "bounds_mismatch", "replay", "written_outside",
+                      "written_bad_sha", "legacy_v1_ok", "decision_reuse_ok"):
+            _sem_chain(_kind)
 
         bad_al = json.loads(json.dumps(al))
         bad_al["operations"]["canonical"]["tool"] = "sneaky_executor"

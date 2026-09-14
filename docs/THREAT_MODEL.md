@@ -2,21 +2,32 @@
 
 **Law of the last resort:** where any document claims more than this file,
 this file wins. Written because the v3.3.0 excellence review demonstrated a
-draft-root escape and a caller-forged source label in the 5000 code — both
-now fail closed (regressions in check 37's self-test) — and because claims
-must match mechanisms, always.
+draft-root escape in the 5000 code — path traversal now fails closed
+(regressions in check 37's self-test) — and because claims must match
+mechanisms, always. A caller-forged source label is NOT a defect that was
+closed: it is a standing cooperative-model limit (see “Not caller
+authentication” below), restated here so the opening cannot outclaim the
+body.
 
 ## What the control plane IS
 A **cooperative, in-program policy flow**: a session that routes work THROUGH
 `radiation_core/control_plane.py` gets refused or bounded by these rules:
 
-1. strict task-ID grammar (`TID-YYYY-MM-DD-slug`) + pinned drafts base —
+1. strict task-ID grammar (`TID-YYYY-MM-DD-slug`, now schema-enforced with a
+   documented genesis exception) + pinned drafts base (pinned in the
+   production CLI; the Python kwarg is an isolated-root test seam) —
    no `task_id` or manifest path can leave `evidence/drafts/<task_id>/`
-   (traversal, absolute, backslash, dot-component, symlink escapes: fail closed);
+   (traversal, absolute, backslash, dot-component, symlink escapes: fail
+   closed; symlink checks are point-in-time — no resistance to an adversarial
+   TOCTOU race is claimed or implemented);
 2. no execution without a chained **authorized decision** receipt;
 3. no execution without an **unconsumed content-bound approval** receipt
    (exact manifest digest + bounds + nonce; one approval executes once —
-   manifest substitution and replay fail closed);
+   manifest substitution and replay fail closed); the v2 execution receipt
+   must in turn bind BY DIGEST that exact decision and approval, with
+   manifest, effect and bounds equal and written entries inside the
+   production draft root (5300 semantic verification — forged digests,
+   cross-task bindings, substitution, replay: all fail closed);
 4. manifest shape is schema-EXECUTED and resource-bounded (≤20 files,
    ≤64 KiB/file, ≤256 KiB aggregate, extension allowlist, UTF-8);
 5. canonical_apply answers `commander_motor_act` and binds **no tool** at any
@@ -58,3 +69,12 @@ The Commander's real boundaries do not live in this file's code alone:
 This module adds *receipted, bounded, replay-proof* handling for the narrow
 class of work a session chooses to route through it. That is all it has ever
 been able to promise; now the promises say so.
+
+## Receipt eras
+The chain is append-only and spans mechanism generations. Legacy (v1)
+receipts — the genesis ratification record and the pre-approval TID…-n
+execution — verify STRUCTURALLY only; their semantic bindings predate the
+approval mechanism and are documented legacy scope, never proof of
+authorization. Semantic binding (decision by digest, single-use approval,
+manifest/bounds equality, draft-root confinement) applies to every v2
+receipt and is enforced by `verify_chain` plus the check-37 self-test.

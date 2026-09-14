@@ -1,0 +1,64 @@
+── control_plane ──
+PASS allowlist loads + schema-executes
+  PASS read authorized for any source (tool: cap_probe)
+  PASS draft authorized for commander-order assertion (tool: draft_executor)
+  PASS draft refused on session initiative alone (policy key)
+  PASS canonical_apply -> commander_motor_act, NO tool bound
+  PASS no execution without a chained decision receipt
+  PASS no execution without a content-bound approval (manifest substitution dead)
+  PASS approve+execute: bounded write, receipted, inside drafts root
+  PASS replay refused: approval consumed by first execution
+  PASS task_id traversal refused: '../escaped-task'
+  PASS task_id traversal refused: '/abs/path'
+  PASS task_id traversal refused: 'TID-2026-01-01-..\\win'
+  PASS task_id traversal refused: '..\\escaped'
+  PASS task_id traversal refused: 'TID-2026-01-01-x/../../out'
+  PASS well-formed task with valid approval executes, contained
+  PASS manifest refusal: ../ in manifest path
+  PASS manifest refusal: absolute manifest path
+  PASS manifest refusal: symlink manifest target
+  PASS manifest refusal: disallowed extension
+  PASS manifest refusal: per-file byte cap
+  PASS manifest refusal: manifest shape violation
+  PASS receipt chain verifies (structural + semantic)
+  PASS chain tamper caught
+  PASS reordered chain caught
+  PASS E3: forged_decision caught
+  PASS E3: other_task_decision caught
+  PASS E3: manifest_mismatch caught
+  PASS E3: bounds_mismatch caught
+  PASS E3: replay caught
+  PASS E3: written_outside caught
+  PASS E3: written_bad_sha caught
+  PASS E3: legacy v1 execution verifies structurally (documented scope)
+  PASS E3: decision reuse WITH fresh matching approvals verifies clean
+  PASS tampered allowlist caught (canonical tool must stay null)
+control_plane self-test: 34/34 vectors
+boundary: cooperative in-program policy flow (docs/THREAT_MODEL.md); canonical_apply stays the Commander's motor act
+── radiation_pass ──
+PASS known host routes to its provider folder
+  PASS pass yields all five sections
+  PASS no identity/access claims in output
+  PASS Arena declared posture is read-only
+  PASS canonical_apply unroutable in the pass boundary
+  PASS unknown host gets safe neutral fallback (no invented profile)
+  PASS unknown-host output also claim-free
+  PASS cross-root --repo -> explicit protocol_target_mismatch (no profile, no repo-relative proofs)
+  PASS cross-root + unknown host still refused, uncertainty declared
+  PASS pass performs zero writes (copy census unchanged)
+radiation_pass self-test: 10/10 vectors
+the pass is a handoff, not an elevation — limits: docs/THREAT_MODEL.md
+── relay ──
+vector 1 valid bundle clean -> PASS
+  vector 2 tampered evidence caught -> PASS
+  vector 3 unauthorized execution caught -> PASS
+  vector 4 legal replan sequence -> PASS
+  vector 5 outcome identity mismatch caught -> PASS
+  vector 6 corrupted projection caught -> PASS
+  vector 7 command identity mismatch caught -> PASS
+  vector 8 outcome foreign task caught -> PASS
+  vector 9 nested schema executed caught -> PASS
+  vector 10 foreign plan hard-fail caught -> PASS
+  vector 11 seq below minimum caught -> PASS
+  vector 12 hand-edited projection caught -> PASS
+relay self-test: 12/12 vectors

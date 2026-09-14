@@ -43,25 +43,25 @@ Professional Component – 30%
 
 Agoncillo, T. A. (1960). Malolos: The crisis of the Republic. University of the Philippines Press.
 Agoncillo, T. A. (1990). History of the Filipino people (8th ed.). Garotech Publishing.
-Bonifacio, E. J. (1896/1996). Kartilya ng Katipunan. National Historical Commission of the Philippines. https://nhcp.gov.ph
+Bonifacio, E. J. (1896/1996). Kartilya ng Katipunan. National Historical Commission of the Philippines. nhcp.gov.ph
 Constantino, R. (1975). The Philippines: A past revisited. Tala Publishing Services.
 Constantino, R., & Constantino, L. (1978). The Philippines: The continuing past. Foundation for Nationalist Studies.
 Gottschalk, L. (1969). Understanding history: A primer of historical method (2nd ed.). Alfred A. Knopf.
 Howell, M. C., & Prevenier, W. (2001). From reliable sources: An introduction to historical methods. Cornell University Press.
-National Archives of the Philippines. (n.d.). National Archives of the Philippines. https://nationalarchives.gov.ph
-National Historical Commission of the Philippines. (n.d.). NHCP Digital Resources. https://nhcp.gov.ph
-National Historical Commission of the Philippines. (n.d.). The Philippine Declaration of Independence. https://nhcp.gov.ph
-National Library of the Philippines. (n.d.). Philippine eLib. https://www.elib.gov.ph
-National Museum of the Philippines. (n.d.). The Laguna Copperplate Inscription. https://www.nationalmuseum.gov.ph
+National Archives of the Philippines. (n.d.). National Archives of the Philippines. nationalarchives.gov.ph
+National Historical Commission of the Philippines. (n.d.). NHCP Digital Resources. nhcp.gov.ph
+National Historical Commission of the Philippines. (n.d.). The Philippine Declaration of Independence. nhcp.gov.ph
+National Library of the Philippines. (n.d.). Philippine eLib. www.elib.gov.ph
+National Museum of the Philippines. (n.d.). The Laguna Copperplate Inscription. www.nationalmuseum.gov.ph
 Ocampo, A. R. (2012). Rizal without the overcoat (Expanded ed.). Anvil Publishing.
-Official Gazette of the Republic of the Philippines. (n.d.). The Malolos Constitution. https://www.officialgazette.gov.ph
-Official Gazette of the Republic of the Philippines. (n.d.). The official gazette archives on Martial Law. https://www.officialgazette.gov.ph
+Official Gazette of the Republic of the Philippines. (n.d.). The Malolos Constitution. www.officialgazette.gov.ph
+Official Gazette of the Republic of the Philippines. (n.d.). The official gazette archives on Martial Law. www.officialgazette.gov.ph
 Pigafetta, A. (1969). First voyage around the world (J. A. Robertson, Trans.). Filipiniana Book Guild. (Original work published 1525)
-Plasencia, J. (1589/1903). Customs of the Tagalogs. In E. H. Blair & J. A. Robertson (Eds.), The Philippine Islands, 1493–1898 (Vol. 7). Arthur H. Clark Company. https://www.gutenberg.org
+Plasencia, J. (1589/1903). Customs of the Tagalogs. In E. H. Blair & J. A. Robertson (Eds.), The Philippine Islands, 1493–1898 (Vol. 7). Arthur H. Clark Company. www.gutenberg.org
 Scott, W. H. (1984). Prehispanic source materials for the study of Philippine history. New Day Publishers.
 Scott, W. H. (1994). Barangay: Sixteenth-century Philippine culture and society. Ateneo de Manila University Press.
 Souza, G. B., & Turley, J. S. (Eds.). (2016). The Boxer Codex: Transcription and translation of an illustrated late sixteenth-century Spanish manuscript concerning the geography, ethnography and history of the Pacific, South-East and East Asia. Brill.
-University of the Philippines Diliman Main Library. (n.d.). Digital Collections. https://mainlib.upd.edu.ph
+University of the Philippines Diliman Main Library. (n.d.). Digital Collections. mainlib.upd.edu.ph
 Zaide, G. F., & Zaide, S. M. (2008). Documentary sources of Philippine history. National Book Store.
 
 ## Student Evaluation

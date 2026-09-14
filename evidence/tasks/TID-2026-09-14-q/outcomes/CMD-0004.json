@@ -1,0 +1,14 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0004",
+ "task_id": "TID-2026-09-14-q",
+ "result": "succeeded",
+ "revision_after": "22c8147cee90580b3338d1f253457f3fe1b84297",
+ "finished_at": "2026-09-14T21:24:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-q/artifacts/boot_byte_census.txt",
+   "sha256": "5b44bc5ffb8e1d95ca2d0bc9abb481f62c5391e98d4d4233343a68056c60c81a"
+  }
+ ]
+}

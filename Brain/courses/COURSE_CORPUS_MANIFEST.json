@@ -1,0 +1,74 @@
+{
+  "schema_name": "radiation.course_corpus.manifest/1",
+  "retrieved_by": "on_demand_only",
+  "assets": [
+    {
+      "path": "Brain/courses/SCHEDULE.csv",
+      "sha256": "sha256:3e1afa3672159f744f8f5a52c4f0d32fb1f0927bcc602d7b4d370122a5107618",
+      "media_type": "text/csv",
+      "role": "source_of_readable_derivative",
+      "load_policy": "on_demand_only",
+      "derivative_path": "Brain/courses/SCHEDULE.md",
+      "conversion": {
+        "status": "pre_existing",
+        "verified_on": "2026-09-14",
+        "limitations": "CSV-to-MD derivation predates this manifest; fidelity was reviewed by the Commander, not machine-verified."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "Amendment A1 (patch 2600): 'I permit 2 - the full CSV in the repo.' Retention re-affirmed 2026-09-14; a checksum is not a permission grant."
+      }
+    },
+    {
+      "path": "Brain/courses/AR173-1P_PLANNING_2/AR173-1P (Fundamentals of Urban Design and Community Architecture)-CLASS SCHEDULE.pdf",
+      "sha256": "sha256:e10a43c2f37a9b804f454081248547082a80aa5e074698658daf82a61f4a664f",
+      "media_type": "application/pdf",
+      "role": "source_of_readable_derivative",
+      "load_policy": "on_demand_only",
+      "derivative_path": "Brain/courses/AR173-1P.md",
+      "conversion": {
+        "status": "pre_existing",
+        "verified_on": "2026-09-14",
+        "limitations": "PDF text-layer extraction only; static validation does not inspect content inside the opaque binary."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "University course material retained by explicit Commander order (2026-09-14); redistribution/rights judgment remains the Commander's."
+      }
+    },
+    {
+      "path": "Brain/courses/desktop.ini",
+      "sha256": "sha256:b3b133978176a6924409fb1d6c1f4ccd0980c43f8a0f5f86e8e6a04556903f2c",
+      "media_type": "text/plain",
+      "role": "environment_metadata",
+      "load_policy": "exclude_from_ai_ingestion",
+      "derivative_path": null,
+      "conversion": {
+        "status": "not_applicable",
+        "verified_on": "2026-09-14",
+        "limitations": "Windows folder metadata; references a local screenshot file that is NOT tracked in this repository."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "OS-generated folder metadata retained for local fidelity; carries no knowledge-corpus role."
+      }
+    },
+    {
+      "path": "Brain/courses/0_CALLENDER/readme.txt",
+      "sha256": "sha256:c3994dc1ef183eb8c04779405afa9071c15f2a3511d869275176547f4d7e53c8",
+      "media_type": "text/plain",
+      "role": "reference_note",
+      "load_policy": "on_demand_only",
+      "derivative_path": null,
+      "conversion": {
+        "status": "not_applicable",
+        "verified_on": "2026-09-14",
+        "limitations": "Plain one-line note about the calendar feed; no conversion involved."
+      },
+      "distribution_review": {
+        "status": "commander-reviewed",
+        "notes": "Commander-authored note describing the 0_CALLENDER feed; no personal data claimed or invented."
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+Tier0+1 census at 5300 build close (cap 40960):
+✅ PASS  [check 15] boot-byte budget: Tier0+1=40943 B (40.0 KB / cap 40) · Tier0-2=67158 B (65.6 KB / cap 80) · ~16789 tokens · task_ledger boot-effective (last 3 rows)=1166 B · enforcement=WARN-class (P-09 pending ratification) · II.10 compression: ACTIVE

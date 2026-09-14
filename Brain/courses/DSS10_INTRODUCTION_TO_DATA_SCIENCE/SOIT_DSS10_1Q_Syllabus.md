@@ -133,7 +133,7 @@ Student performance will be rated based on the following:
   - Any other form of dishonesty or cheating in any assessment or course requirement.
   *All students who violate the Academic Integrity Policy of the university will be given zero mark for the exam or for the activity and will be given a failing grade for the course. He or she will also be referred to the Prefect of Discipline for appropriate sanction.*
 
-* **Consultation Schedule:** Consultation schedules with the Professor are posted outside the School of IT Faculty room and on the school’s website (http://it.mapua.edu.ph). It is recommended that the student first set an appointment to confirm the instructor’s availability.
+* **Consultation Schedule:** Consultation schedules with the Professor are posted outside the School of IT Faculty room and on the school’s website (it.mapua.edu.ph). It is recommended that the student first set an appointment to confirm the instructor’s availability.
 * **Appeal System:** All appeals on student assessment must be made by the concerned student within one week after the return of the assessed student work. In case the student is not satisfied, no later than one week after the decision of the faculty has been made, he can elevate the appeal to the program chair or dean in case there is no program chair. The decision of the program chair or dean is final. The faculty must abide with the moderated decision of the program chair or dean.
 
 ## Course Materials to be Provided to Students

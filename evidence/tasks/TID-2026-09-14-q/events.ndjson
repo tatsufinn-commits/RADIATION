@@ -1,0 +1,31 @@
+{"seq": 1, "event_id": "e1", "task_id": "TID-2026-09-14-q", "type": "input.received", "at": "2026-09-14T21:01:00+08:00", "actor": "commander"}
+{"seq": 2, "event_id": "e2", "task_id": "TID-2026-09-14-q", "type": "task.accepted", "at": "2026-09-14T21:02:00+08:00", "actor": "S005-the-Architect"}
+{"seq": 3, "event_id": "e3", "task_id": "TID-2026-09-14-q", "type": "context.built", "at": "2026-09-14T21:03:00+08:00", "actor": "S005-the-Architect"}
+{"seq": 4, "event_id": "e4", "task_id": "TID-2026-09-14-q", "type": "plan.proposed", "at": "2026-09-14T21:04:00+08:00", "actor": "S005-the-Architect"}
+{"seq": 5, "event_id": "e5", "task_id": "TID-2026-09-14-q", "type": "plan.approved", "at": "2026-09-14T21:05:00+08:00", "actor": "commander-order-5300"}
+{"seq": 6, "event_id": "e6", "task_id": "TID-2026-09-14-q", "type": "command.proposed", "at": "2026-09-14T21:06:00+08:00", "actor": "S005-the-Architect", "ref": "CMD-0001"}
+{"seq": 7, "event_id": "e7", "task_id": "TID-2026-09-14-q", "type": "command.authorized", "at": "2026-09-14T21:07:00+08:00", "actor": "policy-standing-orders", "ref": "CMD-0001"}
+{"seq": 8, "event_id": "e8", "task_id": "TID-2026-09-14-q", "type": "execution.started", "at": "2026-09-14T21:08:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0001"}
+{"seq": 9, "event_id": "e9", "task_id": "TID-2026-09-14-q", "type": "outcome.recorded", "at": "2026-09-14T21:09:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0001"}
+{"seq": 10, "event_id": "e10", "task_id": "TID-2026-09-14-q", "type": "verification.passed", "at": "2026-09-14T21:10:00+08:00", "actor": "verifier-success-predicate", "ref": "CMD-0001"}
+{"seq": 11, "event_id": "e11", "task_id": "TID-2026-09-14-q", "type": "command.proposed", "at": "2026-09-14T21:11:00+08:00", "actor": "S005-the-Architect", "ref": "CMD-0002"}
+{"seq": 12, "event_id": "e12", "task_id": "TID-2026-09-14-q", "type": "command.authorized", "at": "2026-09-14T21:12:00+08:00", "actor": "policy-standing-orders", "ref": "CMD-0002"}
+{"seq": 13, "event_id": "e13", "task_id": "TID-2026-09-14-q", "type": "execution.started", "at": "2026-09-14T21:13:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0002"}
+{"seq": 14, "event_id": "e14", "task_id": "TID-2026-09-14-q", "type": "outcome.recorded", "at": "2026-09-14T21:14:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0002"}
+{"seq": 15, "event_id": "e15", "task_id": "TID-2026-09-14-q", "type": "verification.passed", "at": "2026-09-14T21:15:00+08:00", "actor": "verifier-success-predicate", "ref": "CMD-0002"}
+{"seq": 16, "event_id": "e16", "task_id": "TID-2026-09-14-q", "type": "command.proposed", "at": "2026-09-14T21:16:00+08:00", "actor": "S005-the-Architect", "ref": "CMD-0003"}
+{"seq": 17, "event_id": "e17", "task_id": "TID-2026-09-14-q", "type": "command.authorized", "at": "2026-09-14T21:17:00+08:00", "actor": "policy-standing-orders", "ref": "CMD-0003"}
+{"seq": 18, "event_id": "e18", "task_id": "TID-2026-09-14-q", "type": "execution.started", "at": "2026-09-14T21:18:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0003"}
+{"seq": 19, "event_id": "e19", "task_id": "TID-2026-09-14-q", "type": "outcome.recorded", "at": "2026-09-14T21:19:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0003"}
+{"seq": 20, "event_id": "e20", "task_id": "TID-2026-09-14-q", "type": "verification.passed", "at": "2026-09-14T21:20:00+08:00", "actor": "verifier-success-predicate", "ref": "CMD-0003"}
+{"seq": 21, "event_id": "e21", "task_id": "TID-2026-09-14-q", "type": "command.proposed", "at": "2026-09-14T21:21:00+08:00", "actor": "S005-the-Architect", "ref": "CMD-0004"}
+{"seq": 22, "event_id": "e22", "task_id": "TID-2026-09-14-q", "type": "command.authorized", "at": "2026-09-14T21:22:00+08:00", "actor": "policy-standing-orders", "ref": "CMD-0004"}
+{"seq": 23, "event_id": "e23", "task_id": "TID-2026-09-14-q", "type": "execution.started", "at": "2026-09-14T21:23:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0004"}
+{"seq": 24, "event_id": "e24", "task_id": "TID-2026-09-14-q", "type": "outcome.recorded", "at": "2026-09-14T21:24:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0004"}
+{"seq": 25, "event_id": "e25", "task_id": "TID-2026-09-14-q", "type": "verification.passed", "at": "2026-09-14T21:25:00+08:00", "actor": "verifier-success-predicate", "ref": "CMD-0004"}
+{"seq": 26, "event_id": "e26", "task_id": "TID-2026-09-14-q", "type": "command.proposed", "at": "2026-09-14T21:26:00+08:00", "actor": "S005-the-Architect", "ref": "CMD-0005"}
+{"seq": 27, "event_id": "e27", "task_id": "TID-2026-09-14-q", "type": "command.authorized", "at": "2026-09-14T21:27:00+08:00", "actor": "policy-standing-orders", "ref": "CMD-0005"}
+{"seq": 28, "event_id": "e28", "task_id": "TID-2026-09-14-q", "type": "execution.started", "at": "2026-09-14T21:28:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0005"}
+{"seq": 29, "event_id": "e29", "task_id": "TID-2026-09-14-q", "type": "outcome.recorded", "at": "2026-09-14T21:29:00+08:00", "actor": "executor-sandbox", "ref": "CMD-0005"}
+{"seq": 30, "event_id": "e30", "task_id": "TID-2026-09-14-q", "type": "verification.passed", "at": "2026-09-14T21:30:00+08:00", "actor": "verifier-success-predicate", "ref": "CMD-0005"}
+{"seq": 31, "event_id": "e31", "task_id": "TID-2026-09-14-q", "type": "task.completed", "at": "2026-09-14T21:31:00+08:00", "actor": "S005-the-Architect"}

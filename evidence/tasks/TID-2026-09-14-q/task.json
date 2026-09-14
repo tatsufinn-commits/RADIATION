@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-q",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: \"proceed to 5300!\"",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T21:00:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "22c8147cee90580b3338d1f253457f3fe1b84297",
+ "idempotency_key": "5300-sanction-declaration",
+ "operator_notes": {
+  "intake": "Order: \"proceed to 5300!\" (architect brief E1-E5: sanction corpus/replicas by declaration, semantic receipts, honest claims, pass single-root). Mode: build (@Autopilot).",
+  "reasoning": "5300 Sanction: E1 declared course corpus (COURSE_CORPUS_MANIFEST hash-bound; undeclared/drift/missing-derivative/escape FAIL; 2 syllabus URL schemes redacted as citation text, recorded); E2 replica contract (REPLICA_MANIFEST 12 hash-bound pairs - display truncation had hidden intake/orders twins; drift FAILs; undeclared duplicates still FAIL); E3 verify_chain binds executions BY DIGEST to exact decision+approval (bounds recorded, approval single-use, decision = reusable task-scoped policy; self-test 25->34); E4 task-ID grammar schema-enforced (genesis exception), _drafts_root private test seam, THREAT_MODEL truth (traversal-only fail-closed, TOCTOU not claimed, receipt eras); E5 pass cross-root refusal (protocol_target_mismatch, 10/10). Warns NOT normalized: check 16 + 20.5 = Commander doctrine (relabeling forbidden).",
+  "orders": "PLAN-5300, 5 steps green; contract fixtures 11/11; receipts chain 10 entries verifying under the new semantic binding. Delivery: RADIATION_PATCH_2026-09-14_5300_Sanction.zip (v3.5.0). Push: the Commander's, always."
+ }
+}

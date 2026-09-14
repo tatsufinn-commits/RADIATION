@@ -80,6 +80,50 @@ def route(host_label: str) -> dict:
 
 
 def run_pass(host_label: str, repo: str = ROOT) -> dict:
+    # ── 5300 E5: one result, one root ──
+    # A profile, the II.11 boundary and the proof commands belong to THIS
+    # protocol tree. Observing a foreign --repo alongside them would stitch
+    # two contexts into one handoff. Cross-root invocation is therefore
+    # refused explicitly: no profile, no repository-relative proofs, and no
+    # probe of the target at all. Zero writes either way.
+    protocol_root = os.path.realpath(ROOT)
+    target_root = os.path.realpath(repo or ".")
+    if target_root != protocol_root:
+        routed = route(host_label)
+        routed["protocol_target_mismatch"] = True
+        try:
+            from radiation_core.control_plane import resolve
+            b_read = resolve("read", "session_initiative", "TID-2026-01-01-passrun")
+            b_canon = resolve("canonical_apply", "commander_order", "TID-2026-01-01-passrun")
+            boundary = {"read": {"status": b_read["status"], "tool": b_read.get("tool")},
+                        "canonical_apply": {"status": b_canon["status"],
+                                            "tool": b_canon.get("tool"),
+                                            "note": b_canon["reasons"][0]}}
+        except Exception as e:
+            boundary = {"error": f"resolver unavailable: {e}"[:120]}
+        out = {
+            "schema_name": "radiation.pass/0.1",
+            "host_label_declared": host_label or "",
+            "routing": routed,
+            "observation": {"repository_path": repo,
+                            "repository_status": "protocol_target_mismatch",
+                            "note": "--repo is not this protocol's root; the pass "
+                                    "observes, binds, and writes NOTHING on the target"},
+            "boundary": boundary,
+            "profile": None,
+            "unknowns": ["protocol_target_mismatch: the pass only speaks for its own "
+                         "protocol root — re-run inside the RADIATION checkout",
+                         "host tool surface is session-contingent; only the probe's "
+                         "catalog is real",
+                         "model identity unknowable — the host label is not an identity claim"],
+            "proofs": [],
+            "pass_is": "a handoff (observation+bounds+proofs), not an elevation; "
+                       "zero writes performed; cross-root invocation refused",
+        }
+        blob = json.dumps(out).lower()
+        out["honesty_selfcheck"] = "clean" if not any(p in blob for p in IDENTITY_PATTERNS) \
+            else "VIOLATION"
+        return out
     routed = route(host_label)
     att = _probe(repo)
     mounted = att.get("repository_status") == "mounted"
@@ -165,13 +209,20 @@ def self_test(repo: str = ROOT) -> int:
         and ru["profile"] is None and "uncertainty" in ru["routing"]["note"])
     vec("unknown-host output also claim-free", ru["honesty_selfcheck"] == "clean")
 
-    ghost = tempfile.mkdtemp(prefix="pass-unmounted-")
+    ghost = tempfile.mkdtemp(prefix="pass-crossroot-")
     rg = run_pass("Arena Agent Mode", ghost)
-    st = rg["observation"]["repository_status"]
-    vec("unmounted root -> explicit non-availability, not failure",
-        st in ("not_mounted", "not_a_git_worktree")
-        and any("no mount" in u for u in rg["unknowns"])
-        and rg["honesty_selfcheck"] == "clean", f"status={st}")
+    vec("cross-root --repo -> explicit protocol_target_mismatch (no profile, no repo-relative proofs)",
+        rg["routing"].get("protocol_target_mismatch") is True
+        and rg["observation"]["repository_status"] == "protocol_target_mismatch"
+        and rg["profile"] is None and rg["proofs"] == []
+        and rg["honesty_selfcheck"] == "clean",
+        str(rg["observation"])[:80])
+    ru2 = run_pass("Definitely-Unknown-Host-42", ghost)
+    vec("cross-root + unknown host still refused, uncertainty declared",
+        ru2["routing"]["route"] == "generic"
+        and ru2["routing"].get("protocol_target_mismatch") is True
+        and ru2["profile"] is None and ru2["honesty_selfcheck"] == "clean",
+        str(ru2["routing"])[:80])
 
     # zero-write proof on a disposable COPY (works on any root, git or not)
     try:

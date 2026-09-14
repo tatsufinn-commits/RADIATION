@@ -1,0 +1,108 @@
+{
+ "schema_name": "radiation.cap/0.1",
+ "task_id": "TID-2026-09-14-q",
+ "declared": {
+  "host_label": "Arena Agent Mode",
+  "adapter_path": "agents/_common/radiation_pass.py",
+  "requested_effect": "read",
+  "model_identity": null
+ },
+ "observed": {
+  "repository": {
+   "path": "/home/user/patch_build23",
+   "git_head": "22c8147cee90580b3338d1f253457f3fe1b84297",
+   "dirty": null,
+   "status": "not_a_git_worktree"
+  },
+  "tools": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "allowed_effects": [],
+  "probes": []
+ },
+ "verified": {
+  "policy_paths_loaded": [
+   {
+    "path": "AGENTS.md",
+    "sha256": "sha256:e739d07c18ba97f08604fa5c0975b94d5bf702b1ceaadb8901b6459aa84692a6"
+   },
+   {
+    "path": "agents/AGENT_INDEX.md",
+    "sha256": "sha256:03f6c0745a490520e313a2993fbaf5c1d800e5ce706d2c61fb345af4a498d6ac"
+   },
+   {
+    "path": "docs/COURSE_CORPUS_POLICY.md",
+    "sha256": "sha256:d9934531516ce13ebf53483fe4df4b09f61fffac8c3323c62804dc8626496bf5"
+   },
+   {
+    "path": "scaffolding/neurons/REPLICA_MANIFEST.json",
+    "sha256": "sha256:96743a7b33c0d4281a1dd7764d9d2158a83e74673a828b341a53201cd68362b5"
+   }
+  ],
+  "checks": [
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "12/12"
+   },
+   {
+    "name": "nota-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "render-docs-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11/0"
+   }
+  ],
+  "artifact_digest": "sha256:4e0e9284823c0c3b9b87b3d53dfa00a9004be967991e2bd836a4046102574db9",
+  "tests": [
+   {
+    "name": "contract-tests-e1e2",
+    "exit_code": 0,
+    "detail": "11/11"
+   },
+   {
+    "name": "control-plane-self-test",
+    "exit_code": 0,
+    "detail": "34/34"
+   },
+   {
+    "name": "radiation-pass-self-test",
+    "exit_code": 0,
+    "detail": "10/10"
+   },
+   {
+    "name": "receipts-chain-semantic",
+    "exit_code": 0,
+    "detail": "10 entries, 0 findings"
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11/0"
+   }
+  ]
+ },
+ "status": "limited",
+ "blockers": [],
+ "events": [
+  {
+   "state": "authorize",
+   "result": "granted",
+   "reason": "read via cap_probe; the pass routed Arena Agent Mode to its folder"
+  },
+  {
+   "state": "execute",
+   "result": "done",
+   "receipt": "decision+approval+execution chained (seq 7-9) under the 5300 digest-binding; draft zero-canonical"
+  }
+ ]
+}

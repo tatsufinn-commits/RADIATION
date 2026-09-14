@@ -279,6 +279,7 @@ Stated plainly so a session does not assume capability it lacks:
 |---|---|---|---|---|
 | `cap_probe.py` | cap_probe — read-only capability probe with declarative host profiles. | no | no | no |
 | `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
+| `contract_tests.py` | 5300 negative fixtures — declared course-corpus (E1) and replica (E2) contracts. | no | no | no |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
 | `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |
@@ -294,6 +295,17 @@ Stated plainly so a session does not assume capability it lacks:
 | `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
 <!-- GENERATED:capability-inventory:END -->
+
+## §18 — Sanction layer (5300, architect brief E1–E5)
+
+| Capability | Mechanism | Enforcement |
+|---|---|---|
+| Declared course-corpus admission | `Brain/courses/COURSE_CORPUS_MANIFEST.json` + `schemas/course_corpus_manifest.schema.json` + `docs/COURSE_CORPUS_POLICY.md` (check 2.5) | hash-bound: undeclared vehicle / digest drift / missing derivative / path escape FAIL; identifier rules unchanged; a checksum is not a permission grant |
+| Sanctioned replica contract | `scaffolding/neurons/REPLICA_MANIFEST.json` + `schemas/replica_manifest.schema.json` (check 11) | 12 hash-bound active↔archive pairs; drift FAILs; every undeclared duplicate FAILs; archive replicas never boot context |
+| Semantic receipt verification | `radiation_core/control_plane.py::verify_chain` (check 37) | v2 executions bind decision+approval BY DIGEST (task/status/effect/tool, manifest, bounds, draft-root); approval single-use; forged/substituted/replayed FAIL closed |
+| Task-ID grammar in schemas | `schemas/control_receipt.schema.json` + `control_decision.schema.json` | strict `TID-…` pattern with documented genesis exception (`RADIATION-5000`) |
+| Pass single-root truth | `agents/_common/radiation_pass.py` (check 38) | cross-root `--repo` → explicit `protocol_target_mismatch`, no profile, no repo-relative proofs, no target probe |
+| Negative fixtures | `scripts/contract_tests.py` | 11/11 vectors over the E1/E2 contracts on disposable temp trees (zero-write) |
 
 <!-- GENERATED:planner-register:START -->
 **Term register (GENERATED from `scripts/plan_term.py --self-check` — the tool is the single source; hand edits here are a CI failure):** 6 courses · 26 items · 3 deadline-blind course(s)

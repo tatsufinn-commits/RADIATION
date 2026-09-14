@@ -1,0 +1,13 @@
+PASS valid corpus passes
+  PASS undeclared new vehicle fails
+  PASS digest drift fails
+  PASS missing derivative fails
+  PASS manifest path escape fails
+  PASS manifest absent fails
+  PASS sanctioned pair passes
+  PASS replica drift fails
+  PASS missing twin fails
+  PASS undeclared third copy fails
+  PASS undeclared pair fails as duplicate
+contract_tests: 11/11 vectors
+declared admission is hash-bound; undeclared shapes fail; silence is not kept

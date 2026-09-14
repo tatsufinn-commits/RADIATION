@@ -7,6 +7,8 @@ census, and it runs solely when RADIATION_ONLINE=1 (set it in CI, never in a
 session — sessions stay offline by law).
 """
 import hashlib, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from radiation_core.relay import _schema_check  # ONE schema executor (II.11)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS = []
 def rec(check, sev, ok, msg):
@@ -82,6 +84,95 @@ def c2():
             if d not in ("long_term","short_term","subsidiary","cerebellum"):  # region docs live in BRAIN_INDEX
                 bad.append(f"Brain/{d}/ lacks README/INDEX")
     rec(2, "FAIL", not bad, "required files" + ("" if not bad else ": missing " + "; ".join(bad[:6])))
+# ---- 5300 E1: declared course-corpus admission contract --------------------
+def _corpus_contract_violations(root):
+    """The Brain/courses/ non-Markdown corpus is ADMITTED BY DECLARATION only:
+    an exact, hash-bound entry in COURSE_CORPUS_MANIFEST.json. Returns
+    (violations, declared_path_set). A checksum is not a permission grant."""
+    bad, declared = [], set()
+    mp = os.path.join(root, "Brain", "courses", "COURSE_CORPUS_MANIFEST.json")
+    if not os.path.isfile(mp):
+        return (["Brain/courses/COURSE_CORPUS_MANIFEST.json missing — the declared "
+                 "course-corpus contract (5300 E1) is not installed"], declared)
+    try:
+        m = json.load(open(mp, encoding="utf-8"))
+    except Exception as e:
+        return ([f"COURSE_CORPUS_MANIFEST.json unparseable: {e}"], declared)
+    out: list[str] = []
+    _schema_check(m, "course_corpus_manifest.schema.json", "course corpus manifest", out)
+    bad.extend(out[:6])
+    courses_real = os.path.realpath(os.path.join(root, "Brain", "courses")) + os.sep
+    assets = m.get("assets") if isinstance(m.get("assets"), list) else []
+    for a in assets:
+        p = str(a.get("path", ""))
+        declared.add(p)
+        ap = os.path.join(root, p)
+        if not os.path.isfile(ap):
+            bad.append(f"{p}: declared asset missing")
+            continue
+        if os.path.islink(ap) or not os.path.realpath(ap).startswith(courses_real):
+            bad.append(f"{p}: declared path escapes Brain/courses/ (traversal/symlink)")
+            continue
+        h = "sha256:" + hashlib.sha256(open(ap, "rb").read()).hexdigest()
+        if h != a.get("sha256"):
+            bad.append(f"{p}: digest drift — declared {str(a.get('sha256'))[:21]}…, on disk {h[:21]}…")
+        if a.get("role") == "source_of_readable_derivative":
+            d = a.get("derivative_path")
+            if not d or not os.path.isfile(os.path.join(root, str(d))):
+                bad.append(f"{p}: readable derivative missing ({d})")
+    return (bad, declared)
+
+
+# ---- 5300 E2: sanctioned replica contract ----------------------------------
+def _replica_contract(root):
+    """Exactly the declared pairs may be byte-identical; every other duplicate
+    still fails. Both sides are hash-bound: drift fails, silence is not kept."""
+    bad, allowed = [], set()
+    mp = os.path.join(root, "scaffolding", "neurons", "REPLICA_MANIFEST.json")
+    if not os.path.isfile(mp):
+        return (["scaffolding/neurons/REPLICA_MANIFEST.json missing — replica "
+                 "contract (5300 E2) not installed"], allowed)
+    try:
+        m = json.load(open(mp, encoding="utf-8"))
+    except Exception as e:
+        return ([f"REPLICA_MANIFEST.json unparseable: {e}"], allowed)
+    out: list[str] = []
+    _schema_check(m, "replica_manifest.schema.json", "replica manifest", out)
+    bad.extend(out[:6])
+    pairs = m.get("pairs") if isinstance(m.get("pairs"), list) else []
+    for pr in pairs:
+        c, r = str(pr.get("canonical_path", "")), str(pr.get("replica_path", ""))
+        allowed.add(tuple(sorted((c, r))))
+        if not all(os.path.isfile(os.path.join(root, q)) for q in (c, r)):
+            bad.append(f"sanctioned replica side missing: {c} <-> {r}")
+            continue
+        hc = "sha256:" + hashlib.sha256(open(os.path.join(root, c), "rb").read()).hexdigest()
+        hr = "sha256:" + hashlib.sha256(open(os.path.join(root, r), "rb").read()).hexdigest()
+        if hc != hr or hc != pr.get("sha256"):
+            bad.append(f"replica drift: {c} <-> {r} (hash-bound contract violated)")
+    return (bad, allowed)
+
+
+def _dup_scan(root, allowed):
+    """MD5 duplicate grouping over .md/.readme; declared exact pairs exempt."""
+    hashes, bad, sets = {}, [], {}
+    for dp, dn, fn in os.walk(root):
+        dn[:] = [d for d in dn if d not in {".git", ".github", "node_modules", "_local_backup", "__pycache__"}]
+        for f in sorted(fn):
+            if not (f.endswith(".md") or f == ".readme"):
+                continue
+            p = os.path.relpath(os.path.join(dp, f), root).replace(os.sep, "/")
+            txt = open(os.path.join(dp, f), encoding="utf-8", errors="replace").read()
+            h = hashlib.md5(txt.encode()).hexdigest()
+            if h in hashes:
+                if tuple(sorted((p, hashes[h]))) not in allowed:
+                    bad.append(f"{p} == {hashes[h]}")
+            else:
+                hashes[h] = p
+            sets[p] = set(l for l in txt.splitlines() if l.strip())
+    return (bad, sets)
+
+
 # ---- check 2.5: Brain/courses/ — records only, no vehicles, no identifiers ----
 # P-10 §3.3. Cures the 4a98e59 exposure class: FAILs the exact shapes published
 # on 2026-09-13 (binaries, a credential URL, room/section strings).
@@ -108,7 +199,7 @@ CV_ALLOW_DATA = {"Brain/courses/0_CALLENDER/TERM1_FEED.txt"}
 
 # SD-3300-01: FAIL messages carry their remedy — a validator that names a wound
 # without naming the treatment makes the Commander do the plumbing.
-REMEDY_VEHICLES = " · REMEDY: run APPLY.sh from your latest patch (idempotent — it re-homes these to _local_backup/), or move them yourself + git rm --cached"
+REMEDY_VEHICLES = " · REMEDY: inside Brain/courses/ declare the asset in Brain/courses/COURSE_CORPUS_MANIFEST.json (hash-bound, 5300 E1) or remove it; elsewhere in Brain/ move it out + git rm --cached"
 # v4: a denied CODE is a token, not a substring. The v3 rule used `w in t`, so the
 # section code "C5" matched inside "EC5" (Eurocode 5) — a false positive on legitimate
 # domain content, and one that would recur in every structural-design record. The intent
@@ -136,14 +227,16 @@ CV_LOCATION_PATTERNS = [
 # CV_PATTERNS keeps its original meaning (identifier + location) for every caller
 # that has no allowance. Only check 2.5 consults CV_ALLOW_LOCATION.
 CV_PATTERNS = CV_IDENT_PATTERNS + CV_LOCATION_PATTERNS
-def c25():
+def _brain_vehicle_violations(root, declared):
+    """3400 HARDENING, 5300 E1 refinement — the vehicle rule stays GENERIC over
+    all of Brain/: the corpus is INTENTIONAL and admitted BY DECLARATION
+    (hash-bound manifest), never by deletion. Inside Brain/courses/ only exact
+    manifest entries pass; elsewhere the rule is unchanged."""
     bad = []
-    # 3400 HARDENING — the skip-pattern dies permanently. The vehicle rule used to be
-    # an ENUMERATION of known offenders inside Brain/courses/ only; a fresh syllabus
-    # PDF dropped anywhere else in Brain/ sailed through. The rule is now GENERIC over
-    # all of Brain/: records are .md; the sanctioned non-.md set is closed and small.
-    brain = os.path.join(ROOT, "Brain")
+    brain = os.path.join(root, "Brain")
     def sanctioned(p):
+        if p == "Brain/courses/COURSE_CORPUS_MANIFEST.json":
+            return True                                  # 5300 E1: the contract file itself
         if p in CV_ALLOW_DATA:            return True   # amendment A2: the committed LMS feed
         if p.startswith("Brain/short_term/plan/") and p.endswith(".json"):
             return True                                  # the deadline register the planner eats
@@ -153,10 +246,22 @@ def c25():
     if os.path.isdir(brain):
         for dp, dn, fn in os.walk(brain):
             for f in sorted(fn):
-                p = os.path.relpath(os.path.join(dp, f), ROOT)
+                p = os.path.relpath(os.path.join(dp, f), root).replace(os.sep, "/")
                 if f.endswith(".md") or f == ".gitkeep" or sanctioned(p):
                     continue
-                bad.append(f"{p} (unsanctioned vehicle)")
+                if p.startswith("Brain/courses/"):
+                    if p not in declared:
+                        bad.append(f"{p} (undeclared course-corpus asset — declare it in COURSE_CORPUS_MANIFEST.json or remove it)")
+                else:
+                    bad.append(f"{p} (unsanctioned vehicle)")
+    return bad
+
+
+def c25():
+    bad = []
+    c_bad, declared = _corpus_contract_violations(ROOT)
+    bad.extend(c_bad)
+    bad.extend(_brain_vehicle_violations(ROOT, declared))
     # Identifier scan: Brain/courses/ text records. Amendment A1 (patch 2600): the
     # Commander's own timetable is the one record where location identifiers are
     # permitted — a room may appear there, a name may not.
@@ -174,7 +279,7 @@ def c25():
                 for pat, what in (CV_IDENT_PATTERNS if waived else CV_PATTERNS):
                     m = re.search(pat, t)
                     if m: bad.append(f"{p} ({what}: {m.group(0)[:24]})")
-    rec(2.5, "FAIL", not bad, "Brain/ records-only + no identifiers (generic vehicle rule, 3400)" + ("" if not bad else ": " + "; ".join(bad[:6])) + REMEDY_VEHICLES if bad else "Brain/ records-only + no identifiers — clean (generic vehicle rule, 3400)")
+    rec(2.5, "FAIL", not bad, "Brain/ records-only + declared course corpus + no identifiers (generic vehicle rule, 3400; declared corpus 5300 E1)" + ("" if not bad else ": " + "; ".join(bad[:6])) + REMEDY_VEHICLES if bad else "Brain/ records-only + declared course corpus + no identifiers — clean (3400 generic rule; 5300 E1 declared corpus)")
 
 # ---- check 3: forbidden transport artifacts (II.8.2) -----------------------
 def c3():
@@ -276,15 +381,12 @@ def c10():
     rec(10, "FAIL", not bad, "register liveness" + ("" if not bad else ": " + "; ".join(bad)))
 # ---- check 11: duplicate detection --------------------------------------------
 def c11():
-    hashes, bad, warn = {}, [], []
-    files = md_files()
-    sets = {}
-    for f in files:
-        t = read(f)
-        h = hashlib.md5(t.encode()).hexdigest()
-        if h in hashes: bad.append(f"{f} == {hashes[h]}")
-        else: hashes[h] = f
-        sets[f] = set(l for l in t.splitlines() if l.strip())
+    # 5300 E2: the four declared active/archive replica pairs are exempt — but
+    # hash-bound: a drifted twin fails via _replica_contract, and any duplicate
+    # NOT declared as an exact sanctioned pair still fails below.
+    r_bad, allowed = _replica_contract(ROOT)
+    bad, sets = _dup_scan(ROOT, allowed)
+    warn = []
     fl = list(sets)
     for i in range(len(fl)):
         for j in range(i+1, len(fl)):
@@ -292,7 +394,8 @@ def c11():
             if not a or not b: continue
             jac = len(a & b) / len(a | b)
             if 0.9 <= jac < 1.0: warn.append(f"{fl[i]} ~ {fl[j]} ({jac:.2f})")
-    rec(11, "FAIL", not bad, "duplicate files" + ("" if not bad else ": " + "; ".join(bad[:4])))
+    bad = r_bad + bad
+    rec(11, "FAIL", not bad, "duplicate files (declared replica pairs exempt, 5300 E2)" + ("" if not bad else ": " + "; ".join(bad[:4])))
     rec(11.5, "WARN", not warn, "near-duplicates" + ("" if not warn else ": " + "; ".join(warn[:4])))
 # ---- check 12: filename hygiene -----------------------------------------------
 def c12():
@@ -926,7 +1029,8 @@ def c37control():
         tail = (r.stdout + r.stderr).strip().splitlines()
         problems.append("control_plane --self-test failed: " + (tail[-1] if tail else "rc!=0"))
     rec(37, "FAIL", not problems,
-        "control plane (II.11, amended 5100): cooperative in-program policy flow · "
+        "control plane (II.11, amended 5300): cooperative in-program policy flow · "
+        "task-ID grammar schema-enforced (genesis exception) · receipts digest-bound · "
         "strict task grammar + pinned drafts base · content-bound single-use "
         "approvals · tamper-evident receipt chain · canonical = Commander motor "
         "act — in-program enforcement only, limits: docs/THREAT_MODEL.md" +

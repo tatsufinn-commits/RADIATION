@@ -1,0 +1,14 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-q",
+ "result": "succeeded",
+ "revision_after": "22c8147cee90580b3338d1f253457f3fe1b84297",
+ "finished_at": "2026-09-14T21:21:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-q/artifacts/contract_tests.txt",
+   "sha256": "4e0e9284823c0c3b9b87b3d53dfa00a9004be967991e2bd836a4046102574db9"
+  }
+ ]
+}

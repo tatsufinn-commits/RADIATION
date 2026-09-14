@@ -4,6 +4,14 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.5.0 — 2026-09-14 — Sanction (🟠 · architect brief E1–E5, declaration not deletion)
+- **E1 — declared course corpus** (supersedes the 5100 removals BY COMMANDER ORDER): every non-Markdown file under `Brain/courses/` must be an exact, SHA-256-bound entry in `Brain/courses/COURSE_CORPUS_MANIFEST.json` (`schemas/course_corpus_manifest.schema.json`); undeclared vehicle / digest drift / missing derivative / path escape all FAIL; identifier rules unchanged (2 syllabus URL *schemes* redacted as citation text — recorded, not silent). Policy: `docs/COURSE_CORPUS_POLICY.md` — a checksum is not a permission grant.
+- **E2 — sanctioned replica contract**: `scaffolding/neurons/REPLICA_MANIFEST.json` — 12 hash-bound active↔archive pairs (the brief said 4; display truncation had hidden the intake/orders twins); drift fails, every undeclared duplicate still fails; archive replicas are never boot context.
+- **E3 — semantic receipt verification**: `verify_chain` binds every v2 execution BY DIGEST to its exact decision + approval (task/status/effect/tool, manifest, bounds, draft-root confinement; approval single-use; decisions are reusable task-scoped policy with a fresh approval). Self-test 25→34 vectors; execution receipts now record their bounds.
+- **E4 — claims = mechanism**: task-ID grammar schema-enforced in decision+receipt schemas (genesis `RADIATION-5000` documented exception) · drafts seam made test-only (`_drafts_root`) · THREAT_MODEL: only traversal fails closed, TOCTOU race-resistance not claimed, "receipt eras" section documents legacy scope.
+- **E5 — RADIATION PASS single-root**: cross-root `--repo` returns explicit `protocol_target_mismatch` — no profile, no repository-relative proofs, zero probe of the target. Self-test 9→10 vectors.
+- New `scripts/contract_tests.py` (11/11 negative fixtures) · check 2.5/11 rewired to the contracts · check 37 amended label.
+
 ## v3.4.0 — 2026-09-14 — Activation (🟠 · review E4, the provider layer)
 - **`AGENTS.md`** (root): provider-neutral entrypoint — identity line, boot pointer, routing, the pass, the honesty clause (repo text cannot force a hosted product to load or obey anything).
 - **`agents/AGENT_INDEX.md` + the five exact folders** (`ChatGPT/ Gemini/ Grok/ Claude/ Arena_AI/`): a runtime loads its folder ONLY when the host is explicitly known/observed; unknown/ambiguous → generic CAP path, uncertainty declared, no invented profiles. `Arena_AI/` is the primary testbed profile.
