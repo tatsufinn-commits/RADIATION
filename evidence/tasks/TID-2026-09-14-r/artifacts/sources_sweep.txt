@@ -1,0 +1,18 @@
+RADIATION 5400 provider research sweep — raw record (retrieved 2026-09-14, S005 session)
+── arena.ai/agent [O] product surface: agents browse/research/code/compare
+── chatgate.ai/post/agent-mode-on-arena [S 2026-06-05] tools: web search, image gen, files, sandbox/bash
+── stork.ai/en/arena-agent-mode [S/U 2026-06-05] leaderboard 2026-06-04; freemium ~$20/mo (unverified)
+── openai.com/index/offering-zero-data-retention-for-frontier-models [O 2026-08-19] ZDR; no API training
+── humla.team openai-data-retention [S 2026-07-28] 30-day abuse logs; consumer/API split
+── zylo.com openai-api-pricing [S 2026-08-13]; metacto [S 2026-06-11]: GPT-5.4 $2.50/$15; o3 $2/$8
+── terms.law anthropic [S 2026-06-27] API no-training (Commercial Terms)
+── datastudios.org claude-retention [S 2026-09-07] API logs 7d since 2025-09-15; ZDR
+── benchlm.ai/anthropic [S 2026-09-11] Fable 5.1 $10/$50; Opus 5 $5/$25; CONFLICT Sonnet 5 $2 vs $3
+── developer.puter.com claude-api-pricing [S 2026-09-08] Sonnet 5 $3/$15 (conflicting)
+── ai.google.dev/gemini-api/docs/logs-policy [O] paid-API logs private; training only via contributed datasets
+── getapipulse google [S 2026-09-08]; opslyft [S 2026-06-02]: 3.1 Pro $2/$12 (<=200K) $4/$18 (>200K)
+── reddit r/GoogleGeminiAI [U 2025-11-28] consumer human-review ~3y retention (user-reported)
+── meetily.ai xai [S 2026-06-29] API: no training default; 30d audit; ZDR enterprise
+── aiprovidertrust.com xai [S 2026-08-25/07-05] SOC2 claim; NDA trust center; GPAI partial
+── benchlm.ai/xai [S 2026-09-11] Grok 4.6 $2/$6 500K; 4.1 Fast $0.20/$0.50 2M
+GAPS DECLARED: Arena official privacy/pricing/status; xAI status page — review triggers, not invented.

@@ -25,3 +25,5 @@ writes · Arena's declared posture is read-only.
 
 **Limitation:** this index binds *sessions that choose to read it*. It cannot make a
 hosted product auto-discover anything — convention, not proof.
+
+RESEARCH LAYER (5400, non-boot): per-provider `CAPABILITY_PROFILE.md` + `SOURCES.md` (dated, tier-labeled), plus `agents/ROUTING_MATRIX.md` and `agents/RESEARCH_METHOD.md`. Notes for routing decisions — not authority, not boot context. Reviewed 2026-09-14; expiry 2026-12-13.

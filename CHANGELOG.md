@@ -4,6 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.6.0 — 2026-09-14 — Survey (🟠 · architect brief §7 E6, the dated research layer)
+- **`agents/<Provider>/CAPABILITY_PROFILE.md` + `SOURCES.md` ×5** (ChatGPT, Claude, Gemini, Grok, Arena_AI): current model lines, capability areas, access/cost/availability, safety/privacy posture (API vs consumer vs enterprise kept separate), RADIATION task-suitability — every volatile claim dated and tier-labeled ([O]fficial / [S]econdary / [U]ser-reported / [B]enchmark), `reviewed_on: 2026-09-14`, 90-day review trigger (2026-12-13).
+- **Conflicts recorded, never averaged:** Sonnet-5 pricing disagreement flagged with the official page as resolution trigger. **Gaps declared, never invented:** Arena privacy/pricing/status + xAI status are open review triggers.
+- **Arena discipline:** model identity UNKNOWABLE from inside a session (blind-battle design); tool surface session-contingent (probe first); no conflation with unrelated "arena" products.
+- **`agents/ROUTING_MATRIX.md`** (task class × provider, assessment-labeled) · **`agents/RESEARCH_METHOD.md`** (method, tiers, red lines, maintenance).
+- **Check 38 extended** (non-boot): layer existence, dated sources, review triggers, claims lint, Arena identity-discipline. Boot tiers untouched by content — pointer in AGENT_INDEX only.
+
 ## v3.5.0 — 2026-09-14 — Sanction (🟠 · architect brief E1–E5, declaration not deletion)
 - **E1 — declared course corpus** (supersedes the 5100 removals BY COMMANDER ORDER): every non-Markdown file under `Brain/courses/` must be an exact, SHA-256-bound entry in `Brain/courses/COURSE_CORPUS_MANIFEST.json` (`schemas/course_corpus_manifest.schema.json`); undeclared vehicle / digest drift / missing derivative / path escape all FAIL; identifier rules unchanged (2 syllabus URL *schemes* redacted as citation text — recorded, not silent). Policy: `docs/COURSE_CORPUS_POLICY.md` — a checksum is not a permission grant.
 - **E2 — sanctioned replica contract**: `scaffolding/neurons/REPLICA_MANIFEST.json` — 12 hash-bound active↔archive pairs (the brief said 4; display truncation had hidden the intake/orders twins); drift fails, every undeclared duplicate still fails; archive replicas are never boot context.

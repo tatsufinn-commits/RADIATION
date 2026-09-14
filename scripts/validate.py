@@ -1064,6 +1064,47 @@ def c38agents():
         bp = os.path.join(ROOT, "agents", d, "BOOT.md")
         if os.path.exists(bp) and bad_pat.search(open(bp, encoding="utf-8").read()):
             problems.append(f"claims lint: agents/{d}/BOOT.md contains a first-person claim")
+    # ── 5400 E6: research layer (non-boot) — dated profiles, sources, matrix ──
+    research = ("ChatGPT", "Gemini", "Grok", "Claude", "Arena_AI")
+    for d in research:
+        pp = os.path.join(ROOT, "agents", d, "CAPABILITY_PROFILE.md")
+        sp = os.path.join(ROOT, "agents", d, "SOURCES.md")
+        if not os.path.exists(pp):
+            problems.append(f"missing: agents/{d}/CAPABILITY_PROFILE.md")
+            continue
+        prof = open(pp, encoding="utf-8").read()
+        if "reviewed_on: 2026-09-14" not in prof:
+            problems.append(f"agents/{d}/CAPABILITY_PROFILE.md: no reviewed_on date")
+        if "Review trigger" not in prof:
+            problems.append(f"agents/{d}/CAPABILITY_PROFILE.md: no review trigger")
+        if not os.path.exists(sp):
+            problems.append(f"missing: agents/{d}/SOURCES.md")
+            continue
+        srcs = open(sp, encoding="utf-8").read()
+        if len(re.findall(r"2026-\d{2}-\d{2}", srcs)) < 3:
+            problems.append(f"agents/{d}/SOURCES.md: fewer than 3 dated sources")
+        if "retrieved" not in srcs.lower():
+            problems.append(f"agents/{d}/SOURCES.md: no retrieval date")
+        if bad_pat.search(prof) or bad_pat.search(srcs):
+            problems.append(f"claims lint: agents/{d}/ research layer first-person claim")
+    for f in ("agents/ROUTING_MATRIX.md", "agents/RESEARCH_METHOD.md"):
+        if not os.path.exists(os.path.join(ROOT, f)):
+            problems.append(f"missing: {f}")
+    mp = os.path.join(ROOT, "agents", "ROUTING_MATRIX.md")
+    if os.path.exists(mp):
+        mt = open(mp, encoding="utf-8").read()
+        for d in ("ChatGPT", "Claude", "Gemini", "Grok"):
+            if d not in mt:
+                problems.append(f"ROUTING_MATRIX.md does not cover {d}")
+        if "Arena" not in mt:
+            problems.append("ROUTING_MATRIX.md does not cover Arena")
+    ap = os.path.join(ROOT, "agents", "Arena_AI", "CAPABILITY_PROFILE.md")
+    if os.path.exists(ap):
+        low = open(ap, encoding="utf-8").read().lower()
+        if "unknowable" not in low:
+            problems.append("Arena profile must state model identity is unknowable")
+        if re.search(r"underlying model is (?:gpt|claude|gemini|grok)", low):
+            problems.append("Arena profile makes a model-identity claim")
     r = subprocess.run([sys.executable, os.path.join("agents", "_common",
                         "radiation_pass.py"), "--self-test"], cwd=ROOT,
                        capture_output=True, text=True, timeout=300)
@@ -1071,9 +1112,9 @@ def c38agents():
         tail = (r.stdout + r.stderr).strip().splitlines()
         problems.append("radiation_pass --self-test failed: " + (tail[-1] if tail else "rc!=0"))
     rec(38, "FAIL", not problems,
-        "provider activation layer (5200): exact folders · index coherence · "
-        "RADIATION PASS handoff (deterministic, zero-write, claim-free) — a "
-        "handoff, NOT an elevation" +
+        "provider activation (5200) + research layer (5400): exact folders · index "
+        "coherence · RADIATION PASS handoff (deterministic, zero-write, claim-free) · "
+        "dated provider profiles w/ sources + routing matrix — a handoff, NOT an elevation" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,

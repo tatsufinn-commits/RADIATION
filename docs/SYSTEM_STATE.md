@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-14 · **Version:** v3.5.0
+**Last updated:** 2026-09-14 · **Version:** v3.6.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,9 +49,9 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.5.0** — sanction (patch 5300): corpus + replicas declared intentional,
-admitted by hash-bound manifest; receipts digest-bound; task-ID grammar schema-enforced
-(genesis exception); pass refuses cross-root. Prior: **v3.4.0** — activation (patch 5200):
+**RADIATION v3.6.0** — survey (patch 5400): dated, tier-labeled provider research layer
+(profiles + sources + routing matrix + method; Arena model identity unknowable;
+non-boot). Prior: **v3.5.0** sanction — corpus + replicas declared, receipts digest-bound, pass refuses cross-root · **v3.4.0** — activation (patch 5200):
 provider routing for known hosts (AGENTS.md + agents/), the pass handing observations,
 bounds, proofs — not powers. Prior: 5100 truebound · 5000 five thousand (II.11) · 4900
 probe · 4800 attest · 4700 sealwright · 4600 binding · 4500 last mile ·

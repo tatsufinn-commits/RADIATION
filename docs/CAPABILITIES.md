@@ -296,6 +296,12 @@ Stated plainly so a session does not assume capability it lacks:
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
 <!-- GENERATED:capability-inventory:END -->
 
+## §19 — Survey layer (5400, architect brief E6)
+
+| Capability | Mechanism | Discipline |
+|---|---|---|
+| Provider capability/routing research | `agents/<P>/CAPABILITY_PROFILE.md` + `SOURCES.md` ×5, `agents/ROUTING_MATRIX.md`, `agents/RESEARCH_METHOD.md` (check 38, non-boot) | every volatile claim dated + tier-labeled; 90-day review triggers; conflicts recorded (Sonnet-5), gaps declared (Arena privacy/status); Arena model identity unknowable; research notes are handoffs, not authority |
+
 ## §18 — Sanction layer (5300, architect brief E1–E5)
 
 | Capability | Mechanism | Enforcement |

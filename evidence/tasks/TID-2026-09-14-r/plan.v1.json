@@ -1,0 +1,34 @@
+{
+ "schema_version": "1.0",
+ "plan_id": "PLAN-5400",
+ "task_id": "TID-2026-09-14-r",
+ "base_revision": "22c8147cee90580b3338d1f253457f3fe1b84297",
+ "policy": "dated evidence only; declared gaps beat invented links; research notes are handoffs, not authority",
+ "steps": [
+  {
+   "step_id": "S1",
+   "operation_class": "research",
+   "success_predicate": "sweep record with dated tier-labeled sources per provider"
+  },
+  {
+   "step_id": "S2",
+   "operation_class": "activation",
+   "success_predicate": "check 38 research-layer lint green"
+  },
+  {
+   "step_id": "S3",
+   "operation_class": "structural",
+   "success_predicate": "validate: 38 checks, only the parked carrier FAIL"
+  },
+  {
+   "step_id": "S4",
+   "operation_class": "generated-truth",
+   "success_predicate": "render --check exit==0"
+  },
+  {
+   "step_id": "S5",
+   "operation_class": "control-plane",
+   "success_predicate": "receipts chain verifies (semantic binding)"
+  }
+ ]
+}

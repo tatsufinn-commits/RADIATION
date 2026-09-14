@@ -1,0 +1,14 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0005",
+ "task_id": "TID-2026-09-14-r",
+ "result": "succeeded",
+ "revision_after": "22c8147cee90580b3338d1f253457f3fe1b84297",
+ "finished_at": "2026-09-14T22:25:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-r/artifacts/chain_verify.txt",
+   "sha256": "d46b460d44f3e37a84ae2066523d213604677af64231c56efd1041b7968b96f4"
+  }
+ ]
+}
