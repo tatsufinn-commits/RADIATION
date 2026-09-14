@@ -1,0 +1,12 @@
+{
+ "schema_name": "radiation.host/0.1",
+ "host_label": "Arena Agent Mode",
+ "model_identity": null,
+ "posture": {
+  "requested_effects": ["read"],
+  "commander_only_effects": ["canonical_apply"],
+  "notes": "Posture toward this host: read-only observation through least-privilege tools; canonical apply/push stays the Commander's motor act outside every agent runtime; workspace_draft awaits Product-2 ratification (STAGED). No tool claims are made here: host tool surfaces are session-contingent (GitHub-ecosystem research §5.4), and unavailability is a first-class result."
+ },
+ "doc_refs": ["docs/CAP_RECORD_POLICY.md", "docs/CAPABILITIES.md", "docs/.readme"],
+ "revision_note": "4900 Probe — declarative posture only; declaration is never treated as observation (A2A lesson)."
+}

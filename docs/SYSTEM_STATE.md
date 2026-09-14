@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-15 · **Version:** v3.1.0
+**Last updated:** 2026-09-14 · **Version:** v3.2.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,13 +49,14 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.1.0** — attest (patch 4800): capability records are evidence
-objects with a seal that breaks on hand-edit; cap_verify checks them in CI
-(verification only — the runtime control plane stays STAGED, Product-2), and
-APPLY proves the whole payload verbosely before it seals. Prior: 4700
-sealwright · 4600 binding · 4500 last mile · 4400 reconciliation · 4300
-compression law · 4200 the Commander's expansion
-(@Fetch/@Overule/OPEN_SOURCES bank). Machine facts: GENERATED here.
+**RADIATION v3.2.0** — probe (patch 4900): a read-only probe with an empty
+effect catalog observes reality; declarative host postures state policy
+toward a host without claiming tools or models; C-4 redaction classes are
+executed over every record string; and nothing here grants authority — the
+control plane stays STAGED (Product-2). Prior: 4800 attest · 4700 sealwright ·
+4600 binding · 4500 last mile · 4400 reconciliation · 4300 compression law ·
+4200 the Commander's expansion (@Fetch/@Overule/OPEN_SOURCES bank). Machine
+facts: GENERATED here.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*
@@ -102,5 +103,5 @@ in `docs/shrine/members/` first (CHARTER §3). Standing orders:
 `docs/COMMANDER_QUICKREF.md` §5. Await the Commander.
 
 <!-- GENERATED:machine-facts:START -->
-**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 35 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 15 (8 exercised in CI)
+**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 36 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 16 (8 exercised in CI)
 <!-- GENERATED:machine-facts:END -->

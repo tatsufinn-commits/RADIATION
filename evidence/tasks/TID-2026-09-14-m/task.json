@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "task_id": "TID-2026-09-14-m",
+ "source": {
+  "kind": "commander",
+  "artifact_ref": "chat: 'proceed to 4900 probe!'",
+  "trust": "root"
+ },
+ "principal": "commander",
+ "received_at": "2026-09-14T16:50:00+08:00",
+ "mode_hint": "autopilot",
+ "base_revision": "f770eb9545bd69ea60fef41981cd406f4fd367c6",
+ "idempotency_key": "4900-probe-superset",
+ "operator_notes": {
+  "intake": "Order: \"proceed to 4900 probe!\" (build plan Track A, Phase C-2 + C-4 rider). Links: research memo \u00a75.4/\u00a76.3/Phase C, 4800 (gate met: f770eb9 on public main), II.10.6. Mode: build (@Autopilot).",
+  "reasoning": "4900 Probe: cap_probe.py = the PoC's two-tool contract in-tree (empty effect catalog; allowlisted tuples; symlink-safe containment; unavailability first-class) \u2014 self-test 5/5 on both root classes. Host posture profiles (radiation.host/0.1): DECLARATIVE only \u2014 no tool claims (session-contingent surfaces), model_identity pinned null by schema, Commander-only effects unpinnable; --profile prints declared vs observed (A2A lesson). C-4 redaction: policy doc + EXECUTED classes in cap_verify with trap vector (record self-test now 6/6 unmounted / 5/5 mounted). Check 36 in CI. Erratum: 4800 rows were dated 2026-09-15; actual 2026-09-14 ~16:30+08 \u2014 append-only rows stand, headings corrected. Pipe-masking lesson re-learned in acceptance harness: capture rc before any pipe.",
+  "orders": "PLAN-4900, 5 steps verified green. Delivery: RADIATION_PATCH_2026-09-14_4900_Probe.zip (superset 4200\u20134800, v3.2.0). Push: the Commander's, always."
+ }
+}

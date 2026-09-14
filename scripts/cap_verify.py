@@ -66,6 +66,39 @@ VERIFIERS = {
 }
 DIGEST_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
 
+# C-4 redaction policy (docs/CAP_RECORD_POLICY.md) — executed here, vector in
+# self-test, check 35 in CI. Mechanical classes only; judgment classes are
+# prose law (prompt bodies, model speculation, personal data).
+REDACTION_PATTERNS = (
+    ("github-pat-classic", re.compile(r"ghp_[A-Za-z0-9]{20,}")),
+    ("github-pat-fine", re.compile(r"github_pat_[A-Za-z0-9_]{20,}")),
+    ("aws-access-key", re.compile(r"AKIA[0-9A-Z]{16}")),
+    ("private-key-block", re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----")),
+    ("bearer-token", re.compile(r"Bearer [A-Za-z0-9._\-]{15,}")),
+    ("access-token-url", re.compile(r"x-access-token:")),
+    ("embedded-password", re.compile(r"(?i)\bpassword\s*[=:]\s*\S+")),
+)
+
+
+def _record_strings(obj, where="record"):
+    if isinstance(obj, str):
+        yield where, obj
+    elif isinstance(obj, dict):
+        for k, v in obj.items():
+            yield from _record_strings(v, f"{where}.{k}")
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            yield from _record_strings(v, f"{where}[{i}]")
+
+
+def check_redaction(doc: dict) -> list[str]:
+    out: list[str] = []
+    for where, s in _record_strings(doc):
+        for name, pat in REDACTION_PATTERNS:
+            if pat.search(s):
+                out.append(f"redaction violation (C-4 policy): {name} pattern in {where}")
+    return out
+
 
 def canonical_bytes(doc: dict) -> bytes:
     d = json.loads(json.dumps(doc))          # deep copy, round-trip stable
@@ -145,6 +178,7 @@ def verify_record(doc: dict, repo: str = ROOT, live: bool = True) -> list[str]:
                            f"(record={r.get('dirty')!r} live={att['dirty']!r})")
             if len(out) > pre:
                 out.append("fabricated success: verified record contradicts live observation")
+    out += check_redaction(doc)
     return out
 
 
@@ -232,6 +266,13 @@ def self_test(repo: str) -> int:
     f4 = verify_record(_fixture_identity(repo), repo, live=False)
     vecs.append(("identity claim caught", any("model_identity" in x for x in f4),
                  f"{len(f4)} findings"))
+    leak = _fixture_blocked()
+    leak["task_id"] = "CAP-SELFTEST-REDACT"
+    leak["events"] = [{"state": "probe", "output": "token ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"}]
+    f5 = verify_record(leak, repo, live=False)
+    vecs.append(("credential leak caught (C-4 redaction)",
+                 any(x.startswith("redaction violation") for x in f5),
+                 f"{len(f5)} findings"))
     ok = 0
     for name, passed, detail in vecs:
         ok += passed

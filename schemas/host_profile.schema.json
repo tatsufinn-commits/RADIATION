@@ -1,0 +1,29 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Host posture profile (radiation.host/0.1) — declarative only",
+ "description": "4800/4900: what a host IS and what posture RADIATION holds toward it. A profile DECLARES posture; it never claims tools (host tool surfaces are session-contingent, research §5.4), never names a model, and can never request a Commander-only effect. Executed by cap_probe (check 36).",
+ "type": "object",
+ "required": ["schema_name", "host_label", "model_identity", "posture", "doc_refs", "revision_note"],
+ "properties": {
+  "schema_name": {"const": "radiation.host/0.1"},
+  "host_label": {"type": "string", "minLength": 1},
+  "model_identity": {"const": null},
+  "posture": {
+   "type": "object",
+   "required": ["requested_effects", "commander_only_effects", "notes"],
+   "properties": {
+    "requested_effects": {
+     "type": "array",
+     "items": {"enum": ["read"]}
+    },
+    "commander_only_effects": {
+     "type": "array",
+     "items": {"enum": ["canonical_apply"]}
+    },
+    "notes": {"type": "string", "minLength": 1}
+   }
+  },
+  "doc_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+  "revision_note": {"type": "string", "minLength": 1}
+ }
+}

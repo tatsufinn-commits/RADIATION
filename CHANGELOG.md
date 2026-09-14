@@ -4,7 +4,13 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
-## v3.1.0 — 2026-09-15 — Attest (🟠 · GitHub-research Phase C-1, verification-only)
+## v3.2.0 — 2026-09-14 — Probe (🟠 · research Phase C-2 + C-4 rider)
+- **`scripts/cap_probe.py`** — the two-tool read-only probe, in-tree: attestation + contained digest; allowlisted commands only; symlink-safe containment; **empty effect catalog** (no mutation surface exists to misuse); `not_mounted` / `not_a_git_worktree` are first-class results. Self-test 5/5 vectors; check 36 in CI.
+- **Host posture profiles:** `schemas/host_profile.schema.json` + `scaffolding/hosts/arena_agent_mode.json` (`radiation.host/0.1`) — DECLARATIVE only: no tool claims (host surfaces are session-contingent), `model_identity` structurally null, Commander-only effects can never be posture. `--profile` prints declared-vs-observed; declaration is never treated as observation (A2A lesson).
+- **C-4 redaction policy executed:** `docs/CAP_RECORD_POLICY.md` states it; `cap_verify` enforces the mechanical classes (GitHub/cloud keys, private-key blocks, bearer/URL tokens, embedded passwords) over every record string; vector added to its self-test.
+- **Erratum:** 4800's ledger/shrine rows and version line were dated 2026-09-15 — the work landed 2026-09-14 ~16:30 +08:00. Ledger rows stand untouched (append-only); this heading corrects the dating convention.
+
+## v3.1.0 — 2026-09-14 — Attest (date corrected by 4900 erratum) (🟠 · GitHub-research Phase C-1, verification-only)
 - **CAP records are tree law:** `schemas/cap_record.schema.json` + `scripts/cap_verify.py` — schema EXECUTED with the same recursive executor as every contract (one implementation), `model_identity` structurally null, seal digest recomputed (hand-edits break it), verifier names checked against RADIATION's own CLI registry, honest `blocked` accepted as first-class, "verified" only with green checks + live observation. Check 35 runs the negative-vector self-test in CI (5/5 unmounted · 4/4 mounted roots).
 - **Boundary printed everywhere:** cap_verify VERIFIES records; the typed resolver, capability allowlist, approval boundary and isolated executor remain STAGED (Product-2). External proof-of-concept admitted first (6/6 acceptance vectors · 5/5 discrimination) per the research memo's evidence gate.
 - **Payload-completeness probe (3400-audit rider):** APPLY now runs EVERY shipped tool's self-test verb verbosely — relay 12-vector · relay semantic · status · nota · cap_verify · render-truth · term-truth — output shown, exit enforced (retired the last silent "want 11/11" straggler).

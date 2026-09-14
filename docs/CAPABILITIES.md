@@ -208,10 +208,27 @@ Verifies `radiation.cap/0.1` capability-activation records: schema EXECUTED with
 same executor as every contract schema, `model_identity` must stay null, seal digest
 recomputed (hand-edits break the seal), verifier names checked against RADIATION's own
 CLI registry, honest `blocked` accepted, "verified" only with green checks + live
-observation. **BOUNDARY: cap_verify VERIFIES records — it does NOT enforce runtime
-authority.** The typed resolver, capability allowlist, approval boundary and isolated
+observation, and the C-4 redaction classes (docs/CAP_RECORD_POLICY.md) executed over
+every string value. **BOUNDARY: cap_verify VERIFIES records — it does NOT enforce
+runtime authority.** The typed resolver, capability allowlist, approval boundary and isolated
 executor remain STAGED (Product-2). Provenance: external PoC (`6/6` acceptance vectors,
 `5/5` discrimination) before a single line entered the tree.
+
+### 15. `cap_probe.py` — read-only capability probe (4900 Probe) · observation-only
+```
+python3 scripts/cap_probe.py [--repo ROOT]               # attestation
+python3 scripts/cap_probe.py digest RELATIVE_PATH        # contained digest
+python3 scripts/cap_probe.py --profile FILE [--repo ROOT]  # declared vs observed
+python3 scripts/cap_probe.py --self-test                 # negative vectors (check 36)
+```
+Exactly two tools, an **empty effect catalog** (no mutation surface exists to misuse),
+allowlisted commands only, symlink-safe path containment. Executes host posture
+profiles (`radiation.host/0.1`, `scaffolding/hosts/arena_agent_mode.json`) — a profile
+DECLARES posture; the probe OBSERVES reality; declaration is never treated as
+observation (A2A lesson). Unavailability is first-class: `not_mounted` and
+`not_a_git_worktree` are results, not errors. **BOUNDARY: cap_probe OBSERVES — it
+never grants authority.** The resolver/allowlist/approval boundary/executor remain
+STAGED (Product-2).
 
 ## WHAT IS NOT HERE YET
 
@@ -238,6 +255,7 @@ Stated plainly so a session does not assume capability it lacks:
 
 | Script | Purpose | Writes | Network | In CI |
 |---|---|---|---|---|
+| `cap_probe.py` | cap_probe — read-only capability probe with declarative host profiles. | no | no | no |
 | `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |

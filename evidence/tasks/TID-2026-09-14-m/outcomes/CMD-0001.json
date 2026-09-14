@@ -1,0 +1,13 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0001",
+ "task_id": "TID-2026-09-14-m",
+ "result": "succeeded",
+ "revision_after": "f770eb9545bd69ea60fef41981cd406f4fd367c6",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-14-m/artifacts/cap_probe_selftest.txt",
+   "sha256": "29a9538f4494b2326634f4b00d249942b5f066efccc4f6891616df80e3a0a2c7"
+  }
+ ]
+}

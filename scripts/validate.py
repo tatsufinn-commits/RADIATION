@@ -843,8 +843,37 @@ def c35cap():
         "authority stays STAGED (Product-2)" +
         ("" if not problems else ": " + "; ".join(problems[:4])))
 
+# ---- check 36: CAP probe + host posture (4900 Probe) -------------------------
+def c36probe():
+    import subprocess
+    problems = []
+    if not os.path.exists(os.path.join(ROOT, "schemas", "host_profile.schema.json")):
+        problems.append("schemas/host_profile.schema.json missing")
+    if not os.path.exists(os.path.join(ROOT, "scaffolding", "hosts", "arena_agent_mode.json")):
+        problems.append("host posture profile missing (scaffolding/hosts/)")
+    else:
+        try:
+            r = subprocess.run([sys.executable, os.path.join("scripts", "cap_probe.py"),
+                                "--profile", os.path.join("scaffolding", "hosts",
+                                                          "arena_agent_mode.json")],
+                               cwd=ROOT, capture_output=True, text=True, timeout=120)
+            if r.returncode != 0:
+                problems.append("host profile failed schema/posture check")
+        except Exception as e:
+            problems.append(f"profile check error: {e}")
+    r = subprocess.run([sys.executable, os.path.join("scripts", "cap_probe.py"),
+                        "--self-test"], cwd=ROOT, capture_output=True, text=True,
+                       timeout=300)
+    if r.returncode != 0:
+        tail = (r.stdout + r.stderr).strip().splitlines()
+        problems.append("cap_probe --self-test failed: " + (tail[-1] if tail else "rc!=0"))
+    rec(36, "FAIL", not problems,
+        "CAP probe + host posture (read-only surface · containment · allowlist · "
+        "profile schema-executed) — OBSERVES only; authority stays STAGED (Product-2)" +
+        ("" if not problems else ": " + "; ".join(problems[:4])))
+
 CHECKS = (c1,c2,c25,c3,c3b,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,
-          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap)
+          c20,c205,c22,c23,c24,c27relay,c28matrix,c26shrine,c25reg,c29core,c21,c35cap,c36probe)
 
 def run_all():
     """Structured entry point (4400): returns the findings list. Import-safe —

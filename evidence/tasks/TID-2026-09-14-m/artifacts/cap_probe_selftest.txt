@@ -1,0 +1,7 @@
+PASS attestation reports unavailability first-class
+  PASS digest containment (../, absolute, symlink) + true digest
+  PASS allowlist rejects non-probe commands
+  PASS surface is read-only by construction
+  PASS host profile schema-executed (identity + commander-only caught)
+cap_probe self-test: 5/5 vectors
+boundary: cap_probe OBSERVES only; authority stays STAGED (Product-2)

@@ -1,0 +1,68 @@
+{
+ "schema_name": "radiation.cap/0.1",
+ "task_id": "TID-2026-09-14-m",
+ "declared": {
+  "host_label": "Arena Agent Mode",
+  "adapter_path": "scripts/cap_probe.py",
+  "requested_effect": "read",
+  "model_identity": null
+ },
+ "observed": {
+  "repository": {
+   "path": "/home/user/patch_build22",
+   "status": "not_a_git_worktree"
+  },
+  "tools": [
+   "capability_attestation",
+   "read_file_digest"
+  ],
+  "allowed_effects": [],
+  "probes": []
+ },
+ "verified": {
+  "policy_paths_loaded": [
+   {
+    "path": "docs/.readme",
+    "sha256": "sha256:0467e95bf9ec9c4bb0053b2926dca4eb9453eca3b0fd45d11da888d64c6c462a"
+   },
+   {
+    "path": "docs/CAP_RECORD_POLICY.md",
+    "sha256": "sha256:bc1ea28ba8aff992536e21846bb1002fa81bfa9d8d520af1246f45a241746a3e"
+   }
+  ],
+  "checks": [
+   {
+    "name": "relay-self-test",
+    "exit_code": 0,
+    "detail": "12/12 vectors"
+   },
+   {
+    "name": "nota-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "render-docs-check",
+    "exit_code": 0,
+    "detail": ""
+   },
+   {
+    "name": "knowledge-regression",
+    "exit_code": 0,
+    "detail": "11 locked / 0 failed"
+   }
+  ],
+  "artifact_digest": "sha256:529d62963b80cb01c6c1bf609f61facad0171ee83b5b4f8c5601a7bd676346d1"
+ },
+ "status": "blocked",
+ "blockers": [
+  "repository_not_mounted_or_not_a_git_worktree"
+ ],
+ "events": [
+  {
+   "state": "cap0",
+   "result": "blocked",
+   "reason": "build root is not a git worktree \u2014 unavailability recorded as a result, never converted into success"
+  }
+ ]
+}
