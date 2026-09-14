@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0003",
+ "task_id": "TID-2026-09-15-b",
+ "plan_id": "PLAN-5800",
+ "step_id": "S2",
+ "operation": "stage_files",
+ "issued_at": "2026-09-15T02:13:00+08:00",
+ "base_revision": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "result": "succeeded",
+ "revision_after": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "finished_at": "2026-09-15T02:23:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-15-b/artifacts/record_inventory_14.txt",
+   "sha256": "4d4019fb9f587c33eb85c59a84746ca18f0286d109eabfc49898a7d5aa89bd34"
+  }
+ ]
+}

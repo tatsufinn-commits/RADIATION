@@ -1,0 +1,1 @@
+receipts chain intact: 30 entries, hash-linked (tamper-evident; see docs/THREAT_MODEL.md for the exact claim)

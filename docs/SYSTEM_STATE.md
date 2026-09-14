@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-15 · **Version:** v3.9.1
+**Last updated:** 2026-09-15 · **Version:** v3.10.0
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,13 +49,12 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.9.1** — calibrate (5710): Atlas review hardening — the non-boot
-claim became a BOOT_SEQUENCE-derived scan (.readme + transitive vectors),
-catalog evidence became typed and register-bound (real dates, 90-day window,
-filename-bound exact/candidate identifiers), the schema scanner recurses
-($defs/if/then cannot hide unexecuted keywords), registry references bind
-(schema refs, test commands, realpath), and the doc-truth drift the review
-listed is repaired. Prior: **v3.9.0** atlas (5700) · **v3.8.0** verity (5600) ·
+**RADIATION v3.10.0** — almanac (5800): the Candidate C catalog upgraded from
+pointers to captured facts — all four official surfaces re-retrieved 2026-09-15;
+14 records; exact IDs for the OpenAI flagship four (incl. gpt-5.6-sol) and the
+Anthropic lineup (Sonnet-5 price conflict RESOLVED: $2/$10); Gemini endpoint
+table; grok-4.6 re-confirmed with alias policy. Prior: **v3.9.1** calibrate
+(5710, Atlas review) · **v3.9.0** atlas (5700) · **v3.8.0** verity (5600) ·
 **v3.7.0** gatewright · **v3.6.0** survey · **v3.5.0** sanction · **v3.4.0**
 activation (5200) · 5100 truebound · 5000 five thousand · 4900 probe · 4800
 attest · 4700 sealwright · 4600 binding · 4500 last mile · 4400 reconciliation ·

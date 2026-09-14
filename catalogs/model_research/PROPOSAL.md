@@ -9,8 +9,10 @@
 **Status:** delivered as patch 5700 "Atlas" (v3.9.0), non-boot.
 **Binds:** 5400 gate review §5 (catalog schema), §6 (evaluation matrix),
 §7 (deployment matrix); 5600 closure order (Deliverable B).
-**Seeds:** 5 records built ONLY from the 2026-09-14 gate-review official
-retrievals already verified in this repo (`catalogs/model_research/sources/SOURCES_2026-09-14.md`).
+**Records:** 5 seed records (5700) expanded to **14 executed records** by the
+5800 Almanac re-retrievals (2026-09-15) — exact IDs and official values captured
+for the OpenAI/Anthropic flagship lines and the Gemini endpoint table
+(`catalogs/model_research/sources/SOURCES_2026-09-14.md`, addendum).
 
 ## 1 · What already exists (this patch)
 - **Record schema** `radiation.model_research_record/0.1` — EXECUTED (check 40
@@ -22,7 +24,7 @@ retrievals already verified in this repo (`catalogs/model_research/sources/SOURC
   evidence, independent evidence, local observations, known gaps,
   documentation completeness, confidence, review_after — plus
   `exact_id_verified` (strict boolean) and separate `aliases` / `dated_ids`.
-- **5 seed records** (2 × OpenAI `gpt-6-astra` / `gpt-5.6-terra` confirmed;
+- **14 records** (5700 seeds expanded 5800: OpenAI flagship four incl. `gpt-5.6-sol`; Anthropic four with exact IDs — the Sonnet-5 price conflict resolved by the official page; Gemini stable line + 3.1 Pro PREVIEW with captured endpoint IDs; xAI re-confirmed). Origins:
   Anthropic `fable-5-1` provisional — id string not captured; Google
   `gemini-3-1-pro-preview` provisional — PREVIEW lifecycle declared; xAI
   `grok-4.6` confirmed with cutoff 2026-02-01). Every gap is a named gap;

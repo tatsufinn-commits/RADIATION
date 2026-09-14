@@ -1,5 +1,5 @@
 # 🗺️ RADIATION ROADMAP — 2026-09-13
-**Verified against:** live tree @ `cb5ec95` (v1.8.0) at build; 3100+3200 deliver v1.9.0 · **Prepared by:** the Architect (S004)
+**Verified against:** live tree @ `511bcb0` (v3.9.1) at 5800 build · **Maintained by:** the Architect (current: S005) — front-matter refreshed 5800 (was stale since the 3100 era)
 **Purpose:** the Commander never has to ask "what's next." This file is regenerated
 with every patch; stale roadmaps are deleted, not archived. Masters live in-repo
 (shipped with patch 3100) so any AI in the swarm reads the same plan.
@@ -21,9 +21,10 @@ with every patch; stale roadmaps are deleted, not archived. Masters live in-repo
 | LMS feed census | ✅ DONE (2026-09-13) — deadline feed; 11 items pending Commander attribution |
 | P-01–P-09 ratifications | 🧊 frozen by Commander order — listed, not lost |
 
-**The 2 FAILs (every push, five for five):** tracked vehicles (`SCHEDULE.csv`,
-`desktop.ini`, `ics.txt`, both syllabi, the MEC30-7 HTML, the AR173 PDF) +
-`PATCH_NOTES.md`. The APPLY script clears these — its step 3 has never reached git.
+**Historical note (updated 5800):** the era of "2 FAILs on every push" ended
+with the APPLY runner era (5300+): the tree has been structurally clean at
+every seal since — carriers are retired by the runners themselves, and
+acceptance is proven by fresh-clone seals (A ≡ B).
 
 ## 1 · THE PATTERN, NAMED — and its engineering answer
 
@@ -143,3 +144,4 @@ the machine asserts them · live state is verified, never assumed.
 ---
 *Regenerate this file every patch. Delete stale copies. The map is not the territory —
 the validator is.*
+| **5800** | ✅ DELIVERED — Almanac (record expansion) | 4 official surfaces re-retrieved 2026-09-15 · catalog 5 → 14 records · exact IDs + values captured (Sonnet-5 $2/$10 resolved; gpt-5.6-sol; Gemini endpoint table; grok-4.6 alias policy) · register O11–O14 · specialized/media ids logged, not recorded · v3.10.0 | 2026-09-15 |

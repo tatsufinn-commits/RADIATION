@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0004",
+ "task_id": "TID-2026-09-15-b",
+ "plan_id": "PLAN-5800",
+ "step_id": "S3",
+ "operation": "run_test",
+ "issued_at": "2026-09-15T02:14:00+08:00",
+ "base_revision": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "result": "succeeded",
+ "revision_after": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "finished_at": "2026-09-15T02:24:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-15-b/artifacts/cap_record_build.json",
+   "sha256": "552f58f2b281ea38e923cd93db85566bc278f47f259cfca15ed5b2791df0d59e"
+  }
+ ]
+}

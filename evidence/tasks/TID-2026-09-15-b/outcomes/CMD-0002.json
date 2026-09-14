@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0002",
+ "task_id": "TID-2026-09-15-b",
+ "plan_id": "PLAN-5800",
+ "step_id": "S1",
+ "operation": "build_artifact",
+ "issued_at": "2026-09-15T02:12:00+08:00",
+ "base_revision": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "result": "succeeded",
+ "revision_after": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "finished_at": "2026-09-15T02:22:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-15-b/artifacts/retrieval_log.txt",
+   "sha256": "f244780536f6cd51d7441b4a7f383b40581aa407974dfd1320ef796b4f9ced21"
+  }
+ ]
+}

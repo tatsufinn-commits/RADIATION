@@ -2,55 +2,52 @@
  "schema_name": "radiation.model_research_record/0.2",
  "provider": "xAI",
  "family": "Grok",
+ "exact_model_id": "grok-4.6",
+ "exact_id_verified": true,
+ "candidate_model_label": "grok-4.6",
  "surface": "api",
  "region": "undeclared",
  "status": "confirmed",
- "retrieved_on": "2026-09-14",
- "review_after": "2026-12-13",
+ "retrieved_on": "2026-09-15",
+ "review_after": "2026-12-14",
  "context_window": "500K tokens (declared)",
- "knowledge_cutoff": "2026-02-01 (declared on the model page)",
+ "knowledge_cutoff": "2026-02-01 (declared)",
  "modalities": [
-  "text"
+  "text+image input"
  ],
- "reasoning_effort": "configurable reasoning (declared)",
+ "reasoning_effort": "configurable (reasoning_effort)",
  "tools": [
   "tool calling",
-  "search tools (required for real-time data)"
+  "server-side search tools (required for realtime data)"
  ],
- "retention_training_mode": "API: no training on inputs/outputs without explicit permission [Official FAQ quote via secondary, aiprovidertrust.com verified 2026-08-25]; ~30-day encrypted abuse-audit retention [S]; enterprise ZDR sales-gated [S]",
+ "retention_training_mode": "API: no training on inputs/outputs without explicit permission [official FAQ via secondary, 2026-08-25]; ~30-day encrypted abuse-audit retention [S]; enterprise ZDR sales-gated [S].",
  "license_aup": "xAI terms/AUP; enterprise terms sales-gated \u2014 open question",
  "declarations": [
+  {
+   "tier": "O",
+   "source_id": "O14",
+   "url": "https://docs.x.ai/developers/models",
+   "retrieved_on": "2026-09-15",
+   "claim": "grok-4.6: 500K context, $2.00/$6.00 per 1M, configurable reasoning (reasoning_effort), cutoff Feb 1 2026; no realtime events without server-side search tools; alias policy: <model> \u2192 latest stable, <model>-latest \u2192 latest, <model>-<date> pinned; logprobs unsupported on grok-4.20+"
+  },
   {
    "tier": "O",
    "source_id": "O9",
    "url": "https://docs.x.ai/developers/models",
    "retrieved_on": "2026-09-14",
-   "claim": "grok-4.6: 500K context, $2/$6 per MTok, configurable reasoning, cutoff 2026-02-01; real-time data requires search tools; alias vs dated-ID behavior documented"
+   "claim": "grok-4.6 listed with 500K context, $2/$6 per MTok, cutoff Feb 1 2026 (prior-day retrieval; consistent)"
   }
  ],
  "safety_evidence": [],
- "independent_evidence": [
-  {
-   "tier": "S",
-   "source_id": "S1",
-   "url": "https://benchlm.ai (via 2026-09-11 sweep row)",
-   "retrieved_on": "2026-09-11",
-   "claim": "$2/$6 corroborates the official page (secondary; HISTORY section of agents/Grok/CAPABILITY_PROFILE.md)"
-  }
- ],
+ "independent_evidence": [],
  "local_observations": [],
  "known_gaps": [
-  "dated version id not captured (alias policy known; pinned ids not)",
-  "cached-input rate not captured officially",
+  "dated snapshot id not captured (alias policy classes documented)",
   "region undeclared",
-  "every additional Grok model needs its own live record before routing use",
   "no local observations yet"
  ],
- "documentation_completeness": "model page declares id/context/pricing/cutoff/alias policy; captured almost fully",
- "confidence": "medium",
+ "documentation_completeness": "fully captured; page states last-updated 2026-08-21",
+ "confidence": "high",
  "aliases": [],
- "dated_ids": [],
- "exact_model_id": "grok-4.6",
- "candidate_model_label": "grok-4.6",
- "exact_id_verified": true
+ "dated_ids": []
 }

@@ -2,69 +2,48 @@
  "schema_name": "radiation.model_research_record/0.2",
  "provider": "OpenAI",
  "family": "GPT",
+ "exact_model_id": "gpt-6-astra",
+ "exact_id_verified": true,
+ "candidate_model_label": "gpt-6-astra",
  "surface": "api",
  "region": "undeclared",
  "status": "confirmed",
- "retrieved_on": "2026-09-14",
- "review_after": "2026-12-13",
- "context_window": "~1.05M tokens (declared on the catalog page)",
- "knowledge_cutoff": "declared on the models page (value not captured 2026-09-14)",
+ "retrieved_on": "2026-09-15",
+ "review_after": "2026-12-14",
+ "context_window": "1.05M tokens (declared)",
+ "knowledge_cutoff": "2026-04-30 (declared)",
  "modalities": [
-  "text"
+  "text+image input",
+  "text output"
  ],
- "reasoning_effort": "declared configurable on the official page (settings not captured)",
+ "reasoning_effort": "low/medium/high/xhigh/max",
  "tools": [
-  "tool calling (declared)"
+  "Functions",
+  "Web search",
+  "File search",
+  "Computer use"
  ],
- "retention_training_mode": "API data not used for training by default; ZDR for eligible customers [O, openai.com ZDR post, retrieved 2026-08-19]; ~30-day abuse-log retention [S, consistent]. Surface-specific; not a guarantee.",
- "license_aup": "OpenAI terms/AUP apply (official links on the pricing/terms pages); open questions: none recorded yet",
+ "retention_training_mode": "API data not used for training by default; ZDR for eligible customers [O3, retrieved 2026-08-19]; ~30-day abuse-log retention [S, consistent]. Surface-specific; not a guarantee.",
+ "license_aup": "OpenAI terms/AUP apply (links on the official terms pages); open questions: none recorded",
  "declarations": [
   {
    "tier": "O",
-   "source_id": "O1",
+   "source_id": "O11",
    "url": "https://developers.openai.com/api/docs/models",
-   "retrieved_on": "2026-09-14",
-   "claim": "catalog recommends gpt-6-astra; context/tools/reasoning/cutoffs/pricing stated on the page"
-  },
-  {
-   "tier": "O",
-   "source_id": "O2",
-   "url": "https://openai.com/business/pricing/#api",
-   "retrieved_on": "2026-09-14",
-   "claim": "per-id pricing lives on the official pricing page (values not captured)"
+   "retrieved_on": "2026-09-15",
+   "claim": "gpt-6-astra: flagship 'for the hardest end-to-end work'; $10/$50 MTok; max output 128K; context 1.05M; cutoff 2026-04-30; tools: Functions, Web search, File search, Computer use; reasoning low/medium/high/xhigh/max"
   }
  ],
- "safety_evidence": [
-  {
-   "tier": "O",
-   "source_id": "O3",
-   "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models/",
-   "retrieved_on": "2026-08-19",
-   "claim": "API data not used for training by default; ZDR for eligible customers"
-  }
- ],
- "independent_evidence": [
-  {
-   "tier": "S",
-   "source_id": "S4",
-   "url": "https://humla.team/consumer-api-split (2026-07-28 sweep row)",
-   "retrieved_on": "2026-07-28",
-   "claim": "consumer/API training split; historical comparison evidence only"
-  }
- ],
+ "safety_evidence": [],
+ "independent_evidence": [],
  "local_observations": [],
  "known_gaps": [
-  "knowledge-cutoff value not captured",
-  "per-token prices not captured",
   "region undeclared",
-  "no independent evidence recorded yet",
-  "no local observations yet"
+  "no local observations yet (no RADIATION evaluation has run)",
+  "specialized lines observed on the same page (gpt-5.6-cyber, daybreak-*, gpt-image-2.5-*, realtime/transcribe lines) \u2014 own records required before routing use"
  ],
- "documentation_completeness": "model id + context + tool/reasoning/cutoff/pricing stated on official pages; values partially captured",
- "confidence": "medium",
+ "documentation_completeness": "fully captured from the official catalog",
+ "confidence": "high",
  "aliases": [],
- "dated_ids": [],
- "exact_model_id": "gpt-6-astra",
- "candidate_model_label": "gpt-6-astra",
- "exact_id_verified": true
+ "dated_ids": []
 }

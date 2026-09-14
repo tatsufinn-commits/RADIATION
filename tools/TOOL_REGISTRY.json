@@ -536,7 +536,8 @@
    "timeout_seconds": 120,
    "cap_mapping": [
     "TID-2026-09-14-t",
-    "TID-2026-09-15-a"
+    "TID-2026-09-15-a",
+    "TID-2026-09-15-b"
    ],
    "test_command": "python3 scripts/tool_registry_check.py --self-test",
    "observability": {
@@ -565,7 +566,8 @@
    "timeout_seconds": 120,
    "cap_mapping": [
     "TID-2026-09-14-u",
-    "TID-2026-09-15-a"
+    "TID-2026-09-15-a",
+    "TID-2026-09-15-b"
    ],
    "test_command": "python3 scripts/model_research_check.py --self-test",
    "observability": {

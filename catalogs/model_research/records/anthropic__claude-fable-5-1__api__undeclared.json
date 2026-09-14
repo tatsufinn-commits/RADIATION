@@ -1,0 +1,46 @@
+{
+ "schema_name": "radiation.model_research_record/0.2",
+ "provider": "Anthropic",
+ "family": "Claude",
+ "exact_model_id": "claude-fable-5-1",
+ "exact_id_verified": true,
+ "candidate_model_label": "claude-fable-5-1",
+ "surface": "api",
+ "region": "undeclared",
+ "status": "confirmed",
+ "retrieved_on": "2026-09-15",
+ "review_after": "2026-12-14",
+ "context_window": "1M tokens (declared)",
+ "knowledge_cutoff": "2026-06 (reliable knowledge, declared)",
+ "modalities": [
+  "text+image input",
+  "text output"
+ ],
+ "reasoning_effort": "adaptive thinking (always on), default effort high",
+ "tools": [
+  "tool use (declared)"
+ ],
+ "retention_training_mode": "API/Commercial: customer content not used for training [S3, 2026-06-27]; API log retention ~7 days since 2025-09-15, ZDR available [S2, 2026-09-07]. Not a guarantee.",
+ "license_aup": "Anthropic Commercial Terms + AUP; consumer terms differ (anthropic.com/legal/privacy is the trigger)",
+ "declarations": [
+  {
+   "tier": "O",
+   "source_id": "O12",
+   "url": "https://platform.claude.com/docs/en/models/overview",
+   "retrieved_on": "2026-09-15",
+   "claim": "claude-fable-5-1: $10/$50 MTok; context 1M tokens; max output 128K; cutoff 2026-06 (reliable knowledge, declared); thinking Adaptive (always on), default effort high"
+  }
+ ],
+ "safety_evidence": [],
+ "independent_evidence": [],
+ "local_observations": [],
+ "known_gaps": [
+  "region undeclared",
+  "snapshot/alias policy per the model-IDs doc not captured",
+  "no local observations yet"
+ ],
+ "documentation_completeness": "fully captured from the official models overview",
+ "confidence": "high",
+ "aliases": [],
+ "dated_ids": []
+}

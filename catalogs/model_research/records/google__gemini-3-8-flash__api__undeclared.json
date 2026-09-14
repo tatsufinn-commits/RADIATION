@@ -2,9 +2,9 @@
  "schema_name": "radiation.model_research_record/0.2",
  "provider": "Google",
  "family": "Gemini",
- "exact_model_id": "gemini-3.1-pro-preview",
+ "exact_model_id": "gemini-3.8-flash",
  "exact_id_verified": true,
- "candidate_model_label": "gemini-3.1-pro-preview",
+ "candidate_model_label": "gemini-3.8-flash",
  "surface": "api",
  "region": "undeclared",
  "status": "confirmed",
@@ -27,7 +27,7 @@
    "source_id": "O13",
    "url": "https://ai.google.dev/gemini-api/docs/models",
    "retrieved_on": "2026-09-15",
-   "claim": "gemini-3.1-pro-preview: endpoint ID captured from the official model table; lifecycle preview; advanced intelligence, agentic + vibe coding"
+   "claim": "gemini-3.8-flash: endpoint ID captured from the official model table; lifecycle stable (New); most intelligent Flash; long-horizon SWE, agents, enterprise workflows"
   }
  ],
  "safety_evidence": [],

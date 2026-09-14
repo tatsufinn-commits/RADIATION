@@ -4,6 +4,20 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.0 — 2026-09-15 — ALMANAC (5800)
+The next planned update: Candidate C record expansion by live official
+retrieval (no runtime — the evidence discipline is the mechanism). All four
+provider surfaces re-fetched 2026-09-15; catalog 5 → 14 records; exact model
+IDs captured for OpenAI (gpt-6-astra / gpt-5.6-sol / gpt-5.6-terra /
+gpt-5.6-luna — prices $10/$50, $4/$20, $2/$12, $0.20/$1.20; 1.05M ctx; cutoffs
+2026-04-30 / 2026-02-16), Anthropic (claude-fable-5-1 / claude-opus-5 /
+claude-sonnet-5 / claude-haiku-4-5-20251001 — the survey-era Sonnet-5 price
+conflict RESOLVED at $2/$10), Google (stable Flash line + 3.1 Pro PREVIEW
+endpoint IDs; numeric specs = named gaps), xAI (grok-4.6 re-confirmed + alias
+policy). Register rows O11–O14; specialized/media ids logged as observed-not-
+recorded. Validator untouched; catalog self-test extended for candidate-less
+catalogs.
+
 ## v3.9.1 — 2026-09-15 — CALIBRATE (5710)
 Atlas independent review hardening — claims matched to mechanism: (F1) the
 non-boot invariant is now a scan DERIVED from BOOT_SEQUENCE.md (path tokens +

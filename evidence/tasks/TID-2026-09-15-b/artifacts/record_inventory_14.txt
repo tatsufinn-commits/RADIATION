@@ -1,0 +1,18 @@
+RECORD INVENTORY — 14 records after 5800 expansion (captured live)
+retrieved_on 2026-09-15 · register rows O11-O14 · all confirmed with verified exact IDs
+except none — every record now carries a captured provider token
+
+anthropic__claude-fable-5-1__api__undeclared.json: Anthropic/claude-fable-5-1 ctx=1M tokens (declared) cutoff=2026-06 (reliable knowledg conf=high gaps=3
+anthropic__claude-haiku-4-5-20251001__api__undeclared.json: Anthropic/claude-haiku-4-5-20251001 ctx=200K tokens (declared) cutoff=2025-02 (reliable knowledg conf=high gaps=4
+anthropic__claude-opus-5__api__undeclared.json: Anthropic/claude-opus-5 ctx=1M tokens (declared) cutoff=2026-05 (reliable knowledg conf=high gaps=3
+anthropic__claude-sonnet-5__api__undeclared.json: Anthropic/claude-sonnet-5 ctx=1M tokens (declared) cutoff=2026-01 (reliable knowledg conf=high gaps=3
+google__gemini-3-1-pro-preview__api__undeclared.json: Google/gemini-3.1-pro-preview ctx=not captured (per-mode cutoff=not captured conf=medium gaps=4
+google__gemini-3-5-flash__api__undeclared.json: Google/gemini-3.5-flash ctx=not captured (per-mode cutoff=not captured conf=medium gaps=4
+google__gemini-3-6-flash__api__undeclared.json: Google/gemini-3.6-flash ctx=not captured (per-mode cutoff=not captured conf=medium gaps=4
+google__gemini-3-7-flash__api__undeclared.json: Google/gemini-3.7-flash ctx=not captured (per-mode cutoff=not captured conf=medium gaps=4
+google__gemini-3-8-flash__api__undeclared.json: Google/gemini-3.8-flash ctx=not captured (per-mode cutoff=not captured conf=medium gaps=4
+openai__gpt-5-6-luna__api__undeclared.json: OpenAI/gpt-5.6-luna ctx=1.05M tokens (declared cutoff=2026-02-16 (declared) conf=high gaps=3
+openai__gpt-5-6-sol__api__undeclared.json: OpenAI/gpt-5.6-sol ctx=1.05M tokens (declared cutoff=2026-02-16 (declared) conf=high gaps=3
+openai__gpt-5-6-terra__api__undeclared.json: OpenAI/gpt-5.6-terra ctx=1.05M tokens (declared cutoff=2026-02-16 (declared) conf=high gaps=3
+openai__gpt-6-astra__api__undeclared.json: OpenAI/gpt-6-astra ctx=1.05M tokens (declared cutoff=2026-04-30 (declared) conf=high gaps=3
+xai__grok-4-6__api__undeclared.json: xAI/grok-4.6 ctx=500K tokens (declared) cutoff=2026-02-01 (declared) conf=high gaps=3

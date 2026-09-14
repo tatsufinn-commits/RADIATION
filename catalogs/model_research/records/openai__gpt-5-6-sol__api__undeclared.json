@@ -2,9 +2,9 @@
  "schema_name": "radiation.model_research_record/0.2",
  "provider": "OpenAI",
  "family": "GPT",
- "exact_model_id": "gpt-5.6-terra",
+ "exact_model_id": "gpt-5.6-sol",
  "exact_id_verified": true,
- "candidate_model_label": "gpt-5.6-terra",
+ "candidate_model_label": "gpt-5.6-sol",
  "surface": "api",
  "region": "undeclared",
  "status": "confirmed",
@@ -28,7 +28,7 @@
    "source_id": "O11",
    "url": "https://developers.openai.com/api/docs/models",
    "retrieved_on": "2026-09-15",
-   "claim": "gpt-5.6-terra: balances intelligence and cost; $2/$12 MTok; max output 128K; context 1.05M; cutoff 2026-02-16; tools: Functions, Web search, File search, Computer use; reasoning none/low/medium/high/xhigh/max"
+   "claim": "gpt-5.6-sol: alias gpt-5.6; 'flagship model for complex professional work'; $4/$20 MTok; max output 128K; context 1.05M; cutoff 2026-02-16; tools: Functions, Web search, File search, Computer use; reasoning none/low/medium/high/xhigh/max"
   }
  ],
  "safety_evidence": [],
@@ -41,6 +41,8 @@
  ],
  "documentation_completeness": "fully captured from the official catalog",
  "confidence": "high",
- "aliases": [],
+ "aliases": [
+  "gpt-5.6 (page-declared alias)"
+ ],
  "dated_ids": []
 }

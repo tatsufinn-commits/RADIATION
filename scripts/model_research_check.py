@@ -242,15 +242,19 @@ def self_test():
                     os.path.join(td, BOOT_MANIFEST))
         rdir = os.path.join(td, CATALOG, "records")
         files = sorted(f for f in os.listdir(rdir) if f.endswith(".json"))
+        first = files[0]
         if base == "verified":
             # mutate a VERIFIED record so exact_model_id edits stay coherent
-            first = next(f for f in files if json.load(
-                open(os.path.join(rdir, f)))["exact_id_verified"] is True)
-        else:  # "candidate": an UNVERIFIED record for identifier-status mutants
-            first = next(f for f in files if json.load(
-                open(os.path.join(rdir, f)))["exact_id_verified"] is False)
+            first = next((f for f in files if json.load(
+                open(os.path.join(rdir, f)))["exact_id_verified"] is True), files[0])
+        # "candidate": derive an UNVERIFIED record from a verified one (the
+        # shipped catalog may legitimately contain none)
         if mutate_record:
             rec = copy.deepcopy(json.load(open(os.path.join(rdir, first))))
+            if base == "candidate":
+                rec["exact_id_verified"] = False
+                rec["exact_model_id"] = None
+                rec["candidate_model_label"] = "derived-candidate"
             mutate_record(rec)
             json.dump(rec, open(os.path.join(rdir, "z_mutant.json"), "w"))
         if mutate_register:

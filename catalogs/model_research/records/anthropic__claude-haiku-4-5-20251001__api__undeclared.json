@@ -1,0 +1,47 @@
+{
+ "schema_name": "radiation.model_research_record/0.2",
+ "provider": "Anthropic",
+ "family": "Claude",
+ "exact_model_id": "claude-haiku-4-5-20251001",
+ "exact_id_verified": true,
+ "candidate_model_label": "claude-haiku-4-5-20251001",
+ "surface": "api",
+ "region": "undeclared",
+ "status": "confirmed",
+ "retrieved_on": "2026-09-15",
+ "review_after": "2026-12-14",
+ "context_window": "200K tokens (declared)",
+ "knowledge_cutoff": "2025-02 (reliable knowledge, declared)",
+ "modalities": [
+  "text+image input",
+  "text output"
+ ],
+ "reasoning_effort": "Extended; effort NOT supported",
+ "tools": [
+  "tool use (declared)"
+ ],
+ "retention_training_mode": "API/Commercial: customer content not used for training [S3, 2026-06-27]; API log retention ~7 days since 2025-09-15, ZDR available [S2, 2026-09-07]. Not a guarantee.",
+ "license_aup": "Anthropic Commercial Terms + AUP; consumer terms differ (anthropic.com/legal/privacy is the trigger)",
+ "declarations": [
+  {
+   "tier": "O",
+   "source_id": "O12",
+   "url": "https://platform.claude.com/docs/en/models/overview",
+   "retrieved_on": "2026-09-15",
+   "claim": "claude-haiku-4-5-20251001: $1/$5 MTok; context 200K tokens; max output 64K; cutoff 2025-02 (reliable knowledge, declared); thinking Extended; effort NOT supported"
+  }
+ ],
+ "safety_evidence": [],
+ "independent_evidence": [],
+ "local_observations": [],
+ "known_gaps": [
+  "region undeclared",
+  "snapshot/alias policy per the model-IDs doc not captured",
+  "no local observations yet",
+  "the overview lists this dated ID; the family alias claude-haiku-4-5's resolution is per the model-IDs doc (not captured)"
+ ],
+ "documentation_completeness": "fully captured from the official models overview",
+ "confidence": "high",
+ "aliases": [],
+ "dated_ids": []
+}

@@ -1,0 +1,19 @@
+{
+ "schema_version": "1.0",
+ "command_id": "CMD-0005",
+ "task_id": "TID-2026-09-15-b",
+ "plan_id": "PLAN-5800",
+ "step_id": "S4",
+ "operation": "render_docs",
+ "issued_at": "2026-09-15T02:15:00+08:00",
+ "base_revision": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "result": "succeeded",
+ "revision_after": "511bcb03526d2f099e98e404e929ae327ee72b87",
+ "finished_at": "2026-09-15T02:26:00+08:00",
+ "evidence": [
+  {
+   "path": "evidence/tasks/TID-2026-09-15-b/artifacts/chain_verify.txt",
+   "sha256": "357c9471b93935a9c8eee8cebdab8007bff788106bc58e4e9c1ce5584a2c94de"
+  }
+ ]
+}

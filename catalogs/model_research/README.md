@@ -36,7 +36,7 @@ observations kept separate; unknowns explicit; aliases and dated IDs separate.
 8. **Confidence + review_after mandatory.** Every record decays; each carries a
    re-review date.
 
-## Layout
+## Layout (14 records as of 5800 Almanac, 2026-09-15)
 ```
 schemas/    model_research_record.schema.json (EXECUTED — check 40 + 41)
 records/    one JSON record per exact model × surface × region
