@@ -1,0 +1,1387 @@
+diff --git a/07-inspect/DEBT_REGISTER.md b/07-inspect/DEBT_REGISTER.md
+index 0d0fa77a8c6ae5007aba1621b49f63cb7620c90c..76acbdf7ce99c9f46aa760a1802625db3309f408 100644
+--- a/07-inspect/DEBT_REGISTER.md
++++ b/07-inspect/DEBT_REGISTER.md
+@@ -15,3 +15,4 @@ Format: `| date | finding | class | evidence path | remedy | status: OPEN/CLEARE
+ | 2026-09-13 | MB-discipline debt verified in session: all S005 fetches 2026-09-13 were text pages (statutes, OG, CIDS PDF) — no binary fetch, paged reading | 🟧 | this register row; session fetch log | keep the discipline on next binary fetch | VERIFIED-FOR-SESSION |
+ | 2026-09-13 | 🟨 DRIFT: PLANNING_reviewer cited repealed PD 1308 as the current Environmental Planning Act (RA 10587, 2013, §42) | 🟨 | CONFLICT_REGISTER row 3; CARD_002; TRI_ra10587-repeal | ⚑ EXAM NOTE appended to reviewer; K-LAW-009 marked REPEALED-GENERATION; K-LAW-014 added | ANNOTATED (curriculum-primacy posture held) |
+ 
++| 2026-09-15 | Tool registry has 21 explicitly `metadata_only` records; no real invoking runtime has yet justified versioned per-tool I/O schemas | 🟧 | 07-inspect/AUDIT_2026-09-15_5600_VERITY_FOLLOW_THROUGH.md §Remaining | when an invoker is proposed, bind only its needed tools to input/output schemas and execute contract fixtures; retain metadata-only truth otherwise | OPEN — design/evidence gate |
+diff --git a/Brain/frontal_lobe/learned_cues.md b/Brain/frontal_lobe/learned_cues.md
+index 12ea7504fa97f1123019b871368975d05069ba58..c43f1f72a14dacfc7b1d73e06384cf2cdba9912a 100644
+--- a/Brain/frontal_lobe/learned_cues.md
++++ b/Brain/frontal_lobe/learned_cues.md
+@@ -17,3 +17,10 @@ Twin-filed with cue/commander-lexicon.md after Commander confirmation (II.5).
+ | "you may use any open-source extensions you may need" | Tooling freedom granted — NOT a budget override | S003 (2026-09-12) |
+ | Commander flags MB total ("205.2 mb...didnt you?") | Count-clean ≠ MB-clean; byte-range recon expected for >50MB | S003 (2026-09-12) |
+ | "create a .zip file as per the rules" | II.7 Patch, PATCH_NOTES listed in own FILES TOUCHED, append blocks for II.2 files | S003 (2026-09-12) |
++
++### Continuity and verity cues — 2026-09-15 (S006)
++| Cue observed | Meaning learned | Evidence |
++|---|---|---|
++| Commander: "take over the updates... Architect is running out of memory" | A context-constrained role handoff delegates maintenance/accountability, not constitutional authority. The successor must independently establish live revision, tool surface, gates, and unresolved decisions before changing conclusions. | Public-main review of `78c01de`; pass output; explicit Commander instruction. |
++| Green CI, clean validator, or passing self-test | Each result proves only its named, executed predicates at its exact revision. It cannot certify untraversed schema branches, nonexistent I/O contracts, Commander ratification, provider/model identity, or retrieval/LLM injection resistance. | 5600 audit: public run green while controlled mutations exposed schema-walker and registry-binding coverage gaps. |
++| Commander: "update the cue... skills as well if there's any" | Evidence continuity is cross-skill: Research dates/surfaces sources; Analyze traces claims to reachable code; Inspect uses negative mutations; Overhaul joins mechanism, regressions, and current documentation. No tenth skill or takeover persona is needed. | This S006 continuity order and `docs/CUE_SYSTEM.md` §6. |
+diff --git a/Brain/frontal_lobe/task_ledger.md b/Brain/frontal_lobe/task_ledger.md
+index 0a9f2957b595aafe15cd4970de6346da43bce5ef..2158ab6ddc3ca29de4d21814911587daa52d56f8 100644
+--- a/Brain/frontal_lobe/task_ledger.md
++++ b/Brain/frontal_lobe/task_ledger.md
+@@ -111,3 +111,5 @@ Format: `| date | mode | task (one line) | outcome | deliverable path | patch fi
+ | 2026-09-14 | S005 (the Architect) | 5500 (Gatewright): sources restored, feed digest-bound, transactional receipts, schemas executed, per-provider profiles, CI pipefail, harness + registry (check 39), claims → primaries | done | gates 1–7; gate 8 awaits | 5500 |
+ | 2026-09-14 | THE COMMANDER (via research team) | ORDER: 5500 closure backlog (Deliverable A) before Candidate C | integrated in 5600 | RADIATION_ARCHITECT_5500_CLOSURE_AND_CANDIDATE_C_BUILD_MESSAGE | 5600 |
+ | 2026-09-14 | S005 (the Architect) | 5600 (Verity): CI root-caused under real 3.11, replica authority visible, registry bounded contract, schema honesty (check 40), claims sharpened, fixtures reframed, providers consolidated | done | Deliverable A; Deliverable B gated | 5600 |
++
++| 2026-09-15 | continuity maintainer | attempt: Commander-ordered cue/skill + 5600 follow-through | 5610 proposal prepared; no canonical apply/commit/push | CUE_SYSTEM · SKILLS · 5600 audit | RADIATION_PATCH_2026-09-15_5610_Continuity-and-Verity-Correction.zip |
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index ce6aed9756fdf5cca55f5a7b92c4c4018d542fd9..bfea7fd03a8756b6d0873d0b129756d25739841a 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,23 @@ Format: version · date · patch name · summary. Newest at top after founding e
+ 
+ ---
+ 
++## v4.0.0 — 2026-09-15 — CONTINUITY (5610)
++Commander-directed continuity and evidence update: the Autonomous Scan now has a
++successor/handoff annex—live Git/pass/gate verification before reliance on memory,
++open-decision preservation, claim-to-execution proof boundaries, and no inherited
++canonical authority. The nine skills gained the same cross-skill chain without
++minting a tenth persona: Research dates product surfaces, Analyze traces reachable
++flows, Inspect uses negative mutations, and Overhaul repairs mechanism + regression
+++ current documentation together. The independent 5600 review was carried into code:
++keyword coverage now recursively scans `$defs`/`definitions` and `if`/`then`
++branches (relay 23→25 vectors); the registry is schema /3, explicitly labels the
++current 21 entries `metadata_only`, realpath-checks future schema-bound refs, and
++binds command text to a reviewed static allowlist (13→18 vectors); registry coverage
++is recursive. Current capability docs no longer publish stale test/vector counts.
++This release does **not** ratify replica pairs, invent typed tool interfaces, prove
++retrieval/LLM injection resistance, evaluate Candidate C models, or transfer the
++Commander's apply/push authority.
++
+ ## v3.8.0 — 2026-09-14 — VERITY (5600)
+ 5500 closure (research-team order): CI truth — the public red root-caused under
+ the real 3.11 pin (3.12+ f-strings in relay.py killed both jobs at their first
+diff --git a/README.md b/README.md
+index ac1b2a534e2fe386faaeffd43c52c8fbc8535dd9..fe6a13424666fbfea48e99681961bc97ac313e8d 100644
+--- a/README.md
++++ b/README.md
+@@ -1,6 +1,6 @@
+ # ☢️ RADIATION
+ ### A Research & Answer-Oriented Operating System for Artificial Intelligence
+-**Version:** v3.8.0 · Ratified by THE COMMANDER · 2026-09-14 · 5600th patch — verity
++**Version:** v4.0.0 · Commander-directed continuity proposal · 2026-09-15 · 5610th patch — continuity
+ 
+ > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
+ 
+diff --git a/cue/CUE_INDEX.md b/cue/CUE_INDEX.md
+index 9a5b90cc632ea30de618cd073fdd6e1bdf113ade..f9583a662f12d2db79d7ca64204ad4c6e008a8ed 100644
+--- a/cue/CUE_INDEX.md
++++ b/cue/CUE_INDEX.md
+@@ -30,3 +30,13 @@ EXPLICIT WINS · E7 artifact vs verbal → verbal sets mode, artifact is evidenc
+ ## ON MISREAD (law III.9)
+ HALT → RE-SCAN (fresh Declaration, cause stated) → SALVAGE TRIAGE (carry
+ forward / subsidiary / [MISREAD ARTIFACT]) → LEXICON ENTRY. Never skip triage.
++
++## ON TAKEOVER / SYSTEM UPDATES (CUE_SYSTEM §6)
++A Commander asking an operator to take over updates delegates the **work**, not
++ratification or canonical powers. First verify the actual target SHA, clean state,
++applicable pass/probe, and relevant executable gates. Record revision, commands,
++findings, and Commander-reserved decisions in the handoff. Green CI and self-tests
++prove only their stated predicates; use a negative mutation to test a claimed
++boundary. Host ≠ model; provider suitability remains an assessment until a named,
++confidence-labeled local evaluation exists. Strengthen existing skills—Research →
++Analyze → Inspect → Overhaul—rather than inventing a takeover persona or tenth skill.
+diff --git a/cue/autopilot-cues.md b/cue/autopilot-cues.md
+index 428de6523912bbf895a2b6321fdc8f896a3d5c09..f325a64270b535939300f448d86188fdfe818a4a 100644
+--- a/cue/autopilot-cues.md
++++ b/cue/autopilot-cues.md
+@@ -88,3 +88,16 @@
+ 6. A WARN that survives a patch is a parked DECISION, not noise — carry it in OPEN DEBTS + the audit doc, or the shrine becomes propaganda (check 24's own rule).
+ 7. Remedies travel with FAILs: every validator FAIL names its REMEDY (SD-3300-01). A validator that names the wound names the treatment.
+ 
++## CONFIRMED CUES — continuity delegation (S006, 2026-09-15)
++| Commander says / does | Means | Autopilot response |
++|---|---|---|
++| "take over the updates" / "take over the Architect role" | Continuity delegation: own the maintenance, evidence review, and patch preparation because prior-session context is constrained | Start from live Git and the pass/probe, preserve a compact handoff, and carry every open finding forward. Do **not** inherit ratification, canonical-apply, commit/push, credential, deletion, or provider-access authority. |
++| "update the cue from what you've learned" | Convert this session's durable operating lesson into the cue twin-files and condensed reload path | Record only evidenced behavior: source path + observed result + boundary. A green check or a persuasive document is not a blanket certification. |
++| "skills as well if there's any" | Improve the existing skill chain when the lesson changes how work is done | Add cross-skill guidance to Research/Analyze/Inspect/Overhaul; do not mint a new skill or persona merely to name a handoff. |
++
++## VERITY RULES FOR SYSTEM MAINTENANCE (S006)
++1. **Live state first.** Re-clone or otherwise verify the target revision, parent, and working state before relying on a prior Architect's account.
++2. **Trace claims to execution.** For each material mechanism claim, inspect the reachable code path and prove a happy case plus a controlled negative case. A test's declared scope is its ceiling.
++3. **Preserve decision boundaries.** Open WARNs, missing evaluation evidence, provisional replicas, and Candidate-C gates remain visible until the Commander resolves them; never convert them by prose or synthetic activity.
++4. **Separate host, model, and policy surface.** A platform name does not establish model identity, tools, access, privacy, compliance, or routing fitness. Date and tier every external claim; label unmeasured assessments.
++5. **Repair the triangle.** A durable repair updates mechanism, regression evidence, and current documentation together; package it as a reviewable patch, never as an unverified live-state claim.
+diff --git a/cue/commander-lexicon.md b/cue/commander-lexicon.md
+index fe8a66e46dd47d3cc53c0c2ccc76d11ec6c83b4b..28aa4a105eeb2185335a10fe921821c626644519 100644
+--- a/cue/commander-lexicon.md
++++ b/cue/commander-lexicon.md
+@@ -18,3 +18,6 @@ Format: `| phrase/pattern | confirmed meaning | established | boundary cases |`
+ | "WE are not done working" | Continuous-operation declaration; sessions are legs of one campaign | 2026-09-13 | A fact, not a scope grant |
+ | "tell me about @X" | Wants the skill's current state + an honest judgment (position + runner-up), not a file dump | 2026-09-13 | Survey first, answer second |
+ | "update the cues you've learned" | Session lessons → cue files in house format, shipped in the same patch as the conversation's II.9 heartbeat | 2026-09-13 | Update what sessions TEACH; no ceremony additions |
++
++| "take over the updates" / "take over the Architect role" | Delegates continuity of maintenance, review, and patch preparation when a prior operator is context-constrained; it does **not** transfer Commander-only ratification, canonical apply, commit/push, credential, deletion, or provider-access authority | 2026-09-15 (S006) | Verify live Git/pass/gates first; hand off exact revision, evidence, findings, and reserved decisions |
++| "update the cue from what you've learned, skills as well" | Durable session lesson must update the cue twin-files and, only where warranted, the existing skill chain | 2026-09-15 (S006) | Do not mint a new skill/persona for continuity; tie changes to observed code/execution evidence and preserve scope limits |
+diff --git a/cue/inference-log.md b/cue/inference-log.md
+index 1765a29acdd2bb7b127f6600b7147d62d2bc094c..9b98d5bbf19a9582ed8cd65e717f7c52995b3aea 100644
+--- a/cue/inference-log.md
++++ b/cue/inference-log.md
+@@ -10,3 +10,5 @@ Format: `| date | prompt (condensed) | inferred tuple | mode+style chosen | conf
+ | 2026-09-13 | S005 boot + "proceed... ratification pass to build whatever's preplanned as per the roadmap" | (build, stored, working) | @Autopilot build session — direct order + pass, no Scan needed | HIGH | Upheld — 3400 shipped, stacked acceptance green |
+ | 2026-09-13 | "update the cues... tell me about @selfdirectives... renovate all skills?" | (answer + proposal, stored, working) | @Data-style briefing + cue patch + incubate ticket | HIGH/MED | Open — verdict due at next session boot |
+ | 2026-09-13 | "proceed to your next tasks" (open-ended, ×2) | MISREAD as standing-orders content draw → statute sessions (PD 1308/RA 10587) | @Autopilot | HIGH (wrongly) | **CORRECTED by Commander** ("why are you looking for building codes...?") — open-ended proceeds = CAPABILITY work; content needs explicit orders or declared idle windows. Doctrine §2 reordered; locks added (4100) |
++
++| 2026-09-15 | "take over the updates... update the cue from what you've learned, skills as well" | (canonical protocol update, canonical, working) | @Radiation-style continuity/evidence patch preparation | HIGH | Active — explicit takeover and cue/skill update order; canonical application/push remains Commander-only |
+diff --git a/docs/CAPABILITIES.md b/docs/CAPABILITIES.md
+index c54a87d2e2e0e8e759235f8d71b5de6cd54b8e33..44641403856a1a0b2cb283e38feee0f34c724576 100644
+--- a/docs/CAPABILITIES.md
++++ b/docs/CAPABILITIES.md
+@@ -235,7 +235,7 @@ python3 -m radiation_core.control_plane resolve --effect read --source session_i
+ python3 -m radiation_core.control_plane decide  --task TID --effect workspace_draft --source commander_order
+ python3 -m radiation_core.control_plane execute --task TID --manifest M.json
+ python3 -m radiation_core.control_plane verify                       # receipts chain
+-python3 -m radiation_core.control_plane --self-test                  # 11 vectors (check 37)
++python3 -m radiation_core.control_plane --self-test                  # vector count is executable output (check 37)
+ ```
+ Operated, cooperative tooling (not a runtime): two-key resolver, schema-executed
+ allowlist, structural approval boundary, drafts-bounded executor with strict task
+@@ -307,7 +307,7 @@ Stated plainly so a session does not assume capability it lacks:
+ | Executed schemas | relay `_validate_against`: oneOf · maxItems · bool≠integer | the `task_id` exploit class fails closed; plan selection numeric |
+ | Per-provider profile truth | radiation_pass (check 38) | Arena profile binds ONLY to Arena_AI; table-driven fixtures ×5 + ambiguous |
+ | CI truth | workflow `shell: bash` (-eo pipefail) + failure diagnostics step | `tee` cannot mask a red strict report; public log-tail on failure |
+-| Test harness + tool registry | `tests/` (14 tests) + `tools/TOOL_REGISTRY.json` (check 39) | zero-test discovery = explicit failure; registry schema-EXECUTED, coverage-complete |
++| Test harness + tool registry | `tests/` (discoverable count reported by the runner) + `tools/TOOL_REGISTRY.json` (check 39) | zero-test discovery = explicit failure; registry schema-EXECUTED, recursively coverage-checked, and safe test bindings verified |
+ 
+ ## §19 — Survey layer (5400, architect brief E6)
+ 
+@@ -335,6 +335,6 @@ Stated plainly so a session does not assume capability it lacks:
+ <!-- GENERATED:ci-enforcement:END -->
+ 
+ ## §21 — Closure contracts (5600)
+-- **Tool registry** (`tools/TOOL_REGISTRY.json`, schema /2, 21 tools): entry, IO schema refs, effects, mutation_scope (`none|temporary|ignored_local|evidence_draft|tracked_derived|canonical_none`), approval (`none|commander_order_assertion|commander_motor_act`), data classes, network, credentials, idempotency, timeout, cap mapping, test command, observability. ONE checker entry point: `scripts/tool_registry_check.py` — schema-EXECUTED plus code-level contradiction/containment/coverage rules, 13-vector negative self-test, executed by validate check 39. A registry entry grants nothing (no MCP, no endpoint, no runtime).
+-- **Schema honesty** (check 40): every shipped schema uses only keywords the ONE executor executes (plus documented annotations; `format` is annotation-only per 2020-12); the executor applies constraints by INSTANCE type — typeless subschemas were vacuous before 5600 and are law now.
++- **Tool inventory** (`tools/TOOL_REGISTRY.json`, schema /3, 21 tools): entry, interface status, nullable IO-schema refs, effects, mutation_scope (`none|temporary|ignored_local|evidence_draft|tracked_derived|canonical_none`), approval (`none|commander_order_assertion|commander_motor_act`), data classes, network, credentials, idempotency, timeout, cap mapping, reviewed test binding, observability. All current records are explicitly `metadata_only`: they catalogue operational posture, not typed runtime I/O contracts. A future `schema_bound` record must name two contained, parseable schemas using the executor vocabulary. ONE checker entry point: `scripts/tool_registry_check.py` — schema-EXECUTED plus recursive coverage, realpath containment, interface/reference, contradiction, CAP, and safe test-binding rules; 18-vector negative self-test, executed by validate check 39. The checker does not execute registry command text; CI/dedicated suites remain the execution proof. A registry entry grants nothing (no MCP, no endpoint, no runtime).
++- **Schema honesty** (check 40): every shipped schema uses only keywords the ONE executor executes (plus documented annotations; `format` is annotation-only per 2020-12). The coverage walk descends into properties, composition branches, conditionals, and definitions, so an unimplemented keyword cannot hide below `if`/`then`/`$defs`; the executor applies constraints by INSTANCE type — typeless subschemas were vacuous before 5600 and are law now.
+ - **Evaluation gate (Candidate C — research design only, GATED)**: no "strong/strongest" wording becomes a routing decision rule without a named RADIATION local evaluation and a declared confidence level. The future harness must capture exact model id, provider, host/surface, region, effort, enabled-tool allowlist, prompt/contract/fixture revisions + digests, date, harness version, evaluator/rubric, metrics, retries, limitations — and never upload private corpus text or credentials to obtain a result.
+diff --git a/docs/CONTROL_PLANE.md b/docs/CONTROL_PLANE.md
+index d038d70874185cd51ef61234bd9a9fffb039ecca..c495a646b9031aad5cef9df236f8b06f997e0a08 100644
+--- a/docs/CONTROL_PLANE.md
++++ b/docs/CONTROL_PLANE.md
+@@ -32,7 +32,7 @@ python3 -m radiation_core.control_plane decide  --task TID-… --effect workspac
+ python3 -m radiation_core.control_plane approve --task TID-… --manifest M.json   # content-bound, single-use
+ python3 -m radiation_core.control_plane execute --task TID-… --manifest M.json
+ python3 -m radiation_core.control_plane verify                                   # structural + semantic
+-python3 -m radiation_core.control_plane --self-test                              # 25 vectors, check 37
++python3 -m radiation_core.control_plane --self-test                              # vector count is executable output, check 37
+ ```
+ No production path overrides (`--receipts` / `--drafts-root` were removed in 5100 —
+ the review's finding: they let a caller re-point the boundary; dependency injection
+diff --git a/docs/CUE_SYSTEM.md b/docs/CUE_SYSTEM.md
+index beea8722b63050ccea5fff1b5666f92c2ef04d1b..1986bf104cca65985051f138fcc78233eabd510c 100644
+--- a/docs/CUE_SYSTEM.md
++++ b/docs/CUE_SYSTEM.md
+@@ -1,6 +1,6 @@
+ # ☄️ THE AUTONOMOUS SCAN (`docs/CUE_SYSTEM.md`)
+ ## The Five-Phase Intent-Reading Protocol — the Entry Gate of RADIATION
+-**Version:** 1.0.0 (hardened spec, ratified) | Constitutional basis: III.3, III.6, III.9
++**Version:** 1.2.0 (hardened spec + continuity/evidence annex) | Constitutional basis: III.3, III.6, III.9
+ 
+ The Scan runs on EVERY Commander prompt before ANY work. It interprets by
+ **comprehension of task nature**, never keyword lookup. When uncertain, it ASKS.
+@@ -109,7 +109,48 @@ PROCEDURE:
+ 
+ ---
+ 
+-# 8. THE LIVING LAYERS (added v1.1, 2026-09-13 — additive; no rule above changes)
++# 6. CONTINUITY, EVIDENCE, AND SUCCESSOR HANDOFF (added v1.2, 2026-09-15)
++
++A takeover delegates **work and accountability**, never unearned authority. A role
++label, prior memory, green badge, or file title is not evidence. Context pressure is
++a verification trigger, not a permission grant.
++
++## 6.1 Before system-level maintenance
++1. Run the applicable `RADIATION PASS` / probe; state observed host, repository,
++   tools, and unknowns.
++2. Verify target SHA, parent, and clean/dirty state from Git; re-run the smallest
++   relevant executable gates instead of trusting a prior summary.
++3. Keep WARNs, evidence gaps, and Commander decisions open. Do not narrate them
++   into PASS.
++4. At durable delivery, hand off: revision, commands/results, changed/proposed
++   files, findings, and decisions still reserved to the Commander.
++
++`canonical_apply`, commit/push, ratification, credentials, deletion, and provider
++access retain their existing Commander-only boundaries.
++
++## 6.2 Claim-to-execution discipline
++Before making a material claim, carry the minimum matching proof:
++
++| Claim | Minimum proof |
++|---|---|
++| repository / CI | exact SHA + relevant public run or local command |
++| tool / control behavior | reachable source path + valid case + relevant negative mutation |
++| schema / registry coverage | resolved references, every admitted container traversed, unsupported construct rejected |
++| provider / platform | dated source + tier + exact surface + host ≠ model |
++| routing suitability | named local evaluation + confidence, or label it assessment only |
++| hostile-content boundary | exact consumer; deterministic inertness ≠ retrieval/tool/LLM injection resistance |
++
++A passing gate proves only its stated predicates at that revision—not ratification,
++untested coverage, model identity, authorization, privacy/compliance, reliability,
++or a Candidate-C decision. Scope language is evidence.
++
++## 6.3 Skills response
++Do not mint a successor persona or tenth skill. **Research** refreshes dated facts;
++**Analyze** maps claim to flow; **Inspect** falsifies boundaries; **Overhaul** repairs
++mechanism, regression, and current documentation together. The next operator inherits
++records and open questions, not authority to close them.
++
++# 7. THE LIVING LAYERS (added v1.1, 2026-09-13 — additive; no rule above changes)
+ The tuple classifies the TASK. These layers classify the COMMANDER — they are
+ evidence, and they grow after every session:
+ 
+diff --git a/docs/PATCH_LEDGER.md b/docs/PATCH_LEDGER.md
+index 9223f0b5d441ae951fa3951fede1991be12304bd..e90af9ae720b386e4dcaabd8ee908424a2a2c610 100644
+--- a/docs/PATCH_LEDGER.md
++++ b/docs/PATCH_LEDGER.md
+@@ -64,3 +64,5 @@
+ | 2026-09-14 | RADIATION_PATCH_2026-09-14_5400_Survey.zip | 🟠 | E6: dated tier-labeled provider profiles + source registers ×5 · routing matrix · research method · check 38 lints the layer · boot tiers untouched | Commander: "proceed to 5400!" | the research layer with the same honesty law as the code — conflicts recorded, gaps declared · v3.6.0 |
+ | 2026-09-14 | RADIATION_PATCH_2026-09-14_5500_Gatewright.zip | 🟠 | gate review §8 gates 1–7: ruling reconciliation (restored sources, digest-bound feed, ratification record) · transactional receipts · executed schemas · per-provider profiles · CI pipefail + diagnostics · harness + TOOL_REGISTRY (check 39) · volatile claims → primaries | Commander: "read this review and apply it!" | the review that audited the auditor's work — every finding became a regression · v3.7.0 |
+ | 2026-09-14 | RADIATION_PATCH_2026-09-14_5600_Verity.zip | 🟠 | 5500 closure: CI truth (3.11 pin honored, tee-mask + workflow regressions, failure artifacts) · replica authority visible (check 11.6 + REPLICA_DECISION) · registry as bounded contract (21 tools, tool_registry_check, 13 vectors) · schema executor closed set + check 40 · preflight-transactionality sharpened · hostile fixtures reframed +3 shapes · profiles consolidated · routing de-decisionalized | Research team: closure order before Candidate C | claims exactly true, contracts executable · v3.8.0 |
++
++| 2026-09-15 | RADIATION_PATCH_2026-09-15_5610_Continuity-and-Verity-Correction.zip | 🟠 | Autonomous Scan continuity/evidence annex + cue twin-files + existing skill-chain updates; audit record; relay nested schema-keyword scan 23→25; registry schema /3 truth/status/reference/test binding + 16 vectors; stale current counts removed; v4.0.0 proposal | Commander directed continuity takeover and cue/skill update; requires explicit Commander ratification because it amends Autonomous Scan rules | A successor inherits work/accountability, never ratification or canonical authority. A green gate proves its declared predicates—not hidden schema branches, registry I/O, provider/model access, or deployed safety. |
+diff --git a/docs/SKILLS.md b/docs/SKILLS.md
+index 7298510795ceb244c4d6fd0768d6d2f8250a0770..d3611c7c58a370b8e0c8948cd616197aa4981797 100644
+--- a/docs/SKILLS.md
++++ b/docs/SKILLS.md
+@@ -1,6 +1,6 @@
+ # 🎯 THE NINE SKILLS (`docs/SKILLS.md`)
+ ## Capabilities of the One Superior AI — not personas, not agents
+-**Version:** 1.0.0 | Constitutional basis: III.2 (activation via modes only)
++**Version:** 1.1.0 | Constitutional basis: III.2 (activation via modes only)
+ 
+ Skills are development-oriented capabilities the AI wields. Each is
+ jurisdiction-bound: it writes only to its own folder (+ the task ledger).
+@@ -11,13 +11,18 @@ Cross-jurisdiction writes require a logged handoff. Passives police all of them
+ 
+ ## 1. RESEARCH — `prospector` → writes to `01-research/`
+ Acquire knowledge from primary/secondary sources. Every acquisition logged with
+-source, date, type (1°/2°), authority tier, and per-claim grades (I.2).
+-Executes scout's Source Acquisition Plan (III.8) — never acquires unvetted.
+-**Core scaffold:** `proc_research-sortie.md`.
++source, date, type (1°/2°), authority tier, exact product surface where relevant,
++and per-claim grades (I.2). Provider research records the dated source and separates
++API, consumer, host, and model claims; an inaccessible official source is an explicit
++gap, not a filled-in assumption. Executes scout's Source Acquisition Plan (III.8) —
++never acquires unvetted. **Core scaffold:** `proc_research-sortie.md`.
+ 
+ ## 2. ANALYZE — `decomposer` → writes to `02-analyze/`
+ Decompose findings into build-ready structures: claim tables, comparison
+-matrices, dependency maps. Every row traces to a Research finding ID.
++matrices, dependency maps, and—when reviewing a system—claim-to-mechanism traces.
++A material implementation claim identifies the source path, import/call path,
++inputs, outputs, and the exact boundary it does **not** cover. Every row traces to
++a Research finding ID or a directly reproducible local observation.
+ 
+ ## 3. DOSSIER — `archivist` → writes to `03-dossier/`
+ Stockpile intelligence into complete, reusable subject dossiers (style:
+@@ -42,12 +47,21 @@ deletion (I.5). **Triangulation is the ONLY grade elevator** (I.3).
+ 
+ ## 7. INSPECT — `inspector` → writes to `07-inspect/`
+ Audit gathered material and the repository itself for drift, debt,
+-contradiction. Findings classified 🟥 critical / 🟧 debt / 🟨 drift / 🟩 clean.
++contradiction, and evidence/implementation mismatch. For a material enforcement
++claim, Inspect reads the reachable code and executes both a valid case and a
++controlled negative mutation; documentation, directory naming, and a passing happy
++path are never enough. Findings classify the proven scope separately from the
++unproven boundary: 🟥 critical / 🟧 debt / 🟨 drift / 🟩 clean. A green gate is reported
++as a gate result, not as Commander ratification or a broader safety/compliance claim.
+ Debt appended to `DEBT_REGISTER.md`. **Core scaffold:** `proc_inspection-audit.md`.
+ 
+ ## 8. OVERHAUL — `surgeon` → writes to `08-overhaul/` + veto everywhere
+ ⚡ **DUAL CITIZENSHIP.** As Skill #8: authors restructuring proposals in
+-`08-overhaul/proposals/`; ratified proposals ship as Patches (IV.2).
++`08-overhaul/proposals/`; ratified proposals ship as Patches (IV.2). A durable
++repair closes the triangle: mechanism, a regression that falsifies the former gap,
++and current documentation/counts that state the new scope truthfully. It preserves
++Commander-owned decisions rather than manufacturing a green status, and packages
++successor-ready evidence (revision, commands, results, open findings, and handoff).
+ As CHIEF PASSIVE (spec: `subskills/passive/surgeon.md`): unconditional
+ enforcement of the Constitution, mode discipline, style compliance, and quotas
+ in EVERY mode — the only organ authorized to halt a pipeline mid-run.
+@@ -76,6 +90,18 @@ Nota is terminal distillation — nothing enters the Core untriangulated.
+ 
+ ---
+ 
++## CROSS-SKILL EVIDENCE CONTINUITY (v1.1 — not a tenth skill)
++
++System stewardship is the existing pipeline used with a stricter handoff record:
++**Research** refreshes dated facts and sources; **Analyze** maps a stated claim to
++its data/control flow; **Inspect** attempts a bounded falsification; **Overhaul**
++repairs code, regression evidence, and current documentation in one reviewable
++proposal. A new operator inherits records and open questions—not the authority to
++ratify, apply canonical changes, push, access credentials, or promise a provider
++surface. The operational protocol is `docs/CUE_SYSTEM.md` §6.
++
++---
++
+ ## SKILL AUDIT (2026-09-13, ordered by the Commander)
+ Question asked: *"does it actually provide the AI with necessary skills, prospects,
+ perspective and narratives to follow?"* Verdict, criterion by criterion:
+diff --git a/docs/SYSTEM_STATE.md b/docs/SYSTEM_STATE.md
+index 4f8b3d290bbba1000074b59fad02d0dda305e143..30e61598388b55d841505604f1b6b2ad54776a84 100644
+--- a/docs/SYSTEM_STATE.md
++++ b/docs/SYSTEM_STATE.md
+@@ -1,7 +1,7 @@
+ # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
+ ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
+-**Last updated:** 2026-09-14 · **Version:** v3.8.0
+-**Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
++**Last updated:** 2026-09-15 · **Version:** v4.0.0
++**Updated by:** Continuity-maintenance proposal; effective only at the Commander's push
+ 
+ ---
+ 
+@@ -49,12 +49,9 @@ graded items: `Brain/courses/INDEX.md`.
+ ---
+ 
+ ## REPOSITORY VERSION
+-**RADIATION v3.8.0** — verity (5600): 5500 closure — CI root-caused under the
+-real 3.11 pin (relay f-strings), replica tranche a visible OPEN GOVERNED
+-EXCEPTION (check 11.6 + decision brief), tool registry a bounded contract
+-(21 tools, one checker), schema executor a closed set (check 40), preflight
+-claim sharpened, fixtures reframed, profiles consolidated, routing
+-de-decisionalized. Prior: **v3.7.0** gatewright (5500) ·
++**RADIATION v4.0.0** — continuity (5610): Scan/skill evidence handoff;
++5600 audit repairs: recursive schema coverage, registry metadata/bindings, counts.
++Prior: **v3.8.0** verity · **v3.7.0** gatewright ·
+ **v3.6.0** survey · **v3.5.0** sanction · **v3.4.0** activation (5200) · 5100
+ truebound · 5000 five thousand (II.11) · 4900 probe · 4800 attest · 4700
+ sealwright · 4600 binding · 4500 last mile · 4400 reconciliation · 4300
+@@ -82,7 +79,9 @@ Full version history: `CHANGELOG.md` (single source of record — not recited he
+ revoke it) · ② `week1_start` INFERRED — one confirm ratifies · ③ 5 knowledge
+ assertions PENDING on raw primaries (PD 1096 IRR, RA 9514 IRR) · ④ 11 feed items
+ unattributed · ⑤ check 15 stays WARN-class until P-09 ratifies (frozen by order —
+-listed, not lost).
++listed, not lost) · ⑥ replica tranche awaits Commander ratification (WARN 11.6);
++registry is metadata-only · ⑦ Candidate C and true retrieval/LLM hostile-content
++evaluation remain proposal-gated.
+ 
+ ## 🩺 COMPONENT HEALTH (abridged, II.10)
+ | Component | Status |
+diff --git a/docs/shrine/LOG.md b/docs/shrine/LOG.md
+index 58b7246867482b9a115fbee903c4589baa6d0256..12c1f4527cefcdecb94dc8daab5ccb29ff649ff0 100644
+--- a/docs/shrine/LOG.md
++++ b/docs/shrine/LOG.md
+@@ -36,3 +36,5 @@
+ | 2026-09-14 | S005 (the Architect) | 5500 | Gatewright | the second review came for the first review's work, and it was right: the pass had been handing every visitor the arena's badge, the schema judge had been nodding at forged names, a half-written batch stayed half-written, and one tool exited one on success and nobody noticed because every pipe smiled at it · so the sources came home, the feed got a digest, the executor learned to preflight, the judge learned oneOf, the profile learned whose name it wears, and the CI learned to publish its own wounds · the harness counts fourteen, and zero-discovery is now a crime |
+ | 2026-09-14 | S005 (the Architect) | 5400 | Survey | five dossiers, each oath-bound to its date: what the official pages say, what the aggregators say, what only users claim — and where the record runs out, the gap itself is written down and given a review date instead of being papered over with an invented link · the arena dossier holds the strictest line of all: the host's own game is to hide the model, so the file refuses to know what cannot be known in-session |
+ | 2026-09-14 | S005 (the Architect) | 5600 | Verity | the review of the repair came back and it asked one question three ways: is the claim exactly true? · so the red build was reproduced under the pinned python and the f-string confessed · the twelve twins stopped passing as ratified and started wearing their open-question badge · the tool catalog grew a contract with teeth and the schema judge had its keyword list closed like a border · nothing new was promised that no mechanism carries · what remains open stays loudly open |
++
++| 2026-09-15 | continuity-maintenance session | 5610 proposal (unapplied) | 5600 evidence-handoff / schema-walker / registry-truth / count-drift debts → mechanism + regression + audit record prepared; replica/Candidate-C decisions remain open | Context pressure is an operational fact, not permission to rely on a predecessor's memory: fresh Git, executable gates, bounded negative tests, and an explicit handoff carry the work forward. |
+diff --git a/radiation_core/relay.py b/radiation_core/relay.py
+index 3638dcb776ca196daad06afddcc8ca2ba4ea813a..4ab760102f2c3038e21b849ce1af5d5b5ab310f4 100644
+--- a/radiation_core/relay.py
++++ b/radiation_core/relay.py
+@@ -61,32 +61,45 @@ _SCHEMA_KEYWORDS_EXECUTED = {
+     "minimum", "maximum", "minItems", "maxItems",
+     "oneOf", "anyOf", "allOf", "not", "if", "then",
+ }
+-# $defs/definitions are containers (recursed); $schema/title/description are
+-# annotations; `format` is ANNOTATION-ONLY in JSON Schema 2020-12 unless a
+-# format-assertion vocabulary is declared — we do not assert formats, and the
+-# coverage scan must not criminalize a legal annotation.
+-_SCHEMA_META_ANNOTATIONS = {"$schema", "title", "description", "$defs", "definitions", "format"}
++# These are annotations, not executable constraints. `format` is
++# annotation-only in JSON Schema 2020-12 unless a format-assertion vocabulary
++# is declared — we do not assert formats, and the coverage scan must not
++# criminalize legal annotation.
++_SCHEMA_META_ANNOTATIONS = {"$schema", "title", "description", "format"}
++_SCHEMA_MAP_CONTAINERS = {"properties", "$defs", "definitions"}
++_SCHEMA_SINGLE_SCHEMA_CONTAINERS = {"items", "not", "additionalProperties", "if", "then"}
++_SCHEMA_LIST_CONTAINERS = {"oneOf", "anyOf", "allOf"}
+ 
+ 
+ def unsupported_keywords(spec, acc=None):
+-    """5600 closure: keywords a schema USES but this executor does NOT execute.
++    """Return every schema keyword not executed by this repository's executor.
+ 
+-    A schema is a claim; the executor is its truth. validate check 40 runs
+-    this over every shipped schema — an unexecuted keyword in a shipped
+-    schema is a build failure, never a silent freebie."""
+-    if acc is None: acc = []
+-    if isinstance(spec, dict):
+-        for k, sub in spec.items():
+-            if k in _SCHEMA_META_ANNOTATIONS:
+-                continue
+-            if k == "properties":
+-                for p in sub.values(): unsupported_keywords(p, acc)
+-            elif k in ("items", "not", "additionalProperties"):
+-                if isinstance(sub, dict): unsupported_keywords(sub, acc)
+-            elif k in ("oneOf", "anyOf", "allOf"):
+-                for s in sub: unsupported_keywords(s, acc)
+-            elif k not in _SCHEMA_KEYWORDS_EXECUTED and k not in acc:
+-                acc.append(k)
++    The walk is structural, not a happy-path inspection: it descends through
++    property maps, definitions, conditional branches, and composition branches
++    before deciding whether a keyword is supported. Thus an unsupported keyword
++    cannot hide below `$defs`, `if`, or `then` while validate check 40 stays
++    green. A schema is a claim; the executor is its truth.
++    """
++    if acc is None:
++        acc = []
++    if not isinstance(spec, dict):
++        return acc
++    for k, sub in spec.items():
++        if k in _SCHEMA_META_ANNOTATIONS:
++            continue
++        if k in _SCHEMA_MAP_CONTAINERS:
++            if isinstance(sub, dict):
++                for nested in sub.values():
++                    unsupported_keywords(nested, acc)
++        elif k in _SCHEMA_SINGLE_SCHEMA_CONTAINERS:
++            if isinstance(sub, dict):
++                unsupported_keywords(sub, acc)
++        elif k in _SCHEMA_LIST_CONTAINERS:
++            if isinstance(sub, list):
++                for nested in sub:
++                    unsupported_keywords(nested, acc)
++        elif k not in _SCHEMA_KEYWORDS_EXECUTED and k not in acc:
++            acc.append(k)
+     return acc
+ 
+ 
+@@ -644,8 +657,16 @@ def self_test():
+                              "then": {"required": ["digest"]}}, "c2", outif2)
+     v23 = not outif1 and len(outif2) == 1 and "digest" in outif2[0]; ok += v23
+     print(f"  vector 23 if/then executes (conditional fires and abstains) -> {'PASS' if v23 else 'FAIL'}")
+-    print(f"relay self-test: {ok}/23 vectors")
+-    return 0 if ok == 23 else 1  # 5500: total tracked; success exits ZERO
++    v24 = _self.unsupported_keywords(
++        {"$defs": {"hidden": {"contains": {"type": "string"}}}}) == ["contains"]
++    ok += v24
++    print(f"  vector 24 keyword scan descends into $defs -> {'PASS' if v24 else 'FAIL'}")
++    v25 = _self.unsupported_keywords(
++        {"if": {"type": "object"}, "then": {"contains": {"type": "string"}}}) == ["contains"]
++    ok += v25
++    print(f"  vector 25 keyword scan descends into if/then -> {'PASS' if v25 else 'FAIL'}")
++    print(f"relay self-test: {ok}/25 vectors")
++    return 0 if ok == 25 else 1  # total tracked; success exits ZERO
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/schemas/tool_registry.schema.json b/schemas/tool_registry.schema.json
+index 5119b6771b53e8fc36b0dcbd3a3d9ae1a5b54a61..52c429bea92e1c42aeac62d14904791ec9028e6a 100644
+--- a/schemas/tool_registry.schema.json
++++ b/schemas/tool_registry.schema.json
+@@ -1,70 +1,272 @@
+ {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+- "title": "radiation.tool_registry/2",
+- "description": "Bounded tool contract (5500-closure Step 2): every runnable RADIATION tool with entry, IO schema refs, effects, mutation scope, approval class, data classes, network, credentials, idempotency, timeout, cap mapping, test command, observability. Executed by scripts/tool_registry_check.py via the ONE schema executor; semantic contradictions are code-level rules there. Local and non-authorizing: a registry entry grants nothing.",
++ "title": "radiation.tool_registry/3",
++ "description": "Bounded non-authorizing tool inventory: every runnable RADIATION tool has an entry, interface status, nullable I/O-schema refs, effects, mutation scope, approval class, data classes, network, credentials, idempotency, timeout, CAP mapping, allowlisted test binding, observability, and description. The checker executes this registry schema and code-level rules. metadata_only records do not claim typed runtime contracts; schema_bound records must reference contained, parseable schemas using the executor vocabulary.",
+  "type": "object",
+- "required": ["schema_name", "generated_by", "tools"],
++ "required": [
++  "schema_name",
++  "generated_by",
++  "tools"
++ ],
+  "additionalProperties": false,
+  "properties": {
+-  "schema_name": {"const": "radiation.tool_registry/2"},
+-  "generated_by": {"type": "string", "minLength": 8, "maxLength": 120},
++  "schema_name": {
++   "const": "radiation.tool_registry/3"
++  },
++  "generated_by": {
++   "type": "string",
++   "minLength": 8,
++   "maxLength": 120
++  },
+   "tools": {
+    "type": "array",
+    "minItems": 20,
+    "maxItems": 64,
+    "items": {
+     "type": "object",
+-    "required": ["id", "entrypoint", "version", "inputs_schema", "outputs_schema",
+-                 "effects", "mutation_scope", "approval", "data_classes", "network",
+-                 "credential_handling", "idempotency", "timeout_seconds",
+-                 "cap_mapping", "test_command", "observability", "description"],
++    "required": [
++     "id",
++     "entrypoint",
++     "version",
++     "interface_contract",
++     "inputs_schema",
++     "outputs_schema",
++     "effects",
++     "mutation_scope",
++     "approval",
++     "data_classes",
++     "network",
++     "credential_handling",
++     "idempotency",
++     "timeout_seconds",
++     "cap_mapping",
++     "test_command",
++     "observability",
++     "description"
++    ],
+     "additionalProperties": false,
+     "properties": {
+-     "id": {"type": "string", "pattern": "^[a-z0-9_-]{2,40}$"},
++     "id": {
++      "type": "string",
++      "pattern": "^[a-z0-9_-]{2,40}$"
++     },
+      "entrypoint": {
+       "type": "string",
+       "pattern": "^[A-Za-z0-9_][A-Za-z0-9_/.-]*\\.py$",
+-      "not": {"anyOf": [{"pattern": "\\.\\."}, {"pattern": "^/"}]},
++      "not": {
++       "anyOf": [
++        {
++         "pattern": "\\.\\."
++        },
++        {
++         "pattern": "^/"
++        }
++       ]
++      },
+       "description": "repo-relative path; containment is re-enforced as a code-level rule (defense in depth)"
+      },
+-     "version": {"type": "string", "pattern": "^[0-9]+$"},
+-     "inputs_schema": {"anyOf": [{"type": "string", "pattern": "^schemas/[A-Za-z0-9_/.-]+\\.json$", "not": {"pattern": "\\.\\."}}, {"type": "null"}]},
+-     "outputs_schema": {"anyOf": [{"type": "string", "pattern": "^schemas/[A-Za-z0-9_/.-]+\\.json$", "not": {"pattern": "\\.\\."}}, {"type": "null"}]},
++     "version": {
++      "type": "string",
++      "pattern": "^[0-9]+$"
++     },
++     "inputs_schema": {
++      "anyOf": [
++       {
++        "type": "string",
++        "pattern": "^schemas/[A-Za-z0-9_/.-]+\\.json$",
++        "not": {
++         "pattern": "\\.\\."
++        }
++       },
++       {
++        "type": "null"
++       }
++      ]
++     },
++     "outputs_schema": {
++      "anyOf": [
++       {
++        "type": "string",
++        "pattern": "^schemas/[A-Za-z0-9_/.-]+\\.json$",
++        "not": {
++         "pattern": "\\.\\."
++        }
++       },
++       {
++        "type": "null"
++       }
++      ]
++     },
+      "effects": {
+-      "type": "array", "minItems": 1, "maxItems": 4,
+-      "items": {"enum": ["read", "write", "network", "exec"]}
++      "type": "array",
++      "minItems": 1,
++      "maxItems": 4,
++      "items": {
++       "enum": [
++        "read",
++        "write",
++        "network",
++        "exec"
++       ]
++      }
+      },
+      "mutation_scope": {
+-      "enum": ["none", "temporary", "ignored_local", "evidence_draft",
+-               "tracked_derived", "canonical_none"],
++      "enum": [
++       "none",
++       "temporary",
++       "ignored_local",
++       "evidence_draft",
++       "tracked_derived",
++       "canonical_none"
++      ],
+       "description": "highest-persistence write the tool may produce: none=no writes; temporary=auto-cleaned temp only; ignored_local=gitignored working areas; evidence_draft=draft evidence; tracked_derived=regenerates tracked files from records; canonical_none=may stage canonical-adjacent drafts, mutates no canonical bytes itself (canonical change is only ever the Commander's motor act)"
+      },
+      "approval": {
+-      "enum": ["none", "commander_order_assertion", "commander_motor_act"],
++      "enum": [
++       "none",
++       "commander_order_assertion",
++       "commander_motor_act"
++      ],
+       "description": "the authority class the tool's effects rest on; an assertion RECORDS an order, it never IS authorization"
+      },
+      "data_classes": {
+-      "type": "array", "minItems": 1, "maxItems": 6,
+-      "items": {"type": "string", "minLength": 3, "maxLength": 40}
++      "type": "array",
++      "minItems": 1,
++      "maxItems": 6,
++      "items": {
++       "type": "string",
++       "minLength": 3,
++       "maxLength": 40
++      }
++     },
++     "network": {
++      "enum": [
++       "none",
++       "declared"
++      ]
++     },
++     "credential_handling": {
++      "enum": [
++       "none",
++       "host_held",
++       "prohibited"
++      ]
++     },
++     "idempotency": {
++      "enum": [
++       "yes",
++       "no",
++       "conditional"
++      ]
++     },
++     "timeout_seconds": {
++      "type": "integer",
++      "minimum": 1,
++      "maximum": 3600
+      },
+-     "network": {"enum": ["none", "declared"]},
+-     "credential_handling": {"enum": ["none", "host_held", "prohibited"]},
+-     "idempotency": {"enum": ["yes", "no", "conditional"]},
+-     "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600},
+      "cap_mapping": {
+-      "type": "array", "minItems": 0, "maxItems": 8,
+-      "items": {"type": "string", "pattern": "^TID-[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z]$"},
++      "type": "array",
++      "minItems": 0,
++      "maxItems": 8,
++      "items": {
++       "type": "string",
++       "pattern": "^TID-[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z]$"
++      },
+       "description": "task ids of cap records (evidence/tasks/<TID>/artifacts/cap_record_build.json) whose seal covers this tool's gate; existence is a code-level rule"
+      },
+-     "test_command": {"type": "string", "minLength": 4, "maxLength": 160},
++     "test_command": {
++      "type": "string",
++      "minLength": 4,
++      "maxLength": 160
++     },
+      "observability": {
+       "type": "object",
+-      "required": ["content_capture"],
++      "required": [
++       "content_capture"
++      ],
++      "additionalProperties": false,
++      "properties": {
++       "content_capture": {
++        "const": "off_by_default"
++       }
++      }
++     },
++     "description": {
++      "type": "string",
++      "minLength": 8,
++      "maxLength": 200
++     },
++     "interface_contract": {
++      "type": "object",
++      "required": [
++       "status",
++       "reason"
++      ],
+       "additionalProperties": false,
+-      "properties": {"content_capture": {"const": "off_by_default"}}
++      "properties": {
++       "status": {
++        "enum": [
++         "metadata_only",
++         "schema_bound"
++        ]
++       },
++       "reason": {
++        "type": "string",
++        "minLength": 12,
++        "maxLength": 200
++       }
++      },
++      "description": "metadata_only = operational catalog only, no typed I/O contract; schema_bound = both I/O fields name checked schema files."
++     }
++    },
++    "allOf": [
++     {
++      "if": {
++       "properties": {
++        "interface_contract": {
++         "properties": {
++          "status": {
++           "const": "metadata_only"
++          }
++         }
++        }
++       }
++      },
++      "then": {
++       "properties": {
++        "inputs_schema": {
++         "type": "null"
++        },
++        "outputs_schema": {
++         "type": "null"
++        }
++       }
++      }
+      },
+-     "description": {"type": "string", "minLength": 8, "maxLength": 200}
+-    }
++     {
++      "if": {
++       "properties": {
++        "interface_contract": {
++         "properties": {
++          "status": {
++           "const": "schema_bound"
++          }
++         }
++        }
++       }
++      },
++      "then": {
++       "properties": {
++        "inputs_schema": {
++         "type": "string"
++        },
++        "outputs_schema": {
++         "type": "string"
++        }
++       }
++      }
++     }
++    ]
+    }
+   }
+  }
+diff --git a/scripts/tool_registry_check.py b/scripts/tool_registry_check.py
+index a2ac861ba71d50101eeacaa5ce754639909895c4..53e775a4fb1beeeef0f83ba4e338e34cfd261f70 100644
+--- a/scripts/tool_registry_check.py
++++ b/scripts/tool_registry_check.py
+@@ -2,26 +2,26 @@
+ """tool_registry_check — ONE entry point for the tool-registry contract (5600).
+ 
+ Executes schemas/tool_registry.schema.json via the ONE schema executor
+-(radiation_core.relay), then applies the semantic rules JSON Schema cannot
+-express cleanly. Those rules are CODE-LEVEL checks, stated as such:
+-
+-  R1 path containment   : entrypoint has no "..", is not absolute, exists
+-  R2 id uniqueness      : no duplicate tool ids
+-  R3 coverage closure   : every runnable module under scripts/, radiation_core/
+-                          and agents/_common/ (except __init__.py) is
+-                          registered exactly once; every entrypoint exists
+-  R4 contradiction rules:
+-       - effects == ["read"]                 => approval none AND scope none
+-       - approval != "none"                  => "write" in effects
+-       - mutation_scope == "none"            => "write" not in effects
+-       - network == "none"                   => "network" not in effects
+-       - credential_handling == "host_held"  => network == "declared"
+-  R5 cap_mapping        : every entry points at an existing cap record
+-                          (evidence/tasks/<TID>/artifacts/cap_record_build.json)
+-
+-Zero-write display truth is DERIVED, not stored: mutation_scope "none" means
+-the tool writes nothing. The registry is local and non-authorizing: an entry
+-GRANTS nothing (no MCP, no endpoint, no runtime — a catalog is not consent).
++(radiation_core.relay), then applies semantic rules JSON Schema cannot express
++cleanly. Those rules are CODE-LEVEL checks, stated as such:
++
++  R1 containment         : entrypoint and non-null schema refs are repo-relative,
++                           realpath-contained files (external symlinks refuse)
++  R2 id uniqueness       : no duplicate tool ids
++  R3 coverage closure    : every runnable module under scripts/, radiation_core/
++                           and agents/_common/ (except __init__.py) is registered
++  R4 interface truth     : metadata_only has null I/O refs; schema_bound has two
++                           contained, parseable refs using only executor keywords
++  R5 contradiction rules : read/write/approval/mutation/network/credential claims
++                           agree (see code)
++  R6 CAP mapping         : every non-empty mapping names an existing CAP record
++  R7 test binding        : test_command exactly matches a repository-owned,
++                           static allowlist entry for that tool; this validates the
++                           binding without executing arbitrary registry text
++
++The registry remains non-authorizing. A metadata_only entry is an operational
++inventory, not a typed runtime contract; a schema reference being healthy is not
++proof that some external runner invokes it. CI and dedicated suites execute tests.
+ 
+ --self-test runs the negative-vector battery against temp registry copies.
+ Exit: 0 clean, 1 findings.
+@@ -29,17 +29,93 @@ Exit: 0 clean, 1 findings.
+ import copy
+ import json
+ import os
+-import subprocess
+ import sys
+ import tempfile
+ 
+ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ sys.path.insert(0, ROOT)
+-from radiation_core.relay import _schema_check  # ONE schema executor (II.11)
++from radiation_core.relay import _schema_check, unsupported_keywords  # ONE schema executor (II.11)
+ 
+ REG = os.path.join("tools", "TOOL_REGISTRY.json")
+ SCHEMA = "tool_registry.schema.json"
+ 
++# Static, repository-owned test bindings. The registry may name one of these
++# commands but the checker never executes registry text. Add a tool only by
++# adding and reviewing its binding here as well as its registry entry.
++SAFE_TEST_COMMANDS = {
++    "validate": "python3 scripts/validate.py",
++    "relay": "python3 -m radiation_core.relay --self-test",
++    "control_plane": "python3 -m radiation_core.control_plane --self-test",
++    "cap_verify": "python3 scripts/cap_verify.py --self-test",
++    "cap_probe": "python3 scripts/cap_probe.py --self-test",
++    "radiation_pass": "python3 agents/_common/radiation_pass.py --self-test",
++    "contract_tests": "python3 scripts/contract_tests.py",
++    "knowledge_regression": "python3 scripts/knowledge_regression.py",
++    "nota": "python3 scripts/nota.py --check",
++    "render_docs": "python3 scripts/render_docs.py --check",
++    "verify_apply": "python3 scripts/verify_apply.py --self-test",
++    "status": "python3 scripts/status.py --self-test",
++    "ics_normalize": "python3 scripts/ics_normalize.py --self-test",
++    "module_scaffold": "python3 scripts/module_scaffold.py --self-test",
++    "plan_term": "python3 scripts/plan_term.py --self-check",
++    "decay_compute": "python3 scripts/decay_compute.py",
++    "export_anki": "python3 scripts/export_anki.py",
++    "grade_exam": "python3 scripts/grade_exam.py",
++    "deadline_feed": "python3 scripts/deadline_feed.py",
++    "ingest_collection": "python3 scripts/ingest_collection.py",
++    "tool_registry_check": "python3 scripts/tool_registry_check.py --self-test",
++}
++
++
++def _contained_file(root, rel):
++    """Return (absolute_path, error) after realpath containment verification."""
++    if not isinstance(rel, str) or not rel:
++        return None, "path is missing or not a string"
++    base = os.path.realpath(root)
++    candidate = os.path.realpath(os.path.join(root, rel))
++    try:
++        contained = os.path.commonpath([base, candidate]) == base
++    except ValueError:
++        contained = False
++    if not contained:
++        return None, f"path escapes the tree after resolution: {rel!r}"
++    if not os.path.isfile(candidate):
++        return None, f"path missing on disk: {rel!r}"
++    return candidate, None
++
++
++def _interface_findings(tool, root, bad):
++    """Check declared interface posture and non-null schema-ref health."""
++    tid = tool.get("id", "?")
++    interface = tool.get("interface_contract", {})
++    status = interface.get("status") if isinstance(interface, dict) else None
++    refs = {field: tool.get(field) for field in ("inputs_schema", "outputs_schema")}
++    if status == "metadata_only":
++        for field, ref in refs.items():
++            if ref is not None:
++                bad.append(f"{tid}: metadata_only but {field} is non-null")
++        return
++    if status != "schema_bound":
++        bad.append(f"{tid}: unknown interface_contract status {status!r}")
++        return
++    for field, ref in refs.items():
++        if not isinstance(ref, str):
++            bad.append(f"{tid}: schema_bound requires a string {field}")
++            continue
++        ap, err = _contained_file(root, ref)
++        if err:
++            bad.append(f"{tid}: {field} {err}")
++            continue
++        try:
++            with open(ap, encoding="utf-8") as fh:
++                spec = json.load(fh)
++        except Exception as exc:
++            bad.append(f"{tid}: {field} is not parseable JSON: {exc}")
++            continue
++        unsupported = unsupported_keywords(spec)
++        if unsupported:
++            bad.append(f"{tid}: {field} uses unexecuted schema keywords: {unsupported}")
++
+ 
+ def code_level_findings(reg, root=ROOT):
+     bad = []
+@@ -50,7 +126,10 @@ def code_level_findings(reg, root=ROOT):
+         if tid in seen:
+             bad.append(f"duplicate tool id: {tid!r}")
+         seen.add(tid)
+-    # R3 coverage closure
++    for stale in sorted(set(SAFE_TEST_COMMANDS) - seen):
++        bad.append(f"safe test binding has no registry tool: {stale!r}")
++    # R3 coverage closure (recursive: a future nested runnable module cannot
++    # disappear merely because the old top-level walk never saw it).
+     cover_dirs = [os.path.join("scripts"), os.path.join("radiation_core"),
+                   os.path.join("agents", "_common")]
+     registered = {os.path.normpath(t.get("entrypoint", "")) for t in tools}
+@@ -58,21 +137,34 @@ def code_level_findings(reg, root=ROOT):
+         dp = os.path.join(root, d)
+         if not os.path.isdir(dp):
+             continue
+-        for f in sorted(os.listdir(dp)):
+-            if not f.endswith(".py") or f == "__init__.py":
+-                continue
+-            rel = os.path.normpath(os.path.join(d, f))
+-            if rel not in registered:
+-                bad.append(f"coverage: {rel} is not registered")
++        for walk_root, dirs, files in os.walk(dp):
++            dirs[:] = [x for x in dirs if x != "__pycache__"]
++            for f in sorted(files):
++                if not f.endswith(".py") or f == "__init__.py":
++                    continue
++                rel = os.path.normpath(os.path.relpath(os.path.join(walk_root, f), root))
++                if rel not in registered:
++                    bad.append(f"coverage: {rel} is not registered")
+     for t in tools:
++        tid = t.get("id", "?")
+         ep = t.get("entrypoint", "")
+-        # R1 containment (belt and suspenders beyond the schema patterns)
+-        if ".." in ep.split(os.sep) or ".." in ep:
+-            bad.append(f"{t.get('id')}: entrypoint escapes the tree: {ep!r}")
+-        if os.path.isabs(ep):
+-            bad.append(f"{t.get('id')}: entrypoint is absolute: {ep!r}")
+-        if not os.path.isfile(os.path.join(root, ep)):
+-            bad.append(f"{t.get('id')}: entrypoint missing on disk: {ep!r}")
++        # R1 containment (belt and suspenders beyond the schema patterns).
++        if not isinstance(ep, str):
++            bad.append(f"{tid}: entrypoint is not a string")
++        else:
++            if ".." in ep.split(os.sep) or ".." in ep:
++                bad.append(f"{tid}: entrypoint escapes the tree: {ep!r}")
++            if os.path.isabs(ep):
++                bad.append(f"{tid}: entrypoint is absolute: {ep!r}")
++            _, err = _contained_file(root, ep)
++            if err:
++                bad.append(f"{tid}: entrypoint {err}")
++        _interface_findings(t, root, bad)
++        expected = SAFE_TEST_COMMANDS.get(tid)
++        if expected is None:
++            bad.append(f"{tid}: no reviewed safe test binding")
++        elif t.get("test_command") != expected:
++            bad.append(f"{tid}: test_command does not match its reviewed safe binding")
+         for cm in t.get("cap_mapping", []):
+             if not os.path.isfile(os.path.join(
+                     root, "evidence", "tasks", cm, "artifacts",
+@@ -118,7 +210,7 @@ def _mutate(base, fn):
+ 
+ def self_test():
+     ok = 0
+-    total = 13  # vector 1 (clean) + 12 negative cases
++    total = 18  # vector 1 (clean) + 17 negative cases
+     reg = json.load(open(os.path.join(ROOT, REG), encoding="utf-8"))
+ 
+     def rejects(mut, label):
+@@ -158,6 +250,12 @@ def self_test():
+         m["tools"][2]["approval"] = "commander_motor_act"
+         m["tools"][2]["effects"] = ["read"]
+     def coverage_hole(m): m["tools"] = [t for t in m["tools"] if t["id"] != "validate"]
++    def metadata_ref(m): m["tools"][0]["inputs_schema"] = "schemas/tool_registry.schema.json"
++    def missing_bound_ref(m):
++        m["tools"][0]["interface_contract"]["status"] = "schema_bound"
++        m["tools"][0]["inputs_schema"] = "schemas/no_such_input.json"
++        m["tools"][0]["outputs_schema"] = "schemas/no_such_output.json"
++    def arbitrary_test(m): m["tools"][0]["test_command"] = "definitely-nonexistent --oops"
+ 
+     cases = [
+         ("unknown top-level property", unknown_top, "unknown property"),
+@@ -172,6 +270,9 @@ def self_test():
+         ("duplicate ids", dup_id, "duplicate tool id"),
+         ("read-only canonical action", contradiction, "contradiction"),
+         ("coverage hole", coverage_hole, "not registered"),
++        ("metadata-only tool claims a schema ref", metadata_ref, "metadata_only"),
++        ("schema-bound tool names missing refs", missing_bound_ref, "path missing on disk"),
++        ("unreviewed test command", arbitrary_test, "safe binding"),
+     ]
+     for i, (label, fn, needle) in enumerate(cases, start=2):
+         f = run_mutant(_mutate(reg, fn))
+@@ -181,6 +282,46 @@ def self_test():
+         ok += v
+         print(f"  vector {i} {label} rejected ({needle}) -> "
+               f"{'PASS' if v else 'FAIL ' + (f[:1] or ['(no findings)'])[0]}")
++
++    # R1 must resolve symlinks rather than merely see an in-tree-looking path.
++    # Both fixtures are created under the real root and always removed; neither
++    # reaches the registry's committed content.
++    link = os.path.join(ROOT, "scripts", "_tool_registry_symlink_vector.py")
++    outside = os.path.join(tempfile.gettempdir(), "radiation_registry_outside.py")
++    try:
++        with open(outside, "w", encoding="utf-8") as fh:
++            fh.write("# external vector target\\n")
++        os.symlink(outside, link)
++        mutant = _mutate(reg, lambda m: m["tools"][0].__setitem__(
++            "entrypoint", "scripts/_tool_registry_symlink_vector.py"))
++        f = run_mutant(mutant)
++        v17 = any("escapes the tree after resolution" in x for x in f)
++    finally:
++        if os.path.lexists(link):
++            os.unlink(link)
++        if os.path.exists(outside):
++            os.remove(outside)
++    ok += v17
++    print(f"  vector 17 external symlink entrypoint rejected -> {'PASS' if v17 else 'FAIL'}")
++
++    # A schema-bound record must reject an existing schema that hides a keyword
++    # outside the one executor's vocabulary; existence alone is not a contract.
++    hidden = os.path.join(ROOT, "schemas", "_tool_registry_hidden_keyword_vector.json")
++    try:
++        with open(hidden, "w", encoding="utf-8") as fh:
++            json.dump({"$defs": {"hidden": {"contains": {"type": "string"}}}}, fh)
++        mutant = _mutate(reg, lambda m: (
++            m["tools"][0]["interface_contract"].__setitem__("status", "schema_bound"),
++            m["tools"][0].__setitem__("inputs_schema", "schemas/_tool_registry_hidden_keyword_vector.json"),
++            m["tools"][0].__setitem__("outputs_schema", "schemas/_tool_registry_hidden_keyword_vector.json")))
++        f = run_mutant(mutant)
++        v18 = any("unexecuted schema keywords" in x and "contains" in x for x in f)
++    finally:
++        if os.path.exists(hidden):
++            os.remove(hidden)
++    ok += v18
++    print(f"  vector 18 schema-bound hidden keyword rejected -> {'PASS' if v18 else 'FAIL'}")
++
+     print(f"tool_registry_check self-test: {ok}/{total} vectors")
+     return 0 if ok == total else 1
+ 
+diff --git a/scripts/validate.py b/scripts/validate.py
+index 1120bbc165e18a238d215a0a1e8f2fbd12da06ac..bf09ccb435ccd62336e31d7275265ec3c26a2813 100644
+--- a/scripts/validate.py
++++ b/scripts/validate.py
+@@ -1167,11 +1167,11 @@ def c39gates():
+     rst = subprocess.run([sys.executable, "scripts/tool_registry_check.py", "--self-test"],
+                          cwd=ROOT, capture_output=True, text=True,
+                          timeout=300, stdin=subprocess.DEVNULL)
+-    if rst.returncode != 0 or "13/13" not in (rst.stdout + rst.stderr):
+-        bad.append("tool_registry_check self-test not 13/13")
+-    rec(39, "FAIL", not bad, "test harness + tool registry (5500+5600): discoverable tests "
+-        "exist and pass · registry is a bounded contract (schema-EXECUTED + code-level "
+-        "rules, self-tested)" + ("" if not bad else ": " + "; ".join(bad[:4])))
++    if rst.returncode != 0 or "18/18" not in (rst.stdout + rst.stderr):
++        bad.append("tool_registry_check self-test not 18/18")
++    rec(39, "FAIL", not bad, "test harness + tool registry (5500+5610): discoverable tests "
++        "exist and pass · registry is a bounded tool inventory (schema-EXECUTED + "
++        "code-level rules, self-tested)" + ("" if not bad else ": " + "; ".join(bad[:4])))
+ 
+ # ---- check 40: schema keyword coverage (5600 closure Step 3) ----------------
+ def c40():
+diff --git a/tests/test_gate.py b/tests/test_gate.py
+index 63c69118e129918acf8f192d486cf8bc3af7e7e1..ffe1a1ff30380d526effa9fa4b2394e645af54a6 100644
+--- a/tests/test_gate.py
++++ b/tests/test_gate.py
+@@ -26,7 +26,7 @@ class DeepSelfTests(unittest.TestCase):
+ 
+     def test_relay_self_test(self):
+         out = self._run(["-m", "radiation_core.relay", "--self-test"])
+-        self.assertIn("23/23", out)
++        self.assertIn("25/25", out)
+ 
+     def test_control_plane_self_test(self):
+         out = self._run(["-m", "radiation_core.control_plane", "--self-test"])
+diff --git a/tools/TOOL_REGISTRY.json b/tools/TOOL_REGISTRY.json
+index c4158ca8d113da2dcf73c2aadb890111656efab0..8edd686c48a2e4a072892d5c24a1d476bf9634af 100644
+--- a/tools/TOOL_REGISTRY.json
++++ b/tools/TOOL_REGISTRY.json
+@@ -1,6 +1,6 @@
+ {
+- "schema_name": "radiation.tool_registry/2",
+- "generated_by": "5600 Verity closure (Architect S005, 2026-09-14; Commander review pending)",
++ "schema_name": "radiation.tool_registry/3",
++ "generated_by": "5610 Continuity + Verity correction (2026-09-15; Commander review required)",
+  "tools": [
+   {
+    "id": "validate",
+@@ -26,7 +26,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "structural validator (CI law); offline by default, online link census only with RADIATION_ONLINE=1; writes validation_report.json (removed before any seal)"
++   "description": "structural validator (CI law); offline by default, online link census only with RADIATION_ONLINE=1; writes validation_report.json (removed before any seal)",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "relay",
+@@ -52,7 +56,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "bundle verifier + the ONE schema executor; read-only over evidence trees"
++   "description": "bundle verifier + the ONE schema executor; read-only over evidence trees",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "control_plane",
+@@ -79,7 +87,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "II.11 control plane: decide/approve/execute_draft append digest-bound receipts under evidence/; canonical_apply stays the Commander's motor act"
++   "description": "II.11 control plane: decide/approve/execute_draft append digest-bound receipts under evidence/; canonical_apply stays the Commander's motor act",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "cap_verify",
+@@ -104,7 +116,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "verifies tracked cap records (seal + schema + negative vectors); authority flows only through the control plane"
++   "description": "verifies tracked cap records (seal + schema + negative vectors); authority flows only through the control plane",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "cap_probe",
+@@ -129,7 +145,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "capability probe: builds candidate cap records for Commander review; emits three-state dirty (null = could not determine)"
++   "description": "capability probe: builds candidate cap records for Commander review; emits three-state dirty (null = could not determine)",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "radiation_pass",
+@@ -154,7 +174,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "host-to-provider handoff pass; a handoff, not an elevation \u2014 grants nothing"
++   "description": "host-to-provider handoff pass; a handoff, not an elevation \u2014 grants nothing",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "contract_tests",
+@@ -180,7 +204,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "E1/E2 contract fixtures over throwaway temp trees; no repo writes"
++   "description": "E1/E2 contract fixtures over throwaway temp trees; no repo writes",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "knowledge_regression",
+@@ -205,7 +233,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "locked knowledge assertions; read-only over the tree"
++   "description": "locked knowledge assertions; read-only over the tree",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "nota",
+@@ -231,7 +263,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "core card tool: shape check + index parity; write mode regenerates canonical cards under Brain/"
++   "description": "core card tool: shape check + index parity; write mode regenerates canonical cards under Brain/",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "render_docs",
+@@ -257,7 +293,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "regenerates tracked docs from records; --check proves docs match reality"
++   "description": "regenerates tracked docs from records; --check proves docs match reality",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "verify_apply",
+@@ -283,7 +323,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "post-apply auditor: corpus-aware truth about the sealed tree; BLOCKING in CI"
++   "description": "post-apply auditor: corpus-aware truth about the sealed tree; BLOCKING in CI",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "status",
+@@ -308,7 +352,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "status dashboard with date semantics; read-only"
++   "description": "status dashboard with date semantics; read-only",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "ics_normalize",
+@@ -334,7 +382,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "ICS calendar normalizer; writes normalized output only where the operator points"
++   "description": "ICS calendar normalizer; writes normalized output only where the operator points",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "module_scaffold",
+@@ -360,7 +412,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "scaffolds new module skeletons at operator-named paths; self-test uses temp dirs"
++   "description": "scaffolds new module skeletons at operator-named paths; self-test uses temp dirs",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "plan_term",
+@@ -385,7 +441,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "term register truth checks; read-only"
++   "description": "term register truth checks; read-only",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "decay_compute",
+@@ -410,7 +470,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "decay register computations; read-only"
++   "description": "decay register computations; read-only",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "export_anki",
+@@ -436,7 +500,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "exports Anki decks to operator-named output; outside tracked records"
++   "description": "exports Anki decks to operator-named output; outside tracked records",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "grade_exam",
+@@ -461,7 +529,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "exam grading over declared course corpus; read-only"
++   "description": "exam grading over declared course corpus; read-only",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "deadline_feed",
+@@ -487,7 +559,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "rebuilds the local deadline register from declared corpus dates"
++   "description": "rebuilds the local deadline register from declared corpus dates",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "ingest_collection",
+@@ -513,7 +589,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "ingests course collections to operator-named JSON; outside tracked records"
++   "description": "ingests course collections to operator-named JSON; outside tracked records",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   },
+   {
+    "id": "tool_registry_check",
+@@ -541,7 +621,11 @@
+    "observability": {
+     "content_capture": "off_by_default"
+    },
+-   "description": "ONE entry point for this registry's contract: schema-executed + code-level semantic rules; self-test writes temp mutant fixtures (5600 Step 2)"
++   "description": "ONE entry point for this registry's contract: schema-executed + code-level semantic rules; self-test writes temp mutant fixtures (5600 Step 2)",
++   "interface_contract": {
++    "status": "metadata_only",
++    "reason": "CLI/interface payload is not yet modeled by a versioned RADIATION I/O schema; registry entry is operational metadata only."
++   }
+   }
+  ]
+-}
+\ No newline at end of file
++}
