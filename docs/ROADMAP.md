@@ -1,5 +1,5 @@
 # 🗺️ RADIATION ROADMAP — 2026-09-13
-**Verified against:** live tree @ `b8d1c04` (v3.10.1) at 5811 build · **Maintained by:** the Architect (current: S005) — front-matter refreshed 5800 (was stale since the 3100 era)
+**Verified against:** live tree @ `707aa47` (v3.10.2) at 5812 build · **Maintained by:** the Architect (current: S006) — front-matter refreshed 5800 (was stale since the 3100 era)
 **Purpose:** the Commander never has to ask "what's next." This file is regenerated
 with every patch; stale roadmaps are deleted, not archived. Masters live in-repo
 (shipped with patch 3100) so any AI in the swarm reads the same plan.
@@ -144,6 +144,7 @@ the machine asserts them · live state is verified, never assumed.
 | **5800** | ✅ DELIVERED — Almanac (record expansion) | 4 official surfaces re-retrieved 2026-09-15 · catalog 5 → 14 records · exact IDs + values captured (Sonnet-5 $2/$10 resolved; gpt-5.6-sol; Gemini endpoint table; grok-4.6 alias policy) · register O11–O14 · specialized/media ids logged, not recorded · v3.10.0 | 2026-09-15 |
 | **5810** | ✅ DELIVERED — Recount (5800 review hardening) | H1 Fable migration: stale provisional record retired + explicit `supersedes` relation, checker rejects surviving targets · H2 evidence binds to the registered source object (url + date) · R9 machine-derived `INVENTORY.generated.txt` (drift = finding) · R3 retrieval receipts for O11–O14 · R2 S2/S3 demoted to historical leads, policy_attribute_confidence separated · schema 0.3 · battery 24 vectors | Commander: "read, analyze and apply!" | the catalog counts what it contains · v3.10.1 | 2026-09-15 |
 | **5811** | ✅ DELIVERED — Apply-Recount (blocking-review directive) | public 5810 was extraction-only and RED by its own invariant · retirement executed per directive steps 1–3 · inventory regenerated · append-only correction in CHANGELOG · zero research changes | Commander: "please review this and apply" (5810 blocking review) | application is the act · v3.10.2 | 2026-09-15 |
+| **5812** | ✅ DELIVERED — True-Recount (second correction) | public 5811 extraction-only again left 15 vs 14 · stale fable-5-1 truly retired via git rm sentinel, inventory regenerated machine-derived, 42·39·3·0, 24/24 vectors, strict apply clean | Commander: "proceed, follow through the plans" | extraction ≠ application, twice | v3.10.3 | 2026-09-15 |
 
 ---
 *Regenerate this file every patch. Delete stale copies. The map is not the territory —

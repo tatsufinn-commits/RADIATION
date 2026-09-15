@@ -4,6 +4,12 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+
+## v3.10.3 — 2026-09-15 — TRUE-RECOUNT (5812)
+
+Second correction, append-only: public 5811 (707aa47) claimed the retirement and was pushed as a full-history commit (824 files A), but the stale provisional anthropic__fable-5-1 record survived in the live tree — extraction again, not application. Result: public main held 15 records vs inventory claim 14, checker R7 FAIL "supersedes target STILL ACTIVE", validate 42·38·3·1, self-test 23/24, CI red. The evidence bundles from 5810/5811 are NOT rewritten; the correction lives here. 5812 executes the directive with a proper deletion via APPLY runner (git rm behind defect-signature sentinel): stale anthropic__fable-5-1 removed, inventory regenerated machine-derived (14 records PROVABLY), full gates green 42·39·3·0, 24/24 catalog vectors, 24/24 relay vectors, 25 tests OK, chain 35, cap 13/13, strict apply-report clean. Zero research-content changes. Next: gated research sequence per compact handoff — compliance refresh, five-provider study, host activation, evaluations gated.
+
+
 ## v3.10.2 — 2026-09-15 — APPLY-RECOUNT (5811)
 Correction, append-only: public 5810 (`b8d1c04`) shipped the enforcement code
 but NOT the retirement action — extraction was pushed without APPLY — so main

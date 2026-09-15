@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-15 · **Version:** v3.10.2
+**Last updated:** 2026-09-15 · **Version:** v3.10.3
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,11 +49,8 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.10.2** — apply-recount (5811): public 5810 shipped the
-enforcement but not the retirement — main stood red by its own invariant until
-the superseded Fable record was removed. Now 14 records, PROVABLY: 42·39·3·0.
-Prior — v3.10.1 recount (5810): supersedes enforced, evidence register-bound,
-GENERATED inventory, receipts, S2/S3 demoted to historical leads.
+**RADIATION v3.10.3** — true-recount (5812): public 5811 claimed retirement but left 15 records — extraction again, not application. Now 14 records, PROVABLY: 42·39·3·0, 24/24 vectors.
+Prior — v3.10.2 apply-recount (5811): attempted retirement, extraction-only push; v3.10.1 recount (5810): supersedes enforced, evidence register-bound, GENERATED inventory.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*
