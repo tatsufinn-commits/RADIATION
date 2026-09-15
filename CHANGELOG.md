@@ -4,6 +4,19 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.2 — 2026-09-15 — APPLY-RECOUNT (5811)
+Correction, append-only: public 5810 (`b8d1c04`) shipped the enforcement code
+but NOT the retirement action — extraction was pushed without APPLY — so main
+stood RED by its own new invariant: 15 active records, checker "supersedes
+target STILL ACTIVE", validate 1 FAIL, CI validate + apply-report failure.
+The 5810 evidence is NOT rewritten; it was never green on the public tree.
+5811 executes the blocking-review directive verbatim: stale provisional
+`anthropic__fable-5-1` record removed (git history + the successor's
+`supersedes` declaration keep provenance), inventory regenerated from the
+directory, full gates re-run green (42 · 39 · 3 · 0 · 25 tests OK · 24/24 ·
+chain 35 · cap 13/13). Zero research-content changes. Next: the review's
+research sequence, one gated order each.
+
 ## v3.10.1 — 2026-09-15 — RECOUNT (5810)
 Integrity repair per the independent 5800 research-track review (H1/H2, R2/R3).
 The 5800 push (`027c786`) shipped the zip EXTRACTION, not the APPLY result: the
