@@ -1,0 +1,142 @@
+{
+  "schema_name": "radiation.release_truth_expectation/0.1",
+  "generated_by": "S006 Architect \u2014 Release Truth Gate 5824 per acceptance fbce71b",
+  "base_sha": "fbce71bbfe4c62da71e6b347d36617474f840297",
+  "base_must_be_ancestor": true,
+  "description": "Pins exact base SHA fbce71b (first green after 5810-5822 deletion failures) and allowed delta for Release Truth Gate tranche itself. Prevents wrong-root, stale-base, ZIP-extraction-without-deletion, generated-file-drift, doc-claiming-unverified-CI.",
+  "allowed_changes": [
+    {
+      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
+      "kind": "A",
+      "note": "machine-readable expectation"
+    },
+    {
+      "path": "docs/RELEASE_TRUTH_GATE/README.md",
+      "kind": "A",
+      "note": "gate purpose"
+    },
+    {
+      "path": "docs/RELEASE_TRUTH_GATE/CHECKER.md",
+      "kind": "A",
+      "note": "checker design"
+    },
+    {
+      "path": "docs/RELEASE_TRUTH_GATE/DoD_TEMPLATE.md",
+      "kind": "A",
+      "note": "Definition of Done + risk register template"
+    },
+    {
+      "path": "docs/RELEASE_TRUTH_GATE/POST_PUSH_RECEIPT_TEMPLATE.md",
+      "kind": "A",
+      "note": "post-push receipt format"
+    },
+    {
+      "path": "scripts/release_truth_check.py",
+      "kind": "A",
+      "note": "repository-owned release-truth checker"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "kind": "M",
+      "note": "append-only new section v3.10.7"
+    },
+    {
+      "path": "README.md",
+      "kind": "M",
+      "note": "version bump v3.10.6\u2192v3.10.7"
+    },
+    {
+      "path": "docs/SYSTEM_STATE.md",
+      "kind": "M",
+      "note": "version block + machine-facts GENERATED"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "kind": "M",
+      "note": "front-matter verified against fbce71b + new row"
+    },
+    {
+      "path": "docs/PATCH_LEDGER.md",
+      "kind": "M",
+      "note": "append-only new row"
+    },
+    {
+      "path": "Brain/frontal_lobe/task_ledger.md",
+      "kind": "M",
+      "note": "new row, boot-budget aware"
+    },
+    {
+      "path": "docs/shrine/LOG.md",
+      "kind": "M",
+      "note": "poetic row"
+    },
+    {
+      "path": "tools/TOOL_REGISTRY.json",
+      "kind": "M",
+      "note": "register new checker tool"
+    }
+  ],
+  "required_deletions": [
+    {
+      "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
+      "must_be_absent_on_disk": true,
+      "must_be_D_in_diff": false,
+      "note": "stale Fable 5-1 already absent in base fbce71b (first green after 5810-5822), must remain absent; D check not required for this gate's own delivery since base already has deletion"
+    }
+  ],
+  "required_absent_on_disk": [
+    "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
+  ],
+  "required_generated_artifacts": [
+    {
+      "path": "catalogs/model_research/INVENTORY.generated.txt",
+      "generator": "python3 scripts/model_research_check.py --inventory",
+      "freshness_check": "python3 scripts/model_research_check.py --check-inventory-only",
+      "must_match_live": true
+    }
+  ],
+  "mandatory_validations": [
+    {
+      "command": "python3 scripts/model_research_check.py",
+      "expected_exit": 0,
+      "must_contain": "0 finding(s)"
+    },
+    {
+      "command": "python3 scripts/model_research_check.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "24/24"
+    },
+    {
+      "command": "python3 scripts/validate.py",
+      "expected_exit": 0,
+      "must_contain": "0 fail"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -v",
+      "expected_exit": 0,
+      "must_contain": "OK"
+    },
+    {
+      "command": "python3 scripts/verify_apply.py --strict",
+      "expected_exit": 0,
+      "must_contain": "FAIL-CLASS : none"
+    },
+    {
+      "command": "git diff --check",
+      "expected_exit": 0,
+      "must_contain": ""
+    }
+  ],
+  "forbidden_paths": [
+    "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
+  ],
+  "risks": [
+    "wrong root \u2014 package applied to different working directory than repo root",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA",
+    "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
+    "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/",
+    "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
+    "host/provider/surface confusion \u2014 Arena gap treated as official policy",
+    "unavailable credentials/remote verification \u2014 push attempted without Commander motor act"
+  ]
+}

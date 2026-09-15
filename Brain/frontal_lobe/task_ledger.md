@@ -121,5 +121,6 @@ Format: `| date | mode | task (one line) | outcome | deliverable path | patch fi
 | 2026-09-15 | S005 (the Architect) | 5811 Apply-Recount: review REJECTED red 5810 — retirement executed per directive steps 1–3, correction recorded append-only | done | blocking-review directive | 5811 |
 | 2026-09-15 | S006 (the Architect) | 5812 True-Recount: second extraction-only failure repaired — stale fable-5-1 truly retired via git rm sentinel, inventory regenerated, 42·39·3·0, 24/24 vectors | done | blocking-review directive v2 | 5812 |
 | 2026-09-15 | S006 (the Architect) | 5820 Compliance-Refresh: primary-source compliance refresh — 12 new official policy sources O15-O26 (32 total) with receipts, provider SOURCES ×5 updated, 14 records PROVABLY, 42·39·3·0 | done | compliance refresh per compact handoff §7 | 5820 |
-| 2026-09-15 | S006 | 5821 Repair: git rm stale fable-5-1 + inventory 14, receipt time→date-only, O26 O→U, docs 0.3/24v, ROADMAP SHA fix, honest correction | done | public-tree repair per review directive | 5821 |
-| 2026-09-15 | S006 | 5822 TRUE: ffe9cd3 still 15 red no D; git rm stale + inv 14 true green, honest correction | done | release-truth freeze | 5822 |
+| 2026-09-15 | S006 | 5821 Repair: git rm stale fable-5-1 + inv 14, time date-only, O26 O→U, docs 0.3/24v | done | public-tree repair | 5821 |
+| 2026-09-15 | S006 | 5822 TRUE: ffe9cd3 15 red no D; git rm + inv 14 true green | done | release-truth freeze | 5822 |
+| 2026-09-15 | S006 | 5824 Gate: base fbce71b pinned, EXPECTATION + checker 7v + DoD + receipt, non-boot | done | release-truth gate | 5824 |

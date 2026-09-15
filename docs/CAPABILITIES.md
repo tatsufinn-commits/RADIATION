@@ -291,6 +291,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `module_scaffold.py` | born-valid study modules (patch 3000). | yes | no | yes |
 | `nota.py` | the Core card tool (patch 3000; canonical contract per 4400). | yes | no | yes |
 | `plan_term.py` | RADIATION term planner (P-10 Phase 1-3). | no | no | no |
+| `release_truth_check.py` | Release Truth Gate checker (5824) | no | no | no |
 | `render_docs.py` | generated-facts pipeline (patch 4400; auditor plan item 5). | yes | yes | yes |
 | `status.py` | the Swarm Dashboard (patch 3300, SD-3300-02). | no | no | yes |
 | `tool_registry_check.py` | tool_registry_check — ONE entry point for the tool-registry contract (5600). | yes | no | no |
