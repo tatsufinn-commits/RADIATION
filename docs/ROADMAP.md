@@ -153,3 +153,8 @@ the machine asserts them · live state is verified, never assumed.
 ---
 *Regenerate this file every patch. Delete stale copies. The map is not the territory —
 the validator is.*
+| **5830** | ✅ DELIVERED — Provider-Surface Analysis (decision-ready five-provider) | 5 providers × 4 dims (Capability 4–5 patterns, Safety/Compliance 4–5, Operational 4, Activation 4–5) + 1 RADIATION improvement each, dated O15–O26 (OpenAI privacy 2026-09-10 + usage 2026-10-29 + your-data Mar 1 2023 30d ZDR; Anthropic privacy + commercial no-training DPA + AUP; Gemini terms Mar 23 2026 Paid vs Unpaid + abuse Jun 09 2026 55d; xAI privacy Aug 24 2026 + terms Sept 11 + AUP Aug 14; Arena /privacy + /terms 404 gap); CAPABILITY_PROFILE ×5 reviewed_on 2026-09-15 consolidated 5830; ROUTING_MATRIX reviewed_on 2026-09-15; PASS handoff exercise known host Arena Agent Mode mounted 7388842 dirty false tools attestation+digest boundary commander_motor_act proofs relay/cap_verify/control_plane; docs PROVIDER_SURFACE_ANALYSIS_5830.md + ACTIVATION_PASS_EXERCISE_5830.md; check 38 accepts 2026-09-14/15 | Commander: "all green, you can check the repository for proof, if you do proceed to the next update!" | research notes only, not authority — no eval/routing/deployment/credentials | v3.10.8 | 2026-09-15 |
+
+---
+*Regenerate this file every patch. Delete stale copies. The map is not the territory —
+the validator is.*

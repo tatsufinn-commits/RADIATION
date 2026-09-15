@@ -1,19 +1,21 @@
 # CAPABILITY PROFILE — Claude / Anthropic
 
-`reviewed_on: 2026-09-14` · `consolidated: 5600 (2026-09-14)` · Review trigger: official pricing/model-page change, or 90 days (re-review by 2026-12-13) · Maintainer: S005 (Architect)
+`reviewed_on: 2026-09-15` · `consolidated: 5600 (2026-09-14) → 5830 (2026-09-15)` · Review trigger: official pricing/model-page change, or 90 days (re-review by 2026-12-13) · Maintainer: S006 (Architect) — 5820 compliance refresh + 5830 surface analysis
 
 ## Current official record (exact IDs and pricing live on these pages)
-- **Models overview** [O, platform.claude.com/docs/en/models/overview — retrieved 2026-09-14 via gate-review sweep]: lists current **Fable 5.1, Opus 5, Sonnet 5, Haiku 4.5 with exact API IDs, context windows, knowledge cutoffs, pricing, thinking/effort settings, and model-versioning guidance.** Exact IDs/statuses/pricing come from this page, never from aggregators. **[Local re-verification = standing review trigger]**
-- **API surface** [O, claude.com/platform/api].
+- **Models overview** [O12, platform.claude.com/docs/en/models/overview — retrieved 2026-09-15]: exact IDs captured: claude-fable-5-1 $10/$50 1M, claude-opus-5 $5/$25 1M, claude-sonnet-5 $2/$10 1M (conflict resolved $3/$15 vs $2/$10 → $2/$10 official), claude-haiku-4-5-20251001 $1/$5 200K; cutoffs Jun/May/Jan 2026 + Feb 2025 [O12]. Prior sweep O4 2026-09-14 lists Fable 5.1, Opus 5, Sonnet 5, Haiku 4.5. **[Local re-verification = standing review trigger]**
+- **API surface** [O5, claude.com/platform/api — retrieved 2026-09-14].
 - **Status:** `status.anthropic.com` [Official — canonical link].
 
 ## Access, cost, availability
-- Pay-per-token API + consumer subscriptions; AWS Bedrock / Google Vertex availability [Secondary, datastudios 2026-09-07].
+- Pay-per-token API + consumer subscriptions; AWS Bedrock / Google Vertex availability [Secondary, datastudios 2026-09-07 historical lead only per 5810 R2, but O5 confirms platform].
 
-## Safety, policy, privacy (API vs consumer split)
-- **API/Commercial: customer content is NOT used for training** ("Anthropic may not train models on Customer Content from Services") [Secondary quoting Commercial Terms, terms.law 2026-06-27]; API log retention reduced to ~7 days (since 2025-09-15), ZDR available [Secondary, datastudios 2026-09-07, anonyome 2026-04-17].
-- **Consumer claude.ai:** the two secondaries disagree on the training-default direction post-2025-10-08 — resolve against anthropic.com/legal/privacy before quoting [Secondary conflict — standing review trigger]. Safety-flagged content retained longer regardless [Secondary].
-- BAA available for eligible plans; DPA defines processor duties [Secondary].
+## Safety, policy, privacy (API vs consumer split — 5820 compliance refresh)
+
+- **API/Commercial: customer content is NOT used for training** — “Anthropic may NOT train models on Customer Content from Services” — Services not for consumer use; customer retains all rights to inputs, owns outputs; DPA incorporated [O19 2026-09-15, https://www.anthropic.com/legal/commercial-terms — receipt O19]. This supersedes secondary quote via terms.law [S3].
+- **Consumer privacy split:** Consumer Privacy Policy does NOT apply to Enterprise (governed by customer agreements); personal data: identity/contact, payment, inputs/outputs (may be reproduced in outputs), feedback stores entire conversation, technical info (device, usage, logs, cookies); training data from public web, commercial datasets, user inputs/outputs unless opt-out [O18 2026-09-15, https://www.anthropic.com/legal/privacy — receipt O18].
+- **AUP — Universal + High-Risk + Additional Guidelines:** Prohibits illegal activity, critical infrastructure disruption, computer/network compromise, weapons development, violence/hate, privacy/identity violation, children safety, psychologically harmful, misinformation, throttling/suspension [O20 2026-09-15, https://www.anthropic.com/legal/aup — receipt O20].
+- **Retention:** API logs →7 days since 2025-09-15 per S2 historical lead [S2 2026-09-07 — historical lead only per 5810 R2, must reverify against O18/O19 official]; safety-flagged content retained longer regardless [Secondary]; BAA available for eligible plans; DPA defines processor duties [O19].
 
 ## RADIATION task suitability [Assessment — ours]
 | Task class | Suitability | Note |

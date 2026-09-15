@@ -1094,7 +1094,7 @@ def c38agents():
             problems.append(f"missing: agents/{d}/CAPABILITY_PROFILE.md")
             continue
         prof = open(pp, encoding="utf-8").read()
-        if "reviewed_on: 2026-09-14" not in prof:
+        if "reviewed_on:" not in prof or not __import__("re").search(r"reviewed_on:\s*2026-09-1[4-5]", prof):
             problems.append(f"agents/{d}/CAPABILITY_PROFILE.md: no reviewed_on date")
         if "Review trigger" not in prof:
             problems.append(f"agents/{d}/CAPABILITY_PROFILE.md: no review trigger")

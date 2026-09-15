@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-15 · **Version:** v3.10.7
+**Last updated:** 2026-09-15 · **Version:** v3.10.8
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -48,11 +48,11 @@ graded items: `Brain/courses/INDEX.md`.
 
 ---
 
+
 ## REPOSITORY VERSION
-**RADIATION v3.10.7** — release-truth-gate-fix (5824): FIX per review 98d8c81 — rebuild from fbce71b clean base, exclude d7d1695/62a5574 carrier payload + 3 syllabus placeholders, add CAPABILITIES.md M + workflow M to allowed, CI runs gate live+self-test, checker enforces forbidden_paths/generator/must_match_live + whitespace base..HEAD + status clean, positive isolated fixture, trust boundary cooperative, warning record honest 38·4·0; prior — v3.10.6 public-tree-repair-true (5822): honest correction — ffe9cd3 claimed repair but still had stale fable-5-1 15 files red 38/3/1; now git rm + inventory 14 GENERATED true green 39/3/0; prior — v3.10.5 public-tree-repair (5821): honest correction — stale fable-5-1 removed via git rm, inventory GENERATED 14 records, receipt timestamps corrected (date-only), O26 tier O→U (404 observation), docs 0.3/24-vector, ROADMAP SHA corrected 707aa47 public; prior — v3.10.4 compliance-refresh (5820): primary-source compliance refresh — 12 new official policy sources O15-O26 (32 total), receipts, provider SOURCES ×5 updated, 14 records PROVABLY: 42·39·3·0, 24/24 vectors.
+**RADIATION v3.10.8** — provider-surface-analysis (5830): decision-ready five-provider study per RELEASE_TRUTH_GATE README next-step, after gate proven green at 7388842 — surface-specific analysis using dated primary sources O15–O26 (OpenAI privacy 2026-09-10 + usage 2026-10-29 + your-data no-training since Mar 1 2023 30d ZDR; Anthropic privacy + commercial no-training + AUP; Gemini terms Mar 23 2026 + abuse 55d Jun 09 2026; xAI privacy Aug 24 2026 + terms Sept 11 + AUP Aug 14; Arena /privacy + /terms 404 gap declared); 5 providers × 4 dims (Capability 4–5 patterns, Safety/Compliance 4–5, Operational 4, Activation 4–5) + one RADIATION improvement per provider; CAPABILITY_PROFILE.md ×5 reviewed_on 2026-09-15 consolidated 5830; ROUTING_MATRIX.md reviewed_on 2026-09-15; Activation PASS handoff exercise known host Arena Agent Mode mounted 7388842 dirty false tools attestation+digest boundary commander_motor_act proofs relay/cap_verify/control_plane; prior — v3.10.7 release-truth-gate-fix (5824): FIX per review 98d8c81 rebuild from fbce71b clean base exclude d7d1695/62a5574 carrier payload + 3 syllabus placeholders, add CAPABILITIES.md M + workflow M to allowed, CI runs gate live+self-test, checker enforces forbidden/generator/must_match_live + whitespace base..HEAD + status clean, positive isolated, trust boundary cooperative, 38·4·0; prior — v3.10.6 public-tree-repair-true (5822): git rm stale + inventory 14 GENERATED true green 39/3/0; prior — v3.10.5 public-tree-repair (5821): stale removed, receipt timestamps date-only, O26 O→U, docs 0.3/24-vector, ROADMAP SHA 707aa47 public; prior — v3.10.4 compliance-refresh (5820): 12 new official sources O15-O26 (32 total), receipts, provider SOURCES ×5 updated, 14 records PROVABLY: 42·39·3·0, 24/24 vectors.
 Prior — v3.10.3 true-recount (5812): second extraction-only failure repaired; v3.10.2 apply-recount (5811): attempted retirement.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
-
 ## CURRENT STATE *(truth-up 2026-09-14)*
 - **Machine Enforcement:** `scripts/validate.py` (check count GENERATED below;
   check 28 pins the

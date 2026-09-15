@@ -1,8 +1,8 @@
-# ROUTING MATRIX — RADIATION task classes × providers (5400)
+# ROUTING MATRIX — RADIATION task classes × providers (5400 → 5830)
 
 **These values are UNMEASURED IMPRESSIONS (secondary-source impressions and session anecdotes). They are NOT a decision rule: routing on any "strong/strongest" cell requires a named RADIATION local evaluation with a declared confidence level (evaluation harness contract: see docs/CAPABILITIES.md §21). Until such an evaluation exists, routing follows host identity + task class only — never these words.**
 
-`reviewed_on: 2026-09-14` · Companion to `agents/AGENT_INDEX.md` (the routing RULE lives there and in the pass; this matrix is decision support, not authority).
+`reviewed_on: 2026-09-15` · `consolidated: 5830 (2026-09-15)` — updated with O15–O26 compliance refresh (OpenAI privacy 2026-09-10 + usage 2026-10-29 + your-data no-training since Mar 1 2023 30d ZDR; Anthropic privacy + commercial no-training + AUP; Gemini terms Mar 23 2026 + abuse 55d Jun 09 2026; xAI privacy Aug 24 2026 + terms Sept 11 + AUP Aug 14; Arena /privacy + /terms 404 gap re-confirmed) + PASS activation observed 7388842 · Companion to `agents/AGENT_INDEX.md` (the routing RULE lives there and in the pass; this matrix is decision support, not authority).
 
 **Hard rules (unchanged by this matrix):**
 1. Route by **observed/explicitly-known host only** — never infer a provider from output style, capability hints, or self-identification. Unknown/ambiguous → generic CAP path, uncertainty declared.
