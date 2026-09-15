@@ -158,3 +158,8 @@ the validator is.*
 ---
 *Regenerate this file every patch. Delete stale copies. The map is not the territory —
 the validator is.*
+| **5900** | ✅ DELIVERED — CUE Tranche P-11-A Candidate B opening (CUE_CATALOG + resolver + hostile closure + hygiene + RD-1/RD-2) | cue/CUE_CATALOG.json 42 cues typed + schemas/cue_card.schema.json + DIRECTIVE_CUE_MAPPING.json 13/13 mapped + scripts/cue_resolver.py deterministic law commander_order>ratified_policy>cue>heuristic>content CONTENT-only + tests/test_cue_resolver.py 52 vectors hostile closure 4 shapes no elevation via REAL resolver over REAL path + evals/README shrunk NOT-proven to genuinely untestable + cue/CUE_INDEX.md compression + cue/inference-log.md append-only audit + docs/CUE_SYSTEM.md single pointer line + RD-1 RDATE comma mirror EXDATE + RD-2 max-size default cap 100 MB + streamed abort SIZE-SKIPPED | Commander directive 2026-09-15 base 4c851e3 CUE TRANCHE P-11-A opening: typed records, resolver/linter, fixtures closing NOT-proven half, hygiene additive II.2 II.10 never deletion, RD-1/RD-2 rider micro-patches, RD-3 flagged 🟠 DO NOT IMPLEMENT | one patch one purpose II.7.4, new catalogs non-boot beyond single pointer line, no skill catalogs/docs-lane/runtime/scheduling/provider calls/routing/telemetry | v3.10.9 | 2026-09-15 |
+
+---
+*Regenerate this file every patch. Delete stale copies. The map is not the territory —
+the validator is.*

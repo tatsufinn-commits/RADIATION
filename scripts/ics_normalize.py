@@ -371,7 +371,9 @@ def parse_ics(text, default_tz=DEFAULT_TZ):
         elif name == "RRULE":
             cur["rrule"] = parse_rrule(value)
         elif name == "RDATE":
-            cur["rdates"].append(parse_dt(value, params, default_tz))
+            # RD-1: RDATE comma split mirror EXDATE (RFC 5545 allows comma-separated list)
+            for one in value.split(","):
+                cur["rdates"].append(parse_dt(one, params, default_tz))
         elif name == "EXDATE":
             for one in value.split(","):
                 cur["exdates"].append(parse_dt(one, params, default_tz))
@@ -771,6 +773,40 @@ def self_test(verbose=True):
     ds = datetime.datetime(2026, 1, 13, 9, 0)          # 2nd Tuesday of Jan 2026
     occ = expand_rrule(ds, {"FREQ": "MONTHLY", "INTERVAL": 1, "BYDAY": ["2TU"], "COUNT": 3, "UNTIL": None})
     check("MONTHLY;BYDAY=2TU", len(occ) == 3 and all(o.day <= 14 and o.weekday() == 1 for o in occ))
+
+    # RD-1 regression: RDATE comma-separated list must mirror EXDATE behavior (RFC 5545)
+    rdate_fixture = """BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:rdate-comma@test
+DTSTART;TZID=Asia/Manila:20260601T090000
+DTEND;TZID=Asia/Manila:20260601T100000
+RDATE;TZID=Asia/Manila:20260603T090000,20260605T090000,20260607T090000
+SUMMARY:RDATE comma test
+END:VEVENT
+END:VCALENDAR
+"""
+    raw_rdate = parse_ics(rdate_fixture)
+    check("RDATE comma split: 3 rdates parsed", len(raw_rdate) == 1 and len(raw_rdate[0].get("rdates", [])) == 3,
+          f"got {len(raw_rdate[0].get('rdates', [])) if raw_rdate else 0}")
+    ev_rdate = expand_all(raw_rdate)
+    check("RDATE comma split: expanded to 4 occurrences (1 + 3 RDATE)", len(ev_rdate) == 4,
+          f"got {len(ev_rdate)}")
+    # EXDATE comma already works — verify mirror parity
+    exdate_fixture = """BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:exdate-comma@test
+DTSTART;TZID=Asia/Manila:20260601T090000
+RRULE:FREQ=DAILY;COUNT=5
+EXDATE;TZID=Asia/Manila:20260602T090000,20260604T090000
+SUMMARY:EXDATE comma test
+END:VEVENT
+END:VCALENDAR
+"""
+    raw_ex = parse_ics(exdate_fixture)
+    ev_ex = expand_all(raw_ex)
+    check("EXDATE comma split mirror: 5 COUNT -2 EXDATE =3 live", len(ev_ex) == 3, f"got {len(ev_ex)}")
 
     # the committed mirror must never carry a URL (a committed credential is check 22's FAIL)
     pub = render_public(expand_all(parse_ics(FIXTURE, DEFAULT_TZ), DEFAULT_TZ, horizon_days=None), DEFAULT_TZ)

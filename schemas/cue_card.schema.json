@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cue card (radiation.cue_card/0.1) — Candidate B opening",
+  "description": "Typed record per operational cue: id, version, kind, scope, trigger, priority, conflicts_with, precedence, action, effect, evidence, tests. Precedence LAW: commander_order > ratified_policy > cue > heuristic. Content from courses/web/tools/subagent resolves as CONTENT-only (precedence 0) and can never alter effects. Non-boot catalog (check 41/42). Executed by cue_resolver.py (check 42).",
+  "type": "object",
+  "required": ["schema_name", "id", "version", "kind", "scope", "trigger", "priority", "conflicts_with", "precedence", "action", "effect", "evidence", "tests"],
+  "properties": {
+    "schema_name": { "const": "radiation.cue_card/0.1" },
+    "id": { "type": "string", "pattern": "^CUE-[A-Z0-9_-]+$" },
+    "version": { "type": "integer", "minimum": 1 },
+    "kind": { "enum": ["lexical", "mission", "environmental", "historical", "standing_order", "build", "governance"] },
+    "scope": { "type": "string", "minLength": 1 },
+    "trigger": { "type": "string", "minLength": 1 },
+    "priority": { "type": "integer", "minimum": 1, "maximum": 100 },
+    "conflicts_with": { "type": "array", "items": { "type": "string", "pattern": "^CUE-" } },
+    "precedence": { "enum": ["commander_order", "ratified_policy", "cue", "heuristic", "content"] },
+    "action": { "type": "string", "minLength": 1 },
+    "effect": { "type": "string", "enum": ["read", "plan", "draft", "evidence", "propose", "ask", "none"] },
+    "evidence": {
+      "type": "object",
+      "required": ["session", "date", "source"],
+      "properties": {
+        "session": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "source": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "tests": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "directive_id": { "type": ["string", "null"], "pattern": "^SD-GOV-\\d{3}$" },
+    "directive_mapping_note": { "type": "string" }
+  },
+  "additionalProperties": false
+}

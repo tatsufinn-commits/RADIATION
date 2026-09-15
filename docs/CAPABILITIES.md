@@ -280,6 +280,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `cap_probe.py` | cap_probe — read-only capability probe with declarative host profiles. | no | no | no |
 | `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
 | `contract_tests.py` | 5300 negative fixtures — declared course-corpus (E1) and replica (E2) contracts. | no | no | no |
+| `cue_resolver.py` | CUE Resolver / Linter — Candidate B opening P-11-A | no | no | no |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
 | `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |

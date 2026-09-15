@@ -1,94 +1,114 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 Release Truth Gate 5830 per gate proven green at 7388842 (adds provider surface analysis 4 dims + PASS activation exercise + profile updates reviewed_on 2026-09-15)",
-  "base_sha": "73888423e16097b2e37029823c379a82d7044d22",
+  "generated_by": "S006 Architect — CUE TRANCHE P-11-A Candidate B opening base 4c851e3 (cue catalog + schema + resolver/linter + hostile closure + hygiene + RD-1/RD-2), release-truth gate proven public green at 4c851e3",
+  "base_sha": "4c851e3e7a1d985f26f9d75626606c85fead19b4",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA 7388842 green after 5824 FIX (16-path delta vs fbce71b, 0 findings, 7/7, 38\u00b74\u00b70, 14 records, PASS activation). Cooperative release-integrity check, NOT immutable/adversary-resistant: EXPECTATION.json and checker mutable in same candidate, shell=True. Future immutable expectation needs pinned expectation in already-public base commit. Commander-only push authority separate motor control. Prevents wrong-root, stale-base, ZIP-without-deletion, generated-drift, doc-claiming-unverified-CI, host/provider/surface confusion, unavailable credentials.",
+  "description": "Pins exact base SHA 4c851e3e7a1d985f26f9d75626606c85fead19b4 green after 5830 (42·38·4·0 25/25 release-truth 0+7/7 catalog 0+24/24). Candidate B CUE TRANCHE: cue/CUE_CATALOG.json + schemas/cue_card.schema.json typed records id/version/kind/scope/trigger/priority/conflicts_with/precedence/action/effect/evidence/tests + ALL 13 SD-GOV mapped via DIRECTIVE_CUE_MAPPING.json, deterministic resolver scripts/cue_resolver.py law commander_order>ratified_policy>cue>heuristic>content CONTENT-only for courses/web/tools/subagent, fixtures closing NOT-proven half via REAL resolver over REAL path 4 shapes expecting no elevation, evals/README shrunk, CUE hygiene compression+inference-log audit additive II.2 II.10 never deletion, RD-1 ics_normalize.py RDATE comma mirror EXDATE + RD-2 ingest_collection.py max-size default cap + streamed abort. Non-goals: no skill catalogs, no docs-lane restructuring, no runtime/scheduling/provider calls/routing/telemetry, one patch one purpose II.7.4. RD-3 silence reconciliation flagged 🟠 DO NOT IMPLEMENT without signature. Cooperative release-integrity check, NOT immutable/adversary-resistant: EXPECTATION.json and checker mutable in same candidate, shell=True. Future immutable expectation needs pinned expectation in already-public base commit. Commander-only push authority separate motor control.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M Brain/frontal_lobe/task_ledger.md for 5830 provider-surface analysis"
+      "note": "M task_ledger for P-11-A Candidate B CUE tranche"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG.md for 5830 provider-surface analysis"
+      "note": "M CHANGELOG for P-11-A Candidate B"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README.md for 5830 provider-surface analysis"
+      "note": "M README for P-11-A Candidate B"
     },
     {
-      "path": "agents/Arena_AI/CAPABILITY_PROFILE.md",
-      "kind": "M",
-      "note": "M agents/Arena_AI/CAPABILITY_PROFILE.md for 5830 provider-surface analysis"
-    },
-    {
-      "path": "agents/ChatGPT/CAPABILITY_PROFILE.md",
-      "kind": "M",
-      "note": "M agents/ChatGPT/CAPABILITY_PROFILE.md for 5830 provider-surface analysis"
-    },
-    {
-      "path": "agents/Claude/CAPABILITY_PROFILE.md",
-      "kind": "M",
-      "note": "M agents/Claude/CAPABILITY_PROFILE.md for 5830 provider-surface analysis"
-    },
-    {
-      "path": "agents/Gemini/CAPABILITY_PROFILE.md",
-      "kind": "M",
-      "note": "M agents/Gemini/CAPABILITY_PROFILE.md for 5830 provider-surface analysis"
-    },
-    {
-      "path": "agents/Grok/CAPABILITY_PROFILE.md",
-      "kind": "M",
-      "note": "M agents/Grok/CAPABILITY_PROFILE.md for 5830 provider-surface analysis"
-    },
-    {
-      "path": "agents/ROUTING_MATRIX.md",
-      "kind": "M",
-      "note": "M agents/ROUTING_MATRIX.md for 5830 provider-surface analysis"
-    },
-    {
-      "path": "docs/ACTIVATION_PASS_EXERCISE_5830.md",
+      "path": "cue/CUE_CATALOG.json",
       "kind": "A",
-      "note": "A docs/ACTIVATION_PASS_EXERCISE_5830.md for 5830 provider-surface analysis"
+      "note": "A cue/CUE_CATALOG.json — 42 cues typed, 13/13 directives mapped, non-boot catalog, pointer only in boot tier"
+    },
+    {
+      "path": "cue/CUE_INDEX.md",
+      "kind": "M",
+      "note": "M cue/CUE_INDEX.md — compression layer additive, points to CUE_CATALOG.json, II.10 archive never deletion"
+    },
+    {
+      "path": "cue/DIRECTIVE_CUE_MAPPING.json",
+      "kind": "A",
+      "note": "A cue/DIRECTIVE_CUE_MAPPING.json — 13/13 SD-GOV mapped, 0 prose-only"
+    },
+    {
+      "path": "cue/inference-log.md",
+      "kind": "M",
+      "note": "M cue/inference-log.md — append-only II.2 audit S006 5830 upheld + P-11-A upheld + hygiene upheld"
+    },
+    {
+      "path": "docs/CAPABILITIES.md",
+      "kind": "M",
+      "note": "M docs/CAPABILITIES.md GENERATED — new tool cue_resolver"
+    },
+    {
+      "path": "docs/CUE_SYSTEM.md",
+      "kind": "M",
+      "note": "M docs/CUE_SYSTEM.md — single pointer line to CUE_CATALOG.json, non-boot beyond pointer per DoD"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md for 5830 provider-surface analysis"
-    },
-    {
-      "path": "docs/PROVIDER_SURFACE_ANALYSIS_5830.md",
-      "kind": "A",
-      "note": "A docs/PROVIDER_SURFACE_ANALYSIS_5830.md for 5830 provider-surface analysis"
+      "note": "M docs/PATCH_LEDGER.md for P-11-A Candidate B"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json for 5830 provider-surface analysis"
+      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json — base pinned 4c851e3, allowed delta enumerated"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md for 5830 provider-surface analysis"
+      "note": "M docs/ROADMAP.md for P-11-A Candidate B"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md for 5830 provider-surface analysis"
+      "note": "M docs/SYSTEM_STATE.md GENERATED — version bump v3.10.9"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md for 5830 provider-surface analysis"
+      "note": "M docs/shrine/LOG.md — heartbeat for P-11-A"
     },
     {
-      "path": "scripts/validate.py",
+      "path": "evals/README.md",
       "kind": "M",
-      "note": "M scripts/validate.py for 5830 provider-surface analysis"
+      "note": "M evals/README.md — shrinks NOT-proven, proves hostile closure via REAL resolver over REAL path 4 shapes"
+    },
+    {
+      "path": "schemas/cue_card.schema.json",
+      "kind": "A",
+      "note": "A schemas/cue_card.schema.json — typed cue card schema radiation.cue_card/0.1"
+    },
+    {
+      "path": "scripts/cue_resolver.py",
+      "kind": "A",
+      "note": "A scripts/cue_resolver.py — deterministic precedence resolver/linter law commander_order>ratified_policy>cue>heuristic>content CONTENT-only"
+    },
+    {
+      "path": "scripts/ics_normalize.py",
+      "kind": "M",
+      "note": "M scripts/ics_normalize.py — RD-1 RDATE comma split mirror EXDATE + regression fixture"
+    },
+    {
+      "path": "scripts/ingest_collection.py",
+      "kind": "M",
+      "note": "M scripts/ingest_collection.py — RD-2 max-size default cap 100 MB + abort streamed bytes when manifest absent logged SIZE-SKIPPED"
+    },
+    {
+      "path": "tests/test_cue_resolver.py",
+      "kind": "A",
+      "note": "A tests/test_cue_resolver.py — precedence law, content isolation, linter, hostile closure 4 shapes no elevation"
+    },
+    {
+      "path": "tools/TOOL_REGISTRY.json",
+      "kind": "M",
+      "note": "M tools/TOOL_REGISTRY.json — adds cue_resolver tool, 24 tools 0 findings 15/15 self-test"
     }
   ],
   "required_deletions": [
@@ -96,7 +116,7 @@
       "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
       "must_be_absent_on_disk": true,
       "must_be_D_in_diff": false,
-      "note": "stale Fable 5-1 already absent in base fbce71b and 7388842, must remain absent"
+      "note": "stale Fable 5-1 already absent in base fbce71b and 7388842 and 4c851e3, must remain absent"
     }
   ],
   "required_absent_on_disk": [
@@ -110,6 +130,14 @@
       "must_match_live": true,
       "must_exist": true,
       "enforce_forbidden": true
+    },
+    {
+      "path": "docs/CAPABILITIES.md",
+      "generator": "python3 scripts/render_docs.py --apply",
+      "freshness_check": "python3 scripts/render_docs.py --check",
+      "must_match_live": false,
+      "must_exist": true,
+      "enforce_forbidden": false
     }
   ],
   "mandatory_validations": [
@@ -139,6 +167,16 @@
       "must_contain": "FAIL-CLASS : none"
     },
     {
+      "command": "python3 scripts/cue_resolver.py --lint",
+      "expected_exit": 0,
+      "must_contain": "\"ok\": true"
+    },
+    {
+      "command": "python3 -m pytest tests/test_cue_resolver.py -v",
+      "expected_exit": 0,
+      "must_contain": "passed"
+    },
+    {
       "command": "git diff --check",
       "expected_exit": 0,
       "must_contain": ""
@@ -156,23 +194,36 @@
       "note": "committed-delta whitespace clean from 5830 base 7388842"
     },
     {
+      "command": "git diff --check 4c851e3e7a1d985f26f9d75626606c85fead19b4..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "committed-delta whitespace clean from P-11-A base 4c851e3"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
       "note": "clean worktree at gate run, empty output expected"
+    },
+    {
+      "command": "python3 scripts/render_docs.py --check",
+      "expected_exit": 0,
+      "must_contain": "match reality"
     }
   ],
   "forbidden_paths": [
     "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
   ],
   "risks": [
-    "wrong root \u2014 package applied to different working directory than repo root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 7388842",
-    "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
-    "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/",
-    "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
-    "host/provider/surface confusion \u2014 Arena gap treated as official policy, model identity claimed from inside session",
-    "unavailable credentials/remote verification \u2014 push attempted without Commander motor act",
-    "evaluation/routing/deployment conflation \u2014 research notes treated as decision rule without named local evaluation"
+    "wrong root — package applied to different working directory than repo root",
+    "stale base — base SHA not ancestor or not exact pinned SHA 4c851e3e7a1d985f26f9d75626606c85fead19b4",
+    "ZIP extraction without applying deletion — file still on disk after extraction",
+    "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
+    "documentation claiming unverified CI — CHANGELOG says green but validator red",
+    "host/provider/surface confusion — Arena gap treated as official policy, model identity claimed from inside session",
+    "unavailable credentials/remote verification — push attempted without Commander motor act",
+    "evaluation/routing/deployment conflation — research notes treated as decision rule without named local evaluation",
+    "CUE catalog boot overreach — new catalogs non-boot beyond single pointer line per DoD",
+    "RD-3 silence reconciliation — docs/.readme §8.4 vs AGENTS.md silence execution textual unreconciled, DO NOT IMPLEMENT without signature"
   ]
 }

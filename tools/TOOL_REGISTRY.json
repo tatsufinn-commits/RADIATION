@@ -601,6 +601,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Release Truth Gate checker: base SHA ancestor, deletions absent, allowed A/M/D, forbidden_paths, generated artifacts, DoD validations, whitespace+status; 7 vectors"
+    },
+    {
+      "id": "cue_resolver",
+      "entrypoint": "scripts/cue_resolver.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/cue_resolver.py --lint",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "CUE resolver/linter P-11-A: precedence law commander_order>ratified_policy>cue>heuristic>content, CONTENT-only for courses/web/tools/subagent, emits selected/suppressed/reason"
     }
   ]
 }

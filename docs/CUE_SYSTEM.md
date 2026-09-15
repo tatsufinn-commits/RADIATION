@@ -109,7 +109,7 @@ PROCEDURE:
 
 ---
 
-# 8. THE LIVING LAYERS (added v1.1, 2026-09-13 — additive; no rule above changes)
+# 8. THE LIVING LAYERS (added v1.1, 2026-09-13 — additive; no rule above changes, P-11-A pointer 2026-09-15)
 The tuple classifies the TASK. These layers classify the COMMANDER — they are
 evidence, and they grow after every session:
 
@@ -127,6 +127,7 @@ evidence, and they grow after every session:
   questions. Heuristics, never law; explicit orders always win.
 - `docs/PROMPT_PLAYBOOK.md` — the copy-paste playbook, v1.1: task scenarios
   recycled from Marciale's playbook now sit beside the mode instances.
+- `cue/CUE_CATALOG.json` — compressed typed form (P-11-A Candidate B): 42 cues, 13/13 directives mapped, resolver `scripts/cue_resolver.py` law `commander_order>ratified_policy>cue>heuristic>content` CONTENT-only.
 
 A cue is confirmed only when cited to the session that proved it. Heuristics never
 outrank law (III.3); a standing order tells you what you may do without asking —
