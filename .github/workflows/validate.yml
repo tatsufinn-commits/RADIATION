@@ -49,7 +49,9 @@ jobs:
       - name: Status dashboard self-test (date semantics)
         run: python3 scripts/status.py --self-test
       - name: Release Truth Gate live check (5824 FIX per review 98d8c81 gap 3)
-        run: python3 scripts/release_truth_check.py
+        run: |
+          rm -f validate_output.txt
+          python3 scripts/release_truth_check.py
       - name: Release Truth Gate self-test (7 vectors)
         run: python3 scripts/release_truth_check.py --self-test
       - name: Byte-compile all scripts
