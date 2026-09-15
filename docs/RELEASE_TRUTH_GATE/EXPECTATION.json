@@ -1,9 +1,9 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 Release Truth Gate 5824 per acceptance fbce71b",
+  "generated_by": "S006 Architect \u2014 Release Truth Gate 5824 FIX per independent review 98d8c81 (adds CAPABILITIES.md M, workflow M, trust boundary, whitespace+status checks, enforces forbidden/generator/must_match_live)",
   "base_sha": "fbce71bbfe4c62da71e6b347d36617474f840297",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA fbce71b (first green after 5810-5822 deletion failures) and allowed delta for Release Truth Gate tranche itself. Prevents wrong-root, stale-base, ZIP-extraction-without-deletion, generated-file-drift, doc-claiming-unverified-CI.",
+  "description": "Pins exact base SHA fbce71b first green after 5810-5822. Cooperative release-integrity check, NOT immutable/adversary-resistant authorization boundary: EXPECTATION.json and checker are added/changed in same candidate being checked, checker executes strings from mutable JSON via shell=True. Future immutable expectation needs approved expectation pinned in already-public base commit or signed store, kept byte-identical while validating following delivery. Commander-only push authority remains separate motor control. Prevents wrong-root, stale-base, ZIP-without-deletion, generated-drift, doc-claiming-unverified-CI.",
   "allowed_changes": [
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
@@ -74,6 +74,16 @@
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
       "note": "register new checker tool"
+    },
+    {
+      "path": "docs/CAPABILITIES.md",
+      "kind": "M",
+      "note": "GENERATED inventory via render_docs.py includes release_truth_check.py"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "kind": "M",
+      "note": "CI must run gate live check and self-test per review gap 3"
     }
   ],
   "required_deletions": [
@@ -92,7 +102,9 @@
       "path": "catalogs/model_research/INVENTORY.generated.txt",
       "generator": "python3 scripts/model_research_check.py --inventory",
       "freshness_check": "python3 scripts/model_research_check.py --check-inventory-only",
-      "must_match_live": true
+      "must_match_live": true,
+      "must_exist": true,
+      "enforce_forbidden": true
     }
   ],
   "mandatory_validations": [
@@ -125,6 +137,18 @@
       "command": "git diff --check",
       "expected_exit": 0,
       "must_contain": ""
+    },
+    {
+      "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "committed-delta whitespace clean per review gap 5"
+    },
+    {
+      "command": "git status --porcelain",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "clean worktree at gate run per review gap 5, empty output expected"
     }
   ],
   "forbidden_paths": [

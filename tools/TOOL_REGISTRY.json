@@ -600,7 +600,7 @@
       "observability": {
         "content_capture": "off_by_default"
       },
-      "description": "Release Truth Gate checker (5824): pins base SHA, required deletions, allowed A/M/D, generated artifacts, DoD validations; 6 negative vectors + 1 positive"
+      "description": "Release Truth Gate checker: base SHA ancestor, deletions absent, allowed A/M/D, forbidden_paths, generated artifacts, DoD validations, whitespace+status; 7 vectors"
     }
   ]
 }

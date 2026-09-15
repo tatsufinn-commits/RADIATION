@@ -48,6 +48,10 @@ jobs:
           python3 -m radiation_core.relay
       - name: Status dashboard self-test (date semantics)
         run: python3 scripts/status.py --self-test
+      - name: Release Truth Gate live check (5824 FIX per review 98d8c81 gap 3)
+        run: python3 scripts/release_truth_check.py
+      - name: Release Truth Gate self-test (7 vectors)
+        run: python3 scripts/release_truth_check.py --self-test
       - name: Byte-compile all scripts
         run: python3 -m py_compile scripts/*.py scripts/../radiation_core/*.py
       - name: External link census (check 13, online)
