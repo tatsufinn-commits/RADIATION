@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.5 · Ratified by THE COMMANDER · 2026-09-15 · 5821st patch — public-tree-repair
+**Version:** v3.10.6 · Ratified by THE COMMANDER · 2026-09-15 · 5822nd patch — public-tree-repair-true
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

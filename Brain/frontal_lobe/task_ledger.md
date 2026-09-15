@@ -122,3 +122,4 @@ Format: `| date | mode | task (one line) | outcome | deliverable path | patch fi
 | 2026-09-15 | S006 (the Architect) | 5812 True-Recount: second extraction-only failure repaired — stale fable-5-1 truly retired via git rm sentinel, inventory regenerated, 42·39·3·0, 24/24 vectors | done | blocking-review directive v2 | 5812 |
 | 2026-09-15 | S006 (the Architect) | 5820 Compliance-Refresh: primary-source compliance refresh — 12 new official policy sources O15-O26 (32 total) with receipts, provider SOURCES ×5 updated, 14 records PROVABLY, 42·39·3·0 | done | compliance refresh per compact handoff §7 | 5820 |
 | 2026-09-15 | S006 | 5821 Repair: git rm stale fable-5-1 + inventory 14, receipt time→date-only, O26 O→U, docs 0.3/24v, ROADMAP SHA fix, honest correction | done | public-tree repair per review directive | 5821 |
+| 2026-09-15 | S006 | 5822 TRUE: ffe9cd3 still 15 red no D; git rm stale + inv 14 true green, honest correction | done | release-truth freeze | 5822 |

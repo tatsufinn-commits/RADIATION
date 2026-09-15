@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-15 · **Version:** v3.10.5
+**Last updated:** 2026-09-15 · **Version:** v3.10.6
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,7 +49,7 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.10.5** — public-tree-repair (5821): honest correction — stale fable-5-1 removed via git rm, inventory GENERATED 14 records, receipt timestamps corrected (date-only), O26 tier O→U (404 observation), docs 0.3/24-vector, ROADMAP SHA corrected 707aa47 public; prior — v3.10.4 compliance-refresh (5820): primary-source compliance refresh — 12 new official policy sources O15-O26 (32 total), receipts, provider SOURCES ×5 updated, 14 records PROVABLY: 42·39·3·0, 24/24 vectors.
+**RADIATION v3.10.6** — public-tree-repair-true (5822): honest correction — ffe9cd3 claimed repair but still had stale fable-5-1 15 files red 38/3/1; now git rm + inventory 14 GENERATED true green 39/3/0; prior — v3.10.5 public-tree-repair (5821): honest correction — stale fable-5-1 removed via git rm, inventory GENERATED 14 records, receipt timestamps corrected (date-only), O26 tier O→U (404 observation), docs 0.3/24-vector, ROADMAP SHA corrected 707aa47 public; prior — v3.10.4 compliance-refresh (5820): primary-source compliance refresh — 12 new official policy sources O15-O26 (32 total), receipts, provider SOURCES ×5 updated, 14 records PROVABLY: 42·39·3·0, 24/24 vectors.
 Prior — v3.10.3 true-recount (5812): second extraction-only failure repaired; v3.10.2 apply-recount (5811): attempted retirement.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
