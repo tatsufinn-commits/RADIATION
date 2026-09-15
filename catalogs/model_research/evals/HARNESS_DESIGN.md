@@ -52,7 +52,7 @@ metrics, retries, limitations, raw-output digests (not raw private text)
 
 ## Result discipline
 - Each run appends one result record (future schema, same evidence standard as
-  `radiation.model_research_record/0.1`) and updates ONLY the matching
+  `radiation.model_research_record/0.3`) and updates ONLY the matching
   record's `local_observations` — never its `declarations`.
 - Rubrics are declared BEFORE the run; changing a rubric invalidates
   comparison with prior runs (recorded, not hidden).

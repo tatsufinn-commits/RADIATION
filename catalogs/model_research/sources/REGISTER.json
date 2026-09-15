@@ -248,11 +248,11 @@
     },
     {
       "id": "O26",
-      "tier": "O",
+      "tier": "U",
       "url": "https://arena.ai/privacy",
       "retrieved_on": "2026-09-15",
-      "title": "Arena privacy/terms attempt",
-      "note": "Attempted retrieval 2026-09-15: https://arena.ai/privacy and https://arena.ai/terms both 404 with reCAPTCHA page; official privacy/terms/status/model-identity evidence UNCONFIRMED — gap declared per 5500 gate-review and compact handoff §2; product surface only from https://arena.ai/agent (O10); n…"
+      "title": "Arena privacy/terms attempt — 404 observation (gap, not official policy doc)",
+      "note": "Attempted https://arena.ai/privacy + /terms both 404 reCAPTCHA 2026-09-15 — official privacy/terms/status/model-identity UNCONFIRMED gap per 5500 and §2; observation tier U so it cannot satisfy official confirming/policy evidence; product surface only from arena.ai/agent; corrected per review P2-1"
     }
   ]
 }

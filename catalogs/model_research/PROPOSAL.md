@@ -15,7 +15,7 @@ for the OpenAI/Anthropic flagship lines and the Gemini endpoint table
 (`catalogs/model_research/sources/SOURCES_2026-09-14.md`, addendum).
 
 ## 1 · What already exists (this patch)
-- **Record schema** `radiation.model_research_record/0.1` — EXECUTED (check 40
+- **Record schema** `radiation.model_research_record/0.3` — EXECUTED (check 40
   keeps every keyword within the one schema executor; check 41 runs the
   catalog checker). 22 required fields, including the closure order's full
   list: provider, family, exact_model_id, surface, region, status,
