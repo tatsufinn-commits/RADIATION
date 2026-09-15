@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-15 · **Version:** v3.10.3
+**Last updated:** 2026-09-15 · **Version:** v3.10.4
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -49,8 +49,8 @@ graded items: `Brain/courses/INDEX.md`.
 ---
 
 ## REPOSITORY VERSION
-**RADIATION v3.10.3** — true-recount (5812): public 5811 claimed retirement but left 15 records — extraction again, not application. Now 14 records, PROVABLY: 42·39·3·0, 24/24 vectors.
-Prior — v3.10.2 apply-recount (5811): attempted retirement, extraction-only push; v3.10.1 recount (5810): supersedes enforced, evidence register-bound, GENERATED inventory.
+**RADIATION v3.10.4** — compliance-refresh (5820): primary-source compliance refresh — 12 new official policy sources O15-O26 (32 total), receipts, provider SOURCES ×5 updated, 14 records PROVABLY: 42·39·3·0, 24/24 vectors.
+Prior — v3.10.3 true-recount (5812): second extraction-only failure repaired; v3.10.2 apply-recount (5811): attempted retirement.
 Full version history: `CHANGELOG.md` (single source of record — not recited here, II.10.3).
 
 ## CURRENT STATE *(truth-up 2026-09-14)*

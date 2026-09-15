@@ -12,3 +12,8 @@ All items retrieved **2026-09-14** by the S005 session web sweep (see `agents/RE
 **5500 gate-review additions (2026-09-14):**
 
 | Product affordances in gate-review retrieval: Agent Mode, file upload, GitHub connect; /privacy + /terms guesses -> 404/reCAPTCHA (official policy URL UNCONFIRMED — review trigger) | https://arena.ai/agent | [O]-page/[U]-paths | retrieved 2026-09-14 (gate-review sweep) |
+
+**5820 Compliance Refresh additions (2026-09-15):**
+
+| Arena privacy/terms attempt — Both https://arena.ai/privacy and https://arena.ai/terms return 404 with reCAPTCHA; official privacy/terms/status/model-identity evidence UNCONFIRMED — gap declared per 5500 gate-review and compact handoff §2; product surface only from https://arena.ai/agent; no model record by design | https://arena.ai/privacy | [O]-attempt/[U]-gap | retrieved 2026-09-15 — receipt O26 — 404 observed |
+

@@ -157,6 +157,102 @@
       "retrieved_on": "2026-09-15",
       "title": "xAI models (5800 re-retrieval)",
       "note": "grok-4.6 re-confirmed + alias policy classes + search-tools requirement + Imagine/Voice ids observed (media surfaces, own records required) · receipt (5810): sources/receipts/2026-09-15__O14.md"
+    },
+    {
+      "id": "O15",
+      "tier": "O",
+      "url": "https://openai.com/policies/privacy-policy",
+      "retrieved_on": "2026-09-15",
+      "title": "OpenAI US privacy policy",
+      "note": "Updated 2026-09-10; consumer vs API split: privacy policy does NOT apply to API business offerings (governed by customer agreements); personal data: account info, user content (prompts/files/images/audio/video), log/usage/device/location, cookies; marketing vendors + advertisers receive info; rec…"
+    },
+    {
+      "id": "O16",
+      "tier": "O",
+      "url": "https://openai.com/policies/usage-policies",
+      "retrieved_on": "2026-09-15",
+      "title": "OpenAI usage policies",
+      "note": "Effective 2026-10-29; universal set across products; protect people (threats, self-harm, sexual violence, weapons, illicit, etc.), respect privacy (no facial recognition DB without consent, no real-time biometric ID, no likeness without consent), keep minors safe, empower people (no academic dish…"
+    },
+    {
+      "id": "O17",
+      "tier": "O",
+      "url": "https://developers.openai.com/api/docs/guides/your-data",
+      "retrieved_on": "2026-09-15",
+      "title": "OpenAI API data controls",
+      "note": "Your data is your data. API not used for training by default since Mar 1 2023 unless opt-in; abuse monitoring logs contain prompts/responses/metadata, retained up to 30 days unless legally required; ZDR and Modified Abuse Monitoring eligible with approval; endpoint table: chat/completions no trai…"
+    },
+    {
+      "id": "O18",
+      "tier": "O",
+      "url": "https://www.anthropic.com/legal/privacy",
+      "retrieved_on": "2026-09-15",
+      "title": "Anthropic privacy policy",
+      "note": "Consumer Privacy Policy does NOT apply to Enterprise (governed by customer agreements); personal data: identity/contact, payment, inputs/outputs (may be reproduced in outputs), feedback (stores entire conversation), technical info (device, usage, logs, cookies); training data from public web, com…"
+    },
+    {
+      "id": "O19",
+      "tier": "O",
+      "url": "https://www.anthropic.com/legal/commercial-terms",
+      "retrieved_on": "2026-09-15",
+      "title": "Anthropic commercial terms",
+      "note": "Services not for consumer use; customer retains all rights to inputs, owns outputs; Anthropic may NOT train models on Customer Content from Services; DPA incorporated; usage must comply with Usage Policy, Supported Regions, Service Specific Terms; receipt: receipts/2026-09-15__O19.md"
+    },
+    {
+      "id": "O20",
+      "tier": "O",
+      "url": "https://www.anthropic.com/legal/aup",
+      "retrieved_on": "2026-09-15",
+      "title": "Anthropic usage policy",
+      "note": "Also called Acceptable Use Policy; Universal Usage Standards for all users, High-Risk Use Case Requirements, Additional Guidelines; prohibits illegal activity, critical infrastructure disruption, computer/network compromise, weapons development, violence/hate, privacy/identity violation, children…"
+    },
+    {
+      "id": "O21",
+      "tier": "O",
+      "url": "https://ai.google.dev/gemini-api/terms",
+      "retrieved_on": "2026-09-15",
+      "title": "Gemini API additional terms",
+      "note": "Effective Mar 23 2026; must accept Google APIs Terms + Additional Terms; age 18+; use for professional/business not consumer; only Paid Services in EEA/CH/UK; no competing models, no reverse engineer; safety features block harmful content; Unpaid Services: Google uses content to provide/improve/d…"
+    },
+    {
+      "id": "O22",
+      "tier": "O",
+      "url": "https://ai.google.dev/gemini-api/docs/usage-policies",
+      "retrieved_on": "2026-09-15",
+      "title": "Gemini API abuse monitoring",
+      "note": "Last updated 2026-06-09 UTC (re-retrieved 2026-09-15); Trust and Safety automated + manual detection; retains prompts, contextual info, output for 55 days for detecting/preventing Prohibited Use Policy violations and legal disclosures; human review only by authorized via governance platform; logg…"
+    },
+    {
+      "id": "O23",
+      "tier": "O",
+      "url": "https://x.ai/legal/privacy-policy",
+      "retrieved_on": "2026-09-15",
+      "title": "xAI privacy policy",
+      "note": "Effective Aug 24 2026 (SpaceXAI LLC); does NOT apply to API business offerings or X platform (X Privacy Policy governs Grok on X); ask that you do NOT include personal info in prompts; collects account data (name, contact, credentials, DOB, third-party logins X/Google/Apple), payment via third-pa…"
+    },
+    {
+      "id": "O24",
+      "tier": "O",
+      "url": "https://x.ai/legal/terms-of-service",
+      "retrieved_on": "2026-09-15",
+      "title": "xAI consumer terms of service",
+      "note": "Last updated Sept 11 2026; governs Grok, Grokipedia, other individual services; Enterprise Terms govern APIs; Europe EST for EEA/UK/CH; disputes Tarrant/Wichita County TX, waiver class action; privacy policy separate; min age 13, 13-17 parental consent; controls for undesirable training data/outp…"
+    },
+    {
+      "id": "O25",
+      "tier": "O",
+      "url": "https://x.ai/legal/acceptable-use-policy",
+      "retrieved_on": "2026-09-15",
+      "title": "xAI acceptable use policy",
+      "note": "Effective Aug 14 2026; applies to anyone using Service; comply with law, responsible safe; prohibits: modifying/copying/reverse engineer, jailbreaking/prompt injection, viruses/malware/spam/DDoS, stripping provenance, developing competing ML models, scraping/harvesting, disrupting safety/rate lim…"
+    },
+    {
+      "id": "O26",
+      "tier": "O",
+      "url": "https://arena.ai/privacy",
+      "retrieved_on": "2026-09-15",
+      "title": "Arena privacy/terms attempt",
+      "note": "Attempted retrieval 2026-09-15: https://arena.ai/privacy and https://arena.ai/terms both 404 with reCAPTCHA page; official privacy/terms/status/model-identity evidence UNCONFIRMED — gap declared per 5500 gate-review and compact handoff §2; product surface only from https://arena.ai/agent (O10); n…"
     }
   ]
 }

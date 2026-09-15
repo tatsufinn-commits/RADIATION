@@ -18,3 +18,10 @@ All items retrieved **2026-09-14** by the S005 session web sweep. Tiers: **[O]**
 
 | Official models overview (exact IDs/statuses/pricing; resolves Sonnet-5 conflict) | https://platform.claude.com/docs/en/models/overview | [O] | retrieved 2026-09-14 (gate-review sweep) |
 | Official API platform page | https://claude.com/platform/api | [O] | retrieved 2026-09-14 (gate-review sweep) |
+
+**5820 Compliance Refresh additions (2026-09-15):**
+
+| Official privacy policy — Consumer policy does NOT apply to Enterprise (governed by customer agreements); collects identity, payment, inputs/outputs, feedback, technical info; training data from public web, commercial datasets, user inputs/outputs unless opt-out | https://www.anthropic.com/legal/privacy | [O] | retrieved 2026-09-15 — receipt O18 |
+| Official commercial terms — Services not for consumer use; customer retains inputs, owns outputs; Anthropic may NOT train models on Customer Content from Services; DPA incorporated | https://www.anthropic.com/legal/commercial-terms | [O] | retrieved 2026-09-15 — receipt O19 |
+| Official usage policy (AUP) — Universal Usage Standards for all users, High-Risk Requirements, Additional Guidelines; prohibits illegal, critical infra, computer/network compromise, weapons, violence/hate, privacy violation, children safety, psychologically harmful, misinformation | https://www.anthropic.com/legal/aup | [O] | retrieved 2026-09-15 — receipt O20 |
+
