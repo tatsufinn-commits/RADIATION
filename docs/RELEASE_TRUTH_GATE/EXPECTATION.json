@@ -1,9 +1,9 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect — P-13 PHASE-A LOOSE ENDS G1+G2 base f24612e460bf32e27aa01a1db962491b355fd000 sealed P-12 (Restore EXPECTATION.json from P-12 commit af21e84 fixes run 84), G1 RDATE comma-split fix + 4 vectors 29/29, G2 default cap 10 MiB streamed abort+finding, 105 unittest 11/11 5/5 29/29, delta ∅",
+  "generated_by": "S006 Architect \u2014 P-13 PHASE-A LOOSE ENDS G1+G2 base f24612e460bf32e27aa01a1db962491b355fd000 sealed P-12 (Restore EXPECTATION.json from P-12 commit af21e84 fixes run 84), G1 RDATE comma-split fix + 4 vectors 29/29, G2 default cap 10 MiB streamed abort+finding, 105 unittest 11/11 5/5 29/29, delta \u2205",
   "base_sha": "f24612e460bf32e27aa01a1db962491b355fd000",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA f24612e460bf32e27aa01a1db962491b355fd000 (Restore EXPECTATION.json from P-12 commit af21e84 undo pull-merge hand-splice; fixes run 84 step-14). P-13 PHASE-A LOOSE ENDS: G1 ICS RDATE comma-split fix mirror EXDATE + 4 vectors 29/29 self-test (single-date unchanged + desk repro 20261008T090000,20261015T090000 parses 2 dates), G2 default cap 10 MiB unless --max-size override + streamed byte count abort+finding regardless manifest size, tests/test_ingest_collection.py A 4 vectors. G3 CLOSED by RD-3 silence=read-only v2. One sealed candidate one purpose II.7.4 — close last residual Phase-A research debt."
+  "description": "Pins exact base SHA f24612e460bf32e27aa01a1db962491b355fd000 (Restore EXPECTATION.json from P-12 commit af21e84 undo pull-merge hand-splice; fixes run 84 step-14). P-13 PHASE-A LOOSE ENDS: G1 ICS RDATE comma-split fix mirror EXDATE + 4 vectors 29/29 self-test (single-date unchanged + desk repro 20261008T090000,20261015T090000 parses 2 dates), G2 default cap 10 MiB unless --max-size override + streamed byte count abort+finding regardless manifest size, tests/test_ingest_collection.py A 4 vectors. G3 CLOSED by RD-3 silence=read-only v2. One sealed candidate one purpose II.7.4 \u2014 close last residual Phase-A research debt.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
@@ -23,16 +23,7 @@
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-    {
-      "path": "docs/PATCH_LEDGER.md",
-      "kind": "M",
       "note": "M PATCH_LEDGER P-13 row Phase-A Loose Ends"
-    },
-    {
-      "path": "docs/RELEASE_TRUTH_GATE/README.md",
-      "kind": "M",
-      "note": "M RELEASE_TRUTH_GATE/README.md — motor preflight section P-12 LAW-5 BASE-PIN PUBLIC-OBJECT DELTA-≡-ALLOWED CI-HYGIENE run before extraction/push STOP at finding"
-    }
     },
     {
       "path": "docs/ROADMAP.md",
@@ -72,11 +63,7 @@
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-    {
-      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
-      "kind": "M",
       "note": "M EXPECTATION base f24612e sealed P-12, allowed exact delta 12 per LAW-3, G1+G2"
-    }
     }
   ],
   "required_deletions": [
