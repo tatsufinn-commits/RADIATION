@@ -1,0 +1,77 @@
+[
+  {
+    "query": "ar153p building utilities",
+    "expected_ids": ["MEM-course_derivative-ar153p", "MEM-course_derivative-ar163"],
+    "note": "known-hit exact + order, multi-hit ranked, G5 corpus behavior"
+  },
+  {
+    "query": "task ledger frontal lobe",
+    "expected_ids": ["MEM-ledger-task", "MEM-ledger-mastery", "MEM-ledger-learned-cues", "MEM-ledger-learned-skills", "MEM-ledger-mistake", "MEM-ledger-opinions", "MEM-ledger-testament"],
+    "note": "known-hit multi-hit ranked 7 hits, ledger frontal lobe"
+  },
+  {
+    "query": "mastery ledger progress",
+    "expected_ids": ["MEM-ledger-mastery", "MEM-ledger-task"],
+    "note": "known-hit multi-hit ranked 2 hits"
+  },
+  {
+    "query": "plan deadlines term1",
+    "expected_ids": ["MEM-plan-deadlines", "MEM-plan-readme"],
+    "note": "known-hit plan deadlines"
+  },
+  {
+    "query": "recovery ladder routine document",
+    "expected_ids": ["MEM-note-recovery-ladder"],
+    "note": "known-hit single hit recovery ladder"
+  },
+  {
+    "query": "brain index anatomy",
+    "expected_ids": ["MEM-note-brain-index", "MEM-note-course-index"],
+    "note": "known-hit multi-hit ranked brain index"
+  },
+  {
+    "query": "shrine log heartbeat",
+    "expected_ids": ["MEM-shrine-log", "MEM-ledger-testament"],
+    "note": "known-hit shrine log heartbeat"
+  },
+  {
+    "query": "calendar lms ics",
+    "expected_ids": ["MEM-course_derivative-calendar", "MEM-course_derivative-mec30-calendar"],
+    "note": "known-hit calendar lms ics"
+  },
+  {
+    "query": "data science dss10",
+    "expected_ids": ["MEM-course_derivative-dss10-syllabus", "MEM-course_derivative-dss10"],
+    "note": "known-hit data science dss10"
+  },
+  {
+    "query": "statics rigid bodies mec30",
+    "expected_ids": ["MEM-course_derivative-mec30-calendar", "MEM-course_derivative-mec30"],
+    "note": "known-hit statics rigid bodies"
+  },
+  {
+    "query": "qwertyuiop asdfghjkl",
+    "expected_ids": [],
+    "note": "abstention nonsense unrelated"
+  },
+  {
+    "query": "nonsense xyzzy",
+    "expected_ids": [],
+    "note": "abstention nonsense"
+  },
+  {
+    "query": "quantum entanglement",
+    "expected_ids": [],
+    "note": "abstention unrelated query not in corpus"
+  },
+  {
+    "query": "unrelated nonsense query",
+    "expected_ids": [],
+    "note": "abstention unrelated"
+  },
+  {
+    "query": "ar153p building utilities",
+    "expected_ids": ["MEM-course_derivative-ar153p", "MEM-course_derivative-ar163"],
+    "note": "determinism case duplicated verbatim — both must produce identical output, scored by harness itself"
+  }
+]

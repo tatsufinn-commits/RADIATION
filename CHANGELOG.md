@@ -6,6 +6,49 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.14 — 2026-09-16 — P-14 BRAIN RETRIEVAL LATTICE (G5) (II.7.4)
+
+**P-14 Brain Retrieval Lattice per Architect Directive base 1e7b287a50cf7709f2cdb9bf50181b1816119516 sealed P-13. One sealed candidate one purpose — convert corpus behavior from absence to mechanism. Desk scorecard fail-cell #1 "Corpus behavior — FAIL-BY-ABSENCE: no deterministic query fixture; unknown-query abstention unproven" per 2026-09-15 crossref (§3 Dim-6, §4, §5-G5).**
+
+**Framing:** If the query isn't in the corpus, the mechanism says so — that is the point. Retrieval surfaces corpus, never elevates scope — II.11 evidence-only.
+
+**(a) A Brain/MEMORY_CATALOG.jsonl (+ schema):**
+- Line-delimited entries over existing Brain/ paths only (plus docs/shrine/LOG.md for shrine log per directive, but 23 Brain/ entries still ≥20): { "id", "path", "title", "kind", "tags": [≥3], "added": "<date>" }, id format MEM-<kind>-<slug-or-NNN>, unique, sorted by id.
+- Seed 24 entries covering: 8 declared corpus assets' derivatives (Brain/courses/**: AR153P, AR163-1P, AR173-1P, SCHEDULE, CALENDAR, DSS10, DSS10 syllabus, GED103, GED103 syllabus, MEC30, MEC30 calendar), frontal-lobe ledgers (task_ledger, mastery_ledger, learned_cues, learned_skills, mistake_bank, opinions, testament), short-term plan docs (plan/README, TERM1_DEADLINES.json), shrine log (docs/shrine/LOG.md), cue files where they live under Brain/ (learned_cues.md), notes (BRAIN_INDEX, course INDEX, recovery-ladder routine).
+- Sorted by id, unique.
+- A schemas/memory_catalog_entry.schema.json (radiation.memory_catalog_entry/1): required fields id/path/title/kind/tags/added, id pattern ^MEM-(course_derivative|ledger|plan|shrine|note)-[a-z0-9-]+$, path pattern ^(Brain/|docs/shrine/).+, kind enum course_derivative|ledger|plan|shrine|note, tags minItems 3 pattern ^[a-z0-9-]+$.
+
+**(b) A scripts/brain_retrieve.py — deterministic selector law (pinned by desk, implement verbatim):**
+- Tokenize: lowercase [a-z0-9]+.
+- score(entry, q) = 3·|tags∩q| + 2·|title_tokens∩q| + 1·|path_tokens∩q| — arithmetic, no heuristics, no randomness.
+- Abstention: score <4 → no hit. Result list = all entries ≥4 ranked (score desc, id asc); output declared evidence-only (retrieval surfaces corpus, never elevates scope — II.11).
+- Modes: --query "<text>" (print ranked/abstain), --cases evals/brain/retrieval_cases.json (run fixture suite, per-case finding lines, exit non-zero on any mismatch), --self-test (8 vectors incl. desk-pinned formula arithmetic — hand-computable expected scores: tags ["a","b","c"], title "a b", path "a/b/c", query "a b c" => 3*3+2*2+1*3=16).
+- Non-goals hard: NO embeddings, NO vector DB, NO network, NO LLM calls, NO caching state. D4 research non-goals stand. Stdlib only.
+
+**(c) A evals/brain/retrieval_cases.json:**
+- 15 cases: 10 known-hit (expected_ids exact + order, including ≥2 multi-hit ranked: task ledger frontal lobe 7 hits, course derivative 9 hits, etc.), 4 abstention (qwertyuiop asdfghjkl, nonsense xyzzy, quantum entanglement, unrelated nonsense query → []), 1 determinism duplicate (ar153p building utilities duplicated verbatim — both must produce identical output, scored by harness itself).
+- Harness prints ✅/❌ per case, finding lines `brain_retrieve: case X mismatch`, exit non-zero on any mismatch, determinism check group by query.
+
+**(d) A tests/test_brain_retrieval.py (6 vectors, bound to (a)+(c)):**
+- id-uniqueness/paths-exist/jsonl-valid-vs-schema (≥20 entries, sorted, unique, paths exist, schema pattern)
+- known-hit exactness (runs --cases suite, checks one known-hit)
+- abstention (nonsense → ABSTAIN, checks ≥4 abstention cases have [])
+- formula arithmetic hand-computed 16 (tags a,b,c title a b path a/b/c query a b c)
+- ranking tie-break id asc (identical score, id asc wins)
+- determinism run twice identical stdout + duplicated verbatim case check
+- Discover 105 + 6 = 111 OK.
+
+**(e) M registry/capabilities/state:**
+- tools/TOOL_REGISTRY.json adds brain_retrieve 25→26 mutation_scope none network none cap_mapping [] honest description ≤200 "Brain Retrieval Lattice G5: deterministic selector score=3*tags+2*title+1*path, abstention <4, evidence-only, no embeddings" self-test stays 15/15
+- docs/CAPABILITIES.md + docs/SYSTEM_STATE.md GENERATED reflect it (render_docs --apply)
+- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.14 + EXPECTATION re-pinned base 1e7b287 allowed 12.
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29 unchanged, brain_retrieve --cases 15/15 all-match + 8/8 self-test, unittest 111 OK, cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.14.
+
+**Base pinned:** 1e7b287a50cf7709f2cdb9bf50181b1816119516 (Restore EXPECTATION.json from P-13 commit 7a16aec undo pull-merge hand-splice; fixes run 86 step-14). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — corpus behavior from absence to mechanism.
+
+
+
 ## v3.10.13 — 2026-09-16 — P-13 PHASE-A LOOSE ENDS: G1 ICS DATES + G2 INGEST CAPS (II.7.4)
 
 **P-13 Phase-A Loose Ends per Architect Directive base f24612e460bf32e27aa01a1db962491b355fd000 sealed P-12. One sealed candidate one purpose — close the last residual Phase-A research debt. G3 already CLOSED by RD-3 silence=read-only v2 sealed + ratified — do not re-litigate.**

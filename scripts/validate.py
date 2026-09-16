@@ -249,6 +249,8 @@ def _brain_vehicle_violations(root, declared):
     def sanctioned(p):
         if p == "Brain/courses/COURSE_CORPUS_MANIFEST.json":
             return True                                  # 5300 E1: the contract file itself
+        if p == "Brain/MEMORY_CATALOG.jsonl":
+            return True                                  # P-14 G5: Brain Retrieval Lattice catalog — deterministic selector over existing Brain/ corpus, allowed as non-MD vehicle (tooling+fixtures first, no census check yet per directive)
         # A2 feed: NO path-only escape since 5500 — it is digest-bound in the manifest
         if p.startswith("Brain/short_term/plan/") and p.endswith(".json"):
             return True                                  # the deadline register the planner eats

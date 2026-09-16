@@ -277,6 +277,7 @@ Stated plainly so a session does not assume capability it lacks:
 
 | Script | Purpose | Writes | Network | In CI |
 |---|---|---|---|---|
+| `brain_retrieve.py` | Brain Retrieval Lattice (G5) deterministic selector law | no | no | no |
 | `cap_probe.py` | cap_probe — read-only capability probe with declarative host profiles. | no | no | no |
 | `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
 | `contract_tests.py` | 5300 negative fixtures — declared course-corpus (E1) and replica (E2) contracts. | no | no | no |
