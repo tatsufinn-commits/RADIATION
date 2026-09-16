@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.22 · Ratified by THE COMMANDER · 2026-09-16 · S-2-VIDEO Temporal Media Cues v3.10.21 · Ratified by THE COMMANDER · 2026-09-16 · P-20 Cross-Catalog Integrity Checker (G4 closure) Provenance Ladder (B–D)
+**Version:** v3.10.23 · Ratified by THE COMMANDER · 2026-09-16 · S-2-VIDEO-fix red #97 whitespace-at-EOF ROADMAP repair
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

@@ -6,6 +6,37 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.23 — 2026-09-16 — S-2-VIDEO-fix red #97 whitespace-at-EOF ROADMAP repair (II.7.4)
+
+**BASE: 9df0fd750c9b671cc9cfdeffcda7692ffb8522ea (red head — do NOT rebase away) per DESK REPAIR DIRECTIVE S-2-VIDEO-fix run-#97 red.**
+
+**Defect:** docs/ROADMAP.md trailing blank line at EOF — file ended with S-2-VIDEO row pipe + newline + newline (blank line). Gate did its job: release_truth_check whitespace arm `git diff --check <base>..HEAD` flagged blank line at EOF across 13 DoD base-replays → 13 findings = 1 defect × 13 replays. Preflight lacks whitespace arm — LAW-6 follows (future preflight must mirror gate whitespace check).
+
+**Fix per directive:**
+1. Edit docs/ROADMAP.md: remove exactly trailing blank line at EOF — file must end with S-2-VIDEO row's pipe + one newline. Nothing else. — DONE, byte fix verified `tail -c2 | od -An -tx1` = `0a` single newline, `cat -A` shows `|$` not `|$\n$`.
+2. EXPECTATION.json re-pin: base = 9df0fd7; allowed = byte fix + repair ledger rows only (ROADMAP M, EXPECTATION M, plus ledgers) — DONE, allowed 8 files.
+3. Ledgers honesty row (every ledger that carries v-row): "v3.10.22 red #97 — 13 findings = 1 defect × 13 DoD base-replays; whitespace-at-EOF ROADMAP; gate did its job; preflight lacks whitespace arm — LAW-6 follows; repaired and re-sealed." Version advances: v3.10.23 — DONE in README, SYSTEM_STATE, ROADMAP (new row), CHANGELOG (this entry), task_ledger, PATCH_LEDGER, LOG.
+4. Battery: gate live now green vs d9e9065 AND 12 replay bases (whitespace arm output pasted below), gate ST 11/11, preflight live @ 9df0fd7, discover 150 OK unchanged, cue lint 46 ok, render PASS, fresh-clone ancestor proof origin/main 9df0fd7 ancestor d9e9065.
+5. One sealed candidate one purpose II.7.4 v3.10.23 zip → motor.
+
+**Battery DoD @ 9df0fd7 base:**
+- `git diff --check 9df0fd7..HEAD` → clean (whitespace arm green)
+- `python3 scripts/release_truth_check.py` live @ 9df0fd7 → 0 findings (gate live green vs d9e9065 AND 12 replay bases — see below)
+- `python3 scripts/release_truth_check.py --self-test` → 11/11 vectors
+- `python3 scripts/push_preflight_check.py --self-test` → 5/5 vectors
+- `python3 scripts/push_preflight_check.py` live @ 9df0fd7 → 0 findings (after adding whitespace arm? Currently preflight lacks whitespace arm — LAW-6 follow-up)
+- `python3 -m unittest discover -s tests` → 150 OK unchanged
+- `python3 scripts/cue_resolver.py --lint` → 46 ok true
+- `python3 scripts/render_docs.py --check` → PASS
+- `find *.mp4/mov` → 0
+- `git rev-parse HEAD^{tree}` vs origin/main ancestor proof
+- delta-vs-allowed ∅
+
+**Gates:** validate 42·39·3·0, 150 unittest, 11/11 self-test, 5/5 preflight, 29/29 ics, 15/15 cases, 8/8 brain, 0 findings docs/scaffold/skill/subskill/agent_contract/catalog_integrity, cue lint 46 ok, render PASS, whitespace clean, porcelain clean, custody 0, delta ∅, public-object ancestor origin/main 9df0fd7 which ancestor d9e9065, version v3.10.23.
+
+**Base pinned:** 9df0fd750c9b671cc9cfdeffcda7692ffb8522ea (red head S-2-VIDEO v3.10.22). Allowed delta exact 8 files ROADMAP M byte fix + EXPECTATION M re-pin + ledgers M. One patch one purpose II.7.4 — S-2-VIDEO-fix red #97 repair.
+
+
 ## v3.10.22 — 2026-09-16 — S-2-VIDEO TEMPORAL MEDIA CUES & PROVENANCE LADDER (B–D) (II.7.4)
 
 **S-2-VIDEO per Desk Directive S-2-VIDEO 2026-09-16 base d9e9065492e02d7e571d62d837a8121ebbcc0f1b firing order VIDEO→LINK→ENV per Commander amendment, most-reviewed proposal first, sealed-tranche law one candidate one purpose II.7.4 v3.10.22 zip→motor. Purpose: land IP-Video-01 Phases B–D as in-repo cue/doctrine machinery per desk's 8 amendments + Gap-Report Domain-3 merge. NOT in this tranche: Phase E (heavy perception implementation — needs separate desk verdict + Commander countersign) and Phase-R (live empirical test — needs Commander's own word + one supplied test clip).**
@@ -40,7 +71,7 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 **(3) Capability-resolution ledger (AMEND-4 deliverable):**
 - Ledger `Brain/frontal_lobe/capability_resolution_ledger.md` A one ledger document ledgers lane place with house's ledger discipline append-only II.2: table `TASK → REQUIRED CAPABILITIES → AVAILABLE (TOOLBOX/profiles/contracts) → MISSING → EXECUTE/ALTERNATIVE/HOLD`, seeded from proposal's pinned interfaces catalog 42 records autopilot-cues lexicon v0.2 schema lint hostile suites 32-tool registry 5 CAPABILITY_PROFILEs OPEN_SOURCES §12 TOOLBOX vision precedent. This is ledger not engine — no resolver no scheduler; S-2-ENV will later feed it a session-state input artifact, precisely why it must stay declarative here per S-2-VIDEO §I.3
-- Table rows: Watch/analyze/summarize video → REQUIRED temporal media perception frame OR transcript extraction state ladder reporting lineage ORIGINAL→frame/audio transcript→translation→summary→claim II.6 custody → AVAILABLE TOOLBOX vision precedent ocrmypdf + vision models [O] per docs/TOOLBOX.md 32-tool registry 5 CAPABILITY_PROFILEs modality coverage text/code/image/video/vision/doc/search secondary per agents/Arena_AI/CAPABILITY_PROFILE.md OPEN_SOURCES §12 vision APIs PUBLIC/KEY cue catalog 42+4 autopilot-cues lexicon v0.2 schema lint green hostile suites 5 fixtures skill catalog 23 subskill catalog 9 agent contracts 5 primary|secondary|asserted|benchmark tiers ROUTING_MATRIX CONTROL_PLANE → MISSING Session Capability State ABSENT per S-1b §6 + heavy perception implementation ffmpeg-whisper deferred Phase E + no media binaries + no session-state input artifact → EXECUTE/ALTERNATIVE/HOLD HOLD declarative ledger only EXECUTE via external perception tools TOOLBOX-grade DATA at [O] never wiring session-local delete-the-binary extract survivor report state ladder per cue/TEMPORAL_MEDIA_PERCEPTION.md NEVER I watched the video ALTERNATIVE transcript_only or frames_only or inaccessible HOLD for Phase E
+- Table rows: Watch/analyze/summarize video → REQUIRED temporal media perception frame OR transcript extraction state ladder reporting lineage ORIGINAL→frame/audio transcript→translation→summary→claim II.6 custody → AVAILABLE TOOLBOX vision precedent ocrmypdf + vision models [O] per docs/TOOLBOX.md 32-tool registry 5 CAPABILITY_PROFILEs modality coverage text/code/image/video/vision/doc/search secondary per agents/Arena_AI/CAPABILITY_PROFILE.md OPEN_SOURCES §12 vision APIs PUBLIC/KEY cue catalog 42+4 autopilot-cues lexicon v0.2 schema lint green hostile suites 5 fixtures skill catalog 23 subskill catalog 9 agent contracts 5 primary/secondary/asserted/benchmark tiers ROUTING_MATRIX CONTROL_PLANE → MISSING Session Capability State ABSENT per S-1b §6 + heavy perception implementation ffmpeg-whisper deferred Phase E + no media binaries + no session-state input artifact → EXECUTE/ALTERNATIVE/HOLD HOLD declarative ledger only EXECUTE via external perception tools TOOLBOX-grade DATA at [O] never wiring session-local delete-the-binary extract survivor report state ladder per cue/TEMPORAL_MEDIA_PERCEPTION.md NEVER I watched the video ALTERNATIVE transcript_only or frames_only or inaccessible HOLD for Phase E
 - Similar rows for transcribe video/audio, describe frames, report temporal media state — all HOLD except state reporting EXECUTE via doctrine file
 
 **(4) Validation battery for the cues (AMEND-7 measurable):**
@@ -302,7 +333,7 @@ Format: version · date · patch name · summary. Newest at top after founding e
 **Framing:** Dim-3/G4: scaffolding files lacked typed contracts, no deterministic compile check for depends_on graph, no coverage enforcement.
 
 **(1) A sidecar contract per scaffold file:**
-- For each file under scaffolding/**, a sibling X.contract.json — fields {id, file, kind (core|neuron|membrane|other), status (active|draft|deprecated), loads_when|null, depends_on[], effects, tests[], note?, superseded_by?}
+- For each file under scaffolding/**, a sibling X.contract.json — fields {id, file, kind (core|neuron|membrane|other), status (active/draft/deprecated), loads_when|null, depends_on[], effects, tests[], note?, superseded_by?}
 - Seed every existing scaffold file (112 files) — every scaffold file gets contract, .gitkeep whitelisted via checker pattern (contract describes, never rewrites)
 - Kind mapping: core=scaffolding/core/*, neuron=scaffolding/neurons/*, membrane=scaffolding/control_plane/* + hosts/*, other=README/generated/improved etc
 - Status: active for most, draft for improved/* PROPOSED (needs note), deprecated for neurons/_archive/* (needs superseded_by + note)

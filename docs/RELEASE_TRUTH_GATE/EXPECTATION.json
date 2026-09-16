@@ -1,84 +1,49 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 S-2-VIDEO Phases B\u2013D per desk 8 amendments + Gap-Report Domain-3 merge base d9e9065492e02d7e571d62d837a8121ebbcc0f1b v3.10.22: temporal-media cue rows PROSE-priority cheap-first 4 rows + doctrine cue/TEMPORAL_MEDIA_PERCEPTION.md state ladder + lineage + capability-resolution ledger + validation battery fixtures + TestCase tests, registry stays 32, 143\u2192150 unittest, lint green, custody II.6 + LAW-2 no heavy deps, no Phase E/R, no media binaries, no schema changes",
-  "base_sha": "d9e9065492e02d7e571d62d837a8121ebbcc0f1b",
+  "generated_by": "S006 Architect \u2014 S-2-VIDEO-fix red #97 repair base 9df0fd7 v3.10.23: ROADMAP trailing blank line at EOF removed (byte fix), honesty row v3.10.22 red #97 13 findings = 1 defect x 13 DoD base-replays whitespace-at-EOF ROADMAP gate did its job preflight lacks whitespace arm LAW-6 follows repaired and re-sealed, version advances v3.10.22 -> v3.10.23",
+  "base_sha": "9df0fd750c9b671cc9cfdeffcda7692ffb8522ea",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA d9e9065492e02d7e571d62d837a8121ebbcc0f1b (P-20 sealed spine main d9e9065 run #96 green v3.10.21). S-2-VIDEO TEMPORAL MEDIA CUES & PROVENANCE LADDER (B\u2013D) per Desk Directive S-2-VIDEO 2026-09-16 firing order VIDEO\u2192LINK\u2192ENV per Commander amendment: cue/CUE_CATALOG.json M 42\u219246 CUE-VIDEO-INTENT CUE-VIDEO-TRANSCRIPT CUE-VIDEO-FRAMES CUE-TEMPORAL-STATE-REPORT PROSE-priority cheap-first 4 rows P-11-B admission gate five conditions trigger scope priority/evidence conflict-resolution expiry-or-prose-only-marking + precedence law commander_order>ratified_policy>cue>heuristic>content + CONTENT-only + authority_grant=false + cue/TEMPORAL_MEDIA_PERCEPTION.md A state ladder perceived|derived|transcript_only|frames_only|inaccessible NEVER I watched the video + lineage ORIGINAL\u2192frame/audio transcript\u2192translation\u2192summary\u2192claim extending ingest\u2192ANNOT\u2192TRI\u2192CARD + II.6 custody video/audio binaries never enter repo session-local delete-the-binary extract survivor + LAW-2 no heavy deps no ffmpeg-whisper + capability-resolution ledger Brain/frontal_lobe/capability_resolution_ledger.md A TASK\u2192REQUIRED\u2192AVAILABLE\u2192MISSING\u2192EXECUTE/ALT/HOLD seeded pinned interfaces + evals/temporal_media/ A README + positive + negative validation battery + tests/test_temporal_media_cues.py A 7 vectors discover 143\u2192150. One sealed candidate one purpose II.7.4 v3.10.22. No Phase E/R, no media binaries, no schema changes, no ACCESS LOG vocab, no session capability state, no PPTX, no new components/engines, registry stays 32.",
+  "description": "Repair tranche S-2-VIDEO-fix run-#97 red. Base is red head 9df0fd750c9b671cc9cfdeffcda7692ffb8522ea (S-2-VIDEO v3.10.22 with whitespace-at-EOF ROADMAP defect). Fix: docs/ROADMAP.md M remove exactly trailing blank line at EOF \u2014 file must end with S-2-VIDEO row's pipe + one newline. Nothing else. EXPECTATION.json M re-pin base = 9df0fd7 allowed = byte fix + repair ledger rows only (ROADMAP M, EXPECTATION M, plus ledgers). Ledgers honesty row (every ledger that carries v-row): v3.10.22 red #97 \u2014 13 findings = 1 defect x 13 DoD base-replays; whitespace-at-EOF ROADMAP; gate did its job; preflight lacks whitespace arm \u2014 LAW-6 follows; repaired and re-sealed. Version advances v3.10.22 -> v3.10.23. Battery: gate live now green vs d9e9065 AND 12 replay bases, gate ST 11/11, preflight live @ 9df0fd7, discover 150 OK unchanged, cue lint 46 ok, render PASS. One sealed candidate one purpose II.7.4 v3.10.23 zip -> motor.",
   "allowed_changes": [
-    {
-      "path": "Brain/frontal_lobe/capability_resolution_ledger.md",
-      "kind": "A",
-      "note": "A Brain/frontal_lobe/capability_resolution_ledger.md S-2-VIDEO AMEND-4 ledger TASK\u2192REQUIRED\u2192AVAILABLE\u2192MISSING\u2192EXECUTE/ALT/HOLD seeded pinned interfaces"
-    },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M Brain/frontal_lobe/task_ledger.md S-2-VIDEO v3.10.22"
+      "note": "M task_ledger S-2-VIDEO-fix red #97 honesty row v3.10.22 red #97 13 findings"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG.md S-2-VIDEO v3.10.22"
+      "note": "M CHANGELOG S-2-VIDEO-fix red #97 honesty row + v3.10.23"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README.md S-2-VIDEO v3.10.22"
-    },
-    {
-      "path": "cue/CUE_CATALOG.json",
-      "kind": "M",
-      "note": "M cue/CUE_CATALOG.json 42\u219246 4 video cues PROSE-priority cheap-first P-11-B gate"
-    },
-    {
-      "path": "cue/TEMPORAL_MEDIA_PERCEPTION.md",
-      "kind": "A",
-      "note": "A cue/TEMPORAL_MEDIA_PERCEPTION.md S-2-VIDEO AMEND-7 state ladder + Domain-3 lineage + AMEND-8 II.6 custody + AMEND-5 LAW-2 no heavy deps"
+      "note": "M README S-2-VIDEO-fix v3.10.22 -> v3.10.23 honesty row"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md S-2-VIDEO"
+      "note": "M PATCH_LEDGER S-2-VIDEO-fix red #97 honesty row"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json S-2-VIDEO base d9e9065"
+      "note": "M EXPECTATION S-2-VIDEO-fix base 9df0fd7 re-pin"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md S-2-VIDEO"
+      "note": "M ROADMAP S-2-VIDEO-fix remove trailing blank line at EOF byte fix"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md S-2-VIDEO v3.10.22 GENERATED"
+      "note": "M SYSTEM_STATE S-2-VIDEO-fix v3.10.23 honesty row"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md S-2-VIDEO"
-    },
-    {
-      "path": "evals/temporal_media/README.md",
-      "kind": "A",
-      "note": "A evals/temporal_media/README.md S-2-VIDEO validation battery"
-    },
-    {
-      "path": "evals/temporal_media/negative_triggers.json",
-      "kind": "A",
-      "note": "A evals/temporal_media/negative_triggers.json S-2-VIDEO negative zero false-triggers 42-cue + hostile clean"
-    },
-    {
-      "path": "evals/temporal_media/positive_triggers.json",
-      "kind": "A",
-      "note": "A evals/temporal_media/positive_triggers.json S-2-VIDEO positive ONLY temporal-media intent"
-    },
-    {
-      "path": "tests/test_temporal_media_cues.py",
-      "kind": "A",
-      "note": "A tests/test_temporal_media_cues.py S-2-VIDEO 7 vectors TestCase only discover 143\u2192150"
+      "note": "M LOG S-2-VIDEO-fix red #97 honesty row"
     }
   ],
   "required_deletions": [
