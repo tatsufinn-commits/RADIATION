@@ -1,0 +1,10 @@
+{
+  "id": "SUB-002",
+  "title": "fetch — Retrieval strategist",
+  "trigger": "before_skill",
+  "input_sketch": "skill: RESEARCH sortie planned, condition: Brain register miss + open-source bank hit, scout plan exists",
+  "expected_fire_sequence": ["RESEARCH skill declares need", "skill→subskill invokes fetch before_skill", "fetch resolves Brain→registers→bank→TOOLBOX→scout-gated", "evidence captured"],
+  "expected_non_fires": ["after_skill does not fire fetch", "on_event bulk dump alone does not fire fetch"],
+  "contract": "declaration-only, skill→subskill, evidence capture, no self-mod, no network, no elevation, INVOKED not autonomous",
+  "notes": "proves hook contract for fetch"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "SUB-004",
+  "title": "scout — Source-necessity gatekeeper",
+  "trigger": "before_skill",
+  "input_sketch": "skill: RESEARCH planned, condition: acquisition plan needed BEFORE any fetch, scout builds plan",
+  "expected_fire_sequence": ["RESEARCH declares intent", "skill→subskill invokes scout before_skill", "scout builds Acquisition Plan, blocks unvetted", "evidence captured"],
+  "expected_non_fires": ["after_skill does not fire scout", "manual without declaration does not fire"],
+  "contract": "before_skill hook, declaration-only, skill→subskill, evidence capture, no self-mod, no network, no elevation",
+  "notes": "proves hook contract for scout"
+}

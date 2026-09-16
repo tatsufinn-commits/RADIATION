@@ -1,0 +1,10 @@
+{
+  "id": "SUB-007",
+  "title": "curator — Ingestion",
+  "trigger": "after_skill",
+  "input_sketch": "skill: RESEARCH completed acquisition, condition: touched sources exist, curator ingests after",
+  "expected_fire_sequence": ["RESEARCH finishes", "skill→subskill invokes curator after_skill", "curator auto-ingests touched sources via ingest_collection", "evidence captured"],
+  "expected_non_fires": ["before_skill does not fire curator", "on_event without completed skill does not fire"],
+  "contract": "after_skill hook, conditional passive, skill→subskill, evidence capture, no authority elevation",
+  "notes": "proves hook contract for curator"
+}

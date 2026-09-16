@@ -1,0 +1,10 @@
+{
+  "id": "SUB-005",
+  "title": "selfdirectives — Self-governed tasks",
+  "trigger": "manual",
+  "input_sketch": "trigger: cue S006, grade tier green/yellow/red, declared with self: in ledger, bounded execution",
+  "expected_fire_sequence": ["cue sources task", "skill→subskill invokes selfdirectives manually declared+logged", "executes bounded, closes with evidence", "receipt captured"],
+  "expected_non_fires": ["on_event does not auto-fire selfdirectives without declaration", "before_skill does not fire without cue"],
+  "contract": "manual declared hook, never autonomous, no self-promotion, no network, evidence closure, II.11 boundary",
+  "notes": "proves hook contract for selfdirectives"
+}

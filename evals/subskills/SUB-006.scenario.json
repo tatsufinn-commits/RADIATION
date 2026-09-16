@@ -1,0 +1,10 @@
+{
+  "id": "SUB-006",
+  "title": "compass — Anti-drift",
+  "trigger": "on_event",
+  "input_sketch": "event: mission drift detected, classification green/yellow/red, condition: deviation from Commander intent",
+  "expected_fire_sequence": ["INSPECT skill detects drift event", "skill→subskill invokes compass on_event", "compass anchors mission, flags", "evidence captured"],
+  "expected_non_fires": ["before_skill RESEARCH without drift does not fire compass", "manual alone does not fire"],
+  "contract": "on_event hook, declaration-only, skill→subskill, no self-mod, no network, no elevation, advisory",
+  "notes": "proves hook contract for compass"
+}

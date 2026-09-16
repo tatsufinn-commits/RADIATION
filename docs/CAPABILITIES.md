@@ -300,6 +300,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `scaffold_check.py` | deterministic compile check for scaffolding contract spine (Dim-3/G4) | no | no | no |
 | `skill_check.py` | deterministic compile check for skill catalog spine (Dim-7/G4) | no | no | no |
 | `status.py` | the Swarm Dashboard (patch 3300, SD-3300-02). | no | no | yes |
+| `subskill_check.py` | deterministic compile check for subskill catalog + hook protocol (Dim-8/G4) | no | no | no |
 | `tool_registry_check.py` | tool_registry_check — ONE entry point for the tool-registry contract (5600). | yes | no | yes |
 | `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |

@@ -6,6 +6,58 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.18 — 2026-09-16 — P-18 SUBSKILL CATALOG + HOOK PROTOCOL (Dim-8/G4) (II.7.4)
+
+**P-18 Subskill Catalog + Hook Protocol per Architect Directive base 12dfc22ed50007deb4399162e69f5540e90a89c3 sealed P-17. One sealed candidate one purpose — subskills become typed records; hooks become a declared, machine-checked, never-autonomous protocol.**
+
+**Framing:** Dim-8/G4: subskills lacked typed catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check.
+
+**(1) A subskills/SUBSKILL_CATALOG.json (+ A schemas/subskill_card.schema.json radiation.subskill_card/1):**
+- Entries over subskills actually present in-tree (9 found: colony, fetch, overule, scout, selfdirectives active + compass, curator, sentinel, surgeon passive), each {id: SUB-NNN, title, parent_skill FK→SKILL_CATALOG id, entry_path, trigger enum before_skill|after_skill|on_event|manual — hook means INVOKED never self-firing autonomous, condition|null, description ≤200, scenario_ref fixture proving hook contract, status active|declared|deprecated, tests[]}
+- Seeds 9 entries ≥5 all found: SUB-001 colony parent SKILL-015 RESEARCH trigger on_event condition bulk dump size >3 entry subskills/active/colony.md scenario evals/subskills/SUB-001.scenario.json active + SUB-002 fetch parent SKILL-015 before_skill Brain miss+bank hit+scout plan + SUB-003 overule parent SKILL-022 OVERHAUL manual Commander ONLY + SUB-004 scout parent SKILL-015 before_skill plan required BEFORE fetch + SUB-005 selfdirectives parent SKILL-022 manual cue exists tier graded declared+logged + SUB-006 compass parent SKILL-021 INSPECT on_event drift detected + SUB-007 curator parent SKILL-017 DOSSIER after_skill touched sources exist + SUB-008 sentinel parent SKILL-021 after_skill ungraded/broken/contradiction + SUB-009 surgeon parent SKILL-022 before_skill constitutional violation attempt.
+- No fabrication: honest declared where no scenario can exist yet; all 9 active have scenario_ref resolving.
+- Description ≤200, id pattern ^SUB-[0-9]{3}$ unique, parent_skill pattern ^SKILL-[0-9]{3}$ FK must resolve against skills/SKILL_CATALOG.json, entry_path pattern subskills/|agents/|scaffolding/|docs/|Brain/, trigger enum, condition string|null, status enums, tests[] array, additionalProperties false, declared→note, deprecated→superseded_by SUB-NNN.
+- Schema description includes MEM-shrine-log rider same as P-15/P-17.
+
+**(2) A subskills/HOOK_PROTOCOL.md — the contract in one screen:**
+- declaration-only hooks, invocation direction skill→subskill ONLY, evidence capture on invocation to evidence/drafts/<SUB-ID>/receipt.json or ledger marker, no self-modification, no network, no authority elevation II.11: a hook is skill-internal mechanism never a cue never a scope grant.
+- Trigger discipline: before_skill gate before skill, after_skill audit after, on_event reacts to event, manual Commander/declared judgment. Hook means INVOKED never autonomous.
+
+**(3) A scripts/subskill_check.py — deterministic house finding style exit 0/1 --self-test 8 vectors:**
+- schema valid vs subskill_card
+- parent_skill FK resolves against skills/SKILL_CATALOG.json
+- scenario_ref resolves and is valid JSON with trigger field
+- trigger enum valid
+- status discipline declared→note deprecated→superseded_by
+- entry_path exists, tests[] resolve, description ≤200, id pattern
+- Seeds ≥5 check
+- Negative fixtures its own corpus: broken parent FK, missing scenario_ref, illegal trigger, duplicate id, declared missing note, deprecated missing superseded_by, entry_path missing
+- Live: subskill_check 0 finding(s) — catalog valid, parent FK resolves, scenario_ref resolves, trigger enum valid, status discipline ok
+- Self-test 8 passed 0 failed
+
+**(4) A scenario fixture per active subskill — evals/subskills/SUB-NNN.scenario.json:**
+- Each contains trigger, input sketch, expected hook fire sequence, expected non-fires on unrelated triggers, contract declaration-only skill→subskill evidence capture no self-mod no network no elevation II.11
+- Example SUB-001 colony on_event bulk dump 50 URLs → skill→subskill invokes colony → triages → evidence captured, non-fires before_skill RESEARCH without bulk, manual without Commander.
+
+**(5) A tests/test_subskill_check.py ≥4 vectors:**
+- live repo passes
+- broken parent FK → FAIL
+- missing scenario_ref → FAIL
+- illegal trigger → FAIL
+- self-test ran
+- Discover 125+5=130 OK (P-17 had 125, plus 5 new)
+
+**(6) Registry/state:**
+- tools/TOOL_REGISTRY.json M 29→30 adds subskill_check mutation none network none
+- docs/CAPABILITIES.md + docs/SYSTEM_STATE.md GENERATED reflect it (render_docs --apply) + version bump v3.10.18
+- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.18 + EXPECTATION re-pinned base 12dfc22 allowed 23 (8 M + 15 A).
+- If new catalog JSONs trip vehicle checker: exactly one commented allowlist pattern in validate.py for subskills/**/*.json same discipline as P-14 — not needed, subskills/ not checked by Brain/ vehicle rule, validate passes 42·39·3·0 without extra allowlist.
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, scaffold_check 0 findings + 6/6 self-test, skill_check 0 findings + 8/8 self-test, subskill_check 0 findings + 8/8 self-test, unittest 130 OK, cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.18.
+
+**Base pinned:** 12dfc22ed50007deb4399162e69f5540e90a89c3 (P-17 Skill Catalog Spine). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — Subskill Catalog + Hook Protocol.
+
+
 ## v3.10.17 — 2026-09-16 — P-17 SKILL CATALOG SPINE (Dim-7/G4) (II.7.4)
 
 **P-17 Skill Catalog Spine per Architect Directive base 0de224d58a758a5ee0b9278427ec224f1139ebdc sealed P-16. One sealed candidate one purpose — skills become typed, schema-checked records with eval pointer per skill; tooling-first same shape as P-14/15/16.**

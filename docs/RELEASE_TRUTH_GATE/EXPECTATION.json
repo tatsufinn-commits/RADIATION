@@ -1,194 +1,129 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect — P-17 G4 base 0de224d sealed P-16, skill catalog 23 + schema + check + test + evals 23, 125 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8, delta ∅",
-  "base_sha": "0de224d58a758a5ee0b9278427ec224f1139ebdc",
+  "generated_by": "S006 Architect \u2014 P-18 G4 base 12dfc22 sealed P-17, subskill catalog 9 + hook protocol + schema + check + test + scenarios 9, 130 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8, delta \u2205",
+  "base_sha": "12dfc22ed50007deb4399162e69f5540e90a89c3",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA 0de224d58a758a5ee0b9278427ec224f1139ebdc (P-16 Scaffolding Contract Spine G4). P-17 Skill Catalog Spine (Dim-7/G4): skills become typed, schema-checked records with eval pointer per skill; tooling-first same shape as P-14/15/16. A skills/SKILL_CATALOG.json (+ A schemas/skill_card.schema.json radiation.skill_card/1): entries over skills actually present in-tree (agent skills under agents/**; anything already shaped as a skill), each {id: SKILL-NNN, title, entry_path, kind (agent|procedure), description ≤200, eval_ref, status, activation_note pinned|asserted, tests[]}. Seeds 23 entries (5 provider + 9 subskills + 9 pipeline) ≥8. No fabrication: smoke-eval fixtures under evals/skills/ to earn active. A scripts/skill_check.py deterministic house finding style exit 0/1 --self-test 8 vectors, A tests/test_skill_check.py 5 vectors, M TOOL_REGISTRY 28→29 skill_check. If skill JSONs trip undeclared-vehicle machinery as MEMORY_CATALOG did: exactly one commented allowlist pattern in validate.py for skills/**/*.json same comment discipline as P-14 — not needed, skills/ not checked by Brain/ vehicle rule, validate passes 42·39·3·0 without extra allowlist. One sealed candidate one purpose II.7.4.",
+  "description": "Pins exact base SHA 12dfc22ed50007deb4399162e69f5540e90a89c3 (P-17 Skill Catalog Spine). P-18 Subskill Catalog + Hook Protocol (Dim-8/G4): subskills become typed records; hooks declared machine-checked never-autonomous. A subskills/SUBSKILL_CATALOG.json (+ A schemas/subskill_card.schema.json radiation.subskill_card/1) entries over subskills actually present in-tree each {id SUB-NNN, title, parent_skill FK\u2192SKILL_CATALOG id, entry_path, trigger enum before_skill/after_skill/on_event/manual, condition/null, description \u2264200, scenario_ref, status active/declared/deprecated, tests[]}. Seeds 9 entries all found. A subskills/HOOK_PROTOCOL.md contract one screen declaration-only hooks invocation skill\u2192subskill evidence capture no self-mod no network no elevation II.11. A scripts/subskill_check.py deterministic house finding style --self-test 8 vectors, A tests/test_subskill_check.py 5 vectors, A evals/subskills/ 9 scenarios, M TOOL_REGISTRY 29\u219230 subskill_check. One sealed candidate one purpose II.7.4.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M Brain/frontal_lobe/task_ledger.md P-17 skill catalog spine"
+      "note": "M Brain/frontal_lobe/task_ledger.md P-18 subskill catalog + hook protocol"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG.md P-17 skill catalog spine"
+      "note": "M CHANGELOG.md P-18 subskill catalog + hook protocol"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README.md P-17 skill catalog spine"
+      "note": "M README.md P-18 subskill catalog + hook protocol"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M docs/CAPABILITIES.md P-17 skill catalog spine GENERATED"
+      "note": "M docs/CAPABILITIES.md P-18 subskill catalog + hook protocol"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md P-17 skill catalog spine"
+      "note": "M docs/PATCH_LEDGER.md P-18 subskill catalog + hook protocol"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION base 0de224d sealed P-16, allowed exact delta per LAW-3, P-17 G4"
+      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json P-18 subskill catalog + hook protocol"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md P-17 skill catalog spine"
+      "note": "M docs/ROADMAP.md P-18 subskill catalog + hook protocol"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md P-17 skill catalog spine GENERATED v3.10.17"
+      "note": "M docs/SYSTEM_STATE.md P-18 subskill catalog + hook protocol"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md P-17 skill catalog spine"
+      "note": "M docs/shrine/LOG.md P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-001.eval.md",
+      "path": "evals/subskills/SUB-001.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-001.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-001.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-002.eval.md",
+      "path": "evals/subskills/SUB-002.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-002.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-002.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-003.eval.md",
+      "path": "evals/subskills/SUB-003.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-003.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-003.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-004.eval.md",
+      "path": "evals/subskills/SUB-004.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-004.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-004.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-005.eval.md",
+      "path": "evals/subskills/SUB-005.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-005.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-005.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-006.eval.md",
+      "path": "evals/subskills/SUB-006.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-006.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-006.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-007.eval.md",
+      "path": "evals/subskills/SUB-007.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-007.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-007.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-008.eval.md",
+      "path": "evals/subskills/SUB-008.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-008.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-008.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-009.eval.md",
+      "path": "evals/subskills/SUB-009.scenario.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-009.eval.md P-17 smoke eval"
+      "note": "A evals/subskills/SUB-009.scenario.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-010.eval.md",
+      "path": "schemas/subskill_card.schema.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-010.eval.md P-17 smoke eval"
+      "note": "A schemas/subskill_card.schema.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-011.eval.md",
+      "path": "scripts/subskill_check.py",
       "kind": "A",
-      "note": "A evals/skills/SKILL-011.eval.md P-17 smoke eval"
+      "note": "A scripts/subskill_check.py P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-012.eval.md",
+      "path": "subskills/HOOK_PROTOCOL.md",
       "kind": "A",
-      "note": "A evals/skills/SKILL-012.eval.md P-17 smoke eval"
+      "note": "A subskills/HOOK_PROTOCOL.md P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-013.eval.md",
+      "path": "subskills/SUBSKILL_CATALOG.json",
       "kind": "A",
-      "note": "A evals/skills/SKILL-013.eval.md P-17 smoke eval"
+      "note": "A subskills/SUBSKILL_CATALOG.json P-18 subskill catalog + hook protocol"
     },
     {
-      "path": "evals/skills/SKILL-014.eval.md",
+      "path": "tests/test_subskill_check.py",
       "kind": "A",
-      "note": "A evals/skills/SKILL-014.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-015.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-015.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-016.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-016.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-017.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-017.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-018.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-018.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-019.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-019.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-020.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-020.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-021.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-021.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-022.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-022.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "evals/skills/SKILL-023.eval.md",
-      "kind": "A",
-      "note": "A evals/skills/SKILL-023.eval.md P-17 smoke eval"
-    },
-    {
-      "path": "schemas/skill_card.schema.json",
-      "kind": "A",
-      "note": "A schemas/skill_card.schema.json P-17 skill catalog spine radiation.skill_card/1"
-    },
-    {
-      "path": "scripts/skill_check.py",
-      "kind": "A",
-      "note": "A scripts/skill_check.py P-17 skill catalog spine"
-    },
-    {
-      "path": "skills/SKILL_CATALOG.json",
-      "kind": "A",
-      "note": "A skills/SKILL_CATALOG.json P-17 skill catalog spine 23 entries"
-    },
-    {
-      "path": "tests/test_skill_check.py",
-      "kind": "A",
-      "note": "A tests/test_skill_check.py P-17 skill catalog spine"
+      "note": "A tests/test_subskill_check.py P-18 subskill catalog + hook protocol"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M tools/TOOL_REGISTRY.json P-17 skill catalog spine 28→29"
+      "note": "M tools/TOOL_REGISTRY.json P-18 subskill catalog + hook protocol"
     }
   ],
   "required_deletions": [
@@ -196,7 +131,7 @@
       "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
       "must_be_absent_on_disk": true,
       "must_be_D_in_diff": false,
-      "note": "stale Fable 5-1 already absent in base 0de224d, must remain absent"
+      "note": "stale Fable 5-1 already absent in base 12dfc22, must remain absent"
     }
   ],
   "required_absent_on_disk": [
@@ -312,15 +247,25 @@
       "must_contain": "0 finding"
     },
     {
+      "command": "python3 scripts/subskill_check.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "8 passed"
+    },
+    {
+      "command": "python3 scripts/subskill_check.py",
+      "expected_exit": 0,
+      "must_contain": "0 finding"
+    },
+    {
       "command": "git diff --check",
       "expected_exit": 0,
       "must_contain": ""
     },
     {
-      "command": "git diff --check 0de224d58a758a5ee0b9278427ec224f1139ebdc..HEAD",
+      "command": "git diff --check 12dfc22ed50007deb4399162e69f5540e90a89c3..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-17 base 0de224d"
+      "note": "committed-delta whitespace clean from P-18 base 12dfc22"
     },
     {
       "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
@@ -371,6 +316,12 @@
       "note": "whitespace clean from P-16 base af57888"
     },
     {
+      "command": "git diff --check 0de224d58a758a5ee0b9278427ec224f1139ebdc..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from P-17 base 0de224d"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
@@ -386,20 +337,21 @@
     "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
   ],
   "risks": [
-    "wrong root — package applied to different working directory than repo root",
-    "stale base — base SHA not ancestor or not exact pinned SHA 0de224d58a758a5ee0b9278427ec224f1139ebdc (run 86 genus: hand merge + stale-base extraction)",
-    "ZIP extraction without applying deletion — file still on disk after extraction",
-    "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
-    "documentation claiming unverified CI — CHANGELOG says green but validator red",
-    "host/provider/surface confusion — Arena gap treated as official policy, model identity claimed from inside session",
-    "unavailable credentials/remote verification — push attempted without Commander motor act",
-    "evaluation/routing/deployment conflation — research notes treated as decision rule without named local evaluation",
-    "CUE catalog boot overreach — new catalogs non-boot beyond single pointer line per DoD",
-    "motor preflight bypass — extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
-    "WARN census hidden — WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
-    "G6 docs lanes fail-cell — no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
-    "G4 scaffolding contract spine fail-cell — no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
-    "G4 skill catalog spine fail-cell — no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
-    "file moves/renames — forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
+    "wrong root \u2014 package applied to different working directory than repo root",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 12dfc22ed50007deb4399162e69f5540e90a89c3 (run 86 genus: hand merge + stale-base extraction)",
+    "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
+    "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
+    "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
+    "host/provider/surface confusion \u2014 Arena gap treated as official policy, model identity claimed from inside session",
+    "unavailable credentials/remote verification \u2014 push attempted without Commander motor act",
+    "evaluation/routing/deployment conflation \u2014 research notes treated as decision rule without named local evaluation",
+    "CUE catalog boot overreach \u2014 new catalogs non-boot beyond single pointer line per DoD",
+    "motor preflight bypass \u2014 extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
+    "WARN census hidden \u2014 WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
+    "G6 docs lanes fail-cell \u2014 no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
+    "G4 scaffolding contract spine fail-cell \u2014 no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
+    "G4 skill catalog spine fail-cell \u2014 no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
+    "G4 subskill catalog + hook protocol fail-cell \u2014 no typed subskill catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check",
+    "file moves/renames \u2014 forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S006 P-17 G4 base 0de224d: skill catalog 23 + schema + check + test + evals 23 + rider",
+  "generated_by": "S006 P-18 G4 base 12dfc22: subskill catalog 9 + hook protocol + schema + check + test + scenarios 9 + rider",
   "tools": [
     {
       "id": "validate",
@@ -154,7 +154,7 @@
       "observability": {
         "content_capture": "off_by_default"
       },
-      "description": "host-to-provider handoff pass; a handoff, not an elevation — grants nothing"
+      "description": "host-to-provider handoff pass; a handoff, not an elevation \u2014 grants nothing"
     },
     {
       "id": "contract_tests",
@@ -650,7 +650,7 @@
       "observability": {
         "content_capture": "off_by_default"
       },
-      "description": "Motor Preflight LAW-5: BASE-PIN HEAD==base, PUBLIC-OBJECT base ancestor origin/main, DELTA≡ALLOWED diff≡allowed, CI-HYGIENE _output.txt→FAIL; run before push STOP at finding"
+      "description": "Motor Preflight LAW-5: BASE-PIN HEAD==base, PUBLIC-OBJECT base ancestor origin/main, DELTA\u2261ALLOWED diff\u2261allowed, CI-HYGIENE _output.txt\u2192FAIL; run before push STOP at finding"
     },
     {
       "id": "brain_retrieve",
@@ -751,6 +751,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Skill Catalog Spine G4: catalog valid vs schema radiation.skill_card/1, entry_path/eval_ref resolves, unique ids, status discipline, no eval-free active"
+    },
+    {
+      "id": "subskill_check",
+      "entrypoint": "scripts/subskill_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/subskill_check.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Subskill Catalog + Hook Protocol G4: catalog valid vs schema radiation.subskill_card/1, parent_skill FK resolves, scenario_ref resolves, trigger enum, status discipline"
     }
   ]
 }

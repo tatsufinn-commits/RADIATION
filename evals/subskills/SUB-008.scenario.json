@@ -1,0 +1,10 @@
+{
+  "id": "SUB-008",
+  "title": "sentinel — Integrity watch",
+  "trigger": "after_skill",
+  "input_sketch": "skill: any pipeline skill writes claim, condition: ungraded claim or broken ref or contradiction detected",
+  "expected_fire_sequence": ["skill writes", "skill→subskill invokes sentinel after_skill", "sentinel flags contradiction/ungraded/broken ref", "evidence captured"],
+  "expected_non_fires": ["before_skill without write does not fire sentinel", "manual does not auto-fire"],
+  "contract": "after_skill hook, declaration-only, skill→subskill, no rewrite, flags/quarantines/halts, no elevation",
+  "notes": "proves hook contract for sentinel"
+}

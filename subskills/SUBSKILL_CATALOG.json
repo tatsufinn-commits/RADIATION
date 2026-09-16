@@ -1,0 +1,110 @@
+[
+  {
+    "id": "SUB-001",
+    "title": "colony — Bulk triage",
+    "parent_skill": "SKILL-015",
+    "entry_path": "subskills/active/colony.md",
+    "trigger": "on_event",
+    "condition": "bulk dump size >3 links",
+    "description": "Active subskill colony — bulk link/resource-dump triage, feeds curator ingestion queue, universal mode.",
+    "scenario_ref": "evals/subskills/SUB-001.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-001.scenario.json"]
+  },
+  {
+    "id": "SUB-002",
+    "title": "fetch — Retrieval strategist",
+    "parent_skill": "SKILL-015",
+    "entry_path": "subskills/active/fetch.md",
+    "trigger": "before_skill",
+    "condition": "Brain register miss + bank hit + scout plan exists",
+    "description": "Active subskill fetch — retrieval strategist over open-source bank, Brain registers to TOOLBOX, scout-gated.",
+    "scenario_ref": "evals/subskills/SUB-002.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-002.scenario.json"]
+  },
+  {
+    "id": "SUB-003",
+    "title": "overule — Commander override",
+    "parent_skill": "SKILL-022",
+    "entry_path": "subskills/active/overule.md",
+    "trigger": "manual",
+    "condition": "Commander trigger ONLY, never stop-lines",
+    "description": "Active subskill overule — Commander-triggered override, halt and redirect authority, logged activation.",
+    "scenario_ref": "evals/subskills/SUB-003.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-003.scenario.json"]
+  },
+  {
+    "id": "SUB-004",
+    "title": "scout — Source-necessity gatekeeper",
+    "parent_skill": "SKILL-015",
+    "entry_path": "subskills/active/scout.md",
+    "trigger": "before_skill",
+    "condition": "acquisition plan required BEFORE fetch",
+    "description": "Active subskill scout — gatekeeper builds Acquisition Plan BEFORE prospector acquires, prevents unvetted.",
+    "scenario_ref": "evals/subskills/SUB-004.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-004.scenario.json"]
+  },
+  {
+    "id": "SUB-005",
+    "title": "selfdirectives — Self-governed tasks",
+    "parent_skill": "SKILL-022",
+    "entry_path": "subskills/active/selfdirectives.md",
+    "trigger": "manual",
+    "condition": "cue exists, tier graded green/yellow/red, declared+logged",
+    "description": "Active subskill selfdirectives — self-governed task generation, sources cue, grades autonomy tier, bounded.",
+    "scenario_ref": "evals/subskills/SUB-005.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-005.scenario.json"]
+  },
+  {
+    "id": "SUB-006",
+    "title": "compass — Anti-drift",
+    "parent_skill": "SKILL-021",
+    "entry_path": "subskills/passive/compass.md",
+    "trigger": "on_event",
+    "condition": "mission deviation detected green/yellow/red",
+    "description": "Passive subskill compass — anti-drift, anchors mission, classifies deviation, always on advisory.",
+    "scenario_ref": "evals/subskills/SUB-006.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-006.scenario.json"]
+  },
+  {
+    "id": "SUB-007",
+    "title": "curator — Ingestion",
+    "parent_skill": "SKILL-017",
+    "entry_path": "subskills/passive/curator.md",
+    "trigger": "after_skill",
+    "condition": "touched sources exist after skill completes",
+    "description": "Passive subskill curator — conditional passive auto-ingestion of touched sources, drives ingest_collection.",
+    "scenario_ref": "evals/subskills/SUB-007.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-007.scenario.json"]
+  },
+  {
+    "id": "SUB-008",
+    "title": "sentinel — Integrity watch",
+    "parent_skill": "SKILL-021",
+    "entry_path": "subskills/passive/sentinel.md",
+    "trigger": "after_skill",
+    "condition": "ungraded claim or broken ref or contradiction",
+    "description": "Passive subskill sentinel — integrity watch, contradictions, ungraded claims, broken refs, decay.",
+    "scenario_ref": "evals/subskills/SUB-008.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-008.scenario.json"]
+  },
+  {
+    "id": "SUB-009",
+    "title": "surgeon — Chief passive",
+    "parent_skill": "SKILL-022",
+    "entry_path": "subskills/passive/surgeon.md",
+    "trigger": "before_skill",
+    "condition": "constitutional/mode/quotas violation attempt",
+    "description": "Passive subskill surgeon — chief passive, constitutional enforcement, halt authority, unconditional ALL modes.",
+    "scenario_ref": "evals/subskills/SUB-009.scenario.json",
+    "status": "active",
+    "tests": ["evals/subskills/SUB-009.scenario.json"]
+  }
+]

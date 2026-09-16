@@ -1,0 +1,10 @@
+{
+  "id": "SUB-003",
+  "title": "overule — Commander override",
+  "trigger": "manual",
+  "input_sketch": "Commander order: overrule AI-flagged rule WARN-and-proceed for deadline, make-good debt logged, condition: Commander trigger ONLY",
+  "expected_fire_sequence": ["Commander triggers overule manually", "skill→subskill invokes overule", "overrule logs debt, does not touch stop-lines", "evidence captured"],
+  "expected_non_fires": ["before_skill does not auto-fire overule", "on_event does not fire without Commander"],
+  "contract": "manual hook, declaration-only, no autonomous, no authority elevation beyond SD-GOV-013, evidence capture",
+  "notes": "proves hook contract for overule"
+}

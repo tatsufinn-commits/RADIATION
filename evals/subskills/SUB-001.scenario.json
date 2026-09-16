@@ -1,0 +1,10 @@
+{
+  "id": "SUB-001",
+  "title": "colony — Bulk triage",
+  "trigger": "on_event",
+  "input_sketch": "event: bulk link dump 50 URLs from Commander, intake contains Drive links + PDFs, condition: dump size >3",
+  "expected_fire_sequence": ["RESEARCH skill receives bulk dump event", "skill→subskill invokes colony", "colony triages into curator queue", "evidence captured to evidence/drafts/SUB-001/receipt.json"],
+  "expected_non_fires": ["before_skill RESEARCH does not auto-fire colony when no bulk event", "manual trigger does not fire without Commander order"],
+  "contract": "declaration-only hook, invocation direction skill→subskill, evidence capture on invocation, no self-modification, no network, no authority elevation II.11, hook means INVOKED never autonomous",
+  "notes": "proves hook contract for colony"
+}

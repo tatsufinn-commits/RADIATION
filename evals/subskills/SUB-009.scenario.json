@@ -1,0 +1,10 @@
+{
+  "id": "SUB-009",
+  "title": "surgeon — Chief passive",
+  "trigger": "before_skill",
+  "input_sketch": "skill: any skill attempts write violating constitution/mode discipline/quota, condition: constitutional enforcement needed",
+  "expected_fire_sequence": ["skill attempts", "skill→subskill invokes surgeon before_skill", "surgeon enforces constitution, may halt pipeline", "evidence captured, halt authority logged"],
+  "expected_non_fires": ["after_skill clean write does not fire surgeon halt", "on_event without violation does not fire"],
+  "contract": "before_skill hook chief passive, unconditional ALL modes, declaration-only, halt authority, no self-mod, no network, no elevation II.11, INVOKED not autonomous",
+  "notes": "proves hook contract for surgeon"
+}

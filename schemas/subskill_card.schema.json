@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "radiation.subskill_card/1 — Subskill Catalog + Hook Protocol",
+  "description": "Typed record for subskills present in-tree, with FK to SKILL_CATALOG and hook trigger contract. P-18 G4: subskills become typed records; hooks declared, machine-checked, never autonomous. MEM-shrine-log is a deliberate outer-corpus pointer (docs/shrine/LOG.md); all other catalog paths MUST live under Brain/ or subskills/.",
+  "type": "object",
+  "required": ["id", "title", "parent_skill", "entry_path", "trigger", "description", "scenario_ref", "status", "tests"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SUB-[0-9]{3}$",
+      "description": "unique id SUB-NNN, zero-padded 3 digits"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "human-readable title of subskill"
+    },
+    "parent_skill": {
+      "type": "string",
+      "pattern": "^SKILL-[0-9]{3}$",
+      "description": "FK to SKILL_CATALOG id, must resolve against skills/SKILL_CATALOG.json"
+    },
+    "entry_path": {
+      "type": "string",
+      "pattern": "^(subskills/|agents/|scaffolding/|docs/|Brain/).+",
+      "minLength": 1,
+      "description": "existing subskill entry path relative to repo root, must exist"
+    },
+    "trigger": {
+      "type": "string",
+      "enum": ["before_skill", "after_skill", "on_event", "manual"],
+      "description": "hook trigger — hook means INVOKED, never self-firing autonomous"
+    },
+    "condition": {
+      "type": ["string", "null"],
+      "description": "condition for hook firing, null if unconditional"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "description": "description ≤200 chars"
+    },
+    "scenario_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "path to scenario fixture proving hook contract, must resolve"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "declared", "deprecated"],
+      "description": "active=has scenario, declared=needs note, deprecated=needs superseded_by"
+    },
+    "tests": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "tests that exercise this subskill"
+    },
+    "note": {
+      "type": "string",
+      "description": "optional note, required if status declared"
+    },
+    "superseded_by": {
+      "type": "string",
+      "pattern": "^SUB-[0-9]{3}$",
+      "description": "required if status deprecated, id of subskill that supersedes"
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "declared" } } },
+      "then": { "required": ["note"] }
+    },
+    {
+      "if": { "properties": { "status": { "const": "deprecated" } } },
+      "then": { "required": ["superseded_by"] }
+    }
+  ]
+}
