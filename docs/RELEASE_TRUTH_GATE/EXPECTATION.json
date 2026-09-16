@@ -1,9 +1,9 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect — RD-3 SILENCE RECONCILIATION + INCIDENT CHAIN CLOSURE LAWS base fee4a955c0781bd9d81c87906bc7c1464d038afa sealed merge PR #2 run #81 green; preserves P-12 POST-INCIDENT HYGIENE & MOTOR-PREFLIGHT context (restored candidate context from base 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef, restore from RD-3 commit 2bc6e17)",
-  "base_sha": "fee4a955c0781bd9d81c87906bc7c1464d038afa",
+  "generated_by": "S006 Architect \u2014 P-12 POST-INCIDENT HYGIENE & MOTOR-PREFLIGHT base 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef sealed (Restore EXPECTATION.json from RD-3 commit 2bc6e17 fixes run 82 hand-splice), 4 laws + LAW-5 motor preflight, WARN census 4\u21923 (20.5 fixed attempt:), push_preflight_check A + 5 vectors, WARN_LEDGER A, 101 unittest 11/11 self-test 5/5 preflight, delta \u2205",
+  "base_sha": "0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA fee4a955c0781bd9d81c87906bc7c1464d038afa (sealed merge PR #2 run #81). Includes RD-3 SILENCE RECONCILIATION notes and preserves P-12 motor-preflight restore context referencing 0c0548b19e7bb3d...; 4 laws: PUBLIC-OBJECT, STDLIB-ONLY, DELTA-\u2261-ALLOWED, CI-HYGIENE. Obligations: workflow label 7\u219211 vectors, ledger honesty #75-#81 incident chain; one sealed candidate, II.7.4.",
+  "description": "Pins exact base SHA 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef (Restore EXPECTATION.json from RD-3 commit 2bc6e17 undo pull-merge hand-splice; fixes run 82 step-14). P-12 POST-INCIDENT HYGIENE & MOTOR-PREFLIGHT: 4 laws + LAW-5 motor preflight (BASE-PIN HEAD==base verify-the-face, PUBLIC-OBJECT base exists ancestor origin/main, DELTA-\u2261-ALLOWED diff\u2261allowed \u2205 both ways, CI-HYGIENE _output.txt\u2192FAIL). WARN census audit 4\u21923: 11.6 replica OPEN GOVERNED EXCEPTION accepted-class, 15 boot-byte accepted-class, 16 meta-budget accepted-class, 20.5 planner theater fixed via attempt: row. Motor preflight tool scripts/push_preflight_check.py A + tests/test_push_preflight.py A 5 vectors. One sealed candidate one purpose II.7.4 \u2014 motor preflight + WARN census.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
@@ -33,7 +33,12 @@
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER P-12 row post-incident hygiene motor-preflight; RD-3 row + incident chain #75-#81"
+      "note": "M PATCH_LEDGER P-12 row post-incident hygiene motor-preflight"
+    },
+    {
+      "path": "docs/RELEASE_TRUTH_GATE/README.md",
+      "kind": "M",
+      "note": "M RELEASE_TRUTH_GATE/README.md \u2014 motor preflight section P-12 LAW-5 BASE-PIN PUBLIC-OBJECT DELTA-\u2261-ALLOWED CI-HYGIENE run before extraction/push STOP at finding"
     },
     {
       "path": "docs/ROADMAP.md",
@@ -73,7 +78,7 @@
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION — base fee4a955 sealed (preserves restored context from 0c0548b19e7bb3d...), allowed exact delta 22 per LAW-3, 4 laws + LAW-5 motor preflight; WARN census 4\u21923; test_cue_resolver +9 RD-3 vectors (96 total), silence v2 read-only checks"
+      "note": "M EXPECTATION \u2014 base 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef sealed, allowed exact delta 15 per LAW-3, 4 laws + LAW-5 motor preflight, WARN census 4\u21923"
     }
   ],
   "required_deletions": [
