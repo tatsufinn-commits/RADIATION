@@ -132,4 +132,4 @@ evidence, and they grow after every session:
 
 A cue is confirmed only when cited to the session that proved it. Heuristics never
 outrank law (III.3); a standing order tells you what you may do without asking —
-never what you may do against the rules. P-11-B adds expiry discipline: authority-granting cues carry review_after, expired=historical note. RD-3 adds silence discipline: silence = read-only, effects require II.11 control plane.
+never what you may do against the rules. P-11-B adds expiry discipline: authority-granting cues carry review_after, expired=historical note. RD-3 adds silence discipline: silence = read-only, effects require II.11 control plane. P-12 adds motor preflight: `scripts/push_preflight_check.py` LAW-5 BASE-PIN + PUBLIC-OBJECT + DELTA-≡-ALLOWED + CI-HYGIENE — run before extraction/push; STOP at any finding (see `docs/RELEASE_TRUTH_GATE/README.md` motor preflight + `docs/WARN_LEDGER.md` WARN census).

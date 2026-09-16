@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "5600 Verity closure (Architect S005, 2026-09-14; Commander review pending)",
+  "generated_by": "S006 P-12 Motor-Preflight base 0c0548b: push_preflight_check + WARN_LEDGER",
   "tools": [
     {
       "id": "validate",
@@ -626,6 +626,31 @@
         "content_capture": "off_by_default"
       },
       "description": "CUE resolver/linter P-11-A: precedence law commander_order>ratified_policy>cue>heuristic>content, CONTENT-only for courses/web/tools/subagent, emits selected/suppressed/reason"
+    },
+    {
+      "id": "push_preflight_check",
+      "entrypoint": "scripts/push_preflight_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "declared",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/push_preflight_check.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Motor Preflight LAW-5: BASE-PIN HEAD==base, PUBLIC-OBJECT base ancestor origin/main, DELTA\u2261ALLOWED diff\u2261allowed, CI-HYGIENE _output.txt\u2192FAIL; run before push STOP at finding"
     }
   ]
 }

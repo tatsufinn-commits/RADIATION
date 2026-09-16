@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.11 · Ratified by THE COMMANDER · 2026-09-16 · RD-3 silence reconciliation + incident chain closure laws CUE reconciliation + admission gate
+**Version:** v3.10.12 · Ratified by THE COMMANDER · 2026-09-16 · P-12 Post-Incident Hygiene & Motor-Preflight
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

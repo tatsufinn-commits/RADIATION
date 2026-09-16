@@ -6,6 +6,44 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.12 — 2026-09-16 — P-12 POST-INCIDENT HYGIENE & MOTOR-PREFLIGHT (LAW-5)
+
+**P-12 Post-Incident Hygiene & Motor-Preflight per Architect Directive base 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef sealed (RD-3 + run #82 fix). One sealed candidate one purpose II.7.4 — ship preflight tool that makes LAW-5 executable + close out standing WARN-class debt so census 4 can shrink or be honestly chartered. Nothing else.**
+
+**Framing:** Four laws now machine-enforced inside gate (release_truth_check.py 11/11). One incident they could not prevent lived in motor's workspace (stale-base extraction + hand merge — run #82: 0c0548b Restore EXPECTATION.json from RD-3 commit 2bc6e17 undo pull-merge hand-splice, base still fee4a95 but tree was 0c0548b ancestor mismatch). P-12 closes that flank.
+
+**(a) MOTOR-PREFLIGHT TOOL — encode LAW-5:**
+- A scripts/push_preflight_check.py — stdlib ONLY, modeled on release_truth_check.py house style (self-testable, --self-test flag, no network beyond git fetch):
+  - BASE-PIN CHECK (LAW-5): git rev-parse HEAD must equal tranche's declared base (arg --base <sha>, defaulting to EXPECTATION's base_sha); print SHA — verify-the-face moment for motor. If HEAD != base FAIL: motor at wrong base (stale-base extraction risk run #82 genus)
+  - PUBLIC-OBJECT CHECK (LAW-1 mirror): git fetch origin → declared base must exist (git cat-file -e) AND be ancestor of origin/main (mirror gate's LAW-1 logic so failure modes match)
+  - DELTA-≡-ALLOWED CHECK (LAW-3 mirror): path set git diff --name-status <base>..HEAD ≡ allowed_changes of candidate EXPECTATION — ∅ both directions (mirror LAW-3)
+  - CI-HYGIENE CHECK (LAW-4 mirror): untracked/unignored diagnostic artifacts (*_output.txt, apply_report.txt) in worktree → FAIL with names (mirror LAW-4)
+  - Exit 0/1; failures printed as LAW-n name: finding lines so motor reads laws not stack traces
+- A tests/test_push_preflight.py — unittest vectors 5 (happy path HEAD==base allowed==diff, wrong-HEAD base, extra-in-diff, extra-in-allowed, CI hygiene _output.txt), synthetic repos like gate's self-test harness, 101 total tests now (96 + 5)
+- M tools/TOOL_REGISTRY.json — add push_preflight_check entry 25 tools, description ≤200, generated_by ≤120, test_command self-test
+- M docs/CAPABILITIES.md GENERATED — now includes push_preflight_check.py motor preflight tool
+- M docs/RELEASE_TRUTH_GATE/README.md — one short section Motor preflight: run python3 scripts/push_preflight_check.py before extraction/push; STOP at any finding (canonical doc lane, cross-linked to CUE_SYSTEM.md + WARN_LEDGER.md)
+- M docs/CUE_SYSTEM.md — living layers pointer + cross-link to motor preflight + WARN_LEDGER.md
+
+**(b) WARN CENSUS AUDIT — standing 4 WARN in 42·38·4·0 at base 0c0548b:**
+- At base: WARN 11.6 replica tranche authority OPEN GOVERNED EXCEPTION commander-review-requested, WARN 15 boot-byte budget Tier0+1 44.5KB over cap 40, WARN 16 meta-budget 42 canon vs 4 content OVER by 122, WARN 20.5 planner theater guard plan exists last 3 rows no attempt
+- Dispositions, budget ≤2 files each:
+  - WARN 11.6 Charter: A docs/WARN_LEDGER.md — "WARN 11.6 is accepted-class because replica tranche provisionally admitted per Commander order with explicit ratification record commander-review-requested, decision options A/B documented, no deletion, drift fails, Commander-only narrowing — governance exception by design"
+  - WARN 15 Charter: same ledger — "WARN 15 is accepted-class because boot-byte census surfaces info by design, Tier0+1 over cap 40 due to state-carrying docs, II.10 compression ACTIVE, P-09 pending ratification keeps enforcement WARN-class"
+  - WARN 16 Charter: same ledger — "WARN 16 is accepted-class because meta-budget census surfaces info by design — canon patches are governance/mechanical hardening during hardening phase, content sessions Commander-gated, ratio over budget informational not blocking"
+  - WARN 20.5 Fix: M Brain/frontal_lobe/task_ledger.md — added attempt: P-12 build executed row with explicit marker attempt: per Brain/short_term/plan/README.md recording attempt, trivially fixable in scope P-12
+- Goal: WARN count either falls or each surviving WARN has written reason. Both outcomes success; hiding WARNs is not. Result: 42·38·4·0 → 42·39·3·0 (20.5 fixed), 3 remaining WARNs chartered in WARN_LEDGER.md with rationale, future readers see [accepted] not re-litigate.
+
+**(c) VERIFY-ONLY:**
+- README M v3.10.11→v3.10.12 reflects P-12 lineage + run #83? Actually run #82 fixed at 0c0548b, now P-12 builds on 0c0548b, version v3.10.12
+- docs/SYSTEM_STATE.md M GENERATED v3.10.12 reflects P-12 + run #82 lineage + 4 laws + LAW-5 + WARN census 4→3
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered (11.6 replica OPEN GOVERNED EXCEPTION accepted, 15 boot-byte accepted, 16 meta-budget accepted, 20.5 fixed), release-truth 0 findings + 11/11 self-test, push_preflight_check 0 findings + 5/5 self-test, cue_resolver lint ok 42 cues, unittest 101 OK (96 + 5 new), render_docs --check PASS, git diff --check clean, porcelain clean, delta-vs-allowed: ran · output ∅, public-object: base 0c0548b ancestor origin/main, version v3.10.12.
+
+**Base pinned:** 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef (Restore EXPECTATION.json from RD-3 commit 2bc6e17 undo pull-merge hand-splice; fixes run 82 step-14). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — motor preflight + WARN census.
+
+
+
 ## v3.10.11 — 2026-09-16 — RD-3 SILENCE RECONCILIATION + INCIDENT CHAIN CLOSURE LAWS (P-11-C? Actually RD-3)
 
 **RD-3 SILENCE RECONCILIATION per Commander directive 2026-09-16 base fee4a955 sealed merge PR #2 run #81 green 22/22, incident chain #75-#81 closure. One sealed candidate one purpose II.7.4 — RD-3 + pipeline laws + ledger honesty.**
