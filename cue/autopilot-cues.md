@@ -15,7 +15,8 @@
 | "proceed (to Patch N)!" | Explicit 🟠 ratification | Build + apply + rezip + present |
 | Supplies a link/file without instructions | Register/ingest it under the governing region's rules | Ask ONLY if the target region is ambiguous |
 | "LETS MOVE ON!" | Close topic, next objective | No lingering; carry open reminders forward silently |
-| Silence after a Scan Declaration | Consent | Execute (III.6) |
+| Silence after a Scan Declaration (ARCHIVED S001 old — pointer to RD-3 v2) | Consent (old broad: Execute per III.6) | Execute (III.6) (old) — **ARCHIVED 2026-09-16 RD-3, see new v2 below, pointer: cue/CUE_CATALOG.json CUE-SILENCE-CONSENT v2** |
+| Silence after a Scan Declaration — RD-3 v2 (2026-09-16) | Consent for read/evidence-producing protocol work only | Proceed with read/evidence-producing protocol work only per III.6 RD-3: Tier 0-2 reads, Scan Declaration, ledger reads, evidence gathering, status checks. Any effect beyond read (writes to Brain beyond short_term, patch emission, tool effects, file writes, network writes) requires II.11 control plane (chained decision + content-bound approval) or explicit Commander order. Old reading "Execute (III.6)" archived — new carries read-only scope per RD-3 reconciliation docs/.readme §8.4 vs AGENTS.md. |
 
 ## CONFIRMED CUES — Test 2 additions (S002/S003)
 | Commander says / does | Means | Autopilot response |
@@ -115,3 +116,24 @@
 | NEW L79 v2 (2026-09-16) REQUIRES EXPLICIT COMMANDER RATIFICATION — old: "Continuous operation is default — do not ask whether to continue; declare next objective and build" / new: "Continuous-operation fact, not scope grant — does NOT authorize new builds beyond current directive; next objective requires explicit Commander order (lexicon L18 wins)" | "WE are not done working" (plural WE) — continuous-operation fact | Sessions are legs of one campaign (fact). Does NOT grant scope beyond current explicit directive. | Continuous-operation is a fact about campaign continuity, not a scope grant authorizing new builds. Next objective requires explicit Commander order per lexicon L18 "A fact, not a scope grant" (winner). Old reading archived with pointer to lexicon L18. Rationale: prevents scope creep, aligns with II.2 append-only and control plane II.11. |
 
 **II.7.8 compliance:** Each re-scoped row above quotes old text and new text side-by-side with rationale and carries "REQUIRES EXPLICIT COMMANDER RATIFICATION" flag. Old rows remain in file (never deleted) per II.2/II.10, new rows supersede via pointer. Catalog entries CUE-RATIFICATION v2, CUE-FULL-DISCRETION v2, CUE-CONTINUOUS-OP v2 carry same side-by-side in action field and evidence note.
+
+## CONFIRMED CUES — RD-3 SILENCE RECONCILIATION (2026-09-16) — docs/.readme §8.4 vs AGENTS.md
+
+**Additive/tombstone never deletion per II.2/II.10 — old row remains, new row supersedes with pointer. Flagged 🟠 RD-3 in P-11-A, now resolved.**
+
+### RD-3 — Silence after Scan Declaration — read-only scope
+
+| Status | Commander says / does | Means | Autopilot response |
+|---|---|---|---|
+| ARCHIVED silence old (S001) — pointer to RD-3 v2 | Silence after a Scan Declaration | Consent (old broad) | Execute (III.6) (old) — **ARCHIVED 2026-09-16 RD-3, see new v2 below, pointer: cue/CUE_CATALOG.json CUE-SILENCE-CONSENT v2** |
+| NEW RD-3 v2 (2026-09-16) — old: "Execute (III.6)" / new: "Proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane or explicit Commander order" | Silence after a Scan Declaration | Consent for read/evidence-producing protocol work only (Tier 0-2 reads, Scan Declaration, ledger reads, evidence gathering, status checks) | Proceed with read/evidence-producing protocol work only per III.6 RD-3. Any effect beyond read (writes to Brain beyond short_term, patch emission, tool effects, file writes, network writes) requires II.11 control plane (chained decision + content-bound approval) or explicit Commander order. Old reading "Execute (III.6)" archived — new carries read-only scope per RD-3 reconciliation docs/.readme §8.4 vs AGENTS.md. Rationale: prevents silent execution of writes/effects, aligns with AGENTS.md defaults read/plan/evidence only and II.11 control plane boundary. |
+
+**Disposition:** Additive/tombstone — old remains archived with pointer to new v2, new v2 supersedes. Catalog CUE-SILENCE-CONSENT v1→v2 carries side-by-side old/new in action field and evidence note per II.7.8.
+
+**References:**
+- docs/.readme §8.4 old: "On Commander silence: execute." → new: "On Commander silence: proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane or explicit Commander order."
+- AGENTS.md: "Defaults: read/plan/evidence only. Drafts exist solely through ratified II.11 control plane"
+- docs/CUE_SYSTEM.md §5: "silence = proceed" → "silence = proceed with read-only per RD-3"
+- scaffolding/core/proc_scan-declaration.md: "Silence after Scan Declaration | Consent | Execute (III.6)" → "Consent for read-only | Proceed read-only, effects require II.11"
+- docs/AI_RULES.md III.6: "Commander silence = proceed" → "Commander silence = proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane"
+- cue/CUE_INDEX.md: "always precedes work; Commander silence = proceed" → "always precedes work; Commander silence = proceed read-only per RD-3, effects require II.11"

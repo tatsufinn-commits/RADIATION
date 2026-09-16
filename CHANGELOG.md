@@ -6,6 +6,43 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.11 — 2026-09-16 — RD-3 SILENCE RECONCILIATION + INCIDENT CHAIN CLOSURE LAWS (P-11-C? Actually RD-3)
+
+**RD-3 SILENCE RECONCILIATION per Commander directive 2026-09-16 base fee4a955 sealed merge PR #2 run #81 green 22/22, incident chain #75-#81 closure. One sealed candidate one purpose II.7.4 — RD-3 + pipeline laws + ledger honesty.**
+
+**RD-3 — docs/.readme §8.4 vs AGENTS.md reconciliation:**
+- Old broad: "On Commander silence: execute." / "Silence after a Scan Declaration | Consent | Execute (III.6)" / CUE-SILENCE-CONSENT v1 action "Execute per III.6 Commander silence = proceed" effect read but action broad
+- New read-only: "Silence after Scan Declaration authorizes read/evidence-producing protocol work only (Tier 0-2 reads, Scan Declaration, ledger reads, evidence gathering, status checks). Any effect beyond read (writes to Brain beyond short_term, patch emission, tool effects, file writes, network writes) requires II.11 control plane (chained decision + content-bound approval) or explicit Commander order."
+- Rationale: prevents silent execution of writes/effects, aligns with AGENTS.md defaults read/plan/evidence only and II.11 control plane boundary, closes RD-3 flagged 🟠 since P-11-A.
+- Disposition: additive/tombstone never deletion II.2/II.10 — old row remains archived with pointer to new v2, new v2 supersedes. Catalog CUE-SILENCE-CONSENT v1→v2 carries side-by-side old/new in action field and evidence note.
+- Files: docs/.readme §8.4 M, AGENTS.md M, docs/CUE_SYSTEM.md M, scaffolding/core/proc_scan-declaration.md M, docs/AI_RULES.md III.6 M, cue/CUE_INDEX.md M, cue/autopilot-cues.md M additive RD-3 section ARCHIVED+NEW v2, cue/commander-lexicon.md M append-only RD-3 row, cue/CUE_CATALOG.json v2→v3 (version 3, CUE-SILENCE-CONSENT v2 read-only), tests/test_cue_resolver.py M +9 vectors TestRD3SilenceReconciliation (v2 read-only, effect read, precedence ratified_policy, docs/.readme/AGENTS/CUE_SYSTEM/AI_RULES/autopilot-cues/lexicon checks).
+
+**FOUR LAWS — mandatory additions to batch-zip protocol, effective next tranche after incident chain #75-#81 (genus: expectations authored against author's environment instead of real public executor):**
+- LAW-1 PUBLIC-OBJECT LAW: Expectation ships only after release_truth_check.py runs 0 findings in fresh clone of exact push candidate's object set — never authoring machine. Every SHA inside EXPECTATION.json must git cat-file -t against origin. Local objects don't exist; only pushed history is real. Implemented in scripts/release_truth_check.py check_public_object_law() — fetch origin, cat-file -e, branch -r --contains, merge-base --is-ancestor origin/main.
+- LAW-2 STDLIB-ONLY LAW: mandatory_validations only commands CI guarantees. pytest|pip|conda|npm|npx|node machine-rejected (check_forbidden_tools_in_validations + self-test vector 8). Already in-tree since 5900-1.
+- LAW-3 DELTA-≡-ALLOWED LAW: path set of git diff --name-status base..HEAD must be exactly equal to allowed_changes coverage (δ=∅ both directions). Implemented check_delta_equals_allowed() — extra in diff and extra in allowed both FAIL. DELIVERY_REPORT mandatory field "delta-vs-allowed check: ran · output ∅."
+- LAW-4 CI-HYGIENE LAW: Anything CI/workflow writes (teed logs, reports, caches) must be gitignored or out-of-repo — precedents §3c validation_report.json, new §3f /*_output.txt /apply_report.txt. Already fixed via 945eb21, now enforced.
+
+**Incident chain #75-#81 honesty (ledger truth):**
+- #75 fcc9a7a Add CUE tranche 5900 — FAILURE step 14 Release Truth Gate live check pytest not installed CI 3.11 clean, local green dependency contamination (pytest preinstalled in author sandbox). Root PROVEN via job metadata API step 14 failure 32s exit 1, steps 1-13 success 15-17 skipped, workflow never pip-installs. Genus: author-machine contamination.
+- #76 d518f3f 5900-1 repair attempt local — FAILURE base_sha pinned to local-only d518f3f + allowed list missing two repair-tree paths .github/workflows/validate.yml + scripts/release_truth_check.py. Gate correctly rejected: base not ancestor of origin, undeclared paths. Genus: local object doesn't exist on origin.
+- PR-2-first-round fix/release-truth-base-repin — FAILURE observability tee'd 25 diagnostic files /*_output.txt into tree gate inspects, undeclared paths. Genus: CI writes assumed out-of-repo but were in-repo.
+- #80/81 fix/release-truth-base-repin final — SUCCESS 2a16b30 re-pin base to public fcc9a7a, 04e8cd8 declare 5900-1 infra paths, 945eb21 ignore teed diagnostics + .gitignore allowlist + /apply_report.txt. Merge PR #2 fee4a95 green 22/22, 42·38·4·0, release-truth 0, 87 unittest, 8/8 self-test (now 11/11 with new laws).
+- Gate family caught all three; Copilot fix team repaired inside scope. Content never defect; packaging was, three times. Laws follow.
+
+**Obligations from directive INCIDENT CHAIN CLOSING:**
+- Cosmetic: workflow step label self-test (7 vectors) → (11 vectors) — tool runs 11, label now 11 (was 7 lag, P-11-B added 8th, RD-3 adds 3 more for LAW-1/LAW-3)
+- Re-pin: EXPECTATION base_sha = fee4a955c0781bd9d81c87906bc7c1464d038afa sealed merge commit, allowed list = true delta only (exact equality per LAW-3)
+- Ledger honesty: this CHANGELOG + PATCH_LEDGER + ROADMAP + task_ledger + shrine LOG rows narrating #75-#78→#80/81 lineage truthfully as incident chain, not three unrelated events
+- Memo: 08-overhaul/MEMO_POSTMORTEM_gate-chain-2026-09-16.md — 3 defects / 1 genus / 4 laws / receipts, prime exhibit Verify-the-Face doctrine
+- Anticipatory: external-auditor docs (CUE_LAYER_AUDIT.md, P11_DISPOSITION, v1 proposal) never arrived; P-11-B sealed desk-scoped replacements flagged REQUIRES EXPLICIT COMMANDER RATIFICATION, RATIFIED 2026-09-16 via "I ratify P-11-B CUE reconciliation". If auditor texts land, expect P-11-C review.
+
+**Gates:** 42·38·4·0 0 FAIL 4 WARN tolerated (15 boot-byte, 16 meta-budget, 20.5 planner theater, 11.6 replica tranche OPEN GOVERNED EXCEPTION), release-truth 0 findings + 11/11 self-test (8 previous + 3 new LAW-1/LAW-3), catalog 0+24/24, unittest 96 OK (87 previous + 9 RD-3), lint ok 42 cues authority_grant 11 with review_after, render_docs --check PASS, whitespace clean, status clean, delta-vs-allowed check: ran · output ∅, public-object check: ran · base fee4a95 ancestor of origin/main.
+
+**Base pinned:** fee4a955c0781bd9d81c87906bc7c1464d038afa (sealed merge PR #2 run #81 green). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — RD-3 silence reconciliation + pipeline laws + incident chain closure.
+
+
+
 ## v3.10.10 — 2026-09-16 — CUE RECONCILIATION + ADMISSION GATE (P-11-B)
 
 **P-11-B CUE RECONCILIATION + ADMISSION GATE per Commander directive 2026-09-15/16 base d518f3f post-repair main (5900-1 gate defect repair green 42·38·4·0 8/8 release-truth). One sealed candidate one purpose II.7.4.**

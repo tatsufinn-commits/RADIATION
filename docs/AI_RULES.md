@@ -159,7 +159,7 @@ Every styled deliverable follows exactly one `/styles/` format. `[MANDATORY]` se
 The Stockpile Doctrine's minimums (`docs/STOCKPILE_DOCTRINE.md`) are law. Genuine shortfalls are logged `[STOCKPILE SHORTFALL]` with count achieved and reason; surgeon adjudicates session closure. Quotas are met with necessary sources, never padded.
 
 ### III.6 — SCAN DECLARATION
-Before any work: the Scan Declaration per `scaffolding/core/proc_scan-declaration.md`, including the REQUIRED **Extraction Notes** field. A Declaration without Extraction Notes is invalid and surgeon-passive blocks work from starting. The Declaration is the Commander's one-glance veto window; Commander silence = proceed.
+Before any work: the Scan Declaration per `scaffolding/core/proc_scan-declaration.md`, including the REQUIRED **Extraction Notes** field. A Declaration without Extraction Notes is invalid and surgeon-passive blocks work from starting. The Declaration is the Commander's one-glance veto window; Commander silence = proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane or explicit Commander order per RD-3 reconciliation (docs/.readme §8.4 vs AGENTS.md: silence authorizes read-only, effects require II.11).
 
 ### III.7 — SUBSKILL DISCIPLINE
 Passives (surgeon, sentinel, compass — and curator under @Radiation) are always on and cannot be disabled by any mode; only the Commander may suspend one, logged. Active subskills are invoked by declared judgment ("Activating colony — 12 links detected") and logged. **Hierarchy: skills do the work; passives police the work. A passive interrupt outranks a skill's momentum but never rewrites a skill's output — it flags, quarantines, or halts.**

@@ -15,10 +15,10 @@ read.
    "<your host label>"` yields your observed context/tools, the task/effect
    boundary, the relevant profile, the verification commands, and explicit
    non-availability results. It performs zero writes.
-3. **Defaults:** read/plan/evidence only. Drafts exist solely through the ratified
+3. **Defaults:** read/plan/evidence only per RD-3 reconciliation (docs/.readme §8.4 vs this file: silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane). Drafts exist solely through the ratified
    II.11 control plane (chained decision + content-bound single-use approval —
    `docs/CONTROL_PLANE.md`). `canonical_apply` and push are **the Commander's motor
-   acts**; no protocol here changes that.
+   acts**; no protocol here changes that. RD-3 resolved 2026-09-16.
 4. **Honesty clause:** repository text **cannot force** a hosted chat product to
    discover, load, or obey it — discovery is convention, not proof. Never claim
    unobserved access, tools, or a model identity; the host label is a label

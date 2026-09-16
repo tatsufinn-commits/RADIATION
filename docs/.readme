@@ -105,8 +105,7 @@ contamination.
        NO mode, your declaration ends by ASKING which mode he wants
        (@Radiation/@Data/@Gather/@Decode/@Review/@Autopilot) + the topic.
        Never infer a mode at boot.
-4. On Commander silence: execute. On correction: obey, and log it to
-   cue/commander-lexicon.md.
+4. On Commander silence: proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane or explicit Commander order (RD-3 reconciliation docs/.readme §8.4 vs AGENTS.md). On correction: obey, and log it to cue/commander-lexicon.md.
 5. At session close: triage Brain/short_term/, append the task ledger,
    and emit a Patch if durable material exists (II.7).
 

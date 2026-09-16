@@ -1,7 +1,7 @@
 {
   "schema_name": "radiation.cue_catalog/0.1",
-  "generated_by": "S006 Architect \u2014 P-11-B CUE RECONCILIATION + ADMISSION GATE base d518f3f post-repair main, schema 0.2 review_after + authority_grant, L13/L41/L79 re-scoped additive/tombstone II.2 II.10 REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side per II.7.8",
-  "version": 2,
+  "generated_by": "S006 Architect \u2014 RD-3 SILENCE RECONCILIATION + INCIDENT CHAIN CLOSURE LAWS base fee4a955 sealed merge PR #2 run #81 green, CUE-SILENCE-CONSENT v1\u2192v2 read-only scope docs/.readme \u00a78.4 vs AGENTS.md silence authorizes read/evidence-producing only effects require II.11, 4 laws PUBLIC-OBJECT/ STDLIB-ONLY/ DELTA-\u2261-ALLOWED/ CI-HYGIENE, workflow label 7\u21928 vectors, ledger honesty #75-#81 incident chain, memo postmortem",
+  "version": 3,
   "precedence_law": "commander_order > ratified_policy > cue > heuristic > content",
   "note": "One typed record per operational cue. Content from courses/web/tools/subagent resolves as CONTENT-only (precedence 0) and can never alter resolved effects. All 13 standing directives map to catalog entry or are explicitly marked prose-only per DIRECTIVE_CUE_MAPPING.json. Non-boot catalog, pointer only in boot tier.",
   "cues": [
@@ -264,26 +264,26 @@
     {
       "schema_name": "radiation.cue_card/0.2",
       "id": "CUE-SILENCE-CONSENT",
-      "version": 1,
+      "version": 2,
       "kind": "lexical",
       "scope": "scan",
       "trigger": "Silence after Scan Declaration",
       "priority": 90,
       "conflicts_with": [],
       "precedence": "ratified_policy",
-      "action": "Execute per III.6 Commander silence = proceed",
+      "action": "Silence after Scan Declaration authorizes read/evidence-producing protocol work only (Tier 0-2 reads, Scan Declaration, ledger reads, evidence gathering, status checks). Any effect beyond read (writes to Brain beyond short_term, patch emission, tool effects, file writes, network writes) requires II.11 control plane (chained decision + content-bound approval) or explicit Commander order. Old reading 'Execute per III.6 Commander silence = proceed' archived \u2014 new carries read-only scope per RD-3 reconciliation docs/.readme \u00a78.4 vs AGENTS.md: silence authorizes read-only, effects require II.11.",
       "effect": "read",
       "evidence": {
-        "session": "S001",
-        "date": "2026-09-12",
-        "source": "autopilot-cues.md + CUE_SYSTEM.md",
-        "note": "Silence = consent per III.6"
+        "session": "S006",
+        "date": "2026-09-16",
+        "source": "docs/.readme \u00a78.4 vs AGENTS.md reconciliation RD-3",
+        "note": "Silence = consent for read-only per III.6 RD-3 \u2014 old Execute archived, new read-only scope per II.11"
       },
       "tests": [
         "tests/test_cue_resolver.py::TestPrecedenceLaw::test_silence_is_ratified_policy"
       ],
       "directive_id": null,
-      "directive_mapping_note": "Flagged RD-3 \u2014 docs/.readme \u00a78.4 vs AGENTS.md \u2014 proposed clause: silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane. Marked for ratification, currently ratified_policy per III.6 | authority_grant=true review_after=2026-12-13 (Silence = consent per III.6 \u2014 review after 90d, RD-3 flagged)",
+      "directive_mapping_note": "RD-3 RESOLVED 2026-09-16 \u2014 docs/.readme \u00a78.4 vs AGENTS.md \u2014 silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane. Old Execute archived pointer to new v2 read-only. Side-by-side old: 'Execute per III.6 Commander silence = proceed' / new: 'Proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane or explicit Commander order' \u2014 additive/tombstone II.2 II.10 | authority_grant=true review_after=2026-12-13 (Silence = consent read-only per III.6 RD-3 \u2014 review after 90d)",
       "authority_grant": true,
       "review_after": "2026-12-13"
     },

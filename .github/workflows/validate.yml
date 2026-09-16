@@ -59,7 +59,7 @@ jobs:
       - name: Release Truth Gate live check (5824 FIX per review 98d8c81 gap 3)
         run: |
           python3 scripts/release_truth_check.py 2>&1 | tee release_truth_output.txt
-      - name: Release Truth Gate self-test (7 vectors)
+      - name: Release Truth Gate self-test (11 vectors)
         run: python3 scripts/release_truth_check.py --self-test 2>&1 | tee release_truth_selftest_output.txt
       - name: Byte-compile all scripts
         run: python3 -m py_compile scripts/*.py radiation_core/*.py 2>&1 | tee pycompile_output.txt

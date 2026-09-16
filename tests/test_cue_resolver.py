@@ -603,5 +603,74 @@ class TestAdmissionGate(unittest.TestCase):
         # No review_after -> should fail lint
         self.assertNotIn("review_after", invalid_new_cue, "invalid cue missing review_after should fail")
 
+
+class TestRD3SilenceReconciliation(unittest.TestCase):
+    """
+    RD-3 SILENCE RECONCILIATION: docs/.readme §8.4 vs AGENTS.md
+    Old: Execute per III.6 Commander silence = proceed (broad)
+    New: Silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane or explicit Commander order
+    """
+    def _load_catalog(self):
+        return json.loads((ROOT / "cue" / "CUE_CATALOG.json").read_text(encoding="utf-8"))
+
+    def test_silence_cue_is_v2_read_only(self):
+        catalog = self._load_catalog()
+        cue = next((c for c in catalog["cues"] if c["id"] == "CUE-SILENCE-CONSENT"), None)
+        self.assertIsNotNone(cue, "CUE-SILENCE-CONSENT not found")
+        self.assertEqual(cue["version"], 2, "CUE-SILENCE-CONSENT should be v2 after RD-3")
+        action = cue["action"].lower()
+        self.assertIn("read/evidence-producing protocol work only", action, "RD-3 must state read-only scope")
+        self.assertIn("any effect beyond read", action, "RD-3 must state effects require II.11")
+        self.assertIn("ii.11 control plane", action, "RD-3 must reference II.11")
+        self.assertIn("old reading", action, "RD-3 must carry side-by-side old/new per II.7.8")
+        self.assertIn("archived", action, "RD-3 old archived")
+
+    def test_silence_effect_is_read(self):
+        catalog = self._load_catalog()
+        cue = next((c for c in catalog["cues"] if c["id"] == "CUE-SILENCE-CONSENT"), None)
+        self.assertEqual(cue["effect"], "read", "Silence consent effect must be read (read-only)")
+
+    def test_silence_precedence_ratified_policy(self):
+        catalog = self._load_catalog()
+        cue = next((c for c in catalog["cues"] if c["id"] == "CUE-SILENCE-CONSENT"), None)
+        self.assertEqual(cue["precedence"], "ratified_policy", "Silence is ratified_policy per III.6")
+
+    def test_docs_readme_silence_read_only(self):
+        readme = (ROOT / "docs" / ".readme").read_text(encoding="utf-8")
+        self.assertIn("read/evidence-producing protocol work only", readme, "docs/.readme §8.4 must state read-only")
+        self.assertIn("II.11 control plane", readme, "docs/.readme must reference II.11")
+
+    def test_agents_md_silence_read_only(self):
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn("read/plan/evidence only", agents.lower(), "AGENTS.md must state read-only defaults")
+        self.assertIn("II.11", agents, "AGENTS.md must reference II.11")
+        self.assertIn("RD-3", agents, "AGENTS.md must note RD-3 resolved")
+
+    def test_cue_system_silence_read_only(self):
+        cue_system = (ROOT / "docs" / "CUE_SYSTEM.md").read_text(encoding="utf-8")
+        self.assertIn("read/evidence-producing protocol work only", cue_system, "CUE_SYSTEM.md must state read-only per RD-3")
+        self.assertIn("II.11", cue_system)
+
+    def test_ai_rules_iii6_silence_read_only(self):
+        ai_rules = (ROOT / "docs" / "AI_RULES.md").read_text(encoding="utf-8")
+        self.assertIn("read/evidence-producing protocol work only", ai_rules, "AI_RULES III.6 must state read-only per RD-3")
+        self.assertIn("II.11", ai_rules)
+
+    def test_autopilot_cues_silence_archived_and_new(self):
+        cues_md = (ROOT / "cue" / "autopilot-cues.md").read_text(encoding="utf-8")
+        self.assertIn("ARCHIVED", cues_md, "autopilot-cues must have ARCHIVED old silence")
+        self.assertIn("RD-3 v2", cues_md, "autopilot-cues must have NEW RD-3 v2")
+        self.assertIn("read/evidence-producing protocol work only", cues_md)
+
+    def test_lexicon_silence_entry(self):
+        lex = (ROOT / "cue" / "commander-lexicon.md").read_text(encoding="utf-8")
+        self.assertIn("silence after scan declaration", lex.lower())
+        self.assertIn("RD-3", lex)
+        self.assertIn("read/evidence-producing", lex.lower())
+
+if __name__ == "__main__":
+    unittest.main()
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -51,6 +51,69 @@ def check_base_sha(data):
             findings.append(f"base_sha {base} is not ancestor of HEAD")
     return findings
 
+def check_public_object_law(data):
+    # LAW-1 PUBLIC-OBJECT LAW — effective next tranche after incident chain #75-#81
+    # An Expectation ships only after release_truth_check runs 0 findings in a fresh clone of the exact push candidate's object set — never on authoring machine.
+    # Every SHA inside EXPECTATION.json must git cat-file -t against origin. Local objects don't exist; only pushed history is real.
+    findings = []
+    base = data.get("base_sha")
+    if not base:
+        return findings
+    # Check if origin remote exists
+    p = run("git remote | grep -q origin; echo $?")
+    has_origin = p.stdout.strip().endswith("0") or "0" in p.stdout
+    # More robust: git remote get-url origin
+    p_remote = run("git remote get-url origin 2>&1")
+    if p_remote.returncode != 0:
+        # No origin — skip in self-test temp repos, but in real repo origin exists
+        return findings
+    # Fetch origin quietly to ensure origin/main present
+    run("git fetch origin --quiet 2>&1 || true")
+    p_cat = run(f"git cat-file -e {base} 2>&1")
+    if p_cat.returncode != 0:
+        findings.append(f"LAW-1 PUBLIC-OBJECT: base_sha {base} does not exist (git cat-file -e failed) — local objects don't exist; only pushed history is real; must exist against origin")
+        return findings
+    # If origin/main exists, ensure base is ancestor of origin/main when base_must_be_ancestor true, or at least exists in origin's history
+    p_origin_main = run("git rev-parse --verify origin/main 2>&1")
+    if p_origin_main.returncode == 0:
+        # Check if base is reachable from origin/main OR origin/main is descendant? Actually base must be ancestor of origin/main or at least exist in origin
+        # For strict LAW-1: base must be ancestor of origin/main if base_must_be_ancestor, else at least contained in origin
+        p_contains = run(f"git branch -r --contains {base} 2>&1")
+        contains_origin = "origin/main" in p_contains.stdout or "origin/HEAD" in p_contains.stdout or "origin/" in p_contains.stdout
+        if data.get("base_must_be_ancestor"):
+            p_anc = run(f"git merge-base --is-ancestor {base} origin/main")
+            if p_anc.returncode != 0:
+                findings.append(f"LAW-1 PUBLIC-OBJECT: base_sha {base} is not ancestor of origin/main (branch -r --contains: {p_contains.stdout[:200]}) — local-only object, violates PUBLIC-OBJECT LAW (must git cat-file -t against origin, must be ancestor of origin/main)")
+        else:
+            if not contains_origin:
+                # Still warn if not contained in any origin branch — local-only
+                findings.append(f"LAW-1 PUBLIC-OBJECT: base_sha {base} not found in any origin branch (branch -r --contains empty) — possible local-only object")
+    return findings
+
+def check_delta_equals_allowed(data):
+    # LAW-3 DELTA-≡-ALLOWED LAW — effective next tranche after incident chain
+    # Path set of git diff --name-status <base>..HEAD must be exactly equal to allowed_changes coverage (δ = ∅ both directions)
+    findings = []
+    base = data.get("base_sha")
+    if not base:
+        return findings
+    allowed_paths = set()
+    for entry in data.get("allowed_changes", []):
+        if isinstance(entry, dict):
+            pth = entry.get("path")
+            if pth:
+                allowed_paths.add(pth)
+    diff = get_diff_name_status(base)
+    diff_paths = set(path for _, path in diff)
+    if diff_paths != allowed_paths:
+        extra_in_diff = sorted(diff_paths - allowed_paths)
+        extra_in_allowed = sorted(allowed_paths - diff_paths)
+        if extra_in_diff:
+            findings.append(f"LAW-3 DELTA-≡-ALLOWED: diff contains paths not in allowed_changes: {extra_in_diff} — δ extra in diff")
+        if extra_in_allowed:
+            findings.append(f"LAW-3 DELTA-≡-ALLOWED: allowed_changes contains paths not in diff (δ≠∅): {extra_in_allowed} — allowed must equal true delta, no extra entries")
+    return findings
+
 def check_absent_on_disk(data):
     findings = []
     for path in data.get("required_absent_on_disk", []):
@@ -235,10 +298,12 @@ def main_check():
         return 1
     findings = []
     findings.extend(check_base_sha(data))
+    findings.extend(check_public_object_law(data))
     findings.extend(check_absent_on_disk(data))
     findings.extend(check_diff_deletions(data))
     findings.extend(check_forbidden_paths(data))
     findings.extend(check_allowed_changes(data))
+    findings.extend(check_delta_equals_allowed(data))
     findings.extend(check_generated_artifacts(data))
     findings.extend(check_forbidden_tools_in_validations(data))
     findings.extend(check_mandatory_validations(data))
@@ -493,6 +558,105 @@ def self_test():
         finally:
             shutil.rmtree(tmp)
 
+    def v_delta_extra_allowed():
+        # LAW-3 DELTA-≡-ALLOWED: allowed contains path not in diff -> reject
+        tmp = make_temp_repo()
+        try:
+            exp_dir = pathlib.Path(tmp, "docs/RELEASE_TRUTH_GATE")
+            exp_dir.mkdir(parents=True, exist_ok=True)
+            pathlib.Path(tmp, "scripts").mkdir(parents=True, exist_ok=True)
+            p = run("git rev-parse HEAD", cwd=tmp)
+            base = p.stdout.strip()
+            exp = {
+                "base_sha": base,
+                "base_must_be_ancestor": True,
+                "allowed_changes": [{"path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "kind": "M"}, {"path": "extra_not_in_diff.txt", "kind": "M"}],
+                "required_absent_on_disk": [],
+                "required_deletions": [],
+                "required_generated_artifacts": [],
+                "mandatory_validations": [],
+                "forbidden_paths": []
+            }
+            (exp_dir / "EXPECTATION.json").write_text(json.dumps(exp), encoding="utf-8")
+            shutil.copy(str(ROOT / "scripts" / "release_truth_check.py"), str(pathlib.Path(tmp, "scripts/release_truth_check.py")))
+            run("git add . && git commit -qm add-expectation-extra-allowed", cwd=tmp, check=True)
+            p = run("python3 scripts/release_truth_check.py", cwd=tmp)
+            return p.returncode != 0 and "DELTA" in (p.stdout + p.stderr)
+        finally:
+            shutil.rmtree(tmp)
+
+    def v_delta_extra_diff():
+        tmp = make_temp_repo()
+        try:
+            exp_dir = pathlib.Path(tmp, "docs/RELEASE_TRUTH_GATE")
+            exp_dir.mkdir(parents=True, exist_ok=True)
+            pathlib.Path(tmp, "scripts").mkdir(parents=True, exist_ok=True)
+            p = run("git rev-parse HEAD", cwd=tmp)
+            base = p.stdout.strip()
+            pathlib.Path(tmp, "evil2.txt").write_text("evil", encoding="utf-8")
+            run("git add evil2.txt && git commit -qm evil2", cwd=tmp, check=True)
+            exp = {
+                "base_sha": base,
+                "base_must_be_ancestor": True,
+                "allowed_changes": [{"path": "README.md", "kind": "M"}],
+                "required_absent_on_disk": [],
+                "required_deletions": [],
+                "required_generated_artifacts": [],
+                "mandatory_validations": [],
+                "forbidden_paths": []
+            }
+            (exp_dir / "EXPECTATION.json").write_text(json.dumps(exp), encoding="utf-8")
+            shutil.copy(str(ROOT / "scripts" / "release_truth_check.py"), str(pathlib.Path(tmp, "scripts/release_truth_check.py")))
+            p = run("python3 scripts/release_truth_check.py", cwd=tmp)
+            return p.returncode != 0 and ("DELTA" in (p.stdout + p.stderr) or "undeclared" in (p.stdout + p.stderr).lower())
+        finally:
+            shutil.rmtree(tmp)
+
+    def v_public_object_local_only():
+        tmp_origin = tempfile.mkdtemp()
+        tmp_clone = tempfile.mkdtemp()
+        tmp_local = None
+        try:
+            run("git init --bare -q", cwd=tmp_origin, check=True)
+            run(f"git clone {tmp_origin} {tmp_clone} -q", cwd="/tmp", check=True)
+            run("git config user.email test@test.com", cwd=tmp_clone, check=True)
+            run("git config user.name Test", cwd=tmp_clone, check=True)
+            pathlib.Path(tmp_clone, "README.md").write_text("hi origin\n", encoding="utf-8")
+            run("git add README.md && git commit -qm init-origin && git push origin HEAD:main -q", cwd=tmp_clone, check=True)
+            tmp_local = tempfile.mkdtemp()
+            run(f"git clone {tmp_origin} {tmp_local} -q", cwd="/tmp", check=True)
+            run("git config user.email test@test.com", cwd=tmp_local, check=True)
+            run("git config user.name Test", cwd=tmp_local, check=True)
+            pathlib.Path(tmp_local, "local.txt").write_text("local only", encoding="utf-8")
+            run("git add local.txt && git commit -qm local-only", cwd=tmp_local, check=True)
+            p = run("git rev-parse HEAD", cwd=tmp_local)
+            base_local_only = p.stdout.strip()
+            pathlib.Path(tmp_local, "head.txt").write_text("head", encoding="utf-8")
+            run("git add head.txt && git commit -qm head", cwd=tmp_local, check=True)
+            exp_dir = pathlib.Path(tmp_local, "docs/RELEASE_TRUTH_GATE")
+            exp_dir.mkdir(parents=True, exist_ok=True)
+            pathlib.Path(tmp_local, "scripts").mkdir(parents=True, exist_ok=True)
+            exp = {
+                "base_sha": base_local_only,
+                "base_must_be_ancestor": True,
+                "allowed_changes": [{"path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "kind": "M"}, {"path": "head.txt", "kind": "A"}],
+                "required_absent_on_disk": [],
+                "required_deletions": [],
+                "required_generated_artifacts": [],
+                "mandatory_validations": [],
+                "forbidden_paths": []
+            }
+            (exp_dir / "EXPECTATION.json").write_text(json.dumps(exp), encoding="utf-8")
+            shutil.copy(str(ROOT / "scripts" / "release_truth_check.py"), str(pathlib.Path(tmp_local, "scripts/release_truth_check.py")))
+            run("git add . && git commit -qm add-expectation", cwd=tmp_local, check=True)
+            p = run("python3 scripts/release_truth_check.py", cwd=tmp_local)
+            return p.returncode != 0 and "PUBLIC-OBJECT" in (p.stdout + p.stderr)
+        finally:
+            shutil.rmtree(tmp_origin, ignore_errors=True)
+            shutil.rmtree(tmp_clone, ignore_errors=True)
+            if tmp_local:
+                shutil.rmtree(tmp_local, ignore_errors=True)
+
     tests = [
         ("wrong base SHA -> reject", v_wrong_base),
         ("required deleted file still on disk -> reject", v_file_still_on_disk),
@@ -501,6 +665,9 @@ def self_test():
         ("stale generated artifact -> reject", v_stale_artifact),
         ("missing DoD command/outcome -> reject", v_missing_dod),
         ("forbidden non-stdlib tool in mandatory_validations -> reject", v_forbidden_tool_in_expectation),
+        ("LAW-3 DELTA-≡-ALLOWED extra allowed not in diff -> reject", v_delta_extra_allowed),
+        ("LAW-3 DELTA-≡-ALLOWED extra diff not in allowed -> reject", v_delta_extra_diff),
+        ("LAW-1 PUBLIC-OBJECT local-only base not ancestor of origin/main -> reject", v_public_object_local_only),
         ("positive isolated clean -> pass", v_positive_isolated),
     ]
     passed = 0

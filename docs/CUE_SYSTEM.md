@@ -65,7 +65,7 @@ as guidance), scaffolds to arm, quota target.
 ### PHASE 5 — SCAN DECLARATION
 Issue the Declaration per `scaffolding/core/proc_scan-declaration.md` (fixed
 fields incl. REQUIRED Extraction Notes). Always precedes work. Commander
-silence = proceed; correction = immediate override + lexicon entry (II.5).
+silence = proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane or explicit Commander order per RD-3 (docs/.readme §8.4 vs AGENTS.md); correction = immediate override + lexicon entry (II.5).
 
 # 3. EDGE-CASE RULEBOOK (annexed to law III.3)
 
@@ -109,14 +109,14 @@ PROCEDURE:
 
 ---
 
-# 8. THE LIVING LAYERS (added v1.1, 2026-09-13 — additive; no rule above changes, P-11-A pointer 2026-09-15, P-11-B pointer 2026-09-16)
+# 8. THE LIVING LAYERS (added v1.1, 2026-09-13 — additive; no rule above changes, P-11-A pointer 2026-09-15, P-11-B pointer 2026-09-16, RD-3 pointer 2026-09-16)
 The tuple classifies the TASK. These layers classify the COMMANDER — they are
 evidence, and they grow after every session:
 
 - `cue/autopilot-cues.md` — confirmed phrase→meaning cues **+ the STANDING ORDERS
   block. Consult it before ANY autonomy decision** (what is pre-granted, what is
-  frozen, what is still owed). P-11-B reconciliation L13/L41/L79 additive/tombstone never deletion II.2 II.10 REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side per II.7.8.
-- `cue/commander-lexicon.md` — the weighted lexicon (E4 reads it). P-11-B L18 wins over L79 scope-grant — fact not grant.
+  frozen, what is still owed). P-11-B reconciliation L13/L41/L79 additive/tombstone never deletion II.2 II.10 REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side per II.7.8. RD-3 silence reconciliation docs/.readme §8.4 vs AGENTS.md — silence = read-only per III.6, effects require II.11.
+- `cue/commander-lexicon.md` — the weighted lexicon (E4 reads it). P-11-B L18 wins over L79 scope-grant — fact not grant. RD-3 silence = read-only.
 - `Brain/frontal_lobe/learned_cues.md` — the append-only twin (II.5).
 - `docs/shrine/` — the swarm's shared judgment: what prior sessions learned, proved
   and owe. Read the newest testament before system-level work (CHARTER §3 — the
@@ -127,9 +127,9 @@ evidence, and they grow after every session:
   questions. Heuristics, never law; explicit orders always win.
 - `docs/PROMPT_PLAYBOOK.md` — the copy-paste playbook, v1.1: task scenarios
   recycled from Marciale's playbook now sit beside the mode instances.
-- `cue/CUE_CATALOG.json` — compressed typed form (P-11-A Candidate B + P-11-B reconciliation): 42 cues, schema v0.2 adds review_after + authority_grant (linter FAIL when authority_grant true lacks review_after), 13/13 directives mapped, resolver `scripts/cue_resolver.py` law `commander_order>ratified_policy>cue>heuristic>content` CONTENT-only, admission gate 5 conditions + hostile 5th multi-row fixture proving conflict surfacing.
+- `cue/CUE_CATALOG.json` — compressed typed form (P-11-A Candidate B + P-11-B reconciliation + RD-3): 42 cues, schema v0.2 adds review_after + authority_grant (linter FAIL when authority_grant true lacks review_after), 13/13 directives mapped, resolver `scripts/cue_resolver.py` law `commander_order>ratified_policy>cue>heuristic>content` CONTENT-only, admission gate 5 conditions + hostile 5th multi-row fixture proving conflict surfacing, RD-3 silence = read-only effects require II.11.
 - `schemas/cue_card.schema.json` — v0.2 adds review_after date + authority_grant boolean, allOf if authority_grant true then review_after required.
 
 A cue is confirmed only when cited to the session that proved it. Heuristics never
 outrank law (III.3); a standing order tells you what you may do without asking —
-never what you may do against the rules. P-11-B adds expiry discipline: authority-granting cues carry review_after, expired=historical note.
+never what you may do against the rules. P-11-B adds expiry discipline: authority-granting cues carry review_after, expired=historical note. RD-3 adds silence discipline: silence = read-only, effects require II.11 control plane.

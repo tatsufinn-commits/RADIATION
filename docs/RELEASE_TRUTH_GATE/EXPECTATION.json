@@ -1,114 +1,119 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 P-11-B CUE RECONCILIATION + ADMISSION GATE base d518f3f4a75a1a0400679d1d36f882a1057d380f post-repair main (5900-1 gate defect repair green), schema 0.2 review_after+authority_grant, L13/L41/L79 re-scoped additive/tombstone II.2 II.10 REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side per II.7.8",
-  "base_sha": "d518f3f4a75a1a0400679d1d36f882a1057d380f",
+  "generated_by": "S006 Architect \u2014 RD-3 SILENCE RECONCILIATION + INCIDENT CHAIN CLOSURE LAWS base fee4a955 sealed merge PR #2 run #81 green, CUE-SILENCE-CONSENT v1\u2192v2 read-only scope docs/.readme \u00a78.4 vs AGENTS.md silence authorizes read/evidence-producing only effects require II.11, 4 laws PUBLIC-OBJECT/ STDLIB-ONLY/ DELTA-\u2261-ALLOWED/ CI-HYGIENE, workflow label 7\u219211 vectors, ledger honesty #75-#81 incident chain, memo postmortem 3 defects/1 genus/4 laws, 96 unittest 11/11 self-test, delta-vs-allowed \u2205, public-object ancestor origin/main",
+  "base_sha": "fee4a955c0781bd9d81c87906bc7c1464d038afa",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA d518f3f4a75a1a0400679d1d36f882a1057d380f post-repair main after 5900-1 gate defect repair (42\u00b738\u00b74\u00b70 0 FAIL 8/8 release-truth 24/24 catalog 77 unittest). P-11-B CUE RECONCILIATION + ADMISSION GATE: L13 ratification requires explicit reference binding + exact-words citation, L41 grant carries expiry expired=historical note review_after 2026-09-15, L79 reconcile with lexicon L18 fact not scope grant lexicon wins loser archived-with-pointer II.2 II.10, schema v0.2 adds review_after date + authority_grant boolean linter FAIL when authority-grant lacks review_after, admission gate new cue enters only with passing fixture proving five conditions trigger scope priority/evidence conflict-resolution expiry or prose-only marking + TestAdmissionGate 10 vectors + lint vector, hostile suite extension multi_row_conflicting_cues.md 5th shape proving resolver surfaces conflict loser suppressed reason emitted. Non-goals: no other catalogs, no docs-lane, no runtime/routing/providers. One sealed candidate one purpose II.7.4.",
+  "description": "Pins exact base SHA fee4a955c0781bd9d81c87906bc7c1464d038afa sealed merge PR #2 run #81 green 22/22. RD-3 SILENCE RECONCILIATION: docs/.readme \u00a78.4 vs AGENTS.md \u2014 old broad Execute per III.6 Commander silence = proceed, new read-only silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane or explicit Commander order. CUE-SILENCE-CONSENT v1\u2192v2 read-only. 4 laws: PUBLIC-OBJECT (base must git cat-file -t against origin, ancestor of origin/main), STDLIB-ONLY (forbidden tools pytest|pip|conda|node|npm rejected), DELTA-\u2261-ALLOWED (diff path set exactly equals allowed_changes \u03b4=\u2205 both directions), CI-HYGIENE (teed logs gitignored /*_output.txt /apply_report.txt). Obligations: workflow label 7\u219211 vectors, ledger honesty #75-#81 incident chain, memo postmortem 3 defects/1 genus/4 laws, RATIFIED P-11-B via 'I ratify P-11-B CUE reconciliation'. One sealed candidate one purpose II.7.4.",
   "allowed_changes": [
     {
-      "path": "08-overhaul/proposals/PROPOSAL_P11B_CUE_RECONCILIATION.md",
+      "path": ".github/workflows/validate.yml",
+      "kind": "M",
+      "note": "M workflow label self-test 7\u219211 vectors (tool runs 11, was 7 lag)"
+    },
+    {
+      "path": "08-overhaul/MEMO_POSTMORTEM_gate-chain-2026-09-16.md",
       "kind": "A",
-      "note": "A PROPOSAL_P11B_CUE_RECONCILIATION.md \u2014 \ud83d\udfe0 CANON REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side old/new per II.7.8 L13/L41/L79"
+      "note": "A MEMO_POSTMORTEM_gate-chain-2026-09-16.md \u2014 3 defects/1 genus/4 laws/receipts, prime exhibit Verify-the-Face doctrine"
+    },
+    {
+      "path": "AGENTS.md",
+      "kind": "M",
+      "note": "M AGENTS.md \u2014 RD-3 read-only scope + II.11 + RD-3 resolved note"
     },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger for P-11-B"
+      "note": "M task_ledger \u2014 RATIFIED P-11-B + RD-3 + incident chain #75-#81"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG for P-11-B v3.10.10"
+      "note": "M CHANGELOG v3.10.11 RD-3 + incident chain honesty #75-#81 + 4 laws"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README for P-11-B"
+      "note": "M README v3.10.11 RD-3"
     },
     {
       "path": "cue/CUE_CATALOG.json",
       "kind": "M",
-      "note": "M cue/CUE_CATALOG.json \u2014 v2 schema 0.2 42 cues all authority_grant boolean 11 with review_after, L13 v2 explicit reference binding + exact-words, L41 v2 expiry expired=historical note review_after 2026-09-15, L79 v2 fact not grant lexicon L18 wins loser archived-with-pointer"
+      "note": "M CUE_CATALOG v2\u2192v3 CUE-SILENCE-CONSENT v2 read-only effects require II.11 side-by-side old/new"
     },
     {
       "path": "cue/CUE_INDEX.md",
       "kind": "M",
-      "note": "M cue/CUE_INDEX.md \u2014 P-11-B reconciliation + admission gate + schema v0.2 + 5th hostile shape"
+      "note": "M CUE_INDEX \u2014 RD-3 pointer + P-11-B RATIFIED + living layers RD-3"
     },
     {
       "path": "cue/autopilot-cues.md",
       "kind": "M",
-      "note": "M cue/autopilot-cues.md \u2014 additive reconciliation section L13/L41/L79 ARCHIVED + NEW v2 side-by-side REQUIRES EXPLICIT COMMANDER RATIFICATION II.7.8 II.2 II.10"
+      "note": "M autopilot-cues \u2014 additive RD-3 ARCHIVED+NEW v2 read-only + P-11-B RATIFIED note"
     },
     {
       "path": "cue/commander-lexicon.md",
       "kind": "M",
-      "note": "M cue/commander-lexicon.md \u2014 append-only 3 new rows P-11-B L18 wins + L13 re-scope + L41 expiry side-by-side"
+      "note": "M commander-lexicon \u2014 append-only RD-3 row side-by-side old/new"
     },
     {
       "path": "cue/inference-log.md",
       "kind": "M",
-      "note": "M cue/inference-log.md \u2014 append-only 5900-1 + P-11-B upheld"
+      "note": "M inference-log \u2014 RATIFIED P-11-B + RD-3 upheld"
     },
     {
-      "path": "docs/CAPABILITIES.md",
+      "path": "docs/.readme",
       "kind": "M",
-      "note": "M docs/CAPABILITIES.md GENERATED \u2014 cue_resolver updated schema v0.2"
+      "note": "M docs/.readme \u00a78.4 \u2014 silence read-only + II.11 per RD-3"
+    },
+    {
+      "path": "docs/AI_RULES.md",
+      "kind": "M",
+      "note": "M AI_RULES III.6 \u2014 silence read-only + II.11 per RD-3"
     },
     {
       "path": "docs/CUE_SYSTEM.md",
       "kind": "M",
-      "note": "M docs/CUE_SYSTEM.md \u2014 v1.2 pointer + reconciliation + schema v0.2 + expiry discipline"
+      "note": "M CUE_SYSTEM \u2014 silence read-only + living layers RD-3"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md for P-11-B"
-    },
-    {
-      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
-      "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json \u2014 base pinned post-repair d518f3f, allowed delta P-11-B"
+      "note": "M PATCH_LEDGER RD-3 row + incident chain #75-#81"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md for P-11-B"
+      "note": "M ROADMAP RD-3 row + incident chain"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md GENERATED \u2014 v3.10.10"
+      "note": "M SYSTEM_STATE GENERATED v3.10.11 RD-3 + 4 laws"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md \u2014 heartbeat P-11-B"
+      "note": "M shrine LOG \u2014 RATIFICATION P-11-B + RD-3 heartbeat + incident chain"
     },
     {
-      "path": "evals/README.md",
+      "path": "scaffolding/core/proc_scan-declaration.md",
       "kind": "M",
-      "note": "M evals/README.md \u2014 5th shape multi_row_conflicting_cues.md + conflict surfacing"
+      "note": "M proc_scan-declaration \u2014 silence read-only + II.11 + RD-3 table"
     },
     {
-      "path": "evals/hostile/multi_row_conflicting_cues.md",
-      "kind": "A",
-      "note": "A evals/hostile/multi_row_conflicting_cues.md \u2014 P-11-B multi-row conflicting-cue fixture proving resolver surfaces conflict loser suppressed reason emitted"
-    },
-    {
-      "path": "schemas/cue_card.schema.json",
+      "path": "scripts/release_truth_check.py",
       "kind": "M",
-      "note": "M schemas/cue_card.schema.json \u2014 v0.2 adds review_after date + authority_grant boolean + allOf if true then required review_after"
-    },
-    {
-      "path": "scripts/cue_resolver.py",
-      "kind": "M",
-      "note": "M scripts/cue_resolver.py \u2014 P-11-B linter FAIL when authority_grant true lacks review_after + date format"
+      "note": "M release_truth_check \u2014 LAW-1 PUBLIC-OBJECT + LAW-3 DELTA-\u2261-ALLOWED + 3 new self-test vectors 11 total, 4 laws enforcement"
     },
     {
       "path": "tests/test_cue_resolver.py",
       "kind": "M",
-      "note": "M tests/test_cue_resolver.py \u2014 52\u219262 tests: +TestAdmissionGate 10 vectors + multi-row conflicting fixture test"
+      "note": "M test_cue_resolver \u2014 +9 RD-3 vectors 96 total, silence v2 read-only checks"
+    },
+    {
+      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
+      "kind": "M",
+      "note": "M EXPECTATION \u2014 base fee4a95 sealed, allowed exact delta 22 per LAW-3, 4 laws"
     }
   ],
   "required_deletions": [
@@ -200,10 +205,10 @@
       "note": "committed-delta whitespace clean from P-11-A base 4c851e3"
     },
     {
-      "command": "git diff --check d518f3f4a75a1a0400679d1d36f882a1057d380f..HEAD",
+      "command": "git diff --check fcc9a7a23bf465d605e354d01f756674eed7b353..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-11-B base d518f3f4a75a1a0400679d1d36f882a1057d380f"
+      "note": "committed-delta whitespace clean from P-11-B base fcc9a7a23bf465d605e354d01f756674eed7b353 (public 5900 HEAD; 5900-1+P-11-B squashed into 1e201c7)"
     },
     {
       "command": "git status --porcelain",

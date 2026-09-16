@@ -13,7 +13,7 @@
    proceed + name runner-up · LOW (two+ uncertain, or two modes tie): **ASK,
    never guess.**
 5. **SCAN DECLARATION** — fixed fields incl. REQUIRED Extraction Notes;
-   always precedes work; Commander silence = proceed.
+   always precedes work; Commander silence = proceed with read-only per RD-3, effects require II.11.
 
 ## TUPLE → MODE
 answer+ephemeral → @Data · corpus+stored → @Gather · comprehension-map+stored
@@ -31,13 +31,14 @@ EXPLICIT WINS · E7 artifact vs verbal → verbal sets mode, artifact is evidenc
 HALT → RE-SCAN (fresh Declaration, cause stated) → SALVAGE TRIAGE (carry
 forward / subsidiary / [MISREAD ARTIFACT]) → LEXICON ENTRY. Never skip triage.
 
-## COMPRESSION LAYER (P-11-A Candidate B + P-11-B reconciliation, additive II.10 archive never deletion)
+## COMPRESSION LAYER (P-11-A Candidate B + P-11-B reconciliation + RD-3 silence reconciliation, additive II.10 archive never deletion)
 
-- **Typed catalog:** `cue/CUE_CATALOG.json` (42 cues, schema `schemas/cue_card.schema.json` v0.2 P-11-B adds `review_after` + `authority_grant` boolean, linter FAIL when authority-grant true lacks review_after) is the compressed machine-executed form of `cue/autopilot-cues.md` (91 lines ~38 cues + standing orders + term + build cues + P-11-B reconciliation L13/L41/L79 additive/tombstone never deletion). One record per operational cue: id/version/kind/scope/trigger/priority/conflicts_with/precedence/action/effect/evidence/tests + directive_id + authority_grant + review_after.
+- **Typed catalog:** `cue/CUE_CATALOG.json` (42 cues, schema `schemas/cue_card.schema.json` v0.2 P-11-B adds `review_after` + `authority_grant` boolean, linter FAIL when authority-grant true lacks review_after, RD-3 adds read-only scope) is the compressed machine-executed form of `cue/autopilot-cues.md` (91 lines ~38 cues + standing orders + term + build cues + P-11-B reconciliation L13/L41/L79 + RD-3 silence reconciliation additive/tombstone never deletion). One record per operational cue: id/version/kind/scope/trigger/priority/conflicts_with/precedence/action/effect/evidence/tests + directive_id + authority_grant + review_after.
 - **Directive mapping:** `cue/DIRECTIVE_CUE_MAPPING.json` maps ALL 13 SD-GOV-001..013 to catalog entries (0 prose-only) — coverage 13/13 proven by linter.
-- **Resolver:** `scripts/cue_resolver.py` deterministic precedence law `commander_order>ratified_policy>cue>heuristic>content`, CONTENT-only for courses/web/tools/subagent/imported_text, emits selected/suppressed/reason/conflicting_ids/law, closes hostile NOT-proven via REAL resolver over REAL path 4 shapes P-11-A + 5th multi-row conflicting-cue fixture P-11-B proving conflict surfacing loser suppressed reason emitted.
-- **Reconciliation P-11-B (REQUIRES EXPLICIT COMMANDER RATIFICATION):** three flagged rows L13 ratification requires explicit reference binding + exact-words citation, L41 grant carries expiry expired=historical note (review_after 2026-09-15), L79 reconcile with lexicon L18 "a fact, not a scope grant" — lexicon wins loser archived-with-pointer II.2 II.10, side-by-side old/new per II.7.8 in autopilot-cues.md + catalog action + lexicon.
+- **Resolver:** `scripts/cue_resolver.py` deterministic precedence law `commander_order>ratified_policy>cue>heuristic>content`, CONTENT-only for courses/web/tools/subagent/imported_text, emits selected/suppressed/reason/conflicting_ids/law, closes hostile NOT-proven via REAL resolver over REAL path 4 shapes P-11-A + 5th multi-row conflicting-cue fixture P-11-B proving conflict surfacing loser suppressed reason emitted, RD-3 silence = read-only effects require II.11.
+- **Reconciliation P-11-B (RATIFIED 2026-09-16):** three flagged rows L13 ratification requires explicit reference binding + exact-words citation, L41 grant carries expiry expired=historical note (review_after 2026-09-15), L79 reconcile with lexicon L18 "a fact, not a scope grant" — lexicon wins loser archived-with-pointer II.2 II.10, side-by-side old/new per II.7.8 in autopilot-cues.md + catalog action + lexicon. RATIFIED via "I ratify P-11-B CUE reconciliation".
+- **Reconciliation RD-3 (2026-09-16):** silence after Scan Declaration docs/.readme §8.4 vs AGENTS.md — old broad Execute, new read-only: silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane or explicit Commander order. Additive/tombstone old remains archived pointer to new v2.
 - **Admission gate P-11-B:** new cue enters only with passing fixture proving five conditions trigger scope priority/evidence conflict-resolution expiry or prose-only marking, TestAdmissionGate 10 vectors + lint vector authority_grant requires review_after.
 - **Hygiene law:** II.2 append-only, II.10 archive never deletion — this file grows only additively; old prose stays archived, never deleted; compression is pointer + typed catalog, not rewrite.
 - **Boot pointer:** single pointer line in boot tier (per DoD non-boot beyond single pointer line) — `docs/CUE_SYSTEM.md` v1.2 references catalog; boot reads only pointer.
-- **Inference-log audit:** `cue/inference-log.md` append-only, now includes S006 5830 upheld, P-11-A Candidate B upheld, P-11-B reconciliation upheld entries, shrinking NOT-proven to genuinely untestable (non-deterministic LLM, multi-session accumulation, image-only vision rung, human social engineering) + new 5th hostile shape.
+- **Inference-log audit:** `cue/inference-log.md` append-only, now includes S006 5830 upheld, P-11-A Candidate B upheld, P-11-B reconciliation upheld + RATIFIED, RD-3 reconciliation entries, shrinking NOT-proven to genuinely untestable (non-deterministic LLM, multi-session accumulation, image-only vision rung, human social engineering) + new 5th hostile shape.
