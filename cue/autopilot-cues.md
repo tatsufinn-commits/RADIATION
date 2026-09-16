@@ -88,3 +88,30 @@
 6. A WARN that survives a patch is a parked DECISION, not noise — carry it in OPEN DEBTS + the audit doc, or the shrine becomes propaganda (check 24's own rule).
 7. Remedies travel with FAILs: every validator FAIL names its REMEDY (SD-3300-01). A validator that names the wound names the treatment.
 
+
+## CONFIRMED CUES — P-11-B RECONCILIATION (2026-09-16) — REQUIRES EXPLICIT COMMANDER RATIFICATION (II.7.8 side-by-side per task)
+
+**Additive/tombstone never deletion per II.2/II.10 — old rows remain, new rows supersede with pointer. Three flagged rows L13/L41/L79 re-scoped. No external auditor §8.1 replacement texts available — desk-scoped replacements proposed below, each flagged REQUIRES EXPLICIT COMMANDER RATIFICATION per II.7.8.**
+
+### L13 — Ratification (line 13) — re-scope requires explicit reference binding + log line cites exact words
+
+| Status | Commander says / does | Means | Autopilot response |
+|---|---|---|---|
+| ARCHIVED L13 old (S001) — pointer to new | "it went well" / "that's good" (without reference) | Ratification of the referenced work (old broad) | Log RATIFIED in ledgers (old) — **ARCHIVED 2026-09-16 P-11-B, see new L13 v2 below, pointer: cue/CUE_CATALOG.json CUE-RATIFICATION v2** |
+| NEW L13 v2 (2026-09-16) REQUIRES EXPLICIT COMMANDER RATIFICATION — old: "Log RATIFIED in ledgers" / new: "Log RATIFIED only with explicit reference binding + exact-words citation" | "it went well" / "that's good" + explicit reference binding (e.g., "Patch N went well", "that build went well") | Ratification requires explicit reference binding to work + exact words citation | Log RATIFIED in ledgers ONLY when: (1) Commander explicitly references the work (name/number), (2) ledger entry cites exact Commander words verbatim. Casual "that's good" without reference = NOT ratification. Rationale: prevents fabrication per SD-GOV-006. |
+
+### L41 — Full Discretion Grant (line 41) — grant carries expiry expired=historical note
+
+| Status | Commander says / does | Means | Autopilot response |
+|---|---|---|---|
+| ARCHIVED L41 old (S004) — pointer to new | "I will give you full discretion on the next proceeding builds, do what you must!" | Build autonomy granted — delivery discipline is NOT | Proceed without per-step approval; still ship patch zips; never commit (old) — **ARCHIVED 2026-09-16 P-11-B, expired=historical note, see new L41 v2 below, pointer: cue/CUE_CATALOG.json CUE-FULL-DISCRETION v2 review_after 2026-09-15** |
+| NEW L41 v2 (2026-09-16) REQUIRES EXPLICIT COMMANDER RATIFICATION — old: "Build autonomy granted — delivery discipline is NOT; proceed without per-step approval; still ship patch zips; never commit" / new: "Build autonomy GRANTED 2026-09-13 through P-11-A opening base 4c851e3, EXPIRED as of 2026-09-15 P-11-A seal historical note only, renewal requires explicit ratification" | "I will give you full discretion on the next proceeding builds, do what you must!" (historical grant S004 2026-09-13) | Build autonomy GRANTED for window 2026-09-13 through P-11-A opening (base 4c851e3). EXPIRED as of 2026-09-15 — historical note only, not active grant. | Expired grant = historical note. No longer authorizes builds beyond P-11-A. Renewal requires explicit Commander ratification per II.7.8. Delivery discipline never waived; still ship patch zips; never commit. |
+
+### L79 — Continuous Operation (line 79) — reconcile with lexicon L18 "a fact, not a scope grant" — lexicon wins, loser archived-with-pointer
+
+| Status | Commander says / does | Means | Autopilot response |
+|---|---|---|---|
+| ARCHIVED L79 old (S005) — loser, pointer to lexicon L18 winner | "WE are not done working" (plural WE) | Continuous operation is the default state — he states facts, not questions (old scope-grant reading) | Do not ask whether to continue; declare next objective and build (old) — **ARCHIVED 2026-09-16 P-11-B, loser per reconciliation, winner is commander-lexicon.md L18 "A fact, not a scope grant", pointer: cue/commander-lexicon.md L18, see new L79 v2 below** |
+| NEW L79 v2 (2026-09-16) REQUIRES EXPLICIT COMMANDER RATIFICATION — old: "Continuous operation is default — do not ask whether to continue; declare next objective and build" / new: "Continuous-operation fact, not scope grant — does NOT authorize new builds beyond current directive; next objective requires explicit Commander order (lexicon L18 wins)" | "WE are not done working" (plural WE) — continuous-operation fact | Sessions are legs of one campaign (fact). Does NOT grant scope beyond current explicit directive. | Continuous-operation is a fact about campaign continuity, not a scope grant authorizing new builds. Next objective requires explicit Commander order per lexicon L18 "A fact, not a scope grant" (winner). Old reading archived with pointer to lexicon L18. Rationale: prevents scope creep, aligns with II.2 append-only and control plane II.11. |
+
+**II.7.8 compliance:** Each re-scoped row above quotes old text and new text side-by-side with rationale and carries "REQUIRES EXPLICIT COMMANDER RATIFICATION" flag. Old rows remain in file (never deleted) per II.2/II.10, new rows supersede via pointer. Catalog entries CUE-RATIFICATION v2, CUE-FULL-DISCRETION v2, CUE-CONTINUOUS-OP v2 carry same side-by-side in action field and evidence note.

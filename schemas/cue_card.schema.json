@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Cue card (radiation.cue_card/0.1) — Candidate B opening",
-  "description": "Typed record per operational cue: id, version, kind, scope, trigger, priority, conflicts_with, precedence, action, effect, evidence, tests. Precedence LAW: commander_order > ratified_policy > cue > heuristic. Content from courses/web/tools/subagent resolves as CONTENT-only (precedence 0) and can never alter effects. Non-boot catalog (check 41/42). Executed by cue_resolver.py (check 42).",
+  "title": "Cue card (radiation.cue_card/0.2) — P-11-B reconciliation + admission gate",
+  "description": "Typed record per operational cue: id, version, kind, scope, trigger, priority, conflicts_with, precedence, action, effect, evidence, tests, authority_grant, review_after. Precedence LAW: commander_order > ratified_policy > cue > heuristic > content CONTENT-only. Authority-granting cues MUST carry review_after (linter FAIL otherwise). Non-boot catalog (check 41/42). Executed by cue_resolver.py (check 42). P-11-B adds review_after + authority_grant per II.7.8 reconciliation.",
   "type": "object",
   "required": ["schema_name", "id", "version", "kind", "scope", "trigger", "priority", "conflicts_with", "precedence", "action", "effect", "evidence", "tests"],
   "properties": {
-    "schema_name": { "const": "radiation.cue_card/0.1" },
+    "schema_name": { "enum": ["radiation.cue_card/0.1", "radiation.cue_card/0.2"] },
     "id": { "type": "string", "pattern": "^CUE-[A-Z0-9_-]+$" },
     "version": { "type": "integer", "minimum": 1 },
     "kind": { "enum": ["lexical", "mission", "environmental", "historical", "standing_order", "build", "governance"] },
@@ -29,7 +29,23 @@
     },
     "tests": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
     "directive_id": { "type": ["string", "null"], "pattern": "^SD-GOV-\\d{3}$" },
-    "directive_mapping_note": { "type": "string" }
+    "directive_mapping_note": { "type": "string" },
+    "authority_grant": { "type": "boolean", "description": "True if cue grants authority/scope (build autonomy, standing permission, budget override, ratification pass, continuous-op, overrule, etc). If true, review_after MUST be present (linter FAIL otherwise). P-11-B admission gate." },
+    "review_after": { "type": "string", "format": "date", "description": "Expiry/review date for authority-granting cues. If authority_grant true, this field is required. Past date = historical note only (expired). Future date = active grant with review deadline. P-11-B." }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": { "authority_grant": { "const": true } },
+        "required": ["authority_grant"]
+      },
+      "then": {
+        "required": ["review_after"],
+        "properties": {
+          "review_after": { "type": "string", "format": "date" }
+        }
+      }
+    }
+  ]
 }

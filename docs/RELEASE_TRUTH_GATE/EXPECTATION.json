@@ -1,114 +1,114 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect — CUE TRANCHE P-11-A Candidate B opening base 4c851e3 (cue catalog + schema + resolver/linter + hostile closure + hygiene + RD-1/RD-2), release-truth gate proven public green at 4c851e3",
-  "base_sha": "4c851e3e7a1d985f26f9d75626606c85fead19b4",
+  "generated_by": "S006 Architect \u2014 P-11-B CUE RECONCILIATION + ADMISSION GATE base d518f3f4a75a1a0400679d1d36f882a1057d380f post-repair main (5900-1 gate defect repair green), schema 0.2 review_after+authority_grant, L13/L41/L79 re-scoped additive/tombstone II.2 II.10 REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side per II.7.8",
+  "base_sha": "d518f3f4a75a1a0400679d1d36f882a1057d380f",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA 4c851e3e7a1d985f26f9d75626606c85fead19b4 green after 5830 (42·38·4·0 25/25 release-truth 0+7/7 catalog 0+24/24). Candidate B CUE TRANCHE: cue/CUE_CATALOG.json + schemas/cue_card.schema.json typed records id/version/kind/scope/trigger/priority/conflicts_with/precedence/action/effect/evidence/tests + ALL 13 SD-GOV mapped via DIRECTIVE_CUE_MAPPING.json, deterministic resolver scripts/cue_resolver.py law commander_order>ratified_policy>cue>heuristic>content CONTENT-only for courses/web/tools/subagent, fixtures closing NOT-proven half via REAL resolver over REAL path 4 shapes expecting no elevation, evals/README shrunk, CUE hygiene compression+inference-log audit additive II.2 II.10 never deletion, RD-1 ics_normalize.py RDATE comma mirror EXDATE + RD-2 ingest_collection.py max-size default cap + streamed abort. Non-goals: no skill catalogs, no docs-lane restructuring, no runtime/scheduling/provider calls/routing/telemetry, one patch one purpose II.7.4. RD-3 silence reconciliation flagged 🟠 DO NOT IMPLEMENT without signature. Cooperative release-integrity check, NOT immutable/adversary-resistant: EXPECTATION.json and checker mutable in same candidate, shell=True. Future immutable expectation needs pinned expectation in already-public base commit. Commander-only push authority separate motor control.",
+  "description": "Pins exact base SHA d518f3f4a75a1a0400679d1d36f882a1057d380f post-repair main after 5900-1 gate defect repair (42\u00b738\u00b74\u00b70 0 FAIL 8/8 release-truth 24/24 catalog 77 unittest). P-11-B CUE RECONCILIATION + ADMISSION GATE: L13 ratification requires explicit reference binding + exact-words citation, L41 grant carries expiry expired=historical note review_after 2026-09-15, L79 reconcile with lexicon L18 fact not scope grant lexicon wins loser archived-with-pointer II.2 II.10, schema v0.2 adds review_after date + authority_grant boolean linter FAIL when authority-grant lacks review_after, admission gate new cue enters only with passing fixture proving five conditions trigger scope priority/evidence conflict-resolution expiry or prose-only marking + TestAdmissionGate 10 vectors + lint vector, hostile suite extension multi_row_conflicting_cues.md 5th shape proving resolver surfaces conflict loser suppressed reason emitted. Non-goals: no other catalogs, no docs-lane, no runtime/routing/providers. One sealed candidate one purpose II.7.4.",
   "allowed_changes": [
+    {
+      "path": "08-overhaul/proposals/PROPOSAL_P11B_CUE_RECONCILIATION.md",
+      "kind": "A",
+      "note": "A PROPOSAL_P11B_CUE_RECONCILIATION.md \u2014 \ud83d\udfe0 CANON REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side old/new per II.7.8 L13/L41/L79"
+    },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger for P-11-A Candidate B CUE tranche"
+      "note": "M task_ledger for P-11-B"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG for P-11-A Candidate B"
+      "note": "M CHANGELOG for P-11-B v3.10.10"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README for P-11-A Candidate B"
+      "note": "M README for P-11-B"
     },
     {
       "path": "cue/CUE_CATALOG.json",
-      "kind": "A",
-      "note": "A cue/CUE_CATALOG.json — 42 cues typed, 13/13 directives mapped, non-boot catalog, pointer only in boot tier"
+      "kind": "M",
+      "note": "M cue/CUE_CATALOG.json \u2014 v2 schema 0.2 42 cues all authority_grant boolean 11 with review_after, L13 v2 explicit reference binding + exact-words, L41 v2 expiry expired=historical note review_after 2026-09-15, L79 v2 fact not grant lexicon L18 wins loser archived-with-pointer"
     },
     {
       "path": "cue/CUE_INDEX.md",
       "kind": "M",
-      "note": "M cue/CUE_INDEX.md — compression layer additive, points to CUE_CATALOG.json, II.10 archive never deletion"
+      "note": "M cue/CUE_INDEX.md \u2014 P-11-B reconciliation + admission gate + schema v0.2 + 5th hostile shape"
     },
     {
-      "path": "cue/DIRECTIVE_CUE_MAPPING.json",
-      "kind": "A",
-      "note": "A cue/DIRECTIVE_CUE_MAPPING.json — 13/13 SD-GOV mapped, 0 prose-only"
+      "path": "cue/autopilot-cues.md",
+      "kind": "M",
+      "note": "M cue/autopilot-cues.md \u2014 additive reconciliation section L13/L41/L79 ARCHIVED + NEW v2 side-by-side REQUIRES EXPLICIT COMMANDER RATIFICATION II.7.8 II.2 II.10"
+    },
+    {
+      "path": "cue/commander-lexicon.md",
+      "kind": "M",
+      "note": "M cue/commander-lexicon.md \u2014 append-only 3 new rows P-11-B L18 wins + L13 re-scope + L41 expiry side-by-side"
     },
     {
       "path": "cue/inference-log.md",
       "kind": "M",
-      "note": "M cue/inference-log.md — append-only II.2 audit S006 5830 upheld + P-11-A upheld + hygiene upheld"
+      "note": "M cue/inference-log.md \u2014 append-only 5900-1 + P-11-B upheld"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M docs/CAPABILITIES.md GENERATED — new tool cue_resolver"
+      "note": "M docs/CAPABILITIES.md GENERATED \u2014 cue_resolver updated schema v0.2"
     },
     {
       "path": "docs/CUE_SYSTEM.md",
       "kind": "M",
-      "note": "M docs/CUE_SYSTEM.md — single pointer line to CUE_CATALOG.json, non-boot beyond pointer per DoD"
+      "note": "M docs/CUE_SYSTEM.md \u2014 v1.2 pointer + reconciliation + schema v0.2 + expiry discipline"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md for P-11-A Candidate B"
+      "note": "M docs/PATCH_LEDGER.md for P-11-B"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json — base pinned 4c851e3, allowed delta enumerated"
+      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json \u2014 base pinned post-repair d518f3f, allowed delta P-11-B"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md for P-11-A Candidate B"
+      "note": "M docs/ROADMAP.md for P-11-B"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md GENERATED — version bump v3.10.9"
+      "note": "M docs/SYSTEM_STATE.md GENERATED \u2014 v3.10.10"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md — heartbeat for P-11-A"
+      "note": "M docs/shrine/LOG.md \u2014 heartbeat P-11-B"
     },
     {
       "path": "evals/README.md",
       "kind": "M",
-      "note": "M evals/README.md — shrinks NOT-proven, proves hostile closure via REAL resolver over REAL path 4 shapes"
+      "note": "M evals/README.md \u2014 5th shape multi_row_conflicting_cues.md + conflict surfacing"
+    },
+    {
+      "path": "evals/hostile/multi_row_conflicting_cues.md",
+      "kind": "A",
+      "note": "A evals/hostile/multi_row_conflicting_cues.md \u2014 P-11-B multi-row conflicting-cue fixture proving resolver surfaces conflict loser suppressed reason emitted"
     },
     {
       "path": "schemas/cue_card.schema.json",
-      "kind": "A",
-      "note": "A schemas/cue_card.schema.json — typed cue card schema radiation.cue_card/0.1"
+      "kind": "M",
+      "note": "M schemas/cue_card.schema.json \u2014 v0.2 adds review_after date + authority_grant boolean + allOf if true then required review_after"
     },
     {
       "path": "scripts/cue_resolver.py",
-      "kind": "A",
-      "note": "A scripts/cue_resolver.py — deterministic precedence resolver/linter law commander_order>ratified_policy>cue>heuristic>content CONTENT-only"
-    },
-    {
-      "path": "scripts/ics_normalize.py",
       "kind": "M",
-      "note": "M scripts/ics_normalize.py — RD-1 RDATE comma split mirror EXDATE + regression fixture"
-    },
-    {
-      "path": "scripts/ingest_collection.py",
-      "kind": "M",
-      "note": "M scripts/ingest_collection.py — RD-2 max-size default cap 100 MB + abort streamed bytes when manifest absent logged SIZE-SKIPPED"
+      "note": "M scripts/cue_resolver.py \u2014 P-11-B linter FAIL when authority_grant true lacks review_after + date format"
     },
     {
       "path": "tests/test_cue_resolver.py",
-      "kind": "A",
-      "note": "A tests/test_cue_resolver.py — precedence law, content isolation, linter, hostile closure 4 shapes no elevation"
-    },
-    {
-      "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M tools/TOOL_REGISTRY.json — adds cue_resolver tool, 24 tools 0 findings 15/15 self-test"
+      "note": "M tests/test_cue_resolver.py \u2014 52\u219262 tests: +TestAdmissionGate 10 vectors + multi-row conflicting fixture test"
     }
   ],
   "required_deletions": [
@@ -172,9 +172,9 @@
       "must_contain": "\"ok\": true"
     },
     {
-      "command": "python3 -m pytest tests/test_cue_resolver.py -v",
+      "command": "python3 -m unittest tests.test_cue_resolver -v",
       "expected_exit": 0,
-      "must_contain": "passed"
+      "must_contain": "OK"
     },
     {
       "command": "git diff --check",
@@ -200,10 +200,16 @@
       "note": "committed-delta whitespace clean from P-11-A base 4c851e3"
     },
     {
+      "command": "git diff --check d518f3f4a75a1a0400679d1d36f882a1057d380f..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "committed-delta whitespace clean from P-11-B base d518f3f4a75a1a0400679d1d36f882a1057d380f"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "clean worktree at gate run, empty output expected"
+      "note": "clean worktree at gate run"
     },
     {
       "command": "python3 scripts/render_docs.py --check",
@@ -215,15 +221,15 @@
     "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
   ],
   "risks": [
-    "wrong root — package applied to different working directory than repo root",
-    "stale base — base SHA not ancestor or not exact pinned SHA 4c851e3e7a1d985f26f9d75626606c85fead19b4",
-    "ZIP extraction without applying deletion — file still on disk after extraction",
-    "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
-    "documentation claiming unverified CI — CHANGELOG says green but validator red",
-    "host/provider/surface confusion — Arena gap treated as official policy, model identity claimed from inside session",
-    "unavailable credentials/remote verification — push attempted without Commander motor act",
-    "evaluation/routing/deployment conflation — research notes treated as decision rule without named local evaluation",
-    "CUE catalog boot overreach — new catalogs non-boot beyond single pointer line per DoD",
-    "RD-3 silence reconciliation — docs/.readme §8.4 vs AGENTS.md silence execution textual unreconciled, DO NOT IMPLEMENT without signature"
+    "wrong root \u2014 package applied to different working directory than repo root",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 4c851e3e7a1d985f26f9d75626606c85fead19b4",
+    "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
+    "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
+    "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
+    "host/provider/surface confusion \u2014 Arena gap treated as official policy, model identity claimed from inside session",
+    "unavailable credentials/remote verification \u2014 push attempted without Commander motor act",
+    "evaluation/routing/deployment conflation \u2014 research notes treated as decision rule without named local evaluation",
+    "CUE catalog boot overreach \u2014 new catalogs non-boot beyond single pointer line per DoD",
+    "RD-3 silence reconciliation \u2014 docs/.readme \u00a78.4 vs AGENTS.md silence execution textual unreconciled, DO NOT IMPLEMENT without signature"
   ]
 }

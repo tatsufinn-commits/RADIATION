@@ -4,6 +4,8 @@ on:
   pull_request: {}
 # 5500 gate review: EXPLICIT bash shell => Actions runs steps with -eo pipefail.
 # The unqualified default shell masked the strict apply-report behind `tee`.
+# 5900 OBSERVABILITY patch: every step tees to its own file, failure diagnostics
+# publish ALL steps to $GITHUB_STEP_SUMMARY + artifact (not just validator).
 defaults:
   run:
     shell: bash
@@ -25,7 +27,7 @@ jobs:
             echo ""
             echo "env: $(python3 --version) · runner ${RUNNER_OS:-unknown} · sha ${GITHUB_SHA:-unknown}"
             echo '```'
-            tail -40 validate_output.txt
+            tail -80 validate_output.txt
             echo '```'; } >> "$GITHUB_STEP_SUMMARY"
       - name: Attach failure-only diagnostic artifact (public download, no admin gate)
         if: failure()
@@ -35,32 +37,106 @@ jobs:
           path: validate_output.txt
           if-no-files-found: ignore
       - name: Knowledge regression (locked assertions)
-        run: python3 scripts/knowledge_regression.py
+        run: python3 scripts/knowledge_regression.py 2>&1 | tee knowledge_output.txt
       - name: ICS normalizer self-test
-        run: python3 scripts/ics_normalize.py --self-test
+        run: python3 scripts/ics_normalize.py --self-test 2>&1 | tee ics_output.txt
       - name: Core card tool self-test + shape check
-        run: python3 scripts/nota.py --self-test && python3 scripts/nota.py --check
+        run: |
+          python3 scripts/nota.py --self-test 2>&1 | tee nota_selftest_output.txt
+          python3 scripts/nota.py --check 2>&1 | tee nota_check_output.txt
+          cat nota_selftest_output.txt nota_check_output.txt > nota_output.txt
       - name: Module scaffold self-test
-        run: python3 scripts/module_scaffold.py --self-test
+        run: python3 scripts/module_scaffold.py --self-test 2>&1 | tee module_output.txt
       - name: Generated docs match reality (render_docs --check)
-        run: python3 scripts/render_docs.py --check
+        run: python3 scripts/render_docs.py --check 2>&1 | tee render_output.txt
       - name: Relay semantic self-test + active check (radiation_core)
         run: |
-          python3 -m radiation_core.relay --self-test
-          python3 -m radiation_core.relay
+          python3 -m radiation_core.relay --self-test 2>&1 | tee relay_selftest_output.txt
+          python3 -m radiation_core.relay 2>&1 | tee relay_active_output.txt
+          cat relay_selftest_output.txt relay_active_output.txt > relay_output.txt
       - name: Status dashboard self-test (date semantics)
-        run: python3 scripts/status.py --self-test
+        run: python3 scripts/status.py --self-test 2>&1 | tee status_output.txt
       - name: Release Truth Gate live check (5824 FIX per review 98d8c81 gap 3)
         run: |
-          rm -f validate_output.txt
-          python3 scripts/release_truth_check.py
+          python3 scripts/release_truth_check.py 2>&1 | tee release_truth_output.txt
       - name: Release Truth Gate self-test (7 vectors)
-        run: python3 scripts/release_truth_check.py --self-test
+        run: python3 scripts/release_truth_check.py --self-test 2>&1 | tee release_truth_selftest_output.txt
       - name: Byte-compile all scripts
-        run: python3 -m py_compile scripts/*.py scripts/../radiation_core/*.py
+        run: python3 -m py_compile scripts/*.py radiation_core/*.py 2>&1 | tee pycompile_output.txt
       - name: External link census (check 13, online)
         env: {RADIATION_ONLINE: "1"}
-        run: python3 scripts/validate.py
+        run: python3 scripts/validate.py 2>&1 | tee link_census_output.txt
+      - name: Tool registry check + self-test (check 39)
+        run: |
+          python3 scripts/tool_registry_check.py 2>&1 | tee tool_registry_output.txt
+          python3 scripts/tool_registry_check.py --self-test 2>&1 | tee tool_registry_selftest_output.txt
+          cat tool_registry_output.txt tool_registry_selftest_output.txt > tool_registry_combined_output.txt
+      - name: Model research check + self-test (check 41)
+        run: |
+          python3 scripts/model_research_check.py 2>&1 | tee model_research_output.txt
+          python3 scripts/model_research_check.py --self-test 2>&1 | tee model_research_selftest_output.txt
+          cat model_research_output.txt model_research_selftest_output.txt > model_research_combined_output.txt
+      - name: CUE resolver linter (P-11-A)
+        run: python3 scripts/cue_resolver.py --lint 2>&1 | tee cue_resolver_output.txt
+      - name: CUE resolver tests + hostile closure (P-11-A) — stdlib-only (5900 gate defect fix)
+        run: |
+          python3 -m unittest tests.test_cue_resolver -v 2>&1 | tee cue_resolver_unittest_output.txt
+          python3 -m unittest tests.test_hostile_content -v 2>&1 | tee hostile_unittest_output.txt
+          cat cue_resolver_unittest_output.txt hostile_unittest_output.txt > cue_tests_output.txt
+          # Also run discover to prove 77 OK (includes resolver + hostile)
+          python3 -m unittest discover -s tests -v 2>&1 | tee discover_output.txt
+      - name: Publish ALL step diagnostics on failure (5900 observability — every step)
+        if: failure()
+        run: |
+          {
+            echo "## RADIATION validate — full failure diagnostics (5900 observability patch)"
+            echo ""
+            echo "env: $(python3 --version) · runner ${RUNNER_OS:-unknown} · sha ${GITHUB_SHA:-unknown} · date $(date -u +%Y-%m-%dT%H:%MZ)"
+            echo ""
+            for f in validate_output.txt knowledge_output.txt ics_output.txt nota_output.txt nota_selftest_output.txt nota_check_output.txt module_output.txt render_output.txt relay_output.txt relay_selftest_output.txt relay_active_output.txt status_output.txt release_truth_output.txt release_truth_selftest_output.txt pycompile_output.txt link_census_output.txt tool_registry_output.txt tool_registry_selftest_output.txt tool_registry_combined_output.txt model_research_output.txt model_research_selftest_output.txt model_research_combined_output.txt cue_resolver_output.txt cue_tests_output.txt cue_resolver_unittest_output.txt hostile_unittest_output.txt discover_output.txt; do
+              if [ -f "$f" ]; then
+                echo "### $f"
+                echo '```'
+                tail -100 "$f"
+                echo '```'
+                echo ""
+              fi
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Attach ALL failure diagnostics artifact (public download, no admin gate)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validate-all-failure-diagnostics
+          path: |
+            validate_output.txt
+            knowledge_output.txt
+            ics_output.txt
+            nota_output.txt
+            nota_selftest_output.txt
+            nota_check_output.txt
+            module_output.txt
+            render_output.txt
+            relay_output.txt
+            relay_selftest_output.txt
+            relay_active_output.txt
+            status_output.txt
+            release_truth_output.txt
+            release_truth_selftest_output.txt
+            pycompile_output.txt
+            link_census_output.txt
+            tool_registry_output.txt
+            tool_registry_selftest_output.txt
+            tool_registry_combined_output.txt
+            model_research_output.txt
+            model_research_selftest_output.txt
+            model_research_combined_output.txt
+            cue_resolver_output.txt
+            cue_tests_output.txt
+            cue_resolver_unittest_output.txt
+            hostile_unittest_output.txt
+            discover_output.txt
+          if-no-files-found: ignore
 
   apply-report:
     runs-on: ubuntu-latest
@@ -70,12 +146,26 @@ jobs:
         with: {python-version: "3.11"}
       - name: Apply report (BLOCKING since 4500 — a red seal must block, not advise)
         run: |
-          python3 scripts/verify_apply.py --self-test
-          python3 scripts/verify_apply.py --strict 2>&1 | tee apply_report.txt "${GITHUB_STEP_SUMMARY}"
+          python3 scripts/verify_apply.py --self-test 2>&1 | tee verify_selftest_output.txt
+          python3 scripts/verify_apply.py --strict 2>&1 | tee apply_report.txt
+          cat verify_selftest_output.txt apply_report.txt > apply_combined_output.txt
+          cat apply_combined_output.txt >> "$GITHUB_STEP_SUMMARY"
+      - name: Publish apply-report diagnostics on failure (extended 5900)
+        if: failure()
+        run: |
+          {
+            echo "## apply-report failure diagnostics"
+            echo '```'
+            tail -100 apply_combined_output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Attach apply-report diagnostic artifact (public download, no admin gate)
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: apply-report-diagnostics
-          path: apply_report.txt
+          path: |
+            apply_report.txt
+            verify_selftest_output.txt
+            apply_combined_output.txt
           if-no-files-found: ignore

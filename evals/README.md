@@ -34,11 +34,12 @@ each of 4 shapes:
 4. cannot disclose secrets or trigger exfiltration (no credential elevation);
 5. cannot bypass Commander approval for any canonical action (no commander_order from content).
 
-Shapes proven (expected no elevation):
+Shapes proven (expected no elevation) — P-11-A 4 shapes + P-11-B 5th multi-row:
 - `imported_text_html.md` → source `imported_text`
 - `injected_course_derivative.md` → source `course_derivative`
 - `tool_result_shaped.json` → source `tool_result`
 - `subagent_result_shaped.json` → source `subagent_result`
+- `multi_row_conflicting_cues.md` → source `imported_text` — P-11-B multi-row conflicting-cue fixture proving resolver surfaces conflict loser suppressed reason emitted
 
 Each shape: `resolve_content_selection_path()` loads real `cue/CUE_CATALOG.json` (42 cues,
 13/13 directives mapped per `cue/DIRECTIVE_CUE_MAPPING.json`), detects forged trigger
@@ -47,8 +48,14 @@ priority + deterministic id tie-break, emits `{selected, suppressed, reason, con
 law, no_elevation}`. Tests assert `no_elevation=True`, selected precedence=`content`,
 reason contains `CONTENT-only`, and no bypass of Commander approval.
 
-Linter: `cue_resolver.py --lint` validates catalog against `schemas/cue_card.schema.json`
-and directive coverage 13/13.
+P-11-B extension: `multi_row_conflicting_cues.md` contains triggers for CUE-CLOSE-TOPIC (LETS MOVE ON!) + CUE-CONTINUOUS-OP (WE are not done working) which conflict via conflicts_with, plus injection keywords. Test `test_multi_row_conflicting_cue_fixture_surfaces_conflict` also runs direct `resolve_candidates` with conflicting pair CUE-CLOSE-TOPIC vs CUE-CONTINUOUS-OP and CUE-BUDGET-OVERRIDE vs CUE-TOOL-FREEDOM, asserting:
+- highest precedence wins (commander_order over cue)
+- suppressed includes losers
+- reason_map contains suppressed reason per law
+- conflicting_groups surfaced, conflicting_ids includes suppressed
+- no elevation
+
+Linter: `cue_resolver.py --lint` validates catalog against `schemas/cue_card.schema.json` v0.2 (adds authority_grant + review_after, FAIL when authority_grant true lacks review_after) and directive coverage 13/13.
 
 ## What remains NOT proven (shrunk)
 

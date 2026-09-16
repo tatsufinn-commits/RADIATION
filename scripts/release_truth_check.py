@@ -193,6 +193,20 @@ def check_mandatory_validations(data):
                     findings.append(f"DoD validation missing expected substring '{must_contain}' in {cmd}")
     return findings
 
+def check_forbidden_tools_in_validations(data):
+    # 5900 gate hardening: EXPECTATION mandatory_validations must be stdlib-only
+    # Reject non-stdlib invocations like pytest|pip|conda|node|npm — desk diagnosis of #75 failure
+    # Environment assumption (pytest) in mandatory_validations = dependency contamination, not proof
+    findings = []
+    forbidden_pattern = re.compile(r"\b(pytest|pip|conda|npm|npx|node)\b", re.IGNORECASE)
+    for entry in data.get("mandatory_validations", []):
+        if not isinstance(entry, dict):
+            continue
+        cmd = entry.get("command", "")
+        if forbidden_pattern.search(cmd):
+            findings.append(f"forbidden non-stdlib tool in mandatory_validations: '{cmd}' contains pytest/pip/conda/node/npm — stdlib-only law (5900 gate defect: desk-local green was dependency contamination)")
+    return findings
+
 def check_whitespace_and_status(data):
     findings = []
     base = data.get("base_sha")
@@ -226,6 +240,7 @@ def main_check():
     findings.extend(check_forbidden_paths(data))
     findings.extend(check_allowed_changes(data))
     findings.extend(check_generated_artifacts(data))
+    findings.extend(check_forbidden_tools_in_validations(data))
     findings.extend(check_mandatory_validations(data))
     findings.extend(check_whitespace_and_status(data))
     if findings:
@@ -448,6 +463,36 @@ def self_test():
         finally:
             shutil.rmtree(tmp)
 
+    def v_forbidden_tool_in_expectation():
+        # 5900 gate defect vector: pytest in mandatory_validations must be rejected
+        tmp = make_temp_repo()
+        try:
+            exp_dir = pathlib.Path(tmp, "docs/RELEASE_TRUTH_GATE")
+            exp_dir.mkdir(parents=True, exist_ok=True)
+            pathlib.Path(tmp, "scripts").mkdir(parents=True, exist_ok=True)
+            p = run("git rev-parse HEAD", cwd=tmp)
+            base = p.stdout.strip()
+            exp = {
+                "base_sha": base,
+                "base_must_be_ancestor": True,
+                "allowed_changes": [{"path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "kind": "M"}],
+                "required_absent_on_disk": [],
+                "required_deletions": [],
+                "required_generated_artifacts": [],
+                "mandatory_validations": [
+                    {"command": "python3 -m pytest tests/test_cue_resolver.py -v", "expected_exit": 0, "must_contain": "passed"}
+                ],
+                "forbidden_paths": []
+            }
+            (exp_dir / "EXPECTATION.json").write_text(json.dumps(exp), encoding="utf-8")
+            shutil.copy(str(ROOT / "scripts" / "release_truth_check.py"), str(pathlib.Path(tmp, "scripts/release_truth_check.py")))
+            run("git add . && git commit -qm add-pytest-expectation", cwd=tmp, check=True)
+            p = run("python3 scripts/release_truth_check.py", cwd=tmp)
+            # Must be rejected (non-zero) due to forbidden tool lint
+            return p.returncode != 0 and "forbidden non-stdlib" in (p.stdout + p.stderr).lower()
+        finally:
+            shutil.rmtree(tmp)
+
     tests = [
         ("wrong base SHA -> reject", v_wrong_base),
         ("required deleted file still on disk -> reject", v_file_still_on_disk),
@@ -455,6 +500,7 @@ def self_test():
         ("undeclared changed path -> reject", v_undeclared_path),
         ("stale generated artifact -> reject", v_stale_artifact),
         ("missing DoD command/outcome -> reject", v_missing_dod),
+        ("forbidden non-stdlib tool in mandatory_validations -> reject", v_forbidden_tool_in_expectation),
         ("positive isolated clean -> pass", v_positive_isolated),
     ]
     passed = 0

@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.9 · Ratified by THE COMMANDER · 2026-09-15 · 5900th patch — CUE-tranche-candidate-B
+**Version:** v3.10.10 · Ratified by THE COMMANDER · 2026-09-15 · 5900-1 repair + P-11-B CUE reconciliation + admission gate
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

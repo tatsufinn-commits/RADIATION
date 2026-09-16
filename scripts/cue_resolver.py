@@ -65,6 +65,17 @@ def lint_catalog(catalog_path: Path, schema_path: Path, mapping_path: Path | Non
         effect = cue.get("effect")
         if effect not in ("read","plan","draft","evidence","propose","ask","none"):
             issues.append(f"{cid} invalid effect {effect}")
+        # P-11-B admission gate: authority_grant true requires review_after
+        auth_grant = cue.get("authority_grant")
+        if auth_grant is True:
+            ra = cue.get("review_after")
+            if not ra:
+                issues.append(f"{cid} authority_grant=true requires review_after (P-11-B admission gate)")
+            else:
+                # Validate date format YYYY-MM-DD
+                import re
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(ra)):
+                    issues.append(f"{cid} review_after invalid date format {ra}, expected YYYY-MM-DD")
         # conflicts_with must reference existing ids or at least syntactically valid
         for conflict in cue.get("conflicts_with", []):
             if not conflict.startswith("CUE-"):

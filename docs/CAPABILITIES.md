@@ -280,7 +280,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `cap_probe.py` | cap_probe — read-only capability probe with declarative host profiles. | no | no | no |
 | `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
 | `contract_tests.py` | 5300 negative fixtures — declared course-corpus (E1) and replica (E2) contracts. | no | no | no |
-| `cue_resolver.py` | CUE Resolver / Linter — Candidate B opening P-11-A | no | no | no |
+| `cue_resolver.py` | CUE Resolver / Linter — Candidate B opening P-11-A | no | no | yes |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
 | `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |
@@ -288,14 +288,14 @@ Stated plainly so a session does not assume capability it lacks:
 | `ics_normalize.py` | the ONE iCalendar parser for RADIATION (RFC 5545 subset). | yes | yes | yes |
 | `ingest_collection.py` | RADIATION collection ingestion harness (P-10 Phase 2). | yes | yes | no |
 | `knowledge_regression.py` | RADIATION knowledge-regression suite — P-01 §3. | no | no | yes |
-| `model_research_check.py` | model_research_check — ONE entry point for the Candidate C catalog contract. | yes | no | no |
+| `model_research_check.py` | model_research_check — ONE entry point for the Candidate C catalog contract. | yes | no | yes |
 | `module_scaffold.py` | born-valid study modules (patch 3000). | yes | no | yes |
 | `nota.py` | the Core card tool (patch 3000; canonical contract per 4400). | yes | no | yes |
 | `plan_term.py` | RADIATION term planner (P-10 Phase 1-3). | no | no | no |
 | `release_truth_check.py` | Release Truth Gate checker (5824 FIX) | no | no | yes |
 | `render_docs.py` | generated-facts pipeline (patch 4400; auditor plan item 5). | yes | yes | yes |
 | `status.py` | the Swarm Dashboard (patch 3300, SD-3300-02). | no | no | yes |
-| `tool_registry_check.py` | tool_registry_check — ONE entry point for the tool-registry contract (5600). | yes | no | no |
+| `tool_registry_check.py` | tool_registry_check — ONE entry point for the tool-registry contract (5600). | yes | no | yes |
 | `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
 <!-- GENERATED:capability-inventory:END -->
