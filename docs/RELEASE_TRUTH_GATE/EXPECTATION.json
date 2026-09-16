@@ -1,104 +1,54 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 P-19 G4 base ce37b70 sealed P-18, agent contracts 5 + schema + check + test, 135 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8 8/8, delta \u2205",
-  "base_sha": "ce37b7003ca2af912eeebcc53faf4f851b404f88",
+  "generated_by": "S006 Architect \u2014 P-19-fix G4 base fc7dcbf sealed P-19, phantom pytest-style tests converted to discover-collected 130\u2192135, 135 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8 8/8, delta \u2205",
+  "base_sha": "fc7dcbf6e5e556da9c8ae4049942d344b08f4a13",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA ce37b7003ca2af912eeebcc53faf4f851b404f88 (P-18 Subskill Catalog + Hook Protocol). P-19 Agent Contracts catalog (Dim-1/G4): providers get typed contracts bounded by receipts; D4 law no simulated Commander authority becomes machine-checked. A agents/contracts/ AGT-<slug>.json one per provider directory under agents/ each {id, provider, profile_ref\u2192CAPABILITY_PROFILE.md, capabilities[] {claim \u2264200 tier primary/secondary/asserted/benchmark receipt_ref/null}, boundary_note model\u2260host separation, authority {no_simulated_commander_authority true}, status active/draft/deprecated, tests[]}. Capabilities seeded only from facts already on file in each CAPABILITY_PROFILE.md carry receipt tiers honestly never upgrade. A schemas/agent_contract.schema.json radiation.agent_contract/1 enums exact receipt-referenced claims may carry receipt_ref. A scripts/agent_contract_check.py deterministic house finding style --self-test 8 vectors. A tests/test_agent_contract_check.py 5 vectors. Registry 30\u219231. No edits to CAPABILITY_PROFILE.md content, no provider SDK ambitions D4 permanent, no moves/renames, no validator additions, no cross-catalog linter P-20 reserved now formally un-blocked FK graph exists full CUE\u2192schema MEMORY\u2192paths SKILL\u2192evals SUBSKILL\u2192SKILL SCAFFOLD\u2192deps AGENT\u2192profiles. One sealed candidate one purpose II.7.4.",
+  "description": "Pins exact base SHA fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 (P-19 tighten). P-19-fix Phantom tests micro-tranche: tests/test_agent_contract_check.py M house-standard unittest import unittest class TestAgentContractCheck(unittest.TestCase) same five vectors as methods with self \u2014 repo passes, broken profile_ref FAIL, unknown tier FAIL, simulated-authority FAIL, self-test ran \u2014 desk-discovered phantom pytest-style tests converted to discover-collected; count was claimed 135, ran 130; now 135 = 135 \u2014 memo \u2261 mechanism. Zero changes to contracts/schema/catalog/checker. One sealed candidate one purpose II.7.4 micro-tranche.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M Brain/frontal_lobe/task_ledger.md P-19 agent contracts catalog"
+      "note": "M Brain/frontal_lobe/task_ledger.md P-19-fix phantom tests"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG.md P-19 agent contracts catalog"
+      "note": "M CHANGELOG.md P-19-fix phantom tests"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README.md P-19 agent contracts catalog"
-    },
-    {
-      "path": "agents/AGENT_INDEX.md",
-      "kind": "M",
-      "note": "M agents/AGENT_INDEX.md P-19 agent contracts catalog"
-    },
-    {
-      "path": "agents/contracts/AGT-arena-ai.json",
-      "kind": "A",
-      "note": "A agents/contracts/AGT-arena-ai.json P-19 agent contracts catalog"
-    },
-    {
-      "path": "agents/contracts/AGT-chatgpt.json",
-      "kind": "A",
-      "note": "A agents/contracts/AGT-chatgpt.json P-19 agent contracts catalog"
-    },
-    {
-      "path": "agents/contracts/AGT-claude.json",
-      "kind": "A",
-      "note": "A agents/contracts/AGT-claude.json P-19 agent contracts catalog"
-    },
-    {
-      "path": "agents/contracts/AGT-gemini.json",
-      "kind": "A",
-      "note": "A agents/contracts/AGT-gemini.json P-19 agent contracts catalog"
-    },
-    {
-      "path": "agents/contracts/AGT-grok.json",
-      "kind": "A",
-      "note": "A agents/contracts/AGT-grok.json P-19 agent contracts catalog"
-    },
-    {
-      "path": "docs/CAPABILITIES.md",
-      "kind": "M",
-      "note": "M docs/CAPABILITIES.md P-19 agent contracts catalog"
+      "note": "M README.md P-19-fix phantom tests"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md P-19 agent contracts catalog"
+      "note": "M docs/PATCH_LEDGER.md P-19-fix phantom tests"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json P-19 agent contracts catalog"
+      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json P-19-fix phantom tests"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md P-19 agent contracts catalog"
+      "note": "M docs/ROADMAP.md P-19-fix phantom tests"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md P-19 agent contracts catalog"
+      "note": "M docs/SYSTEM_STATE.md P-19-fix phantom tests"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md P-19 agent contracts catalog"
-    },
-    {
-      "path": "schemas/agent_contract.schema.json",
-      "kind": "A",
-      "note": "A schemas/agent_contract.schema.json P-19 agent contracts catalog"
-    },
-    {
-      "path": "scripts/agent_contract_check.py",
-      "kind": "A",
-      "note": "A scripts/agent_contract_check.py P-19 agent contracts catalog"
+      "note": "M docs/shrine/LOG.md P-19-fix phantom tests"
     },
     {
       "path": "tests/test_agent_contract_check.py",
-      "kind": "A",
-      "note": "A tests/test_agent_contract_check.py P-19 agent contracts catalog"
-    },
-    {
-      "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M tools/TOOL_REGISTRY.json P-19 agent contracts catalog"
+      "note": "M tests/test_agent_contract_check.py P-19-fix phantom tests"
     }
   ],
   "required_deletions": [
@@ -106,7 +56,7 @@
       "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
       "must_be_absent_on_disk": true,
       "must_be_D_in_diff": false,
-      "note": "stale Fable 5-1 already absent in base ce37b70, must remain absent"
+      "note": "stale Fable 5-1 already absent in base fc7dcbf, must remain absent"
     }
   ],
   "required_absent_on_disk": [
@@ -247,10 +197,10 @@
       "must_contain": ""
     },
     {
-      "command": "git diff --check ce37b7003ca2af912eeebcc53faf4f851b404f88..HEAD",
+      "command": "git diff --check fc7dcbf6e5e556da9c8ae4049942d344b08f4a13..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-19 base ce37b70"
+      "note": "committed-delta whitespace clean from P-19-fix base fc7dcbf"
     },
     {
       "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
@@ -313,6 +263,12 @@
       "note": "whitespace clean from P-18 base 12dfc22"
     },
     {
+      "command": "git diff --check ce37b7003ca2af912eeebcc53faf4f851b404f88..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from P-19 base ce37b70"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
@@ -329,7 +285,7 @@
   ],
   "risks": [
     "wrong root \u2014 package applied to different working directory than repo root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA ce37b7003ca2af912eeebcc53faf4f851b404f88 (run 86 genus: hand merge + stale-base extraction)",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 (run 86 genus: hand merge + stale-base extraction)",
     "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
     "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
     "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
@@ -344,6 +300,7 @@
     "G4 skill catalog spine fail-cell \u2014 no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
     "G4 subskill catalog + hook protocol fail-cell \u2014 no typed subskill catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check",
     "G4 agent contracts catalog fail-cell \u2014 no typed agent contracts, no receipt-bound claims, D4 law no simulated Commander authority not machine-checked",
+    "phantom tests \u2014 pytest-style def test_* not collected by unittest discover, count claimed vs ran mismatch, memo \u2260 mechanism",
     "file moves/renames \u2014 forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
   ]
 }

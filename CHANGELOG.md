@@ -6,6 +6,32 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.20 — 2026-09-16 — P-19-fix PHANTOM TESTS (Dim-1/G4) (II.7.4 micro-tranche, bounded)
+
+**P-19-fix Phantom tests per Architect Directive base fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 sealed P-19. One sealed candidate one purpose — desk-discovered phantom pytest-style tests converted to discover-collected; count was claimed 135, ran 130; now 135 = 135 — memo ≡ mechanism.**
+
+**Framing:** Dim-1/G4 micro: `tests/test_agent_contract_check.py` was pytest-style functions `def test_*` — `python3 -m unittest discover -s tests` collected 130, not 135; ledger claimed 135 OK but mechanism ran 130. Memo ≠ mechanism.
+
+**(1) Rewrite tests/test_agent_contract_check.py as house-standard unittest:**
+- `import unittest`, `class TestAgentContractCheck(unittest.TestCase)`, same five vectors as methods with self (change nothing else about what they assert)
+- Vectors: repo passes, broken profile_ref → FAIL, unknown tier → FAIL, simulated-authority → FAIL, self-test ran
+- BEFORE: `python3 -m unittest discover -s tests` → `Ran 130 tests in 7.141s OK`
+- AFTER: `python3 -m unittest discover -s tests` → `Ran 135 tests in 7.125s OK` — after must be "Ran 135 tests … OK"
+- Discover moves and lands ledger's number: count was claimed 135, ran 130; now 135 = 135
+
+**(2) Ledgers honest row:**
+- README M v3.10.20 P-19-fix Phantom tests
+- docs/SYSTEM_STATE.md M GENERATED v3.10.20
+- docs/CAPABILITIES.md M GENERATED (render_docs --apply)
+- docs/ROADMAP.md M + task_ledger M + PATCH_LEDGER M + shrine/LOG.md M + CHANGELOG.md M v3.10.20 honest row: "P-19-fix: desk-discovered phantom pytest-style tests converted to discover-collected; count was claimed 135, ran 130; now 135 = 135 — memo ≡ mechanism."
+- EXPECTATION re-pin base_sha = fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 allowed = true delta (∅ both ways)
+- Zero changes to contracts/schema/catalog/checker — checker healthy covered by live 0-findings + self-test 8/8; this repair touches exactly phantoms + count per non-goals hard.
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, scaffold_check 0 findings + 6/6 self-test, skill_check 0 findings + 8/8 self-test, subskill_check 0 findings + 8/8 self-test, agent_contract_check 0 findings + 8/8 self-test, unittest discover 135 OK (was 130), cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.20.
+
+**Base pinned:** fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 (P-19 tighten). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 micro-tranche — phantom tests.
+
+
 ## v3.10.19 — 2026-09-16 — P-19 AGENT CONTRACTS CATALOG (Dim-1/G4) (II.7.4)
 
 **P-19 Agent Contracts catalog per Architect Directive base ce37b7003ca2af912eeebcc53faf4f851b404f88 sealed P-18. One sealed candidate one purpose — providers get typed contracts bounded by receipts; the D4 law "no simulated Commander authority" becomes machine-checked.**
