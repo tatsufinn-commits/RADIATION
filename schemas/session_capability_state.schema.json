@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Session Capability State (radiation.session_capability_state/1) — S-2-ENV working memory",
+  "description": "Working memory artifact persisted via radiation_pass --persist flag into Brain/short_term/active/session_capability_state.json. Schema radiation.session_capability_state/1. Fields: host_label DECLARED never discovered never profile-inferred, route as returned by radiation_pass.route(), capabilities[] {name, state AVAILABLE|UNAVAILABLE|UNKNOWN, provenance OBSERVED|DECLARED|INFERRED} vocabulary adopted per Gate-1 correspondence map, constraints[] {name, provenance, value_or_unknown}, generated_at ISO UTC, pass_ref, honesty_note. Mandatory discipline: UNKNOWN is first-class value everywhere; capability with no evidence is UNKNOWN never UNAVAILABLE; stale generated_at reads UNKNOWN rather than lie. File is session-local, presumed impermanent, triaged at session close per short-term law, never committed with live content. No hardcoded platform limits, no private-quota probing, no parallel EXECUTE/ALT/HOLD chain — input artifact consumed by scan/anchor/stockpile shortfall, never resolver. No autonomous self-check loop, no network calls from writer, file can never raise authority (data about limits, walls reading: stale reads UNKNOWN).",
+  "type": "object",
+  "required": ["schema_name", "host_label", "route", "capabilities", "constraints", "generated_at", "pass_ref", "honesty_note"],
+  "properties": {
+    "schema_name": {
+      "enum": ["radiation.session_capability_state/1"],
+      "description": "Schema identifier"
+    },
+    "host_label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "DECLARED — never discovered, never profile-inferred. The label passed via --host flag, as declared by operator."
+    },
+    "route": {
+      "type": "object",
+      "description": "As returned by radiation_pass.route() — provider routing decision",
+      "required": ["route"],
+      "properties": {
+        "route": {
+          "enum": ["provider", "generic"],
+          "description": "Routing outcome"
+        },
+        "provider": {
+          "type": ["string", "null"],
+          "description": "Provider folder when route=provider"
+        },
+        "boot_path": {
+          "type": ["string", "null"]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "Capabilities observed/declared/inferred this session — vocabulary adopted per Gate-1 correspondence map",
+      "items": {
+        "type": "object",
+        "required": ["name", "state", "provenance"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Capability name, e.g. tool name, modality, or profile feature"
+          },
+          "state": {
+            "enum": ["AVAILABLE", "UNAVAILABLE", "UNKNOWN"],
+            "description": "AVAILABLE↔primary+active, UNAVAILABLE↔deprecated/secondary/asserted/benchmark, UNKNOWN↔draft+honesty-grammar per Domain-10 rider. UNKNOWN is first-class; absent evidence stays UNKNOWN never UNAVAILABLE."
+          },
+          "provenance": {
+            "enum": ["OBSERVED", "DECLARED", "INFERRED"],
+            "description": "OBSERVED must cite cap_probe execution this session in evidence field per checker discipline; DECLARED from host label or explicit declaration; INFERRED from secondary signals"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Evidence citation for provenance — e.g. cap_probe execution reference, declared source, or inference chain"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Constraints observed this session",
+      "items": {
+        "type": "object",
+        "required": ["name", "provenance"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "provenance": {
+            "enum": ["OBSERVED", "DECLARED", "INFERRED"],
+            "description": "Provenance of constraint"
+          },
+          "value_or_unknown": {
+            "description": "Value if known, or UNKNOWN string — UNKNOWN is first-class value everywhere"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO UTC timestamp of generation; stale generated_at reads UNKNOWN rather than lie per mandatory discipline"
+    },
+    "pass_ref": {
+      "type": "string",
+      "description": "Reference to pass execution that produced this state — e.g. git HEAD, session id, or pass output hash"
+    },
+    "honesty_note": {
+      "type": "string",
+      "description": "Honesty note: file is working memory, presumed impermanent, triaged at session close per short-term law; can never raise authority; stale reads UNKNOWN"
+    }
+  },
+  "additionalProperties": false
+}

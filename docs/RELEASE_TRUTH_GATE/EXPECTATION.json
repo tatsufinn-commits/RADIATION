@@ -1,79 +1,109 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 S-2-LINK SOURCE & LINK QUALIFICATION doc-line bundle base 4cd3429 v3.10.25: SOURCE_QUALIFICATION A + form_external-collection M Gap-4 vocabulary + OPEN_SOURCES M + STOCKPILE_DOCTRINE M Gap-9 + proc_research-sortie M Gap-14 + attempt: marker returns",
-  "base_sha": "4cd3429fc49f6751be70dbcfbb7dc2670251284a",
+  "generated_by": "S006 Architect \u2014 S-2-ENV SESSION CAPABILITY STATE (E-ENV-1 Gate-1 design) base bab3da4 v3.10.26: schema A + writer --persist + checker 5v + tests 6v + registry 32->33 + doc refs + Gate-1 annex + attempt: marker",
+  "base_sha": "bab3da4e7f5d0ce10fe91484baae67c66eba244d",
   "base_must_be_ancestor": true,
-  "description": "S-2-LINK SOURCE & LINK QUALIFICATION doc-line bundle base 4cd3429fc49f6751be70dbcfbb7dc2670251284a (LAW-6 seal) v3.10.25: docs/SOURCE_QUALIFICATION.md A doctrine qualification \u2260 verification load-bearing truth a source can be authentic and authoritative while still failing to support specific claim + link as evidence candidate identity\u00b7integrity\u00b7authority\u00b7context\u00b7claim-fit RESOLVE\u2192IDENTIFY\u2192INSPECT\u2192QUALIFY\u2192CLAIM-FIT vocabulary not runtime + cross-ref EVIDENCE_TAXONOMY {decay}+grade + cross-ref 06-triangulate gauntlet verification = relationship test + P04 cross-ref staged unratified + Gap-4 ACCESS LOG vocabulary ACCESSIBLE / DEAD / AUTH-BLOCKED / SOFT-404 / PAYWALL / REDIRECT-LOGGED + JS-only INACCESSIBLE-UNKNOWN + Gap-2 same-source re-fetch supersession note + Gap-9 STOCKPILE_DOCTRINE stopping philosophy necessity test + floor-not-target + shortfall protocol + Gap-14 proc_research-sortie replay-relevant inputs base SHA\u00b7tool versions\u00b7evidence set + OPEN_SOURCES cross-ref + attempt: marker returns AP-08. One sealed candidate one purpose II.7.4 v3.10.25.",
+  "description": "S-2-ENV SESSION CAPABILITY STATE (E-ENV-1 Gate-1 design) base bab3da4e7f5d0ce10fe91484baae67c66eba244d (S-2-LINK seal) v3.10.26: schemas/session_capability_state.schema.json A radiation.session_capability_state/1 host_label DECLARED route capabilities {name state AVAILABLE|UNAVAILABLE|UNKNOWN provenance OBSERVED|DECLARED|INFERRED} constraints {name provenance value_or_unknown} generated_at pass_ref honesty_note UNKNOWN first-class stale reads UNKNOWN + agents/_common/radiation_pass.py M --persist flag writing Brain/short_term/active/session_capability_state.json schema-valid deterministic sorted keys stdout path+counts + scripts/session_state_check.py A house finding deterministic lint enums required provenance OBSERVED=>cap_probe evidence host_label declared-shape absent->0 no session state declared 5 vectors + tests/test_session_state_check.py A 6 vectors discover 152->158 + tools/TOOL_REGISTRY.json M 32->33 session_state_check + AGENTS.md M one-line --persist ref + agents/AGENT_INDEX.md M one-line --persist ref + BOOT_SEQUENCE.md M one-line --persist ref + docs/EVIDENCE_TAXONOMY.md M annex Gate-1 correspondence table AVAILABLE<->primary+active UNAVAILABLE<->deprecated/secondary/asserted/benchmark UNKNOWN<->draft+honesty-grammar VERIFIED<->[D]/[I]+primary+active DOCUMENTED<->[D]/[O]+secondary INFERRED<->[N]/[R]+asserted/benchmark UNKNOWN<->[S]+UNVERIFIED+draft + Brain/short_term/active/README.md M convention line + docs/CAPABILITIES.md M GENERATED + docs/SYSTEM_STATE.md M + CHANGELOG.md M + README.md M + docs/ROADMAP.md M + tests/test_gate.py M 16->21 vectors + Brain/frontal_lobe/task_ledger.md M attempt: marker + docs/PATCH_LEDGER.md M + docs/shrine/LOG.md M + EXPECTATION M base bab3da4. One sealed candidate one purpose II.7.4 v3.10.26.",
   "allowed_changes": [
+    {
+      "path": "AGENTS.md",
+      "kind": "M",
+      "note": "M AGENTS.md S-2-ENV one-line --persist ref"
+    },
+    {
+      "path": "BOOT_SEQUENCE.md",
+      "kind": "M",
+      "note": "M BOOT_SEQUENCE.md S-2-ENV one-line --persist ref"
+    },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger S-2-LINK attempt: marker"
+      "note": "M task_ledger S-2-ENV attempt: marker"
+    },
+    {
+      "path": "Brain/short_term/active/README.md",
+      "kind": "M",
+      "note": "M active README S-2-ENV convention line"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG S-2-LINK v3.10.25"
+      "note": "M CHANGELOG S-2-ENV v3.10.26"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README S-2-LINK v3.10.25"
+      "note": "M README S-2-ENV v3.10.26"
     },
     {
-      "path": "docs/INDEX.md",
+      "path": "agents/AGENT_INDEX.md",
       "kind": "M",
-      "note": "M INDEX S-2-LINK add SOURCE_QUALIFICATION to Reference lane 36->37 docs"
+      "note": "M AGENT_INDEX.md S-2-ENV one-line --persist ref"
     },
     {
-      "path": "docs/OPEN_SOURCES.md",
+      "path": "agents/_common/radiation_pass.py",
       "kind": "M",
-      "note": "M OPEN_SOURCES S-2-LINK Gap-4 cross-ref"
+      "note": "M radiation_pass.py S-2-ENV --persist flag"
     },
     {
-      "path": "docs/PATCH_LEDGER.md",
+      "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER S-2-LINK"
+      "note": "M CAPABILITIES S-2-ENV GENERATED session_state_check"
     },
     {
-      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
+      "path": "docs/EVIDENCE_TAXONOMY.md",
       "kind": "M",
-      "note": "M EXPECTATION S-2-LINK base 4cd3429"
+      "note": "M EVIDENCE_TAXONOMY S-2-ENV Gate-1 correspondence annex"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP S-2-LINK row"
-    },
-    {
-      "path": "docs/SOURCE_QUALIFICATION.md",
-      "kind": "A",
-      "note": "A SOURCE_QUALIFICATION S-2-LINK doctrine qualification \u2260 verification"
-    },
-    {
-      "path": "docs/STOCKPILE_DOCTRINE.md",
-      "kind": "M",
-      "note": "M STOCKPILE_DOCTRINE S-2-LINK Gap-9 stopping philosophy"
+      "note": "M ROADMAP S-2-ENV row"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE S-2-LINK v3.10.25"
+      "note": "M SYSTEM_STATE S-2-ENV v3.10.26"
+    },
+    {
+      "path": "docs/PATCH_LEDGER.md",
+      "kind": "M",
+      "note": "M PATCH_LEDGER S-2-ENV"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M LOG S-2-LINK attempt: marker"
+      "note": "M LOG S-2-ENV"
     },
     {
-      "path": "scaffolding/core/form_external-collection.md",
+      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M form_external-collection S-2-LINK Gap-4 vocabulary + Gap-2 supersession note + JS-only INACCESSIBLE-UNKNOWN"
+      "note": "M EXPECTATION S-2-ENV base bab3da4"
     },
     {
-      "path": "scaffolding/core/proc_research-sortie.md",
+      "path": "tests/test_gate.py",
       "kind": "M",
-      "note": "M proc_research-sortie S-2-LINK Gap-14 replay-relevant inputs"
+      "note": "M test_gate S-2-ENV 16->21 vectors"
+    },
+    {
+      "path": "tools/TOOL_REGISTRY.json",
+      "kind": "M",
+      "note": "M TOOL_REGISTRY S-2-ENV 32->33 session_state_check"
+    },
+    {
+      "path": "schemas/session_capability_state.schema.json",
+      "kind": "A",
+      "note": "A schema S-2-ENV radiation.session_capability_state/1"
+    },
+    {
+      "path": "scripts/session_state_check.py",
+      "kind": "A",
+      "note": "A session_state_check S-2-ENV 5 vectors"
+    },
+    {
+      "path": "tests/test_session_state_check.py",
+      "kind": "A",
+      "note": "A test_session_state_check S-2-ENV 6 vectors discover 152->158"
     }
   ],
   "required_deletions": [
@@ -303,6 +333,16 @@
       "command": "python3 scripts/render_docs.py --check",
       "expected_exit": 0,
       "must_contain": "match reality"
+    },
+    {
+      "command": "python3 scripts/session_state_check.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "5/5"
+    },
+    {
+      "command": "python3 scripts/session_state_check.py",
+      "expected_exit": 0,
+      "must_contain": "no session state declared"
     }
   ],
   "forbidden_paths": [

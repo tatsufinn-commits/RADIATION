@@ -35,7 +35,7 @@ class DeepSelfTests(unittest.TestCase):
     def test_radiation_pass_self_test(self):
         out = self._run([os.path.join("agents", "_common", "radiation_pass.py"),
                          "--self-test"])
-        self.assertIn("16/16", out)
+        self.assertIn("21/21", out)
 
     def test_contract_tests(self):
         out = self._run(["scripts/contract_tests.py"])

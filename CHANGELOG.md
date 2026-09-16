@@ -6,6 +6,34 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+
+## v3.10.26 — 2026-09-16 — S-2-ENV SESSION CAPABILITY STATE (E-ENV-1 Gate-1 design) (II.7.4)
+
+**BASE: bab3da4e7f5d0ce10fe91484baae67c66eba244d (S-2-LINK seal) per DESK_DIRECTIVE_S2_ENV_2026-09-16.md.**
+
+**Why:** IP-ENV-01 investigation found exactly one empty cell — pass observes, nothing persists; persist as working memory with provenance discipline.
+
+**1. Schema `schemas/session_capability_state.schema.json` A radiation.session_capability_state/1:** fields host_label DECLARED never discovered never profile-inferred, route as returned by radiation_pass.route(), capabilities[] {name, state AVAILABLE|UNAVAILABLE|UNKNOWN, provenance OBSERVED|DECLARED|INFERRED} vocabulary Gate-1 correspondence map, constraints[] {name, provenance, value_or_unknown}, generated_at ISO UTC, pass_ref, honesty_note; UNKNOWN first-class everywhere, capability with no evidence is UNKNOWN never UNAVAILABLE, stale generated_at reads UNKNOWN rather than lie.
+
+**2. Writer `agents/_common/radiation_pass.py` M --persist flag:** writing Brain/short_term/active/session_capability_state.json schema-valid before write deterministic sorted keys stdout path+counts {available, unavailable, unknown, observed, declared, inferred}; default no flag -> no write byte-identical (diff paste). No hardcoded platform limits, no private-quota probing, no parallel EXECUTE/ALT/HOLD chain state file is input artifact for scan/anchor/stockpile shortfall never resolver, no edits contracts/profiles content, no new ENV PROFILE taxonomy, no autonomous self-check loop, no network calls writer, file can never raise authority stale reads UNKNOWN.
+
+**3. Lifecycle:** file lives session-local Brain/short_term/active/ impermanent triaged per short-term law must never be committed with live content; repo carries schema+writer+checker+docs (+ README line); do NOT add .gitignore entries; checker+battery assert no committed live-content path.
+
+**4. Checker `scripts/session_state_check.py` A house finding deterministic lint present file vs schema enums exact required fields provenance discipline OBSERVED=>must cite cap_probe execution this session, host_label declared-shape; absent file -> exit 0 "no session state declared"; --self-test 5 vectors including UNKNOWN-honesty and OBSERVED-vs-DECLARED.
+
+**5. Tests `tests/test_session_state_check.py` A 6 vectors TestCase law discover 152->158 before/after, tools/TOOL_REGISTRY.json M 32->33 session_state_check bounded fields generated_by honest, three one-line doc refs AGENTS.md, agents/AGENT_INDEX.md, BOOT_SEQUENCE.md --persist option named.
+
+**6. Domain-10 rider Gate-1 correspondence table one bounded doc block annex in docs/EVIDENCE_TAXONOMY.md M:** AVAILABLE<->primary+active · UNAVAILABLE<->deprecated/secondary/asserted/benchmark · UNKNOWN<->draft+honesty-grammar · VERIFIED<->[D]/[I]+primary+active · DOCUMENTED<->[D]/[O]+secondary · INFERRED<->[N]/[R]+asserted/benchmark · UNKNOWN<->[S]+UNVERIFIED+draft one mapping never second vocab.
+
+**Hard fences IP-ENV-01 §XVIII:** no hardcoded platform limits, no private-quota probing, no parallel EXECUTE/ALT/HOLD chain state file is input artifact for scan/anchor/stockpile shortfall never resolver, no edits contracts/profiles content, no new ENV PROFILE taxonomy, no autonomous self-check loop, no network calls writer, file can never raise authority stale reads UNKNOWN.
+
+**Battery:** EXPECTATION re-pin base bab3da4 allowed exact, gate live+ST, preflight live @ base LAW-6 line pasted, validate 0 fail, discover count-increment law, all catalog checkers 0 incl catalog_integrity new tool via registry, render PASS, delta-vs-allowed ∅, fresh-clone ancestor proof, ledgers honesty rows, attempt: marker, zip->motor.
+
+**Non-goals:** no video Phase-R/E, no PPTX, no Problem-1, no .gitignore additions, no moves/renames, no S-2 shelf reordering.
+
+**Base pinned:** bab3da4e7f5d0ce10fe91484baae67c66eba244d (S-2-LINK seal). Allowed delta exact. One patch one purpose II.7.4 — S-2-ENV v3.10.26.
+
+
 ## v3.10.25 — 2026-09-16 — S-2-LINK SOURCE & LINK QUALIFICATION (doc-line bundle) (II.7.4)
 
 **BASE: 4cd3429fc49f6751be70dbcfbb7dc2670251284a (LAW-6 seal) per DESK DIRECTIVE S-2-LINK 2026-09-16.**

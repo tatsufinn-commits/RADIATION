@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.25 · Ratified by THE COMMANDER · 2026-09-16 · S-2-LINK Source & Link Qualification doc-line bundle
+**Version:** v3.10.26 · Ratified by THE COMMANDER · 2026-09-16 · S-2-LINK Source & Link Qualification doc-line bundle
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

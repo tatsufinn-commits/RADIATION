@@ -35,3 +35,11 @@ Core admission — a single authority can be wrong.
 
 ## 4. CLAIM FORMAT (canonical)
 `<claim text> [GRADE] (source: <id/citation>) {decay: YYYY-MM-DD | none}`
+
+## 5. ANNEX S-2-ENV — Gate-1 Correspondence (Domain-10 rider, one bounded block)
+
+S-2-ENV Session Capability State vocabulary maps to Gate-1 evidence and capability grades — one mapping, named once, never second vocabulary:
+
+- **State mapping:** `AVAILABLE↔primary+active` · `UNAVAILABLE↔deprecated/secondary/asserted/benchmark` · `UNKNOWN↔draft+honesty-grammar`
+- **Provenance-grade mapping:** `VERIFIED↔[D]/[I]+primary+active` · `DOCUMENTED↔[D]/[O]+secondary` · `INFERRED↔[N]/[R]+asserted/benchmark` · `UNKNOWN↔[S]+UNVERIFIED+draft`
+- **Discipline:** `UNKNOWN` is first-class value everywhere; capability with no evidence is `UNKNOWN`, never `UNAVAILABLE`; stale `generated_at` reads `UNKNOWN` rather than lie; `host_label` is `DECLARED` never discovered never profile-inferred per schema `radiation.session_capability_state/1`; `OBSERVED` must cite `cap_probe` execution this session in evidence field; file is input artifact consumed by scan/anchor/stockpile shortfall, never resolver; can never raise authority; working memory session-local Brain/short_term/active/session_capability_state.json presumed impermanent triaged at session close per short-term law never committed live; no hardcoded platform limits, no private-quota probing, no parallel EXECUTE/ALT/HOLD chain, no autonomous self-check loop, no network calls from writer.

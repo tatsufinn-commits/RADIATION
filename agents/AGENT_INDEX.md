@@ -15,7 +15,7 @@ clause.
 | anything else — unknown, ambiguous, or undeclared | **no provider folder** | generic CAP path; run the pass; declare uncertainty |
 
 **The pass (all routes):** `RADIATION PASS` → `python3 agents/_common/radiation_pass.py
---host "<label>"`. Deterministic, read-only; yields observed context/tools, the
+--host "<label>"` (add `--persist` to write Brain/short_term/active/session_capability_state.json per S-2-ENV). Deterministic, read-only; yields observed context/tools, the
 effect boundary, the relevant profile (or its explicit absence), verification
 commands, and non-availability results.
 

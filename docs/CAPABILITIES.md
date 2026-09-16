@@ -300,6 +300,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `release_truth_check.py` | Release Truth Gate checker (5824 FIX) | no | no | yes |
 | `render_docs.py` | generated-facts pipeline (patch 4400; auditor plan item 5). | yes | yes | yes |
 | `scaffold_check.py` | deterministic compile check for scaffolding contract spine (Dim-3/G4) | no | no | no |
+| `session_state_check.py` | Session Capability State checker (S-2-ENV) | no | no | no |
 | `skill_check.py` | deterministic compile check for skill catalog spine (Dim-7/G4) | no | no | no |
 | `status.py` | the Swarm Dashboard (patch 3300, SD-3300-02). | no | no | yes |
 | `subskill_check.py` | deterministic compile check for subskill catalog + hook protocol (Dim-8/G4) | no | no | no |

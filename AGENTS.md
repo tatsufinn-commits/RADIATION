@@ -14,7 +14,7 @@ read.
    machine, not an elevation**: `python3 agents/_common/radiation_pass.py --host
    "<your host label>"` yields your observed context/tools, the task/effect
    boundary, the relevant profile, the verification commands, and explicit
-   non-availability results. It performs zero writes.
+   non-availability results. It performs zero writes (opt-in `--persist` writes Brain/short_term/active/session_capability_state.json per S-2-ENV schema `radiation.session_capability_state/1`).
 3. **Defaults:** read/plan/evidence only per RD-3 reconciliation (docs/.readme §8.4 vs this file: silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane). Drafts exist solely through the ratified
    II.11 control plane (chained decision + content-bound single-use approval —
    `docs/CONTROL_PLANE.md`). `canonical_apply` and push are **the Commander's motor

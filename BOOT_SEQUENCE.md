@@ -38,7 +38,7 @@ It operates @Data or @Gather-lean only, stating the limitation in its Scan
 Declaration. Silent degradation is a III.1 violation.
 
 ## SESSION CLOSE CHECKLIST (the mirror of boot)
-1. Triage Brain/short_term/ (promote / demote / [STALE]).
+1. Triage Brain/short_term/ (promote / demote / [STALE]) — incl. Brain/short_term/active/session_capability_state.json written via `agents/_common/radiation_pass.py --persist` (S-2-ENV working memory, never committed live).
 2. Append the task ledger entry (II.3).
 3. Emit a Patch if durable material exists (II.7) — or state the waiver.
 4. Update docs/SYSTEM_STATE.md if ground truth changed.

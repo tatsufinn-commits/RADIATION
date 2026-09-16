@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S006 P-20 G4 base e81bdf8: cross-catalog integrity checker 9 vectors + test 8 vectors + rider",
+  "generated_by": "S-2-ENV v3.10.26 bab3da4: session state schema+writer --persist+checker+tests 6v+registry 32->33+docs+rider",
   "tools": [
     {
       "id": "validate",
@@ -826,6 +826,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Cross-Catalog Integrity Checker G4 closure: composition lane skill/subskill/scaffold/agent_contract/docs_index/cue_resolver + FK lane full map + FK-AUDIT ALREADY-CHECKED-BY vs NEW-IN-P20"
+    },
+    {
+      "id": "session_state_check",
+      "entrypoint": "scripts/session_state_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/session_state_check.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Session state checker S-2-ENV: schema-valid vs session_capability_state/1, enums exact, OBSERVED=>cap_probe evidence, DECLARED host_label, lifecycle no committed live, absent->0, 5-vector self-test"
     }
   ]
 }
