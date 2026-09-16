@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S006 P-12 Motor-Preflight base 0c0548b: push_preflight_check + WARN_LEDGER",
+  "generated_by": "S006 P-13 G1+G2 base f24612e: ics RDATE fix + ingest 10MiB cap streamed abort",
   "tools": [
     {
       "id": "validate",
@@ -513,7 +513,7 @@
       "observability": {
         "content_capture": "off_by_default"
       },
-      "description": "ingests course collections to operator-named JSON; outside tracked records"
+      "description": "ingests course collections to operator-named JSON; default cap 10 MiB unless --max-size override, enforced against streamed bytes abort+finding, outside tracked records"
     },
     {
       "id": "tool_registry_check",

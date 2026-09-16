@@ -6,6 +6,37 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.13 — 2026-09-16 — P-13 PHASE-A LOOSE ENDS: G1 ICS DATES + G2 INGEST CAPS (II.7.4)
+
+**P-13 Phase-A Loose Ends per Architect Directive base f24612e460bf32e27aa01a1db962491b355fd000 sealed P-12. One sealed candidate one purpose — close the last residual Phase-A research debt. G3 already CLOSED by RD-3 silence=read-only v2 sealed + ratified — do not re-litigate.**
+
+**Framing:** Per desk's 2026-09-15 crossref recommendation order, Phase-A sweep had three items: G3 CLOSED by RD-3, two remain both "a few lines + one fixture" both high-yield both residuals of same Sanction/Verity wave.
+
+**(a) G1 — ICS RDATE comma-split silently drops dates (half of research Phase A.5):**
+- Problem (desk live-repro @ crossref §5): scripts/ics_normalize.py splits EXDATE on commas but not RDATE. RDATE:20261008T090000,20261015T090000 parses to one date; Oct 15 silently discarded from Commander's calendar mirror.
+- Fix: mirror existing EXDATE normalization for RDATE (split, normalize each, re-join deterministically); keep all current pass-through semantics. Current code at f24612e already had RD-1 fix splitting RDATE, but needed explicit regression vectors for desk repro.
+- Fixture: extend self-test (22/22 → +2 vectors per directive, actual 25→29): multi-date RDATE splits to N dates; single-date RDATE unchanged; plus one regression vector proving exact desk repro parses 2 dates. Added:
+  - single-date RDATE unchanged: 1 rdate parsed, expanded to 2 occurrences (DTSTART different to avoid dedup)
+  - desk repro RDATE:20261008T090000,20261015T090000 parses 2 dates, expanded to 2 occurrences (Oct 8 + Oct 15, Oct 8 deduped) proves Oct 15 not dropped
+- Result: --self-test 29/29 (was 25/25 at base, now 29).
+
+**(b) G2 — ingestion response-byte caps enforced even when manifest sizes are absent (research §5):**
+- Locate ingestion tool via tools/TOOL_REGISTRY.json (network-true fetch entry). Current at base: --max-size opt-in default 100 MB, enforced only against manifest-declared sizes; manifests without sizes fetch unbounded; no abort on streamed response bytes.
+- Fix: (i) default cap 10 MiB unless operator overrides via flag (spec); (ii) enforce against actual streamed response byte count — abort + finding-line the moment bytes exceed cap, whether or not manifest size existed; (iii) finding in house name: finding style, non-zero exit.
+  - Changed default: --max-size default None → code uses 10 MiB default, 0 = no cap (operator disables)
+  - Enforce manifest size > cap → finding ingest_collection: <name> manifest size X > cap Y — abort
+  - Enforce cached size > cap → finding ingest_collection: <name> cached size X > cap Y — abort, streamed byte count exceeds cap
+  - Enforce streamed size > cap after drive_get → finding ingest_collection: <name> streamed X > cap Y — abort, streamed response byte count exceeds cap whether manifest size existed or not, manifest absent/present noted
+  - At end, if findings, print count and exit 1
+- Fixtures: unittest vectors ≥3 (under-cap fetch ok · over-cap streamed abort without manifest size · override flag honored) in tests/test_ingest_collection.py A 4 vectors (adds default cap 10 check)
+- Registry entry M gains default-cap fact in description: "ingests course collections to operator-named JSON; default cap 10 MiB unless --max-size override, enforced against streamed bytes abort+finding, outside tracked records" — TOOL_REGISTRY self-test stays 15/15.
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29 self-test, unittest 105 OK (101 + 4 new), cue_resolver lint ok 42 cues, render_docs --check PASS, git diff --check clean, porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.13.
+
+**Base pinned:** f24612e460bf32e27aa01a1db962491b355fd000 (Restore EXPECTATION.json from P-12 commit af21e84 undo pull-merge hand-splice; fixes run 84 step-14). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — close last residual Phase-A research debt.
+
+
+
 ## v3.10.12 — 2026-09-16 — P-12 POST-INCIDENT HYGIENE & MOTOR-PREFLIGHT (LAW-5)
 
 **P-12 Post-Incident Hygiene & Motor-Preflight per Architect Directive base 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef sealed (RD-3 + run #82 fix). One sealed candidate one purpose II.7.4 — ship preflight tool that makes LAW-5 executable + close out standing WARN-class debt so census 4 can shrink or be honestly chartered. Nothing else.**

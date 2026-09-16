@@ -143,10 +143,19 @@ def cmd_fetch(a):
     os.makedirs(a.dest, exist_ok=True)
     if os.path.abspath(a.dest).startswith(os.path.abspath(a.repo or "/nonexistent")):
         sys.exit("✗ refusing to fetch into the repository — binaries never touch the repo (II.6 r.8)")
-    # RD-2: default cap 100 MB (was 0 = no cap) — II.6 restraint doctrine, large-file protocol
-    cap = (a.max_size or 0) * 1048576
+    # G2 + RD-2: default cap 10 MiB (was 100 MB, was 0 = no cap) — II.6 restraint doctrine, large-file protocol
+    # Spec: 10 MiB unless operator overrides via --max-size flag; enforce against actual streamed bytes
+    # 0 = no cap (operator explicitly disables)
+    default_cap_mb = 10
+    if a.max_size is None:
+        max_size_mb = default_cap_mb
+    else:
+        max_size_mb = a.max_size
+    cap = (max_size_mb or 0) * 1048576
+    cap_mb = max_size_mb
     ok = fail = skipped = 0
     skip_log = []
+    findings = []
     # biggest first: a cap that stops the run must stop it on the biggest file, not the last one
     for i, f in enumerate(sorted(files, key=lambda x: -(x.get("size") or 0)), 1):
         raw_size = f.get("size")  # may be None → manifest size absent
@@ -155,11 +164,13 @@ def cmd_fetch(a):
         safe = "".join(c if c.isalnum() or c in " ._-()" else "_" for c in f["name"])
         dest = os.path.join(a.dest, f"{i:02d}_{safe}")
         if cap and size > cap:
-            # II.6 restraint doctrine: a skipped file is LAWFUL — but it must be LOGGED, not dropped
+            # G2: enforce against manifest size AND streamed bytes, finding-line + abort
+            msg = f"ingest_collection: {f['name']} manifest size {size/1048576:.1f} MB > cap {cap_mb} MB — abort, manifest size exceeds cap (default {default_cap_mb} MiB unless overridden)"
+            print(f"  [{i:02d}] {msg}")
+            findings.append(msg)
             skipped += 1
-            skip_log.append({"name": f["name"], "size": size, "reason": f"SIZE-SKIPPED (> {a.max_size} MB cap)",
+            skip_log.append({"name": f["name"], "size": size, "reason": f"SIZE-SKIPPED (> {cap_mb} MB cap) — {msg}",
                              "id": f["id"]})
-            print(f"  [{i:02d}] SKIP  {safe[:52]}  {size/1048576:.1f} MB > cap {a.max_size} MB")
             continue
         want = DECLARED.get(os.path.splitext(f["name"])[1].lower())
         def verdict(path):
@@ -170,40 +181,37 @@ def cmd_fetch(a):
         if os.path.exists(dest) and os.path.getsize(dest) > 1000:
             k, _l, _g, tok = verdict(dest)
             if tok:
-                # RD-2: even cached files must respect cap when manifest size was absent — check streamed size
+                # G2 + RD-2: even cached files must respect cap — check streamed size regardless of manifest
                 cached_got = os.path.getsize(dest)
-                if cap and cached_got > cap and manifest_absent:
+                if cap and cached_got > cap:
+                    msg = f"ingest_collection: {f['name']} cached size {cached_got/1048576:.1f} MB > cap {cap_mb} MB — abort, streamed response byte count exceeds cap (manifest {'absent' if manifest_absent else 'present'})"
+                    print(f"  [{i:02d}] {msg}")
+                    findings.append(msg)
                     os.remove(dest)
                     skipped += 1
                     skip_log.append({"name": f["name"], "size": cached_got,
-                                     "reason": f"SIZE-SKIPPED (> {a.max_size} MB cap, manifest size absent, streamed abort)",
+                                     "reason": f"SIZE-SKIPPED (> {cap_mb} MB cap, {'manifest size absent, ' if manifest_absent else ''}streamed abort) — {msg}",
                                      "id": f["id"]})
-                    print(f"  [{i:02d}] SKIP  {safe[:52]}  {cached_got/1048576:.1f} MB > cap {a.max_size} MB (manifest size absent, streamed abort)")
                     continue
                 print(f"  [{i:02d}] cached {safe[:52]}  [{k}]"); ok += 1; continue
             print(f"  [{i:02d}] CACHED COPY IS NOT A {want.upper()} — refetching ({safe[:40]})")
             os.remove(dest)
         http = drive_get(f["id"], dest)
         kind, label, got, type_ok = verdict(dest)
-        # RD-2: abort streamed bytes when manifest size absent and streamed > cap — lawful SIZE-SKIPPED
-        if cap and got > cap and manifest_absent:
+        # G2: abort streamed bytes when streamed > cap — whether manifest size absent or present
+        if cap and got > cap:
             if os.path.exists(dest):
                 os.remove(dest)
+            if manifest_absent:
+                msg = f"ingest_collection: {f['name']} streamed {got/1048576:.1f} MB > cap {cap_mb} MB — abort, streamed response byte count exceeds cap, manifest size absent (default {default_cap_mb} MiB)"
+            else:
+                msg = f"ingest_collection: {f['name']} streamed {got/1048576:.1f} MB > cap {cap_mb} MB — abort, streamed response byte count exceeds cap (manifest present but underestimated or override needed)"
+            print(f"  [{i:02d}] {msg}")
+            findings.append(msg)
             skipped += 1
             skip_log.append({"name": f["name"], "size": got,
-                             "reason": f"SIZE-SKIPPED (> {a.max_size} MB cap, manifest size absent, streamed abort)",
+                             "reason": f"SIZE-SKIPPED (> {cap_mb} MB cap, streamed abort) — {msg}",
                              "id": f["id"]})
-            print(f"  [{i:02d}] SKIP  {safe[:52]}  {got/1048576:.1f} MB > cap {a.max_size} MB (manifest size absent, streamed abort)")
-            continue
-        # Also enforce cap on streamed size even when manifest size present but underestimated (safety)
-        if cap and got > cap and not manifest_absent and size == 0:
-            if os.path.exists(dest):
-                os.remove(dest)
-            skipped += 1
-            skip_log.append({"name": f["name"], "size": got,
-                             "reason": f"SIZE-SKIPPED (> {a.max_size} MB cap, streamed abort)",
-                             "id": f["id"]})
-            print(f"  [{i:02d}] SKIP  {safe[:52]}  {got/1048576:.1f} MB > cap {a.max_size} MB (streamed abort)")
             continue
         good = type_ok and kind not in ("missing", "html", "unknown")
         warn = " ⚠ " + label if kind in ("ole", "html") else ""
@@ -214,14 +222,10 @@ def cmd_fetch(a):
             skip_log.append({"name": f["name"], "size": size, "id": f["id"],
                              "reason": f"FETCH FAILED — declared {want}, received {kind}"})
         if kind == "ole":
-            # it downloaded fine — what it cannot do is be read by this harness's rung 1/2
             skip_log.append({"name": f["name"], "size": size, "id": f["id"],
                              "reason": "FETCHED but UNEXTRACTABLE — legacy binary Office format (rung 3: external converter)"})
         ok += good; fail += (not good)
-    # The log is built from the DESTINATION, not from this run's control flow: a file
-    # that was cached on an earlier run must still appear in the record. (First cut
-    # logged the OLE file only when it was freshly downloaded — the second run dropped
-    # the entry. An accountability log that depends on cache state is not a log.)
+    # The log is built from the DESTINATION, not from this run's control flow
     logged = {s["name"] for s in skip_log}
     for f in sorted(files, key=lambda x: -(x.get("size") or 0)):
         if f["name"] in logged: continue
@@ -243,6 +247,13 @@ def cmd_fetch(a):
         out = os.path.join(a.dest, "_SKIP_LOG.json")
         json.dump(skip_log, open(out, "w"), indent=1)
         print(f"⚠ {len(skip_log)} file(s) NOT fetched — logged to {os.path.basename(out)} (a skip is lawful ONLY if logged)")
+    # G2: finding-line in house style, non-zero exit when cap exceeded
+    if findings:
+        print(f"\n✗ {len(findings)} finding(s):")
+        for fm in findings:
+            print(f"  - {fm}")
+        print(f"\nG2 cap enforcement: default {default_cap_mb} MiB (operator override via --max-size), enforced against actual streamed bytes whether manifest size existed or not")
+        sys.exit(1)
 
 # ── 3. EXTRACT: the recovery-ladder rung report ─────────────────────────────
 def cmd_extract(a):
@@ -330,16 +341,6 @@ def cmd_verify(a):
         if left or right:
             print(f"  {left[:54]:<56}| {right[:34]}")
 
-    # ── pass statistics — INFORMATIONAL, deliberately NOT a verdict ──────────
-    # The first cut of this function emitted an automatic "resolved / not resolved"
-    # verdict. It was removed: on the PEC 2.20.2.3 corruption it fired correctly, and
-    # on a clean single-column page (PD 1096 pipe colours) it ALSO fired — a false
-    # positive. A warning that cries wolf is worse than no warning, because it trains
-    # the reader to skip it, and skipping it is how a wrong table earns a grade.
-    #
-    # The machine cannot decide this. What it can do is lay out the evidence and
-    # always produce the render, so the READER decides — which is the recovery
-    # ladder's vision rung, not a substitute for it.
     nrows = len(rows) or 1
     onesided = sum(1 for y in rows
                    if not (any(x < cut for x, _ in rows[y]) and any(x >= cut for x, _ in rows[y])))
@@ -370,7 +371,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     l = sub.add_parser("list");    l.add_argument("--url", required=True); l.add_argument("--out")
     f = sub.add_parser("fetch");   f.add_argument("--manifest", required=True); f.add_argument("--dest", default=os.path.join(tempfile.gettempdir(), "rad_ingest")); f.add_argument("--repo")
-    f.add_argument("--max-size", type=float, default=100, help="MB cap; larger files are SIZE-SKIPPED and logged (default 100 MB per II.6 restraint, 0 = no cap). RD-2: abort streamed bytes when manifest size absent, logged SIZE-SKIPPED")
+    f.add_argument("--max-size", type=float, default=None, help="MB cap; larger files are SIZE-SKIPPED and logged (default 10 MiB per G2+II.6 restraint unless operator overrides via flag, 0 = no cap). RD-2: abort streamed bytes when manifest size absent, logged SIZE-SKIPPED; G2: enforce against actual streamed response byte count, abort + finding-line")
     e = sub.add_parser("extract"); e.add_argument("--dir", default="/tmp/rad_ingest"); e.add_argument("--out")
     v = sub.add_parser("verify");  v.add_argument("--pdf", required=True); v.add_argument("--page", type=int, required=True); v.add_argument("--out")
     v.add_argument("--repo", default=os.getcwd(), help="repo root; renders are refused inside it")

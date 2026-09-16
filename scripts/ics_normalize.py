@@ -808,6 +808,45 @@ END:VCALENDAR
     ev_ex = expand_all(raw_ex)
     check("EXDATE comma split mirror: 5 COUNT -2 EXDATE =3 live", len(ev_ex) == 3, f"got {len(ev_ex)}")
 
+    # G1 — ICS RDATE comma-split must not silently drop dates (desk live-repro §5)
+    # Single-date RDATE unchanged (different from DTSTART to avoid dedup)
+    single_rdate_fixture = """BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:single-rdate@test
+DTSTART;TZID=Asia/Manila:20261008T090000
+DTEND;TZID=Asia/Manila:20261008T100000
+RDATE;TZID=Asia/Manila:20261009T090000
+SUMMARY:single RDATE
+END:VEVENT
+END:VCALENDAR
+"""
+    raw_single = parse_ics(single_rdate_fixture)
+    check("RDATE single-date unchanged: 1 rdate parsed", len(raw_single) == 1 and len(raw_single[0].get("rdates", [])) == 1,
+          f"got {len(raw_single[0].get('rdates', [])) if raw_single else 0}")
+    ev_single = expand_all(raw_single)
+    check("RDATE single-date unchanged: expanded to 2 occurrences (1 + 1 RDATE)", len(ev_single) == 2,
+          f"got {len(ev_single)}")
+
+    # Desk exact repro: RDATE:20261008T090000,20261015T090000 must parse to 2 dates (Oct 15 was silently discarded before RD-1)
+    # DTSTART is Oct 8, RDATE includes Oct 8 (dup) + Oct 15 => expanded 2 (Oct 8, Oct 15) deduped, proving Oct 15 not dropped
+    desk_repro_fixture = """BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:desk-repro-rdate@test
+DTSTART:20261008T090000
+RDATE:20261008T090000,20261015T090000
+SUMMARY:desk repro RDATE comma
+END:VEVENT
+END:VCALENDAR
+"""
+    raw_desk = parse_ics(desk_repro_fixture)
+    check("RDATE desk repro: RDATE:20261008T090000,20261015T090000 parses 2 dates", len(raw_desk) == 1 and len(raw_desk[0].get("rdates", [])) == 2,
+          f"got {len(raw_desk[0].get('rdates', [])) if raw_desk else 0} — Oct 15 silently discarded before fix")
+    ev_desk = expand_all(raw_desk)
+    check("RDATE desk repro: expanded to 2 occurrences (Oct 8 + Oct 15, Oct 8 deduped) proves Oct 15 not dropped", len(ev_desk) == 2,
+          f"got {len(ev_desk)}")
+
     # the committed mirror must never carry a URL (a committed credential is check 22's FAIL)
     pub = render_public(expand_all(parse_ics(FIXTURE, DEFAULT_TZ), DEFAULT_TZ, horizon_days=None), DEFAULT_TZ)
     check("public mirror: no URL in committed output", "http" not in pub)

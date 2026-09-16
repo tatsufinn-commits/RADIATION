@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.12 · Ratified by THE COMMANDER · 2026-09-16 · P-12 Post-Incident Hygiene & Motor-Preflight
+**Version:** v3.10.13 · Ratified by THE COMMANDER · 2026-09-16 · P-13 Phase-A Loose Ends: G1 ICS dates + G2 ingest caps
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

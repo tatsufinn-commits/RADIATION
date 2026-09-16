@@ -1,79 +1,69 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect — RD-3 SILENCE RECONCILIATION + INCIDENT CHAIN CLOSURE LAWS base fee4a955c0781bd9d81c87906bc7c1464d038afa sealed merge PR #2 run #81 green; preserves P-12 POST-INCIDENT HYGIENE & MOTOR-PREFLIGHT context (restored candidate context from base 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef, restore from RD-3 commit 2bc6e17)",
-  "base_sha": "fee4a955c0781bd9d81c87906bc7c1464d038afa",
+  "generated_by": "S006 Architect \u2014 P-13 PHASE-A LOOSE ENDS G1+G2 base f24612e460bf32e27aa01a1db962491b355fd000 sealed P-12 (Restore EXPECTATION.json from P-12 commit af21e84 fixes run 84), G1 RDATE comma-split fix + 4 vectors 29/29, G2 default cap 10 MiB streamed abort+finding, 105 unittest 11/11 5/5 29/29, delta \u2205",
+  "base_sha": "f24612e460bf32e27aa01a1db962491b355fd000",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA fee4a955c0781bd9d81c87906bc7c1464d038afa (sealed merge PR #2 run #81). Includes RD-3 SILENCE RECONCILIATION notes and preserves P-12 motor-preflight restore context referencing 0c0548b19e7bb3d...; 4 laws: PUBLIC-OBJECT, STDLIB-ONLY, DELTA-\u2261-ALLOWED, CI-HYGIENE. Obligations: workflow label 7\u219211 vectors, ledger honesty #75-#81 incident chain; one sealed candidate, II.7.4.",
+  "description": "Pins exact base SHA f24612e460bf32e27aa01a1db962491b355fd000 (Restore EXPECTATION.json from P-12 commit af21e84 undo pull-merge hand-splice; fixes run 84 step-14). P-13 PHASE-A LOOSE ENDS: G1 ICS RDATE comma-split fix mirror EXDATE + 4 vectors 29/29 self-test (single-date unchanged + desk repro 20261008T090000,20261015T090000 parses 2 dates), G2 default cap 10 MiB unless --max-size override + streamed byte count abort+finding regardless manifest size, tests/test_ingest_collection.py A 4 vectors. G3 CLOSED by RD-3 silence=read-only v2. One sealed candidate one purpose II.7.4 \u2014 close last residual Phase-A research debt.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger \u2014 attempt: P-12 build executed + final P-12 row, fixes WARN 20.5 planner theater guard"
+      "note": "M task_ledger P-13 Phase-A Loose Ends G1+G2"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG v3.10.12 P-12 post-incident hygiene & motor-preflight LAW-5 + WARN census 4\u21923"
+      "note": "M CHANGELOG v3.10.13 P-13 G1 ICS RDATE + G2 ingest caps 10 MiB"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README v3.10.11\u2192v3.10.12 P-12 lineage"
-    },
-    {
-      "path": "docs/CAPABILITIES.md",
-      "kind": "M",
-      "note": "M CAPABILITIES GENERATED now includes push_preflight_check.py motor preflight tool"
-    },
-    {
-      "path": "docs/CUE_SYSTEM.md",
-      "kind": "M",
-      "note": "M CUE_SYSTEM \u2014 living layers pointer + motor preflight cross-link to RELEASE_TRUTH_GATE/README.md + WARN_LEDGER.md"
+      "note": "M README v3.10.12\u2192v3.10.13 P-13 lineage"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER P-12 row post-incident hygiene motor-preflight; RD-3 row + incident chain #75-#81"
+      "note": "M PATCH_LEDGER P-13 row Phase-A Loose Ends"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP P-12 row motor preflight + WARN census audit"
+      "note": "M ROADMAP P-13 row G1+G2"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE GENERATED v3.10.12 P-12 + 4 laws + LAW-5 + WARN 4\u21923"
+      "note": "M SYSTEM_STATE GENERATED v3.10.13 P-13 G1+G2"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M shrine LOG P-12 heartbeat motor preflight + WARN census"
+      "note": "M shrine LOG P-13 heartbeat G1+G2"
+    },
+    {
+      "path": "scripts/ics_normalize.py",
+      "kind": "M",
+      "note": "M ics_normalize.py G1 RDATE comma-split fix + 4 vectors 29/29 (single-date unchanged + desk repro 20261008T090000,20261015T090000 parses 2 dates)"
+    },
+    {
+      "path": "scripts/ingest_collection.py",
+      "kind": "M",
+      "note": "M ingest_collection.py G2 default cap 10 MiB unless --max-size override + streamed byte count abort+finding regardless manifest size"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M TOOL_REGISTRY 24\u219225 tools add push_preflight_check entry 15/15 self-test"
+      "note": "M TOOL_REGISTRY description gains default cap fact 10 MiB streamed abort, 25 tools 15/15"
     },
     {
-      "path": "docs/WARN_LEDGER.md",
+      "path": "tests/test_ingest_collection.py",
       "kind": "A",
-      "note": "A WARN_LEDGER.md \u2014 WARN census audit 4\u21923: 11.6 replica OPEN GOVERNED EXCEPTION accepted-class, 15 boot-byte accepted-class, 16 meta-budget accepted-class, 20.5 fixed via attempt row"
-    },
-    {
-      "path": "scripts/push_preflight_check.py",
-      "kind": "A",
-      "note": "A push_preflight_check.py \u2014 Motor Preflight Tool P-12 LAW-5 BASE-PIN HEAD==base verify-the-face + PUBLIC-OBJECT base ancestor origin/main + DELTA-\u2261-ALLOWED diff\u2261allowed + CI-HYGIENE _output.txt\u2192FAIL, stdlib-only, --self-test 5 vectors"
-    },
-    {
-      "path": "tests/test_push_preflight.py",
-      "kind": "A",
-      "note": "A test_push_preflight.py \u2014 unittest 5 vectors happy/wrong-HEAD/extra-diff/extra-allowed/hygiene synthetic repos like gate harness"
+      "note": "A test_ingest_collection.py 4 vectors under-cap ok/over-cap streamed abort without manifest size/override honored/default cap 10"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION — base fee4a955 sealed (preserves restored context from 0c0548b19e7bb3d...), allowed exact delta 22 per LAW-3, 4 laws + LAW-5 motor preflight; WARN census 4\u21923; test_cue_resolver +9 RD-3 vectors (96 total), silence v2 read-only checks"
+      "note": "M EXPECTATION base f24612e sealed P-12, allowed exact delta 12 per LAW-3, G1+G2"
     }
   ],
   "required_deletions": [
@@ -81,7 +71,7 @@
       "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
       "must_be_absent_on_disk": true,
       "must_be_D_in_diff": false,
-      "note": "stale Fable 5-1 already absent in base 0c0548b, must remain absent"
+      "note": "stale Fable 5-1 already absent in base f24612e, must remain absent"
     }
   ],
   "required_absent_on_disk": [
@@ -152,15 +142,20 @@
       "must_contain": "5/5"
     },
     {
+      "command": "python3 scripts/ics_normalize.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "29 passed"
+    },
+    {
       "command": "git diff --check",
       "expected_exit": 0,
       "must_contain": ""
     },
     {
-      "command": "git diff --check 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef..HEAD",
+      "command": "git diff --check f24612e460bf32e27aa01a1db962491b355fd000..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-12 base 0c0548b"
+      "note": "committed-delta whitespace clean from P-13 base f24612e"
     },
     {
       "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
@@ -181,6 +176,12 @@
       "note": "whitespace clean from P-11-A base 4c851e3"
     },
     {
+      "command": "git diff --check 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from P-12 base 0c0548b"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
@@ -197,7 +198,7 @@
   ],
   "risks": [
     "wrong root \u2014 package applied to different working directory than repo root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef (run #82 genus: hand merge + stale-base extraction)",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA f24612e460bf32e27aa01a1db962491b355fd000 (run 84 genus: hand merge + stale-base extraction)",
     "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
     "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
     "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
@@ -205,7 +206,9 @@
     "unavailable credentials/remote verification \u2014 push attempted without Commander motor act",
     "evaluation/routing/deployment conflation \u2014 research notes treated as decision rule without named local evaluation",
     "CUE catalog boot overreach \u2014 new catalogs non-boot beyond single pointer line per DoD",
-    "motor preflight bypass \u2014 extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run #82)",
-    "WARN census hidden \u2014 WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md"
+    "motor preflight bypass \u2014 extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 84)",
+    "WARN census hidden \u2014 WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
+    "G1 ICS RDATE comma-split silently drops dates \u2014 half of research Phase A.5, Oct 15 discarded",
+    "G2 ingestion response-byte caps not enforced when manifest sizes absent \u2014 unbounded fetch, no streamed abort"
   ]
 }
