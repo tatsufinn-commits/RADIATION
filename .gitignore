@@ -82,3 +82,10 @@ runtime/
 !Brain/courses/DSS10_INTRODUCTION_TO_DATA_SCIENCE/*.docx
 !Brain/courses/GED103_READINGS_IN_PHILIPPINE_HISTORY/*.docx
 !Brain/courses/MEC30-7_STATICS_OF_RIGID_BODIES_FOR_CE/*.html
+
+# 3f. CI TEE'D DIAGNOSTIC ARTIFACTS (5900-1 observability, PR #2 repair)
+# validate.yml tees every step log to the repo root for on-failure publication.
+# They are CI workspace noise; the release-truth gate's worktree check must not
+# see them. Same class as 3c validation_report.json.
+/*_output.txt
+/apply_report.txt
