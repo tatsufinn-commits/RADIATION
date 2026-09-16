@@ -1,9 +1,9 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 P-11-B CUE RECONCILIATION + ADMISSION GATE base d518f3f4a75a1a0400679d1d36f882a1057d380f post-repair main (5900-1 gate defect repair green), schema 0.2 review_after+authority_grant, L13/L41/L79 re-scoped additive/tombstone II.2 II.10 REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side per II.7.8",
-  "base_sha": "d518f3f4a75a1a0400679d1d36f882a1057d380f",
+  "generated_by": "S006 Architect \u2014 P-11-B CUE RECONCILIATION + ADMISSION GATE base fcc9a7a23bf465d605e354d01f756674eed7b353 (public 5900 HEAD; 5900-1+P-11-B squashed into 1e201c7), schema 0.2 review_after+authority_grant, L13/L41/L79 re-scoped additive/tombstone II.2 II.10 REQUIRES EXPLICIT COMMANDER RATIFICATION side-by-side per II.7.8",
+  "base_sha": "fcc9a7a23bf465d605e354d01f756674eed7b353",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA d518f3f4a75a1a0400679d1d36f882a1057d380f post-repair main after 5900-1 gate defect repair (42\u00b738\u00b74\u00b70 0 FAIL 8/8 release-truth 24/24 catalog 77 unittest). P-11-B CUE RECONCILIATION + ADMISSION GATE: L13 ratification requires explicit reference binding + exact-words citation, L41 grant carries expiry expired=historical note review_after 2026-09-15, L79 reconcile with lexicon L18 fact not scope grant lexicon wins loser archived-with-pointer II.2 II.10, schema v0.2 adds review_after date + authority_grant boolean linter FAIL when authority-grant lacks review_after, admission gate new cue enters only with passing fixture proving five conditions trigger scope priority/evidence conflict-resolution expiry or prose-only marking + TestAdmissionGate 10 vectors + lint vector, hostile suite extension multi_row_conflicting_cues.md 5th shape proving resolver surfaces conflict loser suppressed reason emitted. Non-goals: no other catalogs, no docs-lane, no runtime/routing/providers. One sealed candidate one purpose II.7.4.",
+  "description": "Pins exact base SHA fcc9a7a23bf465d605e354d01f756674eed7b353 (public 5900 HEAD; 5900-1+P-11-B squashed into 1e201c7). P-11-B CUE RECONCILIATION + ADMISSION GATE: L13 ratification requires explicit reference binding + exact-words citation, L41 grant carries expiry expired=historical note review_after 2026-09-15, L79 reconcile with lexicon L18 fact not scope grant lexicon wins loser archived-with-pointer II.2 II.10, schema v0.2 adds review_after date + authority_grant boolean linter FAIL when authority-grant lacks review_after, admission gate new cue enters only with passing fixture proving five conditions trigger scope priority/evidence conflict-resolution expiry or prose-only marking + TestAdmissionGate 10 vectors + lint vector, hostile suite extension multi_row_conflicting_cues.md 5th shape proving resolver surfaces conflict loser suppressed reason emitted. Non-goals: no other catalogs, no docs-lane, no runtime/routing/providers. One sealed candidate one purpose II.7.4.",
   "allowed_changes": [
     {
       "path": "08-overhaul/proposals/PROPOSAL_P11B_CUE_RECONCILIATION.md",
@@ -68,7 +68,7 @@
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json \u2014 base pinned post-repair d518f3f, allowed delta P-11-B"
+      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json \u2014 base fcc9a7a (public 5900 HEAD; 5900-1+P-11-B squashed into 1e201c7), allowed delta P-11-B"
     },
     {
       "path": "docs/ROADMAP.md",
@@ -109,6 +109,21 @@
       "path": "tests/test_cue_resolver.py",
       "kind": "M",
       "note": "M tests/test_cue_resolver.py \u2014 52\u219262 tests: +TestAdmissionGate 10 vectors + multi-row conflicting fixture test"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "kind": "M",
+      "note": "M .github/workflows/validate.yml - 5900-1 repair folded into public 1e201c7: CUE tests pytest->unittest, per-step tee + Publish ALL step diagnostics on failure + artifact upload, apply-report observability; stdlib-only upheld"
+    },
+    {
+      "path": "scripts/release_truth_check.py",
+      "kind": "M",
+      "note": "M scripts/release_truth_check.py - 5900-1 repair folded into public 1e201c7: check_forbidden_tools_in_validations (pytest|pip|conda|npm|npx|node) + 8th self-test vector v_forbidden_tool_in_expectation + apply-report diagnostics"
+    },
+    {
+      "path": ".gitignore",
+      "kind": "M",
+      "note": "M .gitignore - ignore CI teed root *_output.txt and apply_report.txt diagnostics so release-truth worktree check stays clean (same class as 3c validation_report.json)"
     }
   ],
   "required_deletions": [
@@ -200,10 +215,10 @@
       "note": "committed-delta whitespace clean from P-11-A base 4c851e3"
     },
     {
-      "command": "git diff --check d518f3f4a75a1a0400679d1d36f882a1057d380f..HEAD",
+      "command": "git diff --check fcc9a7a23bf465d605e354d01f756674eed7b353..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-11-B base d518f3f4a75a1a0400679d1d36f882a1057d380f"
+      "note": "committed-delta whitespace clean from P-11-B base fcc9a7a23bf465d605e354d01f756674eed7b353 (public 5900 HEAD; 5900-1+P-11-B squashed into 1e201c7)"
     },
     {
       "command": "git status --porcelain",
