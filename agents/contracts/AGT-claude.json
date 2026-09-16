@@ -1,0 +1,38 @@
+{
+  "id": "AGT-claude",
+  "provider": "Claude",
+  "profile_ref": "agents/Claude/CAPABILITY_PROFILE.md",
+  "capabilities": [
+    {
+      "claim": "Models: claude-fable-5-1 $10/$50 1M, opus-5 $5/$25 1M, sonnet-5 $2/$10 1M, haiku-4-5 $1/$5 200K cutoffs Jun/May/Jan 2026",
+      "tier": "primary",
+      "receipt_ref": "O12 https://platform.claude.com/docs/en/models/overview"
+    },
+    {
+      "claim": "Commercial: customer content NOT used for training per commercial terms, customer retains inputs owns outputs, DPA incorporated",
+      "tier": "primary",
+      "receipt_ref": "O19 https://www.anthropic.com/legal/commercial-terms"
+    },
+    {
+      "claim": "Consumer privacy split: consumer policy does NOT apply to Enterprise governed by customer agreements, collects identity/payment/inputs/outputs/feedback",
+      "tier": "primary",
+      "receipt_ref": "O18 https://www.anthropic.com/legal/privacy"
+    },
+    {
+      "claim": "AUP: prohibits illegal, critical infra disruption, computer/network compromise, weapons, violence/hate, privacy violation, children safety, misinformation",
+      "tier": "primary",
+      "receipt_ref": "O20 https://www.anthropic.com/legal/aup"
+    },
+    {
+      "claim": "API logs retention 7 days since 2025-09-15 historical lead, safety-flagged content retained longer regardless",
+      "tier": "secondary",
+      "receipt_ref": "S2 2026-09-07 historical lead only"
+    }
+  ],
+  "boundary_note": "Host is session-contingent Claude host session; model identity session-specific; tool surface API platform verified per session; canonical_apply outside agent runtime II.11; consumer vs enterprise privacy split must not be merged",
+  "authority": {
+    "no_simulated_commander_authority": true
+  },
+  "status": "active",
+  "tests": ["tests/test_agent_contract_check.py"]
+}

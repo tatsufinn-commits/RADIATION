@@ -1,0 +1,38 @@
+{
+  "id": "AGT-arena-ai",
+  "provider": "Arena_AI",
+  "profile_ref": "agents/Arena_AI/CAPABILITY_PROFILE.md",
+  "capabilities": [
+    {
+      "claim": "Agent workflow surface: browsing/research, code execution, deep research, model comparison listed on arena.ai/agent",
+      "tier": "primary",
+      "receipt_ref": "O10 https://arena.ai/agent retrieved 2026-09-14"
+    },
+    {
+      "claim": "Execution environment: folder-based workspace with file handling and bash execution",
+      "tier": "secondary",
+      "receipt_ref": "chatgate.ai 2026-06-05 secondary"
+    },
+    {
+      "claim": "Modality coverage: text, code, image, video, vision, document, search evaluation",
+      "tier": "secondary",
+      "receipt_ref": "stork.ai 2026-06-05 secondary"
+    },
+    {
+      "claim": "Policy URLs UNCONFIRMED: /privacy and /terms return 404 reCAPTCHA, official privacy/terms/status/model-identity UNCONFIRMED gap declared",
+      "tier": "asserted",
+      "receipt_ref": "O26 2026-09-15 404 reCAPTCHA"
+    },
+    {
+      "claim": "Known host activation PASS observed: Arena Agent Mode, runtime mounted, tools capability_attestation+read_file_digest, boundary canonical_apply commander_motor_act",
+      "tier": "primary",
+      "receipt_ref": "PASS observation 2026-09-15 git_head 7388842"
+    }
+  ],
+  "boundary_note": "Host is session-contingent Arena Agent Mode; model identity UNKNOWABLE from inside session by blind-battle design; tool surface session-specific verified per session via cap_probe; canonical_apply commander_motor_act outside every agent runtime II.11",
+  "authority": {
+    "no_simulated_commander_authority": true
+  },
+  "status": "active",
+  "tests": ["tests/test_agent_contract_check.py"]
+}

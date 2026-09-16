@@ -1,0 +1,38 @@
+{
+  "id": "AGT-chatgpt",
+  "provider": "ChatGPT",
+  "profile_ref": "agents/ChatGPT/CAPABILITY_PROFILE.md",
+  "capabilities": [
+    {
+      "claim": "Model catalog: gpt-6-astra $10/$50, gpt-5.6-sol $4/$20, gpt-5.6-terra $2/$12, gpt-5.6-luna $0.20/$1.20, 1.05M ctx 128K out cutoff 2026-02-16",
+      "tier": "primary",
+      "receipt_ref": "O11 https://developers.openai.com/api/docs/models retrieved 2026-09-15"
+    },
+    {
+      "claim": "API data not used for training by default since Mar 1 2023 unless opt-in",
+      "tier": "primary",
+      "receipt_ref": "O17 https://developers.openai.com/api/docs/guides/your-data"
+    },
+    {
+      "claim": "Consumer vs API privacy split: privacy policy does NOT apply to API business offerings governed by customer agreements",
+      "tier": "primary",
+      "receipt_ref": "O15 https://openai.com/policies/privacy-policy Updated 2026-09-10"
+    },
+    {
+      "claim": "Abuse monitoring logs retained up to 30 days, contains prompts/responses/metadata, ZDR eligible with approval",
+      "tier": "primary",
+      "receipt_ref": "O17 30d retention endpoint table"
+    },
+    {
+      "claim": "Usage policies effective 2026-10-29: protect people, privacy, minors safe, no high-stakes automation without human review, facial recognition limits",
+      "tier": "primary",
+      "receipt_ref": "O16 https://openai.com/policies/usage-policies"
+    }
+  ],
+  "boundary_note": "Host is session-contingent ChatGPT host session; model identity session-specific; tool surface Responses API + tool calling verified per session; canonical_apply outside agent runtime II.11; never conflate consumer ChatGPT training defaults with API no-training default",
+  "authority": {
+    "no_simulated_commander_authority": true
+  },
+  "status": "active",
+  "tests": ["tests/test_agent_contract_check.py"]
+}

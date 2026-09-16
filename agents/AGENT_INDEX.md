@@ -27,3 +27,5 @@ writes · Arena's declared posture is read-only.
 hosted product auto-discover anything — convention, not proof.
 
 RESEARCH LAYER (5400, non-boot): per-provider `CAPABILITY_PROFILE.md` + `SOURCES.md` (dated, tier-labeled), plus `agents/ROUTING_MATRIX.md` and `agents/RESEARCH_METHOD.md`. Notes for routing decisions — not authority, not boot context. Reviewed 2026-09-14; expiry 2026-12-13.
+
+CONTRACTS LAYER (Dim-1/G4): per-provider `agents/contracts/AGT-<slug>.json` typed contracts bounded by receipts, D4 law no simulated Commander authority machine-checked. Folder `agents/contracts/` listed for index coherence — contracts summarize profiles, never upgrade tiers, authority no_simulated_commander_authority true.

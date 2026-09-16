@@ -1,0 +1,38 @@
+{
+  "id": "AGT-grok",
+  "provider": "Grok",
+  "profile_ref": "agents/Grok/CAPABILITY_PROFILE.md",
+  "capabilities": [
+    {
+      "claim": "Model grok-4.6: 500K ctx $2/$6 cutoff 2026-02-01, alias policy classes, search-tools required for real-time data",
+      "tier": "primary",
+      "receipt_ref": "O14 https://docs.x.ai/developers/models retrieved 2026-09-15"
+    },
+    {
+      "claim": "Privacy policy does NOT apply to API business offerings or X platform, X Privacy Policy governs Grok on X, 30d queued deletion",
+      "tier": "primary",
+      "receipt_ref": "O23 https://x.ai/legal/privacy-policy Effective Aug 24 2026"
+    },
+    {
+      "claim": "Consumer terms last updated Sept 11 2026, Enterprise Terms govern APIs, min age 13, disputes Tarrant/Wichita County TX",
+      "tier": "primary",
+      "receipt_ref": "O24 https://x.ai/legal/terms-of-service"
+    },
+    {
+      "claim": "AUP effective Aug 14 2026: prohibits reverse engineer, jailbreaking, malware, competing ML, scraping, privacy violation, high-stakes auto decisions",
+      "tier": "primary",
+      "receipt_ref": "O25 https://x.ai/legal/acceptable-use-policy"
+    },
+    {
+      "claim": "API: never trains on API inputs/outputs without explicit permission per FAQ quote, 30-day encrypted abuse-audit retention auto-deleted",
+      "tier": "secondary",
+      "receipt_ref": "aiprovidertrust.com 2026-08-25 secondary quoting Official FAQ"
+    }
+  ],
+  "boundary_note": "Host is session-contingent Grok host session; model identity session-specific; tool surface session-specific verified per session; canonical_apply outside agent runtime II.11; API vs consumer X training defaults are different surfaces must not be attributed",
+  "authority": {
+    "no_simulated_commander_authority": true
+  },
+  "status": "active",
+  "tests": ["tests/test_agent_contract_check.py"]
+}

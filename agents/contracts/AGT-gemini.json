@@ -1,0 +1,38 @@
+{
+  "id": "AGT-gemini",
+  "provider": "Gemini",
+  "profile_ref": "agents/Gemini/CAPABILITY_PROFILE.md",
+  "capabilities": [
+    {
+      "claim": "Models: stable 3.8/3.7/3.6/3.5 Flash + Flash-Lite variants + media models; 3.1-pro-preview PREVIEW status",
+      "tier": "primary",
+      "receipt_ref": "O13 https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "claim": "Paid vs Unpaid split: Unpaid uses content to improve/develop ML + human reviewers disconnected; Paid does NOT use prompts/responses to improve per DPA",
+      "tier": "primary",
+      "receipt_ref": "O21 https://ai.google.dev/gemini-api/terms Effective Mar 23 2026"
+    },
+    {
+      "claim": "Abuse monitoring retains prompts/context/output 55 days for policy violations and legal disclosures, human review via governance platform only",
+      "tier": "primary",
+      "receipt_ref": "O22 https://ai.google.dev/gemini-api/docs/usage-policies Updated 2026-06-09"
+    },
+    {
+      "claim": "Logs policy: developer-owned logs private to Cloud project, default max 55-day retention, training only via contributed datasets",
+      "tier": "primary",
+      "receipt_ref": "O8 https://ai.google.dev/gemini-api/docs/logs-policy"
+    },
+    {
+      "claim": "Consumer Gemini apps: human-review program retained up to ~3 years disconnected from account, 72h processing window even with activity off",
+      "tier": "asserted",
+      "receipt_ref": "U Reddit GDPR 2025-11-28 + hathr.ai 2026-07-22 secondary"
+    }
+  ],
+  "boundary_note": "Host is session-contingent Gemini host session; model identity session-specific; tool surface function calling + Google ecosystem grounding verified per session; canonical_apply outside agent runtime II.11; API vs consumer vs enterprise surfaces must never be merged",
+  "authority": {
+    "no_simulated_commander_authority": true
+  },
+  "status": "active",
+  "tests": ["tests/test_agent_contract_check.py"]
+}

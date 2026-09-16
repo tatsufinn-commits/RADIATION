@@ -1,129 +1,104 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 P-18 G4 base 12dfc22 sealed P-17, subskill catalog 9 + hook protocol + schema + check + test + scenarios 9, 130 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8, delta \u2205",
-  "base_sha": "12dfc22ed50007deb4399162e69f5540e90a89c3",
+  "generated_by": "S006 Architect \u2014 P-19 G4 base ce37b70 sealed P-18, agent contracts 5 + schema + check + test, 135 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8 8/8, delta \u2205",
+  "base_sha": "ce37b7003ca2af912eeebcc53faf4f851b404f88",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA 12dfc22ed50007deb4399162e69f5540e90a89c3 (P-17 Skill Catalog Spine). P-18 Subskill Catalog + Hook Protocol (Dim-8/G4): subskills become typed records; hooks declared machine-checked never-autonomous. A subskills/SUBSKILL_CATALOG.json (+ A schemas/subskill_card.schema.json radiation.subskill_card/1) entries over subskills actually present in-tree each {id SUB-NNN, title, parent_skill FK\u2192SKILL_CATALOG id, entry_path, trigger enum before_skill/after_skill/on_event/manual, condition/null, description \u2264200, scenario_ref, status active/declared/deprecated, tests[]}. Seeds 9 entries all found. A subskills/HOOK_PROTOCOL.md contract one screen declaration-only hooks invocation skill\u2192subskill evidence capture no self-mod no network no elevation II.11. A scripts/subskill_check.py deterministic house finding style --self-test 8 vectors, A tests/test_subskill_check.py 5 vectors, A evals/subskills/ 9 scenarios, M TOOL_REGISTRY 29\u219230 subskill_check. One sealed candidate one purpose II.7.4.",
+  "description": "Pins exact base SHA ce37b7003ca2af912eeebcc53faf4f851b404f88 (P-18 Subskill Catalog + Hook Protocol). P-19 Agent Contracts catalog (Dim-1/G4): providers get typed contracts bounded by receipts; D4 law no simulated Commander authority becomes machine-checked. A agents/contracts/ AGT-<slug>.json one per provider directory under agents/ each {id, provider, profile_ref\u2192CAPABILITY_PROFILE.md, capabilities[] {claim \u2264200 tier primary/secondary/asserted/benchmark receipt_ref/null}, boundary_note model\u2260host separation, authority {no_simulated_commander_authority true}, status active/draft/deprecated, tests[]}. Capabilities seeded only from facts already on file in each CAPABILITY_PROFILE.md carry receipt tiers honestly never upgrade. A schemas/agent_contract.schema.json radiation.agent_contract/1 enums exact receipt-referenced claims may carry receipt_ref. A scripts/agent_contract_check.py deterministic house finding style --self-test 8 vectors. A tests/test_agent_contract_check.py 5 vectors. Registry 30\u219231. No edits to CAPABILITY_PROFILE.md content, no provider SDK ambitions D4 permanent, no moves/renames, no validator additions, no cross-catalog linter P-20 reserved now formally un-blocked FK graph exists full CUE\u2192schema MEMORY\u2192paths SKILL\u2192evals SUBSKILL\u2192SKILL SCAFFOLD\u2192deps AGENT\u2192profiles. One sealed candidate one purpose II.7.4.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M Brain/frontal_lobe/task_ledger.md P-18 subskill catalog + hook protocol"
+      "note": "M Brain/frontal_lobe/task_ledger.md P-19 agent contracts catalog"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG.md P-18 subskill catalog + hook protocol"
+      "note": "M CHANGELOG.md P-19 agent contracts catalog"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README.md P-18 subskill catalog + hook protocol"
+      "note": "M README.md P-19 agent contracts catalog"
+    },
+    {
+      "path": "agents/AGENT_INDEX.md",
+      "kind": "M",
+      "note": "M agents/AGENT_INDEX.md P-19 agent contracts catalog"
+    },
+    {
+      "path": "agents/contracts/AGT-arena-ai.json",
+      "kind": "A",
+      "note": "A agents/contracts/AGT-arena-ai.json P-19 agent contracts catalog"
+    },
+    {
+      "path": "agents/contracts/AGT-chatgpt.json",
+      "kind": "A",
+      "note": "A agents/contracts/AGT-chatgpt.json P-19 agent contracts catalog"
+    },
+    {
+      "path": "agents/contracts/AGT-claude.json",
+      "kind": "A",
+      "note": "A agents/contracts/AGT-claude.json P-19 agent contracts catalog"
+    },
+    {
+      "path": "agents/contracts/AGT-gemini.json",
+      "kind": "A",
+      "note": "A agents/contracts/AGT-gemini.json P-19 agent contracts catalog"
+    },
+    {
+      "path": "agents/contracts/AGT-grok.json",
+      "kind": "A",
+      "note": "A agents/contracts/AGT-grok.json P-19 agent contracts catalog"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M docs/CAPABILITIES.md P-18 subskill catalog + hook protocol"
+      "note": "M docs/CAPABILITIES.md P-19 agent contracts catalog"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md P-18 subskill catalog + hook protocol"
+      "note": "M docs/PATCH_LEDGER.md P-19 agent contracts catalog"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json P-18 subskill catalog + hook protocol"
+      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json P-19 agent contracts catalog"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md P-18 subskill catalog + hook protocol"
+      "note": "M docs/ROADMAP.md P-19 agent contracts catalog"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md P-18 subskill catalog + hook protocol"
+      "note": "M docs/SYSTEM_STATE.md P-19 agent contracts catalog"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md P-18 subskill catalog + hook protocol"
+      "note": "M docs/shrine/LOG.md P-19 agent contracts catalog"
     },
     {
-      "path": "evals/subskills/SUB-001.scenario.json",
+      "path": "schemas/agent_contract.schema.json",
       "kind": "A",
-      "note": "A evals/subskills/SUB-001.scenario.json P-18 subskill catalog + hook protocol"
+      "note": "A schemas/agent_contract.schema.json P-19 agent contracts catalog"
     },
     {
-      "path": "evals/subskills/SUB-002.scenario.json",
+      "path": "scripts/agent_contract_check.py",
       "kind": "A",
-      "note": "A evals/subskills/SUB-002.scenario.json P-18 subskill catalog + hook protocol"
+      "note": "A scripts/agent_contract_check.py P-19 agent contracts catalog"
     },
     {
-      "path": "evals/subskills/SUB-003.scenario.json",
+      "path": "tests/test_agent_contract_check.py",
       "kind": "A",
-      "note": "A evals/subskills/SUB-003.scenario.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "evals/subskills/SUB-004.scenario.json",
-      "kind": "A",
-      "note": "A evals/subskills/SUB-004.scenario.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "evals/subskills/SUB-005.scenario.json",
-      "kind": "A",
-      "note": "A evals/subskills/SUB-005.scenario.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "evals/subskills/SUB-006.scenario.json",
-      "kind": "A",
-      "note": "A evals/subskills/SUB-006.scenario.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "evals/subskills/SUB-007.scenario.json",
-      "kind": "A",
-      "note": "A evals/subskills/SUB-007.scenario.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "evals/subskills/SUB-008.scenario.json",
-      "kind": "A",
-      "note": "A evals/subskills/SUB-008.scenario.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "evals/subskills/SUB-009.scenario.json",
-      "kind": "A",
-      "note": "A evals/subskills/SUB-009.scenario.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "schemas/subskill_card.schema.json",
-      "kind": "A",
-      "note": "A schemas/subskill_card.schema.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "scripts/subskill_check.py",
-      "kind": "A",
-      "note": "A scripts/subskill_check.py P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "subskills/HOOK_PROTOCOL.md",
-      "kind": "A",
-      "note": "A subskills/HOOK_PROTOCOL.md P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "subskills/SUBSKILL_CATALOG.json",
-      "kind": "A",
-      "note": "A subskills/SUBSKILL_CATALOG.json P-18 subskill catalog + hook protocol"
-    },
-    {
-      "path": "tests/test_subskill_check.py",
-      "kind": "A",
-      "note": "A tests/test_subskill_check.py P-18 subskill catalog + hook protocol"
+      "note": "A tests/test_agent_contract_check.py P-19 agent contracts catalog"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M tools/TOOL_REGISTRY.json P-18 subskill catalog + hook protocol"
+      "note": "M tools/TOOL_REGISTRY.json P-19 agent contracts catalog"
     }
   ],
   "required_deletions": [
@@ -131,7 +106,7 @@
       "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
       "must_be_absent_on_disk": true,
       "must_be_D_in_diff": false,
-      "note": "stale Fable 5-1 already absent in base 12dfc22, must remain absent"
+      "note": "stale Fable 5-1 already absent in base ce37b70, must remain absent"
     }
   ],
   "required_absent_on_disk": [
@@ -257,15 +232,25 @@
       "must_contain": "0 finding"
     },
     {
+      "command": "python3 scripts/agent_contract_check.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "8 passed"
+    },
+    {
+      "command": "python3 scripts/agent_contract_check.py",
+      "expected_exit": 0,
+      "must_contain": "0 finding"
+    },
+    {
       "command": "git diff --check",
       "expected_exit": 0,
       "must_contain": ""
     },
     {
-      "command": "git diff --check 12dfc22ed50007deb4399162e69f5540e90a89c3..HEAD",
+      "command": "git diff --check ce37b7003ca2af912eeebcc53faf4f851b404f88..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-18 base 12dfc22"
+      "note": "committed-delta whitespace clean from P-19 base ce37b70"
     },
     {
       "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
@@ -322,6 +307,12 @@
       "note": "whitespace clean from P-17 base 0de224d"
     },
     {
+      "command": "git diff --check 12dfc22ed50007deb4399162e69f5540e90a89c3..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from P-18 base 12dfc22"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
@@ -338,7 +329,7 @@
   ],
   "risks": [
     "wrong root \u2014 package applied to different working directory than repo root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 12dfc22ed50007deb4399162e69f5540e90a89c3 (run 86 genus: hand merge + stale-base extraction)",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA ce37b7003ca2af912eeebcc53faf4f851b404f88 (run 86 genus: hand merge + stale-base extraction)",
     "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
     "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
     "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
@@ -352,6 +343,7 @@
     "G4 scaffolding contract spine fail-cell \u2014 no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
     "G4 skill catalog spine fail-cell \u2014 no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
     "G4 subskill catalog + hook protocol fail-cell \u2014 no typed subskill catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check",
+    "G4 agent contracts catalog fail-cell \u2014 no typed agent contracts, no receipt-bound claims, D4 law no simulated Commander authority not machine-checked",
     "file moves/renames \u2014 forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
   ]
 }

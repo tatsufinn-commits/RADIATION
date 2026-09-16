@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "radiation.agent_contract/1 — Agent Contracts catalog",
+  "description": "Typed record for provider agent contracts bounded by receipts; D4 law no simulated Commander authority becomes machine-checked. P-19 G4: providers get typed contracts bounded by receipts. MEM-shrine-log is a deliberate outer-corpus pointer (docs/shrine/LOG.md); all other catalog paths MUST live under Brain/ or agents/.",
+  "type": "object",
+  "required": ["id", "provider", "profile_ref", "capabilities", "boundary_note", "authority", "status", "tests"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^AGT-[a-z0-9-]+$",
+      "description": "unique id AGT-<slug>, slug is provider lower-kebab, unique"
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1,
+      "description": "provider directory name, e.g., Arena_AI, ChatGPT, Claude, Gemini, Grok"
+    },
+    "profile_ref": {
+      "type": "string",
+      "pattern": "^agents/[A-Za-z0-9_]+/CAPABILITY_PROFILE\\.md$",
+      "description": "path to CAPABILITY_PROFILE.md, must resolve"
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "description": "capabilities seeded only from facts already on file in profile, receipt tiers honest",
+      "items": {
+        "type": "object",
+        "required": ["claim", "tier", "receipt_ref"],
+        "additionalProperties": false,
+        "properties": {
+          "claim": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "description": "capability claim ≤200 chars, from profile"
+          },
+          "tier": {
+            "type": "string",
+            "enum": ["primary", "secondary", "asserted", "benchmark"],
+            "description": "receipt tier: primary=Official, secondary=Secondary, asserted=User-reported or asserted, benchmark=Benchmark"
+          },
+          "receipt_ref": {
+            "type": ["string", "null"],
+            "description": "receipt ref e.g., O15, O10, SOURCES.md lane, or null if asserted gap"
+          }
+        }
+      }
+    },
+    "boundary_note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "model≠host separation note, e.g., host is session-contingent, model identity unknowable, tool surface session-specific"
+    },
+    "authority": {
+      "type": "object",
+      "required": ["no_simulated_commander_authority"],
+      "additionalProperties": false,
+      "properties": {
+        "no_simulated_commander_authority": {
+          "type": "boolean",
+          "const": true,
+          "description": "D4 law: no simulated Commander authority — must be exactly true, false impossible"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "draft", "deprecated"],
+      "description": "active=profile exists and capabilities seeded, draft=needs note, deprecated=needs superseded_by"
+    },
+    "tests": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "tests that exercise this contract"
+    },
+    "note": {
+      "type": "string",
+      "description": "optional note, required if status draft"
+    },
+    "superseded_by": {
+      "type": "string",
+      "pattern": "^AGT-[a-z0-9-]+$",
+      "description": "required if status deprecated, id of contract that supersedes"
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "draft" } } },
+      "then": { "required": ["note"] }
+    },
+    {
+      "if": { "properties": { "status": { "const": "deprecated" } } },
+      "then": { "required": ["superseded_by"] }
+    }
+  ]
+}

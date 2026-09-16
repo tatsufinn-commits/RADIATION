@@ -6,6 +6,59 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.19 — 2026-09-16 — P-19 AGENT CONTRACTS CATALOG (Dim-1/G4) (II.7.4)
+
+**P-19 Agent Contracts catalog per Architect Directive base ce37b7003ca2af912eeebcc53faf4f851b404f88 sealed P-18. One sealed candidate one purpose — providers get typed contracts bounded by receipts; the D4 law "no simulated Commander authority" becomes machine-checked.**
+
+**Framing:** Dim-1/G4: providers lacked typed contracts, no receipt-bound claims, D4 law no simulated Commander authority not machine-checked, no deterministic compile check for profile_ref/tier/authority.
+
+**(1) A agents/contracts/ (+ A schemas/agent_contract.schema.json radiation.agent_contract/1):**
+- One per provider directory under agents/ — 5 found: Arena_AI, ChatGPT, Claude, Gemini, Grok
+- Each {id: AGT-<slug>, provider, profile_ref → agents/<X>/CAPABILITY_PROFILE.md, capabilities[]: {claim ≤200, tier primary|secondary|asserted|benchmark, receipt_ref|null}, boundary_note model≠host separation, authority: {no_simulated_commander_authority: true — boolean; false impossible D4}, status active|draft|deprecated, tests[]}
+- Capabilities seeded only from facts already on file in each CAPABILITY_PROFILE.md (carry its receipt tiers honestly — never upgrade a claim)
+- Examples:
+  - AGT-arena-ai provider Arena_AI profile_ref agents/Arena_AI/CAPABILITY_PROFILE.md capabilities 5: workflow surface browsing/research/code execution/deep research/model comparison O10 primary, execution env folder-based workspace secondary chatgate.ai, modality coverage text/code/image/video/vision/doc/search secondary stork.ai, policy URLs UNCONFIRMED 404 reCAPTCHA asserted O26, known host activation PASS primary PASS observation; boundary_note host session-contingent model identity UNKNOWABLE blind-battle tool surface session-specific canonical_apply outside II.11; authority no_simulated_commander_authority true; status active
+  - AGT-chatgpt provider ChatGPT profile_ref agents/ChatGPT/CAPABILITY_PROFILE.md capabilities 5: model catalog gpt-6-astra $10/$50 etc 1.05M ctx O11 primary, API no training default since Mar 1 2023 O17 primary, consumer vs API privacy split privacy policy does NOT apply to API O15 primary, abuse logs 30d O17 primary, usage policies effective 2026-10-29 O16 primary; boundary_note host session-contingent ChatGPT never conflate consumer training default with API no-training; authority true; active
+  - AGT-claude provider Claude profile_ref agents/Claude/CAPABILITY_PROFILE.md capabilities 5: models fable-5-1 $10/$50 etc O12 primary, commercial customer content NOT used for training O19 primary, consumer privacy split consumer policy does NOT apply to Enterprise O18 primary, AUP prohibits illegal critical infra weapons etc O20 primary, API logs 7 days historical lead S2 secondary; boundary_note host session-contingent consumer vs enterprise split must not be merged; authority true; active
+  - AGT-gemini provider Gemini profile_ref agents/Gemini/CAPABILITY_PROFILE.md capabilities 5: models stable 3.8/3.7/3.6/3.5 Flash + Flash-Lite PREVIEW 3.1-pro O13 primary, Paid vs Unpaid split Unpaid uses content to improve/develop ML Paid does NOT use prompts to improve O21 primary, abuse monitoring 55d O22 primary, logs policy developer-owned private 55d max O8 primary, consumer human-review up to 3 years asserted U; boundary_note host session-contingent API vs consumer vs enterprise surfaces must never be merged; authority true; active
+  - AGT-grok provider Grok profile_ref agents/Grok/CAPABILITY_PROFILE.md capabilities 5: model grok-4.6 500K $2/$6 cutoff 2026-02-01 O14 primary, privacy policy does NOT apply to API or X platform O23 primary, consumer terms last updated Sept 11 2026 O24 primary, AUP effective Aug 14 2026 prohibits reverse engineer jailbreaking etc O25 primary, API never trains on inputs/outputs without permission secondary aiprovidertrust; boundary_note host session-contingent API vs consumer X training defaults different surfaces; authority true; active
+- No fabrication: honest asserted where gap declared, receipt_ref carries O15-style citation paths/lanes the profiles use
+- Description: claim ≤200 enforced by checker + schema, id pattern ^AGT-[a-z0-9-]+$ unique sorted, provider non-empty, profile_ref pattern ^agents/[A-Za-z0-9_]+/CAPABILITY_PROFILE.md, tier enum, status enums, authority const true, tests[] array, additionalProperties false, draft→note, deprecated→superseded_by AGT-*
+- Schema description includes MEM-shrine-log rider same as P-15/P-17/P-18
+
+**(2) A scripts/agent_contract_check.py — deterministic house finding style exit 0/1 --self-test 8 vectors:**
+- schema valid vs agent_contract
+- profile_ref resolves
+- tier enum valid
+- no_simulated_commander_authority not exactly true → FAIL (D4)
+- unique ids
+- status discipline draft→note deprecated→superseded_by
+- claim ≤200, provider non-empty, boundary_note non-empty, tests[] array
+- tests[] entries resolve if path-like
+- Seeds ≥5 check (5 providers)
+- Negative fixtures: broken profile_ref, unknown tier, simulated-authority false, duplicate id, draft missing note, deprecated missing superseded_by, claim too long
+- Live: agent_contract_check 0 finding(s) — catalog valid, profile_ref resolves, tier enum valid, authority D4 ok, unique ids, status discipline ok
+- Self-test 8 passed 0 failed
+
+**(3) A tests/test_agent_contract_check.py ≥4 vectors:**
+- live repo passes
+- broken profile_ref → FAIL
+- unknown tier → FAIL
+- simulated-authority → FAIL
+- self-test ran
+- Discover 130+5=135 OK (P-18 had 130, plus 5 new)
+
+**(4) Registry/state:**
+- tools/TOOL_REGISTRY.json M 30→31 adds agent_contract_check mutation none network none
+- docs/CAPABILITIES.md + docs/SYSTEM_STATE.md GENERATED reflect it (render_docs --apply) + version bump v3.10.19
+- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.19 + EXPECTATION re-pinned base ce37b70 allowed 23 (8 M + 15 A).
+- No edits to CAPABILITY_PROFILE.md content per non-goals hard — contracts summarize what profiles already say.
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, scaffold_check 0 findings + 6/6 self-test, skill_check 0 findings + 8/8 self-test, subskill_check 0 findings + 8/8 self-test, agent_contract_check 0 findings + 8/8 self-test, unittest 135 OK, cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.19.
+
+**Base pinned:** ce37b7003ca2af912eeebcc53faf4f851b404f88 (P-18 Subskill Catalog + Hook Protocol). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — Agent Contracts catalog.
+
+
 ## v3.10.18 — 2026-09-16 — P-18 SUBSKILL CATALOG + HOOK PROTOCOL (Dim-8/G4) (II.7.4)
 
 **P-18 Subskill Catalog + Hook Protocol per Architect Directive base 12dfc22ed50007deb4399162e69f5540e90a89c3 sealed P-17. One sealed candidate one purpose — subskills become typed records; hooks become a declared, machine-checked, never-autonomous protocol.**

@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.18 · Ratified by THE COMMANDER · 2026-09-16 · P-18 Subskill Catalog + Hook Protocol (Dim-8/G4)
+**Version:** v3.10.19 · Ratified by THE COMMANDER · 2026-09-16 · P-19 Agent Contracts catalog (Dim-1/G4)
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 
