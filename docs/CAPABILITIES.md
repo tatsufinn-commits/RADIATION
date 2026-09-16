@@ -281,6 +281,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `brain_retrieve.py` | Brain Retrieval Lattice (G5) deterministic selector law | no | no | no |
 | `cap_probe.py` | cap_probe — read-only capability probe with declarative host profiles. | no | no | no |
 | `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
+| `catalog_integrity_check.py` | Cross-Catalog Integrity Checker (P-20 spine closer / G4 closure) | no | no | no |
 | `contract_tests.py` | 5300 negative fixtures — declared course-corpus (E1) and replica (E2) contracts. | no | no | no |
 | `cue_resolver.py` | CUE Resolver / Linter — Candidate B opening P-11-A | no | no | yes |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |

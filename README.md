@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.20 · Ratified by THE COMMANDER · 2026-09-16 · P-19-fix Phantom tests (Dim-1/G4)
+**Version:** v3.10.21 · Ratified by THE COMMANDER · 2026-09-16 · P-20 Cross-Catalog Integrity Checker (G4 closure)
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S006 P-19 G4 base ce37b70: agent contracts 5 + schema + check + test + rider",
+  "generated_by": "S006 P-20 G4 base e81bdf8: cross-catalog integrity checker 9 vectors + test 8 vectors + rider",
   "tools": [
     {
       "id": "validate",
@@ -801,6 +801,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Agent Contracts catalog G4: catalog valid vs schema radiation.agent_contract/1, profile_ref resolves, tier enum valid, authority D4 no simulated Commander, unique ids, status discipline"
+    },
+    {
+      "id": "catalog_integrity_check",
+      "entrypoint": "scripts/catalog_integrity_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/catalog_integrity_check.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Cross-Catalog Integrity Checker G4 closure: composition lane skill/subskill/scaffold/agent_contract/docs_index/cue_resolver + FK lane full map + FK-AUDIT ALREADY-CHECKED-BY vs NEW-IN-P20"
     }
   ]
 }

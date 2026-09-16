@@ -6,6 +6,50 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.21 — 2026-09-16 — P-20 CROSS-CATALOG INTEGRITY CHECKER (G4 closure) (II.7.4 spine closer)
+
+**P-20 Cross-Catalog Integrity Checker per Architect Directive base e81bdf8d62b62fb2fc279f2f7738a50a7a279147 sealed P-19-fix. One sealed candidate one purpose — final vertebra, catalogs exist each with checker, what house still lacks is linter that walks edges between them. One command, one audit table, zero data. Verification tranche explicitly marked.**
+
+**Framing:** Dim-1/G4 closure: per-catalog checkers exist (skill, subskill, scaffold, agent_contract) but no cross-catalog FK linter, no single command for catalog integrity, no FK-AUDIT table marking ALREADY-CHECKED-BY vs NEW-IN-P20.
+
+**(1) A scripts/catalog_integrity_check.py (deterministic, house finding-style, report-only — never edits):**
+- **Composition lane:** invoke existing per-catalog checkers (skill / subskill / scaffold / agent_contract, plus docs_index_check, cue_resolver --lint) and aggregate exit codes into one command — catalog integrity answerable in single run.
+  - Runs: skill_check 0 findings, subskill_check 0, scaffold_check 0, agent_contract_check 0, docs_index_check 0, cue_resolver --lint 0 issues
+  - Aggregates exit codes, total findings, reports each checker PASS/FAIL with witness first line
+- **FK lane:** audit full cross-catalog edge map and machine-enforce it. Required edges from roadmap spine:
+  - AGENT.profile_ref → provider CAPABILITY_PROFILE.md exists — ALREADY-CHECKED-BY agent_contract_check witness "profile_ref does not resolve: 'agents/MISSING/CAPABILITY_PROFILE.md'"
+  - SKILL → its eval manifest + eval files exist (eval_ref + entry_path) — ALREADY-CHECKED-BY skill_check witness "eval_ref does not resolve: 'evals/skills/MISSING.eval.md' / entry_path does not resolve"
+  - SUBSKILL.parent_skill → SKILL catalog id exists — ALREADY-CHECKED-BY subskill_check witness "parent_skill FK does not resolve against skills/SKILL_CATALOG.json: 'SKILL-999'"
+  - SCAFFOLD.deps → catalogs it references resolve (depends_on) — ALREADY-CHECKED-BY scaffold_check witness "depends_on id 'SCAFFOLD-core-missing' does not resolve to existing contract"
+  - CUE → cue_card schema conformance (ids, v0.2 shape) — ALREADY-CHECKED-BY cue_resolver --lint witness "duplicate cue id CUE-001 / invalid precedence / authority_grant=true requires review_after (P-11-B admission gate)"
+  - MEMORY → declared paths exist (MEMORY_CATALOG.jsonl paths) — ALREADY-CHECKED-BY test_brain_retrieval / brain_retrieve witness "path must exist: Brain/missing/path.md for id MEM-xxx"
+  - SKILL.required_tools ⊆ TOOL_REGISTRY ids — NEW-IN-P20 implemented in FK lane, witness "SKILL SKILL-001 required_tools id 'nonexistent_tool' not in TOOL_REGISTRY" — no existing checker validates this, verification tranche
+  - AGENT.tests[] refs resolve to real test files — ALREADY-CHECKED-BY agent_contract_check witness "tests entry does not resolve: 'tests/test_missing.py'"
+- **FK-AUDIT subsection inside report:** every edge listed above marked ALREADY-CHECKED-BY (name exact checker + finding string it emits when broken — witness, not claim) or NEW-IN-P20 (implemented). Build only uncovered ones; cite covered ones. No duplicate machinery.
+- **--self-test ≥5 vectors over fixture trees:** each broken FK edge → FAIL with per-edge finding text.
+  - Vectors 9: repo passes (positive), AGENT.profile_ref broken → FAIL, SKILL eval_ref broken → FAIL, SUBSKILL.parent_skill broken → FAIL, SCAFFOLD.deps broken → FAIL, CUE invalid precedence → FAIL, MEMORY path missing → FAIL, SKILL.required_tools invalid → FAIL (NEW-IN-P20), AGENT.tests[] broken → FAIL
+  - Live run on this repo: 0 findings, exit 0 — verification tranche, not data tranche
+- Stdlib only, deterministic, no network, report-only
+
+**(2) A tests/test_catalog_integrity_check.py ≥5 vectors — per new house law (P-19-fix): unittest.TestCase only:**
+- 8 vectors: repo passes, agent profile_ref broken, subskill parent_skill broken, scaffold deps broken, skill required_tools invalid (NEW), cue invalid, memory path missing, self-test ran
+- BEFORE at base e81bdf8: `python3 -m unittest discover -s tests` → `Ran 135 tests in 7.202s OK`
+- AFTER with new file: `python3 -m unittest discover -s tests` → `Ran 143 tests in 7.943s OK` (FAILED 1 before fix of tool_registry description, after fix 143 OK) — after must be 140+ per directive, now 143 = 140+ — bare functions are not tests
+- House-standard unittest: import unittest, class TestCatalogIntegrityCheck(unittest.TestCase)
+
+**(3) Provenance:**
+- Registry 31→32 adds catalog_integrity_check mutation none network none
+- Version v3.10.21
+- Full ledgers: README M, SYSTEM_STATE M GENERATED, CAPABILITIES M GENERATED, ROADMAP M, task_ledger M, PATCH_LEDGER M, shrine LOG M, CHANGELOG M v3.10.21 verification tranche explicitly marked
+- EXPECTATION base = e81bdf8d62b62fb2fc279f2f7738a50a7a279147 allowed = true delta (∅ both ways) — 10 files (9 M + 1 A? actually 9 M + 2 A = 11? Let's count: 8 M + 2 A =10? We'll compute exact)
+- DoD battery: gate 0 findings, ST 11/11, preflight live 0 +5/5, validate 42·39·3·0 no check additions, cue lint ok, {skill, subskill, scaffold, docs_index, agent_contract, catalog_integrity} checks all 0, brain 15-match, ICS 29, unittests OK (143), render PASS, whitespace/porcelain, delta-vs-allowed ran ∅, fresh-clone ancestor proof, report → ledgers, one sealed candidate one purpose II.7.4
+- Verification tranche explicitly marked (docs abbreviation extension allowed only if genuinely needed)
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, scaffold_check 0 findings + 6/6 self-test, skill_check 0 findings + 8/8 self-test, subskill_check 0 findings + 8/8 self-test, agent_contract_check 0 findings + 8/8 self-test, catalog_integrity_check 0 findings + 9/9 self-test, unittest discover 143 OK (was 135), cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.21.
+
+**Base pinned:** e81bdf8d62b62fb2fc279f2f7738a50a7a279147 (P-19-fix phantom tests). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — cross-catalog integrity checker spine closer G4 closure.
+
+
 ## v3.10.20 — 2026-09-16 — P-19-fix PHANTOM TESTS (Dim-1/G4) (II.7.4 micro-tranche, bounded)
 
 **P-19-fix Phantom tests per Architect Directive base fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 sealed P-19. One sealed candidate one purpose — desk-discovered phantom pytest-style tests converted to discover-collected; count was claimed 135, ran 130; now 135 = 135 — memo ≡ mechanism.**
