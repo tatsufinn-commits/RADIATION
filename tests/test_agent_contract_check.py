@@ -35,7 +35,6 @@ def test_broken_profile_ref():
         src_schema = ROOT / "schemas" / "agent_contract.schema.json"
         if src_schema.exists():
             shutil.copy(src_schema, tr / "schemas" / "agent_contract.schema.json")
-        # valid contracts to meet ≥5 count
         def make_valid(cid, provider, profile):
             return {
                 "id": cid,
@@ -47,20 +46,18 @@ def test_broken_profile_ref():
                 "status": "active",
                 "tests": []
             }
-        # create 4 valid dummy profiles
         for i in range(1, 5):
             pr = f"agents/Dummy{i}/CAPABILITY_PROFILE.md"
             pr_path = tr / pr
             pr_path.parent.mkdir(parents=True, exist_ok=True)
             pr_path.write_text("# dummy\n", encoding="utf-8")
-        # broken one
         broken = make_valid("AGT-broken-ref", "Broken", "agents/MISSING/CAPABILITY_PROFILE.md")
         contracts = []
         for i in range(1, 5):
             contracts.append(make_valid(f"AGT-dummy-{i}", f"Dummy{i}", f"agents/Dummy{i}/CAPABILITY_PROFILE.md"))
         contracts.append(broken)
-        for c in contracts:
-            (tr / "agents" / "contracts" / f"{c['id']}.json").write_text(json.dumps(c), encoding="utf-8")
+        for idx, c in enumerate(contracts):
+            (tr / "agents" / "contracts" / f"AGT-{idx:03d}-{c['id']}.json").write_text(json.dumps(c), encoding="utf-8")
         findings = check_contracts(contracts_dir=tr / "agents" / "contracts", root=tr)
         assert any("profile_ref does not resolve" in f for f in findings), f"should detect broken profile_ref, got {findings}"
 
@@ -90,8 +87,8 @@ def test_unknown_tier():
         contracts = [make_valid(f"AGT-dummy-{i}") for i in range(1, 5)]
         bad = make_valid("AGT-bad-tier", tier="superprimary")
         contracts.append(bad)
-        for c in contracts:
-            (tr / "agents" / "contracts" / f"{c['id']}.json").write_text(json.dumps(c), encoding="utf-8")
+        for idx, c in enumerate(contracts):
+            (tr / "agents" / "contracts" / f"AGT-{idx:03d}-{c['id']}.json").write_text(json.dumps(c), encoding="utf-8")
         findings = check_contracts(contracts_dir=tr / "agents" / "contracts", root=tr)
         assert any("tier enum" in f for f in findings), f"should detect unknown tier, got {findings}"
 
@@ -121,13 +118,12 @@ def test_simulated_authority():
         contracts = [make_valid(f"AGT-dummy-{i}") for i in range(1, 5)]
         bad = make_valid("AGT-bad-auth", auth_true=False)
         contracts.append(bad)
-        for c in contracts:
-            (tr / "agents" / "contracts" / f"{c['id']}.json").write_text(json.dumps(c), encoding="utf-8")
+        for idx, c in enumerate(contracts):
+            (tr / "agents" / "contracts" / f"AGT-{idx:03d}-{c['id']}.json").write_text(json.dumps(c), encoding="utf-8")
         findings = check_contracts(contracts_dir=tr / "agents" / "contracts", root=tr)
         assert any("no_simulated_commander_authority" in f for f in findings), f"should detect simulated authority false, got {findings}"
 
 def test_self_test_ran():
-    # Ensure the checker's self-test passes
     import subprocess
     result = subprocess.run([sys.executable, str(ROOT / "scripts" / "agent_contract_check.py"), "--self-test"], capture_output=True, text=True, timeout=30)
     assert result.returncode == 0, f"self-test should pass: {result.stdout}\n{result.stderr}"

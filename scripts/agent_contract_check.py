@@ -166,14 +166,12 @@ def check_contracts(contracts_dir=CONTRACTS_DIR, root=ROOT):
         if cid:
             seen_ids.add(cid)
 
-        # profile_ref resolves
         pr = data.get("profile_ref")
         if isinstance(pr, str) and pr.strip():
             pr_path = root / pr
             if not pr_path.exists():
                 findings.append(f"{cid or fpath.name}: profile_ref does not resolve: '{pr}'")
 
-        # tests[] resolve if they look like paths (contain /)
         tests = data.get("tests", [])
         if isinstance(tests, list):
             for t in tests:
@@ -182,27 +180,18 @@ def check_contracts(contracts_dir=CONTRACTS_DIR, root=ROOT):
                     if not tp.exists():
                         findings.append(f"{cid or fpath.name}: tests entry does not resolve: '{t}'")
 
-    # At least 5 contracts expected (one per provider)
     if len(files) < 5:
         findings.append(f"catalog must have ≥5 contracts or all found, got {len(files)}")
 
     return findings
 
-# ---------------- self-test vectors ----------------
-
 def self_test():
-    """
-    ≥4 vectors: repo passes · broken profile_ref → FAIL · unknown tier → FAIL · simulated-authority → FAIL
-    Plus: duplicate id, draft missing note, deprecated missing superseded_by, claim too long
-    """
     def run_in_temp(temp_root: pathlib.Path, contracts):
         (temp_root / "agents" / "contracts").mkdir(parents=True, exist_ok=True)
         (temp_root / "schemas").mkdir(parents=True, exist_ok=True)
-        # copy schema
         src_schema = ROOT / "schemas" / "agent_contract.schema.json"
         if src_schema.exists():
             shutil.copy(src_schema, temp_root / "schemas" / "agent_contract.schema.json")
-        # create dummy profiles for valid refs (skip intentionally broken ones containing MISSING)
         for contract in contracts:
             pr = contract.get("profile_ref")
             if pr and "MISSING" not in pr:
@@ -210,21 +199,15 @@ def self_test():
                 pr_path.parent.mkdir(parents=True, exist_ok=True)
                 if not pr_path.exists():
                     pr_path.write_text("# dummy profile\n", encoding="utf-8")
-            # create tests files if needed
             for t in contract.get("tests", []):
                 if "/" in t:
                     tp = temp_root / t
                     tp.parent.mkdir(parents=True, exist_ok=True)
                     if not tp.exists():
                         tp.write_text("# test\n", encoding="utf-8")
-        # write contracts - use index to preserve duplicate ids as separate files
         for idx, contract in enumerate(contracts):
             cid = contract.get("id", f"AGT-test-{idx}")
-            # Use unique filename but keep id inside JSON same to test duplicate detection
             cpath = temp_root / "agents" / "contracts" / f"AGT-{idx:03d}-{cid}.json"
-            # Ensure filename matches AGT-*.json pattern required by checker glob
-            # The checker globs AGT-*.json, so we keep prefix AGT-
-            # Our filename AGT-000-AGT-dup.json matches AGT-*.json, ok
             cpath.write_text(json.dumps(contract), encoding="utf-8")
         findings = check_contracts(contracts_dir=temp_root / "agents" / "contracts", root=temp_root)
         return findings
@@ -254,9 +237,6 @@ def self_test():
         return ok, findings
 
     def make_valid_set(base_contracts):
-        """Ensure at least 5 contracts total to satisfy catalog size check."""
-        # base_contracts is list of contracts that include the failing one
-        # If less than 5, pad with valid dummies
         valid_needed = max(0, 5 - len(base_contracts))
         dummies = []
         for i in range(valid_needed):

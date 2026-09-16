@@ -14,7 +14,7 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 **(1) A agents/contracts/ (+ A schemas/agent_contract.schema.json radiation.agent_contract/1):**
 - One per provider directory under agents/ — 5 found: Arena_AI, ChatGPT, Claude, Gemini, Grok
-- Each {id: AGT-<slug>, provider, profile_ref → agents/<X>/CAPABILITY_PROFILE.md, capabilities[]: {claim ≤200, tier primary|secondary|asserted|benchmark, receipt_ref|null}, boundary_note model≠host separation, authority: {no_simulated_commander_authority: true — boolean; false impossible D4}, status active|draft|deprecated, tests[]}
+- Each {id: AGT-<slug>, provider, profile_ref → agents/<X>/CAPABILITY_PROFILE.md, capabilities[]: {claim ≤200, tier primary/secondary/asserted/benchmark, receipt_ref/null}, boundary_note model≠host separation, authority: {no_simulated_commander_authority: true — boolean; false impossible D4}, status active/draft/deprecated, tests[]}
 - Capabilities seeded only from facts already on file in each CAPABILITY_PROFILE.md (carry its receipt tiers honestly — never upgrade a claim)
 - Examples:
   - AGT-arena-ai provider Arena_AI profile_ref agents/Arena_AI/CAPABILITY_PROFILE.md capabilities 5: workflow surface browsing/research/code execution/deep research/model comparison O10 primary, execution env folder-based workspace secondary chatgate.ai, modality coverage text/code/image/video/vision/doc/search secondary stork.ai, policy URLs UNCONFIRMED 404 reCAPTCHA asserted O26, known host activation PASS primary PASS observation; boundary_note host session-contingent model identity UNKNOWABLE blind-battle tool surface session-specific canonical_apply outside II.11; authority no_simulated_commander_authority true; status active
@@ -51,7 +51,7 @@ Format: version · date · patch name · summary. Newest at top after founding e
 **(4) Registry/state:**
 - tools/TOOL_REGISTRY.json M 30→31 adds agent_contract_check mutation none network none
 - docs/CAPABILITIES.md + docs/SYSTEM_STATE.md GENERATED reflect it (render_docs --apply) + version bump v3.10.19
-- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.19 + EXPECTATION re-pinned base ce37b70 allowed 23 (8 M + 15 A).
+- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.19 + EXPECTATION re-pinned base ce37b70 allowed 19 (11 M + 8 A).
 - No edits to CAPABILITY_PROFILE.md content per non-goals hard — contracts summarize what profiles already say.
 
 **Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, scaffold_check 0 findings + 6/6 self-test, skill_check 0 findings + 8/8 self-test, subskill_check 0 findings + 8/8 self-test, agent_contract_check 0 findings + 8/8 self-test, unittest 135 OK, cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.19.
