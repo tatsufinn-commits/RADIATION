@@ -5,6 +5,8 @@ we have that any AI can pull to help itself accomplish a task") · **Tier-3 refe
 it successfully ([I], log the use in the row's context or docs/TOOLBOX.md) — a catalog is a map, not
 verified claims (I.2). Respect each source's terms — the catalog's own compliance note below is law-adjacent.
 
+**S-2-LINK cross-ref (Gap-4):** ACCESS LOG result vocabulary extended per `scaffolding/core/form_external-collection.md` → `ACCESSIBLE / DEAD / AUTH-BLOCKED / SOFT-404 / PAYWALL / REDIRECT-LOGGED` + `INACCESSIBLE-UNKNOWN` honesty line (LAW-2 mirror, no headless ambition); see `docs/SOURCE_QUALIFICATION.md` §V for qualification ≠ verification doctrine.
+
 ---
 # Highly Capable Assistant AI — External Source & Tool Catalog
 

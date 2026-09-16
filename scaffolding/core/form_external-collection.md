@@ -33,7 +33,7 @@ retain partial use. Each entry: claim [GRADE] (file, location) {decay}.
 Digest claims still pass triangulation before long_term (II.6 — no bypass).
 
 ## 6. ACCESS LOG (append-only, II.2)
-| Date | Session/model | Result: ACCESSIBLE / DEAD / AUTH-BLOCKED | Note |
+| Date | Session/model | Result: ACCESSIBLE / DEAD / AUTH-BLOCKED / SOFT-404 / PAYWALL / REDIRECT-LOGGED | Note |
 |---|---|---|---|
 | … | … | … | … |
 ```
@@ -41,3 +41,9 @@ Digest claims still pass triangulation before long_term (II.6 — no bypass).
 **Access-honesty rule:** a session that could not open the link works from
 §§4–5 only and says so. Claiming to have read the underlying documents without
 access is contamination (I.1).
+
+**Gap-4 extension (S-2-LINK v3.10.25):** Result states extend from `ACCESSIBLE / DEAD / AUTH-BLOCKED` to `ACCESSIBLE / DEAD / AUTH-BLOCKED / SOFT-404 / PAYWALL / REDIRECT-LOGGED` per Gap-Report Domain-4 fold.
+
+**JS-only honesty line (LAW-2 mirror, no headless ambition):** dynamically-rendered sources that cannot be read are recorded as `INACCESSIBLE-UNKNOWN` with a note — never claimed read, never claimed dead (UNKNOWN grammar; no headless-browser ambition).
+
+**Gap-2 same-source re-fetch supersession note (II.4):** when a source is re-fetched and its content has changed, the ACCESS LOG row must carry a supersession note (prior state → new state hash/short-diff + supersession remark); prior acquisition records stay (II.4).

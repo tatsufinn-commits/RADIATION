@@ -47,6 +47,7 @@
 | [PATCH_LEDGER.md](PATCH_LEDGER.md) | Lookup Patch history + verdicts append-only | Commander + Architect |
 | [DECAY_REGISTER.md](DECAY_REGISTER.md) | Lookup claims past verification half-life awaiting re-verification | AI maintaining evidence |
 | [STOCKPILE_DOCTRINE.md](STOCKPILE_DOCTRINE.md) | Lookup source intake quotas + dossier limits | AI scouting |
+| [SOURCE_QUALIFICATION.md](SOURCE_QUALIFICATION.md) | Understand qualification ≠ verification doctrine — source can be authentic yet fail claim-fit; identity·integrity·authority·context·claim-fit vocabulary | AI qualifying sources |
 | [WARN_LEDGER.md](WARN_LEDGER.md) | Lookup accepted WARN census dispositions (11.6/15/16 chartered) | Validator + Architect |
 
 ## Explanation (understanding-oriented) — deeper context, why
@@ -71,4 +72,4 @@
 
 ---
 
-**Coverage:** 36 docs/*.md = 7 Tutorial + 8 How-to + 11 Reference + 8 Explanation + 2 Generated = 36. Every docs/*.md listed exactly once. No moves/renames — virtual lanes only (links, never moves). Lane assignments only, no prose rewrites of doctrine docs per G6 non-goals.
+**Coverage:** 37 docs/*.md = 7 Tutorial + 8 How-to + 12 Reference + 8 Explanation + 2 Generated = 37. Every docs/*.md listed exactly once. No moves/renames — virtual lanes only (links, never moves). Lane assignments only, no prose rewrites of doctrine docs per G6 non-goals.

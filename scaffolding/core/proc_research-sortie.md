@@ -20,6 +20,9 @@
      <… | none>
 □ 6. HANDOFF BLOCK  — sources & claims passed to decomposer, by ID:
      <S-…, C-…>
+□ 7. REPLAY-INPUTS  — sortie rows/closeout record replay-relevant inputs — base SHA · tool versions · evidence set (98% already true in task_ledger practice; line makes it doctrine per Gap-14, S-2-LINK v3.10.25)
 ```
 FADE: file completed sheet → Brain/short_term/notes/. Evidence rule: every
 field carries an artifact (ID, path, quote) — never a bare "done".
+
+**S-2-LINK cross-ref (Gap-14):** Replay-relevant inputs — base SHA · tool versions · evidence set — see `docs/SOURCE_QUALIFICATION.md` §VI.

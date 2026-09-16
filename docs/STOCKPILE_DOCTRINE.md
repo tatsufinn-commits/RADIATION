@@ -61,3 +61,7 @@ coverage argument. A shortfall with full coverage is lawful; padding never is.
 If quotas are genuinely unreachable (niche topic), log `[STOCKPILE SHORTFALL]`
 with count achieved + reason; surgeon-passive adjudicates whether the session
 may close. Secondary-source claims remain [O]/[N]-capped until triangulated (I.2).
+
+## 6. STOPPING PHILOSOPHY (Gap-9 — named per S-2-LINK v3.10.25)
+
+Stopping philosophy = necessity test + floor-not-target + shortfall protocol — necessity test (four answers per source, §4), floor-not-target (quota is FLOOR for genuine coverage, not TARGET, §4 @Gather/@Radiation rule), shortfall protocol (§5); philosophy already enforced, line names it per Gap-Report Domain-9; see `docs/SOURCE_QUALIFICATION.md` §VI for qualification ≠ verification cross-ref.

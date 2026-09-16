@@ -1,64 +1,79 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 LAW-6 PREFLIGHT WHITESPACE ARM base e547e30 v3.10.24: scripts/push_preflight_check.py M LAW-6 WHITESPACE gate-mirror + tests/test_push_preflight.py M 2 vectors control clean adversarial trailing-blank-at-EOF discover 150->152 + honesty row LAW-6 born from run #97",
-  "base_sha": "e547e30cba5398bc0c858299f9810551eea3b866",
+  "generated_by": "S006 Architect \u2014 S-2-LINK SOURCE & LINK QUALIFICATION doc-line bundle base 4cd3429 v3.10.25: SOURCE_QUALIFICATION A + form_external-collection M Gap-4 vocabulary + OPEN_SOURCES M + STOCKPILE_DOCTRINE M Gap-9 + proc_research-sortie M Gap-14 + attempt: marker returns",
+  "base_sha": "4cd3429fc49f6751be70dbcfbb7dc2670251284a",
   "base_must_be_ancestor": true,
-  "description": "LAW-6 MICRO-TRANCHE base e547e30cba5398bc0c858299f9810551eea3b866 (S-2-VIDEO-fix seal): scripts/push_preflight_check.py M add LAW-6 WHITESPACE gate-mirror git diff --check <declared_base>..HEAD must exit 0 any output = finding carrying offending path:line verbatim same arm gate's whitespace check wields against declared base preflight already enforces executive assertion preflight and gate must never disagree on class + tests/test_push_preflight.py M gains 2 vectors TestCase law control clean LAW-6 passes adversarial trailing-blank-at-EOF LAW-6 FAILS finding names file and line inject exact run-#97 shape discover 150->152. One sealed candidate one purpose II.7.4 v3.10.24.",
+  "description": "S-2-LINK SOURCE & LINK QUALIFICATION doc-line bundle base 4cd3429fc49f6751be70dbcfbb7dc2670251284a (LAW-6 seal) v3.10.25: docs/SOURCE_QUALIFICATION.md A doctrine qualification \u2260 verification load-bearing truth a source can be authentic and authoritative while still failing to support specific claim + link as evidence candidate identity\u00b7integrity\u00b7authority\u00b7context\u00b7claim-fit RESOLVE\u2192IDENTIFY\u2192INSPECT\u2192QUALIFY\u2192CLAIM-FIT vocabulary not runtime + cross-ref EVIDENCE_TAXONOMY {decay}+grade + cross-ref 06-triangulate gauntlet verification = relationship test + P04 cross-ref staged unratified + Gap-4 ACCESS LOG vocabulary ACCESSIBLE / DEAD / AUTH-BLOCKED / SOFT-404 / PAYWALL / REDIRECT-LOGGED + JS-only INACCESSIBLE-UNKNOWN + Gap-2 same-source re-fetch supersession note + Gap-9 STOCKPILE_DOCTRINE stopping philosophy necessity test + floor-not-target + shortfall protocol + Gap-14 proc_research-sortie replay-relevant inputs base SHA\u00b7tool versions\u00b7evidence set + OPEN_SOURCES cross-ref + attempt: marker returns AP-08. One sealed candidate one purpose II.7.4 v3.10.25.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger LAW-6 honesty row"
+      "note": "M task_ledger S-2-LINK attempt: marker"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG LAW-6 v3.10.24"
+      "note": "M CHANGELOG S-2-LINK v3.10.25"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README LAW-6 v3.10.24"
+      "note": "M README S-2-LINK v3.10.25"
+    },
+    {
+      "path": "docs/INDEX.md",
+      "kind": "M",
+      "note": "M INDEX S-2-LINK add SOURCE_QUALIFICATION to Reference lane 36->37 docs"
+    },
+    {
+      "path": "docs/OPEN_SOURCES.md",
+      "kind": "M",
+      "note": "M OPEN_SOURCES S-2-LINK Gap-4 cross-ref"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER LAW-6"
+      "note": "M PATCH_LEDGER S-2-LINK"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION LAW-6 base e547e30"
+      "note": "M EXPECTATION S-2-LINK base 4cd3429"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP LAW-6 row"
+      "note": "M ROADMAP S-2-LINK row"
+    },
+    {
+      "path": "docs/SOURCE_QUALIFICATION.md",
+      "kind": "A",
+      "note": "A SOURCE_QUALIFICATION S-2-LINK doctrine qualification \u2260 verification"
+    },
+    {
+      "path": "docs/STOCKPILE_DOCTRINE.md",
+      "kind": "M",
+      "note": "M STOCKPILE_DOCTRINE S-2-LINK Gap-9 stopping philosophy"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE LAW-6 v3.10.24"
+      "note": "M SYSTEM_STATE S-2-LINK v3.10.25"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M LOG LAW-6"
+      "note": "M LOG S-2-LINK attempt: marker"
     },
     {
-      "path": "scripts/push_preflight_check.py",
+      "path": "scaffolding/core/form_external-collection.md",
       "kind": "M",
-      "note": "M push_preflight_check.py LAW-6 WHITESPACE gate-mirror"
+      "note": "M form_external-collection S-2-LINK Gap-4 vocabulary + Gap-2 supersession note + JS-only INACCESSIBLE-UNKNOWN"
     },
     {
-      "path": "tests/test_push_preflight.py",
+      "path": "scaffolding/core/proc_research-sortie.md",
       "kind": "M",
-      "note": "M test_push_preflight.py LAW-6 2 vectors control clean adversarial blank EOF"
-    },
-    {
-      "path": "docs/CAPABILITIES.md",
-      "kind": "M",
-      "note": "M CAPABILITIES GENERATED from push_preflight_check.py docstring LAW-6"
+      "note": "M proc_research-sortie S-2-LINK Gap-14 replay-relevant inputs"
     }
   ],
   "required_deletions": [

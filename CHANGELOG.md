@@ -6,6 +6,45 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.25 — 2026-09-16 — S-2-LINK SOURCE & LINK QUALIFICATION (doc-line bundle) (II.7.4)
+
+**BASE: 4cd3429fc49f6751be70dbcfbb7dc2670251284a (LAW-6 seal) per DESK DIRECTIVE S-2-LINK 2026-09-16.**
+
+**Lineage:** IP-Link-01 (ROUTING-01 §VI) + Gap-Report folds domains 2,4,9,14 + desk classification NO NEW ANALYZER — this tranche is doctrine lines, not machinery, by design.
+
+**1. Doctrine: Source qualification ≠ claim verification (one bounded doc `docs/SOURCE_QUALIFICATION.md` A):**
+- Load-bearing truth verbatim: *a source can be authentic and authoritative while still failing to support the specific claim for which it was retrieved. Source qualification concerns the source itself; claim verification concerns the relationship between the source and a particular claim.*
+- Link as evidence candidate: identity · integrity · authority · context · claim-fit (RESOLVE→IDENTIFY→INSPECT→QUALIFY→CLAIM-FIT pipeline, adopted as vocabulary, not runtime).
+- Map onto existing machinery with cross-ref lines exactly one each: `docs/EVIDENCE_TAXONOMY.md` (claims carry `{decay}` + grade) and `06-triangulate/` gauntlet (verification = relationship test) — new doc says where each already lives, never re-invent.
+- P04 cross-ref: `08-overhaul/proposals/PROPOSAL_P04_source-tiers-ip.md` is staged, unratified source-tier doctrine (II.6 rules 8–9 + SOURCE_TIERS); tier vocabulary stays awaiting Commander's ratification; tranche does not adopt it — points at it.
+
+**2. Gap-4 fold — ACCESS LOG result vocabulary (`scaffolding/core/form_external-collection.md` M + matching live collections templates only):**
+- Result states extend from `ACCESSIBLE / DEAD / AUTH-BLOCKED` to `ACCESSIBLE / DEAD / AUTH-BLOCKED / SOFT-404 / PAYWALL / REDIRECT-LOGGED`
+- JS-only honesty line: dynamically-rendered sources that cannot be read are recorded as `INACCESSIBLE-UNKNOWN` with note — never claimed read, never claimed dead (UNKNOWN grammar; no headless ambition, LAW-2 mirror).
+- One cross-ref in `docs/OPEN_SOURCES.md` M pointing at extended result vocabulary.
+
+**3. Gap-2 fold — same-source re-fetch supersession note (one line in same collection form):**
+- When source re-fetched and content changed, ACCESS LOG row must carry supersession note (prior state → new state hash/short-diff + supersession remark); prior acquisition records stay (II.4).
+
+**4. P04 triangulation cross-ref (referenced, not ratified):** in new qualification doc, one line referencing staged unratified proposal.
+
+**5. Cleanup riders (two single lines):**
+- Gap-9: one cross-ref line in `docs/STOCKPILE_DOCTRINE.md` M naming stopping philosophy explicitly = necessity test + floor-not-target + shortfall protocol (philosophy already enforced — line names it).
+- Gap-14: one checklist line in `scaffolding/core/proc_research-sortie.md` M: sortie rows/closeout record replay-relevant inputs — base SHA · tool versions · evidence set (98% already true in task_ledger practice; line makes it doctrine).
+
+**6. Desk addendum — attempt: marker returns:**
+- task_ledger rows from this tranche onward carry `attempt:` marker per AP-08 (check 20.5 WARN appeared on three newest rows; restore marker habit — WARN-class).
+
+**Battery + Provenance:**
+- EXPECTATION re-pin base 4cd3429, allowed = NEW doctrine doc + named line-edits + ledgers only (11 files: SOURCE_QUALIFICATION A + form_external-collection M + OPEN_SOURCES M + STOCKPILE_DOCTRINE M + proc_research-sortie M + ROADMAP M + CHANGELOG M + README M + SYSTEM_STATE M + PATCH_LEDGER M + task_ledger M + LOG M + EXPECTATION M + CAPABILITIES M GENERATED).
+- Gate live 0 findings vs 4cd3429 AND 12 replay bases (whitespace arm green), gate ST 11/11, preflight live @ 4cd3429 0 findings including LAW-6, validate 42·39·3·0 (return posture to ≤3 warn by restoring attempt:), discover 152 OK (doc tranche — no new tests expected), cue lint ok (no cue rows), all catalog checkers 0, render PASS, delta-vs-allowed ∅, fresh-clone ancestor proof origin/main 4cd3429, ledgers honest rows, zip → motor.
+- Honesty row: LAW-6 born from run #97... + new honesty row for S-2-LINK.
+
+**Non-goals hard:** No link-analyzer component, no new scripts/checkers/tools, no cue/subskill/contract/registry edits, no headless browsing or JS rendering, no ACCESS-log schema work beyond vocabulary line, no adoption of P04 tiers (cross-ref only), no session capability state (S-2-ENV), no video Phase-R/E, no PPTX, no .gitignore, no Problem-1 items, no moves/renames.
+
+**Base pinned:** 4cd3429fc49f6751be70dbcfbb7dc2670251284a (LAW-6 seal). Allowed delta exact. One patch one purpose II.7.4 — S-2-LINK doc-line bundle v3.10.25.
+
+
 ## v3.10.24 — 2026-09-16 — LAW-6 PREFLIGHT WHITESPACE ARM (II.7.4)
 
 **BASE: e547e30cba5398bc0c858299f9810551eea3b866 (S-2-VIDEO-fix seal) per DESK DIRECTIVE LAW-6 MICRO-TRANCHE 2026-09-16.**
