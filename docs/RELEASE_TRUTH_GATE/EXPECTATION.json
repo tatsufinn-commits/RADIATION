@@ -109,6 +109,16 @@
       "path": "tests/test_cue_resolver.py",
       "kind": "M",
       "note": "M tests/test_cue_resolver.py \u2014 52\u219262 tests: +TestAdmissionGate 10 vectors + multi-row conflicting fixture test"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "kind": "M",
+      "note": "M .github/workflows/validate.yml - 5900-1 repair folded into public 1e201c7: CUE tests pytest->unittest, per-step tee + Publish ALL step diagnostics on failure + artifact upload, apply-report observability; stdlib-only upheld"
+    },
+    {
+      "path": "scripts/release_truth_check.py",
+      "kind": "M",
+      "note": "M scripts/release_truth_check.py - 5900-1 repair folded into public 1e201c7: check_forbidden_tools_in_validations (pytest|pip|conda|npm|npx|node) + 8th self-test vector v_forbidden_tool_in_expectation + apply-report diagnostics"
     }
   ],
   "required_deletions": [
