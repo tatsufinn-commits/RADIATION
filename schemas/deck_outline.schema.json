@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deck Outline (radiation.deck_outline/1) — S-2-PPTX-A stage 1",
+  "description": "Outline is the receipt; deck is its rendering. A deck is a Nota answer format, not a product. No .pptx-alone delivery — the outline always ships with the deck. Schema radiation.deck_outline/1. Required: schema_name const, id OUTLINE-<slug>, title, theme {name from theme registry, theme_lock fixed hex set per theme — doctrine locked palettes content decides count}, slides[] {ref, type enum title|section|content|compare|claim-list|closing, bullets[] {text, source_ref string|null}, notes string|null}, constraints[] (rule IDs this outline declares compliance to), provenance {task, date, source_refs[]}, honesty_note optional. Discipline: source_ref admissible only to register lanes (SRC-, ANNOT_, TRI_, CARD_, GAP-, R2-... — data, nothing else); outline bullet without source_ref is claim awaiting one and lint may warn (never fail) on it as UNBACKED-BULLET. Theme registry v0: anchor + slate PROVISIONAL until Commander's theme notes, 5 fixed hexes each. Budgets computed at outline time so box never decides silently later (F1/F2 lesson: 4,000-char bullet saves silently).",
+  "type": "object",
+  "required": ["schema_name", "id", "title", "theme", "slides", "constraints", "provenance"],
+  "properties": {
+    "schema_name": {
+      "const": "radiation.deck_outline/1",
+      "description": "Schema identifier"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^OUTLINE-[A-Za-z0-9_-]+$",
+      "description": "OUTLINE-<slug>"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "theme": {
+      "type": "object",
+      "required": ["name", "theme_lock"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": ["anchor", "slate"],
+          "description": "From theme registry v0: anchor + slate PROVISIONAL"
+        },
+        "theme_lock": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "description": "Fixed hex set per theme — doctrine locked palettes, content decides count"
+        }
+      },
+      "additionalProperties": false
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ref", "type", "bullets"],
+        "properties": {
+          "ref": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Slide reference, e.g. S-001"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["title", "section", "content", "compare", "claim-list", "closing"],
+            "description": "Slide type enum"
+          },
+          "bullets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text"],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_ref": {
+                  "type": ["string", "null"],
+                  "description": "Admissible only to register lanes SRC-, ANNOT_, TRI_, CARD_, GAP-, R2-... — data, nothing else; null means claim awaiting source, lint may warn UNBACKED-BULLET never fail",
+                  "anyOf": [
+                    {"type": "null"},
+                    {"type": "string", "pattern": "^(SRC-[A-Za-z0-9_-]+|ANNOT_[A-Za-z0-9_-]+|TRI_[A-Za-z0-9_-]+|CARD_[A-Za-z0-9_-]+|GAP-[A-Za-z0-9_-]+|R2-[A-Za-z0-9_-]+)$"}
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Speaker notes"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Rule IDs this outline declares compliance to",
+      "items": {
+        "type": "string",
+        "pattern": "^R-[0-9]{3}$"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["task", "date", "source_refs"],
+      "properties": {
+        "task": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "honesty_note": {
+      "type": "string",
+      "description": "Optional honesty note"
+    }
+  },
+  "additionalProperties": false
+}

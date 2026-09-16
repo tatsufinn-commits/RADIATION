@@ -1,0 +1,80 @@
+{
+  "schema_name": "radiation.deck_outline/1",
+  "id": "OUTLINE-CARD001-bp344-accessibility",
+  "title": "BP 344 Accessibility Law — CARD_001",
+  "theme": {
+    "name": "anchor",
+    "theme_lock": ["#0F172A", "#F8FAFC", "#38BDF8", "#FBBF24", "#34D399"]
+  },
+  "slides": [
+    {
+      "ref": "S-001",
+      "type": "title",
+      "bullets": [
+        {"text": "BP 344 Accessibility Law — First Core Card", "source_ref": "CARD_001"},
+        {"text": "Admitted 2026-09-13, stable-domain decay 1yr", "source_ref": "CARD_001"}
+      ],
+      "notes": "Title slide — CARD_001 is first card ever admitted to the Core"
+    },
+    {
+      "ref": "S-002",
+      "type": "content",
+      "bullets": [
+        {"text": "No permit unless owner installs facilities", "source_ref": "SRC-013"},
+        {"text": "Sidewalks, ramps, railings enhance mobility", "source_ref": "SRC-013"},
+        {"text": "Reserve suitable parking for PWDs", "source_ref": "SRC-013"},
+        {"text": "Applies to public buildings, schools, airports", "source_ref": "SRC-014"}
+      ],
+      "notes": "Answer first — Section 1"
+    },
+    {
+      "ref": "S-003",
+      "type": "content",
+      "bullets": [
+        {"text": "Public conveyance: awareness posters, stickers", "source_ref": "SRC-013"},
+        {"text": "Special bus stops required", "source_ref": "SRC-013"},
+        {"text": "Flat ban on carriage discrimination", "source_ref": "SRC-014"},
+        {"text": "Design standards NOT in Act — delegated", "source_ref": "SRC-015"}
+      ],
+      "notes": "Section 2 and 3"
+    },
+    {
+      "ref": "S-004",
+      "type": "claim-list",
+      "bullets": [
+        {"text": "Violation: 1 month–1 year + ₱2k–₱5k", "source_ref": "SRC-013"},
+        {"text": "Corporate officers personally liable", "source_ref": "SRC-013"},
+        {"text": "Approved Feb 25 1983, effective on approval", "source_ref": "ANNOT_SRC-013"},
+        {"text": "Published OG Vol 80 No 8 p1103 Feb 20 1984", "source_ref": "SRC-014"}
+      ],
+      "notes": "Section 4 and 6 — claim-list slides may each cite ONE receipt"
+    },
+    {
+      "ref": "S-005",
+      "type": "content",
+      "bullets": [
+        {"text": "Exam trap: 1:12 vs 1:20 is generation trap", "source_ref": "TRI_bp344-accessibility_2026-09-13"},
+        {"text": "Amended IRR sets ramps at 1:20 locked", "source_ref": "CARD_001"},
+        {"text": "1:12 circulates in pre-amendment copies", "source_ref": "TRI_bp344-accessibility_2026-09-13"},
+        {"text": "Lineage: LawPhil → ANNOT → TRI 3 channels", "source_ref": "ANNOT_SRC-013"}
+      ],
+      "notes": "Triangulation defuses exam trap"
+    },
+    {
+      "ref": "S-006",
+      "type": "closing",
+      "bullets": [
+        {"text": "Shield-Stamped TRI 2026-09-13", "source_ref": "TRI_bp344-accessibility_2026-09-13"},
+        {"text": "Krates: KR-LAW-005 locked", "source_ref": "CARD_001"}
+      ],
+      "notes": "Closing — first card ever admitted"
+    }
+  ],
+  "constraints": ["R-001", "R-002", "R-003", "R-004", "R-005", "R-006"],
+  "provenance": {
+    "task": "OUTLINE_example_card001 derived from CARD_001 bp344 accessibility",
+    "date": "2026-09-16",
+    "source_refs": ["SRC-013", "SRC-014", "SRC-015", "ANNOT_SRC-013", "TRI_bp344-accessibility_2026-09-13", "CARD_001"]
+  },
+  "honesty_note": "Exemplar derived from existing CARD_001 (bp344 accessibility) with real source_refs to in-tree records — proves pipeline end-to-end at data level; lint-clean. Theme anchor PROVISIONAL until Commander's theme notes. Outline is receipt, deck is rendering. No .pptx-alone delivery."
+}

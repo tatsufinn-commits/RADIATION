@@ -1,0 +1,92 @@
+{
+  "schema_name": "radiation.deck_rules/1",
+  "description": "Budgets-as-rules, data form v0. Rule file is the policy — he who edits the rule file edits the law, ledger rows record it. Desk floors (floor, not ceiling — cc-slidev values may tighten). Theme registry v0: exactly two named palettes marked PROVISIONAL (until Commander's theme notes): anchor + slate, 5 fixed hexes each. Disparities vs cc-slidev logged in ledgers with sources. F1/F2 lesson on record: a 4,000-char bullet saves silently — budgets are computed at outline time so the box never decides silently later.",
+  "rules": [
+    {
+      "id": "R-001",
+      "text": "Max bullets per slide ≤6 — content decides count, box never decides silently later (F1/F2 lesson).",
+      "metric": "max_bullets_per_slide",
+      "threshold": 6,
+      "class": "error",
+      "source": "desk"
+    },
+    {
+      "id": "R-002",
+      "text": "Max chars per slide ≤400 — budgets computed at outline time so the box never decides silently later.",
+      "metric": "max_chars_per_slide",
+      "threshold": 400,
+      "class": "error",
+      "source": "desk"
+    },
+    {
+      "id": "R-003",
+      "text": "Max chars per bullet ≤80 — prevents 4,000-char bullet that saves silently (F1/F2).",
+      "metric": "max_chars_per_bullet",
+      "threshold": 80,
+      "class": "error",
+      "source": "desk"
+    },
+    {
+      "id": "R-004",
+      "text": "Max slides per deck: content decides (no cap) — claim-list slides may each cite ONE receipt.",
+      "metric": "max_slides_per_deck",
+      "threshold": null,
+      "class": "warn",
+      "source": "desk"
+    },
+    {
+      "id": "R-005",
+      "text": "Theme must be from theme registry v0 — anchor or slate PROVISIONAL until Commander's theme notes.",
+      "metric": "theme_in_registry",
+      "threshold": null,
+      "class": "error",
+      "source": "desk"
+    },
+    {
+      "id": "R-006",
+      "text": "Fixed hex set per theme (theme_lock) — locked palettes, content decides count, doctrine: theme_lock.",
+      "metric": "theme_lock_fixed_hex",
+      "threshold": 5,
+      "class": "error",
+      "source": "R&D F1-F2"
+    }
+  ],
+  "theme_registry": {
+    "anchor": {
+      "status": "PROVISIONAL",
+      "note": "PROVISIONAL (until the Commander's theme notes) — warm anchor palette for Nota answer-format decks",
+      "hexes": ["#0F172A", "#F8FAFC", "#38BDF8", "#FBBF24", "#34D399"],
+      "source": "desk"
+    },
+    "slate": {
+      "status": "PROVISIONAL",
+      "note": "PROVISIONAL (until the Commander's theme notes) — cool slate palette for Nota answer-format decks",
+      "hexes": ["#1E293B", "#E2E8F0", "#818CF8", "#F472B6", "#22D3EE"],
+      "source": "desk"
+    }
+  },
+  "disparities_vs_cc_slidev": [
+    {
+      "rule": "R-001",
+      "cc_slidev": "max 6 bullets per slide (tight)",
+      "desk_floor": "≤6",
+      "note": "Desk floor matches cc-slidev tight value — floor, not ceiling, cc-slidev may tighten further per ledger",
+      "source": "cc-slidev"
+    },
+    {
+      "rule": "R-002",
+      "cc_slidev": "max ~400 chars per slide (visual budget)",
+      "desk_floor": "≤400",
+      "note": "Desk floor 400 chars per slide aligns with cc-slidev visual budget — computed at outline time",
+      "source": "cc-slidev"
+    },
+    {
+      "rule": "R-003",
+      "cc_slidev": "max ~80 chars per bullet (readability)",
+      "desk_floor": "≤80",
+      "note": "F1/F2 lesson: 4,000-char bullet saves silently — desk floor 80 prevents silent box decision",
+      "source": "R&D F1-F2"
+    }
+  ],
+  "honesty_note": "A deck is a Nota answer format, not a product. No .pptx-alone delivery — the outline always ships with the deck. The outline is the receipt; the deck is its rendering. Theme registry v0 marked PROVISIONAL until Commander's theme notes. Budgets computed at outline time so box never decides silently later."
+}

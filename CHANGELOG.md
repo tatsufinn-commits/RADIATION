@@ -7,6 +7,32 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+
+## v3.10.27 — 2026-09-16 — S-2-PPTX-A DECK RULES + OUTLINE SCHEMA + LINT (staged ladder, stage 1 of 5) (II.7.4)
+
+**BASE: ea77a8a1dd4dcd385d0589b6659933af9f0dac78 (S-2-ENV seal) per DESK_DIRECTIVE_S2_PPTX_A_2026-09-16.md.**
+
+**Two pillars, verbatim and load-bearing:** "A deck is a Nota answer format, not a product." · "No .pptx-alone delivery — the outline always ships with the deck." The outline is the receipt; the deck is its rendering.
+
+**1. `schemas/deck_outline.schema.json` — `radiation.deck_outline/1`:** Required: schema_name const · id OUTLINE-<slug> · title · theme {name from theme registry (§2), theme_lock fixed hex set per theme — doctrine locked palettes content decides count} · slides[] {ref, type enum title|section|content|compare|claim-list|closing, bullets[] {text, source_ref string|null}, notes string|null} · constraints[] (rule IDs) · provenance {task, date, source_refs[]} · honesty_note optional. Discipline: source_ref admissible only to register lanes (SRC-, ANNOT_, TRI_, CARD_, GAP-, R2-… — data, nothing else); bullet without source_ref is claim awaiting one and lint may warn (never fail) as UNBACKED-BULLET.
+
+**2. `decks/DECK_RULES.json` — budgets-as-rules, data form v0 rule catalog:** each rule {id R-XXX, text ≤200, metric, threshold, class error|warn, source (cc-slidev / R&D F1-F2 / desk)}. Desk floors (floor, not ceiling — cc-slidev values may tighten): R-001 max_bullets_per_slide ≤6 · R-002 max_chars_per_slide ≤400 · R-003 max_chars_per_bullet ≤80 · R-004 max_slides_per_deck content decides (no cap) — claim-list slides may each cite ONE receipt · R-005 theme ∈ theme_registry · R-006 fixed hex set per theme (theme_lock) (F1/F2 lesson: 4,000-char bullet saves silently — budgets computed at outline time so box never decides silently later) · theme registry v0: exactly two named palettes marked PROVISIONAL (until Commander's theme notes): anchor + slate, 5 fixed hexes each. Disparities vs cc-slidev logged in ledgers with sources.
+
+**3. `docs/DECKS.md` — the two pillars + theme-lock doctrine + "outline is the receipt":** One bounded doctrine document; cross-ref lines: Nota (answer-format landing), SOURCE_QUALIFICATION (claim/source discipline for bullets), EVIDENCE_TAXONOMY state-mapping. No more.
+
+**4. `scripts/deck_rules_check.py` — the lint (claim ≡ mechanism; rules must bite):** Deterministic, house finding style: validates outline JSON vs schema and every declared constraint via DECK_RULES (data-driven: rule file is policy — he who edits rule file edits law, ledger rows record it). Finding text names OUTLINE-id · slide ref · rule id · observed vs threshold. --self-test 6 vectors (clean pass · R-001 violation · R-002 violation · R-003 violation · schema-invalid outline · WARN-class unbacked-bullet vector). Registry 33→34.
+
+**5. `decks/examples/OUTLINE_example_card001.json` — one passing exemplar:** Derived from existing CARD_001 (bp344 accessibility) with real source_refs to in-tree records — proves pipeline end-to-end at data level; lint-clean, cited in tests.
+
+**6. `tests/test_deck_rules_check.py` ≥4 vectors — TestCase law; discover 158→167, counts pasted.**
+
+**Battery + Provenance:** EXPECTATION re-pin base ea77a8a allowed exact, gate live+ST, preflight @ base incl LAW-6 line, validate 0 fail 42·39·3·0, catalog checkers 0 incl catalog_integrity with registry 34, cue lint ok, render PASS, delta-vs-allowed ∅, fresh-clone ancestor proof, task_ledger attempt: marker, ledgers honesty rows (theme registry marked PROVISIONAL; rule floors sourced) v3.10.27 zip→motor. Shrine heartbeat row for 2026-09-17 rides this tranche's ledgers.
+
+**Non-goals hard:** No python-pptx import anywhere (import pptx = policy FAIL-class) · no renderer · no verify_deck verb (B) · no plan/fill verbs (C) · no dependency of any kind · no committed .pptx binary (decks derived in tempdir; tree holds outlines + rules + machinery, never renderings) · no SKILL/skill-catalog edits · no mode changes · no template library · no cue rows unless demanded (default none) · no network · no WP-D canon text (🟠 word separately) · no SOLVE/fonts/VLM (WP-E) · no Problem-1 items.
+
+**Base pinned:** ea77a8a1dd4dcd385d0589b6659933af9f0dac78 (S-2-ENV seal). Allowed delta exact. One patch one purpose II.7.4 — S-2-PPTX-A v3.10.27.
+
+
 ## v3.10.26 — 2026-09-16 — S-2-ENV SESSION CAPABILITY STATE (E-ENV-1 Gate-1 design) (II.7.4)
 
 **BASE: bab3da4e7f5d0ce10fe91484baae67c66eba244d (S-2-LINK seal) per DESK_DIRECTIVE_S2_ENV_2026-09-16.md.**
