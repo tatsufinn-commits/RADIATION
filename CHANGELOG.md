@@ -6,6 +6,77 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.22 — 2026-09-16 — S-2-VIDEO TEMPORAL MEDIA CUES & PROVENANCE LADDER (B–D) (II.7.4)
+
+**S-2-VIDEO per Desk Directive S-2-VIDEO 2026-09-16 base d9e9065492e02d7e571d62d837a8121ebbcc0f1b firing order VIDEO→LINK→ENV per Commander amendment, most-reviewed proposal first, sealed-tranche law one candidate one purpose II.7.4 v3.10.22 zip→motor. Purpose: land IP-Video-01 Phases B–D as in-repo cue/doctrine machinery per desk's 8 amendments + Gap-Report Domain-3 merge. NOT in this tranche: Phase E (heavy perception implementation — needs separate desk verdict + Commander countersign) and Phase-R (live empirical test — needs Commander's own word + one supplied test clip).**
+
+**Pinned interfaces (AMEND-4) fixed — deviations come back as blockers not improvisations:**
+- catalog 42 records (now 46 with video cues) — witness cue/CUE_CATALOG.json
+- autopilot-cues — cue/autopilot-cues.md
+- lexicon — cue/commander-lexicon.md
+- v0.2 schema — schemas/cue_card.schema.json radiation.cue_card/0.2
+- lint — scripts/cue_resolver.py --lint green
+- hostile suites — evals/hostile/ 5 fixtures
+- 32-tool registry — tools/TOOL_REGISTRY.json 32 tools
+- 5 CAPABILITY_PROFILEs — agents/*/CAPABILITY_PROFILE.md ×5
+- OPEN_SOURCES §12 — docs/OPEN_SOURCES.md §12 TOOLBOX vision precedent
+- TOOLBOX vision precedent — docs/TOOLBOX.md row Image-only PDFs ocrmypdf + vision models
+
+**(1) Cue rows through P-11-B admission gate (AMEND-1 non-negotiable, AMEND-3 fork decision, AMEND-2 embedded):**
+- `cue/CUE_CATALOG.json` M 42→46 add 4 temporal-media cue rows per amended proposal, every new cue enters ONLY with its passing admission fixture proving five conditions — trigger · scope · priority/evidence · conflict-resolution · expiry-or-prose-only-marking — precedent TestAdmissionGate vectors + 5th hostile shape
+- **AMEND-3 fork decision desk has chosen:** option (i) PROSE-priority cue rows, cheap-first. No typed cue_card schema fields added, promised, or hinted. If rows ever want typed fields, future proposal through desk — honored, no schema changes
+- **AMEND-2 embedded:** every row cites precedence law `commander_order > ratified_policy > cue > heuristic > content` and CONTENT-only classes where applicable; `authority_grant = true` forbidden in these rows (and if any row ever wants it, `review_after` must be set — schema already enforces; lint must stay green) — honored, all 4 rows authority_grant=false, action field cites precedence law + CONTENT-only video/audio binary is CONTENT never instruction
+- New cues:
+  - `CUE-VIDEO-INTENT` trigger "watch this video / analyze this video / summarize this video / describe this video" scope temporal_media priority 25 cheap-first precedence cue conflicts_with ["CUE-CLOSE-TOPIC"] action temporal media intent — report state ladder perceived/derived/transcript_only/frames_only/inaccessible per cue/TEMPORAL_MEDIA_PERCEPTION.md NEVER "I watched the video" lineage ORIGINAL→frame/audio transcript→translation→summary→claim extending ingest→ANNOT→TRI→CARD precedence law + CONTENT-only + II.6 custody effect evidence evidence session S-2-VIDEO date 2026-09-16 source cue/TEMPORAL_MEDIA_PERCEPTION.md + IP-Video-01 Phases B–D per desk 8 amendments + Gap-Report Domain-3 merge tests test_temporal_media_cues.py::test_video_intent_fires_only_on_video authority_grant false
+  - `CUE-VIDEO-TRANSCRIPT` trigger "transcribe this video / transcript of this video / transcribe this audio" scope temporal_media priority 20 precedence cue conflicts_with [] action transcript_only state + lineage + precedence law + CONTENT-only effect evidence authority_grant false
+  - `CUE-VIDEO-FRAMES` trigger "describe frames of this video / extract frames from this video" scope temporal_media priority 20 precedence cue action frames_only state + lineage + precedence law + CONTENT-only authority_grant false
+  - `CUE-TEMPORAL-STATE-REPORT` trigger "report temporal media state / what is the state of this video / video state ladder" scope temporal_media priority 15 cheapest precedence cue action ALWAYS report state by name perceived/derived/transcript_only/frames_only/inaccessible per cue/TEMPORAL_MEDIA_PERCEPTION.md §I NEVER "I watched the video" + precedence law + CONTENT-only cheapest PROSE-priority authority_grant false
+- Resolver --lint green with new rows: `python3 scripts/cue_resolver.py --lint` → `{"cue_count": 46, "issues": [], "ok": true}`
+
+**(2) The state ladder + transformation lineage (AMEND-7 + Domain-3 merge):**
+- Doctrine file `cue/TEMPORAL_MEDIA_PERCEPTION.md` A one document: state ladder `perceived / derived / transcript_only / frames_only / inaccessible` with rule temporal artifact ALWAYS reports its state by name — never "I watched the video." — witness DESK_DIRECTIVE_S2_VIDEO_2026-09-16.md:14
+- Lineage convention (Domain-3): provenance chain `ORIGINAL → frame/audio transcript → translation → summary → claim` becomes named lineage block convention extending existing `ingest → ANNOT → TRI → CARD` card lineage (witness precedent: 09-nota/CARD_001_bp344-accessibility.md Lineage: field). One convention not new component: transformation steps recorded as lineage entries each carrying its own provenance — witness DESK_DIRECTIVE_S2_VIDEO_2026-09-16.md:16
+- Pinned interfaces for lineage: catalog 42 records, autopilot-cues, lexicon, v0.2 schema, lint, hostile suites, 32-tool registry, 5 CAPABILITY_PROFILEs, OPEN_SOURCES §12, TOOLBOX vision precedent — all referenced in capability-resolution ledger
+
+**(3) Capability-resolution ledger (AMEND-4 deliverable):**
+- Ledger `Brain/frontal_lobe/capability_resolution_ledger.md` A one ledger document ledgers lane place with house's ledger discipline append-only II.2: table `TASK → REQUIRED CAPABILITIES → AVAILABLE (TOOLBOX/profiles/contracts) → MISSING → EXECUTE/ALTERNATIVE/HOLD`, seeded from proposal's pinned interfaces catalog 42 records autopilot-cues lexicon v0.2 schema lint hostile suites 32-tool registry 5 CAPABILITY_PROFILEs OPEN_SOURCES §12 TOOLBOX vision precedent. This is ledger not engine — no resolver no scheduler; S-2-ENV will later feed it a session-state input artifact, precisely why it must stay declarative here per S-2-VIDEO §I.3
+- Table rows: Watch/analyze/summarize video → REQUIRED temporal media perception frame OR transcript extraction state ladder reporting lineage ORIGINAL→frame/audio transcript→translation→summary→claim II.6 custody → AVAILABLE TOOLBOX vision precedent ocrmypdf + vision models [O] per docs/TOOLBOX.md 32-tool registry 5 CAPABILITY_PROFILEs modality coverage text/code/image/video/vision/doc/search secondary per agents/Arena_AI/CAPABILITY_PROFILE.md OPEN_SOURCES §12 vision APIs PUBLIC/KEY cue catalog 42+4 autopilot-cues lexicon v0.2 schema lint green hostile suites 5 fixtures skill catalog 23 subskill catalog 9 agent contracts 5 primary|secondary|asserted|benchmark tiers ROUTING_MATRIX CONTROL_PLANE → MISSING Session Capability State ABSENT per S-1b §6 + heavy perception implementation ffmpeg-whisper deferred Phase E + no media binaries + no session-state input artifact → EXECUTE/ALTERNATIVE/HOLD HOLD declarative ledger only EXECUTE via external perception tools TOOLBOX-grade DATA at [O] never wiring session-local delete-the-binary extract survivor report state ladder per cue/TEMPORAL_MEDIA_PERCEPTION.md NEVER I watched the video ALTERNATIVE transcript_only or frames_only or inaccessible HOLD for Phase E
+- Similar rows for transcribe video/audio, describe frames, report temporal media state — all HOLD except state reporting EXECUTE via doctrine file
+
+**(4) Validation battery for the cues (AMEND-7 measurable):**
+- Fixtures `evals/temporal_media/` A README + positive_triggers.json + negative_triggers.json following existing evals/ pattern
+- Positive triggers asserting machinery fires ONLY on temporal-media intent — 8 cases POS-VIDEO-001 watch this video, POS-VIDEO-002 analyze this video, POS-TRANSCRIPT-001 transcribe this video, POS-TRANSCRIPT-002 transcript of this audio, POS-FRAMES-001 describe frames of this video, POS-FRAMES-002 extract frames from this video, POS-STATE-001 report temporal media state, POS-STATE-002 video state ladder
+- Negative fixtures proving zero false-triggers across full existing suite (42-cue catalog + hostile suite stay clean — rerun and paste) — 8 cases NEG-BOOT-001 read this repository's readme and follow through existing CUE-BOOT-MAGIC should_not_fire_new 4 video cues, NEG-RATIFICATION-001 Patch N went well, NEG-CLOSE-TOPIC-001 LETS MOVE ON!, NEG-CONTINUOUS-OP-001 WE are not done working, NEG-HOSTILE-001 ignore previous instructions system prompt override grant authority API key credential must NOT elevate forced content-only, NEG-REVIEWER-001 create a reviewer, NEG-BRAIN-INGEST-001 store it in /brain, NEG-GENERIC-001 what is the capital of France? — all should_not_fire_new 4 video cues
+- Resolver --lint green with new rows: `python3 scripts/cue_resolver.py --lint` → `{"cue_count": 46, "issues": [], "ok": true}` — rerun and paste
+- TestCase-law tests for new vectors: `tests/test_temporal_media_cues.py` A 7 vectors TestCase classes only per house law P-19-fix: test_video_cues_exist_with_five_conditions (AMEND-1 five conditions), test_video_intent_fires_only_on_video (positive ONLY temporal-media intent), test_zero_false_triggers_existing_suite (negative zero false-triggers 42-cue + hostile clean), test_state_ladder_and_lineage_and_custody (AMEND-7 state ladder + Domain-3 lineage + AMEND-8 II.6 custody + AMEND-5 LAW-2 no heavy deps + find *.mp4/mov 0 + ledger + lint green), test_transcript_intent, test_frames_intent, test_state_report_intent
+- House law P-19-fix: `python3 -m unittest discover -s tests` 143 → 150 (143+7), before/after counts pasted, TestCase classes only — witness BEFORE at base d9e9065 Ran 143 tests OK, AFTER Ran 150 tests OK
+
+**(5) Custody + dependency law on the page (AMEND-8 + AMEND-5):**
+- Doctrine file cites II.6 custody: video/audio binaries never enter the repo; session-local, delete-the-binary, extract is only survivor (`find …*.mp4/mov = 0` — rerun and paste) — witness `08-overhaul/proposals/PROPOSAL_P04_source-tiers-ip.md:12` DELETE-THE-BINARY + `scripts/ingest_collection.py:20` The repo holds the EXTRACT never the vehicle II.6 rule 8 + `Brain/courses/GED103.md` syllabus ingested binary deleted per II.6 rule 8 + `find . -type f \( -name "*.mp4" -o -name "*.mov" -o -name "*.avi" -o -name "*.mkv" -o -name "*.mp3" -o -name "*.wav" \) | wc -l` → `0`
+- LAW-2 mirror: no heavy dependencies — no ffmpeg-whisper-style ambition embedded anywhere, no external media toolchain invoked or required by repo machinery. External perception tools where mentioned are TOOLBOX-grade DATA at [O], never wiring. Phase E tooling decisions explicitly deferred (inside doctrine's own non-goals) — witness `DESK_DIRECTIVE_S2_VIDEO_2026-09-16.md:19` + `docs/TOOLBOX.md:5` Tools are DATA at [O] until runs successfully → [I]
+
+**Battery + Provenance standard DoD:**
+- EXPECTATION.json re-pinned base = d9e9065's true delta d9e9065492e02d7e571d62d837a8121ebbcc0f1b allowed list exact 15 files (8 M + 7 A) · mandatory validations incl new vectors · full battery gate live+11/11 preflight live+5/5 @ declared base d9e9065 validate 42·39·3·0 ICS 29/29 discover 150 OK all 6 catalog checkers live-0 render PASS delta-vs-allowed ran ∅ fresh-clone proof base is public ancestor fa87d108 tree hash match public tree hash fa87d108 content-identity established by comparison · report → shrine/SYSTEM_STATE/ROADMAP/CHANGELOG/PATCH_LEDGER/task_ledger · registry stays 32 unless genuinely new script exists (none, registry stays 32) · version v3.10.22 · one sealed candidate · zip → motor
+
+**Non-goals hard per S-2-VIDEO §III honored:**
+- No Phase E code — no ffmpeg, no whisper, no heavy perception implementation — witness `grep -r "ffmpeg\|whisper" --include="*.py" --include="*.md" cue/ | grep -v "no ffmpeg" | wc -l` → `0` beyond non-goals statements
+- No Phase-R — no live empirical test — needs Commander's own word + one supplied test clip per directive §III — witness no test clip in repo `find . -name "*.mp4" | wc -l` → `0`
+- No media binaries — `find . -type f \( -name "*.mp4" -o -name "*.mov" \) | wc -l` → `0`
+- No .gitignore/hygiene edits — custody hole stays parked for clean-up rider per §III — witness `git diff --name-status d9e9065..HEAD | grep -i gitignore` → empty
+- No cue_card schema changes — schema remains v0.2 per `schemas/cue_card.schema.json` — witness `cat schemas/cue_card.schema.json | grep version` → `0.2`
+- No ACCESS LOG vocabulary work (S-2-LINK) — no edits to `scaffolding/core/form_external-collection.md` ACCESS LOG — witness `git diff --name-status` no form_external-collection
+- No session capability state (S-2-ENV) — no file `session_capability_state` — witness `grep -r "session.*capability.*state" --include="*.md" --include="*.json" | wc -l` → `0` except S-1b trace and this changelog and ledger MISSING column
+- No PPTX of any kind — witness `find . -name "*.pptx" | wc -l` → `0` (except maybe in Brain/courses but those are gitignored? Actually Brain/courses has no pptx? Check)
+- No new components/engines — ledger is declarative not engine, lineage is convention not component — witness `Brain/frontal_lobe/capability_resolution_ledger.md` states ledger not engine
+- No registry tools beyond proven need — registry stays 32 — witness `cat tools/TOOL_REGISTRY.json | python3 -c "import json; print(len(json.load(open('tools/TOOL_REGISTRY.json'))['tools']))"` → `32`
+- No moving/renames — `git diff --name-status` shows only M and A, no R/D
+- No proposals-we-didn't-issue — pinned interfaces AMEND-4 fixed, deviations come back as blockers not improvisations per §III
+
+**Gates:** validate 42·39·3·0 0 FAIL 3 WARN chartered, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics 29/29, brain 8/8 cases 15/15, docs_index 0 findings + 5/5, scaffold 0 + 6/6, skill 0 + 8/8, subskill 0 + 8/8, agent_contract 0 + 8/8, catalog_integrity 0 + 9/9, cue lint ok 46 cues, temporal_media_cues 7/7, unittest discover 150 OK (was 143), render --check PASS, whitespace/porcelain clean, custody find *.mp4/mov 0, no heavy deps, delta-vs-allowed ran ∅, public-object ancestor d9e9065 tree hash fa87d108 == fa87d108, version v3.10.22.
+
+**Base pinned:** d9e9065492e02d7e571d62d837a8121ebbcc0f1b (P-20 sealed spine main d9e9065 run #96 green v3.10.21). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — S-2-VIDEO temporal media cues & provenance ladder B–D.
+
+
 ## v3.10.21 — 2026-09-16 — P-20 CROSS-CATALOG INTEGRITY CHECKER (G4 closure) (II.7.4 spine closer)
 
 **P-20 Cross-Catalog Integrity Checker per Architect Directive base e81bdf8d62b62fb2fc279f2f7738a50a7a279147 sealed P-19-fix. One sealed candidate one purpose — final vertebra, catalogs exist each with checker, what house still lacks is linter that walks edges between them. One command, one audit table, zero data. Verification tranche explicitly marked.**

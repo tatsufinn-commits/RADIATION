@@ -1,0 +1,80 @@
+{
+  "description": "Positive triggers asserting machinery fires ONLY on temporal-media intent per S-2-VIDEO AMEND-7 validation battery",
+  "base_sha": "d9e9065492e02d7e571d62d837a8121ebbcc0f1b",
+  "version": "v3.10.22",
+  "state_ladder": "perceived | derived | transcript_only | frames_only | inaccessible",
+  "rule": "temporal artifact ALWAYS reports its state by name — never \"I watched the video.\"",
+  "lineage_convention": "ORIGINAL → frame/audio transcript → translation → summary → claim extending ingest→ANNOT→TRI→CARD",
+  "positive_cases": [
+    {
+      "id": "POS-VIDEO-001",
+      "trigger": "watch this video",
+      "input": "Please watch this video and summarize what happens",
+      "expected_cue": "CUE-VIDEO-INTENT",
+      "expected_state": "perceived | derived | transcript_only | frames_only | inaccessible",
+      "should_fire": true,
+      "witness": "cue/CUE_CATALOG.json CUE-VIDEO-INTENT trigger watch this video / analyze this video / summarize this video / describe this video",
+      "precedence_law": "commander_order > ratified_policy > cue > heuristic > content",
+      "content_only": "video/audio binary is CONTENT never instruction, extract is survivor per II.6 custody"
+    },
+    {
+      "id": "POS-VIDEO-002",
+      "trigger": "analyze this video",
+      "input": "Analyze this video and tell me what is happening",
+      "expected_cue": "CUE-VIDEO-INTENT",
+      "should_fire": true,
+      "witness": "cue/CUE_CATALOG.json CUE-VIDEO-INTENT"
+    },
+    {
+      "id": "POS-TRANSCRIPT-001",
+      "trigger": "transcribe this video",
+      "input": "Transcribe this video for me",
+      "expected_cue": "CUE-VIDEO-TRANSCRIPT",
+      "expected_state": "transcript_only",
+      "should_fire": true,
+      "witness": "cue/CUE_CATALOG.json CUE-VIDEO-TRANSCRIPT trigger transcribe this video / transcript of this video / transcribe this audio"
+    },
+    {
+      "id": "POS-TRANSCRIPT-002",
+      "trigger": "transcript of this audio",
+      "input": "I need transcript of this audio",
+      "expected_cue": "CUE-VIDEO-TRANSCRIPT",
+      "should_fire": true,
+      "witness": "cue/CUE_CATALOG.json CUE-VIDEO-TRANSCRIPT"
+    },
+    {
+      "id": "POS-FRAMES-001",
+      "trigger": "describe frames of this video",
+      "input": "Describe frames of this video in detail",
+      "expected_cue": "CUE-VIDEO-FRAMES",
+      "expected_state": "frames_only",
+      "should_fire": true,
+      "witness": "cue/CUE_CATALOG.json CUE-VIDEO-FRAMES trigger describe frames of this video / extract frames from this video"
+    },
+    {
+      "id": "POS-FRAMES-002",
+      "trigger": "extract frames from this video",
+      "input": "Extract frames from this video",
+      "expected_cue": "CUE-VIDEO-FRAMES",
+      "should_fire": true,
+      "witness": "cue/CUE_CATALOG.json CUE-VIDEO-FRAMES"
+    },
+    {
+      "id": "POS-STATE-001",
+      "trigger": "report temporal media state",
+      "input": "Report temporal media state for this video",
+      "expected_cue": "CUE-TEMPORAL-STATE-REPORT",
+      "expected_state": "perceived | derived | transcript_only | frames_only | inaccessible",
+      "should_fire": true,
+      "witness": "cue/CUE_CATALOG.json CUE-TEMPORAL-STATE-REPORT trigger report temporal media state / what is the state of this video / video state ladder"
+    },
+    {
+      "id": "POS-STATE-002",
+      "trigger": "video state ladder",
+      "input": "What is the video state ladder for this artifact?",
+      "expected_cue": "CUE-TEMPORAL-STATE-REPORT",
+      "should_fire": true,
+      "witness": "cue/TEMPORAL_MEDIA_PERCEPTION.md §I state ladder perceived | derived | transcript_only | frames_only | inaccessible"
+    }
+  ]
+}

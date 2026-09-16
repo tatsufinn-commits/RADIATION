@@ -1,69 +1,84 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 P-20 G4 base e81bdf8d62b62fb2fc279f2f7738a50a7a279147 sealed P-19-fix, cross-catalog integrity checker spine closer G4 closure, 143 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8 8/8 9/9, delta \u2205 verification tranche",
-  "base_sha": "e81bdf8d62b62fb2fc279f2f7738a50a7a279147",
+  "generated_by": "S006 Architect \u2014 S-2-VIDEO Phases B\u2013D per desk 8 amendments + Gap-Report Domain-3 merge base d9e9065492e02d7e571d62d837a8121ebbcc0f1b v3.10.22: temporal-media cue rows PROSE-priority cheap-first 4 rows + doctrine cue/TEMPORAL_MEDIA_PERCEPTION.md state ladder + lineage + capability-resolution ledger + validation battery fixtures + TestCase tests, registry stays 32, 143\u2192150 unittest, lint green, custody II.6 + LAW-2 no heavy deps, no Phase E/R, no media binaries, no schema changes",
+  "base_sha": "d9e9065492e02d7e571d62d837a8121ebbcc0f1b",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA e81bdf8d62b62fb2fc279f2f7738a50a7a279147 (P-19-fix phantom tests). P-20 CROSS-CATALOG INTEGRITY CHECKER (G4 closure) verification tranche: scripts/catalog_integrity_check.py A deterministic house finding-style report-only composition lane skill/subskill/scaffold/agent_contract/docs_index/cue_resolver aggregate + FK lane full edge map AGENT.profile_ref\u2192CAPABILITY_PROFILE.md SKILL\u2192eval SUBSKILL.parent_skill\u2192SKILL SCAFFOLD.deps\u2192resolve CUE\u2192cue_card schema MEMORY\u2192paths SKILL.required_tools\u2286TOOL_REGISTRY AGENT.tests[]\u2192real files + FK-AUDIT ALREADY-CHECKED-BY vs NEW-IN-P20 no duplicate machinery + --self-test 9 vectors each broken FK edge FAIL + tests/test_catalog_integrity_check.py A 8 vectors unittest.TestCase only discover 135\u2192143 + tools/TOOL_REGISTRY.json M 31\u219232 catalog_integrity_check. One sealed candidate one purpose II.7.4 verification tranche explicitly marked. Zero edits catalog/contract/schema content, if linter finds live defect report to desk repair separate tranche, no gate/CI changes, no moves/renames/deletions/providers.",
+  "description": "Pins exact base SHA d9e9065492e02d7e571d62d837a8121ebbcc0f1b (P-20 sealed spine main d9e9065 run #96 green v3.10.21). S-2-VIDEO TEMPORAL MEDIA CUES & PROVENANCE LADDER (B\u2013D) per Desk Directive S-2-VIDEO 2026-09-16 firing order VIDEO\u2192LINK\u2192ENV per Commander amendment: cue/CUE_CATALOG.json M 42\u219246 CUE-VIDEO-INTENT CUE-VIDEO-TRANSCRIPT CUE-VIDEO-FRAMES CUE-TEMPORAL-STATE-REPORT PROSE-priority cheap-first 4 rows P-11-B admission gate five conditions trigger scope priority/evidence conflict-resolution expiry-or-prose-only-marking + precedence law commander_order>ratified_policy>cue>heuristic>content + CONTENT-only + authority_grant=false + cue/TEMPORAL_MEDIA_PERCEPTION.md A state ladder perceived|derived|transcript_only|frames_only|inaccessible NEVER I watched the video + lineage ORIGINAL\u2192frame/audio transcript\u2192translation\u2192summary\u2192claim extending ingest\u2192ANNOT\u2192TRI\u2192CARD + II.6 custody video/audio binaries never enter repo session-local delete-the-binary extract survivor + LAW-2 no heavy deps no ffmpeg-whisper + capability-resolution ledger Brain/frontal_lobe/capability_resolution_ledger.md A TASK\u2192REQUIRED\u2192AVAILABLE\u2192MISSING\u2192EXECUTE/ALT/HOLD seeded pinned interfaces + evals/temporal_media/ A README + positive + negative validation battery + tests/test_temporal_media_cues.py A 7 vectors discover 143\u2192150. One sealed candidate one purpose II.7.4 v3.10.22. No Phase E/R, no media binaries, no schema changes, no ACCESS LOG vocab, no session capability state, no PPTX, no new components/engines, registry stays 32.",
   "allowed_changes": [
+    {
+      "path": "Brain/frontal_lobe/capability_resolution_ledger.md",
+      "kind": "A",
+      "note": "A Brain/frontal_lobe/capability_resolution_ledger.md S-2-VIDEO AMEND-4 ledger TASK\u2192REQUIRED\u2192AVAILABLE\u2192MISSING\u2192EXECUTE/ALT/HOLD seeded pinned interfaces"
+    },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M Brain/frontal_lobe/task_ledger.md P-20 cross-catalog integrity checker"
+      "note": "M Brain/frontal_lobe/task_ledger.md S-2-VIDEO v3.10.22"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG.md P-20 v3.10.21"
+      "note": "M CHANGELOG.md S-2-VIDEO v3.10.22"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README.md P-20 v3.10.21"
+      "note": "M README.md S-2-VIDEO v3.10.22"
     },
     {
-      "path": "docs/CAPABILITIES.md",
+      "path": "cue/CUE_CATALOG.json",
       "kind": "M",
-      "note": "M docs/CAPABILITIES.md GENERATED P-20 catalog_integrity_check 31\u219232"
+      "note": "M cue/CUE_CATALOG.json 42\u219246 4 video cues PROSE-priority cheap-first P-11-B gate"
+    },
+    {
+      "path": "cue/TEMPORAL_MEDIA_PERCEPTION.md",
+      "kind": "A",
+      "note": "A cue/TEMPORAL_MEDIA_PERCEPTION.md S-2-VIDEO AMEND-7 state ladder + Domain-3 lineage + AMEND-8 II.6 custody + AMEND-5 LAW-2 no heavy deps"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md P-20"
+      "note": "M docs/PATCH_LEDGER.md S-2-VIDEO"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json P-20 base e81bdf8"
+      "note": "M docs/RELEASE_TRUTH_GATE/EXPECTATION.json S-2-VIDEO base d9e9065"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md P-20"
+      "note": "M docs/ROADMAP.md S-2-VIDEO"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md P-20 v3.10.21 GENERATED"
+      "note": "M docs/SYSTEM_STATE.md S-2-VIDEO v3.10.22 GENERATED"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md P-20"
+      "note": "M docs/shrine/LOG.md S-2-VIDEO"
     },
     {
-      "path": "scripts/catalog_integrity_check.py",
+      "path": "evals/temporal_media/README.md",
       "kind": "A",
-      "note": "A scripts/catalog_integrity_check.py P-20 cross-catalog integrity checker deterministic house finding-style report-only composition + FK lane + FK-AUDIT + 9 vectors self-test"
+      "note": "A evals/temporal_media/README.md S-2-VIDEO validation battery"
     },
     {
-      "path": "tests/test_catalog_integrity_check.py",
+      "path": "evals/temporal_media/negative_triggers.json",
       "kind": "A",
-      "note": "A tests/test_catalog_integrity_check.py P-20 8 vectors unittest.TestCase only discover 135\u2192143"
+      "note": "A evals/temporal_media/negative_triggers.json S-2-VIDEO negative zero false-triggers 42-cue + hostile clean"
     },
     {
-      "path": "tools/TOOL_REGISTRY.json",
-      "kind": "M",
-      "note": "M tools/TOOL_REGISTRY.json 31\u219232 catalog_integrity_check"
+      "path": "evals/temporal_media/positive_triggers.json",
+      "kind": "A",
+      "note": "A evals/temporal_media/positive_triggers.json S-2-VIDEO positive ONLY temporal-media intent"
+    },
+    {
+      "path": "tests/test_temporal_media_cues.py",
+      "kind": "A",
+      "note": "A tests/test_temporal_media_cues.py S-2-VIDEO 7 vectors TestCase only discover 143\u2192150"
     }
   ],
   "required_deletions": [
