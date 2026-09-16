@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S-2-PPTX-A v3.10.27 ea77a8a: deck outline schema+DECK_RULES+DECKS.md+checker 6v+example CARD001+tests 9v+registry 33->34",
+  "generated_by": "S-2-PPTX-B v3.10.28 46916c7: deck_verify round-trip+receipt+drift 6v+tests 8v+registry 34->35+rider truth-bearing",
   "tools": [
     {
       "id": "validate",
@@ -876,6 +876,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Deck rules checker S-2-PPTX-A: schema-valid vs deck_outline/1, budgets-as-rules via DECK_RULES.json data-driven, theme registry PROVISIONAL, UNBACKED-BULLET warn, 6-vector self-test"
+    },
+    {
+      "id": "deck_verify",
+      "entrypoint": "scripts/deck_verify.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/deck_verify.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Deck verifier S-2-PPTX-B: canonical round-trip idempotence sha log, receipt resolver SRC-/ANNOT_/TRI_/CARD_/GAP-/R2-/OUTLINE- witness-based, drift battery MATCH/DRIFT, 6-vector self-test"
     }
   ]
 }

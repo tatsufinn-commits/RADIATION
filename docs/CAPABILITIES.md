@@ -287,6 +287,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
 | `deck_rules_check.py` | Deck Rules + Outline Schema lint (S-2-PPTX-A stage 1) | no | no | no |
+| `deck_verify.py` | Outline round-trip + receipt resolver (S-2-PPTX-B stage 1 of 5) | no | no | no |
 | `docs_index_check.py` | deterministic stdlib checker, house finding style (G6) | no | no | no |
 | `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |
 | `grade_exam.py` | P-05 drill grader (stdlib port of TAMAKEE grade-exam.js). | no | no | no |

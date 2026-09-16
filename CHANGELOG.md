@@ -8,6 +8,36 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+
+## v3.10.28 — 2026-09-16 — S-2-PPTX-B OUTLINE ROUND-TRIP VERIFIER + RECEIPT RESOLVER (+ A-repair rider) (II.7.4)
+
+**BASE: 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8 (PPTX-A seal) per DESK_DIRECTIVE_S2_PPTX_B_2026-09-16.md.**
+
+**Honest design constraint (desk, on record):** R&D round-trip semantics (MATCH/DRIFT over rendered deck) needs python-pptx — gated 🟠 at WP-D. This stage therefore verifies what stdlib can verify now: outline layer itself — canonical integrity, receipt resolvability, drift on tamper. Render-half verifier lands when dependency canon opens (stage C/D), unchanged in intent.
+
+**1. `scripts/deck_verify.py` — outline round-trip + receipt resolver (house finding style):**
+- Canonicalize: outline → canonical form (sorted keys, normalized whitespace, stable ordering of slides/bullets preserved by ref) → re-serialize → idempotence assert (canonical(canonical(o)) ≡ canonical(o)), deterministic bytes → sha log.
+- Receipt resolver (new FK edge): every non-null source_ref must RESOLVE into tree — register lanes only (SRC-, ANNOT_, TRI_, CARD_, GAP-, R2-, OUTLINE-) → grounding tables it consults (REFERENCES.md rows, 09-nota files, 06-triangulate files, brain/knowledge registry) — witness-based resolution, no network; unresolved → finding UNRESOLVED-RECEIPT (FAIL).
+- Drift battery: tamper outline copy (drop bullet, mutate text, swap source_ref) → verifier must emit DRIFT per class named (MATCH → DRIFT semantics from prototype, at outline level).
+- --self-test 6 vectors (true-match · drift-text · drift-structure · unresolved-receipt · canonical-idempotence · receipt resolved witness-based).
+
+**2. ⚑ RIDER — PPTX-A message-language repair (named, bounded, ledgered):**
+- `scripts/deck_rules_check.py`: zero-findings witness line becomes "checked N outline file(s) — 0 findings" (N real); new test vector asserts line is truth-bearing with ≥1 outline present and with 0 present ("no outlines present" is allowed to name itself then, and only then). Honesty row: "the button told the truth about verdicts and lied about coverage; now it tells both".
+
+**3. Tests + registry:**
+- `tests/test_deck_verify.py` 8 vectors + rider vector (TestCase law; discover 167→175, pasted).
+- `tools/TOOL_REGISTRY.json` 34→35 deck_verify.
+
+**4. Doctrine line (one):**
+- `docs/DECKS.md` §verifier: outline-level MATCH/DRIFT semantics + render-half explicitly deferred to WP-C/D behind 🟠 dependency word (why: receipts verify without render; render needs canon).
+
+**Battery + Provenance:** EXPECTATION re-pin base 46916c7 allowed exact, gate live+ST, preflight @ base incl LAW-6 line, validate 0 fail 42·39·3·0, catalog checkers 0 (deck_verify in registry; catalog_integrity must add fifth FK witness line only if its map calls for tools-FK — if its design doesn't, say so, don't force) — here design doesn't call for tools-FK, say so, don't force, render PASS, delta-vs-allowed ∅, fresh-clone ancestor proof, task_ledger attempt: marker, ledgers honesty rows (message-repair rider confessed: "the button told the truth about verdicts and lied about coverage; now it tells both") v3.10.28 zip→motor.
+
+**Non-goals hard:** No python-pptx · no renderer/render-verify · no committed binaries · no plan/fill verbs (stage C) · no WP-D canon text · no theme-registry edits (provisional law stands) · no cue/skill/mode changes · no network · no Problem-1, no video Phase-R/E.
+
+**Base pinned:** 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8 (PPTX-A seal). Allowed delta exact. One patch one purpose II.7.4 — S-2-PPTX-B v3.10.28.
+
+
 ## v3.10.27 — 2026-09-16 — S-2-PPTX-A DECK RULES + OUTLINE SCHEMA + LINT (staged ladder, stage 1 of 5) (II.7.4)
 
 **BASE: ea77a8a1dd4dcd385d0589b6659933af9f0dac78 (S-2-ENV seal) per DESK_DIRECTIVE_S2_PPTX_A_2026-09-16.md.**

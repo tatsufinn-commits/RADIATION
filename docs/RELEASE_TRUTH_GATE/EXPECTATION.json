@@ -1,94 +1,79 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 S-2-PPTX-A DECK RULES + OUTLINE SCHEMA + LINT v3.10.27 base ea77a8a: schema A + DECK_RULES A + DECKS.md A + checker 6v + example CARD001 + tests 9v + registry 33->34 + attempt: marker",
-  "base_sha": "ea77a8a1dd4dcd385d0589b6659933af9f0dac78",
+  "generated_by": "S006 Architect \u2014 S-2-PPTX-B OUTLINE VERIFIER + RECEIPT RESOLVER v3.10.28 base 46916c7: deck_verify A 6v + tests 8v + registry 34->35 + rider truth-bearing + attempt: marker",
+  "base_sha": "46916c7ae7d1c34c60a7f49ad04550a3f373f5e8",
   "base_must_be_ancestor": true,
-  "description": "S-2-PPTX-A DECK RULES + OUTLINE SCHEMA + LINT (staged ladder stage 1 of 5) base ea77a8a1dd4dcd385d0589b6659933af9f0dac78 (S-2-ENV seal) v3.10.27: schemas/deck_outline.schema.json A radiation.deck_outline/1 id OUTLINE-<slug> title theme {name anchor/slate PROVISIONAL theme_lock 5 hexes} slides[] {ref type title/section/content/compare/claim-list/closing bullets[] {text source_ref} notes} constraints[] provenance + decks/DECK_RULES.json A budgets-as-rules R-001 max bullets \u22646 R-002 max chars slide \u2264400 R-003 max chars bullet \u226480 R-004 max slides content decides no cap R-005 theme \u2208 registry R-006 fixed hex set theme_lock F1/F2 lesson 4k-char bullet saves silently + docs/DECKS.md A two pillars deck is Nota answer format not product no .pptx-alone outline is receipt + scripts/deck_rules_check.py A lint schema+DECK_RULES data-driven finding OUTLINE-id\u00b7slide ref\u00b7rule id\u00b7observed vs threshold 6 vectors clean+R001+R002+R003+schema-invalid+UNBACKED-BULLET WARN + decks/examples/OUTLINE_example_card001.json A exemplar CARD_001 bp344 real source_refs lint-clean + tests/test_deck_rules_check.py A 9 vectors discover 158->167 + tools/TOOL_REGISTRY.json M 33->34 + docs/INDEX.md M 37->38 + docs/CAPABILITIES.md M GENERATED + docs/SYSTEM_STATE.md M + CHANGELOG.md M + README.md M + docs/ROADMAP.md M + Brain/frontal_lobe/task_ledger.md M attempt: marker + docs/PATCH_LEDGER.md M + docs/shrine/LOG.md M heartbeat 2026-09-17 + EXPECTATION M base ea77a8a. One sealed candidate one purpose II.7.4 v3.10.27.",
+  "description": "S-2-PPTX-B OUTLINE ROUND-TRIP VERIFIER + RECEIPT RESOLVER (+ A-repair rider) base 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8 (PPTX-A seal) v3.10.28: scripts/deck_verify.py A canonicalize sorted keys normalized whitespace stable ordering by ref re-serialize idempotence assert canonical(canonical(o))\u2261canonical(o) deterministic bytes sha log + receipt resolver SRC-/ANNOT_/TRI_/CARD_/GAP-/R2-/OUTLINE- grounding REFERENCES.md 09-nota 06-triangulate brain registry witness-based no network UNRESOLVED-RECEIPT FAIL + drift battery tamper drop bullet mutate text swap source_ref \u2192 DRIFT per class MATCH\u2192DRIFT + scripts/deck_rules_check.py M rider truth-bearing checked N outline file(s) \u2014 0 findings + tests/test_deck_verify.py A 8 vectors discover 167->175 + tools/TOOL_REGISTRY.json M 34->35 deck_verify + docs/DECKS.md M verifier \u00a7 outline-level MATCH/DRIFT + render-half deferred WP-C/D behind \ud83d\udfe0 + docs/CAPABILITIES.md M GENERATED + docs/SYSTEM_STATE.md M + CHANGELOG.md M + README.md M + docs/ROADMAP.md M + Brain/frontal_lobe/task_ledger.md M attempt: marker + docs/PATCH_LEDGER.md M + docs/shrine/LOG.md M heartbeat 2026-09-17 + EXPECTATION M base 46916c7. One sealed candidate one purpose II.7.4 v3.10.28.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger S-2-PPTX-A attempt: marker"
+      "note": "M task_ledger S-2-PPTX-B attempt: marker"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG S-2-PPTX-A v3.10.27"
+      "note": "M CHANGELOG S-2-PPTX-B v3.10.28"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README S-2-PPTX-A v3.10.27"
-    },
-    {
-      "path": "decks/DECK_RULES.json",
-      "kind": "A",
-      "note": "A DECK_RULES S-2-PPTX-A budgets-as-rules R-001..R-006 theme registry anchor+slate PROVISIONAL"
-    },
-    {
-      "path": "decks/examples/OUTLINE_example_card001.json",
-      "kind": "A",
-      "note": "A OUTLINE_example_card001 S-2-PPTX-A exemplar CARD_001 bp344 real source_refs lint-clean"
+      "note": "M README S-2-PPTX-B v3.10.28"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M CAPABILITIES S-2-PPTX-A GENERATED deck_rules_check"
+      "note": "M CAPABILITIES S-2-PPTX-B GENERATED deck_verify"
     },
     {
       "path": "docs/DECKS.md",
-      "kind": "A",
-      "note": "A DECKS S-2-PPTX-A two pillars + theme-lock doctrine + outline is receipt"
-    },
-    {
-      "path": "docs/INDEX.md",
       "kind": "M",
-      "note": "M INDEX S-2-PPTX-A add DECKS.md to Reference lane 37->38"
+      "note": "M DECKS S-2-PPTX-B verifier \u00a7 MATCH/DRIFT + render-half deferred WP-C/D"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER S-2-PPTX-A"
+      "note": "M PATCH_LEDGER S-2-PPTX-B"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP S-2-PPTX-A row"
+      "note": "M ROADMAP S-2-PPTX-B row"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE S-2-PPTX-A v3.10.27"
+      "note": "M SYSTEM_STATE S-2-PPTX-B v3.10.28"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M LOG S-2-PPTX-A heartbeat 2026-09-17"
+      "note": "M LOG S-2-PPTX-B + heartbeat 2026-09-17"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION S-2-PPTX-A base ea77a8a"
-    },
-    {
-      "path": "schemas/deck_outline.schema.json",
-      "kind": "A",
-      "note": "A schema deck_outline S-2-PPTX-A radiation.deck_outline/1"
+      "note": "M EXPECTATION S-2-PPTX-B base 46916c7"
     },
     {
       "path": "scripts/deck_rules_check.py",
-      "kind": "A",
-      "note": "A deck_rules_check S-2-PPTX-A 6 vectors"
-    },
-    {
-      "path": "tests/test_deck_rules_check.py",
-      "kind": "A",
-      "note": "A test_deck_rules_check S-2-PPTX-A 9 vectors discover 158->167"
+      "kind": "M",
+      "note": "M deck_rules_check S-2-PPTX-B rider truth-bearing checked N"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M TOOL_REGISTRY S-2-PPTX-A 33->34 deck_rules_check"
+      "note": "M TOOL_REGISTRY S-2-PPTX-B 34->35 deck_verify"
+    },
+    {
+      "path": "scripts/deck_verify.py",
+      "kind": "A",
+      "note": "A deck_verify S-2-PPTX-B canonical round-trip + receipt resolver + drift battery 6 vectors"
+    },
+    {
+      "path": "tests/test_deck_verify.py",
+      "kind": "A",
+      "note": "A test_deck_verify S-2-PPTX-B 8 vectors discover 167->175 + rider vector"
     }
   ],
   "required_deletions": [
@@ -332,10 +317,20 @@
     {
       "command": "python3 scripts/deck_rules_check.py --self-test",
       "expected_exit": 0,
-      "must_contain": "6/6"
+      "must_contain": "7/7"
     },
     {
       "command": "python3 scripts/deck_rules_check.py decks/examples/OUTLINE_example_card001.json",
+      "expected_exit": 0,
+      "must_contain": "0 finding"
+    },
+    {
+      "command": "python3 scripts/deck_verify.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "6/6"
+    },
+    {
+      "command": "python3 scripts/deck_verify.py decks/examples/OUTLINE_example_card001.json",
       "expected_exit": 0,
       "must_contain": "0 finding"
     }

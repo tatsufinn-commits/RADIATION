@@ -1,6 +1,6 @@
 # 📊 DECKS (`docs/DECKS.md`)
-## Deck Rules + Outline Schema + Lint — Stage A (S-2-PPTX-A)
-**Version:** v3.10.27 · **Base:** ea77a8a1dd4dcd385d0589b6659933af9f0dac78 (S-2-ENV seal)
+## Deck Rules + Outline Schema + Lint + Verifier — Stages A–B (S-2-PPTX-A/B)
+**Version:** v3.10.28 · **Base:** 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8 (PPTX-A seal) · Previous: v3.10.27 base ea77a8a1dd4dcd385d0589b6659933af9f0dac78 (S-2-ENV seal)
 
 ## Two Pillars (verbatim and load-bearing)
 
@@ -41,8 +41,17 @@ The outline is the receipt; the deck is its rendering. Budgets are computed at o
 - No renderer, no verify_deck verb (B), no plan/fill verbs (C), no dependency, no committed .pptx binary (decks derived in tempdir; tree holds outlines + rules + machinery, never renderings)
 - No SKILL/skill-catalog edits, no mode changes, no template library, no cue rows unless demanded, no network, no WP-D canon text (🟠 word separately), no SOLVE/fonts/VLM (WP-E), no Problem-1 items
 
+## Verifier (S-2-PPTX-B) — Outline-Level MATCH/DRIFT + Receipt Resolver
+
+- **Canonicalize:** outline → canonical form (sorted keys, normalized whitespace, stable ordering by ref) → re-serialize → idempotence assert `canonical(canonical(o)) ≡ canonical(o)`, deterministic bytes → sha log (e.g. `OUTLINE-CARD001 · canonical · sha 4f89e41e1e6b`)
+- **Receipt resolver (new FK edge):** every non-null `source_ref` must RESOLVE into tree — register lanes only `SRC-, ANNOT_, TRI_, CARD_, GAP-, R2-, OUTLINE-` → grounding tables it consults `01-research/REFERENCES.md` rows, `09-nota/` files, `06-triangulate/` files, `Brain/` knowledge registry — witness-based resolution, no network; unresolved → finding `UNRESOLVED-RECEIPT` FAIL
+- **Drift battery:** tamper outline copy (drop bullet, mutate text, swap source_ref) → verifier emits `DRIFT` per class named `DRIFT-text`, `DRIFT-structure`, `DRIFT-source_ref` (MATCH → DRIFT semantics from prototype, at outline level)
+- **Render-half explicitly deferred to WP-C/D behind the 🟠 dependency word:** why receipts verify without render; render needs the canon — honest design constraint on record: R&D round-trip semantics (MATCH/DRIFT over rendered deck) needs python-pptx — gated 🟠 at WP-D. This stage verifies what stdlib can verify now: outline layer itself — canonical integrity, receipt resolvability, drift on tamper. Render-half verifier lands when dependency canon opens (stage C/D), unchanged in intent.
+- **Rider S-2-PPTX-A message-language repair:** zero-findings witness line now truth-bearing `checked N outline file(s) — 0 findings` (N real); with 0 present, `no outlines present — checked DECK_RULES.json only — 0 findings (truth-bearing: checked 0 outline file(s))` allowed then and only then. Honesty row: "the button told the truth about verdicts and lied about coverage; now it tells both"
+
 ## Honesty
 
 - Theme registry v0 PROVISIONAL until Commander's theme notes
 - Rule floors sourced: R-001/R-002 desk floor matches cc-slidev, R-003/R-006 F1/F2 lesson 4,000-char bullet saves silently, R-004/R-005 desk
 - Outline is receipt; deck is rendering; no .pptx-alone delivery
+- No python-pptx anywhere (import pptx = policy FAIL-class) — stdlib-only, no renderer, no .pptx binary per S-2-PPTX-B non-goals

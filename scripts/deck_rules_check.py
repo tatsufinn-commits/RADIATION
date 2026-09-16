@@ -191,6 +191,8 @@ def check_outline_file(path):
 
 def main_check():
     # If no outline file specified, lint all outlines in decks/ and decks/examples/
+    # RIDER S-2-PPTX-B: zero-findings witness line becomes "checked N outline file(s) — 0 findings" (N real)
+    # Truth-bearing coverage: N real; with 0 present, "no outlines present" is allowed to name itself then, and only then
     parser = argparse.ArgumentParser()
     parser.add_argument("path", nargs="?", default=None, help="outline JSON path")
     parser.add_argument("--self-test", action="store_true")
@@ -199,40 +201,42 @@ def main_check():
         return self_test()
 
     findings = []
+    checked_count = 0
     if args.path:
         p = pathlib.Path(args.path)
         if not p.exists():
             print(f"deck_rules_check: outline not found at {p}")
             return 1
         findings = check_outline_file(p)
+        checked_count = 1
     else:
         # Lint all outlines in decks/
         decks_dir = ROOT / "decks"
+        outline_files = []
         if decks_dir.exists():
-            for fp in decks_dir.rglob("OUTLINE_*.json"):
-                # Skip if in examples? include all
+            outline_files = list(decks_dir.rglob("OUTLINE_*.json"))
+            checked_count = len(outline_files)
+            for fp in outline_files:
                 f = check_outline_file(fp)
                 findings.extend(f)
-        # Also check examples
-        if not findings:
-            # If no files found, check if DECK_RULES itself is valid
+        # If no outline files found, check DECK_RULES itself is valid
+        if checked_count == 0:
             rules_data, rerr = load_rules()
             if rerr:
                 findings.append(("error", rerr))
             else:
-                # Validate rules text ≤200
                 for r in rules_data.get("rules", []):
                     if len(r.get("text", "")) > 200:
                         findings.append(("error", f"DECK_RULES · {r.get('id')} · text length {len(r.get('text',''))} vs threshold 200"))
-        if not findings and not args.path:
-            print("deck_rules_check: no outline files found — checked DECK_RULES.json only, 0 findings")
-            return 0
+            if not findings:
+                print("deck_rules_check: no outlines present — checked DECK_RULES.json only — 0 findings (truth-bearing: checked 0 outline file(s))" )
+                return 0
 
     errors = [m for cls, m in findings if cls == "error"]
     warns = [m for cls, m in findings if cls == "warn"]
 
     if errors:
-        print(f"deck_rules_check: {len(errors)} error(s), {len(warns)} warn(s)")
+        print(f"deck_rules_check: {len(errors)} error(s), {len(warns)} warn(s) — checked {checked_count} outline file(s)")
         for msg in errors[:20]:
             print(f"  ERROR {msg}")
         for msg in warns[:20]:
@@ -240,12 +244,13 @@ def main_check():
         return 1
     else:
         if warns:
-            print(f"deck_rules_check: 0 error(s), {len(warns)} warn(s)")
+            print(f"deck_rules_check: 0 error(s), {len(warns)} warn(s) — checked {checked_count} outline file(s)")
             for msg in warns[:20]:
                 print(f"  WARN {msg}")
             return 0
         else:
-            print(f"deck_rules_check: 0 finding(s) — outline schema-valid, constraints via DECK_RULES OK")
+            # RIDER: zero-findings witness line must be truth-bearing with N real
+            print(f"deck_rules_check: checked {checked_count} outline file(s) — 0 findings — outline schema-valid, constraints via DECK_RULES OK")
             return 0
 
 def self_test():
@@ -357,6 +362,31 @@ def self_test():
     vec("R-003 violation max_chars_per_bullet", v_r003)
     vec("schema-invalid outline", v_schema_invalid)
     vec("WARN-class UNBACKED-BULLET", v_unbacked)
+
+    # RIDER S-2-PPTX-B: truth-bearing coverage witness line
+    def v_rider_truth_bearing():
+        # ≥1 outline present → line must say checked N outline file(s) with N real
+        outline = make_outline(bullets_per_slide=2, chars_per_bullet=20)
+        code, out = run_check_on_outline(outline)
+        has_checked = "checked" in out.lower() and "outline file(s)" in out.lower() and "0 findings" in out.lower()
+        # With 0 outlines present, allowed to say "no outlines present" then, and only then
+        tmp = pathlib.Path(tempfile.mkdtemp())
+        try:
+            (tmp / "schemas").mkdir(parents=True, exist_ok=True)
+            (tmp / "decks").mkdir(parents=True, exist_ok=True)
+            (tmp / "scripts").mkdir(exist_ok=True)
+            import shutil
+            shutil.copy(str(SCHEMA_PATH), str(tmp / "schemas" / "deck_outline.schema.json"))
+            shutil.copy(str(RULES_PATH), str(tmp / "decks" / "DECK_RULES.json"))
+            shutil.copy(str(ROOT / "scripts" / "deck_rules_check.py"), str(tmp / "scripts" / "deck_rules_check.py"))
+            # No OUTLINE_*.json files in tmp/decks
+            p = run(f"python3 scripts/deck_rules_check.py", cwd=tmp)
+            has_no_outlines = "no outlines present" in p.stdout.lower() and "checked 0 outline file(s)" in p.stdout.lower()
+            return has_checked and has_no_outlines and p.returncode == 0
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    vec("RIDER truth-bearing coverage witness line (checked N + no outlines present)", v_rider_truth_bearing)
 
     passed = sum(tests)
     print(f"deck_rules_check self-test: {passed}/{len(tests)} vectors")
