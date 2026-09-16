@@ -1,89 +1,84 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 P-14 BRAIN RETRIEVAL LATTICE G5 base 1e7b287a50cf7709f2cdb9bf50181b1816119516 sealed P-13 (Restore EXPECTATION.json from P-13 commit 7a16aec fixes run 86), catalog 24 + 15 cases + 6 vectors, 111 unittest 11/11 5/5 29/29 8/8 15/15, delta \u2205 + validate.py allow MEMORY_CATALOG",
-  "base_sha": "1e7b287a50cf7709f2cdb9bf50181b1816119516",
+  "generated_by": "S006 Architect \u2014 P-15 DOCS LANES G6 base 094262db3ce5c9ed1460ff652f4d07bd28907261 sealed P-14, INDEX 36 docs + START_HERE + docs_index_check + test + rider, 115 unittest 11/11 5/5 29/29 15/15 8/8 5/5, delta \u2205",
+  "base_sha": "094262db3ce5c9ed1460ff652f4d07bd28907261",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA 1e7b287a50cf7709f2cdb9bf50181b1816119516 (Restore EXPECTATION.json from P-13 commit 7a16aec undo pull-merge hand-splice; fixes run 86 step-14). P-14 BRAIN RETRIEVAL LATTICE (G5): corpus behavior from absence to mechanism. Brain/MEMORY_CATALOG.jsonl A 24 entries sorted id unique \u226520 covering 8 corpus derivatives + frontal-lobe ledgers + short-term plan + shrine log + cue Brain/, schemas/memory_catalog_entry.schema.json A radiation.memory_catalog_entry/1, scripts/brain_retrieve.py A deterministic selector law tokenize [a-z0-9]+ score=3*tags+2*title+1*path abstention <4 ranked score desc id asc evidence-only II.11 modes --query/--cases/--self-test 8 vectors, evals/brain/retrieval_cases.json A 15 cases 10 known-hit exact order including 2 multi-hit ranked + 4 abstention [] + 1 determinism duplicate, tests/test_brain_retrieval.py A 6 vectors. One sealed candidate one purpose II.7.4 \u2014 corpus behavior from absence to mechanism.",
+  "description": "Pins exact base SHA 094262db3ce5c9ed1460ff652f4d07bd28907261 (Add P-14 brain retrieval lattice). P-15 DOCS LANES (G6): the last fail-cell \u2014 no newcomer one-pass, no task-first lanes, no link-check harness \u2014 mostly organizing what exists. Hard rule: virtual lanes only \u2014 links, never moves. Zero file relocations/renames. A docs/INDEX.md four Di\u00e1taxis lanes every docs/*.md assigned exactly once task+audience + Generated sub-lane honest label, A START_HERE.md newcomer one-pass \u226410 steps clone\u2192validate\u2192PROTOCOL skim\u2192BOOT_SEQUENCE walk\u2192layer tour docs/INDEX.md\u2192health trio, A scripts/docs_index_check.py deterministic stdlib checker house finding style (i) links resolve (ii) docs/*.md listed in INDEX or whitelist (iii) INDEX lists only existing --self-test 5 vectors, A tests/test_docs_index.py 4 vectors, M TOOL_REGISTRY 26\u219227 docs_index_check, M schema rider MEM-shrine-log deliberate outer-corpus pointer. One sealed candidate one purpose II.7.4 \u2014 Docs Lanes the last fail-cell.",
   "allowed_changes": [
-    {
-      "path": "Brain/MEMORY_CATALOG.jsonl",
-      "kind": "A",
-      "note": "A MEMORY_CATALOG.jsonl 24 entries sorted id MEM-<kind>-<slug> unique \u226520 covering 8 corpus derivatives + frontal-lobe ledgers + short-term plan + shrine log + cue Brain/"
-    },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger P-14 Brain Retrieval Lattice G5"
+      "note": "M task_ledger P-15 Docs Lanes G6"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG v3.10.14 P-14 Brain Retrieval Lattice G5"
+      "note": "M CHANGELOG v3.10.15 P-15 Docs Lanes G6"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README v3.10.12\u2192v3.10.14 P-14 lineage"
+      "note": "M README v3.10.14\u2192v3.10.15 P-15 lineage"
+    },
+    {
+      "path": "START_HERE.md",
+      "kind": "A",
+      "note": "A START_HERE.md newcomer one-pass \u226410 steps clone\u2192validate\u2192PROTOCOL skim\u2192BOOT_SEQUENCE walk\u2192layer tour docs/INDEX.md\u2192health trio"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M CAPABILITIES GENERATED reflects brain_retrieve tool 26 tools"
+      "note": "M CAPABILITIES GENERATED reflects docs_index_check tool 27 tools"
+    },
+    {
+      "path": "docs/INDEX.md",
+      "kind": "A",
+      "note": "A INDEX.md four Di\u00e1taxis lanes Tutorial/How-to/Reference/Explanation + Generated sub-lane 36 docs assigned exactly once task+audience"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER P-14 row Brain Retrieval Lattice"
+      "note": "M PATCH_LEDGER P-15 row Docs Lanes G6"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP P-14 row G5"
+      "note": "M ROADMAP P-15 row G6"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE GENERATED v3.10.14 P-14 G5"
+      "note": "M SYSTEM_STATE GENERATED v3.10.15 P-15 G6"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M shrine LOG P-14 heartbeat G5"
-    },
-    {
-      "path": "evals/brain/retrieval_cases.json",
-      "kind": "A",
-      "note": "A retrieval_cases.json 15 cases 10 known-hit exact order including 2 multi-hit ranked + 4 abstention [] + 1 determinism duplicate"
+      "note": "M shrine LOG P-15 heartbeat G6"
     },
     {
       "path": "schemas/memory_catalog_entry.schema.json",
-      "kind": "A",
-      "note": "A memory_catalog_entry.schema.json radiation.memory_catalog_entry/1 id pattern unique kind enum"
+      "kind": "M",
+      "note": "M memory_catalog_entry schema rider MEM-shrine-log deliberate outer-corpus pointer docs/shrine/LOG.md"
     },
     {
-      "path": "scripts/brain_retrieve.py",
+      "path": "scripts/docs_index_check.py",
       "kind": "A",
-      "note": "A brain_retrieve.py deterministic selector law tokenize [a-z0-9]+ score=3*tags+2*title+1*path abstention <4 ranked score desc id asc evidence-only"
+      "note": "A docs_index_check.py deterministic checker links resolve + INDEX coverage + INDEX lists only existing 5 vectors"
     },
     {
-      "path": "tests/test_brain_retrieval.py",
+      "path": "tests/test_docs_index.py",
       "kind": "A",
-      "note": "A test_brain_retrieval.py 6 vectors id-uniqueness/paths-exist/jsonl-valid-vs-schema/known-hit/abstention/formula 16/tie-break/determinism"
+      "note": "A test_docs_index.py 4 vectors check passes/INDEX coverage/self-test/Generated honest"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M TOOL_REGISTRY 25\u219226 adds brain_retrieve mutation none network none description \u2264200 self-test 15/15"
+      "note": "M TOOL_REGISTRY 26\u219227 adds docs_index_check mutation none network false 15/15"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION base 1e7b287 sealed P-13, allowed exact delta 15 per LAW-3, P-14 G5"
-    },
-    {
-      "path": "scripts/validate.py",
-      "kind": "M",
-      "note": "M validate.py P-14 allow Brain/MEMORY_CATALOG.jsonl as sanctioned vehicle (tooling+fixtures first, no census check yet per directive)"
+      "note": "M EXPECTATION base 094262 sealed P-14, allowed exact delta 15 per LAW-3, P-15 G6"
     }
   ],
   "required_deletions": [
@@ -91,7 +86,7 @@
       "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
       "must_be_absent_on_disk": true,
       "must_be_D_in_diff": false,
-      "note": "stale Fable 5-1 already absent in base 1e7b287, must remain absent"
+      "note": "stale Fable 5-1 already absent in base 094262, must remain absent"
     }
   ],
   "required_absent_on_disk": [
@@ -177,15 +172,25 @@
       "must_contain": "all 15 cases match"
     },
     {
+      "command": "python3 scripts/docs_index_check.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "5 passed"
+    },
+    {
+      "command": "python3 scripts/docs_index_check.py",
+      "expected_exit": 0,
+      "must_contain": "0 finding"
+    },
+    {
       "command": "git diff --check",
       "expected_exit": 0,
       "must_contain": ""
     },
     {
-      "command": "git diff --check 1e7b287a50cf7709f2cdb9bf50181b1816119516..HEAD",
+      "command": "git diff --check 094262db3ce5c9ed1460ff652f4d07bd28907261..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-14 base 1e7b287"
+      "note": "committed-delta whitespace clean from P-15 base 094262"
     },
     {
       "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
@@ -218,6 +223,12 @@
       "note": "whitespace clean from P-13 base f24612e"
     },
     {
+      "command": "git diff --check 1e7b287a50cf7709f2cdb9bf50181b1816119516..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from P-14 base 1e7b287"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
@@ -234,7 +245,7 @@
   ],
   "risks": [
     "wrong root \u2014 package applied to different working directory than repo root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 1e7b287a50cf7709f2cdb9bf50181b1816119516 (run 86 genus: hand merge + stale-base extraction)",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 094262db3ce5c9ed1460ff652f4d07bd28907261 (run 86 genus: hand merge + stale-base extraction)",
     "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
     "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
     "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
@@ -244,7 +255,7 @@
     "CUE catalog boot overreach \u2014 new catalogs non-boot beyond single pointer line per DoD",
     "motor preflight bypass \u2014 extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
     "WARN census hidden \u2014 WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
-    "G5 corpus behavior FAIL-BY-ABSENCE \u2014 no deterministic query fixture; unknown-query abstention unproven, retrieval must be evidence-only II.11",
-    "embeddings/vector DB/network/LLM \u2014 forbidden, retrieval must be deterministic arithmetic score=3*tags+2*title+1*path, no heuristics"
+    "G6 docs lanes fail-cell \u2014 no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
+    "file moves/renames \u2014 forbidden in G6, lanes are virtual links only"
   ]
 }

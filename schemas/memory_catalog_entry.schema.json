@@ -1,9 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "radiation.memory_catalog_entry/1 — Brain Retrieval Lattice entry",
-  "description": "Typed record over existing Brain/ corpus (and shrine log) for deterministic retrieval. P-14 G5: corpus behavior from absence to mechanism. Each entry points to existing path, has id MEM-<kind>-<slug>, title, kind enum, tags ≥3, added date. Sorted by id, unique.",
+  "title": "radiation.memory_catalog_entry/1 \u2014 Brain Retrieval Lattice entry",
+  "description": "Typed record over existing Brain/ corpus (and shrine log) for deterministic retrieval. P-14 G5: corpus behavior from absence to mechanism. Each entry points to existing path, has id MEM-<kind>-<slug>, title, kind enum, tags \u22653, added date. Sorted by id, unique. MEM-shrine-log is a deliberate outer-corpus pointer (docs/shrine/LOG.md \u2014 Commander heartbeat record); all other catalog paths MUST live under Brain/.",
   "type": "object",
-  "required": ["id", "path", "title", "kind", "tags", "added"],
+  "required": [
+    "id",
+    "path",
+    "title",
+    "kind",
+    "tags",
+    "added"
+  ],
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -24,7 +31,13 @@
     },
     "kind": {
       "type": "string",
-      "enum": ["course_derivative", "ledger", "plan", "shrine", "note"],
+      "enum": [
+        "course_derivative",
+        "ledger",
+        "plan",
+        "shrine",
+        "note"
+      ],
       "description": "kind of corpus entry"
     },
     "tags": {

@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.14 · Ratified by THE COMMANDER · 2026-09-16 · P-14 Brain Retrieval Lattice (G5)
+**Version:** v3.10.15 · Ratified by THE COMMANDER · 2026-09-16 · P-15 Docs Lanes (G6)
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

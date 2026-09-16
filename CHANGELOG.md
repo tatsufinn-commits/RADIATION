@@ -6,6 +6,60 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.15 — 2026-09-16 — P-15 DOCS LANES (G6): THE LAST FAIL-CELL (II.7.4)
+
+**P-15 Docs Lanes per Architect Directive base 094262db3ce5c9ed1460ff652f4d07bd28907261 sealed P-14. One sealed candidate one purpose — the last fail-cell G6: no newcomer one-pass, no task-first lanes, no link-check harness — mostly organizing what exists. Hard rule: virtual lanes only — links, never moves. Zero file relocations/renames.**
+
+**Framing:** crossref G6 + Dim-2: no newcomer one-pass, no task-first lanes, no link-check harness.
+
+**(1) A docs/INDEX.md — four Diátaxis lanes:**
+- Tutorial (learning-oriented) 7 files: WAYFINDING (learn repo map + routing tree; fresh AI newcomer), COMMANDER_QUICKREF (learn magic words to boot any AI; Commander+newcomer), SKILLS (understand nine skills; newcomer AI), MODES (learn six modes+activation matrix; newcomer AI), PROMPT_PLAYBOOK (learn copy-paste prompt patterns; Commander learning to prompt), ACTIVATION_PASS_EXERCISE_5830 (run PASS handoff exercise; newcomer verifying host), DEPTH_LADDER (learn levels 1-5 criteria; newcomer AI)
+- How-to (task-oriented) 8 files: PATCH_PROTOCOL (emit Patch correctly; Architect), TOOLBOX (find OSS rescue tool; AI stuck), CUE_SYSTEM (run five-phase scan; AI every prompt), CONTROL_PLANE (route work through control plane; AI executing tasks), COURSE_CORPUS_POLICY (declare corpus asset via manifest; AI adding assets), OPEN_SOURCES (find external source via @Fetch; AI research), PENDING_RATIFICATIONS (track unratified 🟠 items; Architect+Commander), KNOWLEDGE_REGISTRY (register knowledge object provenance; AI tracking)
+- Reference (information-oriented) 11 files: AI_RULES (read supreme laws; every AI+Commander), ANTI_PATTERNS (lookup failures+cures; Architect), ARCHIVE_NOTES (lookup exempt paths; validator+Architect), BOOT_BUDGET_WAIVERS (check waiver status; Architect), CAP_RECORD_POLICY (lookup CAP record rules; AI writing records), DECISION_AUTHORITY (lookup decision classes; Commander+Architect), EVIDENCE_TAXONOMY (lookup six grades; AI grading), PATCH_LEDGER (lookup Patch history; Commander+Architect), DECAY_REGISTER (lookup decayed claims; AI maintaining evidence), STOCKPILE_DOCTRINE (lookup intake quotas; AI scouting), WARN_LEDGER (lookup accepted WARN census; validator+Architect)
+- Explanation (understanding-oriented) 8 files: AUDIT_2026-09-13 (understand audit findings; Architect+Commander), ECOSYSTEM (understand four repos contracts; Architect), PROVIDER_SURFACE_ANALYSIS_5830 (understand five-provider study; Commander+Architect), REPLICA_DECISION (understand 12-pair replica exception; Commander), ROADMAP (understand what's next+shipped; Commander), TAXONOMY_MAPPING (understand RADIATION↔TAMAKEE bridge; AI bridging), THREAT_MODEL (understand control plane+CAP threat model; Architect+security), YIELD_RANKING (understand four axes weighted ranking; AI building modules)
+- Generated sub-lane honest label: CAPABILITIES.md (lookup what repo can RUN; AI+Commander) — GENERATED via render_docs.py, SYSTEM_STATE.md (lookup ground-truth snapshot; AI+Commander) — GENERATED
+- Coverage 36 docs/*.md = 7+8+11+8+2 = 36, every docs/*.md assigned exactly once, no moves/renames, virtual lanes only links never moves.
+
+**(2) A START_HERE.md (root) — newcomer one-pass ≤10 numbered steps:**
+- 1 Clone repo git clone https://github.com/tatsufinn-commits/RADIATION.git — see README.md magic words
+- 2 Validate green python3 scripts/validate.py expect 42·39·3·0 0 FAIL — see WARN_LEDGER.md
+- 3 Skim protocol PROTOCOL.md + AI_RULES.md constitution
+- 4 Walk boot sequence BOOT_SEQUENCE.md tiered load order TIER 0→3 declare boot tier per AGENTS.md
+- 5 Layer tour via lanes docs/INDEX.md four Diátaxis lanes + Generated sub-lane
+- 6 Tutorial lane first WAYFINDING.md → COMMANDER_QUICKREF.md → SKILLS.md → MODES.md newcomer learning path
+- 7 Run PASS activation docs/ACTIVATION_PASS_EXERCISE_5830.md radiation_pass.py --host
+- 8 Health-check trio one-command each: validate.py + brain_retrieve --cases 15-match + docs_index_check.py
+- 9 Next: ROADMAP.md what's next, SYSTEM_STATE.md ground-truth, CAPABILITIES.md executable inventory, shrine LOG.md II.9 heartbeat
+- Links only, all relative markdown links resolve, checked by docs_index_check.py
+
+**(3) A scripts/docs_index_check.py — deterministic stdlib checker house finding style:**
+- (i) every relative markdown link in START_HERE.md, README.md, AGENTS.md, PROTOCOL.md, docs/INDEX.md, docs/*.md resolves (skip http(s), tolerate anchors)
+- (ii) every docs/*.md is listed in INDEX.md or in declared whitelist (whitelist = docs/INDEX.md itself)
+- (iii) INDEX.md lists only existing files
+- --self-test ≥4 vectors: broken link caught · orphan caught · whitelist honored · URL skip · INDEX lists only existing (5 vectors)
+- Live run exit 0: docs_index_check: 0 finding(s) — all links resolve, INDEX coverage ok, whitelist honored
+
+**(4) A tests/test_docs_index.py ≥3 vectors:**
+- check passes on repo (live run exit 0)
+- INDEX coverage (every docs/*.md listed or whitelisted, 36 docs)
+- self-test ran (≥4 vectors pass)
+- Generated sub-lane honest label (CAPABILITIES+SYSTEM_STATE in Generated with honest label machine-generated render_docs.py)
+- Discover 111+4=115 OK (P-14 had 111, plus 4 new)
+
+**(5) Registry & state:**
+- tools/TOOL_REGISTRY.json M 26→27 adds docs_index_check mutation none network false cap_mapping [] honest description ≤200 self-test 15/15
+- docs/CAPABILITIES.md + docs/SYSTEM_STATE.md GENERATED reflect it (render_docs --apply)
+- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.15 + EXPECTATION re-pinned base 094262 allowed 15.
+
+**(6) RIDER (desk-mandated one line):**
+- schemas/memory_catalog_entry.schema.json M description gains: "MEM-shrine-log is a deliberate outer-corpus pointer (docs/shrine/LOG.md — Commander heartbeat record); all other catalog paths MUST live under Brain/." Mechanism matches memo (path pattern ^(Brain/|docs/shrine/).+ already allows shrine log, description now honest).
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, unittest 115 OK, cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.15.
+
+**Base pinned:** 094262db3ce5c9ed1460ff652f4d07bd28907261 (Add P-14 brain retrieval lattice). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — Docs Lanes the last fail-cell.
+
+
+
 ## v3.10.14 — 2026-09-16 — P-14 BRAIN RETRIEVAL LATTICE (G5) (II.7.4)
 
 **P-14 Brain Retrieval Lattice per Architect Directive base 1e7b287a50cf7709f2cdb9bf50181b1816119516 sealed P-13. One sealed candidate one purpose — convert corpus behavior from absence to mechanism. Desk scorecard fail-cell #1 "Corpus behavior — FAIL-BY-ABSENCE: no deterministic query fixture; unknown-query abstention unproven" per 2026-09-15 crossref (§3 Dim-6, §4, §5-G5).**

@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S006 P-14 Brain Retrieval Lattice G5 base 1e7b287: catalog 24 + 15 cases + 6 vectors",
+  "generated_by": "S006 P-15 G6 base 094262: INDEX 36 docs + START_HERE + docs_index_check + test + rider",
   "tools": [
     {
       "id": "validate",
@@ -676,6 +676,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Brain Retrieval Lattice G5: deterministic selector score=3*tags+2*title+1*path, abstention <4, evidence-only, no embeddings"
+    },
+    {
+      "id": "docs_index_check",
+      "entrypoint": "scripts/docs_index_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/docs_index_check.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Docs Lanes G6: deterministic checker every relative md link resolves, every docs/*.md listed in INDEX.md or whitelist, INDEX lists only existing"
     }
   ]
 }
