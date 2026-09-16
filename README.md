@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.23 · Ratified by THE COMMANDER · 2026-09-16 · S-2-VIDEO-fix red #97 whitespace-at-EOF ROADMAP repair
+**Version:** v3.10.24 · Ratified by THE COMMANDER · 2026-09-16 · LAW-6 PREFLIGHT WHITESPACE ARM
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

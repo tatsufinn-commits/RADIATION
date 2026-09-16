@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-push_preflight_check.py — Motor Preflight Tool (P-12 LAW-5)
+push_preflight_check.py — Motor Preflight Tool (P-12 LAW-5 + LAW-6 WHITESPACE)
 
 Purpose: encode LAW-5 — the motor's workspace preflight that the four gate laws could not prevent.
 Incident closed: run #82 stale-base extraction + hand merge (EXPECTATION.json hand-spliced from RD-3 commit 2bc6e17, base still fee4a95 but tree was 0c0548b ancestor mismatch).
 The four laws (PUBLIC-OBJECT, STDLIB-ONLY, DELTA-≡-ALLOWED, CI-HYGIENE) are machine-enforced inside the gate (release_truth_check.py).
 The one incident they could not prevent lived in the motor's workspace before extraction/push.
 
-This tool is additive, stdlib-only, self-testable, no network beyond `git fetch origin`.
+LAW-6 born from run #97: preflight gains the whitespace arm the gate wielded; the tool that would have waved the red through now waves nothing of that class through.
+Run #97 defect: whitespace-at-EOF ROADMAP invisible to preflight (push_preflight_check --base 9df0fd7 returned exit 0 on red tree). Gate caught it via git diff --check <base>..HEAD across 13 base-replays. This tranche closes gap.
 
 Checks (exit 0/1, failures printed as LAW-n name: finding lines so motor reads laws, not stack traces):
 
@@ -29,10 +30,13 @@ Checks (exit 0/1, failures printed as LAW-n name: finding lines so motor reads l
   - Also scans for any file matching pattern that is not ignored via .gitignore
   - If found, FAIL with LAW-4 name
 
+- WHITESPACE CHECK (LAW-6 gate-mirror): git diff --check <declared_base>..HEAD must exit 0; any output = finding(s) carrying offending path:line strings verbatim (same arms gate's whitespace check wields, against declared base preflight already enforces).
+  - Executive assertion: preflight and gate must never disagree on class — same arm as gate's whitespace check.
+
 Usage:
-  python3 scripts/push_preflight_check.py --base <sha>          # check HEAD vs base + public-object + delta + hygiene
+  python3 scripts/push_preflight_check.py --base <sha>          # check HEAD vs base + public-object + delta + hygiene + whitespace
   python3 scripts/push_preflight_check.py                        # defaults base to EXPECTATION's base_sha
-  python3 scripts/push_preflight_check.py --self-test            # 4+ vectors synthetic repos like gate's self-test harness
+  python3 scripts/push_preflight_check.py --self-test            # vectors synthetic repos like gate's self-test harness
 
 Motor preflight: run python3 scripts/push_preflight_check.py before extraction/push; STOP at any finding.
 """
@@ -169,11 +173,6 @@ def check_ci_hygiene():
             path = line[3:].strip()
             # Check patterns
             if path.endswith("_output.txt") or path.endswith("apply_report.txt") or path == "validation_report.json":
-                # Check if ignored via git check-ignore
-                p_ignore = run(f"git check-ignore -q {path}; echo $?")
-                # git check-ignore returns 0 if ignored, 1 if not
-                # Our run captures exit code via echo, but we need to check
-                # Simpler: run git check-ignore
                 p_check = run(f"git check-ignore {path} 2>&1")
                 if p_check.returncode != 0:
                     # Not ignored → hygiene violation
@@ -182,6 +181,26 @@ def check_ci_hygiene():
         findings.append(f"LAW-4 CI-HYGIENE: untracked/unignored diagnostic artifacts in worktree: {untracked} — must be gitignored or out-of-repo per LAW-4 (precedent §3c validation_report.json, §3f /*_output.txt)")
     else:
         print("LAW-4 CI-HYGIENE: OK — no unignored diagnostic artifacts")
+    return findings
+
+def check_whitespace_law6(declared_base):
+    # LAW-6 WHITESPACE (gate-mirror) — born from run #97: preflight gains the whitespace arm the gate wielded
+    # Validation: git diff --check <declared_base>..HEAD must exit 0; any output = finding(s) carrying offending path:line strings verbatim
+    # Executive assertion: preflight and gate must never disagree on class — same arm as gate's whitespace check wields, against declared base preflight already enforces
+    findings = []
+    if not declared_base:
+        return findings
+    p = run(f"git diff --check {declared_base}..HEAD 2>&1")
+    combined = (p.stdout + p.stderr).strip()
+    if p.returncode != 0 or combined:
+        # Any output = finding, carrying offending path:line strings verbatim (same arms gate's whitespace check wields)
+        if combined:
+            # Truncate but keep path:line verbatim for motor
+            findings.append(f"LAW-6 WHITESPACE (gate-mirror): git diff --check {declared_base}..HEAD found whitespace errors — {combined[:2000]} — preflight and gate must never disagree on class; the tool that would have waved the red through now waves nothing of that class through")
+        else:
+            findings.append(f"LAW-6 WHITESPACE (gate-mirror): git diff --check {declared_base}..HEAD exit {p.returncode} — whitespace check failed, preflight and gate must never disagree")
+    else:
+        print(f"LAW-6 WHITESPACE (gate-mirror): OK — git diff --check {declared_base}..HEAD clean — preflight and gate agree, whitespace arm armed")
     return findings
 
 def main_check(declared_base_arg=None):
@@ -200,6 +219,7 @@ def main_check(declared_base_arg=None):
     findings.extend(check_public_object(declared_base))
     findings.extend(check_delta_equals_allowed(declared_base))
     findings.extend(check_ci_hygiene())
+    findings.extend(check_whitespace_law6(declared_base))
     if findings:
         print(f"push_preflight_check: {len(findings)} finding(s)")
         for f in findings:
@@ -240,7 +260,7 @@ def self_test():
             }
             (exp_dir / "EXPECTATION.json").write_text(json.dumps(exp), encoding="utf-8")
             shutil.copy(str(ROOT / "scripts" / "push_preflight_check.py"), str(pathlib.Path(tmp, "scripts/push_preflight_check.py")))
-            # Run preflight with base == HEAD, should pass (no diff, no allowed, no hygiene)
+            # Run preflight with base == HEAD, should pass (no diff, no allowed, no hygiene, whitespace clean)
             p = run(f"python3 scripts/push_preflight_check.py --base {base}", cwd=tmp)
             return p.returncode == 0 and "0 finding" in p.stdout
         finally:
@@ -366,12 +386,74 @@ def self_test():
         finally:
             shutil.rmtree(tmp)
 
+    def v_whitespace_clean_pass():
+        # Control: clean tree → LAW-6 passes
+        tmp = make_temp_repo()
+        try:
+            exp_dir = pathlib.Path(tmp, "docs/RELEASE_TRUTH_GATE")
+            exp_dir.mkdir(parents=True, exist_ok=True)
+            pathlib.Path(tmp, "scripts").mkdir(parents=True, exist_ok=True)
+            p = run("git rev-parse HEAD", cwd=tmp)
+            base = p.stdout.strip()
+            # No changes, clean
+            exp = {
+                "base_sha": base,
+                "base_must_be_ancestor": True,
+                "allowed_changes": [],
+                "required_absent_on_disk": [],
+                "required_deletions": [],
+                "required_generated_artifacts": [],
+                "mandatory_validations": [],
+                "forbidden_paths": []
+            }
+            (exp_dir / "EXPECTATION.json").write_text(json.dumps(exp), encoding="utf-8")
+            shutil.copy(str(ROOT / "scripts" / "push_preflight_check.py"), str(pathlib.Path(tmp, "scripts/push_preflight_check.py")))
+            p = run(f"python3 scripts/push_preflight_check.py --base {base}", cwd=tmp)
+            return p.returncode == 0 and "LAW-6 WHITESPACE" in p.stdout and "OK" in p.stdout
+        finally:
+            shutil.rmtree(tmp)
+
+    def v_whitespace_trailing_blank_fail():
+        # Adversarial: tree carrying a trailing-blank-at-EOF in a tracked file → LAW-6 FAILS, finding text names the file and line (inject exact run-#97 shape)
+        tmp = make_temp_repo()
+        try:
+            exp_dir = pathlib.Path(tmp, "docs/RELEASE_TRUTH_GATE")
+            exp_dir.mkdir(parents=True, exist_ok=True)
+            pathlib.Path(tmp, "scripts").mkdir(parents=True, exist_ok=True)
+            p = run("git rev-parse HEAD", cwd=tmp)
+            base = p.stdout.strip()
+            # Create a file with trailing blank line at EOF — exact run-#97 shape: ROADMAP had blank line at EOF
+            pathlib.Path(tmp, "docs").mkdir(parents=True, exist_ok=True)
+            # Write a file that will have blank line at EOF when committed
+            tracked = pathlib.Path(tmp, "docs/ROADMAP.md")
+            tracked.write_text("line1\nline2\n\n", encoding="utf-8")  # blank line at EOF
+            run("git add docs/ROADMAP.md && git commit -qm add-roadmap-with-blank", cwd=tmp, check=True)
+            exp = {
+                "base_sha": base,
+                "base_must_be_ancestor": True,
+                "allowed_changes": [{"path": "docs/ROADMAP.md", "kind": "A"}],
+                "required_absent_on_disk": [],
+                "required_deletions": [],
+                "required_generated_artifacts": [],
+                "mandatory_validations": [],
+                "forbidden_paths": []
+            }
+            (exp_dir / "EXPECTATION.json").write_text(json.dumps(exp), encoding="utf-8")
+            shutil.copy(str(ROOT / "scripts" / "push_preflight_check.py"), str(pathlib.Path(tmp, "scripts/push_preflight_check.py")))
+            p = run(f"python3 scripts/push_preflight_check.py --base {base}", cwd=tmp)
+            # Should FAIL LAW-6, finding text names file and line
+            return p.returncode != 0 and "LAW-6 WHITESPACE" in p.stdout and "ROADMAP" in p.stdout
+        finally:
+            shutil.rmtree(tmp)
+
     tests = [
         ("happy path HEAD==base allowed==diff -> pass", v_happy_path),
         ("wrong HEAD base != declared -> reject LAW-5", v_wrong_head_base),
         ("extra in diff not in allowed -> reject LAW-3", v_extra_in_diff),
         ("extra in allowed not in diff -> reject LAW-3", v_extra_in_allowed),
         ("CI hygiene untracked _output.txt -> reject LAW-4", v_ci_hygiene_fail),
+        ("LAW-6 whitespace clean -> pass (control)", v_whitespace_clean_pass),
+        ("LAW-6 whitespace trailing blank at EOF -> reject (adversarial run-#97 shape)", v_whitespace_trailing_blank_fail),
     ]
     passed = 0
     for name, fn in tests:

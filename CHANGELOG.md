@@ -6,6 +6,33 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.24 — 2026-09-16 — LAW-6 PREFLIGHT WHITESPACE ARM (II.7.4)
+
+**BASE: e547e30cba5398bc0c858299f9810551eea3b866 (S-2-VIDEO-fix seal) per DESK DIRECTIVE LAW-6 MICRO-TRANCHE 2026-09-16.**
+
+**Why (on record):** run #97's defect class — whitespace-at-EOF — is visible to the gate but invisible to the preflight: `push_preflight_check.py --base 9df0fd7` returned exit 0 on the red tree. A pre-push law that cannot see the defect it should have caught is a law with an empty chamber. This tranche closes the gap so Commander's pending ruling #1 (mandatory pre-push preflight) mandates a tool that is actually armed.
+
+**I. THE ARM — scripts/push_preflight_check.py M:**
+- Add LAW-6 WHITESPACE (gate-mirror):
+  - Validation: `git diff --check <declared_base>..HEAD` must exit 0; any output = finding(s) carrying offending `path:line` strings verbatim (same arms gate's whitespace check wields, against declared base preflight already enforces).
+  - Executive assertion: run gate's whitespace arm against SAME base and assert agreement — preflight and gate must never disagree on class.
+- Implementation: new function `check_whitespace_law6(declared_base)` runs `git diff --check {base}..HEAD`, captures stdout+stderr, if non-zero or output non-empty → finding with verbatim path:line, else OK. Added to `main_check` after CI-HYGIENE.
+
+**II. TESTS — tests/test_push_preflight.py M gains 2 vectors (TestCase law, count increment pasted):**
+1. Control: clean tree → LAW-6 passes — `test_whitespace_clean_pass`
+2. Adversarial: tree carrying trailing-blank-at-EOF in tracked file → LAW-6 FAILS, finding text names file and line (inject exact run-#97 shape) — `test_whitespace_trailing_blank_fail` creates `docs/ROADMAP.md` with `line1\nline2\n\n` (blank line at EOF) and asserts preflight fails with LAW-6 and ROADMAP in output.
+- Discover 150 → 152 (was 5 vectors, now 7 vectors in test_push_preflight, total 150→152).
+
+**III. BATTERY + PROVENANCE:**
+- EXPECTATION re-pin base e547e30, allowed = preflight script + preflight tests + ledgers (8 files: push_preflight_check.py M, test_push_preflight.py M, EXPECTATION M, CHANGELOG M, README M, SYSTEM_STATE M, PATCH_LEDGER M, task_ledger M, LOG M, ROADMAP M — actually 10 files inc ROADMAP for version row).
+- Gate live 0 findings vs e547e30 AND 12 replay bases (whitespace arm green), gate ST 11/11, preflight live @ e547e30 = 0 findings now including LAW-6, validate 42·39·3·0, discover 152 OK, all catalog checkers 0 findings, render PASS, ledgers honesty row, version v3.10.24, zip → motor.
+- Honesty row: "LAW-6 born from run #97: preflight gains the whitespace arm the gate wielded; the tool that would have waved the red through now waves nothing of that class through"
+
+**Gates:** validate 42·39·3·0, 152 unittest, 11/11 release_truth self-test, 7/7 push_preflight self-test (was 5/5), 29/29 ics, 15/15 cases, 8/8 brain, 0 findings docs/scaffold/skill/subskill/agent_contract/catalog_integrity, cue lint 46 ok, render PASS, whitespace clean, porcelain clean, delta ∅, public-object ancestor origin/main e547e30.
+
+**Base pinned:** e547e30cba5398bc0c858299f9810551eea3b866 (S-2-VIDEO-fix seal). Allowed delta exact 10 files. One patch one purpose II.7.4 — LAW-6 PREFLIGHT WHITESPACE ARM.
+
+
 ## v3.10.23 — 2026-09-16 — S-2-VIDEO-fix red #97 whitespace-at-EOF ROADMAP repair (II.7.4)
 
 **BASE: 9df0fd750c9b671cc9cfdeffcda7692ffb8522ea (red head — do NOT rebase away) per DESK REPAIR DIRECTIVE S-2-VIDEO-fix run-#97 red.**

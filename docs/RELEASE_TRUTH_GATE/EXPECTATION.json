@@ -1,49 +1,64 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 S-2-VIDEO-fix red #97 repair base 9df0fd7 v3.10.23: ROADMAP trailing blank line at EOF removed (byte fix), honesty row v3.10.22 red #97 13 findings = 1 defect x 13 DoD base-replays whitespace-at-EOF ROADMAP gate did its job preflight lacks whitespace arm LAW-6 follows repaired and re-sealed, version advances v3.10.22 -> v3.10.23",
-  "base_sha": "9df0fd750c9b671cc9cfdeffcda7692ffb8522ea",
+  "generated_by": "S006 Architect \u2014 LAW-6 PREFLIGHT WHITESPACE ARM base e547e30 v3.10.24: scripts/push_preflight_check.py M LAW-6 WHITESPACE gate-mirror + tests/test_push_preflight.py M 2 vectors control clean adversarial trailing-blank-at-EOF discover 150->152 + honesty row LAW-6 born from run #97",
+  "base_sha": "e547e30cba5398bc0c858299f9810551eea3b866",
   "base_must_be_ancestor": true,
-  "description": "Repair tranche S-2-VIDEO-fix run-#97 red. Base is red head 9df0fd750c9b671cc9cfdeffcda7692ffb8522ea (S-2-VIDEO v3.10.22 with whitespace-at-EOF ROADMAP defect). Fix: docs/ROADMAP.md M remove exactly trailing blank line at EOF \u2014 file must end with S-2-VIDEO row's pipe + one newline. Nothing else. EXPECTATION.json M re-pin base = 9df0fd7 allowed = byte fix + repair ledger rows only (ROADMAP M, EXPECTATION M, plus ledgers). Ledgers honesty row (every ledger that carries v-row): v3.10.22 red #97 \u2014 13 findings = 1 defect x 13 DoD base-replays; whitespace-at-EOF ROADMAP; gate did its job; preflight lacks whitespace arm \u2014 LAW-6 follows; repaired and re-sealed. Version advances v3.10.22 -> v3.10.23. Battery: gate live now green vs d9e9065 AND 12 replay bases, gate ST 11/11, preflight live @ 9df0fd7, discover 150 OK unchanged, cue lint 46 ok, render PASS. One sealed candidate one purpose II.7.4 v3.10.23 zip -> motor.",
+  "description": "LAW-6 MICRO-TRANCHE base e547e30cba5398bc0c858299f9810551eea3b866 (S-2-VIDEO-fix seal): scripts/push_preflight_check.py M add LAW-6 WHITESPACE gate-mirror git diff --check <declared_base>..HEAD must exit 0 any output = finding carrying offending path:line verbatim same arm gate's whitespace check wields against declared base preflight already enforces executive assertion preflight and gate must never disagree on class + tests/test_push_preflight.py M gains 2 vectors TestCase law control clean LAW-6 passes adversarial trailing-blank-at-EOF LAW-6 FAILS finding names file and line inject exact run-#97 shape discover 150->152. One sealed candidate one purpose II.7.4 v3.10.24.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger S-2-VIDEO-fix red #97 honesty row v3.10.22 red #97 13 findings"
+      "note": "M task_ledger LAW-6 honesty row"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG S-2-VIDEO-fix red #97 honesty row + v3.10.23"
+      "note": "M CHANGELOG LAW-6 v3.10.24"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README S-2-VIDEO-fix v3.10.22 -> v3.10.23 honesty row"
+      "note": "M README LAW-6 v3.10.24"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER S-2-VIDEO-fix red #97 honesty row"
+      "note": "M PATCH_LEDGER LAW-6"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION S-2-VIDEO-fix base 9df0fd7 re-pin"
+      "note": "M EXPECTATION LAW-6 base e547e30"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP S-2-VIDEO-fix remove trailing blank line at EOF byte fix"
+      "note": "M ROADMAP LAW-6 row"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE S-2-VIDEO-fix v3.10.23 honesty row"
+      "note": "M SYSTEM_STATE LAW-6 v3.10.24"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M LOG S-2-VIDEO-fix red #97 honesty row"
+      "note": "M LOG LAW-6"
+    },
+    {
+      "path": "scripts/push_preflight_check.py",
+      "kind": "M",
+      "note": "M push_preflight_check.py LAW-6 WHITESPACE gate-mirror"
+    },
+    {
+      "path": "tests/test_push_preflight.py",
+      "kind": "M",
+      "note": "M test_push_preflight.py LAW-6 2 vectors control clean adversarial blank EOF"
+    },
+    {
+      "path": "docs/CAPABILITIES.md",
+      "kind": "M",
+      "note": "M CAPABILITIES GENERATED from push_preflight_check.py docstring LAW-6"
     }
   ],
   "required_deletions": [
@@ -119,7 +134,7 @@
     {
       "command": "python3 scripts/push_preflight_check.py --self-test",
       "expected_exit": 0,
-      "must_contain": "5/5"
+      "must_contain": "7/7"
     },
     {
       "command": "python3 scripts/ics_normalize.py --self-test",
