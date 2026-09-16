@@ -1,0 +1,12 @@
+{
+  "id": "SCAFFOLD-other-readme-md",
+  "file": "scaffolding/README.md",
+  "kind": "other",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [],
+  "effects": [
+    "read"
+  ],
+  "tests": []
+}

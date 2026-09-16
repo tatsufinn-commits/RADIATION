@@ -1,0 +1,13 @@
+{
+  "id": "SCAFFOLD-other-improved-proc-weak-spot-diagnostic-proposed-md",
+  "file": "scaffolding/improved/proc_weak-spot-diagnostic_PROPOSED.md",
+  "kind": "other",
+  "status": "draft",
+  "loads_when": "mode in [research, dossier, incubate, triangulate, nota]",
+  "depends_on": [],
+  "effects": [
+    "read"
+  ],
+  "tests": [],
+  "note": "Draft proposal scaffolding/improved/proc_weak-spot-diagnostic_PROPOSED.md \u2014 proposed improvement, needs Commander ratification, additive per II.2"
+}

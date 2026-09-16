@@ -1,0 +1,15 @@
+{
+  "id": "SCAFFOLD-core-core-form-external-collection-md",
+  "file": "scaffolding/core/form_external-collection.md",
+  "kind": "core",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [],
+  "effects": [
+    "read",
+    "write"
+  ],
+  "tests": [
+    "test_core-form-external-collection-md"
+  ]
+}

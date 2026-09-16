@@ -1,0 +1,16 @@
+{
+  "id": "SCAFFOLD-neuron-neurons-sensoryneurons-tid-2026-09-14-i-intake-md",
+  "file": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-i_intake.md",
+  "kind": "neuron",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read"
+  ],
+  "tests": [
+    "test_neuron_relay"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "SCAFFOLD-neuron-neurons-sensoryneurons-template-intake-md",
+  "file": "scaffolding/neurons/sensoryneurons/TEMPLATE_intake.md",
+  "kind": "neuron",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read"
+  ],
+  "tests": [
+    "test_neuron_relay"
+  ]
+}

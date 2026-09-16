@@ -1,0 +1,16 @@
+{
+  "id": "SCAFFOLD-neuron-neurons-replica-manifest-json",
+  "file": "scaffolding/neurons/REPLICA_MANIFEST.json",
+  "kind": "neuron",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read"
+  ],
+  "tests": [
+    "test_neuron_relay"
+  ]
+}

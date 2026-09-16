@@ -1,0 +1,16 @@
+{
+  "id": "SCAFFOLD-neuron-neurons-motorneurons-tid-2026-09-14-o-orders-md",
+  "file": "scaffolding/neurons/motorneurons/TID-2026-09-14-o_orders.md",
+  "kind": "neuron",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read"
+  ],
+  "tests": [
+    "test_neuron_relay"
+  ]
+}

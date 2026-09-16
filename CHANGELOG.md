@@ -6,6 +6,56 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.16 — 2026-09-16 — P-16 SCAFFOLDING CONTRACT SPINE (Dim-3/G4) (II.7.4)
+
+**P-16 Scaffolding Contract Spine per Architect Directive base af578886ba70d63400d26490e87277718fbaf20a sealed P-15. One sealed candidate one purpose — scaffold files get typed sidecar contracts + deterministic compile check; tooling-first, same shape as P-14/P-15.**
+
+**Framing:** Dim-3/G4: scaffolding files lacked typed contracts, no deterministic compile check for depends_on graph, no coverage enforcement.
+
+**(1) A sidecar contract per scaffold file:**
+- For each file under scaffolding/**, a sibling X.contract.json — fields {id, file, kind (core|neuron|membrane|other), status (active|draft|deprecated), loads_when|null, depends_on[], effects, tests[], note?, superseded_by?}
+- Seed every existing scaffold file (112 files) — every scaffold file gets contract, .gitkeep whitelisted via checker pattern (contract describes, never rewrites)
+- Kind mapping: core=scaffolding/core/*, neuron=scaffolding/neurons/*, membrane=scaffolding/control_plane/* + hosts/*, other=README/generated/improved etc
+- Status: active for most, draft for improved/* PROPOSED (needs note), deprecated for neurons/_archive/* (needs superseded_by + note)
+- Depends_on: DAG, core files depend on nothing, neuron/membrane depend on first core id, no cycles
+- Effects: read/write/boundary declarative, tests: test_* names
+- Loads_when: null or mode condition for proc_* files
+
+**(2) A schemas/scaffold_contract.schema.json (radiation.scaffold_contract/1):**
+- id pattern ^SCAFFOLD-(core|neuron|membrane|other)-[a-z0-9-]+$, kind/status enums, unique ids, file-must-exist enforced by checker, required fields id/file/kind/status/loads_when/depends_on/effects/tests, additionalProperties false, draft must carry note, deprecated must carry superseded_by, allOf conditional.
+
+**(3) A scripts/scaffold_check.py — deterministic compile check house finding style exit 0/1 --self-test 6 vectors:**
+- sidecar valid vs schema (positive)
+- every depends_on id resolves to existing contract
+- every scaffold *.md/*.json has sidecar (or whitelisted .gitkeep)
+- deprecated must carry superseded_by
+- draft must carry note
+- no cycles in depends_on graph
+- file-must-exist, unique ids, id pattern, kind/status enums
+- Negative fixtures are its own corpus (self-test creates temp repos with broken depends_on, uncontracted file, cycle, deprecated missing superseded_by, draft missing note)
+- Live repo: scaffold_check: 0 finding(s) — all sidecars valid, depends_on resolves, no cycles, coverage ok
+- Self-test: 6 passed 0 failed — 6 vectors
+
+**(4) A tests/test_scaffold_check.py ≥4 vectors:**
+- live repo passes (exit 0)
+- broken depends_on → FAIL
+- uncontracted file → FAIL
+- cycle → FAIL
+- self-test ran (≥4 vectors pass)
+- Discover 115+5=120 OK (P-15 had 115, plus 5 new)
+
+**(5) Registry/state:**
+- tools/TOOL_REGISTRY.json M 27→28 adds scaffold_check mutation none network false cap_mapping [] honest description ≤200 self-test 15/15
+- docs/CAPABILITIES.md + docs/SYSTEM_STATE.md GENERATED reflect it (render_docs --apply)
+- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.16 + EXPECTATION re-pinned base af57888 allowed 15.
+- If new sidecar JSONs trip undeclared-vehicle machinery as MEMORY_CATALOG did: exactly one commented allowlist pattern in scripts/validate.py for scaffolding/**/*.contract.json, same comment discipline as P-14 — not needed, contracts under scaffolding/ not checked by Brain/ vehicle rule, validate passes 42·39·3·0 without extra allowlist.
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, scaffold_check 0 findings + 6/6 self-test, unittest 120 OK, cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.16.
+
+**Base pinned:** af578886ba70d63400d26490e87277718fbaf20a (P-15 Docs Lanes G6). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — Scaffolding Contract Spine.
+
+
+
 ## v3.10.15 — 2026-09-16 — P-15 DOCS LANES (G6): THE LAST FAIL-CELL (II.7.4)
 
 **P-15 Docs Lanes per Architect Directive base 094262db3ce5c9ed1460ff652f4d07bd28907261 sealed P-14. One sealed candidate one purpose — the last fail-cell G6: no newcomer one-pass, no task-first lanes, no link-check harness — mostly organizing what exists. Hard rule: virtual lanes only — links, never moves. Zero file relocations/renames.**

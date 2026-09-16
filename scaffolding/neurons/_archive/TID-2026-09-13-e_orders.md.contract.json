@@ -1,0 +1,18 @@
+{
+  "id": "SCAFFOLD-neuron-neurons-archive-tid-2026-09-13-e-orders-md",
+  "file": "scaffolding/neurons/_archive/TID-2026-09-13-e_orders.md",
+  "kind": "neuron",
+  "status": "deprecated",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read"
+  ],
+  "tests": [
+    "test_neuron_relay"
+  ],
+  "superseded_by": "SCAFFOLD-other-readme-md",
+  "note": "Archived scaffolding/neurons/_archive/TID-2026-09-13-e_orders.md \u2014 retired, superseded by SCAFFOLD-other-readme-md, kept for provenance"
+}

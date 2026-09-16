@@ -1,0 +1,17 @@
+{
+  "id": "SCAFFOLD-membrane-hosts-arena-agent-mode-json",
+  "file": "scaffolding/hosts/arena_agent_mode.json",
+  "kind": "membrane",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read",
+    "boundary"
+  ],
+  "tests": [
+    "test_control_plane"
+  ]
+}

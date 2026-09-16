@@ -1,0 +1,17 @@
+{
+  "id": "SCAFFOLD-membrane-control-plane-allowlist-json",
+  "file": "scaffolding/control_plane/allowlist.json",
+  "kind": "membrane",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read",
+    "boundary"
+  ],
+  "tests": [
+    "test_control_plane"
+  ]
+}

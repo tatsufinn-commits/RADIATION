@@ -1,0 +1,12 @@
+{
+  "id": "SCAFFOLD-other-improved-gitkeep",
+  "file": "scaffolding/improved/.gitkeep",
+  "kind": "other",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [],
+  "effects": [
+    "read"
+  ],
+  "tests": []
+}

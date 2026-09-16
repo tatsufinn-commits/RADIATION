@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "radiation.scaffold_contract/1 — Scaffolding Contract Spine",
+  "description": "Typed sidecar contract per scaffold file under scaffolding/**. P-16 G4: scaffold files get typed sidecar contracts + deterministic compile check. Fields id,file,kind, status, loads_when, depends_on, effects, tests, note?, superseded_by? — contract describes, never rewrites. MEM-shrine-log is a deliberate outer-corpus pointer (docs/shrine/LOG.md — Commander heartbeat record); all other catalog paths MUST live under Brain/.",
+  "type": "object",
+  "required": ["id", "file", "kind", "status", "loads_when", "depends_on", "effects", "tests"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SCAFFOLD-(core|neuron|membrane|other)-[a-z0-9-]+$",
+      "description": "unique id SCAFFOLD-<kind>-<slug>, sorted, unique across corpus"
+    },
+    "file": {
+      "type": "string",
+      "pattern": "^scaffolding/.+",
+      "minLength": 1,
+      "description": "existing scaffold file path relative to repo root, must exist"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["core", "neuron", "membrane", "other"],
+      "description": "kind of scaffold: core=core forms/procs, neuron=relay records, membrane=control_plane/hosts boundary, other=README/generated/improved etc"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "draft", "deprecated"],
+      "description": "active=live, draft=proposed needs note, deprecated=retired needs superseded_by"
+    },
+    "loads_when": {
+      "type": ["string", "null"],
+      "description": "condition when scaffold loads, or null if always/unspecified"
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^SCAFFOLD-(core|neuron|membrane|other)-[a-z0-9-]+$"
+      },
+      "description": "array of contract ids this scaffold depends on, must resolve, no cycles"
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "effects like read/write, declarative"
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "tests that exercise this scaffold"
+    },
+    "note": {
+      "type": "string",
+      "description": "optional note, required if status draft"
+    },
+    "superseded_by": {
+      "type": "string",
+      "pattern": "^SCAFFOLD-(core|neuron|membrane|other)-[a-z0-9-]+$",
+      "description": "required if status deprecated, id of contract that supersedes this"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "draft"
+          }
+        }
+      },
+      "then": {
+        "required": ["note"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "deprecated"
+          }
+        }
+      },
+      "then": {
+        "required": ["superseded_by"]
+      }
+    }
+  ]
+}

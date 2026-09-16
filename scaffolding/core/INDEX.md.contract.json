@@ -1,0 +1,15 @@
+{
+  "id": "SCAFFOLD-core-core-index-md",
+  "file": "scaffolding/core/INDEX.md",
+  "kind": "core",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [],
+  "effects": [
+    "read",
+    "write"
+  ],
+  "tests": [
+    "test_core-index-md"
+  ]
+}

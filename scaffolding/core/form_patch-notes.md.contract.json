@@ -1,0 +1,15 @@
+{
+  "id": "SCAFFOLD-core-core-form-patch-notes-md",
+  "file": "scaffolding/core/form_patch-notes.md",
+  "kind": "core",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [],
+  "effects": [
+    "read",
+    "write"
+  ],
+  "tests": [
+    "test_core-form-patch-notes-md"
+  ]
+}

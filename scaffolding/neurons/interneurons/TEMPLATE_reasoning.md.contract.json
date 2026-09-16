@@ -1,0 +1,16 @@
+{
+  "id": "SCAFFOLD-neuron-neurons-interneurons-template-reasoning-md",
+  "file": "scaffolding/neurons/interneurons/TEMPLATE_reasoning.md",
+  "kind": "neuron",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read"
+  ],
+  "tests": [
+    "test_neuron_relay"
+  ]
+}

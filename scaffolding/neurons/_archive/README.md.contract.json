@@ -1,0 +1,18 @@
+{
+  "id": "SCAFFOLD-neuron-neurons-archive-readme-md",
+  "file": "scaffolding/neurons/_archive/README.md",
+  "kind": "neuron",
+  "status": "deprecated",
+  "loads_when": null,
+  "depends_on": [
+    "SCAFFOLD-core-core-index-md"
+  ],
+  "effects": [
+    "read"
+  ],
+  "tests": [
+    "test_neuron_relay"
+  ],
+  "superseded_by": "SCAFFOLD-other-readme-md",
+  "note": "Archived scaffolding/neurons/_archive/README.md \u2014 retired, superseded by SCAFFOLD-other-readme-md, kept for provenance"
+}

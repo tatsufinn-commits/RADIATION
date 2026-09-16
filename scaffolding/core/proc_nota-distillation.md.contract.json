@@ -1,0 +1,15 @@
+{
+  "id": "SCAFFOLD-core-core-proc-nota-distillation-md",
+  "file": "scaffolding/core/proc_nota-distillation.md",
+  "kind": "core",
+  "status": "active",
+  "loads_when": "mode in [research, dossier, incubate, triangulate, nota]",
+  "depends_on": [],
+  "effects": [
+    "read",
+    "write"
+  ],
+  "tests": [
+    "test_core-proc-nota-distillation-md"
+  ]
+}

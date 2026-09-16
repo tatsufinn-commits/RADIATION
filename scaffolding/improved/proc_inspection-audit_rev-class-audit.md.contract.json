@@ -1,0 +1,12 @@
+{
+  "id": "SCAFFOLD-other-improved-proc-inspection-audit-rev-class-audit-md",
+  "file": "scaffolding/improved/proc_inspection-audit_rev-class-audit.md",
+  "kind": "other",
+  "status": "active",
+  "loads_when": "mode in [research, dossier, incubate, triangulate, nota]",
+  "depends_on": [],
+  "effects": [
+    "read"
+  ],
+  "tests": []
+}

@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S006 P-15 G6 base 094262: INDEX 36 docs + START_HERE + docs_index_check + test + rider",
+  "generated_by": "S006 P-16 G4 base af57888: scaffold contracts 112 + check + test + rider",
   "tools": [
     {
       "id": "validate",
@@ -701,6 +701,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Docs Lanes G6: deterministic checker every relative md link resolves, every docs/*.md listed in INDEX.md or whitelist, INDEX lists only existing"
+    },
+    {
+      "id": "scaffold_check",
+      "entrypoint": "scripts/scaffold_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/scaffold_check.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Scaffolding Contract Spine G4: sidecar valid vs schema, depends_on resolves, no cycles, coverage, draft/deprecated rules"
     }
   ]
 }
