@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "radiation.skill_card/1 — Skill Catalog Spine",
+  "description": "Typed record for skills present in-tree (agent skills under agents/**, procedure skills under scaffolding/core and subskills). P-17 G4: skills become typed, schema-checked records with eval pointer per skill. MEM-shrine-log is a deliberate outer-corpus pointer (docs/shrine/LOG.md — Commander heartbeat record); all other catalog paths MUST live under Brain/.",
+  "type": "object",
+  "required": ["id", "title", "entry_path", "kind", "description", "eval_ref", "status", "activation_note", "tests"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SKILL-[0-9]{3}$",
+      "description": "unique id SKILL-NNN, zero-padded 3 digits, sorted, unique"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "human-readable title of skill"
+    },
+    "entry_path": {
+      "type": "string",
+      "pattern": "^(agents/|scaffolding/|subskills/|docs/|01-|02-|03-|04-|05-|06-|07-|08-|09-).+",
+      "minLength": 1,
+      "description": "existing skill entry path relative to repo root, must exist"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["agent", "procedure"],
+      "description": "agent=provider or subskill agent, procedure=core proc or pipeline skill"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "description": "description ≤200 chars, what skill does"
+    },
+    "eval_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "path to test/eval proving skill, must resolve"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "declared", "deprecated"],
+      "description": "active=has eval, declared=needs note, deprecated=needs superseded_by"
+    },
+    "activation_note": {
+      "type": "string",
+      "enum": ["pinned", "asserted"],
+      "description": "pinned if activation machine-pinned by check 28, else asserted"
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "tests that exercise this skill"
+    },
+    "note": {
+      "type": "string",
+      "description": "optional note, required if status declared"
+    },
+    "superseded_by": {
+      "type": "string",
+      "pattern": "^SKILL-[0-9]{3}$",
+      "description": "required if status deprecated, id of skill that supersedes this"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "declared"
+          }
+        }
+      },
+      "then": {
+        "required": ["note"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "deprecated"
+          }
+        }
+      },
+      "then": {
+        "required": ["superseded_by"]
+      }
+    }
+  ]
+}

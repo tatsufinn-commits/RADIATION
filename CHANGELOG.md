@@ -6,6 +6,49 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.17 — 2026-09-16 — P-17 SKILL CATALOG SPINE (Dim-7/G4) (II.7.4)
+
+**P-17 Skill Catalog Spine per Architect Directive base 0de224d58a758a5ee0b9278427ec224f1139ebdc sealed P-16. One sealed candidate one purpose — skills become typed, schema-checked records with eval pointer per skill; tooling-first same shape as P-14/15/16.**
+
+**Framing:** Dim-7/G4: skills lacked typed catalog, no schema, no deterministic compile check for eval_ref/entry_path, no activation_note honesty.
+
+**(1) A skills/SKILL_CATALOG.json (+ A schemas/skill_card.schema.json radiation.skill_card/1):**
+- Entries over skills actually present in-tree (agent skills under agents/**; anything already shaped as a skill), each {id: SKILL-NNN, title, entry_path, kind (agent|procedure), description ≤200, eval_ref, status active|declared|deprecated, activation_note pinned|asserted whether activation machine-pinned by check 28, tests[]}
+- Seeds 23 entries (≥8 or all found whichever greater): 5 provider agent skills (Arena_AI BOOT.md, ChatGPT BOOT.md, Claude BOOT.md, Gemini BOOT.md, Grok BOOT.md) kind agent asserted + 9 subskills (colony active pinned, fetch pinned, overule pinned, scout pinned, selfdirectives pinned, compass passive asserted, curator asserted, sentinel asserted, surgeon asserted) kind agent + 9 pipeline skills (01-research/README.md RESEARCH prospector, 02-analyze ANALYZE decomposer, 03-dossier DOSSIER archivist, 04-incubate INCUBATE incubator, 05-annotate ANNOTATE annotator, 06-triangulate TRIANGULATE triangulator, 07-inspect INSPECT inspector, 08-overhaul OVERHAUL surgeon dual, 09-nota NOTA scribe) kind procedure asserted.
+- No fabrication: skill without finding-permissible eval gets status declared + note; smoke-eval fixtures under evals/skills/ to earn active. All 23 active have eval_ref resolving to evals/skills/SKILL-NNN.eval.md tiny fixtures proving entry_path exists and eval_ref resolves.
+- Description ≤200 enforced by checker + schema, id pattern ^SKILL-[0-9]{3}$ unique sorted, kind/status/activation_note enums, tests[] array, additionalProperties false, declared→note, deprecated→superseded_by conditional.
+- Schema description includes MEM-shrine-log rider same as P-15 to keep honesty about outer-corpus pointer (docs/shrine/LOG.md).
+
+**(2) A scripts/skill_check.py — deterministic house finding style exit 0/1 --self-test 8 vectors:**
+- catalog valid vs schema (radiation.skill_card/1) — id pattern, kind/status/activation_note enums, description ≤200, required fields, additionalProperties false, status discipline
+- every entry_path/eval_ref resolves (file exists)
+- unique ids (duplicate detection)
+- status discipline declared→note, deprecated→superseded_by pattern SKILL-NNN
+- no eval-free active entries (active must have non-empty eval_ref that resolves)
+- tests[] entries resolve (strict)
+- Seeds ≥8 check
+- Negative fixtures are its own corpus (self-test creates temp repos with broken eval_ref, eval-free active, unknown status, duplicate id, declared missing note, deprecated missing superseded_by, entry_path missing)
+- Live repo: skill_check: 0 finding(s) — catalog valid, entry_path/eval_ref resolve, unique ids, status discipline ok, no eval-free active
+- Self-test: 8 passed 0 failed — 8 vectors
+
+**(3) A tests/test_skill_check.py ≥4 vectors:**
+- live repo passes (exit 0)
+- broken eval_ref → FAIL
+- eval-free active → FAIL
+- unknown status → FAIL
+- self-test ran (≥4 vectors pass)
+- Discover 120+5=125 OK (P-16 had 120, plus 5 new)
+
+**(4) Registry/state:**
+- tools/TOOL_REGISTRY.json M 28→29 adds skill_check mutation none network none cap_mapping [] honest description ≤200 self-test 15/15, generated_by updated to P-17
+- docs/CAPABILITIES.md + docs/SYSTEM_STATE.md GENERATED reflect it (render_docs --apply) + version bump v3.10.17
+- Standard append rows task_ledger/PATCH_LEDGER/CHANGELOG/ROADMAP/shrine + README v3.10.17 + EXPECTATION re-pinned base 0de224d allowed 33 (9 M + 24 A + self) — 5 provider +9 subskill +9 pipeline =23 + schema + checker + test + catalog + 23 evals + registry + docs =33.
+- If new catalog JSONs trip undeclared-vehicle machinery as MEMORY_CATALOG did: exactly one commented allowlist pattern in scripts/validate.py for skills/**/*.json same comment discipline as P-14 — not needed, skills/ not checked by Brain/ vehicle rule, validate passes 42·39·3·0 without extra allowlist.
+
+**Gates:** 42·39·3·0 0 FAIL 3 WARN chartered untouched, release-truth 0 findings + 11/11 self-test, push_preflight 0 findings + 5/5 self-test, ics_normalize 29/29, brain_retrieve 15/15 cases + 8/8 self-test, docs_index_check 0 findings + 5/5 self-test, scaffold_check 0 findings + 6/6 self-test, skill_check 0 findings + 8/8 self-test, unittest 125 OK, cue lint ok 42 cues, render --check PASS, whitespace/porcelain clean, delta-vs-allowed: ran · ∅, public-object ancestor origin/main, version v3.10.17.
+
+**Base pinned:** 0de224d58a758a5ee0b9278427ec224f1139ebdc (P-16 Scaffolding Contract Spine G4). Allowed delta exact equality per LAW-3. One patch one purpose II.7.4 — Skill Catalog Spine.
+
 ## v3.10.16 — 2026-09-16 — P-16 SCAFFOLDING CONTRACT SPINE (Dim-3/G4) (II.7.4)
 
 **P-16 Scaffolding Contract Spine per Architect Directive base af578886ba70d63400d26490e87277718fbaf20a sealed P-15. One sealed candidate one purpose — scaffold files get typed sidecar contracts + deterministic compile check; tooling-first, same shape as P-14/P-15.**

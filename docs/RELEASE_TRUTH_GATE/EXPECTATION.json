@@ -1,634 +1,194 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 P-16 G4 base af57888 sealed P-15, 112 contracts + check + test + schema, 120 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6, delta \u2205",
-  "base_sha": "af578886ba70d63400d26490e87277718fbaf20a",
+  "generated_by": "S006 Architect — P-17 G4 base 0de224d sealed P-16, skill catalog 23 + schema + check + test + evals 23, 125 unittest 11/11 5/5 29/29 15/15 8/8 5/5 6/6 8/8, delta ∅",
+  "base_sha": "0de224d58a758a5ee0b9278427ec224f1139ebdc",
   "base_must_be_ancestor": true,
-  "description": "Pins exact base SHA af578886ba70d63400d26490e87277718fbaf20a (P-15 Docs Lanes G6). P-16 Scaffolding Contract Spine (Dim-3/G4): scaffold files get typed sidecar contracts + deterministic compile check; tooling-first, same shape as P-14/P-15. A sidecar contract per scaffold file under scaffolding/** sibling X.contract.json fields id,file,kind, status, loads_when, depends_on, effects, tests, note?, superseded_by?, A schemas/scaffold_contract.schema.json radiation.scaffold_contract/1, A scripts/scaffold_check.py deterministic compile check house finding style --self-test 6 vectors, A tests/test_scaffold_check.py 5 vectors, M TOOL_REGISTRY 27\u219228 scaffold_check. If sidecar JSONs trip undeclared-vehicle machinery as MEMORY_CATALOG did: exactly one commented allowlist pattern in validate.py for scaffolding/**/*.contract.json same comment discipline as P-14 \u2014 not needed, contracts under scaffolding/ not checked by Brain/ vehicle rule, validate passes 42\u00b739\u00b73\u00b70. One sealed candidate one purpose II.7.4.",
+  "description": "Pins exact base SHA 0de224d58a758a5ee0b9278427ec224f1139ebdc (P-16 Scaffolding Contract Spine G4). P-17 Skill Catalog Spine (Dim-7/G4): skills become typed, schema-checked records with eval pointer per skill; tooling-first same shape as P-14/15/16. A skills/SKILL_CATALOG.json (+ A schemas/skill_card.schema.json radiation.skill_card/1): entries over skills actually present in-tree (agent skills under agents/**; anything already shaped as a skill), each {id: SKILL-NNN, title, entry_path, kind (agent|procedure), description ≤200, eval_ref, status, activation_note pinned|asserted, tests[]}. Seeds 23 entries (5 provider + 9 subskills + 9 pipeline) ≥8. No fabrication: smoke-eval fixtures under evals/skills/ to earn active. A scripts/skill_check.py deterministic house finding style exit 0/1 --self-test 8 vectors, A tests/test_skill_check.py 5 vectors, M TOOL_REGISTRY 28→29 skill_check. If skill JSONs trip undeclared-vehicle machinery as MEMORY_CATALOG did: exactly one commented allowlist pattern in validate.py for skills/**/*.json same comment discipline as P-14 — not needed, skills/ not checked by Brain/ vehicle rule, validate passes 42·39·3·0 without extra allowlist. One sealed candidate one purpose II.7.4.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M Brain/frontal_lobe/task_ledger.md P-16 scaffolding contract spine"
+      "note": "M Brain/frontal_lobe/task_ledger.md P-17 skill catalog spine"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG.md P-16 scaffolding contract spine"
+      "note": "M CHANGELOG.md P-17 skill catalog spine"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README.md P-16 scaffolding contract spine"
+      "note": "M README.md P-17 skill catalog spine"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M docs/CAPABILITIES.md P-16 scaffolding contract spine"
+      "note": "M docs/CAPABILITIES.md P-17 skill catalog spine GENERATED"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M docs/PATCH_LEDGER.md P-16 scaffolding contract spine"
+      "note": "M docs/PATCH_LEDGER.md P-17 skill catalog spine"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION base af57888 sealed P-15, allowed exact delta per LAW-3, P-16 G4"
+      "note": "M EXPECTATION base 0de224d sealed P-16, allowed exact delta per LAW-3, P-17 G4"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M docs/ROADMAP.md P-16 scaffolding contract spine"
+      "note": "M docs/ROADMAP.md P-17 skill catalog spine"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M docs/SYSTEM_STATE.md P-16 scaffolding contract spine"
+      "note": "M docs/SYSTEM_STATE.md P-17 skill catalog spine GENERATED v3.10.17"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M docs/shrine/LOG.md P-16 scaffolding contract spine"
+      "note": "M docs/shrine/LOG.md P-17 skill catalog spine"
     },
     {
-      "path": "scaffolding/README.md.contract.json",
+      "path": "evals/skills/SKILL-001.eval.md",
       "kind": "A",
-      "note": "A scaffolding/README.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-001.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/control_plane/allowlist.json.contract.json",
+      "path": "evals/skills/SKILL-002.eval.md",
       "kind": "A",
-      "note": "A scaffolding/control_plane/allowlist.json.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-002.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/INDEX.md.contract.json",
+      "path": "evals/skills/SKILL-003.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/INDEX.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-003.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/form_external-collection.md.contract.json",
+      "path": "evals/skills/SKILL-004.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/form_external-collection.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-004.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/form_patch-notes.md.contract.json",
+      "path": "evals/skills/SKILL-005.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/form_patch-notes.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-005.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_decode-map.md.contract.json",
+      "path": "evals/skills/SKILL-006.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_decode-map.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-006.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_ingestion-run.md.contract.json",
+      "path": "evals/skills/SKILL-007.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_ingestion-run.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-007.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_inspection-audit.md.contract.json",
+      "path": "evals/skills/SKILL-008.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_inspection-audit.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-008.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_nota-distillation.md.contract.json",
+      "path": "evals/skills/SKILL-009.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_nota-distillation.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-009.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_research-sortie.md.contract.json",
+      "path": "evals/skills/SKILL-010.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_research-sortie.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-010.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_scan-declaration.md.contract.json",
+      "path": "evals/skills/SKILL-011.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_scan-declaration.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-011.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_self-directive.md.contract.json",
+      "path": "evals/skills/SKILL-012.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_self-directive.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-012.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/core/proc_triangulation-gauntlet.md.contract.json",
+      "path": "evals/skills/SKILL-013.eval.md",
       "kind": "A",
-      "note": "A scaffolding/core/proc_triangulation-gauntlet.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-013.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/generated/.gitkeep.contract.json",
+      "path": "evals/skills/SKILL-014.eval.md",
       "kind": "A",
-      "note": "A scaffolding/generated/.gitkeep.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-014.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/hosts/arena_agent_mode.json.contract.json",
+      "path": "evals/skills/SKILL-015.eval.md",
       "kind": "A",
-      "note": "A scaffolding/hosts/arena_agent_mode.json.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-015.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/improved/.gitkeep.contract.json",
+      "path": "evals/skills/SKILL-016.eval.md",
       "kind": "A",
-      "note": "A scaffolding/improved/.gitkeep.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-016.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/improved/form_knowledge-record.md.contract.json",
+      "path": "evals/skills/SKILL-017.eval.md",
       "kind": "A",
-      "note": "A scaffolding/improved/form_knowledge-record.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-017.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/improved/proc_drill-run_PROPOSED.md.contract.json",
+      "path": "evals/skills/SKILL-018.eval.md",
       "kind": "A",
-      "note": "A scaffolding/improved/proc_drill-run_PROPOSED.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-018.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/improved/proc_exam-forge_PROPOSED.md.contract.json",
+      "path": "evals/skills/SKILL-019.eval.md",
       "kind": "A",
-      "note": "A scaffolding/improved/proc_exam-forge_PROPOSED.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-019.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/improved/proc_ingestion-run_rev-delete-log.md.contract.json",
+      "path": "evals/skills/SKILL-020.eval.md",
       "kind": "A",
-      "note": "A scaffolding/improved/proc_ingestion-run_rev-delete-log.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-020.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/improved/proc_inspection-audit_rev-class-audit.md.contract.json",
+      "path": "evals/skills/SKILL-021.eval.md",
       "kind": "A",
-      "note": "A scaffolding/improved/proc_inspection-audit_rev-class-audit.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-021.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/improved/proc_weak-spot-diagnostic_PROPOSED.md.contract.json",
+      "path": "evals/skills/SKILL-022.eval.md",
       "kind": "A",
-      "note": "A scaffolding/improved/proc_weak-spot-diagnostic_PROPOSED.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-022.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/neurons/README.md.contract.json",
+      "path": "evals/skills/SKILL-023.eval.md",
       "kind": "A",
-      "note": "A scaffolding/neurons/README.md.contract.json P-16 scaffolding contract spine"
+      "note": "A evals/skills/SKILL-023.eval.md P-17 smoke eval"
     },
     {
-      "path": "scaffolding/neurons/REPLICA_MANIFEST.json.contract.json",
+      "path": "schemas/skill_card.schema.json",
       "kind": "A",
-      "note": "A scaffolding/neurons/REPLICA_MANIFEST.json.contract.json P-16 scaffolding contract spine"
+      "note": "A schemas/skill_card.schema.json P-17 skill catalog spine radiation.skill_card/1"
     },
     {
-      "path": "scaffolding/neurons/_archive/README.md.contract.json",
+      "path": "scripts/skill_check.py",
       "kind": "A",
-      "note": "A scaffolding/neurons/_archive/README.md.contract.json P-16 scaffolding contract spine"
+      "note": "A scripts/skill_check.py P-17 skill catalog spine"
     },
     {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-a_intake.md.contract.json",
+      "path": "skills/SKILL_CATALOG.json",
       "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-a_intake.md.contract.json P-16 scaffolding contract spine"
+      "note": "A skills/SKILL_CATALOG.json P-17 skill catalog spine 23 entries"
     },
     {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-a_orders.md.contract.json",
+      "path": "tests/test_skill_check.py",
       "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-a_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-a_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-a_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-b_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-b_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-b_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-b_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-b_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-b_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-c_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-c_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-c_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-c_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-c_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-c_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-d_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-d_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-d_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-d_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-d_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-d_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-e_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-e_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-e_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-e_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/_archive/TID-2026-09-13-e_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/_archive/TID-2026-09-13-e_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TEMPLATE_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TEMPLATE_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-13-a_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-13-a_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-13-b_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-13-b_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-13-c_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-13-c_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-13-d_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-13-d_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-13-f_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-13-f_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-g_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-g_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-h_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-h_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-i_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-i_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-j_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-j_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-k_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-k_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-l_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-l_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-m_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-m_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-n_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-n_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-o_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-o_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-p_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-p_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-q_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-q_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-r_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-r_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-s_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-s_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-t_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-t_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-14-u_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-14-u_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-15-a_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-15-a_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-15-b_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-15-b_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/interneurons/TID-2026-09-15-c_reasoning.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/interneurons/TID-2026-09-15-c_reasoning.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TEMPLATE_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TEMPLATE_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-13-a_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-13-a_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-13-b_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-13-b_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-13-c_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-13-c_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-13-d_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-13-d_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-13-f_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-13-f_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-g_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-g_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-h_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-h_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-i_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-i_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-j_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-j_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-k_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-k_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-l_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-l_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-m_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-m_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-n_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-n_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-o_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-o_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-p_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-p_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-q_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-q_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-r_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-r_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-s_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-s_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-t_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-t_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-14-u_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-14-u_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-15-a_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-15-a_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-15-b_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-15-b_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/motorneurons/TID-2026-09-15-c_orders.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/motorneurons/TID-2026-09-15-c_orders.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TEMPLATE_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TEMPLATE_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-a_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-13-a_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-b_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-13-b_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-c_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-13-c_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-d_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-13-d_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-13-f_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-13-f_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-g_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-g_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-h_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-h_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-i_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-i_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-j_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-j_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-k_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-k_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-l_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-l_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-m_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-m_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-n_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-n_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-o_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-o_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-p_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-p_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-q_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-q_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-r_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-r_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-s_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-s_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-t_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-t_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-14-u_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-14-u_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-15-a_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-15-a_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-15-b_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-15-b_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scaffolding/neurons/sensoryneurons/TID-2026-09-15-c_intake.md.contract.json",
-      "kind": "A",
-      "note": "A scaffolding/neurons/sensoryneurons/TID-2026-09-15-c_intake.md.contract.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "schemas/scaffold_contract.schema.json",
-      "kind": "A",
-      "note": "A schemas/scaffold_contract.schema.json P-16 scaffolding contract spine"
-    },
-    {
-      "path": "scripts/scaffold_check.py",
-      "kind": "A",
-      "note": "A scripts/scaffold_check.py P-16 scaffolding contract spine"
-    },
-    {
-      "path": "tests/test_scaffold_check.py",
-      "kind": "A",
-      "note": "A tests/test_scaffold_check.py P-16 scaffolding contract spine"
+      "note": "A tests/test_skill_check.py P-17 skill catalog spine"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M tools/TOOL_REGISTRY.json P-16 scaffolding contract spine"
+      "note": "M tools/TOOL_REGISTRY.json P-17 skill catalog spine 28→29"
     }
   ],
   "required_deletions": [
@@ -636,7 +196,7 @@
       "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json",
       "must_be_absent_on_disk": true,
       "must_be_D_in_diff": false,
-      "note": "stale Fable 5-1 already absent in base af57888, must remain absent"
+      "note": "stale Fable 5-1 already absent in base 0de224d, must remain absent"
     }
   ],
   "required_absent_on_disk": [
@@ -742,15 +302,25 @@
       "must_contain": "0 finding"
     },
     {
+      "command": "python3 scripts/skill_check.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "8 passed"
+    },
+    {
+      "command": "python3 scripts/skill_check.py",
+      "expected_exit": 0,
+      "must_contain": "0 finding"
+    },
+    {
       "command": "git diff --check",
       "expected_exit": 0,
       "must_contain": ""
     },
     {
-      "command": "git diff --check af578886ba70d63400d26490e87277718fbaf20a..HEAD",
+      "command": "git diff --check 0de224d58a758a5ee0b9278427ec224f1139ebdc..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-16 base af57888"
+      "note": "committed-delta whitespace clean from P-17 base 0de224d"
     },
     {
       "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
@@ -795,6 +365,12 @@
       "note": "whitespace clean from P-15 base 094262"
     },
     {
+      "command": "git diff --check af578886ba70d63400d26490e87277718fbaf20a..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from P-16 base af57888"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
@@ -810,19 +386,20 @@
     "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
   ],
   "risks": [
-    "wrong root \u2014 package applied to different working directory than repo root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA af578886ba70d63400d26490e87277718fbaf20a (run 86 genus: hand merge + stale-base extraction)",
-    "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
-    "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
-    "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
-    "host/provider/surface confusion \u2014 Arena gap treated as official policy, model identity claimed from inside session",
-    "unavailable credentials/remote verification \u2014 push attempted without Commander motor act",
-    "evaluation/routing/deployment conflation \u2014 research notes treated as decision rule without named local evaluation",
-    "CUE catalog boot overreach \u2014 new catalogs non-boot beyond single pointer line per DoD",
-    "motor preflight bypass \u2014 extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
-    "WARN census hidden \u2014 WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
-    "G6 docs lanes fail-cell \u2014 no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
-    "G4 scaffolding contract spine fail-cell \u2014 no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
-    "file moves/renames \u2014 forbidden in G6/G4, lanes and contracts are virtual/descriptive only"
+    "wrong root — package applied to different working directory than repo root",
+    "stale base — base SHA not ancestor or not exact pinned SHA 0de224d58a758a5ee0b9278427ec224f1139ebdc (run 86 genus: hand merge + stale-base extraction)",
+    "ZIP extraction without applying deletion — file still on disk after extraction",
+    "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
+    "documentation claiming unverified CI — CHANGELOG says green but validator red",
+    "host/provider/surface confusion — Arena gap treated as official policy, model identity claimed from inside session",
+    "unavailable credentials/remote verification — push attempted without Commander motor act",
+    "evaluation/routing/deployment conflation — research notes treated as decision rule without named local evaluation",
+    "CUE catalog boot overreach — new catalogs non-boot beyond single pointer line per DoD",
+    "motor preflight bypass — extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
+    "WARN census hidden — WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
+    "G6 docs lanes fail-cell — no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
+    "G4 scaffolding contract spine fail-cell — no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
+    "G4 skill catalog spine fail-cell — no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
+    "file moves/renames — forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
   ]
 }

@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.16 · Ratified by THE COMMANDER · 2026-09-16 · P-16 Scaffolding Contract Spine (Dim-3/G4)
+**Version:** v3.10.17 · Ratified by THE COMMANDER · 2026-09-16 · P-17 Skill Catalog Spine (Dim-7/G4)
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 
