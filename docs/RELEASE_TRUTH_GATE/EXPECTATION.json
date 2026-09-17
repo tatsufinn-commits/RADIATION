@@ -269,7 +269,7 @@
       "must_contain": "pptx"
     },
     {
-      "command": "grep -c \"14/14\" docs/ROADMAP.md",
+      "command": "grep \"14/14\" docs/ROADMAP.md",
       "expected_exit": 0,
       "must_contain": "14/14"
     },
