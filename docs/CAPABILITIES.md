@@ -17,15 +17,16 @@ while the validator ran 25 — a count nobody could have got right by reading.
 ## COMMON PROPERTIES
 
 - **Stdlib only** — no third-party packages, with one exception (`ingest_collection.py`
-  needs PyMuPDF for PDF work).
+  needs PyMuPDF for PDF work) and one OPTIONAL pinned dependency `python-pptx==0.6.21` (MIT) for deck rendering — single import site ONLY `scripts/deck_pptx_adapter.py`, never module-level, always inside guarded probe/call-sites, fence law walks ALL ship-files.
 - **Offline** — none calls the network, except `ingest_collection.py` and
-  `ics_normalize.py --fetch`, both of which contact only a URL you supply explicitly.
+  `ics_normalize.py --fetch`, both of which contact only a URL you supply explicitly. Deck renderer has no network at runtime — CI pip-install only.
 - **Non-destructive** — no script writes to the repository except `validate.py`
   (its own report, git-ignored) and `ingest_collection.py` (only on `--repo`, which
   refuses to render inside the tree). `grade_exam.py` and `decay_compute.py` **propose**
-  register rows; they never write them. A session appends.
+  register rows; they never write them. A session appends. Renderer `deck_render.py` NEVER writes into repo tree — default tempdir, no `.pptx` ever committed (`.gitignore` `*.pptx` LAW-6-era idiom).
 - **Exit codes** — `1` means a real failure, not a warning. A nonzero exit from
   `validate.py` or `knowledge_regression.py` means **the session is not closable**.
+- **Pptx render capability:** pptx render: AVAILABLE when dependency present, else ABSENT-UNKNOWN — constraint grammar per IP-ENV-01 — receipt law holds verbatim deck never delivered alone its outline ships always — theme anchor PROVISIONAL.
 
 ---
 
@@ -286,10 +287,11 @@ Stated plainly so a session does not assume capability it lacks:
 | `cue_resolver.py` | CUE Resolver / Linter — Candidate B opening P-11-A | no | no | yes |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
-| `deck_pptx_adapter.py` | Optional PPTX adapter, wall-maintained (S-2-PPTX-C stage 3 of 5) | no | no | no |
+| `deck_pptx_adapter.py` | Sole PPTX import site + renderer core (S-2-PPTX-D stage 4 of 5) | no | no | no |
+| `deck_render.py` | Renderer (S-2-PPTX-D stage 4 of 5) | no | no | no |
 | `deck_rules_check.py` | Deck Rules + Outline Schema lint (S-2-PPTX-A stage 1) | no | no | no |
-| `deck_verbs.py` | Guardrailed verbs + optional adapter (S-2-PPTX-C stage 3 of 5) | no | no | no |
-| `deck_verify.py` | Outline round-trip + receipt resolver (S-2-PPTX-B stage 1 of 5) | no | no | no |
+| `deck_verbs.py` | Guardrailed verbs + optional adapter promotion (S-2-PPTX-D stage 4 of 5) | no | no | no |
+| `deck_verify.py` | Outline round-trip + receipt resolver + rendered round-trip (S-2-PPTX-D stage 4 of 5) | no | no | no |
 | `docs_index_check.py` | deterministic stdlib checker, house finding style (G6) | no | no | no |
 | `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |
 | `grade_exam.py` | P-05 drill grader (stdlib port of TAMAKEE grade-exam.js). | no | no | no |

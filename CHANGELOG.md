@@ -4,10 +4,61 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.31 — 2026-09-17 — S-2-PPTX-D RENDERER + VERIFY-RENDERED + FILL_TEMPLATE UNFROZEN (stage 4 of 5) (II.7.4)
 
+**BASE: f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal, main v3.10.30) per DESK_DIRECTIVE_S2_PPTX_D_2026-09-17.md — canon ratified by Commander relay — relay-as-word · Previous: v3.10.30 base 4fa588c fix rebuild clean from same base minus report-as-doc penetration**
 
+**Dependency canon — python-pptx (WP-D) — ratified by Commander relay (relay-as-word):**
 
+1. **Single import site:** ONLY file permitted to contain `import pptx` is `scripts/deck_pptx_adapter.py` — still never at module level, always inside guarded probe / call-sites. Fence law extends: policy test walks ALL ship-files (scripts/, tests/, Brain/, cue/, skills/) and FAILs on any other occurrence. `import pptx` = FAIL-class outside adapter guarded block — exempt from tool_registry coverage closure per S-2-PPTX-C (optional adapter, now sole import site).
+2. **Pinned version floor:** canon declares one minimum version `python-pptx>=0.6.21`; CI installs exactly the pin `pip install python-pptx==0.6.21` (one step, pinned); tests must `skipUnless(probe AVAILABLE)` so stdlib-only environments degrade honestly (ABSENT-UNKNOWN), never crash — OPTIONAL-dependency law.
+3. **No transitive scope:** python-pptx brings `lxml>=4.9` (BSD), `Pillow>=9.0` (HPND MIT-class), `XlsxWriter>=3.0` (BSD) — logged as licensed (audit MIT/BSD-class; **no GPL anywhere**, hard fail). One line each in ledgers: lxml BSD, Pillow HPND, XlsxWriter BSD, python-pptx MIT.
+4. **The receipt law holds verbatim:** **a deck is never delivered alone — its outline ships with it**, always. `deck_render.py` NEVER writes into repo tree; no `.pptx` is ever committed (`.gitignore` `*.pptx` LAW-6-era idiom already present since P-10).
 
+**Renderer (S-2-PPTX-D) — `scripts/deck_render.py` A:** Outline + theme registry → `.pptx` to explicit `--out` path (default tempdir) — NEVER writes into repo tree; no `.pptx` ever committed. Slide shape: title + bullets content; speaker notes carry source_ref set (receipts embedded, two-pillar doctrine honored inside artifact); theme taken from `decks/DECK_RULES.json` registry as-is (anchor PROVISIONAL). Budgets re-asserted pre-render (run DECK_RULES check internally; refuse render on FAIL — guards, not verbs). Stdlib + python-pptx only via adapter — single import site law. License: python-pptx MIT.
+
+**Verifier completion (S-2-PPTX-D) — `scripts/deck_verify.py` M gains `--verify-rendered <outline> --out <pptx|tempdir>`:** Render outline to tempdir via deck_render → parse .pptx back via adapter → derive structure → compare vs outline → verdict MATCH or DRIFT-text / DRIFT-structure / DRIFT-source_ref (named classes preserved from B). Self-test gains ≥3 render vectors: render+round-trip MATCH, text mutation→DRIFT-text, structure mutation→DRIFT-structure (render vectors skipUnless AVAILABLE when probe ABSENT-UNKNOWN). Previous 6 vectors → 10 vectors.
+
+**Verbs promotion (S-2-PPTX-D) — `scripts/deck_verbs.py` M `fill_template` unfrozen:** With adapter AVAILABLE: performs render via deck_render, emits `{rendered: <out-path>, sha, receipts_embedded: slides-with-notes count}` — receipts embedded as speaker notes per slide. With ABSENT: keeps honest report shape, no fake, never — `{adapter: ABSENT-UNKNOWN, would_render: <plan>, blocked_at: dependency canon (WP-D 🟠)}`. Adds --out arg, default tempdir NEVER writes repo tree. Self-test 5→7 vectors incl fence extension + tree-scan guard asserting zero *.pptx ever committed.
+
+**Tests + registry + CI:**
+
+- `tests/test_deck_render.py` A ≥6 vectors incl fence extension + tree-scan guard asserting zero *.pptx ever committed — single import site law walks ALL ship-files, no unconditional import, render exemplar MATCH (skipUnless AVAILABLE), receipts embedded as speaker notes, budgets re-asserted pre-render refuse on FAIL, theme as-is PROVISIONAL, fill_template unfrozen AVAIL→render ABSENT→honest, verify-rendered MATCH and DRIFT, dependency canon four rules. TestCase law, discover 183→195, registry 36→37.
+- `tests/test_deck_verbs.py` M self-test 5→7 vectors, fence + tree-scan, fill_template unfrozen AVAIL→render emits rendered sha receipts_embedded.
+- `tests/test_deck_verify.py` M self-test 6→10 vectors with render vectors.
+- `tools/TOOL_REGISTRY.json` M 36→37 adds deck_render (description ≤200, generated_by ≤120), deck_verbs description shortened to ≤200 to pass maxLength law.
+- `.github/workflows/validate.yml` M installs pinned dependency `pip install python-pptx==0.6.21` one step pinned OPTIONAL-dependency law before battery — every pptx-touching vector skipUnless-gated stdlib checkout still passes core.
+- `docs/DECKS.md` M v3.10.31 new §Dependency canon — python-pptx (WP-D) four rules verbatim-core, §Renderer deck_render.py spec, §Verifier completion --verify-rendered MATCH/DRIFT-text/DRIFT-structure/DRIFT-source_ref, §Verbs Promotion fill_template unfrozen, Non-Goals D hard, Honesty rows canon ratification relay-as-word + single import + pin + transitive + renderer + round-trip + fill_template + Windows env.
+- `README.md` M capability line "pptx render: AVAILABLE when dependency present, else ABSENT-UNKNOWN — constraint grammar per IP-ENV-01" + version v3.10.31.
+- `docs/CAPABILITIES.md` M capability line same + GENERATED inventory includes deck_render.py via render_docs.py --apply, COMMON PROPERTIES notes OPTIONAL pinned dep + NEVER writes repo tree.
+- `docs/SYSTEM_STATE.md` M GENERATED machine-facts via render_docs.py --apply + version v3.10.31.
+- `scripts/deck_pptx_adapter.py` M promotion: probe truly executes import pptx inside try/except returns {"pptx":"AVAILABLE","version":ver} or ABSENT-UNKNOWN failure as unknown; get_adapter_status; new functions render_outline_to_pptx(outline_path_or_dict, out_path default tempdir, theme_registry) budgets re-asserted pre-render refuse FAIL guards not verbs, theme taken from DECK_RULES.json as-is anchor PROVISIONAL, slide shape title+bullets, speaker notes carry source_ref set receipts_embedded count, NEVER writes into repo tree enforced via resolve check raising if inside ROOT, sha; parse_pptx_to_structure(pptx_path) Presentation parse title bullets notes source_refs regex for register lanes; all import pptx inside functions never module level.
+
+**Battery + provenance:** EXPECTATION re-pin base f3a4f30 allowed exact stage-equals-EXPECTED double-red closed, gate live+ST, preflight @base ∞LAW-6, validate 0 fail 42·39·3·0, catalogity 0, lints/verifier/verbs/render live exemplar MATCH pasted, render PASS, absences *.pptx in-tree pasted, delta-vs-allowed ∅, fresh-clone ancestor proof, task_ledger attempt:, ledgers honesty rows canon ratification relay-as-word, v3.10.31 zip→motor. Discover 183→195 (12 new vectors: deck_render 10 + deck_verbs +2 + deck_verify +4), deck_render self-test 6/6, deck_verify 10/10, deck_verbs 7/7, tool_registry 15/15, no *.pptx ever committed tree-scan guard, .gitignore *.pptx LAW-6-era idiom.
+
+**Non-goals hard honored:** No template library, no SOLVE/fonts/VLM WP-E deferred-research, no committed .pptx anywhere ever, no deck-alone delivery receipt law, no theme-registry edits PROVISIONAL stands until Commander notes, no cue/skill/mode changes, no network at runtime CI pip-install only, no Problem-1.
+
+**Base pinned:** f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal, main v3.10.30). Allowed delta exact. One patch one purpose II.7.4 — S-2-PPTX-D v3.10.31.
+
+## v3.10.30 — 2026-09-16 — S-2-PPTX-C-FIX REPORT-PENETRATION UNDO (failure family, exact plan) (II.7.4)
+
+**BASE: 4fa588cb774100934adfb8ad6e0387eb49dda59a (PPTX-B seal) per DESK_DIRECTIVE_S2_PPTX_C_FIX_2026-09-16.md — SAME sealed base as C, fresh candidate rebuild.**
+
+**Root cause — singular, name-witnessed, class added:** tranche **committed delivery report into tree** — `A docs/S2_PPTX_C_REPORT.md` — undeclared in EXPECTATION. That one file broke house thrice independently: (1) gate LAW-3 δ-extra + undeclared-changed-path (diff 17 vs allowed 16); (2) validate **check 14 [no session-local paths]** — its line 145 literally commits session-local absolute path (workspace-root anchored, P-08-era law bites instantly); (3) validate **check 39** — 4 test failures + discover RC=1 riding tree-state (orphan docs + session-local path). **New failure class registered: "report-as-doc penetration."** Report travels in ZIP + workspace, never in repo — every sibling tranche obeyed this; divergence happened only now. House fiat line, operating since P-08: DESK/ARCHITECT/R&D/motor delivery reports are NOT tree objects.
+
+**Proof of complete healing (desk, from main clone `28b7eb8`):** `rm docs/S2_PPTX_C_REPORT.md` → validate **42·39·3·0** ✓ · gate **0 findings** ✓. One file out, whole tree green — no other defect exists at main. That clone is 28b7eb88f5df2a71808140864dd8bb1d17d9875e Add guardrailed deck verbs and optional PPTX adapter (17 files, report included). Eulogy: report-as-doc penetration broke LAW-3 + check 14 + check 39 simultaneously; house caught thrice; fix = remove report, rebuild clean from base.
+
+**Sealed-candidate law (II.7.4): fix = fresh candidate** — branch again from SAME sealed base `4fa588cb774100934adfb8ad6e0387eb49dda59a`, carry full S-2-PPTX-C payload **minus** report, exactly **16 allowed files** already declared (EXPECTATION content unchanged except version v3.10.30, epoch/head-sha refresh, honest ledger rows retold including red-run eulogy). Do not append fix-commit onto red head; failure family rebuilds clean from base, per house precedent.
+
+**Payload (16 files, exact):** Brain/frontal_lobe/task_ledger.md M, CHANGELOG.md M, README.md M, docs/CAPABILITIES.md M GENERATED, docs/PATCH_LEDGER.md M, docs/ROADMAP.md M, docs/SYSTEM_STATE.md M GENERATED, docs/shrine/LOG.md M, docs/RELEASE_TRUTH_GATE/EXPECTATION.json M, scripts/deck_pptx_adapter.py A, scripts/deck_verbs.py A, scripts/tool_registry_check.py M, tests/test_deck_rules_check.py M, tests/test_deck_verbs.py A, tests/test_deck_verify.py M, tools/TOOL_REGISTRY.json M 35->36.
+
+**Actual-vs-approved re-check before feed (recall circuit engaged):** `git diff --name-only 4fa588c..HEAD | grep -c .` → **16**; `test ! -f docs/S2_PPTX_C_REPORT.md` → **PASS** — absence-probe pasted. Diff equals 16 paths; report absent on disk; no session-local path; no orphan.
+
+**Battery (all, freshly run on candidate, pasted verbatim):** gate live+ST 11/11+7/7+15/15 · validate **0 fail** substring `0 fail` · discover **183** pasted · registry 36 · deck lints/verifier/verbs live on exemplar (plan_slide budgets · verify_deck chained gate green · fill_template ABSENT-UNKNOWN blocked_at WP-D 🟠 · probes string PROBE-VERIFIED adapter probe observed ABSENT-UNKNOWN) · catalog integrity+ring integrity 0 · push_preflight @ `4fa588c` ∞LAW-6 0 findings + `delta-vs-allowed: ran · ∅` · render PASS · fresh-clone ancestor proof HEAD's old-base parent = `4fa588c` · task_ledger `attempt:` rows on green-battery runs only · both trees diff-clean · zip (report inside ZIP, named, signed) → motor.
+
+**Standing:** one candidate, one ZIP, one signed push → green ↔ SEAL-adjacent; desk verifies end-to-end. Both red runs stay in history as shrine records — fix cites them as ancestor-lesson, never erases. Version advances v3.10.29 → v3.10.30.
+
+**Base pinned:** 4fa588cb774100934adfb8ad6e0387eb49dda59a (PPTX-B seal). Allowed delta exact 16 files. One patch one purpose II.7.4 — S-2-PPTX-C-FIX v3.10.30.
 
 ## v3.10.29 — 2026-09-16 — S-2-PPTX-C GUARDRAILED VERBS + OPTIONAL ADAPTER (stage 3 of 5) (II.7.4)
 

@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S-2-PPTX-C v3.10.29 4fa588c: verbs plan_slide fill_template verify_deck + adapter probe + tests 8v reg 35->36",
+  "generated_by": "S-2-PPTX-D v3.10.31 f3a4f30: renderer+verify-rendered+fill_template AVAIL->render ABSENT reg 36->37",
   "tools": [
     {
       "id": "validate",
@@ -925,7 +925,33 @@
       "observability": {
         "content_capture": "off_by_default"
       },
-      "description": "Deck verbs C: plan_slide fill_template verify_deck stdlib never render, budgets re-asserted, source_ref audit, truth lines, chained gate + adapter ABSENT-UNKNOWN WP-D, 5v ST"
+      "description": "Deck verbs D: plan_slide fill_template verify_deck stdlib+adapter, fill_template AVAIL->render emits sha receipts_embedded ABSENT->honest blocked, budgets re-asserted, 7v ST"
+    },
+    {
+      "id": "deck_render",
+      "entrypoint": "scripts/deck_render.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read",
+        "write"
+      ],
+      "mutation_scope": "temporary",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/deck_render.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Deck renderer D: outline+theme -> .pptx --out tempdir NEVER writes repo tree, title+bullets + notes source_ref receipts, budgets re-asserted, PROVISIONAL, via adapter single import, 6v ST"
     }
   ]
 }

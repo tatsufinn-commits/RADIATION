@@ -1,89 +1,99 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect — S-2-PPTX-C GUARDRAILED VERBS + OPTIONAL ADAPTER v3.10.29 base 4fa588c: verbs + adapter probe + tests 8v + reg 35->36 + attempt: marker",
-  "base_sha": "4fa588cb774100934adfb8ad6e0387eb49dda59a",
+  "generated_by": "S006 Architect — S-2-PPTX-D DEPENDENCY CANON + RENDERER + ROUND-TRIP COMPLETION v3.10.31 base f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal main v3.10.30) per DESK_DIRECTIVE_S2_PPTX_D_2026-09-17.md — canon ratified by Commander relay relay-as-word — four rules verbatim-core single import site ONLY deck_pptx_adapter.py fence walks ALL ship-files FAIL pinned floor python-pptx>=0.6.21 CI pip install ==0.6.21 skipUnless AVAILABLE ABSENT-UNKNOWN never crash transitive BSD no GPL receipt law deck never alone",
+  "base_sha": "f3a4f304f65db8a693b0faad7818f50b3ef129c6",
   "base_must_be_ancestor": true,
-  "description": "S-2-PPTX-C GUARDRAILED VERBS + OPTIONAL ADAPTER stage 3 of 5 base 4fa588cb774100934adfb8ad6e0387eb49dda59a (PPTX-B seal) v3.10.29: scripts/deck_verbs.py A 3 verbs plan_slide budgets re-asserted source_ref audit backed/unbacked-warn truth lines ref·type·bullets·chars·receipts PLAN never render verify_deck chained gate deck_rules_check+deck_verify+adapter status fill_template honest consult adapter ABSENT-UNKNOWN blocked_at WP-D never fake 5v ST + scripts/deck_pptx_adapter.py A optional adapter wall-maintained import-guard NEVER at module level capability probe try import pptx AVAILABLE vs ABSENT-UNKNOWN failure recorded unknown per IP-ENV-01 grammar + tests/test_deck_verbs.py A 8 vectors discover 175->183 plan exemplar budgets verify chains green fill_template ABSENT blocked-at-WP-D unconditional-pptx-import guard deterministic sha self-test + tests/test_deck_rules_check.py M fence law extended + tests/test_deck_verify.py M fence law extended + scripts/tool_registry_check.py M exempt adapter coverage + tools/TOOL_REGISTRY.json M 35->36 deck_verbs + docs/CAPABILITIES.md M GENERATED + docs/SYSTEM_STATE.md M GENERATED + CHANGELOG M v3.10.29 + README M v3.10.29 + ROADMAP M S-2-PPTX-C row + task_ledger M attempt: marker + PATCH_LEDGER M + LOG M heartbeat 2026-09-17 + EXPECTATION M base 4fa588c. One sealed candidate one purpose II.7.4 v3.10.29.",
+  "description": "S-2-PPTX-D DEPENDENCY CANON + RENDERER + ROUND-TRIP COMPLETION (stage 4 of 5) v3.10.31 base f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal main v3.10.30) per DESK_DIRECTIVE_S2_PPTX_D_2026-09-17.md — canon ratified by Commander relay relay-as-word — four rules verbatim-core: 1) single import site ONLY scripts/deck_pptx_adapter.py never at module level always inside guarded probe/call-sites fence law walks ALL ship-files scripts/, tests/, Brain/, cue/, skills/ FAIL any other occurrence, 2) pinned version floor canon declares minimum CI installs exactly pin tests skipUnless(probe AVAILABLE) degrade honestly ABSENT-UNKNOWN never crash, 3) no transitive scope python-pptx brings lxml/Pillow/XlsxWriter logged licensed MIT/BSD no GPL hard fail one line each ledgers, 4) receipt law holds verbatim deck never delivered alone its outline ships always. Deliverables: docs/DECKS.md new §Dependency canon python-pptx (WP-D) four rules verbatim-core Renderer spec Verifier completion Non-Goals D hard Honesty rows canon ratification relay-as-word single import pin transitive renderer round-trip fill_template Windows env; README+CAPABILITIES capability lines one each pptx render AVAILABLE when dependency present else ABSENT-UNKNOWN constraint grammar IP-ENV-01; scripts/deck_pptx_adapter.py promotion probe truly executes {pptx:AVAILABLE,version} or ABSENT-UNKNOWN failure recorded unknown same honesty grammar asserted vs observed; scripts/deck_render.py renderer stdlib+python-pptx only outline+theme registry → .pptx explicit --out default tempdir NEVER writes repo tree no .pptx ever committed add .pptx to .gitignore as LAW-6-era idiom; slide shape title+bullets content speaker notes carry source_ref set receipts embedded two-pillar doctrine honored inside artifact theme taken from decks/DECK_RULES.json registry as-is anchor PROVISIONAL; budgets re-asserted pre-render run DECK_RULES check internally refuse render on FAIL guards not verbs; scripts/deck_verify.py gains --verify-rendered render outline to tempdir parse .pptx back via adapter derive structure compare vs outline verdict MATCH or DRIFT-text/DRIFT-structure/DRIFT-source_ref named classes preserved from B, --self-test ≥3 render vectors render+round-trip MATCH rendered-side text mutation→DRIFT-text structure mutation→DRIFT-structure skipUnless AVAILABLE; fill_template unfrozen with adapter AVAILABLE performs render via deck_render emits {rendered, sha, receipts_embedded slides-with-notes count} with ABSENT keeps honest report shape no fake never; tests/test_deck_render.py ≥6 vectors incl fence extension + tree-scan guard asserting zero *.pptx ever committed deck_verbs/deck_verify self-test bumps pasted registry 36→37 discover 183→195 pasted; CI workflow installs pinned dependency before battery one step pinned OPTIONAL-dependency law every pptx-touching vector skipUnless-gated stdlib checkout still passes core. Non-goals hard: no template library, no SOLVE/fonts/VLM WP-E deferred-research, no committed .pptx anywhere ever, no deck-alone delivery receipt law, no theme-registry edits PROVISIONAL stands until Commander notes, no cue/skill/mode changes, no network at runtime CI pip-install only, no Problem-1. Battery+provenance: EXPECTATION re-pin base f3a4f30 allowed exact stage-equals-EXPECTED double-red closed, gate live+ST, preflight @base ∞LAW-6, validate 0 fail, catalogity 0, lints/verifier/verbs/render live exemplar MATCH pasted, render PASS, absences *.pptx in-tree pasted, delta-vs-allowed ∅, fresh-clone ancestor proof, task_ledger attempt:, ledgers honesty rows canon ratification relay-as-word, v3.10.31 zip→motor. Windows-agent reality: CP1252/console+symlink limits documented blockers local red on env-class not defect if CI-Ubuntu green declare env class honestly never mute real finding.",
   "allowed_changes": [
+    {
+      "path": ".github/workflows/validate.yml",
+      "kind": "M",
+      "note": "M validate.yml S-2-PPTX-D pip install python-pptx==0.6.21 one step pinned OPTIONAL-dependency law"
+    },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger S-2-PPTX-C attempt: marker"
+      "note": "M task_ledger S-2-PPTX-D attempt: marker canon ratification relay-as-word four rules single import pin transitive renderer round-trip fill_template"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG S-2-PPTX-C v3.10.29"
+      "note": "M CHANGELOG S-2-PPTX-D v3.10.31 base f3a4f30 dependency canon renderer verify-rendered fill_template unfrozen"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README S-2-PPTX-C v3.10.29"
+      "note": "M README S-2-PPTX-D v3.10.31 capability line pptx render AVAILABLE else ABSENT-UNKNOWN IP-ENV-01"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M CAPABILITIES S-2-PPTX-C GENERATED deck_verbs"
+      "note": "M CAPABILITIES S-2-PPTX-D GENERATED capability line pptx render AVAILABLE else ABSENT-UNKNOWN"
+    },
+    {
+      "path": "docs/DECKS.md",
+      "kind": "M",
+      "note": "M DECKS S-2-PPTX-D v3.10.31 new §Dependency canon WP-D four rules verbatim-core Renderer Verifier completion Non-Goals D hard Honesty rows"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER S-2-PPTX-C"
+      "note": "M PATCH_LEDGER S-2-PPTX-D row canon ratification relay-as-word"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP S-2-PPTX-C row"
+      "note": "M ROADMAP S-2-PPTX-D row v3.10.31 stage 4 of 5"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE S-2-PPTX-C v3.10.29 GENERATED"
+      "note": "M SYSTEM_STATE S-2-PPTX-D v3.10.31 GENERATED dependency canon renderer verifier fill_template"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M LOG S-2-PPTX-C + heartbeat 2026-09-17"
+      "note": "M LOG S-2-PPTX-D heartbeat 2026-09-17 canon ratification relay-as-word"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION S-2-PPTX-C base 4fa588c"
+      "note": "M EXPECTATION S-2-PPTX-D v3.10.31 base f3a4f304f65db8a693b0faad7818f50b3ef129c6 allowed exact stage-equals-EXPECTED"
     },
     {
-      "path": "scripts/tool_registry_check.py",
+      "path": "scripts/deck_pptx_adapter.py",
       "kind": "M",
-      "note": "M tool_registry_check S-2-PPTX-C exempt adapter coverage"
+      "note": "M deck_pptx_adapter S-2-PPTX-D promotion probe truly executes AVAILABLE vs ABSENT-UNKNOWN failure unknown"
     },
     {
-      "path": "tests/test_deck_rules_check.py",
+      "path": "scripts/deck_verbs.py",
       "kind": "M",
-      "note": "M test_deck_rules_check S-2-PPTX-C fence law extended"
+      "note": "M deck_verbs S-2-PPTX-D fill_template unfrozen AVAILABLE→render via deck_render emits rendered sha receipts_embedded ABSENT→honest blocked"
     },
     {
-      "path": "tests/test_deck_verify.py",
+      "path": "scripts/deck_verify.py",
       "kind": "M",
-      "note": "M test_deck_verify S-2-PPTX-C fence law extended"
+      "note": "M deck_verify S-2-PPTX-D gains --verify-rendered MATCH/DRIFT-text/DRIFT-structure/DRIFT-source_ref self-test ≥3 render vectors"
+    },
+    {
+      "path": "tests/test_deck_verbs.py",
+      "kind": "M",
+      "note": "M test_deck_verbs S-2-PPTX-D 7/7 vectors fence law extended tree-scan guard"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M TOOL_REGISTRY S-2-PPTX-C 35->36 deck_verbs"
+      "note": "M TOOL_REGISTRY S-2-PPTX-D 36→37 deck_render fence law"
     },
     {
-      "path": "scripts/deck_pptx_adapter.py",
+      "path": "scripts/deck_render.py",
       "kind": "A",
-      "note": "A deck_pptx_adapter S-2-PPTX-C optional adapter import-guard probe"
+      "note": "A deck_render S-2-PPTX-D renderer stdlib+python-pptx only outline+theme → .pptx --out tempdir NEVER writes repo tree no .pptx ever committed .gitignore *.pptx title+bullets notes source_ref receipts_embedded theme as-is PROVISIONAL budgets re-asserted pre-render refuse FAIL"
     },
     {
-      "path": "scripts/deck_verbs.py",
+      "path": "tests/test_deck_render.py",
       "kind": "A",
-      "note": "A deck_verbs S-2-PPTX-C guardrailed verbs 5v ST"
-    },
-    {
-      "path": "tests/test_deck_verbs.py",
-      "kind": "A",
-      "note": "A test_deck_verbs S-2-PPTX-C 8 vectors discover 175->183"
+      "note": "A test_deck_render S-2-PPTX-D ≥6 vectors fence extension + tree-scan guard zero *.pptx committed discover 183→195"
     }
   ],
   "required_deletions": [
@@ -232,130 +242,10 @@
       "must_contain": ""
     },
     {
-      "command": "git diff --check fc7dcbf6e5e556da9c8ae4049942d344b08f4a13..HEAD",
+      "command": "git diff --check f3a4f304f65db8a693b0faad7818f50b3ef129c6..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "committed-delta whitespace clean from P-19-fix base fc7dcbf"
-    },
-    {
-      "command": "git diff --check fbce71bbfe4c62da71e6b347d36617474f840297..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from original accepted base fbce71b"
-    },
-    {
-      "command": "git diff --check 73888423e16097b2e37029823c379a82d7044d22..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from 5830 base 7388842"
-    },
-    {
-      "command": "git diff --check 4c851e3e7a1d985f26f9d75626606c85fead19b4..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-11-A base 4c851e3"
-    },
-    {
-      "command": "git diff --check 0c0548b19e7bb3ddc1c8ff83ee5e3e5105959aef..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-12 base 0c0548b"
-    },
-    {
-      "command": "git diff --check f24612e460bf32e27aa01a1db962491b355fd000..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-13 base f24612e"
-    },
-    {
-      "command": "git diff --check 1e7b287a50cf7709f2cdb9bf50181b1816119516..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-14 base 1e7b287"
-    },
-    {
-      "command": "git diff --check 094262db3ce5c9ed1460ff652f4d07bd28907261..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-15 base 094262"
-    },
-    {
-      "command": "git diff --check af578886ba70d63400d26490e87277718fbaf20a..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-16 base af57888"
-    },
-    {
-      "command": "git diff --check 0de224d58a758a5ee0b9278427ec224f1139ebdc..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-17 base 0de224d"
-    },
-    {
-      "command": "git diff --check 12dfc22ed50007deb4399162e69f5540e90a89c3..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-18 base 12dfc22"
-    },
-    {
-      "command": "git diff --check ce37b7003ca2af912eeebcc53faf4f851b404f88..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-19 base ce37b70"
-    },
-    {
-      "command": "git diff --check e81bdf8d62b62fb2fc279f2f7738a50a7a279147..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from P-20 base e81bdf8"
-    },
-    {
-      "command": "git diff --check d9e9065492e02d7e571d62d837a8121ebbcc0f1b..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from S-2-VIDEO base d9e9065"
-    },
-    {
-      "command": "git diff --check 9df0fd750c9b671cc9cfdeffcda7692ffb8522ea..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from S-2-VIDEO-fix base 9df0fd7"
-    },
-    {
-      "command": "git diff --check e547e30cba5398bc0c858299f9810551eea3b866..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from LAW-6 base e547e30"
-    },
-    {
-      "command": "git diff --check 4cd3429fc49f6751be70dbcfbb7dc2670251284a..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from S-2-LINK base 4cd3429"
-    },
-    {
-      "command": "git diff --check bab3da4e7f5d0ce10fe91484baae67c66eba244d..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from S-2-ENV base bab3da4"
-    },
-    {
-      "command": "git diff --check ea77a8a1dd4dcd385d0589b6659933af9f0dac78..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from S-2-PPTX-A base ea77a8a"
-    },
-    {
-      "command": "git diff --check 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from S-2-PPTX-B base 46916c7"
-    },
-    {
-      "command": "git diff --check 4fa588cb774100934adfb8ad6e0387eb49dda59a..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from S-2-PPTX-C base 4fa588c"
+      "note": "whitespace clean from S-2-PPTX-D base f3a4f30"
     },
     {
       "command": "git status --porcelain",
@@ -391,7 +281,7 @@
     {
       "command": "python3 scripts/deck_verify.py --self-test",
       "expected_exit": 0,
-      "must_contain": "6/6"
+      "must_contain": "10/10"
     },
     {
       "command": "python3 scripts/deck_verify.py decks/examples/OUTLINE_example_card001.json",
@@ -401,7 +291,7 @@
     {
       "command": "python3 scripts/deck_verbs.py --self-test",
       "expected_exit": 0,
-      "must_contain": "5/5"
+      "must_contain": "7/7"
     },
     {
       "command": "python3 scripts/deck_verbs.py plan_slide decks/examples/OUTLINE_example_card001.json",
@@ -417,6 +307,16 @@
       "command": "python3 scripts/deck_verbs.py fill_template decks/examples/OUTLINE_example_card001.json --adapter null",
       "expected_exit": 0,
       "must_contain": "ABSENT-UNKNOWN"
+    },
+    {
+      "command": "python3 scripts/deck_render.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "6/6"
+    },
+    {
+      "command": "python3 scripts/deck_pptx_adapter.py",
+      "expected_exit": 0,
+      "must_contain": "pptx"
     }
   ],
   "forbidden_paths": [
@@ -424,7 +324,7 @@
   ],
   "risks": [
     "wrong root — package applied to different working directory than repo root",
-    "stale base — base SHA not ancestor or not exact pinned SHA fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 (run 86 genus: hand merge + stale-base extraction)",
+    "stale base — base SHA not ancestor or not exact pinned SHA f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal main v3.10.30) — local equivalent cc9d47b",
     "ZIP extraction without applying deletion — file still on disk after extraction",
     "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
     "documentation claiming unverified CI — CHANGELOG says green but validator red",
@@ -432,7 +332,7 @@
     "unavailable credentials/remote verification — push attempted without Commander motor act",
     "evaluation/routing/deployment conflation — research notes treated as decision rule without named local evaluation",
     "CUE catalog boot overreach — new catalogs non-boot beyond single pointer line per DoD",
-    "motor preflight bypass — extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
+    "motor preflight bypass — extraction/push without running push_preflight_check.py, stale-base or extra diff risk",
     "WARN census hidden — WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
     "G6 docs lanes fail-cell — no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
     "G4 scaffolding contract spine fail-cell — no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
@@ -440,6 +340,12 @@
     "G4 subskill catalog + hook protocol fail-cell — no typed subskill catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check",
     "G4 agent contracts catalog fail-cell — no typed agent contracts, no receipt-bound claims, D4 law no simulated Commander authority not machine-checked",
     "phantom tests — pytest-style def test_* not collected by unittest discover, count claimed vs ran mismatch, memo ≠ mechanism",
-    "file moves/renames — forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
+    "file moves/renames — forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only",
+    "pptx dependency scope creep — python-pptx import outside scripts/deck_pptx_adapter.py breaks single import site canon",
+    "pptx binary committed — *.pptx in repo tree breaks NEVER writes repo tree law, .gitignore must contain *.pptx",
+    "deck-alone delivery — deck delivered without outline ships breaks receipt law",
+    "transitive GPL — lxml/Pillow/XlsxWriter brings GPL license breaks MIT/BSD-only audit",
+    "render writes repo tree — deck_render.py writes .pptx into repo tree breaks --out tempdir law",
+    "budgets not re-asserted — render without DECK_RULES check breaks guard-not-verb law"
   ]
 }

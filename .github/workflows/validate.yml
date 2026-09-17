@@ -18,6 +18,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
+      - name: Install pinned optional dependency python-pptx==0.6.21 (WP-D canon — single import site, MIT, transitive lxml BSD Pillow HPND XlsxWriter BSD no GPL)
+        run: pip install python-pptx==0.6.21 2>&1 | tee pptx_install_output.txt
       - name: Structural validator (form only)
         run: python3 scripts/validate.py 2>&1 | tee validate_output.txt
       - name: Publish validator diagnostics on failure (public raw-log substitute)
@@ -93,7 +95,7 @@ jobs:
             echo ""
             echo "env: $(python3 --version) · runner ${RUNNER_OS:-unknown} · sha ${GITHUB_SHA:-unknown} · date $(date -u +%Y-%m-%dT%H:%MZ)"
             echo ""
-            for f in validate_output.txt knowledge_output.txt ics_output.txt nota_output.txt nota_selftest_output.txt nota_check_output.txt module_output.txt render_output.txt relay_output.txt relay_selftest_output.txt relay_active_output.txt status_output.txt release_truth_output.txt release_truth_selftest_output.txt pycompile_output.txt link_census_output.txt tool_registry_output.txt tool_registry_selftest_output.txt tool_registry_combined_output.txt model_research_output.txt model_research_selftest_output.txt model_research_combined_output.txt cue_resolver_output.txt cue_tests_output.txt cue_resolver_unittest_output.txt hostile_unittest_output.txt discover_output.txt; do
+            for f in pptx_install_output.txt validate_output.txt knowledge_output.txt ics_output.txt nota_output.txt nota_selftest_output.txt nota_check_output.txt module_output.txt render_output.txt relay_output.txt relay_selftest_output.txt relay_active_output.txt status_output.txt release_truth_output.txt release_truth_selftest_output.txt pycompile_output.txt link_census_output.txt tool_registry_output.txt tool_registry_selftest_output.txt tool_registry_combined_output.txt model_research_output.txt model_research_selftest_output.txt model_research_combined_output.txt cue_resolver_output.txt cue_tests_output.txt cue_resolver_unittest_output.txt hostile_unittest_output.txt discover_output.txt; do
               if [ -f "$f" ]; then
                 echo "### $f"
                 echo '```'
@@ -109,6 +111,7 @@ jobs:
         with:
           name: validate-all-failure-diagnostics
           path: |
+            pptx_install_output.txt
             validate_output.txt
             knowledge_output.txt
             ics_output.txt

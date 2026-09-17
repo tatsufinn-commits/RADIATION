@@ -1,6 +1,7 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.29 · Ratified by THE COMMANDER · 2026-09-16 · S-2-PPTX-C Guardrailed Verbs + Optional Adapter (stage 3 of 5)
+**Version:** v3.10.31 · Ratified by THE COMMANDER · 2026-09-17 · S-2-PPTX-D stage 4 of 5 (renderer + verify-rendered + fill_template unfrozen)
+**Capabilities:** pptx render: AVAILABLE when dependency present, else ABSENT-UNKNOWN — constraint grammar per IP-ENV-01
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 
