@@ -35,7 +35,7 @@ def probe_pptx_capability():
     Returns dict with status and version or failure note. Honesty grammar: ABSENT ≠ UNAVAILABLE ≠ UNKNOWN.
     """
     try:
-        import pptx
+        pptx = _import_pptx()
         ver = getattr(pptx, "__version__", "unknown")
         # Also check version floor >=0.6.21
         return {"pptx": "AVAILABLE", "version": ver, "note": "probe observed AVAILABLE — version asserted from module, floor python-pptx>=0.6.21"}
@@ -43,6 +43,17 @@ def probe_pptx_capability():
         return {"pptx": "ABSENT-UNKNOWN", "version": None, "failure": str(e)[:200], "note": "probe observed ABSENT-UNKNOWN — failure recorded as unknown, never claimed absent-by-proxy per IP-ENV-01 grammar"}
     except Exception as e:
         return {"pptx": "ABSENT-UNKNOWN", "version": None, "failure": str(e)[:200], "note": "probe observed ABSENT-UNKNOWN — exception recorded as unknown"}
+
+def _import_pptx():
+    """Load the pinned renderer on Python versions without legacy ABC aliases."""
+    import collections
+    import collections.abc
+
+    for name in ("Container", "Mapping", "MutableMapping", "Sequence"):
+        if not hasattr(collections, name):
+            setattr(collections, name, getattr(collections.abc, name))
+    import pptx
+    return pptx
 
 def get_adapter_status():
     cap = probe_pptx_capability()
@@ -160,8 +171,10 @@ def render_outline_to_pptx(outline_data_or_path, out_path=None, theme_registry_p
 
     # Now create pptx — import inside function
     try:
-        from pptx import Presentation
-        from pptx.util import Inches, Pt
+        pptx = _import_pptx()
+        Presentation = pptx.Presentation
+        Inches = pptx.util.Inches
+        Pt = pptx.util.Pt
     except Exception as e:
         raise RuntimeError(f"pptx import failed inside render: {e}")
 
@@ -288,7 +301,8 @@ def parse_pptx_to_structure(pptx_path):
         raise RuntimeError(f"pptx not available for parse: {cap}")
 
     try:
-        from pptx import Presentation
+        pptx = _import_pptx()
+        Presentation = pptx.Presentation
     except Exception as e:
         raise RuntimeError(f"pptx import failed inside parse: {e}")
 
