@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S-2-PPTX-B v3.10.28 46916c7: deck_verify round-trip+receipt+drift 6v+tests 8v+registry 34->35+rider truth-bearing",
+  "generated_by": "S-2-PPTX-C v3.10.29 4fa588c: verbs plan_slide fill_template verify_deck + adapter probe + tests 8v reg 35->36",
   "tools": [
     {
       "id": "validate",
@@ -901,6 +901,31 @@
         "content_capture": "off_by_default"
       },
       "description": "Deck verifier S-2-PPTX-B: canonical round-trip idempotence sha log, receipt resolver SRC-/ANNOT_/TRI_/CARD_/GAP-/R2-/OUTLINE- witness-based, drift battery MATCH/DRIFT, 6-vector self-test"
+    },
+    {
+      "id": "deck_verbs",
+      "entrypoint": "scripts/deck_verbs.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 120,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/deck_verbs.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "Deck verbs C: plan_slide fill_template verify_deck stdlib never render, budgets re-asserted, source_ref audit, truth lines, chained gate + adapter ABSENT-UNKNOWN WP-D, 5v ST"
     }
   ]
 }

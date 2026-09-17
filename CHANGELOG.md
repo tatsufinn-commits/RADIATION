@@ -9,6 +9,39 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 
 
+## v3.10.29 — 2026-09-16 — S-2-PPTX-C GUARDRAILED VERBS + OPTIONAL ADAPTER (stage 3 of 5) (II.7.4)
+
+**BASE: 4fa588cb774100934adfb8ad6e0387eb49dda59a (PPTX-B seal) per DESK_DIRECTIVE_S2_PPTX_C_2026-09-16.md.**
+
+**Standing interface rule (proposal, adopted):** expose guardrailed verbs — plan_slide · fill_template · verify_deck — never raw primitives. Influences (license-logged, clean-room, nothing imported): GenSlide skeleton (MIT ✓) and mcp-office's "Output Contract for machine-verifiable slide specs" governance pattern (MIT ✓; its contracts doc = nearest-further-reading when R&D sends tail).
+
+**1. `scripts/deck_verbs.py` — three verbs, stdlib, outline-level, no actual rendering:**
+
+- `plan_slide <outline>` — derive per-slide plan: rule re-check per slide vs DECK_RULES (budgets re-asserted at plan time), source_ref audit summary {backed, unbacked-warn}, per-slide truth lines (ref · type · bullets · chars · receipts). PLAN, never render.
+- `verify_deck <outline>` — chained gate: deck_rules_check + deck_verify (canonical idempotence + receipts) + adapter status line; the "verify deck" command a Commander-invoked session would use before anything ever renders.
+- `fill_template <outline> --adapter <path|null>` — honest one: consults adapter (§2). With adapter present-and-capable: records what WOULD be rendered (per-slide render plan, deterministic, sha) and exits with dry-run evidence. With adapter absent/incapable: structured report {adapter: ABSENT-UNKNOWN, would_render: <plan>, blocked_at: dependency canon (WP-D 🟠)} — verb never pretends render capacity it does not have (constraint honesty per IP-ENV-01 grammar: ABSENT ≠ UNAVAILABLE ≠ UNKNOWN — declared and stamped).
+- --self-test ≥5 vectors: plan exemplar budgets, verify chains green, fill_template-with-ABSENT-adapter reports blocked-at-WP-D never crash never fake, unconditional-pptx-import guard walk ship-files asserting no raw import pptx outside guarded probe block fence law extended, budgets re-asserted at plan time truth lines.
+
+**2. `scripts/deck_pptx_adapter.py` — optional adapter, wall-maintained (house finding style):**
+
+- Import-guard discipline: adapter NEVER imports pptx at module level; capability probe = try: import pptx / except ImportError → {"pptx": "AVAILABLE"} with version, or {"pptx": "ABSENT-UNKNOWN"} with failure recorded as unknown, never claimed absent-by-proxy. Same P-19 contract grammar (asserted vs observed) applies: only probe outcome asserts.
+- Ship no other behavior. Adapter is accommodation for tomorrow, probe is only live edge today.
+- Policy: import pptx = FAIL-class outside guarded probe block — this file contains guarded probe only, never at module level. Exempt from tool_registry coverage closure per S-2-PPTX-C (optional adapter, not a tool).
+
+**3. Tests + registry + fence law:**
+
+- `tests/test_deck_verbs.py` ≥5 vectors (TestCase law; discover 175→183, pasted) incl plan exemplar budgets, verify chains green, fill_template-with-ABSENT-adapter blocked-at-WP-D, unconditional-pptx-import guard, deterministic sha, self-test vectors, adapter probe contract grammar.
+- `tests/test_deck_rules_check.py` M + `tests/test_deck_verify.py` M fence law extended: allow guarded probe in deck_pptx_adapter.py, forbid raw import elsewhere.
+- `tools/TOOL_REGISTRY.json` M 35→36 deck_verbs (adapter exempt from coverage, not a tool).
+- `scripts/tool_registry_check.py` M exempt adapter from coverage closure (optional adapter wall-maintained).
+- `docs/CAPABILITIES.md` M GENERATED + `docs/SYSTEM_STATE.md` M GENERATED via render_docs --apply.
+
+**Battery + Provenance:** EXPECTATION re-pin base 4fa588c allowed exact, gate live+ST, preflight @ base ∞LAW-6, validate 0 fail 42·39·3·0, catalog checkers 0, lints/verifier live exemplar, render PASS, delta-vs-allowed ∅, fresh-clone ancestor proof, task_ledger attempt:, ledgers honesty rows v3.10.29 zip→motor. Discover 175→183 OK (8 new vectors), deck_rules_check 7/7, deck_verify 6/6, deck_verbs 5/5 self-test, tool_registry 15/15.
+
+**Non-goals hard:** No actual rendering, no committed binaries, no WP-D canon text 🟠 word remains Commander's separately, no theme-registry edits provisional, no network, no SOLVE/fonts/VLM WP-E, no cue/skill/mode changes, no imports from any basis-shelf repo clean-room by law.
+
+**Base pinned:** 4fa588cb774100934adfb8ad6e0387eb49dda59a (PPTX-B seal). Allowed delta exact. One patch one purpose II.7.4 — S-2-PPTX-C v3.10.29.
+
 ## v3.10.28 — 2026-09-16 — S-2-PPTX-B OUTLINE ROUND-TRIP VERIFIER + RECEIPT RESOLVER (+ A-repair rider) (II.7.4)
 
 **BASE: 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8 (PPTX-A seal) per DESK_DIRECTIVE_S2_PPTX_B_2026-09-16.md.**

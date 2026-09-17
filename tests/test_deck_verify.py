@@ -159,12 +159,22 @@ class TestDeckVerify(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
 
     def test_no_pptx_import(self):
-        # No python-pptx import anywhere
+        # No python-pptx import outside guarded probe block — fence law extended per S-2-PPTX-C
         import re
         pattern = re.compile(r"^\s*(import\s+pptx|from\s+pptx)", re.MULTILINE)
         for fp in (ROOT / "scripts").rglob("*.py"):
             txt = fp.read_text(encoding="utf-8", errors="ignore")
-            self.assertIsNone(pattern.search(txt), f"{fp} must not import pptx per S-2-PPTX-B")
+            if fp.name == "deck_pptx_adapter.py":
+                if "def probe_pptx_capability" not in txt:
+                    self.fail(f"{fp} missing probe function")
+                lines = txt.splitlines()
+                def_idx = txt.find("def probe_pptx_capability")
+                for line in lines:
+                    if re.match(r"^\s*(import\s+pptx|from\s+pptx)", line):
+                        if txt.find(line) < def_idx:
+                            self.fail(f"{fp} has unconditional pptx import at module level — policy FAIL-class")
+                continue
+            self.assertIsNone(pattern.search(txt), f"{fp} must not import pptx per S-2-PPTX-B/C — raw import outside guarded probe")
         for fp in (ROOT / "decks").rglob("*.py"):
             txt = fp.read_text(encoding="utf-8", errors="ignore")
             self.assertIsNone(pattern.search(txt))

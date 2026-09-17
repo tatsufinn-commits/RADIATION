@@ -286,7 +286,9 @@ Stated plainly so a session does not assume capability it lacks:
 | `cue_resolver.py` | CUE Resolver / Linter — Candidate B opening P-11-A | no | no | yes |
 | `deadline_feed.py` | the Deadline Engine (patch 3100). | yes | no | no |
 | `decay_compute.py` | P-03: compute decay expiries FROM registry rows (arithmetic, not memory). | no | no | no |
+| `deck_pptx_adapter.py` | Optional PPTX adapter, wall-maintained (S-2-PPTX-C stage 3 of 5) | no | no | no |
 | `deck_rules_check.py` | Deck Rules + Outline Schema lint (S-2-PPTX-A stage 1) | no | no | no |
+| `deck_verbs.py` | Guardrailed verbs + optional adapter (S-2-PPTX-C stage 3 of 5) | no | no | no |
 | `deck_verify.py` | Outline round-trip + receipt resolver (S-2-PPTX-B stage 1 of 5) | no | no | no |
 | `docs_index_check.py` | deterministic stdlib checker, house finding style (G6) | no | no | no |
 | `export_anki.py` | P-05 Anki exporter (stdlib port of TAMAKEE export-anki.js). | yes | no | no |

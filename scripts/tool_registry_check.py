@@ -61,6 +61,8 @@ def code_level_findings(reg, root=ROOT):
             bad.append(f"duplicate tool id: {tid!r}")
         seen.add(tid)
     # R3 coverage closure
+    # Exempt optional adapters wall-maintained per S-2-PPTX-C: deck_pptx_adapter.py is not a tool, probe-only live edge
+    exempt = {"scripts/deck_pptx_adapter.py"}
     cover_dirs = [os.path.join("scripts"), os.path.join("radiation_core"),
                   os.path.join("agents", "_common")]
     registered = {os.path.normpath(t.get("entrypoint", "")) for t in tools}
@@ -72,6 +74,8 @@ def code_level_findings(reg, root=ROOT):
             if not f.endswith(".py") or f == "__init__.py":
                 continue
             rel = os.path.normpath(os.path.join(d, f))
+            if rel in exempt:
+                continue
             if rel not in registered:
                 bad.append(f"coverage: {rel} is not registered")
     for t in tools:

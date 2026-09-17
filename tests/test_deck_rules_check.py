@@ -157,16 +157,27 @@ class TestDeckRulesCheck(unittest.TestCase):
             self.assertEqual(len(entry.get("hexes", [])), 5)
 
     def test_no_pptx_import(self):
-        # No python-pptx import anywhere (import pptx = policy FAIL-class)
-        # Check for actual import statements, not substring in comments/docstrings
+        # No python-pptx import outside guarded probe block — fence law extended per S-2-PPTX-C
+        # Guarded probe allowed only in deck_pptx_adapter.py inside try:
         import re
         pattern = re.compile(r"^\s*(import\s+pptx|from\s+pptx)", re.MULTILINE)
         for fp in (ROOT / "scripts").rglob("*.py"):
             txt = fp.read_text(encoding="utf-8", errors="ignore")
-            self.assertIsNone(pattern.search(txt), f"{fp} must not import pptx per S-2-PPTX-A")
+            if fp.name == "deck_pptx_adapter.py":
+                # Allow only inside probe function, not at module level
+                if "def probe_pptx_capability" not in txt:
+                    self.fail(f"{fp} missing probe function")
+                lines = txt.splitlines()
+                def_idx = txt.find("def probe_pptx_capability")
+                for line in lines:
+                    if re.match(r"^\s*(import\s+pptx|from\s+pptx)", line):
+                        if txt.find(line) < def_idx:
+                            self.fail(f"{fp} has unconditional pptx import at module level — policy FAIL-class")
+                continue
+            self.assertIsNone(pattern.search(txt), f"{fp} must not import pptx per S-2-PPTX-A/C — raw import outside guarded probe")
         for fp in (ROOT / "decks").rglob("*.py"):
             txt = fp.read_text(encoding="utf-8", errors="ignore")
-            self.assertIsNone(pattern.search(txt), f"{fp} must not import pptx per S-2-PPTX-A")
+            self.assertIsNone(pattern.search(txt), f"{fp} must not import pptx per S-2-PPTX-A/C")
 
 if __name__ == "__main__":
     unittest.main()

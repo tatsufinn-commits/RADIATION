@@ -1,79 +1,89 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect \u2014 S-2-PPTX-B OUTLINE VERIFIER + RECEIPT RESOLVER v3.10.28 base 46916c7: deck_verify A 6v + tests 8v + registry 34->35 + rider truth-bearing + attempt: marker",
-  "base_sha": "46916c7ae7d1c34c60a7f49ad04550a3f373f5e8",
+  "generated_by": "S006 Architect — S-2-PPTX-C GUARDRAILED VERBS + OPTIONAL ADAPTER v3.10.29 base 4fa588c: verbs + adapter probe + tests 8v + reg 35->36 + attempt: marker",
+  "base_sha": "4fa588cb774100934adfb8ad6e0387eb49dda59a",
   "base_must_be_ancestor": true,
-  "description": "S-2-PPTX-B OUTLINE ROUND-TRIP VERIFIER + RECEIPT RESOLVER (+ A-repair rider) base 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8 (PPTX-A seal) v3.10.28: scripts/deck_verify.py A canonicalize sorted keys normalized whitespace stable ordering by ref re-serialize idempotence assert canonical(canonical(o))\u2261canonical(o) deterministic bytes sha log + receipt resolver SRC-/ANNOT_/TRI_/CARD_/GAP-/R2-/OUTLINE- grounding REFERENCES.md 09-nota 06-triangulate brain registry witness-based no network UNRESOLVED-RECEIPT FAIL + drift battery tamper drop bullet mutate text swap source_ref \u2192 DRIFT per class MATCH\u2192DRIFT + scripts/deck_rules_check.py M rider truth-bearing checked N outline file(s) \u2014 0 findings + tests/test_deck_verify.py A 8 vectors discover 167->175 + tools/TOOL_REGISTRY.json M 34->35 deck_verify + docs/DECKS.md M verifier \u00a7 outline-level MATCH/DRIFT + render-half deferred WP-C/D behind \ud83d\udfe0 + docs/CAPABILITIES.md M GENERATED + docs/SYSTEM_STATE.md M + CHANGELOG.md M + README.md M + docs/ROADMAP.md M + Brain/frontal_lobe/task_ledger.md M attempt: marker + docs/PATCH_LEDGER.md M + docs/shrine/LOG.md M heartbeat 2026-09-17 + EXPECTATION M base 46916c7. One sealed candidate one purpose II.7.4 v3.10.28.",
+  "description": "S-2-PPTX-C GUARDRAILED VERBS + OPTIONAL ADAPTER stage 3 of 5 base 4fa588cb774100934adfb8ad6e0387eb49dda59a (PPTX-B seal) v3.10.29: scripts/deck_verbs.py A 3 verbs plan_slide budgets re-asserted source_ref audit backed/unbacked-warn truth lines ref·type·bullets·chars·receipts PLAN never render verify_deck chained gate deck_rules_check+deck_verify+adapter status fill_template honest consult adapter ABSENT-UNKNOWN blocked_at WP-D never fake 5v ST + scripts/deck_pptx_adapter.py A optional adapter wall-maintained import-guard NEVER at module level capability probe try import pptx AVAILABLE vs ABSENT-UNKNOWN failure recorded unknown per IP-ENV-01 grammar + tests/test_deck_verbs.py A 8 vectors discover 175->183 plan exemplar budgets verify chains green fill_template ABSENT blocked-at-WP-D unconditional-pptx-import guard deterministic sha self-test + tests/test_deck_rules_check.py M fence law extended + tests/test_deck_verify.py M fence law extended + scripts/tool_registry_check.py M exempt adapter coverage + tools/TOOL_REGISTRY.json M 35->36 deck_verbs + docs/CAPABILITIES.md M GENERATED + docs/SYSTEM_STATE.md M GENERATED + CHANGELOG M v3.10.29 + README M v3.10.29 + ROADMAP M S-2-PPTX-C row + task_ledger M attempt: marker + PATCH_LEDGER M + LOG M heartbeat 2026-09-17 + EXPECTATION M base 4fa588c. One sealed candidate one purpose II.7.4 v3.10.29.",
   "allowed_changes": [
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger S-2-PPTX-B attempt: marker"
+      "note": "M task_ledger S-2-PPTX-C attempt: marker"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG S-2-PPTX-B v3.10.28"
+      "note": "M CHANGELOG S-2-PPTX-C v3.10.29"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README S-2-PPTX-B v3.10.28"
+      "note": "M README S-2-PPTX-C v3.10.29"
     },
     {
       "path": "docs/CAPABILITIES.md",
       "kind": "M",
-      "note": "M CAPABILITIES S-2-PPTX-B GENERATED deck_verify"
-    },
-    {
-      "path": "docs/DECKS.md",
-      "kind": "M",
-      "note": "M DECKS S-2-PPTX-B verifier \u00a7 MATCH/DRIFT + render-half deferred WP-C/D"
+      "note": "M CAPABILITIES S-2-PPTX-C GENERATED deck_verbs"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER S-2-PPTX-B"
+      "note": "M PATCH_LEDGER S-2-PPTX-C"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP S-2-PPTX-B row"
+      "note": "M ROADMAP S-2-PPTX-C row"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE S-2-PPTX-B v3.10.28"
+      "note": "M SYSTEM_STATE S-2-PPTX-C v3.10.29 GENERATED"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M LOG S-2-PPTX-B + heartbeat 2026-09-17"
+      "note": "M LOG S-2-PPTX-C + heartbeat 2026-09-17"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION S-2-PPTX-B base 46916c7"
+      "note": "M EXPECTATION S-2-PPTX-C base 4fa588c"
     },
     {
-      "path": "scripts/deck_rules_check.py",
+      "path": "scripts/tool_registry_check.py",
       "kind": "M",
-      "note": "M deck_rules_check S-2-PPTX-B rider truth-bearing checked N"
+      "note": "M tool_registry_check S-2-PPTX-C exempt adapter coverage"
+    },
+    {
+      "path": "tests/test_deck_rules_check.py",
+      "kind": "M",
+      "note": "M test_deck_rules_check S-2-PPTX-C fence law extended"
+    },
+    {
+      "path": "tests/test_deck_verify.py",
+      "kind": "M",
+      "note": "M test_deck_verify S-2-PPTX-C fence law extended"
     },
     {
       "path": "tools/TOOL_REGISTRY.json",
       "kind": "M",
-      "note": "M TOOL_REGISTRY S-2-PPTX-B 34->35 deck_verify"
+      "note": "M TOOL_REGISTRY S-2-PPTX-C 35->36 deck_verbs"
     },
     {
-      "path": "scripts/deck_verify.py",
+      "path": "scripts/deck_pptx_adapter.py",
       "kind": "A",
-      "note": "A deck_verify S-2-PPTX-B canonical round-trip + receipt resolver + drift battery 6 vectors"
+      "note": "A deck_pptx_adapter S-2-PPTX-C optional adapter import-guard probe"
     },
     {
-      "path": "tests/test_deck_verify.py",
+      "path": "scripts/deck_verbs.py",
       "kind": "A",
-      "note": "A test_deck_verify S-2-PPTX-B 8 vectors discover 167->175 + rider vector"
+      "note": "A deck_verbs S-2-PPTX-C guardrailed verbs 5v ST"
+    },
+    {
+      "path": "tests/test_deck_verbs.py",
+      "kind": "A",
+      "note": "A test_deck_verbs S-2-PPTX-C 8 vectors discover 175->183"
     }
   ],
   "required_deletions": [
@@ -294,6 +304,60 @@
       "note": "whitespace clean from P-19 base ce37b70"
     },
     {
+      "command": "git diff --check e81bdf8d62b62fb2fc279f2f7738a50a7a279147..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from P-20 base e81bdf8"
+    },
+    {
+      "command": "git diff --check d9e9065492e02d7e571d62d837a8121ebbcc0f1b..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from S-2-VIDEO base d9e9065"
+    },
+    {
+      "command": "git diff --check 9df0fd750c9b671cc9cfdeffcda7692ffb8522ea..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from S-2-VIDEO-fix base 9df0fd7"
+    },
+    {
+      "command": "git diff --check e547e30cba5398bc0c858299f9810551eea3b866..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from LAW-6 base e547e30"
+    },
+    {
+      "command": "git diff --check 4cd3429fc49f6751be70dbcfbb7dc2670251284a..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from S-2-LINK base 4cd3429"
+    },
+    {
+      "command": "git diff --check bab3da4e7f5d0ce10fe91484baae67c66eba244d..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from S-2-ENV base bab3da4"
+    },
+    {
+      "command": "git diff --check ea77a8a1dd4dcd385d0589b6659933af9f0dac78..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from S-2-PPTX-A base ea77a8a"
+    },
+    {
+      "command": "git diff --check 46916c7ae7d1c34c60a7f49ad04550a3f373f5e8..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from S-2-PPTX-B base 46916c7"
+    },
+    {
+      "command": "git diff --check 4fa588cb774100934adfb8ad6e0387eb49dda59a..HEAD",
+      "expected_exit": 0,
+      "must_contain": "",
+      "note": "whitespace clean from S-2-PPTX-C base 4fa588c"
+    },
+    {
       "command": "git status --porcelain",
       "expected_exit": 0,
       "must_contain": "",
@@ -333,29 +397,49 @@
       "command": "python3 scripts/deck_verify.py decks/examples/OUTLINE_example_card001.json",
       "expected_exit": 0,
       "must_contain": "0 finding"
+    },
+    {
+      "command": "python3 scripts/deck_verbs.py --self-test",
+      "expected_exit": 0,
+      "must_contain": "5/5"
+    },
+    {
+      "command": "python3 scripts/deck_verbs.py plan_slide decks/examples/OUTLINE_example_card001.json",
+      "expected_exit": 0,
+      "must_contain": "budgets re-asserted at plan time"
+    },
+    {
+      "command": "python3 scripts/deck_verbs.py verify_deck decks/examples/OUTLINE_example_card001.json",
+      "expected_exit": 0,
+      "must_contain": "chained gate green"
+    },
+    {
+      "command": "python3 scripts/deck_verbs.py fill_template decks/examples/OUTLINE_example_card001.json --adapter null",
+      "expected_exit": 0,
+      "must_contain": "ABSENT-UNKNOWN"
     }
   ],
   "forbidden_paths": [
     "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
   ],
   "risks": [
-    "wrong root \u2014 package applied to different working directory than repo root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 (run 86 genus: hand merge + stale-base extraction)",
-    "ZIP extraction without applying deletion \u2014 file still on disk after extraction",
-    "generated-file drift \u2014 INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
-    "documentation claiming unverified CI \u2014 CHANGELOG says green but validator red",
-    "host/provider/surface confusion \u2014 Arena gap treated as official policy, model identity claimed from inside session",
-    "unavailable credentials/remote verification \u2014 push attempted without Commander motor act",
-    "evaluation/routing/deployment conflation \u2014 research notes treated as decision rule without named local evaluation",
-    "CUE catalog boot overreach \u2014 new catalogs non-boot beyond single pointer line per DoD",
-    "motor preflight bypass \u2014 extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
-    "WARN census hidden \u2014 WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
-    "G6 docs lanes fail-cell \u2014 no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
-    "G4 scaffolding contract spine fail-cell \u2014 no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
-    "G4 skill catalog spine fail-cell \u2014 no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
-    "G4 subskill catalog + hook protocol fail-cell \u2014 no typed subskill catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check",
-    "G4 agent contracts catalog fail-cell \u2014 no typed agent contracts, no receipt-bound claims, D4 law no simulated Commander authority not machine-checked",
-    "phantom tests \u2014 pytest-style def test_* not collected by unittest discover, count claimed vs ran mismatch, memo \u2260 mechanism",
-    "file moves/renames \u2014 forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
+    "wrong root — package applied to different working directory than repo root",
+    "stale base — base SHA not ancestor or not exact pinned SHA fc7dcbf6e5e556da9c8ae4049942d344b08f4a13 (run 86 genus: hand merge + stale-base extraction)",
+    "ZIP extraction without applying deletion — file still on disk after extraction",
+    "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
+    "documentation claiming unverified CI — CHANGELOG says green but validator red",
+    "host/provider/surface confusion — Arena gap treated as official policy, model identity claimed from inside session",
+    "unavailable credentials/remote verification — push attempted without Commander motor act",
+    "evaluation/routing/deployment conflation — research notes treated as decision rule without named local evaluation",
+    "CUE catalog boot overreach — new catalogs non-boot beyond single pointer line per DoD",
+    "motor preflight bypass — extraction/push without running push_preflight_check.py, stale-base or extra diff risk (run 86)",
+    "WARN census hidden — WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
+    "G6 docs lanes fail-cell — no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
+    "G4 scaffolding contract spine fail-cell — no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
+    "G4 skill catalog spine fail-cell — no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
+    "G4 subskill catalog + hook protocol fail-cell — no typed subskill catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check",
+    "G4 agent contracts catalog fail-cell — no typed agent contracts, no receipt-bound claims, D4 law no simulated Commander authority not machine-checked",
+    "phantom tests — pytest-style def test_* not collected by unittest discover, count claimed vs ran mismatch, memo ≠ mechanism",
+    "file moves/renames — forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only"
   ]
 }
