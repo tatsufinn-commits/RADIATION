@@ -1,99 +1,49 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "S006 Architect — S-2-PPTX-D DEPENDENCY CANON + RENDERER + ROUND-TRIP COMPLETION v3.10.31 base f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal main v3.10.30) per DESK_DIRECTIVE_S2_PPTX_D_2026-09-17.md — canon ratified by Commander relay relay-as-word — four rules verbatim-core single import site ONLY deck_pptx_adapter.py fence walks ALL ship-files FAIL pinned floor python-pptx>=0.6.21 CI pip install ==0.6.21 skipUnless AVAILABLE ABSENT-UNKNOWN never crash transitive BSD no GPL receipt law deck never alone",
-  "base_sha": "f3a4f304f65db8a693b0faad7818f50b3ef129c6",
+  "generated_by": "S006 Architect — GATE-3 CLOSURE ROW — SECONDARY PHASE: CLOSED v3.10.31 base d912777e25ada164b903083c5a128d3491a38287 (run #111 SUCCESS) per DESK_DIRECTIVE_GATE3_CLOSURE_ROW_2026-09-17.md and GATE3_CLOSURE_ADJUDICATION_2026-09-17.md 14/14 CLOSED umbrella verdict permanent witnesses inside zero functional change paper tranche smallness IS discipline",
+  "base_sha": "d912777e25ada164b903083c5a128d3491a38287",
   "base_must_be_ancestor": true,
-  "description": "S-2-PPTX-D DEPENDENCY CANON + RENDERER + ROUND-TRIP COMPLETION (stage 4 of 5) v3.10.31 base f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal main v3.10.30) per DESK_DIRECTIVE_S2_PPTX_D_2026-09-17.md — canon ratified by Commander relay relay-as-word — four rules verbatim-core: 1) single import site ONLY scripts/deck_pptx_adapter.py never at module level always inside guarded probe/call-sites fence law walks ALL ship-files scripts/, tests/, Brain/, cue/, skills/ FAIL any other occurrence, 2) pinned version floor canon declares minimum CI installs exactly pin tests skipUnless(probe AVAILABLE) degrade honestly ABSENT-UNKNOWN never crash, 3) no transitive scope python-pptx brings lxml/Pillow/XlsxWriter logged licensed MIT/BSD no GPL hard fail one line each ledgers, 4) receipt law holds verbatim deck never delivered alone its outline ships always. Deliverables: docs/DECKS.md new §Dependency canon python-pptx (WP-D) four rules verbatim-core Renderer spec Verifier completion Non-Goals D hard Honesty rows canon ratification relay-as-word single import pin transitive renderer round-trip fill_template Windows env; README+CAPABILITIES capability lines one each pptx render AVAILABLE when dependency present else ABSENT-UNKNOWN constraint grammar IP-ENV-01; scripts/deck_pptx_adapter.py promotion probe truly executes {pptx:AVAILABLE,version} or ABSENT-UNKNOWN failure recorded unknown same honesty grammar asserted vs observed; scripts/deck_render.py renderer stdlib+python-pptx only outline+theme registry → .pptx explicit --out default tempdir NEVER writes repo tree no .pptx ever committed add .pptx to .gitignore as LAW-6-era idiom; slide shape title+bullets content speaker notes carry source_ref set receipts embedded two-pillar doctrine honored inside artifact theme taken from decks/DECK_RULES.json registry as-is anchor PROVISIONAL; budgets re-asserted pre-render run DECK_RULES check internally refuse render on FAIL guards not verbs; scripts/deck_verify.py gains --verify-rendered render outline to tempdir parse .pptx back via adapter derive structure compare vs outline verdict MATCH or DRIFT-text/DRIFT-structure/DRIFT-source_ref named classes preserved from B, --self-test ≥3 render vectors render+round-trip MATCH rendered-side text mutation→DRIFT-text structure mutation→DRIFT-structure skipUnless AVAILABLE; fill_template unfrozen with adapter AVAILABLE performs render via deck_render emits {rendered, sha, receipts_embedded slides-with-notes count} with ABSENT keeps honest report shape no fake never; tests/test_deck_render.py ≥6 vectors incl fence extension + tree-scan guard asserting zero *.pptx ever committed deck_verbs/deck_verify self-test bumps pasted registry 36→37 discover 183→195 pasted; CI workflow installs pinned dependency before battery one step pinned OPTIONAL-dependency law every pptx-touching vector skipUnless-gated stdlib checkout still passes core. Non-goals hard: no template library, no SOLVE/fonts/VLM WP-E deferred-research, no committed .pptx anywhere ever, no deck-alone delivery receipt law, no theme-registry edits PROVISIONAL stands until Commander notes, no cue/skill/mode changes, no network at runtime CI pip-install only, no Problem-1. Battery+provenance: EXPECTATION re-pin base f3a4f30 allowed exact stage-equals-EXPECTED double-red closed, gate live+ST, preflight @base ∞LAW-6, validate 0 fail, catalogity 0, lints/verifier/verbs/render live exemplar MATCH pasted, render PASS, absences *.pptx in-tree pasted, delta-vs-allowed ∅, fresh-clone ancestor proof, task_ledger attempt:, ledgers honesty rows canon ratification relay-as-word, v3.10.31 zip→motor. Windows-agent reality: CP1252/console+symlink limits documented blockers local red on env-class not defect if CI-Ubuntu green declare env class honestly never mute real finding.",
+  "description": "GATE-3 CLOSURE ROW — SECONDARY PHASE: CLOSED base d912777e25ada164b903083c5a128d3491a38287 v3.10.31 per DESK_DIRECTIVE_GATE3_CLOSURE_ROW_2026-09-17.md and GATE3_CLOSURE_ADJUDICATION_2026-09-17.md 14/14 CLOSED umbrella verdict permanent witnesses inside. Deliverables ledger set exact 8 files: docs/ROADMAP.md M secondary-phase row ✅ COMPLETED — CLOSED (Gate-3 adjudicated 2026-09-17, 14/14) sealed-head sha string (e547e30 • 4cd3429 • bab3da4 • ea77a8a • 46916c7 → d912777) + doctrine paragraph verbatim §III blockquote Gate-1 promise redeemed; docs/shrine/LOG.md M new shrine row Gate-3 closure five-tranche proof run by sha 46916c7·4fa588c·f3a4f30·d912777 VIDEO v3.10.23 LINK v3.10.25 ENV v3.10.26 PPTX A/B/C/D scars #103/#104 (report-as-doc penetration class; stage-≡-allowed guard) + #110 (python-pptx==0.6.21 vs CI Python 3.11; whitelist-compat shim, repin backlog) now guard-armed as ancestor-lessons heartbeat 2026-09-17; CHANGELOG.md M v3.10.31 GATE-3 CLOSURE row zero functional change; docs/SYSTEM_STATE.md M GENERATED v3.10.31 Gate-3 closure; docs/PATCH_LEDGER.md M hand row matching; README.md M version line only; Brain/frontal_lobe/task_ledger.md M attempt: marker; docs/RELEASE_TRUTH_GATE/EXPECTATION.json M re-pin base d912777 allowed 8 paths. Doctrine paragraph verbatim §III: Validate an artifact the way you know it, not the way you wish you knew all artifacts. A deck has outlines and budgets; a video has lineage; a link has accessibility; an environment has capability. The house keeps each of these where they live — in small contracts, resolver tables, and receipt laws — and refuses the elegant lie of one validator to rule them because the evidence, across every tranche of the Secondary phase, file by file, showed small and honest to be stronger than broad and clever. Five-tranche proof: WP-A 46916c7 rules-as-data outline schema lint exemplar real receipts, WP-B 4fa588c round-trip verifier canonical idempotence receipt resolver UNRESOLVED-RECEIPT FAIL drift classes memo lied about coverage repaired in-stride, WP-C f3a4f30 guardrailed verbs plan_slide verify_deck fill_template honest-ABSENT adapter wall ABSENT-UNKNOWN never fake 183 tests, WP-D d912777 canon python-pptx==0.6.21 MIT-clean transitives BSD/HPND no GPL single guarded import site renderer receipts embedded as slide notes two-pillar doctrine inside artifact render-half round-trip --verify-rendered MATCH/DRIFT .pptx banned from tree .gitignore + tree-scan test standing law deck never travels without outline. Scars #103/#104/#110 red runs report-penetration class now guard-armed. Battery EXPECTED-pinned gate live+ST preflight @ base ∞LAW-6 validate 0 fail discover 195 catalog integrity 0 render PASS staged-set ≡ allowed pasted fresh-clone ancestor proof diff-positive greps 14/14 + doctrine-paragraph first eight words present in ROADMAP v3.10.31 zip→motor desk verifies landed main. No code/script/test edits no registry change 37 stays no theme/canon edits no deletion no report-in-tree armed class stays armed stage-≡-allowed proof pasted no new tranches riding.",
   "allowed_changes": [
-    {
-      "path": ".github/workflows/validate.yml",
-      "kind": "M",
-      "note": "M validate.yml S-2-PPTX-D pip install python-pptx==0.6.21 one step pinned OPTIONAL-dependency law"
-    },
     {
       "path": "Brain/frontal_lobe/task_ledger.md",
       "kind": "M",
-      "note": "M task_ledger S-2-PPTX-D attempt: marker canon ratification relay-as-word four rules single import pin transitive renderer round-trip fill_template"
+      "note": "M task_ledger GATE-3 CLOSURE ROW attempt: marker doctrine paragraph verbatim five-tranche proof scars #103/#104 (report-as-doc penetration class; stage-≡-allowed guard) + #110 (python-pptx==0.6.21 vs CI Python 3.11; whitelist-compat shim, repin backlog)"
     },
     {
       "path": "CHANGELOG.md",
       "kind": "M",
-      "note": "M CHANGELOG S-2-PPTX-D v3.10.31 base f3a4f30 dependency canon renderer verify-rendered fill_template unfrozen"
+      "note": "M CHANGELOG GATE-3 CLOSURE v3.10.31 row zero functional change"
     },
     {
       "path": "README.md",
       "kind": "M",
-      "note": "M README S-2-PPTX-D v3.10.31 capability line pptx render AVAILABLE else ABSENT-UNKNOWN IP-ENV-01"
-    },
-    {
-      "path": "docs/CAPABILITIES.md",
-      "kind": "M",
-      "note": "M CAPABILITIES S-2-PPTX-D GENERATED capability line pptx render AVAILABLE else ABSENT-UNKNOWN"
-    },
-    {
-      "path": "docs/DECKS.md",
-      "kind": "M",
-      "note": "M DECKS S-2-PPTX-D v3.10.31 new §Dependency canon WP-D four rules verbatim-core Renderer Verifier completion Non-Goals D hard Honesty rows"
+      "note": "M README GATE-3 CLOSURE v3.10.31 version line only"
     },
     {
       "path": "docs/PATCH_LEDGER.md",
       "kind": "M",
-      "note": "M PATCH_LEDGER S-2-PPTX-D row canon ratification relay-as-word"
+      "note": "M PATCH_LEDGER GATE-3 CLOSURE row sealed-head sha string e547e30 • 4cd3429 • bab3da4 • ea77a8a • 46916c7 → d912777 doctrine paragraph"
     },
     {
       "path": "docs/ROADMAP.md",
       "kind": "M",
-      "note": "M ROADMAP S-2-PPTX-D row v3.10.31 stage 4 of 5"
+      "note": "M ROADMAP GATE-3 CLOSURE secondary-phase row ✅ COMPLETED — CLOSED (Gate-3 adjudicated 2026-09-17, 14/14) sealed-head sha string e547e30 • 4cd3429 • bab3da4 • ea77a8a • 46916c7 → d912777 doctrine paragraph verbatim blockquote"
     },
     {
       "path": "docs/SYSTEM_STATE.md",
       "kind": "M",
-      "note": "M SYSTEM_STATE S-2-PPTX-D v3.10.31 GENERATED dependency canon renderer verifier fill_template"
+      "note": "M SYSTEM_STATE GATE-3 CLOSURE v3.10.31 GENERATED"
     },
     {
       "path": "docs/shrine/LOG.md",
       "kind": "M",
-      "note": "M LOG S-2-PPTX-D heartbeat 2026-09-17 canon ratification relay-as-word"
+      "note": "M LOG GATE-3 CLOSURE five-tranche proof 46916c7·4fa588c·f3a4f30·d912777 scars #103/#104 (report-as-doc penetration class; stage-≡-allowed guard) + #110 (python-pptx==0.6.21 vs CI Python 3.11; whitelist-compat shim, repin backlog)"
     },
     {
       "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
       "kind": "M",
-      "note": "M EXPECTATION S-2-PPTX-D v3.10.31 base f3a4f304f65db8a693b0faad7818f50b3ef129c6 allowed exact stage-equals-EXPECTED"
-    },
-    {
-      "path": "scripts/deck_pptx_adapter.py",
-      "kind": "M",
-      "note": "M deck_pptx_adapter S-2-PPTX-D promotion probe truly executes AVAILABLE vs ABSENT-UNKNOWN failure unknown"
-    },
-    {
-      "path": "scripts/deck_verbs.py",
-      "kind": "M",
-      "note": "M deck_verbs S-2-PPTX-D fill_template unfrozen AVAILABLE→render via deck_render emits rendered sha receipts_embedded ABSENT→honest blocked"
-    },
-    {
-      "path": "scripts/deck_verify.py",
-      "kind": "M",
-      "note": "M deck_verify S-2-PPTX-D gains --verify-rendered MATCH/DRIFT-text/DRIFT-structure/DRIFT-source_ref self-test ≥3 render vectors"
-    },
-    {
-      "path": "tests/test_deck_verbs.py",
-      "kind": "M",
-      "note": "M test_deck_verbs S-2-PPTX-D 7/7 vectors fence law extended tree-scan guard"
-    },
-    {
-      "path": "tools/TOOL_REGISTRY.json",
-      "kind": "M",
-      "note": "M TOOL_REGISTRY S-2-PPTX-D 36→37 deck_render fence law"
-    },
-    {
-      "path": "scripts/deck_render.py",
-      "kind": "A",
-      "note": "A deck_render S-2-PPTX-D renderer stdlib+python-pptx only outline+theme → .pptx --out tempdir NEVER writes repo tree no .pptx ever committed .gitignore *.pptx title+bullets notes source_ref receipts_embedded theme as-is PROVISIONAL budgets re-asserted pre-render refuse FAIL"
-    },
-    {
-      "path": "tests/test_deck_render.py",
-      "kind": "A",
-      "note": "A test_deck_render S-2-PPTX-D ≥6 vectors fence extension + tree-scan guard zero *.pptx committed discover 183→195"
+      "note": "M EXPECTATION GATE-3 CLOSURE v3.10.31 base d912777e25ada164b903083c5a128d3491a38287 allowed 8 paths"
     }
   ],
   "required_deletions": [
@@ -242,10 +192,10 @@
       "must_contain": ""
     },
     {
-      "command": "git diff --check f3a4f304f65db8a693b0faad7818f50b3ef129c6..HEAD",
+      "command": "git diff --check d912777e25ada164b903083c5a128d3491a38287..HEAD",
       "expected_exit": 0,
       "must_contain": "",
-      "note": "whitespace clean from S-2-PPTX-D base f3a4f30"
+      "note": "whitespace clean from GATE-3 CLOSURE base d912777"
     },
     {
       "command": "git status --porcelain",
@@ -317,6 +267,16 @@
       "command": "python3 scripts/deck_pptx_adapter.py",
       "expected_exit": 0,
       "must_contain": "pptx"
+    },
+    {
+      "command": "grep -c \"14/14\" docs/ROADMAP.md",
+      "expected_exit": 0,
+      "must_contain": "14/14"
+    },
+    {
+      "command": "grep -c \"Validate an artifact the way you know it, not\" docs/ROADMAP.md",
+      "expected_exit": 0,
+      "must_contain": "1"
     }
   ],
   "forbidden_paths": [
@@ -324,7 +284,7 @@
   ],
   "risks": [
     "wrong root — package applied to different working directory than repo root",
-    "stale base — base SHA not ancestor or not exact pinned SHA f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal main v3.10.30) — local equivalent cc9d47b",
+    "stale base — base SHA not ancestor or not exact pinned SHA d912777e25ada164b903083c5a128d3491a38287 — local equivalent 0aea791",
     "ZIP extraction without applying deletion — file still on disk after extraction",
     "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
     "documentation claiming unverified CI — CHANGELOG says green but validator red",
@@ -344,8 +304,7 @@
     "pptx dependency scope creep — python-pptx import outside scripts/deck_pptx_adapter.py breaks single import site canon",
     "pptx binary committed — *.pptx in repo tree breaks NEVER writes repo tree law, .gitignore must contain *.pptx",
     "deck-alone delivery — deck delivered without outline ships breaks receipt law",
-    "transitive GPL — lxml/Pillow/XlsxWriter brings GPL license breaks MIT/BSD-only audit",
-    "render writes repo tree — deck_render.py writes .pptx into repo tree breaks --out tempdir law",
-    "budgets not re-asserted — render without DECK_RULES check breaks guard-not-verb law"
+    "report-in-tree — delivery report committed into tree breaks armed class, stage-≡-allowed proof must be pasted not file",
+    "doctrine paragraph not verbatim — ROADMAP blockquote must match instrument §III exactly, no paraphrase"
   ]
 }

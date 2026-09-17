@@ -4,6 +4,19 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.31 — 2026-09-17 — GATE-3 CLOSURE — Secondary phase adjudicated closed; doctrine paragraph landed; zero functional change.
+
+**BASE: d912777e25ada164b903083c5a128d3491a38287 (run #111 SUCCESS) per DESK_DIRECTIVE_GATE3_CLOSURE_ROW_2026-09-17.md and GATE3_CLOSURE_ADJUDICATION_2026-09-17.md — 14/14 CLOSED · umbrella verdict permanent · witnesses inside · zero functional change · paper tranche, smallness IS discipline**
+
+**Deliverables (ledger set, exact — 8 files):** docs/ROADMAP.md M secondary-phase row ✅ COMPLETED — CLOSED (Gate-3 adjudicated 2026-09-17, 14/14) sealed-head ledger string (e547e30 → d912777) + doctrine paragraph verbatim §III blockquote Gate-1 promise redeemed; docs/shrine/LOG.md M new shrine row Gate-3 closure five-tranche proof run by sha 46916c7·4fa588c·f3a4f30·d912777 + secondary ladder VIDEO v3.10.23 LINK v3.10.25 ENV v3.10.26 → PPTX A/B/C/D scars #103/#104/#110 report-penetration class now guard-armed ancestor-lessons heartbeat 2026-09-17; CHANGELOG.md M v3.10.31 GATE-3 CLOSURE row; docs/SYSTEM_STATE.md M GENERATED v3.10.31 Gate-3 closure; docs/PATCH_LEDGER.md M hand row matching; README.md M version line only; Brain/frontal_lobe/task_ledger.md M attempt: marker; docs/RELEASE_TRUTH_GATE/EXPECTATION.json M re-pin base d912777 allowed 8 paths.
+
+**Doctrine paragraph verbatim from GATE3_CLOSURE_ADJUDICATION_2026-09-17.md §III (Gate-1 promised at Gate-3 — lands with closure row):**
+> *"Validate an artifact the way you know it, not the way you wish you knew all artifacts. A deck has outlines and budgets; a video has lineage; a link has accessibility; an environment has capability. The house keeps each of these where they live — in small contracts, resolver tables, and receipt laws — and refuses the elegant lie of one validator to rule them because the evidence, across every tranche of the Secondary phase, file by file, showed small and honest to be stronger than broad and clever."*
+
+**Battery + Provenance:** EXPECTED-pinned base d912777 allowed 8 paths stage-≡-allowed pasted, gate live+ST 11/11+7/7, validate 0 fail 42·39·3·0, discover 195 pasted unchanged, catalog integrity 0, render PASS, staged-set ≡ allowed pasted, fresh-clone ancestor proof e547e30 ancestor d912777, diff-positive greps: "14/14" + doctrine-paragraph first eight words "Validate an artifact the way you know it, not" present in ROADMAP, v3.10.31 zip→motor desk verifies landed main. No code/script/test edits, no registry change 37 stays, no theme/canon edits, no deletion, no report-in-tree armed class stays armed stage-≡-allowed proof pasted, no new tranches riding.
+
+**Base pinned:** d912777e25ada164b903083c5a128d3491a38287 (run #111 SUCCESS main). Allowed delta exact 8 files. One patch one purpose II.7.4 — GATE-3 CLOSURE ROW paper tranche.
+
 ## v3.10.31 — 2026-09-17 — S-2-PPTX-D RENDERER + VERIFY-RENDERED + FILL_TEMPLATE UNFROZEN (stage 4 of 5) (II.7.4)
 
 **BASE: f3a4f304f65db8a693b0faad7818f50b3ef129c6 (PPTX-C seal, main v3.10.30) per DESK_DIRECTIVE_S2_PPTX_D_2026-09-17.md — canon ratified by Commander relay — relay-as-word · Previous: v3.10.30 base 4fa588c fix rebuild clean from same base minus report-as-doc penetration**
