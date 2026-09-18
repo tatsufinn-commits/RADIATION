@@ -62,3 +62,4 @@ ingestion.*
 |---|---|---|
 | 2026-09-12 | Protocol Architect (registration session) | ACCESSIBLE |
 | 2026-09-12 | @Gather ingestion session | ACCESSIBLE — 8/8 files read (3 image decks via OCR); summary + reviewer written to Brain/short_term/ |
+| 2026-09-17 | S009 @Autopilot (midterm reviewer M1-6) | NO-FETCH (deliberate) — held digest `planning_collection_summary.md` covered all 8 lectures; zero refetch per III.8; collection not re-accessed over network. Reviewer built entirely from Brain. |

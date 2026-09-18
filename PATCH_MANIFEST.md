@@ -1,22 +1,24 @@
-# RADIATION PATCH MANIFEST — rev2
+# RADIATION PATCH MANIFEST — rev3
 Patch label: RADIATION_PATCH_2026-09-18_Term1-Reviewers-Rizal-Debate-and-Session-Records
 Agent: Arena AI (Agent Mode) · Sessions S007–S011 (2026-09-17/18)
-Supersedes: RADIATION_PATCH_2026-09-17_Term1-Reviewers-and-Session-Records.zip (this package is a strict superset — safe to push in its place).
-Purpose: Commander push to main. Contains all Term-1 reviewers, the Rizal Retraction debate brief (rev2 w/ PART 6 FACTS), and every session record/ingest/output produced this session line.
-Commander note on record: 'ignore if red, desk will fix it' — D013 red-#119 (check 1 + 2.5) is PRE-EXISTING and NOT touched by this patch; left for the desk.
+Supersedes: RADIATION_PATCH_2026-09-17_Term1-Reviewers-and-Session-Records.zip (strict superset — safe to push in its place).
+rev3 delta: Brain/external_sources/planning.md — S009 NO-FETCH access-log row appended (Commander audit; dss10 + statics logs were already filled in rev2).
+Purpose: Commander push to main. All Term-1 reviewers, Rizal Retraction debate brief (rev2 w/ PART 6 FACTS), and every session record/ingest/output of this session line.
+Commander note on record: 'ignore if red, desk will fix it' — D013 red-#119 (check 1 + 2.5) is PRE-EXISTING, untouched, left for the desk.
 
-## REVIEWERS + DEBATE BRIEF (the study artifacts)
-- Brain/short_term/notes/DSS10_reviewer.md — Data Science midterm reviewer (57 Q&A + quiz)
-- Brain/short_term/notes/PLANNING_midterm_reviewer_M1-6.md — Planning W1-6 + 67-item quiz
-- Brain/short_term/notes/STATICS_reviewer.md — Statics W1-10 + formula-selection method + 10 solved
-- Brain/short_term/notes/STATICS_advanced_problemset.md — Statics advanced (3D eq, wedge, belt, Pappus) + 6 solved
-- Brain/short_term/notes/RIZAL_retraction_debate_brief.md — GED103 AT5 debate brief, rev2: both sides + scripts + cue cards + PART 6 sourced FACTS dossier
-- outputs/2026-09-17_*.md + outputs/2026-09-18_*.md — delivery-dock mirrors
+## ACCESS-LOG AUDIT (Commander order 2026-09-18)
+- intro-data-science.md (DSS10): S007 + S008 fetch rows — present since rev1 ✅
+- statics-rigid-bodies.md: S010 fetch row — present since rev1 ✅
+- planning.md: S009 NO-FETCH row (held digest, zero refetch) — added in rev3 ✅
 
-## SUPPORTING RECORDS (ingest, episodes, ledger, indexes, drills)
-Full file list (git status vs HEAD):
+## REVIEWERS + DEBATE BRIEF
+- notes/DSS10_reviewer.md · notes/PLANNING_midterm_reviewer_M1-6.md · notes/STATICS_reviewer.md · notes/STATICS_advanced_problemset.md · notes/RIZAL_retraction_debate_brief.md (rev2)
+- outputs/ mirrors: 2026-09-17_dss10 / planning / statics / statics-advanced · 2026-09-18_rizal-retraction
+
+## Full file list (git status vs HEAD):
 - [MODIFIED] 07-inspect/DEBT_REGISTER.md
 - [MODIFIED] Brain/external_sources/intro-data-science.md
+- [MODIFIED] Brain/external_sources/planning.md
 - [MODIFIED] Brain/external_sources/statics-rigid-bodies.md
 - [MODIFIED] Brain/frontal_lobe/opinions.md
 - [MODIFIED] Brain/frontal_lobe/task_ledger.md
