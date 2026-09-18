@@ -42,3 +42,4 @@ outlived their patch. It is NOT memory and NOT canon:
 | 2026-09-17 | `2026-09-17_planning-midterm-reviewer.md` | Arena AI (Agent Mode), S009 | Planning midterm reviewer (Wks 1–6, memorization + ID/FIB quiz w/ answers) |
 | 2026-09-17 | `2026-09-17_statics-reviewer.md` | Arena AI (Agent Mode), S010 | Statics general reviewer (decision method + toolbox + solved quiz) |
 | 2026-09-17 | `2026-09-17_statics-advanced-problems.md` | Arena AI (Agent Mode), S010 | Statics advanced set: 3D equilibrium, wedges, belt friction, Pappus + 6 solved |
+| 2026-09-18 | `2026-09-18_rizal-retraction-debate-brief.md` | Arena AI (Agent Mode), S011 | Rizal Retraction debate brief: both sides + scripts + cue cards (GED103 AT5) |
