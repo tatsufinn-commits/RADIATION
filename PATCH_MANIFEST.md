@@ -1,21 +1,26 @@
-# RADIATION PATCH MANIFEST — rev3
+# RADIATION PATCH MANIFEST — rev4
 Patch label: RADIATION_PATCH_2026-09-18_Term1-Reviewers-Rizal-Debate-and-Session-Records
 Agent: Arena AI (Agent Mode) · Sessions S007–S011 (2026-09-17/18)
-Supersedes: RADIATION_PATCH_2026-09-17_Term1-Reviewers-and-Session-Records.zip (strict superset — safe to push in its place).
-rev3 delta: Brain/external_sources/planning.md — S009 NO-FETCH access-log row appended (Commander audit; dss10 + statics logs were already filled in rev2).
-Purpose: Commander push to main. All Term-1 reviewers, Rizal Retraction debate brief (rev2 w/ PART 6 FACTS), and every session record/ingest/output of this session line.
-Commander note on record: 'ignore if red, desk will fix it' — D013 red-#119 (check 1 + 2.5) is PRE-EXISTING, untouched, left for the desk.
+Supersedes rev3. Purpose: Commander push to main.
+Commander note on record: 'ignore if red, desk will fix it' — D013 red-#119 (check 1 + 2.5) PRE-EXISTING, untouched, for the desk.
 
-## ACCESS-LOG AUDIT (Commander order 2026-09-18)
-- intro-data-science.md (DSS10): S007 + S008 fetch rows — present since rev1 ✅
-- statics-rigid-bodies.md: S010 fetch row — present since rev1 ✅
-- planning.md: S009 NO-FETCH row (held digest, zero refetch) — added in rev3 ✅
+## ⚠️ TOP-LEVEL ARTIFACT — READ BEFORE EXTRACTING
+- `Planning_Midterm_Reviewer_W1-6_VISUAL.pptx` (16-slide visual deck, 11 diagrams) sits at the ZIP ROOT on purpose.
+- DO NOT extract it into the repo tree: the repo's own test suite GUARDS against committed decks —
+  `tests/test_deck_verbs.py::test_09_no_pptx_committed_tree_scan` ('no *.pptx ever committed').
+- Verified this turn: placing it under outputs/ failed 3 harness tests; removing it restored 195/195 OK.
+- Keep the deck OUTSIDE the repo (like this zip) and open it locally. If the desk ever wants decks in-tree, the guard must be amended first — that is a desk decision, not a patch decision.
 
-## REVIEWERS + DEBATE BRIEF
+## rev4 delta vs rev3
+- + Planning_Midterm_Reviewer_W1-6_VISUAL.pptx at zip root (Commander order: 'add it to the .zip')
+- S009 deliverables.md line de-sessioned (clears check 14)
+- outputs/README.md unchanged (the in-tree pptx row was added then removed — net zero)
+
+## REVIEWERS + DEBATE BRIEF (in-tree)
 - notes/DSS10_reviewer.md · notes/PLANNING_midterm_reviewer_M1-6.md · notes/STATICS_reviewer.md · notes/STATICS_advanced_problemset.md · notes/RIZAL_retraction_debate_brief.md (rev2)
-- outputs/ mirrors: 2026-09-17_dss10 / planning / statics / statics-advanced · 2026-09-18_rizal-retraction
+- outputs/ mirrors: 2026-09-17 ×4 · 2026-09-18_rizal-retraction-debate-brief.md
 
-## Full file list (git status vs HEAD):
+## Full in-tree file list (git status vs HEAD):
 - [MODIFIED] 07-inspect/DEBT_REGISTER.md
 - [MODIFIED] Brain/external_sources/intro-data-science.md
 - [MODIFIED] Brain/external_sources/planning.md
