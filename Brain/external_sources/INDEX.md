@@ -62,3 +62,4 @@ is never itself citable evidence.**
 | Statics and Rigid Bodies | `statics-rigid-bodies.md` | ✅ ACCESSIBLE | 2026-09-13 | MEC30-7 lecture pages: force vectors, force system resultants — 2 HTML files (registered-only, no ingestion yet) |
 | Structural | `structural.md` | ✅ ACCESSIBLE | 2026-09-13 | Steel design (Trebilcock/Lawson), Structure as Architecture, earthquake engineering, STRUK modules — 11 files (registered-only, no ingestion yet) |
 | Introduction to Data Science | `intro-data-science.md` | ✅ ACCESSIBLE | 2026-09-13 | Lessons 0–6 (big data, data life cycle, linear regression), R intro + notebooks — 11 files · 🌐 first NON-ARCHITECTURE collection (registered-only, no ingestion yet) |
+| PPTX Reference Decks (Reviewer Vault) | `pptx-reference-decks.md` | ✅ ACCESSIBLE | 2026-09-18 | Repos-cannot-read-.pptx lane: Planning_Midterm_Reviewer_W1-6_VISUAL.pptx (2.5 MB) — rolling manifest; Test-4 reviewer context; 12-day push window |
