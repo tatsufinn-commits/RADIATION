@@ -29,6 +29,10 @@ HTML lecture exports carry no publisher — never [R].
 | Date | Result | Note |
 |---|---|---|
 | 2026-09-13 | ✅ ACCESSIBLE | HTTP 200 no-auth; 2 entries listed via embedded folder view |
+| 2026-09-17 | ✅ ACCESSIBLE | S010 @Autopilot re-verify (HTTP 200 no-auth); IDs mapped; fetched both HTML lectures (2/2 = 2 of 3-cap). Extracts only. |
 
 ## 6. DIGEST
-(empty — no ingestion performed; registration-only per Commander's order)
+**S010 (2026-09-17) — first ingestion (2/2 files).** Full graded extract in `Brain/short_term/ingest/2026-09-17_statics-lectures-vectors-resultants.md`. Grade [D]-as-taught (calendar W2/W3).
+- **Force Vectors:** scalar vs vector; Parallelogram/triangle law; rectangular components F=Fx+Fy; coplanar resultant FRx=ΣFx, FRy=ΣFy, FR=√(ΣFx²+ΣFy²), θ=tan⁻¹(ΣFy/ΣFx).
+- **Resultants:** moment Mo=F·d (⊥ arm; CCW+); resultant moment Σ(F·d); couple M=F·d (pure rotation); force-couple simplification to equivalent resultant at a point; distributed load → resultant at load centroid.
+**Still UNFETCHED:** none (2/2). Calendar W4-W10 (equilibrium, internal forces, friction, numerical integration, trusses, centroids, moment of inertia) NOT in this collection — web-triangulated in reviewer per Commander order.

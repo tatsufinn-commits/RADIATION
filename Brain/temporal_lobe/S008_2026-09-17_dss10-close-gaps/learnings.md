@@ -1,0 +1,5 @@
+# LEARNINGS — S008 (session-specific)
+- **Curriculum "ecosystem" ≠ Hadoop internals:** Lesson 2 (New Big Data Ecosystem) teaches the *players/roles/value-chain* (4 groups, 3 McKinsey roles, DS skills), not Hadoop architecture. Hadoop appears once (NLP example). So a "general" reviewer must hold BOTH the curriculum ecosystem [D] and Hadoop specifics [R] — graded separately, never conflated.
+- **PDF p18 repositories table was image-only** — text-layer gave the intro sentence but not the table; vision rung recovered it (3 repository tiers). Reinforces: run the recovery-ladder capability check and render tables even when surrounding text extracts fine.
+- **HTML lessons extract cleanly** (strip tags + unescape) — cheapest rung; prefer HTML in the collection when choosing fetches if content parity holds.
+- **The 2 validator FAILs are stable and Commander-intentional** (D013 red-#119, `.txtt.txt` vs five canonical bindings). Log as Commander-side debt; never auto-delete (5300 E1 retention ruling).

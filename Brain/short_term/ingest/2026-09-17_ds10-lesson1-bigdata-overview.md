@@ -1,0 +1,18 @@
+# INGEST — DSS10 Lesson 1: Big Data Overview
+origin: Brain/external_sources/intro-data-science.md (Drive, "Lesson 1 Big Data Overview (1).pdf", id 1GE9awgp78aJ6XgFQgiSP6Eo3C1T0eV4i) | type: slide deck (30 pp, text-layer OK; p18 table via vision) | authority: curriculum, quoted from *Data Science and Big Data Analytics* (EMC) | consumed: 2026-09-17 | mode: @Autopilot[@Gather, S008] | rung: 1 (text) + 2 (vision for p18)
+Grade: [D]-as-taught (EMC-quoted)
+
+## Claims
+1. **Three defining attributes of Big Data** — huge VOLUME (billions of rows, millions of columns) · COMPLEXITY of types/structures (variety of sources/formats) · SPEED of new data creation/growth (velocity; rapid ingestion, near-real-time analysis). Volume attracts attention but variety+velocity are the apter definition. [D] (EMC)
+2. **Big Data definition (McKinsey Global Report 2011)** — "Big Data is data whose scale, distribution, diversity, and/or timeliness require the use of new technical architectures and analytics to enable insights that unlock new sources of business value." Implies new architectures/sandboxes, tools, methods, and the data-scientist role. [D]-as-taught (slide quotes McKinsey)
+3. **Four data STRUCTURES** (80–90% of future growth from non-structured) — STRUCTURED (defined type/format/structure: transaction data, OLAP cubes, RDBMS, CSV, spreadsheets) · SEMI-STRUCTURED (textual with discernible pattern, self-describing, parseable; XML) · QUASI-STRUCTURED (textual with erratic formats, formattable with effort/tools/time; web clickstream) · UNSTRUCTURED (no inherent structure: text docs, PDFs, images, video). [D] (EMC)
+4. **Processing approach for complex data** — distributed computing + massively parallel processing (MPP) for parallelized ingest/analysis. [D] (EMC)
+5. **DATA REPOSITORIES (3)** — Spreadsheets & data marts ("spreadmarts"): low-volume DBs for recordkeeping; analyst depends on extracts · Data Warehouses: centralized purpose-built containers; support BI/reporting but restrict robust analyses · Analytic Sandbox (workspaces): data assets from multiple sources/technologies; flexible high-performance analysis in nonproduction env; can leverage in-database processing. [D] (EMC; p18 via vision)
+6. **BI vs Data Science** — BI = reports/dashboards/queries on current/past; closed-ended; aggregates historical data; hindsight; answers WHEN/WHERE. DS = disaggregated data, forward-looking, exploratory; scenario optimization; insight+foresight; answers HOW/WHY; e.g., time-series forecasting vs trend line. BI needs highly structured rows/columns; DS uses many/unconventional datasets. [D] (EMC)
+7. **State of practice in analytics** — 4 categories of business problems where advanced analytics + Big Data create advantage (churn reduction, sales increase, cross-sell, plus emerging regulatory/compliance e.g. AML, fraud prevention). Old problems; new is fusing advanced techniques with Big Data. [D] (EMC)
+8. **Problems in traditional architecture** — EDWs designed for central mgmt/reporting → inhibit exploration; high-value data hard to reach; predictive/data-mining last in line for data; batch EDW→local tools limits analysts to in-memory analytics (sampling skews accuracy); DS projects stay isolated/ad hoc, not scalable nor aligned to strategy. [D] (EMC)
+9. **Industry examples** — credit-card fraud detection via billions of transactions; telco churn/calling-pattern analysis; LinkedIn/Facebook data-as-product; Facebook 2012 ≈700 status updates/sec; genomics/personalized medicine. [D] (EMC)
+
+## Notes for reviewer
+- CO1 Week-2 material (syllabus Lesson 2 "Big Data Overview/Practices in Analytics").
+- McKinsey definition + 4 structures + 3 repositories + BI-vs-DS = classic exam lists.

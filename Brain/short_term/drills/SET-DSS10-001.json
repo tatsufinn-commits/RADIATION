@@ -1,0 +1,20 @@
+{
+ "set_id": "SET-DSS10-001",
+ "target": "DSS10 CO1-CO2",
+ "context": "recall drill off DSS10_reviewer.md",
+ "forge": "@Review recall run 2026-09-17; all items drawn from held [D] curriculum spine (Lessons 0/1/2/3/6); keys self-checked against ingest extracts",
+ "items": [
+  {"id":"Q01","type":"enum","brief":"Gartner three high- traits","key":["volume","velocity","variety"],"rationale":"Gartner: high-volume, high-velocity and/or high-variety information assets."},
+  {"id":"Q02","type":"mc","brief":"V meaning data accuracy","options":{"A":"Validity","B":"Veracity","C":"Variability","D":"Value"},"key":"B","rationale":"Veracity = data accuracy (Lesson 0 Ten V's)."},
+  {"id":"Q03","type":"enum","brief":"four data structures + XML","key":["structured","semi-structured (XML)","quasi-structured","unstructured"],"rationale":"Lesson 1: XML = semi-structured; clickstream = quasi-structured."},
+  {"id":"Q04","type":"mc","brief":"repository supporting BI but restricting robust analysis","options":{"A":"spreadmart","B":"data warehouse","C":"analytic sandbox","D":"OLAP cube"},"key":"B","rationale":"Lesson 1 p18 repositories table."},
+  {"id":"Q05","type":"enum","brief":"six lifecycle phases","key":["Discovery","Data Preparation","Model Planning","Model Building","Communicate Results","Operationalize"],"rationale":"Lesson 3 (EMC)."},
+  {"id":"Q06","type":"mc","brief":"phase needing sandbox + ELT/ETL","options":{"A":"Phase 1","B":"Phase 2","C":"Phase 4","D":"Phase 6"},"key":"B","rationale":"Phase 2 Data Preparation (Lesson 3)."},
+  {"id":"Q07","type":"mc","brief":"140-190k US gap category","options":{"A":"Data Savvy Professionals","B":"Technology & Data Enablers","C":"Deep Analytical Talent","D":"BI Analysts"},"key":"C","rationale":"McKinsey 2011 (Lesson 2)."},
+  {"id":"Q08","type":"fill","brief":"DS answers __ and __","key":["how","why"],"rationale":"BI when/where; DS how/why (Lesson 1)."},
+  {"id":"Q09","type":"fill","brief":"SLR model + error assumption","key":"Y_i = beta0 + beta1*X_i + eps_i; eps_i ~ N(0, sigma^2) iid","rationale":"Lesson 6."},
+  {"id":"Q10","type":"mc","brief":"residual definition","options":{"A":"yhat_i - y_i","B":"y_i - yhat_i","C":"b0 + b1*x_i","D":"y_i - beta0"},"key":"B","rationale":"e_i = observed - fitted (Lesson 6)."},
+  {"id":"Q11","type":"enum","brief":"four ecosystem player groups","key":["data devices","data collectors","data aggregators","data users & buyers"],"rationale":"Lesson 2 (EMC)."},
+  {"id":"Q12","type":"fill","brief":"least squares minimizes","key":"RSS = sum(y_i - b0 - b1*x_i)^2","rationale":"Residual sum of squares (Lesson 6)."}
+ ]
+}

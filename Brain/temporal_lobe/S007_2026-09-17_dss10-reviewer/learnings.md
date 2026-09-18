@@ -1,0 +1,6 @@
+# LEARNINGS — S007 (session-specific)
+- **Drive folder IDs parse cleanly** from `<tr data-id="…">` rows paired with `aria-label="NAME TYPE Shared"` — 11/11 matched the catalog manifest exactly. Cheaper and more reliable than guessing; reuse for any Drive folder.
+- **Image-heavy lecture decks:** Lesson 0 text-layer was 2.4k chars over 12 pages; the exam content (Ten V's, value chain, DS process) lived only in diagrams → vision rung (routine_document-recovery-ladder rung 2) was the right stop. Always run the capability check first (rung rule).
+- **EMC text is the curriculum's spine:** Lessons 3/6 quote *Data Science and Big Data Analytics* (a prescribed e-book), so those claims can read [D] vs a named published text even though the slides alone carry no publisher.
+- **The collection has NO CO3 file** (association rules / decision trees / clustering) — the syllabus covers them but the Drive folder doesn't; a "general" reviewer must web-triangulate CO3 at [R] and mark it honestly, never present it as lecture content.
+- **Restraint Doctrine bite:** 3/11 fetch ceiling meant Lessons 1,2,4,5 + R-intro + data-prep stayed unfetched; the coverage matrix (added section) is the honest way to show what's held vs not.

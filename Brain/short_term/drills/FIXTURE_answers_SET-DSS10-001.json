@@ -1,0 +1,17 @@
+{
+ "set_id": "SET-DSS10-001",
+ "answers": {
+  "Q01": "high-volume, high-velocity, high-variety",
+  "Q02": "B (Veracity)",
+  "Q03": "structured, semi-structured (XML), quasi-structured, unstructured",
+  "Q04": "B (data warehouse)",
+  "Q05": "Discovery, Data Preparation, Model Planning, Model Building, Communicate Results, Operationalize",
+  "Q06": "B (Phase 2)",
+  "Q07": "C (Deep Analytical Talent)",
+  "Q08": "how, why",
+  "Q09": "Y_i = beta0 + beta1*X_i + eps_i; eps_i ~ N(0, sigma^2) iid",
+  "Q10": "B (y_i - yhat_i)",
+  "Q11": "data devices, data collectors, data aggregators, data users & buyers",
+  "Q12": "RSS = sum(y_i - b0 - b1*x_i)^2"
+ }
+}

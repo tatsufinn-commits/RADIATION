@@ -1,0 +1,18 @@
+# INGEST — DSS10 Lesson 0: Overview of Data Science
+origin: Brain/external_sources/intro-data-science.md (Drive, file "Lesson 0 Overview of Data Science (1).pdf", id 1_VJchOn_g-JloJ4kCFhBB2vpGpipjxTp) | type: slide deck (image-heavy; vision-recovered diagrams) | authority tier: curriculum (Mapúa, as-taught) | date consumed: 2026-09-17 | consuming mode: @Autopilot[@Gather leg] | recovery rung: 2 (vision) per routine_document-recovery-ladder
+Grade basis: [D]-as-taught (curriculum slide deck; NOT triangulated — study-grade, not Core-grade)
+
+## Claims
+1. **Big data (def.)** — humongous volumes of data that cannot be processed effectively with traditional applications; usually raw, unaggregated, impossible to store in one computer's memory; both unstructured and structured; can be analyzed for better decisions/strategic moves. [D]-as-taught
+2. **Big data (Gartner)** — "high-volume, and high-velocity and/or high-variety information assets that demand cost-effective, innovative forms of information processing that enable enhanced insight, decision making, and process automation." [D]-as-taught (slide quotes Gartner)
+3. **Ten V's of Big Data** — Volume (size of data) · Velocity (speed data is generated) · Variety (different types of data) · Veracity (data accuracy) · Value (useful data) · Validity (data quality, governance, master data management at scale) · Variability (dynamic, evolving behavior in data source) · Venue (distributed heterogeneous data from multiple platforms) · Vocabulary (data models, semantics describing data structure) · Vagueness (confusion over meaning of big data and tools used). [D]-as-taught {mnemonic: five per side, L=Volume,Velocity,Variety,Veracity,Value; R=Validity,Variability,Venue,Vocabulary,Vagueness}
+4. **Common types of big data** — Web & Social Media (clickstream, Twitter feeds, Facebook postings, web content) · Machine-to-Machine (utility smart-meter, RFID, oil-rig sensor, GPS) · Big Transaction Data (healthcare claims, telecom call-detail records, utility billing) · Biometrics (facial recognition, genetics) · Human Generated (call-center voice recordings, email, electronic medical records). [D]-as-taught
+5. **Data science (def.)** — deals with unstructured+structured data; comprises everything related to data cleansing, preparation, and analysis; combination of statistics, mathematics, programming, problem-solving, and ingenious data capture; umbrella of techniques for extracting insight/information from data. [D]-as-taught
+6. **Data science process** — ASK an interesting question (scientific goal; what to predict/estimate) → GET the data (how sampled, which relevant, privacy) → EXPLORE the data (plot, anomalies, patterns) → MODEL the data (build, fit, validate) → COMMUNICATE and visualize results (what learned, does it make sense, can we tell a story). Iterative (feedback loops). [D]-as-taught
+7. **Data analytics (def.)** — science of examining raw data to draw conclusions; applies algorithmic/mechanical process to derive insights (e.g., correlating data sets); used to make better decisions and verify/disprove theories; focus lies in inference (conclusions from what the researcher already knows). [D]-as-taught
+8. **Analytics value chain** — ascending business value & difficulty: Data Management → Reporting → Descriptive Analytics → Predictive Analytics → Optimization & ML. [D]-as-taught
+9. **Module objectives (as-taught emphasis)** — differentiate big data vs data analytics vs data science; differentiate statistics vs data science domains. [D]-as-taught
+
+## Notes for reviewer
+- This is CO1 foundation; pairs with syllabus Weeks 1-2 (Lesson 1 Overview of Data Science).
+- Diagrams recovered by vision (text layer near-absent). Cite "via vision read" in DIGEST.

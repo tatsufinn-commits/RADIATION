@@ -38,3 +38,7 @@ outlived their patch. It is NOT memory and NOT canon:
 | Date | File | Session | Commissioned by |
 |---|---|---|---|
 | 2026-09-13 | `2026-09-13_six-point-review.md` | the Architect (S004) | the Commander's six questions |
+| 2026-09-17 | `2026-09-17_dss10-reviewer.md` | Arena AI (Agent Mode), S007/S008 | "@Autopilot … read external sources re DSS10 + create a general reviewer" (+ continue) |
+| 2026-09-17 | `2026-09-17_planning-midterm-reviewer.md` | Arena AI (Agent Mode), S009 | Planning midterm reviewer (Wks 1–6, memorization + ID/FIB quiz w/ answers) |
+| 2026-09-17 | `2026-09-17_statics-reviewer.md` | Arena AI (Agent Mode), S010 | Statics general reviewer (decision method + toolbox + solved quiz) |
+| 2026-09-17 | `2026-09-17_statics-advanced-problems.md` | Arena AI (Agent Mode), S010 | Statics advanced set: 3D equilibrium, wedges, belt friction, Pappus + 6 solved |
