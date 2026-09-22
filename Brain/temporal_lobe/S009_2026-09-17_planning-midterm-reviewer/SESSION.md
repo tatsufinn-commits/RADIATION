@@ -6,4 +6,4 @@
 DELIVERABLE=memorization reviewer (NO quiz), PERMANENCE=short_term, DEPTH=Wk1-6. Mode @Autopilot (session). @Review leg: 100% Brain-held (planning_collection_summary.md + PLANNING_reviewer audit); zero internet, zero refetch (II.6 r.14). HIGH confidence. Style: reviewer-minus-Part-B [AUTO].
 
 ## Outcome
-`Brain/short_term/notes/PLANNING_midterm_reviewer_M1-6.md` — per-week memorization sheets (Wk1-6), law spine, glossary, mnemonics, 3 audit trap notes (Bentley Connectivity/Permeability; PD 1308↔RA 10587; Lynch-vs-Bentley), LIMITS line. No zip (non-goal). No Core promotion (I.3).
+deliverables: (destroyed 09-21 by 0a96bae, Commander-intent housekeeping — memorial per stripe v3.2, no successor exists).

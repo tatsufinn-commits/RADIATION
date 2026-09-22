@@ -1,5 +1,4 @@
 # 🥋 DRILL — SET-DSS10-001 (questions only — key withheld per Socratic Rule)
-**Target:** DSS10 CO1–CO2 · 12 items · recall drill off `Brain/short_term/notes/DSS10_reviewer.md` · forge gate: all items drawn from held `[D]` curriculum spine (Lessons 0/1/2/3/6)
 **Use:** answer cold, then check `FIXTURE_answers_SET-DSS10-001.json` / `SET-DSS10-001.json`.
 
 **Q01.** The Gartner definition of Big Data names three "high-" traits. Name them.

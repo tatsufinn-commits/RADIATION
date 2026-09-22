@@ -4,6 +4,12 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.31 — 2026-09-22 — COMEBACK CURE v3 (+ stripes v3.1 RATIFY-TXT, v3.2 ICEBERG) — fourteen dangles cleared, K-CUR-002 restored, feed digest re-pinned; floor green.
+
+**BASE: d912777e25ada164b903083c5a128d3491a38287 (unchanged).** Admits the Commander-intent 09-21 cleanups (`5db6f7a`, `0a96bae`) — never reverted — and repairs their packaging breakage at head `a3fa73d`: fourteen check-1 dangles cleared across three layers (print-first-six truncation class): three heal by restoration, one DEBT_REGISTER retarget, seven manifest line-deletes, two SESSION memorial-conversions per stripe v3.2; `Brain/short_term/notes/PLANNING_reviewer.md` restored byte-exact (check 17); `Brain/courses/COURSE_CORPUS_MANIFEST.json` feed digest re-pinned to mirror bytes (check 2.5). .txt canonical; the 09-18 txtt word honorably reversed at the Commander's newer act (stripe v3.1, 2026-09-22).
+
+**Battery:** validate 0 fail (checks 1/2.5/17 ✅) · gate 0 findings · unittest OK · catalog 0 · render_docs ✓ · preflight ∞LAW-6 @ d912777 → 0 findings · stage-≡-allowed pasted pre-commit · no reports/root-files/zips in tree.
+
 ## v3.10.31 — 2026-09-17 — GATE-3 CLOSURE — Secondary phase adjudicated closed; doctrine paragraph landed; zero functional change.
 
 **BASE: d912777e25ada164b903083c5a128d3491a38287 (run #111 SUCCESS) per DESK_DIRECTIVE_GATE3_CLOSURE_ROW_2026-09-17.md and GATE3_CLOSURE_ADJUDICATION_2026-09-17.md — 14/14 CLOSED · umbrella verdict permanent · witnesses inside · zero functional change · paper tranche, smallness IS discipline**

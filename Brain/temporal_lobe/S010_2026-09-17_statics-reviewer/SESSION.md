@@ -6,4 +6,4 @@
 DELIVERABLE=general statics reviewer + solved quiz, with a formula-SELECTION method. PERMANENCE=short_term+outputs. Legs: @Review(Brain: collection manifest + MEC30-7 calendar) → @Gather(fetch 2 held HTML lectures [D]; web for W4-W10 per T1 order) → scribe. HIGH.
 
 ## Outcome
-`Brain/short_term/notes/STATICS_reviewer.md` + `outputs/2026-09-17_statics-reviewer.md`: PART 0 decision method (5-step + decision table + equation-counting), PART A toolbox W1-W10 (formulas+when+worked+trap), PART Q 10 word problems with full solutions + key. Ingest of 2 lectures; collection DIGEST/ACCESS LOG updated. No zip (non-goal).
+deliverables: (destroyed 09-21 by 0a96bae + 5db6f7a, Commander-intent housekeeping — memorial per stripe v3.2, no successor exists).
