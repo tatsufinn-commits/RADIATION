@@ -123,7 +123,7 @@
     },
     {
       "path": "Brain/courses/0_CALLENDER/TERM1_FEED.txt",
-      "sha256": "sha256:9b3f614843cc4d12d6b93a9d4b05f6f3fdd85c457558caf7874e89f0c177f9e9",
+      "sha256": "sha256:5b313fbb75778731ea30ba987186072673f5c4e1176666076147b627a8abe17a",
       "media_type": "text/plain",
       "role": "data_feed",
       "load_policy": "on_demand_only",
