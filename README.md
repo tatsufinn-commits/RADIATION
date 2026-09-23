@@ -1,8 +1,10 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
+**Version:** v3.10.33 · 2026-09-24 · WP-2.3 CROWN — verify cassette runner + registry + advisory plug-in (candidate; seals by the Commander's hand) · base 0cfb195
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-17 · S-2-PPTX-D stage 4 of 5 (renderer + verify-rendered + fill_template unfrozen)
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-22 · WP-1 CONTRACTS & DOCUMENTATION — six items ONE tranche — Secondary phase adjudicated closed; doctrine paragraph landed; zero functional change (14/14)
 **Capabilities:** pptx render: AVAILABLE when dependency present, else ABSENT-UNKNOWN — constraint grammar per IP-ENV-01
+**Verify cassette (WP-2.3):** seeds CONSUMED (J1) · runner `scripts/verify_cassette_runner.py` live-advisory (5 rows; non-PASS → WARN in `verify_apply.py`, never FAIL)
 
 > **R**esearch · **A**nalyze · **D**ossier · **I**ncubate · **A**nnotate · **T**riangulate · **I**nspect · **O**verhaul · **N**ota
 

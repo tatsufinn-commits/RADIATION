@@ -75,3 +75,4 @@
 — append-forward. The next row writes itself on the next seal.
 | 2026-09-22 | D015 | WP-1 contracts-and-docs 2026-09-22 tranche — 1.6 checklist + 1.3 glossary + 1.4 agent policies + 1.2 cascade + 1.1 manifest + 1.5 verify policies — branch wp1/contracts-and-docs-2026-09-22 dirty 19 files, HEAD f086392a base, 37·5·0 floor kept, 0 fail after scaffold contract + capability registry fix. |
 | 2026-09-23 | D016 | WP-1 handover 2026-09-22 amended — add docs/WP1_HANDOVER_2026-09-22.md to INDEX 40→41 docs + fix shrine lag 2026-09-23 heartbeat — commit 4454830 amended to 34 files 18A+16M per 1.6 checklist — battery re-run 38·4·0 target. |
+| 2026-09-24 | Arena fix bench (fix-3, WP-2.3) | WP-2.3 crown — one commit, 15 paths, base 0cfb195 | — → — | heartbeat: verify cassette runner built (5 rows PASS; seeds consumed per J1); advisory plug-in in verify_apply (WARN-only); tools 39→40; v3.10.33 candidate awaiting desk + Commander seal |

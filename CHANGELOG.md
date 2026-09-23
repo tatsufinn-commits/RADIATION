@@ -4,6 +4,19 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.33 — 2026-09-24 — WP-2.3 CROWN — verify cassette runner + registry + advisory plug-in (forge-open tranche)
+
+**BASE: 0cfb1955e5ba5d9299a760893939161b5bd6b647 (last green seal, CI #144 SUCCESS) — ONE commit, 15 paths, per WP-2.3 BUILD-ORDER DIRECTIVE 2026-09-23; design of record PROPOSAL_TO_DESK_verify_contract.md + v1.1 erratum (ratified v3.6 §1 · v3.7 §1); change-control per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.**
+
+- `evals/verify_policies/CASSETTE_WP23.json` A — five rows, B3 shape (id · question · expected · runner · verdict): the three WP-1 1.5 seeds consumed by name (J1, never rebuilt) + Cassette A (5830 activation surfaces) + E2 (5900-1 gate self-test 11/11 + relay numeric plan ordering).
+- `scripts/verify_cassette_runner.py` A — stdlib-only, no network, no stdin; deterministic checks per row; verdicts PASS / WARN-and-justify / RETURNED; `--json`; `--self-test` 13 vectors. No behavioral grading.
+- `tests/test_verify_cassette_runner.py` A — 6 tests: row-shape · all-five-PASS · seed-name identity · verdict mapping · hermetic/stdin-free · self-test battery.
+- `tools/TOOL_REGISTRY.json` M — record `verify_cassette_runner` (METADATA-ONLY IO, R1–R8 clean), tools 39→40.
+- `scripts/verify_apply.py` M — advisory plug-in (ratified B2, Option-A): all rows PASS → silent; any non-PASS row → WARN-class line with its justification; never FAIL-class (raise-only).
+- Docs: `evals/verify_policies/README.md`, `README.md`, `docs/CAPABILITIES.md` (+GENERATED), `docs/SYSTEM_STATE.md` (+GENERATED), `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/PATCH_LEDGER.md`, `docs/shrine/LOG.md`, `docs/RELEASE_TRUTH_GATE/EXPECTATION.json` (moving-base re-pin to 0cfb195, allowed = these 15).
+
+---
+
 ## v3.10.32 — 2026-09-23 — REPAIR RELAY — EXPECTATION RE-PIN phantom-base cure — forward-fix — no content change — gate self-heals
 
 **BASE: f086392a9cc443e374541077c5a054938e0b337a (last green seal; real, pushed, ancestor object) per RELAY_REPIN_EXPECTATION_2026-09-23.md — phantom-base cure — packaging repair — forward-fix — NO revert, NO history rewrite (main is protected, linear).**

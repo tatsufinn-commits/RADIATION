@@ -123,6 +123,23 @@ def main():
         findings_fail.append(f"course-corpus contract violated x{len(cc)} — fix the manifest or the files")
     else:
         L.append("  corpus      : contract clean — Brain/ is records + declared corpus")
+    # WP-2.3 advisory plug-in (ratified B2, Option-A): the verify cassette runner.
+    # PASS -> silent. Any non-PASS row -> WARN-class with its stated justification.
+    # NEVER FAIL-class (raise-only; warn-and-justify). A runner that cannot load is
+    # itself reported as an advisory WARN, not a failure.
+    try:
+        import verify_cassette_runner as _vcr
+        _cas = _vcr.run_cassette()
+    except Exception as _e:
+        _cas = [{"id": "CASSETTE_WP23", "verdict": "RETURNED",
+                 "justification": f"runner unavailable: {type(_e).__name__}: {_e}"}]
+    _cas_bad = [r for r in _cas if r.get("verdict") != "PASS"]
+    if _cas_bad:
+        L.append(f"  cassette   : ADVISORY — {len(_cas_bad)}/{len(_cas)} verify-cassette row(s) not PASS")
+        for r in _cas_bad[:5]:
+            L.append(f"    {r.get('verdict')} {r.get('id')}: {str(r.get('justification'))[:100]}")
+        findings_warn.append("verify cassette advisory (WP-2.3): " + "; ".join(
+            f"{r.get('id')} {r.get('verdict')} — {str(r.get('justification'))[:80]}" for r in _cas_bad[:3]))
     runners = [p for p in ("APPLY.sh", "APPLY.ps1", "PATCH_NOTES.md") if read(p)]
     if runners:
         L.append(f"  hygiene    : transport still in tree: {', '.join(runners)} — delete post-apply, commit")

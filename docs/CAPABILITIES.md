@@ -199,6 +199,22 @@ vehicles still in Brain/, committed transport (runners/PATCH_NOTES), shrine-lag
 (AI_RULES II.9), pending ratifications — one screen. CI runs it on every push,
 its result lands in the job summary. Enforcement mode is GENERATED below (4600):
 the workflow file is the single source of gate semantics — prose no longer states it.
+**WP-2.3 advisory plug-in (v3.10.33):** the report also runs the verify cassette
+runner (13b). All rows PASS → silent; any non-PASS row → one WARN-class line with its
+justification. It is never FAIL-class (raise-only, warn-and-justify, Option-A advisory).
+
+### 13b. `verify_cassette_runner.py` — WP-2.3 verify cassette runner (read-only, advisory)
+```
+python3 scripts/verify_cassette_runner.py              # per-row verdicts; exit 0 iff all rows PASS
+python3 scripts/verify_cassette_runner.py --json       # machine-readable rows
+python3 scripts/verify_cassette_runner.py --self-test  # vector battery
+```
+Reads `evals/verify_policies/CASSETTE_WP23.json` (five rows: the three WP-1 1.5 seeds
+consumed by name per J1, Cassette A = the 5830 activation exercise surfaces, E2 = the
+5900-1 gate self-test plus relay numeric plan ordering) and runs each row's deterministic
+checks. Verdicts: PASS / WARN-and-justify / RETURNED. Stdlib only, no network, no stdin,
+no behavioral grading; a normal run writes nothing (only `--self-test` writes fixtures, to a temp dir). Its verdict reaches `verify_apply.py` as an
+advisory WARN, never as a failure.
 
 ### 14. `cap_verify.py` — CAP record verifier (4800 Attest) · verification-only
 ```
@@ -314,6 +330,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `tool_registry_check.py` | tool_registry_check — ONE entry point for the tool-registry contract (5600). | yes | no | yes |
 | `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
+| `verify_cassette_runner.py` | WP-2.3 verify cassette runner (deterministic, stdlib-only). | yes | no | no |
 | `verify_policy_check.py` | WP-1 1.5 — Verification policy checker (acceptance per proposal) | no | no | no |
 <!-- GENERATED:capability-inventory:END -->
 
