@@ -4,6 +4,18 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.34 — 2026-09-24 — B4 wiring batch #1 — top-10 CI-DoD tools IO schemas bound
+
+**BASE: 0438820441a8bfef3fb7ff8070cce857fd840ee8 (WP-2.3 crown, origin/main) — Commander word `ratify B4 wiring batch #1` — design note γ 2026-09-24 — ONE purpose II.7.4.**
+
+- `schemas/tool_io/` A 20 files — `<id>.inputs.schema.json` + `<id>.outputs.schema.json` for the ten CI-DoD spine tools. Inputs = invocation record of live argv. Outputs = live `--json` envelope where that flag already exists (`validate`, `verify_cassette_runner`); finding-report shape for the other eight. No new flags. No stdin envelope invented. Keywords within the ONE executor's executed set.
+- `tools/TOOL_REGISTRY.json` M — those ten rows `inputs_schema`/`outputs_schema` null → the new paths (schema-bound). Remaining 30 stay `null` (METADATA-ONLY). Tools stay 40. R6 existence-only; IO schemas are not executed against live runs (B4.2 later, not this batch).
+- Ten: `validate` · `agent_policy_check` · `verify_policy_check` · `docs_index_check` · `render_docs` · `verify_apply` · `verify_cassette_runner` · `release_truth_check` · `push_preflight_check` · `tool_registry_check`.
+- Non-goals honored: no R3 (cassette stays Option-A WARN) · no WP-3 · no c42 · no `cue_card.schema.json` / S-PROSE-1 · no shrine · no ROADMAP · `render_docs --apply` alias not "fixed".
+- Docs: README + SYSTEM_STATE version v3.10.34 · EXPECTATION re-pin base 0438820 allowed = true delta.
+
+---
+
 ## v3.10.33 — 2026-09-24 — WP-2.3 CROWN — verify cassette runner + registry + advisory plug-in (forge-open tranche)
 
 **BASE: 0cfb1955e5ba5d9299a760893939161b5bd6b647 (last green seal, CI #144 SUCCESS) — ONE commit, 15 paths, per WP-2.3 BUILD-ORDER DIRECTIVE 2026-09-23; design of record PROPOSAL_TO_DESK_verify_contract.md + v1.1 erratum (ratified v3.6 §1 · v3.7 §1); change-control per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.**

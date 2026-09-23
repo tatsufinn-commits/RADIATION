@@ -1,0 +1,39 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "radiation.tool_io.verify_apply.outputs/1",
+ "description": "Bound description of verify_apply stdout contract (not a live JSON envelope). ok/exit/findings/needle. Runtime remains prose. Cassette plug-in stays Option-A WARN. Not R3.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema_name",
+  "ok",
+  "exit",
+  "findings",
+  "needle"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.tool_io.verify_apply.outputs/1"
+  },
+  "ok": {
+   "type": "boolean"
+  },
+  "exit": {
+   "enum": [
+    0,
+    1
+   ]
+  },
+  "findings": {
+   "type": "array",
+   "maxItems": 256,
+   "items": {
+    "type": "string",
+    "maxLength": 400
+   }
+  },
+  "needle": {
+   "const": "FAIL-CLASS : none"
+  }
+ }
+}

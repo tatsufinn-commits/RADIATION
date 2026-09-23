@@ -1,13 +1,13 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "WP-2.3 crown verify cassette runner v3.10.33 (39->40 tools)",
+  "generated_by": "B4 wiring batch #1 \u2014 10 CI-DoD tools schema-bound @ 0438820",
   "tools": [
     {
       "id": "validate",
       "entrypoint": "scripts/validate.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/validate.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/validate.outputs.schema.json",
       "effects": [
         "read",
         "write"
@@ -237,8 +237,8 @@
       "id": "render_docs",
       "entrypoint": "scripts/render_docs.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/render_docs.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/render_docs.outputs.schema.json",
       "effects": [
         "read",
         "write"
@@ -263,8 +263,8 @@
       "id": "verify_apply",
       "entrypoint": "scripts/verify_apply.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/verify_apply.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/verify_apply.outputs.schema.json",
       "effects": [
         "read"
       ],
@@ -519,8 +519,8 @@
       "id": "tool_registry_check",
       "entrypoint": "scripts/tool_registry_check.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/tool_registry_check.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/tool_registry_check.outputs.schema.json",
       "effects": [
         "read",
         "write"
@@ -581,8 +581,8 @@
       "id": "release_truth_check",
       "entrypoint": "scripts/release_truth_check.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/release_truth_check.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/release_truth_check.outputs.schema.json",
       "effects": [
         "read"
       ],
@@ -631,8 +631,8 @@
       "id": "push_preflight_check",
       "entrypoint": "scripts/push_preflight_check.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/push_preflight_check.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/push_preflight_check.outputs.schema.json",
       "effects": [
         "read"
       ],
@@ -681,8 +681,8 @@
       "id": "docs_index_check",
       "entrypoint": "scripts/docs_index_check.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/docs_index_check.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/docs_index_check.outputs.schema.json",
       "effects": [
         "read"
       ],
@@ -957,8 +957,8 @@
       "id": "agent_policy_check",
       "entrypoint": "scripts/agent_policy_check.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/agent_policy_check.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/agent_policy_check.outputs.schema.json",
       "effects": [
         "read"
       ],
@@ -982,8 +982,8 @@
       "id": "verify_policy_check",
       "entrypoint": "scripts/verify_policy_check.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/verify_policy_check.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/verify_policy_check.outputs.schema.json",
       "effects": [
         "read"
       ],
@@ -1009,8 +1009,8 @@
       "id": "verify_cassette_runner",
       "entrypoint": "scripts/verify_cassette_runner.py",
       "version": "1",
-      "inputs_schema": null,
-      "outputs_schema": null,
+      "inputs_schema": "schemas/tool_io/verify_cassette_runner.inputs.schema.json",
+      "outputs_schema": "schemas/tool_io/verify_cassette_runner.outputs.schema.json",
       "effects": [
         "read",
         "write"
