@@ -1,0 +1,69 @@
+{
+  "schema_name": "radiation.verify_cassette/1",
+  "cassette_id": "CASSETTE_WP23",
+  "tranche": "WP-2.3 crown — verify cassette runner (forge-open tranche)",
+  "design_of_record": "PROPOSAL_TO_DESK_verify_contract.md + v1.1 erratum (ratified v3.6 §1 · v3.7 §1) — row shape per design B3",
+  "j1_rule": "consume by name — never rebuild: the three seed rows point at the WP-1 1.5 golden traces as they stand",
+  "verdict_enum": ["PASS", "WARN-and-justify", "RETURNED"],
+  "verdict_mapping": {
+    "PASS": "every deterministic check of the row held",
+    "WARN-and-justify": "the row was evaluable but at least one deterministic check failed — reported with its stated justification, never FAIL-class (Law 3 warn-and-justify, raise-only)",
+    "RETURNED": "the row could not be evaluated (malformed row, unknown runner, missing target) — returned to its author, not queued"
+  },
+  "grading": "deterministic checks only — no behavioral grading",
+  "raise_only_note": "raise-only — rows may be added or checks tightened, never tuned downward (Law 2)",
+  "rows": [
+    {
+      "id": "WP-2.3-cassette-seed-required-SUB-001",
+      "question": "Does the required-policy golden trace still parse, carry policy_class 'required', and name itself as this seed?",
+      "expected": "PASS",
+      "runner": "seed_trace",
+      "target": "evals/verify_policies/trace_required.json",
+      "policy_class": "required",
+      "verdict": "PASS"
+    },
+    {
+      "id": "WP-2.3-cassette-seed-opt-in-SUB-002",
+      "question": "Does the opt-in golden trace still parse, carry policy_class 'opt-in', and name itself as this seed?",
+      "expected": "PASS",
+      "runner": "seed_trace",
+      "target": "evals/verify_policies/trace_opt_in.json",
+      "policy_class": "opt-in",
+      "verdict": "PASS"
+    },
+    {
+      "id": "WP-2.3-cassette-seed-opt-out-SUB-003",
+      "question": "Does the opt-out golden trace still parse, carry policy_class 'opt-out', and name itself as this seed?",
+      "expected": "PASS",
+      "runner": "seed_trace",
+      "target": "evals/verify_policies/trace_opt_out.json",
+      "policy_class": "opt-out",
+      "verdict": "PASS"
+    },
+    {
+      "id": "WP-2.3-cassette-A-5830-activation",
+      "question": "Do the 5830 activation-exercise surfaces (cap_probe, cap_verify, control_plane, the exercise doc) still exist and still state their boundaries?",
+      "expected": "PASS",
+      "runner": "activation_5830",
+      "assertions": [
+        {"path": "scripts/cap_probe.py", "contains": "cap_probe OBSERVES only"},
+        {"path": "scripts/cap_verify.py", "contains": "cap_verify VERIFIES records"},
+        {"path": "radiation_core/control_plane.py", "contains": "commander_motor_act"},
+        {"path": "docs/ACTIVATION_PASS_EXERCISE_5830.md", "contains": "canonical_apply: commander_motor_act"},
+        {"path": "docs/ACTIVATION_PASS_EXERCISE_5830.md", "contains": "cap_probe"},
+        {"path": "docs/ACTIVATION_PASS_EXERCISE_5830.md", "contains": "cap_verify"},
+        {"path": "docs/ACTIVATION_PASS_EXERCISE_5830.md", "contains": "radiation_core.control_plane"}
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "id": "WP-2.3-cassette-E2-5900-1-numeric-motion",
+      "question": "Does the 5900-1 gate still hold its self-test (11/11 vectors) and does the relay still order plan versions numerically (plan.v10 beats plan.v2)?",
+      "expected": "PASS",
+      "runner": "numeric_motion_5900_1",
+      "gate_self_test": {"command": ["scripts/release_truth_check.py", "--self-test"], "must_contain": "release_truth_check self-test: 11/11 vectors"},
+      "relay_numeric_plan": {"module": "radiation_core.relay", "function": "_plan_version", "vectors": [["plan.v2.json", 2], ["plan.v10.json", 10], ["plan.json", 0]]},
+      "verdict": "PASS"
+    }
+  ]
+}

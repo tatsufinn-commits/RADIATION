@@ -13,6 +13,15 @@
 2. **trace_opt_in.json** — policy_class opt-in — subskill SUB-002, cue CUE-BUDGET-OVERRIDE — seed WP-2.3-cassette-seed-opt-in-SUB-002 — PROVEN
 3. **trace_opt_out.json** — policy_class opt-out — subskill SUB-003, cue CUE-CONSTITUTION-SHAPE — seed WP-2.3-cassette-seed-opt-out-SUB-003 — PROVEN
 
+### WP-2.3 consumption (v3.10.33) — seeds CONSUMED per J1
+
+- **Cassette:** `evals/verify_policies/CASSETTE_WP23.json` — five rows: the three seeds above, consumed **by name** (the traces are read as they stand, never rebuilt) + Cassette A (5830 activation surfaces) + E2 (5900-1 gate self-test + relay numeric plan ordering)
+- **Runner:** `python3 scripts/verify_cassette_runner.py` — deterministic, stdlib-only; per-row verdict PASS / WARN-and-justify / RETURNED; `--self-test` vector battery
+- **Seed checks:** trace JSON valid · policy_class in {required, opt-in, opt-out} and equal to the row's class · `cassette_seed` and `verify.seed` equal the seed name · `stdlib_asserted` true
+- **Advisory:** `scripts/verify_apply.py` runs the cassette; all rows PASS → silent; any non-PASS row → WARN-class line with its justification — never FAIL-class (Law 3 warn-and-justify, Law 2 raise-only)
+- **Tests:** `tests/test_verify_cassette_runner.py`
+- **Change control:** per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md
+
 ### Router honors
 
 - **required:** verification must run — deterministic checks only, no behavioral grading per 1.5

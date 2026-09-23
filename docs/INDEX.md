@@ -6,6 +6,8 @@
 
 **Usage:** Newcomer starts at `START_HERE.md` → this file → lane tour.
 
+**Register status (v3.10.33, WP-2.3):** verify cassette seeds CONSUMED (J1) · runner `scripts/verify_cassette_runner.py` live-advisory (via `verify_apply.py`, WARN-only) · cassette + seeds under `evals/verify_policies/` (outside docs/, so no lane row) · WP-2.3 row IN-FLIGHT → DELIVERED on seal (see ROADMAP.md).
+
 ---
 
 ## Tutorial (learning-oriented) — newcomer one-pass, safe environment
