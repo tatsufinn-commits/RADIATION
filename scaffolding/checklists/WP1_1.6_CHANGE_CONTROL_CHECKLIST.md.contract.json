@@ -1,0 +1,10 @@
+{
+  "id": "SCAFFOLD-other-wp1-1-6-change-control-checklist",
+  "file": "scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md",
+  "kind": "other",
+  "status": "active",
+  "loads_when": null,
+  "depends_on": [],
+  "effects": ["read"],
+  "tests": []
+}

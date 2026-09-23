@@ -130,7 +130,23 @@ def validate_subskill_schema(entry, idx):
         if not isinstance(sb, str) or not ID_PATTERN.match(sb):
             errors.append(f"[{cid}] superseded_by pattern mismatch '{sb}' must match {ID_PATTERN.pattern}")
 
-    allowed = {"id", "title", "parent_skill", "entry_path", "trigger", "condition", "description", "scenario_ref", "status", "tests", "note", "superseded_by"}
+    # WP-1 1.5 verify policy field — additive optional namespaced extension
+    if "verify" in entry:
+        v = entry["verify"]
+        if not isinstance(v, dict):
+            errors.append(f"[{cid}] verify must be object per 1.5")
+        else:
+            pol = v.get("policy")
+            if pol not in {"required", "opt-in", "opt-out"}:
+                errors.append(f"[{cid}] verify.policy must be required/opt-in/opt-out per 1.5, got '{pol}'")
+            # checks optional array of strings
+            if "checks" in v and not isinstance(v["checks"], list):
+                errors.append(f"[{cid}] verify.checks must be array per 1.5")
+            # seed optional string
+            if "seed" in v and not isinstance(v["seed"], str):
+                errors.append(f"[{cid}] verify.seed must be string per 1.5")
+
+    allowed = {"id", "title", "parent_skill", "entry_path", "trigger", "condition", "description", "scenario_ref", "status", "tests", "note", "superseded_by", "verify"}
     for k in entry.keys():
         if k not in allowed:
             errors.append(f"[{cid}] additional property '{k}' not allowed")

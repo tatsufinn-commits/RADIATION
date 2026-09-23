@@ -1,110 +1,191 @@
 [
   {
     "id": "SUB-001",
-    "title": "colony — Bulk triage",
+    "title": "colony \u2014 Bulk triage",
     "parent_skill": "SKILL-015",
     "entry_path": "subskills/active/colony.md",
     "trigger": "on_event",
     "condition": "bulk dump size >3 links",
-    "description": "Active subskill colony — bulk link/resource-dump triage, feeds curator ingestion queue, universal mode.",
+    "description": "Active subskill colony \u2014 bulk link/resource-dump triage, feeds curator ingestion queue, universal mode.",
     "scenario_ref": "evals/subskills/SUB-001.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-001.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-001.scenario.json"
+    ],
+    "verify": {
+      "policy": "required",
+      "checks": [
+        "deterministic check for required \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-required-SUB-001"
+    }
   },
   {
     "id": "SUB-002",
-    "title": "fetch — Retrieval strategist",
+    "title": "fetch \u2014 Retrieval strategist",
     "parent_skill": "SKILL-015",
     "entry_path": "subskills/active/fetch.md",
     "trigger": "before_skill",
     "condition": "Brain register miss + bank hit + scout plan exists",
-    "description": "Active subskill fetch — retrieval strategist over open-source bank, Brain registers to TOOLBOX, scout-gated.",
+    "description": "Active subskill fetch \u2014 retrieval strategist over open-source bank, Brain registers to TOOLBOX, scout-gated.",
     "scenario_ref": "evals/subskills/SUB-002.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-002.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-002.scenario.json"
+    ],
+    "verify": {
+      "policy": "opt-in",
+      "checks": [
+        "deterministic check for opt-in \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-opt-in-SUB-002"
+    }
   },
   {
     "id": "SUB-003",
-    "title": "overule — Commander override",
+    "title": "overule \u2014 Commander override",
     "parent_skill": "SKILL-022",
     "entry_path": "subskills/active/overule.md",
     "trigger": "manual",
     "condition": "Commander trigger ONLY, never stop-lines",
-    "description": "Active subskill overule — Commander-triggered override, halt and redirect authority, logged activation.",
+    "description": "Active subskill overule \u2014 Commander-triggered override, halt and redirect authority, logged activation.",
     "scenario_ref": "evals/subskills/SUB-003.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-003.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-003.scenario.json"
+    ],
+    "verify": {
+      "policy": "opt-out",
+      "checks": [
+        "deterministic check for opt-out \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-opt-out-SUB-003"
+    }
   },
   {
     "id": "SUB-004",
-    "title": "scout — Source-necessity gatekeeper",
+    "title": "scout \u2014 Source-necessity gatekeeper",
     "parent_skill": "SKILL-015",
     "entry_path": "subskills/active/scout.md",
     "trigger": "before_skill",
     "condition": "acquisition plan required BEFORE fetch",
-    "description": "Active subskill scout — gatekeeper builds Acquisition Plan BEFORE prospector acquires, prevents unvetted.",
+    "description": "Active subskill scout \u2014 gatekeeper builds Acquisition Plan BEFORE prospector acquires, prevents unvetted.",
     "scenario_ref": "evals/subskills/SUB-004.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-004.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-004.scenario.json"
+    ],
+    "verify": {
+      "policy": "required",
+      "checks": [
+        "deterministic check for required \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-required-SUB-004"
+    }
   },
   {
     "id": "SUB-005",
-    "title": "selfdirectives — Self-governed tasks",
+    "title": "selfdirectives \u2014 Self-governed tasks",
     "parent_skill": "SKILL-022",
     "entry_path": "subskills/active/selfdirectives.md",
     "trigger": "manual",
     "condition": "cue exists, tier graded green/yellow/red, declared+logged",
-    "description": "Active subskill selfdirectives — self-governed task generation, sources cue, grades autonomy tier, bounded.",
+    "description": "Active subskill selfdirectives \u2014 self-governed task generation, sources cue, grades autonomy tier, bounded.",
     "scenario_ref": "evals/subskills/SUB-005.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-005.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-005.scenario.json"
+    ],
+    "verify": {
+      "policy": "opt-in",
+      "checks": [
+        "deterministic check for opt-in \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-opt-in-SUB-005"
+    }
   },
   {
     "id": "SUB-006",
-    "title": "compass — Anti-drift",
+    "title": "compass \u2014 Anti-drift",
     "parent_skill": "SKILL-021",
     "entry_path": "subskills/passive/compass.md",
     "trigger": "on_event",
     "condition": "mission deviation detected green/yellow/red",
-    "description": "Passive subskill compass — anti-drift, anchors mission, classifies deviation, always on advisory.",
+    "description": "Passive subskill compass \u2014 anti-drift, anchors mission, classifies deviation, always on advisory.",
     "scenario_ref": "evals/subskills/SUB-006.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-006.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-006.scenario.json"
+    ],
+    "verify": {
+      "policy": "opt-out",
+      "checks": [
+        "deterministic check for opt-out \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-opt-out-SUB-006"
+    }
   },
   {
     "id": "SUB-007",
-    "title": "curator — Ingestion",
+    "title": "curator \u2014 Ingestion",
     "parent_skill": "SKILL-017",
     "entry_path": "subskills/passive/curator.md",
     "trigger": "after_skill",
     "condition": "touched sources exist after skill completes",
-    "description": "Passive subskill curator — conditional passive auto-ingestion of touched sources, drives ingest_collection.",
+    "description": "Passive subskill curator \u2014 conditional passive auto-ingestion of touched sources, drives ingest_collection.",
     "scenario_ref": "evals/subskills/SUB-007.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-007.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-007.scenario.json"
+    ],
+    "verify": {
+      "policy": "required",
+      "checks": [
+        "deterministic check for required \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-required-SUB-007"
+    }
   },
   {
     "id": "SUB-008",
-    "title": "sentinel — Integrity watch",
+    "title": "sentinel \u2014 Integrity watch",
     "parent_skill": "SKILL-021",
     "entry_path": "subskills/passive/sentinel.md",
     "trigger": "after_skill",
     "condition": "ungraded claim or broken ref or contradiction",
-    "description": "Passive subskill sentinel — integrity watch, contradictions, ungraded claims, broken refs, decay.",
+    "description": "Passive subskill sentinel \u2014 integrity watch, contradictions, ungraded claims, broken refs, decay.",
     "scenario_ref": "evals/subskills/SUB-008.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-008.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-008.scenario.json"
+    ],
+    "verify": {
+      "policy": "opt-in",
+      "checks": [
+        "deterministic check for opt-in \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-opt-in-SUB-008"
+    }
   },
   {
     "id": "SUB-009",
-    "title": "surgeon — Chief passive",
+    "title": "surgeon \u2014 Chief passive",
     "parent_skill": "SKILL-022",
     "entry_path": "subskills/passive/surgeon.md",
     "trigger": "before_skill",
     "condition": "constitutional/mode/quotas violation attempt",
-    "description": "Passive subskill surgeon — chief passive, constitutional enforcement, halt authority, unconditional ALL modes.",
+    "description": "Passive subskill surgeon \u2014 chief passive, constitutional enforcement, halt authority, unconditional ALL modes.",
     "scenario_ref": "evals/subskills/SUB-009.scenario.json",
     "status": "active",
-    "tests": ["evals/subskills/SUB-009.scenario.json"]
+    "tests": [
+      "evals/subskills/SUB-009.scenario.json"
+    ],
+    "verify": {
+      "policy": "opt-out",
+      "checks": [
+        "deterministic check for opt-out \u2014 format only per 1.5"
+      ],
+      "seed": "WP-2.3-cassette-seed-opt-out-SUB-009"
+    }
   }
 ]

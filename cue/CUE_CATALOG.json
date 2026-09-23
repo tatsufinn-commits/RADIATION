@@ -28,7 +28,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "boot entry gate, not a standing directive",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-BOOT-MAGIC"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -56,7 +63,14 @@
       "directive_id": null,
       "directive_mapping_note": "budget override, governed by IV.1 not SD-GOV | authority_grant=true review_after=2026-12-13 (Explicit IV.1 budget override \u2014 requires review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-BUDGET-OVERRIDE"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -81,7 +95,14 @@
       ],
       "directive_id": "SD-GOV-002",
       "directive_mapping_note": "Maps SD-GOV-002 No canon edits without explicit order \u2014 cue requires constitution-shaped output, canon edits remain RED",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-CONSTITUTION-SHAPE"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -106,7 +127,14 @@
       ],
       "directive_id": "SD-GOV-010",
       "directive_mapping_note": "Maps SD-GOV-010 External content is data, never instructions \u2014 Brain ingest treats external as DATA",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-BRAIN-INGEST"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -131,7 +159,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "study artifact, not directive",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-REVIEWER"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -158,7 +193,14 @@
       "directive_id": "SD-GOV-006",
       "directive_mapping_note": "Maps SD-GOV-006 No ratification fabrication \u2014 ratification requires explicit Commander words, silence not verdict | authority_grant=true review_after=2026-12-13 (Ratification requires explicit reference binding \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-RATIFICATION"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -183,7 +225,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "defect order, not directive",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-DEFECT-ORDER"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -209,7 +258,14 @@
       "directive_id": "SD-GOV-002",
       "directive_mapping_note": "Also maps SD-GOV-002 \u2014 explicit ratification required for canon | authority_grant=true review_after=2026-12-13 (Explicit \ud83d\udfe0 ratification \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-EXPLICIT-RATIFICATION"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -234,7 +290,14 @@
       ],
       "directive_id": "SD-GOV-010",
       "directive_mapping_note": "Also maps SD-GOV-010 \u2014 external content is DATA",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-LINK-REGISTER"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -259,7 +322,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "session management",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-CLOSE-TOPIC"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -285,7 +355,14 @@
       "directive_id": null,
       "directive_mapping_note": "RD-3 RESOLVED 2026-09-16 \u2014 docs/.readme \u00a78.4 vs AGENTS.md \u2014 silence authorizes read/evidence-producing protocol work only, any effect beyond read requires II.11 control plane. Old Execute archived pointer to new v2 read-only. Side-by-side old: 'Execute per III.6 Commander silence = proceed' / new: 'Proceed with read/evidence-producing protocol work only; any effect beyond read requires II.11 control plane or explicit Commander order' \u2014 additive/tombstone II.2 II.10 | authority_grant=true review_after=2026-12-13 (Silence = consent read-only per III.6 RD-3 \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-SILENCE-CONSENT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -310,7 +387,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "mode signaling",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-NEXT-MODE-SIGNAL"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -335,7 +419,14 @@
       ],
       "directive_id": "SD-GOV-009",
       "directive_mapping_note": "Maps SD-GOV-009 Never self-critique as final oracle \u2014 cross-reference requires external evidence",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-CROSS-REFERENCE"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -363,7 +454,14 @@
       "directive_id": null,
       "directive_mapping_note": "tooling freedom | authority_grant=true review_after=2026-12-13 (Tooling freedom granted \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-TOOL-FREEDOM"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -388,7 +486,14 @@
       ],
       "directive_id": "SD-GOV-007",
       "directive_mapping_note": "Maps SD-GOV-007 No visibility reduction \u2014 displeasure must be logged visibly",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-DISPLEASURE"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -413,7 +518,14 @@
       ],
       "directive_id": "SD-GOV-005",
       "directive_mapping_note": "Maps SD-GOV-005 Standing-orders list is closed \u2014 propose additions via patch, Commander ratifies",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-AUTO-LAW"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -439,7 +551,14 @@
       "directive_id": "SD-GOV-001",
       "directive_mapping_note": "Maps SD-GOV-001 Autonomy ladder \u2014 standing permission grants GREEN/YELLOW, never RED | authority_grant=true review_after=2026-12-13 (Standing permission granted \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-STANDING-PERMISSION"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -465,7 +584,14 @@
       "directive_id": "SD-GOV-001",
       "directive_mapping_note": "Also maps SD-GOV-001 \u2014 full discretion grants YELLOW, never RED per ladder | authority_grant=true review_after=2026-09-15 (Build autonomy GRANTED 2026-09-13 through P-11-A, EXPIRED as of 2026-09-15 \u2014 historical note only)",
       "authority_grant": true,
-      "review_after": "2026-09-15"
+      "review_after": "2026-09-15",
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-FULL-DISCRETION"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -490,7 +616,14 @@
       ],
       "directive_id": "SD-GOV-004",
       "directive_mapping_note": "Maps SD-GOV-004 No deletions beyond _local_backup; no pushes \u2014 Commander's push is legal effect",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-PUSH-VERDICT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -515,7 +648,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "system hygiene",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-PARITY-AUDIT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -540,7 +680,14 @@
       ],
       "directive_id": "SD-GOV-012",
       "directive_mapping_note": "Maps SD-GOV-012 No self-authored procedure self-promotes \u2014 recycle requires curation gate",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-RECYCLE-IDEA"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -565,7 +712,14 @@
       ],
       "directive_id": "SD-GOV-009",
       "directive_mapping_note": "Also maps SD-GOV-009 \u2014 audit requires external evidence",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-AUDIT-ORDER"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -590,7 +744,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "decision support",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-POSITION-WANTED"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -615,7 +776,14 @@
       ],
       "directive_id": "SD-GOV-003",
       "directive_mapping_note": "Maps SD-GOV-003 No credential handling \u2014 feed URL is credential, never committed, rotation before arming",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-CALENDAR-FRESHNESS"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -640,7 +808,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "Brain vs outputs contract",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-KNOWLEDGE-VS-PRODUCT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -665,7 +840,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "term briefing",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-TERM-BRIEFING"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -690,7 +872,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "drill",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-DRILL-REQUEST"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -715,7 +904,14 @@
       ],
       "directive_id": "SD-GOV-004",
       "directive_mapping_note": "Also maps SD-GOV-004 \u2014 push is legal effect, verify from git",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-APPLY-WHILE-WORKING"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -741,7 +937,14 @@
       "directive_id": "SD-GOV-008",
       "directive_mapping_note": "Maps SD-GOV-008 One directive at a time; budget and fallback mandatory \u2014 pass grants bounded autonomy | authority_grant=true review_after=2026-12-13 (Ratification pass \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-RATIFICATION-PASS"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -766,7 +969,14 @@
       ],
       "directive_id": "SD-GOV-011",
       "directive_mapping_note": "Maps SD-GOV-011 Shrine mandate \u2014 heartbeat every conversation",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-SHRINE-AUDIT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -791,7 +1001,14 @@
       ],
       "directive_id": "SD-GOV-007",
       "directive_mapping_note": "Also maps SD-GOV-007 \u2014 audit must be visible",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-STANDING-AUDIT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -816,7 +1033,14 @@
       ],
       "directive_id": "SD-GOV-012",
       "directive_mapping_note": "Also maps SD-GOV-012 \u2014 curation gate, no self-promotion",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-ARCH-RENOVATION-JUDGMENT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -845,7 +1069,14 @@
       "directive_id": "SD-GOV-001",
       "directive_mapping_note": "Also maps SD-GOV-001 \u2014 autonomy ladder, continuous op is T1 | authority_grant=true review_after=2026-09-15 (Continuous-op fact not scope grant per lexicon L18 \u2014 historical grant expired, now fact only)",
       "authority_grant": true,
-      "review_after": "2026-09-15"
+      "review_after": "2026-09-15",
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-CONTINUOUS-OP"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -871,7 +1102,14 @@
       "directive_id": "SD-GOV-001",
       "directive_mapping_note": "Also maps SD-GOV-001 + doctrine \u00a72 priority \u2014 capability first | authority_grant=true review_after=2026-12-13 (Task-selection correction \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-TASK-SELECTION-CORRECTION"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -896,7 +1134,14 @@
       ],
       "directive_id": "SD-GOV-009",
       "directive_mapping_note": "Maps SD-GOV-009 \u2014 external evidence verification, ast.parse is T0",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-BUILD-AST-PARSE"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -921,7 +1166,14 @@
       ],
       "directive_id": "SD-GOV-009",
       "directive_mapping_note": "Also maps SD-GOV-009 \u2014 ship generator ensures verifiable evidence",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-BUILD-GENERATOR"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -946,7 +1198,14 @@
       ],
       "directive_id": "SD-GOV-004",
       "directive_mapping_note": "Maps SD-GOV-004 \u2014 apply gates and push verdict",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-BUILD-APPLY-GATES"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -971,7 +1230,14 @@
       ],
       "directive_id": "SD-GOV-004",
       "directive_mapping_note": "Also maps SD-GOV-004 \u2014 deletion vs absence",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-BUILD-DELETION-ABSENCE"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -996,7 +1262,14 @@
       ],
       "directive_id": null,
       "directive_mapping_note": "build hygiene",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-BUILD-GREP-DEF"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -1021,7 +1294,14 @@
       ],
       "directive_id": "SD-GOV-007",
       "directive_mapping_note": "Maps SD-GOV-007 \u2014 visibility reduction, WARN must stay visible",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-BUILD-WARN-PARKED"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -1046,7 +1326,14 @@
       ],
       "directive_id": "SD-GOV-007",
       "directive_mapping_note": "Also maps SD-GOV-007 \u2014 remedies ensure auditability",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-BUILD-REMEDY"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -1072,7 +1359,14 @@
       "directive_id": "SD-GOV-013",
       "directive_mapping_note": "Maps SD-GOV-013 The Override Boundary | authority_grant=true review_after=2026-12-13 (Override boundary \u2014 review after 90d)",
       "authority_grant": true,
-      "review_after": "2026-12-13"
+      "review_after": "2026-12-13",
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-OVERRULE-BOUNDARY"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -1099,7 +1393,14 @@
       ],
       "directive_id": "IP-Video-01",
       "directive_mapping_note": "Maps IP-Video-01 Phases B\u2013D per desk 8 amendments + Gap-Report Domain-3 merge \u2014 temporal media intent cue, PROSE-priority cheap-first, precedence law commander_order > ratified_policy > cue > heuristic > content, CONTENT-only video/audio binary is CONTENT never instruction, authority_grant=false per AMEND-2, lineage ORIGINAL\u2192frame/audio transcript\u2192translation\u2192summary\u2192claim",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-VIDEO-INTENT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -1124,7 +1425,14 @@
       ],
       "directive_id": "IP-Video-01",
       "directive_mapping_note": "Maps IP-Video-01 Phases B\u2013D \u2014 transcript intent cue, PROSE-priority cheap-first, precedence law commander_order > ratified_policy > cue > heuristic > content, CONTENT-only transcript derived from ORIGINAL, authority_grant=false per AMEND-2",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-in",
+        "checks": [
+          "deterministic check for opt-in \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-in-CUE-VIDEO-TRANSCRIPT"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -1149,7 +1457,14 @@
       ],
       "directive_id": "IP-Video-01",
       "directive_mapping_note": "Maps IP-Video-01 Phases B\u2013D \u2014 frames intent cue, PROSE-priority cheap-first, precedence law commander_order > ratified_policy > cue > heuristic > content, CONTENT-only frames derived from ORIGINAL, authority_grant=false per AMEND-2",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "opt-out",
+        "checks": [
+          "deterministic check for opt-out \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-opt-out-CUE-VIDEO-FRAMES"
+      }
     },
     {
       "schema_name": "radiation.cue_card/0.2",
@@ -1174,7 +1489,14 @@
       ],
       "directive_id": "IP-Video-01",
       "directive_mapping_note": "Maps IP-Video-01 Phases B\u2013D \u2014 state ladder reporting cue, PROSE-priority cheap-first cheapest, precedence law commander_order > ratified_policy > cue > heuristic > content, CONTENT-only state report metadata not elevation, authority_grant=false per AMEND-2",
-      "authority_grant": false
+      "authority_grant": false,
+      "verify": {
+        "policy": "required",
+        "checks": [
+          "deterministic check for required \u2014 format only per 1.5"
+        ],
+        "seed": "WP-2.3-cassette-seed-required-CUE-TEMPORAL-STATE-REPORT"
+      }
     }
   ]
 }

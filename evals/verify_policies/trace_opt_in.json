@@ -1,0 +1,23 @@
+{
+  "trace_id": "verify-opt-in-SUB-002",
+  "policy_class": "opt-in",
+  "description": "Golden trace for opt-in verification policy — subskill SUB-002 may opt-in to verification",
+  "subskill_id": "SUB-002",
+  "cue_id": "CUE-BUDGET-OVERRIDE",
+  "verify": {
+    "policy": "opt-in",
+    "checks": ["deterministic check for opt-in — format only per 1.5"],
+    "seed": "WP-2.3-cassette-seed-opt-in-SUB-002"
+  },
+  "checks": [
+    "schema valid",
+    "verify.policy == opt-in",
+    "router honors opt-in — may run verification if opted in",
+    "no auto-reject — warn-and-justify per Law 3"
+  ],
+  "result": "PASS — opt-in policy honored, deterministic checks only, no behavioral grading",
+  "stdlib_asserted": true,
+  "raise_only_note": "raise-only — may not be tuned downward later per Law 2",
+  "cassette_seed": "WP-2.3-cassette-seed-opt-in-SUB-002",
+  "j1_rule": "build neither twice — registered as WP-2.3 cassette SEED per J1"
+}

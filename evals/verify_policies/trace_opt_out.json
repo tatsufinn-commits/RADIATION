@@ -1,0 +1,23 @@
+{
+  "trace_id": "verify-opt-out-SUB-003",
+  "policy_class": "opt-out",
+  "description": "Golden trace for opt-out verification policy — subskill SUB-003 may opt-out of verification",
+  "subskill_id": "SUB-003",
+  "cue_id": "CUE-CONSTITUTION-SHAPE",
+  "verify": {
+    "policy": "opt-out",
+    "checks": ["deterministic check for opt-out — format only per 1.5"],
+    "seed": "WP-2.3-cassette-seed-opt-out-SUB-003"
+  },
+  "checks": [
+    "schema valid",
+    "verify.policy == opt-out",
+    "router honors opt-out — may skip verification if opted out",
+    "quarantine-before-delete honored — no deletions per Law 4"
+  ],
+  "result": "PASS — opt-out policy honored, deterministic checks only, no behavioral grading",
+  "stdlib_asserted": true,
+  "raise_only_note": "raise-only — may not be tuned downward later per Law 2",
+  "cassette_seed": "WP-2.3-cassette-seed-opt-out-SUB-003",
+  "j1_rule": "build neither twice — registered as WP-2.3 cassette SEED per J1"
+}

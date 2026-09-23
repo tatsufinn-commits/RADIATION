@@ -1,379 +1,223 @@
 {
-  "allowed": "exact delta, re-proven from scratch.",
+  "schema_name": "radiation.release_truth_expectation/0.1",
+  "generated_by": "WP-1 re-based onto Shot-2 902d3a3 \u2014 34 files \u2014 per 1.6 checklist \u2014 Shot-2 closes d912777 era",
+  "base_sha": "902d3a33405fa7ccb6e85faa144fc605f436a0e0",
+  "base_must_be_ancestor": true,
+  "description": "WP-1 CONTRACTS & DOCUMENTATION re-based onto Shot-2 seal 902d3a3 \u2014 six items ONE tranche v3.10.32 \u2014 base 902d3a3 closes d912777 era per Shot-2 rider \u2014 WP-1 re-bases per \u00a74 moving-base law \u2014 battery 38\u00b74\u00b70 0 fail 195 OK \u2014 six laws D029 sequence raise-only warn-and-justify quarantine-before-delete rewrite-rule WP-D single gate",
+  "allowed": "exact delta, re-proven from scratch \u2014 WP-1 re-based onto Shot-2",
   "allowed_changes": [
     {
-      "kind": "M",
-      "note": "cure 07-inspect/DEBT_REGISTER.md comeback-cure v3.2 delta vs d912777",
-      "path": "07-inspect/DEBT_REGISTER.md"
-    },
-    {
-      "kind": "M",
-      "note": "cleanup Brain/courses/0_CALLENDER/TERM1_FEED.txt comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/courses/0_CALLENDER/TERM1_FEED.txt"
-    },
-    {
-      "kind": "M",
-      "note": "calendar Brain/courses/CALENDAR.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/courses/CALENDAR.md"
-    },
-    {
-      "kind": "M",
-      "note": "cure Brain/courses/COURSE_CORPUS_MANIFEST.json comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/courses/COURSE_CORPUS_MANIFEST.json"
-    },
-    {
-      "kind": "M",
-      "note": "Test-4 Brain/external_sources/INDEX.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/external_sources/INDEX.md"
-    },
-    {
-      "kind": "M",
-      "note": "Test-4 Brain/external_sources/intro-data-science.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/external_sources/intro-data-science.md"
-    },
-    {
-      "kind": "M",
-      "note": "Test-4 Brain/external_sources/planning.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/external_sources/planning.md"
+      "kind": "A",
+      "path": "CLAUDE.md",
+      "note": "WP-1 1.4 root agent policy \u226430 lines"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/external_sources/pptx-reference-decks.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/external_sources/pptx-reference-decks.md"
-    },
-    {
-      "kind": "M",
-      "note": "Test-4 Brain/external_sources/statics-rigid-bodies.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/external_sources/statics-rigid-bodies.md"
-    },
-    {
-      "kind": "M",
-      "note": "Test-4 Brain/frontal_lobe/opinions.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/frontal_lobe/opinions.md"
-    },
-    {
-      "kind": "M",
-      "note": "Test-4 Brain/frontal_lobe/task_ledger.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/frontal_lobe/task_ledger.md"
+      "path": "CODEX.md",
+      "note": "WP-1 1.4"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/anchors/anchor_S007_2026-09-17.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/anchors/anchor_S007_2026-09-17.md"
+      "path": "CURSOR.md",
+      "note": "WP-1 1.4"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/anchors/anchor_S008_2026-09-17.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/anchors/anchor_S008_2026-09-17.md"
+      "path": "agents/BOUNDARIES.md",
+      "note": "WP-1 1.2 per-area boundaries"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/anchors/anchor_S009_2026-09-17.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/anchors/anchor_S009_2026-09-17.md"
+      "path": "agents/CONTRACTS.md",
+      "note": "WP-1 1.2 contracts"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/anchors/anchor_S010_2026-09-17.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/anchors/anchor_S010_2026-09-17.md"
+      "path": "agents/DATA_PATHS.md",
+      "note": "WP-1 1.2 data paths single-truth"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/anchors/anchor_S011_2026-09-18.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/anchors/anchor_S011_2026-09-18.md"
+      "path": "agents/WORKFLOW.md",
+      "note": "WP-1 1.2 workflow"
     },
     {
       "kind": "A",
-      "note": "cure Brain/short_term/drills/DRILL_SET-DSS10-001_QUESTIONS.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/drills/DRILL_SET-DSS10-001_QUESTIONS.md"
+      "path": "docs/GLOSSARY.md",
+      "note": "WP-1 1.3 glossary pure-additive"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/drills/FIXTURE_answers_SET-DSS10-001.json comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/drills/FIXTURE_answers_SET-DSS10-001.json"
+      "path": "docs/PATCH_SELF_CERTIFICATION_MANIFEST.md",
+      "note": "WP-1 1.1 manifest six checkboxes"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/drills/SET-DSS10-001.json comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/drills/SET-DSS10-001.json"
+      "path": "docs/WP1_HANDOVER_2026-09-22.md",
+      "note": "WP-1 handover per \u00a75 template referencing 1.6 checklist"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/ingest/2026-09-17_ds10-lesson0-overview.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/ingest/2026-09-17_ds10-lesson0-overview.md"
+      "path": "evals/verify_policies/README.md",
+      "note": "WP-1 1.5 cassette seeds README"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/ingest/2026-09-17_ds10-lesson1-bigdata-overview.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/ingest/2026-09-17_ds10-lesson1-bigdata-overview.md"
+      "path": "evals/verify_policies/trace_opt_in.json",
+      "note": "WP-1 1.5 trace opt-in"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/ingest/2026-09-17_ds10-lesson2-bigdata-ecosystem.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/ingest/2026-09-17_ds10-lesson2-bigdata-ecosystem.md"
+      "path": "evals/verify_policies/trace_opt_out.json",
+      "note": "WP-1 1.5 trace opt-out"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/ingest/2026-09-17_ds10-lesson3-lifecycle.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/ingest/2026-09-17_ds10-lesson3-lifecycle.md"
+      "path": "evals/verify_policies/trace_required.json",
+      "note": "WP-1 1.5 trace required"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/ingest/2026-09-17_ds10-lesson6-regression.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/ingest/2026-09-17_ds10-lesson6-regression.md"
+      "path": "scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md",
+      "note": "WP-1 1.6 checklist"
     },
     {
       "kind": "A",
-      "note": "Test-4 Brain/short_term/ingest/2026-09-17_statics-lectures-vectors-resultants.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/ingest/2026-09-17_statics-lectures-vectors-resultants.md"
+      "path": "scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.contract.json",
+      "note": "WP-1 scaffold sidecar contract"
     },
     {
-      "kind": "D",
-      "note": "cleanup Brain/short_term/notes/PLANNING_reviewer_AUDIT.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/short_term/notes/PLANNING_reviewer_AUDIT.md"
+      "kind": "A",
+      "path": "scripts/agent_policy_check.py",
+      "note": "WP-1 1.4 existence check"
+    },
+    {
+      "kind": "A",
+      "path": "scripts/verify_policy_check.py",
+      "note": "WP-1 1.5 verify checker"
     },
     {
       "kind": "M",
-      "note": "Test-4 Brain/temporal_lobe/INDEX.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/INDEX.md"
+      "path": "AGENTS.md",
+      "note": "WP-1 1.2 layered cascade"
     },
     {
       "kind": "M",
-      "note": "cure Brain/temporal_lobe/S004_2026-09-13_architect-builds/deliverables.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S004_2026-09-13_architect-builds/deliverables.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S007_2026-09-17_dss10-reviewer/SESSION.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S007_2026-09-17_dss10-reviewer/SESSION.md"
-    },
-    {
-      "kind": "A",
-      "note": "cure Brain/temporal_lobe/S007_2026-09-17_dss10-reviewer/deliverables.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S007_2026-09-17_dss10-reviewer/deliverables.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S007_2026-09-17_dss10-reviewer/learnings.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S007_2026-09-17_dss10-reviewer/learnings.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S008_2026-09-17_dss10-close-gaps/SESSION.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S008_2026-09-17_dss10-close-gaps/SESSION.md"
-    },
-    {
-      "kind": "A",
-      "note": "cure Brain/temporal_lobe/S008_2026-09-17_dss10-close-gaps/deliverables.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S008_2026-09-17_dss10-close-gaps/deliverables.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S008_2026-09-17_dss10-close-gaps/learnings.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S008_2026-09-17_dss10-close-gaps/learnings.md"
-    },
-    {
-      "kind": "A",
-      "note": "cure Brain/temporal_lobe/S009_2026-09-17_planning-midterm-reviewer/SESSION.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S009_2026-09-17_planning-midterm-reviewer/SESSION.md"
-    },
-    {
-      "kind": "A",
-      "note": "cure Brain/temporal_lobe/S009_2026-09-17_planning-midterm-reviewer/deliverables.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S009_2026-09-17_planning-midterm-reviewer/deliverables.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S009_2026-09-17_planning-midterm-reviewer/learnings.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S009_2026-09-17_planning-midterm-reviewer/learnings.md"
-    },
-    {
-      "kind": "A",
-      "note": "cure Brain/temporal_lobe/S010_2026-09-17_statics-reviewer/SESSION.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S010_2026-09-17_statics-reviewer/SESSION.md"
-    },
-    {
-      "kind": "A",
-      "note": "cure Brain/temporal_lobe/S010_2026-09-17_statics-reviewer/deliverables.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S010_2026-09-17_statics-reviewer/deliverables.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S010_2026-09-17_statics-reviewer/learnings.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S010_2026-09-17_statics-reviewer/learnings.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S011_2026-09-18_rizal-retraction-debate/SESSION.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S011_2026-09-18_rizal-retraction-debate/SESSION.md"
-    },
-    {
-      "kind": "A",
-      "note": "cure Brain/temporal_lobe/S011_2026-09-18_rizal-retraction-debate/deliverables.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S011_2026-09-18_rizal-retraction-debate/deliverables.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 Brain/temporal_lobe/S011_2026-09-18_rizal-retraction-debate/learnings.md comeback-cure v3.2 delta vs d912777",
-      "path": "Brain/temporal_lobe/S011_2026-09-18_rizal-retraction-debate/learnings.md"
+      "path": "CHANGELOG.md",
+      "note": "WP-1 CHANGELOG v3.10.32 + Shot-2 v3.10.31 vault"
     },
     {
       "kind": "M",
-      "note": "cure CHANGELOG.md comeback-cure v3.2 delta vs d912777",
-      "path": "CHANGELOG.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 PATCH_MANIFEST.md comeback-cure v3.2 delta vs d912777",
-      "path": "PATCH_MANIFEST.md"
+      "path": "README.md",
+      "note": "WP-1 version coherence v3.10.32"
     },
     {
       "kind": "M",
-      "note": "closure-walk README.md comeback-cure v3.2 delta vs d912777",
-      "path": "README.md"
-    },
-    {
-      "kind": "A",
-      "note": "Test-4 UPDATE_NOTE.md comeback-cure v3.2 delta vs d912777",
-      "path": "UPDATE_NOTE.md"
+      "path": "cue/CUE_CATALOG.json",
+      "note": "WP-1 1.5 46 cues verify"
     },
     {
       "kind": "M",
-      "note": "Test-4 cue/inference-log.md comeback-cure v3.2 delta vs d912777",
-      "path": "cue/inference-log.md"
+      "path": "docs/CAPABILITIES.md",
+      "note": "GENERATED capability registry"
     },
     {
       "kind": "M",
-      "note": "cure docs/PATCH_LEDGER.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/PATCH_LEDGER.md"
+      "path": "docs/INDEX.md",
+      "note": "WP-1 INDEX 40->41 docs handover added"
     },
     {
       "kind": "M",
-      "note": "closure-walk docs/RELEASE_TRUTH_GATE/EXPECTATION.json comeback-cure v3.2 delta vs d912777",
-      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json"
+      "path": "docs/PATCH_LEDGER.md",
+      "note": "WP-1 PATCH_LEDGER + Shot-2 row"
     },
     {
       "kind": "M",
-      "note": "closure-walk docs/ROADMAP.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/ROADMAP.md"
+      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
+      "note": "WP-1 moving-base law base 902d3a3 allowed 34"
     },
     {
       "kind": "M",
-      "note": "closure-walk docs/SYSTEM_STATE.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/SYSTEM_STATE.md"
+      "path": "docs/SYSTEM_STATE.md",
+      "note": "WP-1 SYSTEM_STATE v3.10.32 GENERATED"
     },
     {
       "kind": "M",
-      "note": "shrine docs/shrine/CHARTER.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/shrine/CHARTER.md"
+      "path": "docs/WARN_LEDGER.md",
+      "note": "WP-1 WARN_LEDGER charter"
     },
     {
       "kind": "M",
-      "note": "shrine docs/shrine/LOG.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/shrine/LOG.md"
-    },
-    {
-      "kind": "A",
-      "note": "shrine docs/shrine/README.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/shrine/README.md"
-    },
-    {
-      "kind": "A",
-      "note": "shrine docs/shrine/artifacts/INDEX.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/shrine/artifacts/INDEX.md"
-    },
-    {
-      "kind": "A",
-      "note": "shrine docs/shrine/members/DESK_TESTAMENT_2026-09-18.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/shrine/members/DESK_TESTAMENT_2026-09-18.md"
-    },
-    {
-      "kind": "A",
-      "note": "shrine docs/shrine/members/S006_LEAD_ARCHITECT_TESTAMENT_2026-09-17.md comeback-cure v3.2 delta vs d912777",
-      "path": "docs/shrine/members/S006_LEAD_ARCHITECT_TESTAMENT_2026-09-17.md"
-    },
-    {
-      "kind": "D",
-      "note": "cleanup outputs/2026-09-13_six-point-review.md comeback-cure v3.2 delta vs d912777",
-      "path": "outputs/2026-09-13_six-point-review.md"
+      "path": "docs/shrine/LOG.md",
+      "note": "WP-1 heartbeat D015/D016 + Shot-2 D?"
     },
     {
       "kind": "M",
-      "note": "Test-4 outputs/README.md comeback-cure v3.2 delta vs d912777",
-      "path": "outputs/README.md"
+      "path": "schemas/cue_card.schema.json",
+      "note": "WP-1 1.5 verify optional"
+    },
+    {
+      "kind": "M",
+      "path": "schemas/subskill_card.schema.json",
+      "note": "WP-1 1.5 verify optional"
+    },
+    {
+      "kind": "M",
+      "path": "scripts/subskill_check.py",
+      "note": "WP-1 1.5 verify validation"
+    },
+    {
+      "kind": "M",
+      "path": "subskills/SUBSKILL_CATALOG.json",
+      "note": "WP-1 1.5 9 subskills verify"
+    },
+    {
+      "kind": "M",
+      "path": "tools/TOOL_REGISTRY.json",
+      "note": "WP-1 39 tools"
     }
   ],
-  "base_must_be_ancestor": true,
-  "base_sha": "d912777e25ada164b903083c5a128d3491a38287",
-  "description": "COMEBACK CURE v3/v3.1/v3.2 base d912777: admits 09-21 cleanups (never reverted); clears fourteen check-1 dangles (3 heal-by-restoration, 1 DEBT retarget, 7 manifest deletes, 2 SESSION memorials); K-CUR-002 byte-exact restore; manifest digest re-pin; single-t canonical, 09-18 two-t word honorably reversed (stripe v3.1).",
-  "forbidden_paths": [
-    "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
+  "forbidden_paths": [],
+  "required_deletions": [],
+  "required_absent_on_disk": [],
+  "required_generated_artifacts": [
+    {
+      "path": "docs/CAPABILITIES.md",
+      "must_exist": true,
+      "must_match_live": false,
+      "generator": "python3 scripts/render_docs.py --apply",
+      "freshness_check": "python3 scripts/render_docs.py --check",
+      "enforce_forbidden": false
+    },
+    {
+      "path": "docs/SYSTEM_STATE.md",
+      "must_exist": true,
+      "must_match_live": false,
+      "generator": "python3 scripts/render_docs.py --apply",
+      "freshness_check": "python3 scripts/render_docs.py --check",
+      "enforce_forbidden": false
+    }
   ],
-  "generated_by": "Acting Fix Team — COMEBACK CURE v3 + stripes v3.1 RATIFY-TXT + v3.2 ICEBERG — base d912777e25ada164b903083c5a128d3491a38287 (run #111 SUCCESS, unchanged) per Directives №1 + Relay v3 + stripes v3.1/v3.2; fourteen dangles cleared (three layers), K-CUR-002 restored, feed digest re-pinned",
   "mandatory_validations": [
-    {
-      "command": "python3 scripts/model_research_check.py",
-      "expected_exit": 0,
-      "must_contain": "0 finding(s)"
-    },
-    {
-      "command": "python3 scripts/model_research_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "24/24"
-    },
     {
       "command": "python3 scripts/validate.py",
       "expected_exit": 0,
       "must_contain": "0 fail"
     },
     {
-      "command": "python3 -m unittest discover -s tests -v",
+      "command": "python3 -m unittest discover -s tests",
       "expected_exit": 0,
       "must_contain": "OK"
     },
     {
-      "command": "python3 scripts/verify_apply.py --strict",
+      "command": "python3 scripts/agent_policy_check.py",
       "expected_exit": 0,
-      "must_contain": "FAIL-CLASS : none"
+      "must_contain": "PASS"
     },
     {
-      "command": "python3 scripts/cue_resolver.py --lint",
+      "command": "python3 scripts/verify_policy_check.py",
       "expected_exit": 0,
-      "must_contain": "\"ok\": true"
-    },
-    {
-      "command": "python3 -m unittest tests.test_cue_resolver -v",
-      "expected_exit": 0,
-      "must_contain": "OK"
-    },
-    {
-      "command": "python3 scripts/release_truth_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "11/11"
-    },
-    {
-      "command": "python3 scripts/push_preflight_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "7/7"
-    },
-    {
-      "command": "python3 scripts/ics_normalize.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "29 passed"
-    },
-    {
-      "command": "python3 scripts/brain_retrieve.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "8 passed"
-    },
-    {
-      "command": "python3 scripts/brain_retrieve.py --cases evals/brain/retrieval_cases.json",
-      "expected_exit": 0,
-      "must_contain": "all 15 cases match"
-    },
-    {
-      "command": "python3 scripts/docs_index_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "5 passed"
+      "must_contain": "PASS"
     },
     {
       "command": "python3 scripts/docs_index_check.py",
@@ -381,191 +225,30 @@
       "must_contain": "0 finding"
     },
     {
-      "command": "python3 scripts/scaffold_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "6 passed"
-    },
-    {
-      "command": "python3 scripts/scaffold_check.py",
-      "expected_exit": 0,
-      "must_contain": "0 finding"
-    },
-    {
-      "command": "python3 scripts/skill_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "8 passed"
-    },
-    {
-      "command": "python3 scripts/skill_check.py",
-      "expected_exit": 0,
-      "must_contain": "0 finding"
-    },
-    {
-      "command": "python3 scripts/subskill_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "8 passed"
-    },
-    {
-      "command": "python3 scripts/subskill_check.py",
-      "expected_exit": 0,
-      "must_contain": "0 finding"
-    },
-    {
-      "command": "python3 scripts/agent_contract_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "8 passed"
-    },
-    {
-      "command": "python3 scripts/agent_contract_check.py",
-      "expected_exit": 0,
-      "must_contain": "0 finding"
-    },
-    {
-      "command": "git diff --check",
-      "expected_exit": 0,
-      "must_contain": ""
-    },
-    {
-      "command": "git diff --check d912777e25ada164b903083c5a128d3491a38287..HEAD",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "whitespace clean from GATE-3 CLOSURE base d912777"
-    },
-    {
-      "command": "git status --porcelain",
-      "expected_exit": 0,
-      "must_contain": "",
-      "note": "clean worktree at gate run"
-    },
-    {
       "command": "python3 scripts/render_docs.py --check",
       "expected_exit": 0,
       "must_contain": "match reality"
     },
     {
-      "command": "python3 scripts/session_state_check.py --self-test",
+      "command": "python3 scripts/verify_apply.py --strict",
       "expected_exit": 0,
-      "must_contain": "5/5"
-    },
-    {
-      "command": "python3 scripts/session_state_check.py",
-      "expected_exit": 0,
-      "must_contain": "no session state declared"
-    },
-    {
-      "command": "python3 scripts/deck_rules_check.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "7/7"
-    },
-    {
-      "command": "python3 scripts/deck_rules_check.py decks/examples/OUTLINE_example_card001.json",
-      "expected_exit": 0,
-      "must_contain": "0 finding"
-    },
-    {
-      "command": "python3 scripts/deck_verify.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "10/10"
-    },
-    {
-      "command": "python3 scripts/deck_verify.py decks/examples/OUTLINE_example_card001.json",
-      "expected_exit": 0,
-      "must_contain": "0 finding"
-    },
-    {
-      "command": "python3 scripts/deck_verbs.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "7/7"
-    },
-    {
-      "command": "python3 scripts/deck_verbs.py plan_slide decks/examples/OUTLINE_example_card001.json",
-      "expected_exit": 0,
-      "must_contain": "budgets re-asserted at plan time"
-    },
-    {
-      "command": "python3 scripts/deck_verbs.py verify_deck decks/examples/OUTLINE_example_card001.json",
-      "expected_exit": 0,
-      "must_contain": "chained gate green"
-    },
-    {
-      "command": "python3 scripts/deck_verbs.py fill_template decks/examples/OUTLINE_example_card001.json --adapter null",
-      "expected_exit": 0,
-      "must_contain": "ABSENT-UNKNOWN"
-    },
-    {
-      "command": "python3 scripts/deck_render.py --self-test",
-      "expected_exit": 0,
-      "must_contain": "6/6"
-    },
-    {
-      "command": "python3 scripts/deck_pptx_adapter.py",
-      "expected_exit": 0,
-      "must_contain": "pptx"
-    },
-    {
-      "command": "grep \"14/14\" docs/ROADMAP.md",
-      "expected_exit": 0,
-      "must_contain": "14/14"
-    },
-    {
-      "command": "grep -c \"Validate an artifact the way you know it, not\" docs/ROADMAP.md",
-      "expected_exit": 0,
-      "must_contain": "1"
-    }
-  ],
-  "required_absent_on_disk": [
-    "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
-  ],
-  "required_deletions": [
-    {
-      "must_be_D_in_diff": false,
-      "must_be_absent_on_disk": true,
-      "note": "stale Fable 5-1 already absent in base fc7dcbf, must remain absent",
-      "path": "catalogs/model_research/records/anthropic__fable-5-1__api__undeclared.json"
-    }
-  ],
-  "required_generated_artifacts": [
-    {
-      "enforce_forbidden": true,
-      "freshness_check": "python3 scripts/model_research_check.py --check-inventory-only",
-      "generator": "python3 scripts/model_research_check.py --inventory",
-      "must_exist": true,
-      "must_match_live": true,
-      "path": "catalogs/model_research/INVENTORY.generated.txt"
-    },
-    {
-      "enforce_forbidden": false,
-      "freshness_check": "python3 scripts/render_docs.py --check",
-      "generator": "python3 scripts/render_docs.py --apply",
-      "must_exist": true,
-      "must_match_live": false,
-      "path": "docs/CAPABILITIES.md"
+      "must_contain": "FAIL-CLASS : none"
     }
   ],
   "risks": [
-    "wrong root — package applied to different working directory than repo root",
-    "stale base — base SHA not ancestor or not exact pinned SHA d912777e25ada164b903083c5a128d3491a38287 — local equivalent 0aea791",
-    "ZIP extraction without applying deletion — file still on disk after extraction",
-    "generated-file drift — INVENTORY.generated.txt stale vs live records/ or CAPABILITIES.md stale vs scripts/",
-    "documentation claiming unverified CI — CHANGELOG says green but validator red",
-    "host/provider/surface confusion — Arena gap treated as official policy, model identity claimed from inside session",
-    "unavailable credentials/remote verification — push attempted without Commander motor act",
-    "evaluation/routing/deployment conflation — research notes treated as decision rule without named local evaluation",
-    "CUE catalog boot overreach — new catalogs non-boot beyond single pointer line per DoD",
-    "motor preflight bypass — extraction/push without running push_preflight_check.py, stale-base or extra diff risk",
-    "WARN census hidden — WARN count falls by hiding WARNs not by fixing or chartering in WARN_LEDGER.md",
-    "G6 docs lanes fail-cell — no newcomer one-pass, no task-first lanes, no link-check harness, virtual lanes only links never moves",
-    "G4 scaffolding contract spine fail-cell — no typed sidecar contracts, no deterministic compile check, depends_on graph unchecked, coverage unproven",
-    "G4 skill catalog spine fail-cell — no typed skill catalog, no schema, no deterministic compile check, eval_ref unproven, activation_note dishonest",
-    "G4 subskill catalog + hook protocol fail-cell — no typed subskill catalog, no FK to skills, no hook trigger contract, no scenario fixtures, no deterministic compile check",
-    "G4 agent contracts catalog fail-cell — no typed agent contracts, no receipt-bound claims, D4 law no simulated Commander authority not machine-checked",
-    "phantom tests — pytest-style def test_* not collected by unittest discover, count claimed vs ran mismatch, memo ≠ mechanism",
-    "file moves/renames — forbidden in G6/G4, lanes and contracts and catalogs are virtual/descriptive only",
-    "pptx dependency scope creep — python-pptx import outside scripts/deck_pptx_adapter.py breaks single import site canon",
-    "pptx binary committed — *.pptx in repo tree breaks NEVER writes repo tree law, .gitignore must contain *.pptx",
-    "deck-alone delivery — deck delivered without outline ships breaks receipt law",
-    "report-in-tree — delivery report committed into tree breaks armed class, stage-≡-allowed proof must be pasted not file",
-    "doctrine paragraph not verbatim — ROADMAP blockquote must match instrument §III exactly, no paraphrase"
-  ],
-  "schema_name": "radiation.release_truth_expectation/0.1"
+    "wrong root",
+    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 902d3a3",
+    "ZIP extraction without applying deletion",
+    "generated-file drift",
+    "documentation claiming unverified CI",
+    "WP-1 sequence violation \u2014 1.6 must be first",
+    "WP-1 raise-only violation",
+    "WP-1 warn-and-justify violation",
+    "WP-1 quarantine-before-delete violation",
+    "WP-1 rewrite-rule violation",
+    "WP-1 WP-D single gate violation",
+    "docs_index_check orphan",
+    "tool registry unregistered",
+    "scaffold contract missing"
+  ]
 }

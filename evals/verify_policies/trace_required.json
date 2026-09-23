@@ -1,0 +1,25 @@
+{
+  "trace_id": "verify-required-SUB-001",
+  "policy_class": "required",
+  "description": "Golden trace for required verification policy — subskill SUB-001 must pass deterministic checks",
+  "subskill_id": "SUB-001",
+  "cue_id": "CUE-BOOT-MAGIC",
+  "verify": {
+    "policy": "required",
+    "checks": ["deterministic check for required — format only per 1.5"],
+    "seed": "WP-2.3-cassette-seed-required-SUB-001"
+  },
+  "checks": [
+    "schema valid per subskill_card.schema.json",
+    "parent_skill FK resolves",
+    "scenario_ref resolves",
+    "verify.policy == required",
+    "verify.checks is array",
+    "verify.seed is string"
+  ],
+  "result": "PASS — required policy honored, deterministic checks only, no behavioral grading per 1.5",
+  "stdlib_asserted": true,
+  "raise_only_note": "raise-only — may not be tuned downward later per Law 2 — score/floor fields carry ratchet note",
+  "cassette_seed": "WP-2.3-cassette-seed-required-SUB-001",
+  "j1_rule": "build neither twice — this trace registered as WP-2.3 cassette SEED per J1"
+}

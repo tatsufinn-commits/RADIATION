@@ -1,6 +1,6 @@
 {
   "schema_name": "radiation.tool_registry/2",
-  "generated_by": "S-2-PPTX-D v3.10.31 f3a4f30: renderer+verify-rendered+fill_template AVAIL->render ABSENT reg 36->37",
+  "generated_by": "WP-1 1.6+1.3+1.4+1.2+1.1+1.5 contracts-and-docs v3.10.32",
   "tools": [
     {
       "id": "validate",
@@ -952,6 +952,58 @@
         "content_capture": "off_by_default"
       },
       "description": "Deck renderer D: outline+theme -> .pptx --out tempdir NEVER writes repo tree, title+bullets + notes source_ref receipts, budgets re-asserted, PROVISIONAL, via adapter single import, 6v ST"
+    },
+    {
+      "id": "agent_policy_check",
+      "entrypoint": "scripts/agent_policy_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 60,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/agent_policy_check.py",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "WP-1 1.4 existence check \u2014 root machine-readable agent policy files \u226430 lines imperative tool-facing pointer to Patch protocol per 1.4"
+    },
+    {
+      "id": "verify_policy_check",
+      "entrypoint": "scripts/verify_policy_check.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read"
+      ],
+      "mutation_scope": "none",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata",
+        "subskill_catalog",
+        "cue_catalog"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 60,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/verify_policy_check.py",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "WP-1 1.5 verification policy checker \u2014 additive optional verify field on every subskill/cue, router honors required/opt-in/opt-out, three golden traces stdlib-asserted per 1.5"
     }
   ]
 }

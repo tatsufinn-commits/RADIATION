@@ -279,6 +279,7 @@ Stated plainly so a session does not assume capability it lacks:
 | Script | Purpose | Writes | Network | In CI |
 |---|---|---|---|---|
 | `agent_contract_check.py` | deterministic compile check for agent contracts catalog (Dim-1/G4) | no | no | no |
+| `agent_policy_check.py` | WP-1 1.4 — Agent policy existence check (acceptance per proposal) | no | no | no |
 | `brain_retrieve.py` | Brain Retrieval Lattice (G5) deterministic selector law | no | no | no |
 | `cap_probe.py` | cap_probe — read-only capability probe with declarative host profiles. | no | no | no |
 | `cap_verify.py` | cap_verify — structural + semantic verifier for CAP capability-activation records. | no | no | no |
@@ -313,6 +314,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `tool_registry_check.py` | tool_registry_check — ONE entry point for the tool-registry contract (5600). | yes | no | yes |
 | `validate.py` | RADIATION structural validator — P-01 Machine Enforcement Layer. | yes | yes | yes |
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
+| `verify_policy_check.py` | WP-1 1.5 — Verification policy checker (acceptance per proposal) | no | no | no |
 <!-- GENERATED:capability-inventory:END -->
 
 ## §20 — Gate-repair layer (5500, 5400 gate review)
