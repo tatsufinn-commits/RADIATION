@@ -1,0 +1,8 @@
+BASE-PIN: HEAD=1f341dec73b4fbded55cfc273db0ba673b6a2fee declared_base=f086392a9cc443e374541077c5a054938e0b337a
+LAW-5 BASE-PIN: OK — HEAD 1f341dec73b4fbded55cfc273db0ba673b6a2fee is beyond base f086392a9cc443e374541077c5a054938e0b337a but base is ancestor (candidate built on correct base) — verify-the-face passed, motor at 1f341de built from f086392
+LAW-1 PUBLIC-OBJECT: OK — base f086392a9cc443e374541077c5a054938e0b337a exists and is ancestor of origin/main
+LAW-3 DELTA-≡-ALLOWED: diff=34 allowed=34
+LAW-3 DELTA-≡-ALLOWED: OK — diff ≡ allowed (∅ both ways) — delta-vs-allowed: ran · output ∅
+LAW-4 CI-HYGIENE: OK — no unignored diagnostic artifacts
+LAW-6 WHITESPACE (gate-mirror): OK — git diff --check f086392a9cc443e374541077c5a054938e0b337a..HEAD clean — preflight and gate agree, whitespace arm armed
+push_preflight_check: 0 finding(s) — motor preflight PASS, safe to extract/push

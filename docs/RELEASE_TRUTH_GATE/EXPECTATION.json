@@ -1,9 +1,9 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "WP-1 re-based onto Shot-2 902d3a3 \u2014 34 files \u2014 per 1.6 checklist \u2014 Shot-2 closes d912777 era",
-  "base_sha": "902d3a33405fa7ccb6e85faa144fc605f436a0e0",
+  "generated_by": "REPAIR RELAY fix/expectation-repin-2026-09-23 atop d3a2d11 \u2014 phantom 902d3a3 \u2192 sealed f086392 \u2014 forward-fix \u2014 only pushed history is real \u2014 LAW-1 \u2014 motor preflight 0 findings \u2014 per 1.6 checklist",
+  "base_sha": "f086392a9cc443e374541077c5a054938e0b337a",
   "base_must_be_ancestor": true,
-  "description": "WP-1 CONTRACTS & DOCUMENTATION re-based onto Shot-2 seal 902d3a3 \u2014 six items ONE tranche v3.10.32 \u2014 base 902d3a3 closes d912777 era per Shot-2 rider \u2014 WP-1 re-bases per \u00a74 moving-base law \u2014 battery 38\u00b74\u00b70 0 fail 195 OK \u2014 six laws D029 sequence raise-only warn-and-justify quarantine-before-delete rewrite-rule WP-D single gate",
+  "description": "REPAIR RELAY \u2014 EXPECTATION RE-PIN phantom-base cure 2026-09-23 \u2014 forward-fix \u2014 phantom 902d3a3 \u2192 f086392 \u2014 only pushed history is real per LAW-1 \u2014 base_sha re-pinned from local-only object 902d3a33405fa7ccb6e85faa144fc605f436a0e0 (never pushed, NOT ancestor of origin/main, gate 4 findings: base does not exist \u00b7 LAW-1 PUBLIC-OBJECT reject \u00b7 LAW-3 collapse \u00b7 whitespace range invalid) to last green seal f086392a9cc443e374541077c5a054938e0b337a (real, pushed, ancestor object \u2014 git cat-file -t commit, git merge-base --is-ancestor yes) \u2014 allowed_changes exactly true delta re-proven fresh git diff --name-status f086392 <candidate> = 34 paths exact \u2014 repair touches only files already inside it so set stays 34 \u2014 no content change \u2014 gate self-heals",
   "allowed": "exact delta, re-proven from scratch \u2014 WP-1 re-based onto Shot-2",
   "allowed_changes": [
     {

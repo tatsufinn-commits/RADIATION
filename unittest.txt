@@ -1,0 +1,10 @@
+  text = open(p, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............/tmp/fresh-radiation/scripts/validate.py:39: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/fresh-radiation/docs/ARCHIVE_NOTES.md' mode='r' encoding='utf-8'>
+  for ln in open(p, encoding="utf-8").read().splitlines():
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................
+----------------------------------------------------------------------
+Ran 195 tests in 11.164s
+
+OK (skipped=3)

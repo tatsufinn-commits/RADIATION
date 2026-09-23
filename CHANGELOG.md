@@ -4,6 +4,22 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.32 — 2026-09-23 — REPAIR RELAY — EXPECTATION RE-PIN phantom-base cure — forward-fix — no content change — gate self-heals
+
+**BASE: f086392a9cc443e374541077c5a054938e0b337a (last green seal; real, pushed, ancestor object) per RELAY_REPIN_EXPECTATION_2026-09-23.md — phantom-base cure — packaging repair — forward-fix — NO revert, NO history rewrite (main is protected, linear).**
+
+**Diagnosis (desk-reproduced on desk's own clone):** Landed tree d3a2d11 "Shot-2 and WP-1 update" validate 0 fail (42 run · 38 pass · 4 warn) — content sound, vault bytes desk-witnessed drift-free aaa4daad… / 10a3afb4…, ONE warn honestly healed shrine heartbeat row — wound: docs/RELEASE_TRUTH_GATE/EXPECTATION.json pins base_sha = 902d3a33405fa7ccb6e85faa144fc605f436a0e0 — LOCAL-ONLY object never pushed — gate 4 findings (base does not exist · LAW-1 PUBLIC-OBJECT reject · LAW-3 collapse — missing base makes all 34 entries read as "not in diff" · whitespace range invalid) — preflight same 4 — CI #135 fails by construction — root genus local composition (Shot-2 built locally at 902d3a3, WP-1 stacked on it) pushed as ONE squashed commit whose ledger referenced unpushed intermediate — base-pin pointed at ghost.
+
+**Cure — one commit touches at most THREE paths per §2:** EXPECTATION.json base_sha = f086392a9cc443e374541077c5a054938e0b337a (last green seal; real, pushed, ancestor object — verify git cat-file -t → commit, git merge-base --is-ancestor → yes) — allowed_changes exactly true delta re-proven fresh git diff --name-status f086392 <candidate> = 34 paths exact — repair touches only files already inside it so set stays 34 — confirm don't assume paste proof — description / generated_by narrate re-pin phantom 902d3a3 → f086392 forward-fix only pushed history is real — CHANGELOG.md one row — PATCH_LEDGER.md one row — nothing else — if gate/preflight names ANY other path after edits → HALT and report.
+
+**Battery per §3:** validate 0 fail with warn floor handled honestly 5→4 warn drop shown as shrine-heartbeat HEAL evidence docs/shrine/LOG.md row D015/D016 in landed delta not hidden — healing improves census hiding corrupts — release-truth gate 0 findings — push_preflight_check.py --base f086392a → 0 findings — Ran 195 OK — render_docs ✓ — verify_apply strict FAIL-CLASS none — fresh stage-≡-allowed proof ≡ pasting both directions ∅.
+
+**Laws restated per §5:** LAW-1 only pushed history is real — every base_sha seal-parent built on X must resolve to object git ls-remote origin can see — bench pastes git cat-file -t <base> AND git merge-base --is-ancestor <base> origin/main — motor runs preflight before ANY hand push — push_preflight_check.py printed exact 4 findings CI later echoed — sixty seconds on ground hours saved in air — no seal rides without pasted preflight 0 findings — sovereign included wall is for every hand cheapest for strongest — content fine ledger merely needs feet on ground — one commit then green.
+
+**Base pinned:** f086392a9cc443e374541077c5a054938e0b337a (last green seal). Allowed delta exact 34 files (re-proven fresh). One patch one purpose II.7.4 — REPAIR RELAY EXPECTATION RE-PIN.
+
+---
+
 ## v3.10.32 — 2026-09-22 — WP-1 CONTRACTS & DOCUMENTATION — six items ONE tranche (II.7.4)
 
 **BASE: f086392a9cc443e374541077c5a054938e0b337a (lane-open main per WP-1 moving-base law D029) — ONE commit names six items + six ratified laws, push, handover §5 template, FF seal per PROBLEM1_WP1_KICKOFF_DIRECTIVE_2026-09-22.**

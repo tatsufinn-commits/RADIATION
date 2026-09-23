@@ -1,0 +1,1 @@
+✅ render_docs --check: generated blocks match reality
