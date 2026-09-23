@@ -1,6 +1,5 @@
 # DESK SHRINE — ARTIFACT INDEX (era instruments; workspace custody)
 Every file below lives in workspace root unless noted; this index exists so a future session knows what the desk issued without re-reading the chat.
-**2026-09-23 HOUSEKEEPING:** the 09-16→09-18 era instruments were archived in `DESK_SHRINE_2026-09-18.zip`; the cure+contract era instruments (09-18→09-23) are retired into `DESK_SHRINE_ARCHIVE_2026-09-23.zip` (both files at root unless marked RETIRED→zip). ACTIVE instruments remain live at root.
 
 ## Directives (architect)
 - `DESK_DIRECTIVE_S2_ENV_2026-09-16.md` — session capability state (sealed v3.10.26)
