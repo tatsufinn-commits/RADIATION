@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.33 · 2026-09-24 · WP-2.3 CROWN — verify cassette runner + registry + advisory plug-in (candidate; seals by the Commander's hand) · base 0cfb195
+**Version:** v3.10.35 · 2026-09-24 · T1 S-PROSE-1 — cue_card description rewrite (drain conveyor; seals by the Commander's hand) · base 0438820
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-17 · S-2-PPTX-D stage 4 of 5 (renderer + verify-rendered + fill_template unfrozen)
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-22 · WP-1 CONTRACTS & DOCUMENTATION — six items ONE tranche — Secondary phase adjudicated closed; doctrine paragraph landed; zero functional change (14/14)
 **Capabilities:** pptx render: AVAILABLE when dependency present, else ABSENT-UNKNOWN — constraint grammar per IP-ENV-01

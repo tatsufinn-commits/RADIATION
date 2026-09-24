@@ -4,6 +4,19 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.35 — 2026-09-24 — T1 S-PROSE-1 — cue_card description rewrite (drain conveyor)
+
+**BASE: 0438820441a8bfef3fb7ff8070cce857fd840ee8 (origin/main, WP-2.3 crown) — ARCHITECT DIRECTIVE №5 T1 — stripe-cite v4.0 for prior papers; no unconfirmed Commander-word citations (D061).**
+
+- `schemas/cue_card.schema.json` M — **description string only** (line 4). Rewrote the stale sentence “Non-boot catalog (check 41/42). Executed by cue_resolver.py (check 42).” to name the live binding: CHECKS ends at c41 (there is no c42); this schema is data, not an instrument; enforcement is the workflow lint step, the cue_resolver test suite (71), and the tool-registry contract. No other line of the file. No other schema. No `tool_io`. No c42 invented.
+- House package: README + SYSTEM_STATE version v3.10.35 · EXPECTATION re-pin base 0438820 allowed = this charter.
+
+**D029-style self-cert (scaled to this change):** (1) Sequence — drain conveyor T1 after WP-2.3 crown on main; γ and B4.2 frozen. (2) Raise-only — description honesty, no floor drop. (3) Warn-and-justify — no new auto-reject. (4) Quarantine-before-delete — stale prose rewritten in place, not deleted as a file. (5) Rewrite-rule — facts from live CHECKS / workflow lint / test count 71; no unlicensed quotation. (6) WP-D — zero network/venue/SaaS.
+
+**Out:** any other line of cue_card; every other schema; 20 tool_io; γ PR; B4.2; WP-3; packages.
+
+---
+
 ## v3.10.33 — 2026-09-24 — WP-2.3 CROWN — verify cassette runner + registry + advisory plug-in (forge-open tranche)
 
 **BASE: 0cfb1955e5ba5d9299a760893939161b5bd6b647 (last green seal, CI #144 SUCCESS) — ONE commit, 15 paths, per WP-2.3 BUILD-ORDER DIRECTIVE 2026-09-23; design of record PROPOSAL_TO_DESK_verify_contract.md + v1.1 erratum (ratified v3.6 §1 · v3.7 §1); change-control per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.**
