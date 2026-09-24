@@ -154,6 +154,7 @@ class TestVerifyToolIO(unittest.TestCase):
         by_id, findings = V._scope(reg)
         self.assertFalse(findings)
         self.assertEqual(len(by_id), 41)
+        self.assertEqual(by_id["release_truth_check"]["timeout_seconds"], 300)
         mutant = deepcopy(reg)
         next(t for t in mutant["tools"] if t["id"] == "relay")["outputs_schema"] = (
             "schemas/tool_io/validate.outputs.schema.json")

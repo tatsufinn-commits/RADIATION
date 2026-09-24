@@ -594,7 +594,7 @@
       "network": "none",
       "credential_handling": "none",
       "idempotency": "yes",
-      "timeout_seconds": 120,
+      "timeout_seconds": 300,
       "cap_mapping": [],
       "test_command": "python3 scripts/release_truth_check.py --self-test",
       "observability": {
