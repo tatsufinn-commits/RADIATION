@@ -4,6 +4,19 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.36 — 2026-09-24 — T2:B-all — cue_resolver named-function test coverage (DIRECTIVE №7)
+
+**BASE: 0fdbdbcfe035377ce1b88d4080bb86559f60a986 (origin/main, T1 #8 squash seal, CI #35942304495 SUCCESS) — ARCHITECT DIRECTIVE №7 — Commander T2:B-all — v3.10.36 consumed here and nowhere else.**
+
+- `tests/test_cue_resolver.py` M — exactly 15 new additive methods (`TestT2BNamedFunctions`) covering the four live public functions: `lint_catalog` (L40) · `normalize_candidate` (L116) · `resolve_candidates` (L142) · `resolve_content_selection_path` (L232). Existing 71 tests untouched. Suite 71→86. Live behavior only. No `construct_from_card`. No `cue_resolver.py` edit.
+- House package: README + SYSTEM_STATE v3.10.36 · EXPECTATION re-pin base 0fdbdbc allowed = this five-path charter.
+
+**D029-style self-cert (scaled to this change):** (1) Sequence — T2:B-all after T1 seal on 0fdbdbc; old T2 #9/#10 closed, not revived. (2) Raise-only — additive tests, no floor drop. (3) Warn-and-justify — no new auto-reject. (4) Quarantine-before-delete — nothing deleted. (5) Rewrite-rule — facts from live function lines and test counts; no unlicensed quotation. (6) WP-D — zero network/venue/SaaS.
+
+**Out:** `scripts/cue_resolver.py`; every other production file; all schemas; constructor/wrapper; γ; B4.2; will deposit; shrine; `validate.py`; ROADMAP; packages; any sixth path.
+
+---
+
 ## v3.10.35 — 2026-09-24 — T1 S-PROSE-1 — cue_card description rewrite (drain conveyor)
 
 **BASE: 0438820441a8bfef3fb7ff8070cce857fd840ee8 (origin/main, WP-2.3 crown) — ARCHITECT DIRECTIVE №5 T1 — stripe-cite v4.0 for prior papers; no unconfirmed Commander-word citations (D061).**

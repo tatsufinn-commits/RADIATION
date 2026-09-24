@@ -1,16 +1,16 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "T1 S-PROSE-1 cue_card description rewrite — DIRECTIVE №5 — base 0438820",
-  "base_sha": "0438820441a8bfef3fb7ff8070cce857fd840ee8",
+  "generated_by": "T2:B-all cue_resolver named-function tests — DIRECTIVE №7 — base 0fdbdbc — v3.10.36",
+  "base_sha": "0fdbdbcfe035377ce1b88d4080bb86559f60a986",
   "base_must_be_ancestor": true,
-  "description": "T1 S-PROSE-1 (drain conveyor) 2026-09-24 — base 0438820441a8bfef3fb7ff8070cce857fd840ee8 (origin/main, WP-2.3 crown) — ARCHITECT DIRECTIVE №5 — cue_card.schema.json description string only + house package v3.10.35 — allowed_changes = exactly the charter, empty both ways — no c42, no γ, no B4.2, no WP-3, no packages",
-  "allowed": "exact delta — T1 S-PROSE-1 chartered paths, nothing else",
+  "description": "T2:B-all (DIRECTIVE №7) 2026-09-24 — base 0fdbdbcfe035377ce1b88d4080bb86559f60a986 (origin/main, T1 #8 squash seal, CI #35942304495 SUCCESS) — Commander T2:B-all — exactly 15 additive tests covering lint_catalog · normalize_candidate · resolve_candidates · resolve_content_selection_path — house package v3.10.36 — allowed_changes = exactly this five-path charter, empty both ways — no cue_resolver.py, no construct_from_card, no γ, no B4.2, no will deposit, no #9/#10 revive",
+  "allowed": "exact delta — T2:B-all chartered paths, nothing else",
   "allowed_changes": [
-    {"kind": "M", "path": "schemas/cue_card.schema.json", "note": "T1 description string only"},
-    {"kind": "M", "path": "CHANGELOG.md", "note": "v3.10.35 T1 row"},
-    {"kind": "M", "path": "README.md", "note": "version v3.10.35"},
-    {"kind": "M", "path": "docs/SYSTEM_STATE.md", "note": "version v3.10.35"},
-    {"kind": "M", "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "note": "moving-base re-pin 0438820 allowed T1 delta"}
+    {"kind": "M", "path": "tests/test_cue_resolver.py", "note": "exactly 15 new additive TestT2BNamedFunctions methods"},
+    {"kind": "M", "path": "CHANGELOG.md", "note": "v3.10.36 T2:B-all row"},
+    {"kind": "M", "path": "README.md", "note": "version v3.10.36"},
+    {"kind": "M", "path": "docs/SYSTEM_STATE.md", "note": "version v3.10.36"},
+    {"kind": "M", "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "note": "moving-base re-pin 0fdbdbc allowed T2:B-all delta"}
   ],
   "forbidden_paths": [],
   "required_deletions": [],
@@ -45,14 +45,15 @@
   ],
   "risks": [
     "wrong root",
-    "stale base — base SHA not ancestor or not exact pinned SHA 0438820",
+    "stale base — base SHA not ancestor or not exact pinned SHA 0fdbdbc",
     "ZIP extraction without applying deletion",
     "generated-file drift",
     "documentation claiming unverified CI",
-    "editing any cue_card line other than description",
-    "inventing c42",
-    "touching tool_io schemas",
-    "stacking on γ / pushing arena/01a0cf4f-radiation over db179e9",
-    "B4.2 sneak"
+    "editing cue_resolver.py",
+    "inventing construct_from_card",
+    "reviving PR #9 or #10",
+    "stacking on γ db179e9",
+    "will deposit",
+    "sixth path"
   ]
 }
