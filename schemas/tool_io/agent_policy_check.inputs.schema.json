@@ -1,0 +1,24 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "radiation.tool_io.agent_policy_check.inputs/1",
+ "description": "Invocation record for agent_policy_check. CLI argv only; cwd is the repo root. No stdin envelope. No argparse at 0438820.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema_name",
+  "cwd",
+  "argv"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.tool_io.agent_policy_check.inputs/1"
+  },
+  "cwd": {
+   "const": "repo-root"
+  },
+  "argv": {
+   "type": "array",
+   "maxItems": 0
+  }
+ }
+}

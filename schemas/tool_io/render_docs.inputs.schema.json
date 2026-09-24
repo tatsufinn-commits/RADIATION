@@ -1,0 +1,32 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "radiation.tool_io.render_docs.inputs/1",
+ "description": "Invocation record for render_docs. CLI argv only; cwd is the repo root. No stdin envelope. Docstring/EXPECTATION name --apply; argv only tests --check. Write = absence of --check. Not fixed here.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema_name",
+  "cwd",
+  "argv"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.tool_io.render_docs.inputs/1"
+  },
+  "cwd": {
+   "const": "repo-root"
+  },
+  "argv": {
+   "type": "array",
+   "maxItems": 4,
+   "items": {
+    "enum": [
+     "--check",
+     "--public",
+     "--self-check",
+     "--write"
+    ]
+   }
+  }
+ }
+}

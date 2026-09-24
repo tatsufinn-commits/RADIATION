@@ -4,6 +4,18 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.39 — 2026-09-24 — B4 wiring batch #1 — top-10 CI-DoD tools IO schemas bound
+
+**BASE: cb0ed65f4ab21f2ca0b13dd6b45998d7331a957b (origin/main, T5 v3.10.38 seal) — Commander word `ratify B4 wiring batch #1` — design note γ 2026-09-24 — ONE purpose II.7.4.**
+
+- `schemas/tool_io/` A 20 files — `<id>.inputs.schema.json` + `<id>.outputs.schema.json` for the ten CI-DoD spine tools. Inputs = invocation record of live argv. Outputs = live `--json` envelope where that flag already exists (`validate`, `verify_cassette_runner`); finding-report shape for the other eight. No new flags. No stdin envelope invented. Keywords within the ONE executor's executed set.
+- `tools/TOOL_REGISTRY.json` M — those ten rows `inputs_schema`/`outputs_schema` null → the new paths (schema-bound). Remaining 30 stay `null` (METADATA-ONLY). Tools stay 40. R6 existence-only; IO schemas are not executed against live runs (B4.2 later, not this batch).
+- Ten: `validate` · `agent_policy_check` · `verify_policy_check` · `docs_index_check` · `render_docs` · `verify_apply` · `verify_cassette_runner` · `release_truth_check` · `push_preflight_check` · `tool_registry_check`.
+- Non-goals honored: no R3 (cassette stays Option-A WARN) · no WP-3 · no c42 · no `cue_card.schema.json` / S-PROSE-1 · no shrine · no ROADMAP · `render_docs --apply` alias not "fixed".
+- Docs: README + SYSTEM_STATE version v3.10.39 · EXPECTATION re-pin base cb0ed65 allowed = true delta.
+
+---
+
 ## v3.10.38 — 2026-09-24 — T5 check-1 full diagnostics (DIRECTIVE №10)
 
 **BASE: 0732aed86b9ab961ffe70ca7b3e2354b8028b00c (origin/main, T3 #12 squash seal, CI #35950293886 SUCCESS) — ARCHITECT DIRECTIVE №5 §6 as re-keyed by №10 — D095 T4 retired unresolvable, no version consumed — v3.10.38 consumed here and nowhere else.**

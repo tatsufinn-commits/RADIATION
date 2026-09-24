@@ -1,0 +1,90 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "radiation.tool_io.validate.outputs/1",
+ "description": "Live --json envelope of scripts/validate.py at 0438820. Side effect validation_report.json is mutation_scope temporary, not this object.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema_version",
+  "results",
+  "summary"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "radiation.validation/1"
+  },
+  "revision": {
+   "anyOf": [
+    {
+     "type": "string",
+     "minLength": 7,
+     "maxLength": 40
+    },
+    {
+     "type": "null"
+    }
+   ]
+  },
+  "results": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "check",
+     "severity",
+     "ok",
+     "msg"
+    ],
+    "properties": {
+     "check": {
+      "type": "number"
+     },
+     "severity": {
+      "enum": [
+       "FAIL",
+       "WARN"
+      ]
+     },
+     "ok": {
+      "type": "boolean"
+     },
+     "msg": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+     }
+    }
+   }
+  },
+  "summary": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "checks",
+    "pass",
+    "warn",
+    "fail"
+   ],
+   "properties": {
+    "checks": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "pass": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "warn": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "fail": {
+     "type": "integer",
+     "minimum": 0
+    }
+   }
+  }
+ }
+}

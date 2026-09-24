@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.38 · 2026-09-24 · T5 check-1 full diagnostics (DIRECTIVE №10) · base 0732aed
+**Version:** v3.10.39 · 2026-09-24 · B4 wiring batch #1 — 10 CI-DoD tools IO schemas bound (candidate; seals by the Commander's hand) · base cb0ed65
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-17 · S-2-PPTX-D stage 4 of 5 (renderer + verify-rendered + fill_template unfrozen)
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-22 · WP-1 CONTRACTS & DOCUMENTATION — six items ONE tranche — Secondary phase adjudicated closed; doctrine paragraph landed; zero functional change (14/14)
 **Capabilities:** pptx render: AVAILABLE when dependency present, else ABSENT-UNKNOWN — constraint grammar per IP-ENV-01

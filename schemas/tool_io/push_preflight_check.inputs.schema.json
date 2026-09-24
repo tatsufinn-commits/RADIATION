@@ -1,0 +1,38 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "radiation.tool_io.push_preflight_check.inputs/1",
+ "description": "Invocation record for push_preflight_check. CLI argv only; cwd is the repo root. No stdin envelope. --base takes a SHA value.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema_name",
+  "cwd",
+  "argv"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.tool_io.push_preflight_check.inputs/1"
+  },
+  "cwd": {
+   "const": "repo-root"
+  },
+  "argv": {
+   "type": "array",
+   "maxItems": 4,
+   "items": {
+    "anyOf": [
+     {
+      "enum": [
+       "--base",
+       "--self-test"
+      ]
+     },
+     {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$"
+     }
+    ]
+   }
+  }
+ }
+}
