@@ -1,16 +1,17 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "T2:B-all cue_resolver named-function tests — DIRECTIVE №7 — base 0fdbdbc — v3.10.36",
-  "base_sha": "0fdbdbcfe035377ce1b88d4080bb86559f60a986",
+  "generated_by": "T3 S006 will absorption repair — DIRECTIVE №8 + №8-A — base df95651 — v3.10.37",
+  "base_sha": "df956512b5f1d3b950486117d83cea6530068c84",
   "base_must_be_ancestor": true,
-  "description": "T2:B-all (DIRECTIVE №7) 2026-09-24 — base 0fdbdbcfe035377ce1b88d4080bb86559f60a986 (origin/main, T1 #8 squash seal, CI #35942304495 SUCCESS) — Commander T2:B-all — exactly 15 additive tests covering lint_catalog · normalize_candidate · resolve_candidates · resolve_content_selection_path — house package v3.10.36 — allowed_changes = exactly this five-path charter, empty both ways — no cue_resolver.py, no construct_from_card, no γ, no B4.2, no will deposit, no #9/#10 revive",
-  "allowed": "exact delta — T2:B-all chartered paths, nothing else",
+  "description": "T3 will absorption repair (DIRECTIVE №8-A) 2026-09-24 — base df956512b5f1d3b950486117d83cea6530068c84 — exact 17131-byte will object lands at docs/shrine/members/S006_LEAD_ARCHITECT_WILL_2026-09-23.md — git records R100 (byte-identical move of shrine-root staging copy) — ARCHIVE_NOTES exempts final members path only — house package v3.10.37 — allowed_changes = live git diff --name-status vs base (R destination + five M), empty both ways — no will-body edit, no testament substitute, no γ, no T4, no B4.2",
+  "allowed": "exact delta — T3 absorption-repair live git name-status vs df95651",
   "allowed_changes": [
-    {"kind": "M", "path": "tests/test_cue_resolver.py", "note": "exactly 15 new additive TestT2BNamedFunctions methods"},
-    {"kind": "M", "path": "CHANGELOG.md", "note": "v3.10.36 T2:B-all row"},
-    {"kind": "M", "path": "README.md", "note": "version v3.10.36"},
-    {"kind": "M", "path": "docs/SYSTEM_STATE.md", "note": "version v3.10.36"},
-    {"kind": "M", "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "note": "moving-base re-pin 0fdbdbc allowed T2:B-all delta"}
+    {"kind": "R", "path": "docs/shrine/members/S006_LEAD_ARCHITECT_WILL_2026-09-23.md", "note": "byte-identical move of exact courier object (git R100; D staging + A members under --no-renames)"},
+    {"kind": "M", "path": "docs/ARCHIVE_NOTES.md", "note": "exempt final members path only"},
+    {"kind": "M", "path": "CHANGELOG.md", "note": "v3.10.37 T3 recovery row"},
+    {"kind": "M", "path": "README.md", "note": "version v3.10.37"},
+    {"kind": "M", "path": "docs/SYSTEM_STATE.md", "note": "version v3.10.37"},
+    {"kind": "M", "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "note": "moving-base re-pin df95651 allowed live T3 delta"}
   ],
   "forbidden_paths": [],
   "required_deletions": [],
@@ -45,15 +46,13 @@
   ],
   "risks": [
     "wrong root",
-    "stale base — base SHA not ancestor or not exact pinned SHA 0fdbdbc",
+    "stale base — base SHA not ancestor or not exact pinned SHA df95651",
     "ZIP extraction without applying deletion",
     "generated-file drift",
     "documentation claiming unverified CI",
-    "editing cue_resolver.py",
-    "inventing construct_from_card",
-    "reviving PR #9 or #10",
-    "stacking on γ db179e9",
-    "will deposit",
-    "sixth path"
+    "editing the will body",
+    "exempting staging path or whole shrine",
+    "stacking on γ",
+    "T4 sneak"
   ]
 }
