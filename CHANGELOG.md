@@ -4,6 +4,21 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.37 — 2026-09-24 — T3 S006 will absorption repair (DIRECTIVE №8 + №8-A)
+
+**BASE: df956512b5f1d3b950486117d83cea6530068c84 (origin/main, Commander courier upload) — ARCHITECT DIRECTIVE №8 as amended №8-A — v3.10.37 consumed here and nowhere else — change-control per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.**
+
+- `docs/shrine/members/S006_LEAD_ARCHITECT_WILL_2026-09-23.md` A — exact courier object (17,131 bytes, SHA-256 069f736e5222635c6f305e498db6febb0808f00fbfc38faf78e41c763d6b0e2e). Body unchanged. Historical citations retained.
+- Accidental shrine-root staging copy D — removed from the final tree (transport success, wrong landing place).
+- `docs/ARCHIVE_NOTES.md` M — exempt the final members path only (historical will; citations to non-repo desk/upload records). Not a directory, not the whole shrine.
+- House package: README + SYSTEM_STATE v3.10.37 · EXPECTATION re-pin base df95651 allowed = this seven-path charter.
+
+**D029-style self-cert (scaled to this change):** (1) Sequence — T3 after T2 seal; recovery from red public base df95651. (2) Raise-only — true record moved to lawful members path, no floor drop. (3) Warn-and-justify — no new auto-reject. (4) Quarantine-before-delete — staging copy removed after byte-identical members deposit. (5) Rewrite-rule — facts from digest/byte count and D089; will body not rewritten. (6) WP-D — zero network/venue/SaaS.
+
+**Out:** will-body edits; existing S006 testament; shrine LOG; scripts; tests; schemas; γ; T4; T5; B4.2; packages.
+
+---
+
 ## v3.10.36 — 2026-09-24 — T2:B-all — cue_resolver named-function test coverage (DIRECTIVE №7)
 
 **BASE: 0fdbdbcfe035377ce1b88d4080bb86559f60a986 (origin/main, T1 #8 squash seal, CI #35942304495 SUCCESS) — ARCHITECT DIRECTIVE №7 — Commander T2:B-all — v3.10.36 consumed here and nowhere else.**

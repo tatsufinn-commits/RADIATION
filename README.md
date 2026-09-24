@@ -1,6 +1,6 @@
 # ☢️ RADIATION
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
-**Version:** v3.10.36 · 2026-09-24 · T2:B-all — cue_resolver named-function test coverage (DIRECTIVE №7) · base 0fdbdbc
+**Version:** v3.10.37 · 2026-09-24 · T3 S006 will absorption repair (DIRECTIVE №8 + №8-A) · base df95651
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-17 · S-2-PPTX-D stage 4 of 5 (renderer + verify-rendered + fill_template unfrozen)
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-22 · WP-1 CONTRACTS & DOCUMENTATION — six items ONE tranche — Secondary phase adjudicated closed; doctrine paragraph landed; zero functional change (14/14)
 **Capabilities:** pptx render: AVAILABLE when dependency present, else ABSENT-UNKNOWN — constraint grammar per IP-ENV-01

@@ -23,3 +23,4 @@ the validator would violate II.2. Additions here are 🟢 but must be justified.
 | `docs/ANTI_PATTERNS.md` | Evidence register: lawfully NAMES retired artifacts (append_blocks, placeholder rows) as historical instances |
 | `08-overhaul/proposals/REJECTED_2026-09-12_experimental-telegraphic-style.md` | Rejection record: lawfully NAMES the proposed path that must never exist (EVAL-FIRST evidence) |
 | `08-overhaul/proposals/PROPOSAL_P01_canon-companion.md` | Proposal carrier: lawfully QUOTES the append-block law text it proposes to strike (checks 8/9 narrowing also applies via PENDING_RATIFICATIONS) |
+| `docs/shrine/members/S006_LEAD_ARCHITECT_WILL_2026-09-23.md` | Historical S006 will; exact retained citations to non-repo desk/upload records |
