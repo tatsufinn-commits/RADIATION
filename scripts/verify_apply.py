@@ -140,6 +140,30 @@ def main():
             L.append(f"    {r.get('verdict')} {r.get('id')}: {str(r.get('justification'))[:100]}")
         findings_warn.append("verify cassette advisory (WP-2.3): " + "; ".join(
             f"{r.get('id')} {r.get('verdict')} — {str(r.get('justification'))[:80]}" for r in _cas_bad[:3]))
+    # B4.2 R0 Option-A: executable IO contracts, still advisory. Child checkers
+    # invoke verify_apply; the private marker prevents tool_io -> verify_apply
+    # -> tool_io recursion. A parent invocation still reports every non-PASS.
+    if not os.environ.get("RADIATION_TOOL_IO_CHILD"):
+        try:
+            import verify_tool_io as _vti
+            _io = _vti.run_io()
+            _io_rows = _io["rows"]
+            if not isinstance(_io_rows, list) or len(_io_rows) != 10:
+                raise ValueError("expected exactly ten tool_io rows")
+            _io_bad = [r for r in _io_rows if r.get("verdict") != "PASS"]
+            if _io.get("scope_findings") and not _io_bad:
+                _io_bad.extend({"id": "scope", "verdict": "RETURNED",
+                                "justification": str(f)} for f in _io["scope_findings"])
+        except Exception as _e:
+            _io_bad = [{"id": "tool_io", "verdict": "RETURNED",
+                        "justification": f"executor unavailable: {type(_e).__name__}: {_e}"}]
+        if _io_bad:
+            L.append(f"  tool_io : ADVISORY — {len(_io_bad)} non-PASS finding(s) (B4.2 R0, never FAIL-class)")
+            for r in _io_bad:
+                L.append(f"    {r.get('verdict')} {r.get('id')}: {str(r.get('justification'))[:180]}")
+            findings_warn.append("tool_io advisory (B4.2 R0): " + "; ".join(
+                f"{r.get('id')} {r.get('verdict')} — {str(r.get('justification'))[:120]}"
+                for r in _io_bad))
     runners = [p for p in ("APPLY.sh", "APPLY.ps1", "PATCH_NOTES.md") if read(p)]
     if runners:
         L.append(f"  hygiene    : transport still in tree: {', '.join(runners)} — delete post-apply, commit")

@@ -4,6 +4,20 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.40 — 2026-09-24 — B4.2 R0 tool-IO executor (Fix Team Arena #004 candidate)
+
+**BASE: 5f41281e356cb42f904de7f6294cf5a32c7f1c02 (public origin/main, γ v3.10.39 sealed; tree cc8bb1c1d787cfaf6fbeffbddf3e6644f257d8c2) — authority: FIX TEAM ARENA (#004) B4.2 R0 EXECUTION ORDER v3.10.40, 2026-09-24 — one candidate commit, subject to Desk audit; NOT a Commander seal.**
+
+- `scripts/verify_tool_io.py` A + `tests/test_verify_tool_io.py` A — stdlib-only R0 executor; the existing relay schema checker validates ten bound tools' invocation records and actual output contracts (two live JSON envelopes, eight existing prose CLIs via finding-report adapters); synthetic self-test and T1–T14 acceptance tests. Non-PASS findings reported; offline Git transport file-only; executor never binds itself.
+- `tools/TOOL_REGISTRY.json` M — 40→41 with exactly one METADATA-ONLY `verify_tool_io` row; other forty unchanged. Ten γ bindings remain; 30 other tools remain metadata-only. `scripts/verify_apply.py` M — Option-A `tool_io : ADVISORY` for non-PASS or unavailable; WARN-class only, PASS silent, recursion-safe; no ninth sticky DoD line and no R3 promotion.
+- House package: `docs/CAPABILITIES.md` M (normal generated inventory plus bounded section), `docs/SYSTEM_STATE.md` M and `README.md` M (v3.10.40 **candidate**, not ratified), `docs/RELEASE_TRUTH_GATE/EXPECTATION.json` M (base above; exact nine A/M paths; original eight mandatory validations unchanged).
+
+**Physical-ref / erratum footing (§0):** semantic lane `fix/b42-io-executor-r0-2026-09-24`, physical provider-pinned ref `arena/01a0d202-radiation` (accepted by Desk solely as the ref-name substitution for absent `arena/01a0d1e0-radiation`). No code/scope substitution and no reuse or mutation of γ audit witnesses. γ's R6 existence-only statement was true for v3.10.39; this R0 adds advisory execution without editing its twenty schemas. **D061 word-denial rule:** cite the present Desk execution order as authority; do not cite or imply any denied statement or unconfirmed Commander word.
+
+**Still-binding public CI predicate:** every public CI workflow run for the sitting head SHA must conclude **SUCCESS**; any future workflow that fires joins the predicate. No CI-success, PR, or seal is claimed by this candidate row before public evidence exists.
+
+---
+
 ## v3.10.39 — 2026-09-24 — B4 wiring batch #1 — top-10 CI-DoD tools IO schemas bound
 
 **BASE: cb0ed65f4ab21f2ca0b13dd6b45998d7331a957b (origin/main, T5 v3.10.38 seal) — Commander word `ratify B4 wiring batch #1` — design note γ 2026-09-24 — ONE purpose II.7.4.**
