@@ -1,0 +1,30 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "radiation.tool_io.verify_apply.inputs/1",
+ "description": "Invocation record for verify_apply. CLI argv only; cwd is the repo root. No stdin envelope. Cassette plug-in stays Option-A WARN. Not R3.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema_name",
+  "cwd",
+  "argv"
+ ],
+ "properties": {
+  "schema_name": {
+   "const": "radiation.tool_io.verify_apply.inputs/1"
+  },
+  "cwd": {
+   "const": "repo-root"
+  },
+  "argv": {
+   "type": "array",
+   "maxItems": 2,
+   "items": {
+    "enum": [
+     "--self-test",
+     "--strict"
+    ]
+   }
+  }
+ }
+}
