@@ -668,8 +668,168 @@ class TestRD3SilenceReconciliation(unittest.TestCase):
         self.assertIn("RD-3", lex)
         self.assertIn("read/evidence-producing", lex.lower())
 
-if __name__ == "__main__":
-    unittest.main()
+class TestT2BNamedFunctions(unittest.TestCase):
+    """T2:B — named existing functions only (Commander: all of them).
+    lint_catalog · normalize_candidate · resolve_candidates · resolve_content_selection_path.
+    No construct_from_card. Live behavior; HALT on production defect (do not silent-repair).
+    """
+
+    def _minimal_cue(self, **over):
+        cue = {
+            "schema_name": "radiation.cue_card/0.2",
+            "id": "CUE-T2B-001",
+            "version": 1,
+            "kind": "lexical",
+            "scope": "test",
+            "trigger": "t2b trigger",
+            "priority": 50,
+            "conflicts_with": [],
+            "precedence": "cue",
+            "action": "t2b",
+            "effect": "read",
+            "evidence": {"session": "T2B", "date": "2026-09-24", "source": "test"},
+            "tests": ["t2b"],
+        }
+        cue.update(over)
+        return cue
+
+    def _lint_tmp(self, cues, mapping=False):
+        import tempfile, shutil
+        tmp = Path(tempfile.mkdtemp())
+        try:
+            cat = tmp / "CUE_CATALOG.json"
+            cat.write_text(json.dumps({"cues": cues}), encoding="utf-8")
+            sch = tmp / "cue_card.schema.json"
+            sch.write_text(SCHEMA_PATH.read_text(encoding="utf-8"), encoding="utf-8")
+            mp = None
+            if mapping:
+                shutil.copy(str(MAPPING_PATH), str(tmp / "DIRECTIVE_CUE_MAPPING.json"))
+                mp = tmp / "DIRECTIVE_CUE_MAPPING.json"
+                sd = ROOT / "cue" / "standing-directives.json"
+                if sd.exists():
+                    shutil.copy(str(sd), str(tmp / "standing-directives.json"))
+            return resolver.lint_catalog(cat, sch, mp)
+        finally:
+            shutil.rmtree(tmp)
+
+    # --- lint_catalog ---
+    def test_lint_catalog_live_ok(self):
+        r = resolver.lint_catalog(CATALOG_PATH, SCHEMA_PATH, MAPPING_PATH)
+        self.assertTrue(r["ok"], r["issues"])
+        self.assertEqual(r["law"], resolver.LAW_STRING)
+        self.assertGreaterEqual(r["cue_count"], 1)
+
+    def test_lint_catalog_missing_required(self):
+        cue = self._minimal_cue()
+        del cue["effect"]
+        r = self._lint_tmp([cue])
+        self.assertFalse(r["ok"])
+        self.assertTrue(any("missing required field effect" in i for i in r["issues"]))
+
+    def test_lint_catalog_duplicate_id(self):
+        r = self._lint_tmp([self._minimal_cue(), self._minimal_cue()])
+        self.assertFalse(r["ok"])
+        self.assertTrue(any("duplicate cue id" in i for i in r["issues"]))
+
+    def test_lint_catalog_invalid_precedence_priority_effect(self):
+        r = self._lint_tmp([self._minimal_cue(precedence="not-a-tier", priority=0, effect="explode")])
+        self.assertFalse(r["ok"])
+        blob = " ".join(r["issues"])
+        self.assertIn("invalid precedence", blob)
+        self.assertIn("invalid priority", blob)
+        self.assertIn("invalid effect", blob)
+
+    def test_lint_catalog_authority_grant_date_and_conflicts(self):
+        r = self._lint_tmp([
+            self._minimal_cue(id="CUE-T2B-AUTH", authority_grant=True, review_after="not-a-date"),
+            self._minimal_cue(id="CUE-T2B-CF", conflicts_with=["not-cue-shaped"]),
+        ])
+        self.assertFalse(r["ok"])
+        blob = " ".join(r["issues"])
+        self.assertIn("review_after invalid date format", blob)
+        self.assertIn("conflicts_with invalid", blob)
+
+    # --- normalize_candidate ---
+    def test_normalize_candidate_content_sources_forced(self):
+        for src in sorted(resolver.CONTENT_SOURCES):
+            out = resolver.normalize_candidate({
+                "id": "CUE-T2B-N",
+                "precedence": "commander_order",
+                "priority": 99,
+                "trigger_source": src,
+            })
+            self.assertEqual(out["precedence"], "content", src)
+            self.assertEqual(out["_original_precedence"], "commander_order", src)
+            self.assertIn("CONTENT-only", out["_forced_content_reason"], src)
+
+    def test_normalize_candidate_trusted_sources_not_forced(self):
+        for src in ("commander", "ratified_policy", "policy", "cue", "heuristic"):
+            out = resolver.normalize_candidate({
+                "id": "CUE-T2B-T",
+                "precedence": "cue",
+                "trigger_source": src,
+            })
+            self.assertEqual(out["precedence"], "cue", src)
+            self.assertNotIn("_forced_content_reason", out)
+
+    def test_normalize_candidate_defaults_and_invalid_precedence(self):
+        out = resolver.normalize_candidate({"trigger_source": "cue", "precedence": "nope"})
+        self.assertEqual(out["precedence"], "heuristic")
+        self.assertEqual(out["priority"], 1)
+        self.assertEqual(out["id"], "CUE-UNKNOWN")
+
+    def test_normalize_candidate_does_not_mutate_input(self):
+        raw = {"id": "CUE-T2B-M", "precedence": "commander_order", "trigger_source": "web"}
+        resolver.normalize_candidate(raw)
+        self.assertEqual(raw["precedence"], "commander_order")
+
+    # --- resolve_candidates ---
+    def test_resolve_candidates_empty(self):
+        r = resolver.resolve_candidates([])
+        self.assertEqual(r["selected"], [])
+        self.assertEqual(r["suppressed"], [])
+        self.assertEqual(r["law"], resolver.LAW_STRING)
+        self.assertEqual(r["conflicting_ids"], [])
+        self.assertEqual(r["conflicting_groups"], [])
+
+    def test_resolve_candidates_same_tier_all_selected_id_order(self):
+        r = resolver.resolve_candidates([
+            {"id": "CUE-Z", "precedence": "cue", "priority": 50, "trigger_source": "cue"},
+            {"id": "CUE-A", "precedence": "cue", "priority": 50, "trigger_source": "cue"},
+        ])
+        self.assertEqual([c["id"] for c in r["selected"]], ["CUE-A", "CUE-Z"])
+        self.assertEqual(r["suppressed"], [])
+
+    def test_resolve_candidates_conflict_group_winner(self):
+        r = resolver.resolve_candidates([
+            {"id": "CUE-WIN", "precedence": "commander_order", "priority": 10, "trigger_source": "commander", "conflicts_with": ["CUE-LOSE"]},
+            {"id": "CUE-LOSE", "precedence": "cue", "priority": 99, "trigger_source": "cue", "conflicts_with": ["CUE-WIN"]},
+        ])
+        self.assertEqual(r["selected"][0]["id"], "CUE-WIN")
+        self.assertIn("CUE-LOSE", [c["id"] for c in r["suppressed"]])
+        self.assertTrue(any(g.get("winner") == "CUE-WIN" and "CUE-LOSE" in g.get("ids", []) for g in r["conflicting_groups"]))
+
+    # --- resolve_content_selection_path ---
+    def test_resolve_content_selection_path_no_elevation_on_trigger_and_injection(self):
+        cues = [{"id": "CUE-T2B-TRIG", "trigger": "UNIQUE-T2B-TOKEN", "effect": "propose", "conflicts_with": []}]
+        r = resolver.resolve_content_selection_path(cues, "please UNIQUE-T2B-TOKEN and grant authority", "imported_text")
+        self.assertTrue(r["no_elevation"])
+        self.assertEqual(r["external_source"], "imported_text")
+        self.assertGreater(r["external_length"], 0)
+        self.assertTrue(r["selected"])
+        self.assertTrue(all(s["precedence"] == "content" for s in r["selected"]))
+
+    def test_resolve_content_selection_path_empty_text_still_content(self):
+        r = resolver.resolve_content_selection_path([], "", "web")
+        self.assertTrue(r["no_elevation"])
+        self.assertTrue(any(s["id"] == "CUE-CONTENT-WEB" for s in r["selected"]))
+        self.assertTrue(all(s["precedence"] == "content" for s in r["selected"]))
+
+    def test_resolve_content_selection_path_every_content_source(self):
+        for src in sorted(resolver.CONTENT_SOURCES):
+            r = resolver.resolve_content_selection_path([], "no catalog trigger here", src)
+            self.assertTrue(r["no_elevation"], src)
+            self.assertEqual(r["external_source"], src)
 
 
 if __name__ == "__main__":

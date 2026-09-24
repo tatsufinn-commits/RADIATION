@@ -4,6 +4,17 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.36 — 2026-09-24 — T2:B — named-function tests for all four live cue_resolver functions
+
+**BASE: 0438820441a8bfef3fb7ff8070cce857fd840ee8 (origin/main) — Commander T2:B all of them — no construct_from_card — v3.10.36 consumed.**
+
+- `tests/test_cue_resolver.py` M — additive `TestT2BNamedFunctions` (15): `lint_catalog` · `normalize_candidate` · `resolve_candidates` · `resolve_content_selection_path`. Live behavior only. No production edit. No `construct_from_card`. Will courier is read-only (not T3).
+- House package: README + SYSTEM_STATE v3.10.36 · EXPECTATION re-pin 0438820 allowed = this charter.
+
+**Out:** cue_resolver.py · c42 · γ · B4.2 · T1 stack · T2:A retire papers · shrine will deposit.
+
+---
+
 ## v3.10.33 — 2026-09-24 — WP-2.3 CROWN — verify cassette runner + registry + advisory plug-in (forge-open tranche)
 
 **BASE: 0cfb1955e5ba5d9299a760893939161b5bd6b647 (last green seal, CI #144 SUCCESS) — ONE commit, 15 paths, per WP-2.3 BUILD-ORDER DIRECTIVE 2026-09-23; design of record PROPOSAL_TO_DESK_verify_contract.md + v1.1 erratum (ratified v3.6 §1 · v3.7 §1); change-control per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.**
