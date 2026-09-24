@@ -4,6 +4,20 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## v3.10.38 — 2026-09-24 — T5 check-1 full diagnostics (DIRECTIVE №10)
+
+**BASE: 0732aed86b9ab961ffe70ca7b3e2354b8028b00c (origin/main, T3 #12 squash seal, CI #35950293886 SUCCESS) — ARCHITECT DIRECTIVE №5 §6 as re-keyed by №10 — D095 T4 retired unresolvable, no version consumed — v3.10.38 consumed here and nowhere else.**
+
+- `scripts/validate.py` M — check 1 presentation only: `bad[:6]` → complete ordered `bad` list. Matcher, exemptions, existence, severity, exit, check 1.5, and every other check unchanged.
+- `tests/test_validate_check1.py` A — isolated seven-ref fixture; asserts all seven identifiers including the seventh appear in the check-1 message. No live-repo failure fixture.
+- House package: README + SYSTEM_STATE v3.10.38 · EXPECTATION re-pin base 0732aed allowed = this six-path charter.
+
+**D029-style self-cert (scaled to this change):** (1) Sequence — T5 after T4 retired; T3 sealed at 0732aed. (2) Raise-only — fuller diagnostics, no floor drop. (3) Warn-and-justify — no new auto-reject. (4) Quarantine-before-delete — nothing deleted. (5) Rewrite-rule — facts from live c1 join; no unlicensed quotation. (6) WP-D — zero network/venue/SaaS.
+
+**Out:** T4 substitute; T3 will/archive; γ; B4.2; WP-3; c42; packages; any seventh path.
+
+---
+
 ## v3.10.37 — 2026-09-24 — T3 S006 will absorption repair (DIRECTIVE №8 + №8-A)
 
 **BASE: df956512b5f1d3b950486117d83cea6530068c84 (origin/main, Commander courier upload) — ARCHITECT DIRECTIVE №8 as amended №8-A — v3.10.37 consumed here and nowhere else — change-control per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.**

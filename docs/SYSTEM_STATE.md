@@ -1,6 +1,6 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-24 · **Version:** v3.10.37
+**Last updated:** 2026-09-24 · **Version:** v3.10.38
 **Updated by:** Protocol Architect (Patch proposal; effective at the Commander's push)
 
 ---
@@ -50,6 +50,7 @@ graded items: `Brain/courses/INDEX.md`.
 
 
 ## REPOSITORY VERSION
+**RADIATION v3.10.38** — T5 check-1 full diagnostics — check 1 reports the complete unresolved-path list (no first-six truncation). Base 0732aed86b9ab961ffe70ca7b3e2354b8028b00c. DIRECTIVE №10. Matcher unchanged.
 **RADIATION v3.10.37** — T3 S006 will absorption repair — members-path deposit of exact courier object (17,131 bytes). Base df956512b5f1d3b950486117d83cea6530068c84. DIRECTIVE №8 + №8-A. Body unchanged. Staging copy removed.
 **RADIATION v3.10.36** — T2:B-all — additive `TestT2BNamedFunctions` (15) covering lint_catalog · normalize_candidate · resolve_candidates · resolve_content_selection_path. Base 0fdbdbcfe035377ce1b88d4080bb86559f60a986 (T1 #8 seal). DIRECTIVE №7. No construct_from_card. No cue_resolver.py edit.
 **RADIATION v3.10.35** — T1 S-PROSE-1 — `schemas/cue_card.schema.json` description only: stale check-41/42 / cue_resolver check-42 sentence rewritten to the live binding (CHECKS ends c41; schema is data; enforcement = workflow lint + cue_resolver tests 71 + tool-registry contract). Base 0438820441a8bfef3fb7ff8070cce857fd840ee8. DIRECTIVE №5. No c42 invented.

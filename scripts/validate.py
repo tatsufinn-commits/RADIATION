@@ -66,7 +66,7 @@ def c1():
             if "*" in p or p.startswith(("http", "/", "~")): continue
             if not os.path.exists(os.path.join(ROOT, p)):
                 bad.append(f"{f} -> {p}")
-    rec(1, "FAIL", not bad, "internal path resolution" + ("" if not bad else ": " + "; ".join(bad[:6])))
+    rec(1, "FAIL", not bad, "internal path resolution" + ("" if not bad else ": " + "; ".join(bad)))
     ghosts = [e for e in sorted(IS_EX.paths) if not os.path.exists(os.path.join(ROOT, e))]
     rec(1.5, "FAIL", not ghosts, "no phantom exemptions (every ARCHIVE_NOTES path exists)" + ("" if not ghosts else ": " + "; ".join(ghosts[:6])))
 # ---- check 2: required files present & non-empty ---------------------------
