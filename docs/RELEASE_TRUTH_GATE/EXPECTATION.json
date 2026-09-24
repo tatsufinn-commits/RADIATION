@@ -1,86 +1,13 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "WP-2.3 CROWN verify cassette runner \u2014 branch wp23/verify-cassette-2026-09-23, ONE commit atop 0cfb195 (CI #144 SUCCESS) \u2014 moving-base re-pin \u2014 per 1.6 checklist",
-  "base_sha": "0cfb1955e5ba5d9299a760893939161b5bd6b647",
+  "generated_by": "T2:A row 11 retire ABSENT — DIRECTIVE registry row 11 — base 0438820 — no version consumption",
+  "base_sha": "0438820441a8bfef3fb7ff8070cce857fd840ee8",
   "base_must_be_ancestor": true,
-  "description": "WP-2.3 CROWN \u2014 verify cassette runner tranche (forge-open) 2026-09-24 \u2014 base 0cfb1955e5ba5d9299a760893939161b5bd6b647 (last green seal, CI #144 SUCCESS; real, pushed, ancestor of origin/main) \u2014 design of record PROPOSAL_TO_DESK_verify_contract.md + v1.1 erratum ratified v3.6 \u00a71 / v3.7 \u00a71 \u2014 cassette five rows (3 J1 seeds consumed by name + Cassette A 5830 + E2 5900-1) \u2014 runner stdlib deterministic PASS / WARN-and-justify / RETURNED \u2014 registry 39\u219240 \u2014 verify_apply advisory plug-in WARN-only never FAIL \u2014 version v3.10.33 \u2014 allowed_changes = exactly the 15 chartered paths, fresh git diff --name-status 0cfb195 <candidate> \u2261 allowed, \u2205 both ways",
-  "allowed": "exact delta \u2014 the 15 chartered paths of the WP-2.3 directive \u00a71, nothing else",
+  "description": "T2:A 2026-09-24 — retire registry row 11 (5990-1 construct_from_card) as historical debris — ABSENT in public canon and reachable history — CHANGELOG notice only, not a version — v3.10.36 held — base 0438820441a8bfef3fb7ff8070cce857fd840ee8 — allowed_changes = exactly this charter, empty both ways — no tests, no cue_resolver edit, no c42, no γ, no B4.2, no T1 stack",
+  "allowed": "exact delta — T2:A chartered paths, nothing else",
   "allowed_changes": [
-    {
-      "kind": "A",
-      "path": "evals/verify_policies/CASSETTE_WP23.json",
-      "note": "WP-2.3 cassette five rows B3 shape"
-    },
-    {
-      "kind": "A",
-      "path": "scripts/verify_cassette_runner.py",
-      "note": "WP-2.3 runner stdlib deterministic"
-    },
-    {
-      "kind": "A",
-      "path": "tests/test_verify_cassette_runner.py",
-      "note": "WP-2.3 runner tests (6)"
-    },
-    {
-      "kind": "M",
-      "path": "CHANGELOG.md",
-      "note": "v3.10.33 WP-2.3 row"
-    },
-    {
-      "kind": "M",
-      "path": "README.md",
-      "note": "version v3.10.33 + cassette status line"
-    },
-    {
-      "kind": "M",
-      "path": "docs/CAPABILITIES.md",
-      "note": "13b runner section + GENERATED inventory"
-    },
-    {
-      "kind": "M",
-      "path": "docs/INDEX.md",
-      "note": "register status line"
-    },
-    {
-      "kind": "M",
-      "path": "docs/PATCH_LEDGER.md",
-      "note": "WP-2.3 row"
-    },
-    {
-      "kind": "M",
-      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
-      "note": "moving-base re-pin 0cfb195 allowed 15"
-    },
-    {
-      "kind": "M",
-      "path": "docs/ROADMAP.md",
-      "note": "WP-2.3 row IN-FLIGHT -> DELIVERED on seal"
-    },
-    {
-      "kind": "M",
-      "path": "docs/SYSTEM_STATE.md",
-      "note": "v3.10.33 + GENERATED machine facts"
-    },
-    {
-      "kind": "M",
-      "path": "docs/shrine/LOG.md",
-      "note": "heartbeat row II.9"
-    },
-    {
-      "kind": "M",
-      "path": "evals/verify_policies/README.md",
-      "note": "seeds CONSUMED per J1"
-    },
-    {
-      "kind": "M",
-      "path": "scripts/verify_apply.py",
-      "note": "advisory plug-in WARN-only (B2 Option-A)"
-    },
-    {
-      "kind": "M",
-      "path": "tools/TOOL_REGISTRY.json",
-      "note": "verify_cassette_runner record 39->40 tools"
-    }
+    {"kind": "M", "path": "CHANGELOG.md", "note": "T2:A row 11 retire ABSENT notice; not a version"},
+    {"kind": "M", "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "note": "moving-base re-pin 0438820 allowed T2:A delta"}
   ],
   "forbidden_paths": [],
   "required_deletions": [],
@@ -104,62 +31,24 @@
     }
   ],
   "mandatory_validations": [
-    {
-      "command": "python3 scripts/validate.py",
-      "expected_exit": 0,
-      "must_contain": "0 fail"
-    },
-    {
-      "command": "python3 -m unittest discover -s tests",
-      "expected_exit": 0,
-      "must_contain": "OK"
-    },
-    {
-      "command": "python3 scripts/agent_policy_check.py",
-      "expected_exit": 0,
-      "must_contain": "PASS"
-    },
-    {
-      "command": "python3 scripts/verify_policy_check.py",
-      "expected_exit": 0,
-      "must_contain": "PASS"
-    },
-    {
-      "command": "python3 scripts/docs_index_check.py",
-      "expected_exit": 0,
-      "must_contain": "0 finding"
-    },
-    {
-      "command": "python3 scripts/render_docs.py --check",
-      "expected_exit": 0,
-      "must_contain": "match reality"
-    },
-    {
-      "command": "python3 scripts/verify_apply.py --strict",
-      "expected_exit": 0,
-      "must_contain": "FAIL-CLASS : none"
-    },
-    {
-      "command": "python3 scripts/verify_cassette_runner.py",
-      "expected_exit": 0,
-      "must_contain": "5/5 rows PASS"
-    }
+    {"command": "python3 scripts/validate.py", "expected_exit": 0, "must_contain": "0 fail"},
+    {"command": "python3 -m unittest discover -s tests", "expected_exit": 0, "must_contain": "OK"},
+    {"command": "python3 scripts/agent_policy_check.py", "expected_exit": 0, "must_contain": "PASS"},
+    {"command": "python3 scripts/verify_policy_check.py", "expected_exit": 0, "must_contain": "PASS"},
+    {"command": "python3 scripts/docs_index_check.py", "expected_exit": 0, "must_contain": "0 finding"},
+    {"command": "python3 scripts/render_docs.py --check", "expected_exit": 0, "must_contain": "match reality"},
+    {"command": "python3 scripts/verify_apply.py --strict", "expected_exit": 0, "must_contain": "FAIL-CLASS : none"},
+    {"command": "python3 scripts/verify_cassette_runner.py", "expected_exit": 0, "must_contain": "5/5 rows PASS"}
   ],
   "risks": [
     "wrong root",
-    "stale base \u2014 base SHA not ancestor or not exact pinned SHA 0cfb195",
+    "stale base — base SHA not ancestor or not exact pinned SHA 0438820",
     "ZIP extraction without applying deletion",
     "generated-file drift",
     "documentation claiming unverified CI",
-    "WP-1 sequence violation \u2014 1.6 must be first",
-    "WP-1 raise-only violation",
-    "WP-1 warn-and-justify violation",
-    "WP-1 quarantine-before-delete violation",
-    "WP-1 rewrite-rule violation",
-    "WP-1 WP-D single gate violation",
-    "docs_index_check orphan",
-    "tool registry unregistered",
-    "scaffold contract missing",
-    "verify cassette advisory escalated to FAIL-class (forbidden: raise-only, WARN-only)"
+    "consuming v3.10.36",
+    "adding construct_from_card or tests",
+    "stacking on T1 337bc571 or γ db179e9",
+    "B4.2 sneak"
   ]
 }

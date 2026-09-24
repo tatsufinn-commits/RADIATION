@@ -4,6 +4,16 @@ Format: version · date · patch name · summary. Newest at top after founding e
 
 ---
 
+## RETIRED — T2 / registry row 11 — 2026-09-24 — 5990-1 construct_from_card ABSENT (Commander T2:A)
+
+**Not a version.** `v3.10.36` held. Base `0438820441a8bfef3fb7ff8070cce857fd840ee8` (`origin/main`). Commander word `T2: A` — retire the historical queue item.
+
+- Discovery: `construct_from_card` and `5990-1` are ABSENT in current public canon (`0438820`, T1 `337bc571`, γ `db179e94`) and reachable history (`git grep` empty; `git log --all -S` empty).
+- `scripts/cue_resolver.py` exposes `load_catalog` · `load_schema` · `lint_catalog` · `normalize_candidate` · `resolve_candidates` · `resolve_content_selection_path` · `main` — no named constructor.
+- Out: tests, constructor, near-name substitution, `v3.10.36`, γ, B4.2, T1 head motion.
+
+---
+
 ## v3.10.33 — 2026-09-24 — WP-2.3 CROWN — verify cassette runner + registry + advisory plug-in (forge-open tranche)
 
 **BASE: 0cfb1955e5ba5d9299a760893939161b5bd6b647 (last green seal, CI #144 SUCCESS) — ONE commit, 15 paths, per WP-2.3 BUILD-ORDER DIRECTIVE 2026-09-23; design of record PROPOSAL_TO_DESK_verify_contract.md + v1.1 erratum (ratified v3.6 §1 · v3.7 §1); change-control per scaffolding/checklists/WP1_1.6_CHANGE_CONTROL_CHECKLIST.md.**
