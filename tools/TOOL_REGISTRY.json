@@ -594,7 +594,7 @@
       "network": "none",
       "credential_handling": "none",
       "idempotency": "yes",
-      "timeout_seconds": 120,
+      "timeout_seconds": 300,
       "cap_mapping": [],
       "test_command": "python3 scripts/release_truth_check.py --self-test",
       "observability": {
@@ -1031,6 +1031,32 @@
         "content_capture": "off_by_default"
       },
       "description": "WP-2.3 verify cassette runner: 5 rows (3 J1 seeds + Cassette A 5830 + E2 5900-1), deterministic, PASS/WARN-and-justify/RETURNED; self-test temp-dir only; advisory"
+    },
+    {
+      "id": "verify_tool_io",
+      "entrypoint": "scripts/verify_tool_io.py",
+      "version": "1",
+      "inputs_schema": null,
+      "outputs_schema": null,
+      "effects": [
+        "read",
+        "write"
+      ],
+      "mutation_scope": "ignored_local",
+      "approval": "none",
+      "data_classes": [
+        "repository_metadata"
+      ],
+      "network": "none",
+      "credential_handling": "none",
+      "idempotency": "yes",
+      "timeout_seconds": 1800,
+      "cap_mapping": [],
+      "test_command": "python3 scripts/verify_tool_io.py --self-test",
+      "observability": {
+        "content_capture": "off_by_default"
+      },
+      "description": "B4.2 R0 offline advisory executor for ten schema-bound tools; two JSON envelopes, eight prose adapters; child validator writes ignored validation_report.json; no self-binding"
     }
   ]
 }

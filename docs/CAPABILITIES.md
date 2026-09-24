@@ -332,6 +332,7 @@ Stated plainly so a session does not assume capability it lacks:
 | `verify_apply.py` | the post-apply auditor (patch 3400, roadmap Enforcement Sweep). | no | no | yes |
 | `verify_cassette_runner.py` | WP-2.3 verify cassette runner (deterministic, stdlib-only). | yes | no | no |
 | `verify_policy_check.py` | WP-1 1.5 — Verification policy checker (acceptance per proposal) | no | no | no |
+| `verify_tool_io.py` | B4.2 R0 advisory executor for the ten bound tool IO contracts. | no | no | no |
 <!-- GENERATED:capability-inventory:END -->
 
 ## §20 — Gate-repair layer (5500, 5400 gate review)
@@ -380,3 +381,8 @@ Stated plainly so a session does not assume capability it lacks:
 - **Layer** (`catalogs/model_research/`, NON-BOOT — check 41 runs a non-boot scan over the BOOT_SEQUENCE-derived graph incl. docs/.readme + transitive passive specs): **14 records** (5800 Almanac: official values captured 2026-09-15); one record per EXACT model × surface × region; schema `radiation.model_research_record/0.3` (central `schemas/`, executed; typed evidence objects, exact/candidate identifier split, filename binding); typed source register (`catalogs/model_research/sources/REGISTER.json`, executed); checker `scripts/model_research_check.py` (uniqueness, real-calendar dates + 90-day review window, confirmed⇒verified id + register-bound official declaration at the record's retrieval date, non-boot scan, register discipline; 24-vector self-test). Records grant nothing.
 - **Evaluation gate (unchanged, §21):** "strong/strongest" becomes a decision rule only via a named RADIATION local evaluation with declared confidence — the harness DESIGN (`catalogs/model_research/evals/HARNESS_DESIGN.md`) specifies dimensions, capture blocks, and redaction law; implementation is its own gated order.
 - **Deployment matrix:** structure only (`catalogs/model_research/decision_matrices/DEPLOYMENT_MATRIX_DESIGN.md`); one deployment per order; questions stay questions.
+
+## §23 — B4.2 R0 IO execution (v3.10.40 candidate)
+- `python3 scripts/verify_tool_io.py` executes the ten schema-bound registry tools against their existing CLI contracts; `--json` emits its bounded report, and `--self-test` exercises synthetic vectors. The two pre-existing JSON emitters are checked as envelopes; the other eight retain prose CLIs and are validated through `{schema_name, ok, exit, findings, needle}` adapters. No tool receives a new flag.
+- The executor reuses `radiation_core.relay._schema_check` (ONE schema-checking path) and rejects unsupported schema keywords. It accepts only the exact γ bound set; the executor's own registry row is **METADATA-ONLY**, never self-executed. Network Git fetches are blocked by file-only transport; checks see cached remote-tracking refs, so this advisory result is **not** public-object proof. The normal generator owns the script inventory above and the machine facts in SYSTEM_STATE.
+- `verify_apply.py --strict` uses Option A: PASS is silent; every non-PASS or unavailable executor is `tool_io : ADVISORY` and WARN-class only. The recursion marker suppresses nested calls, not parent reports. No R3 promotion, ninth sticky DoD line, or additional CI enforcement is claimed.
