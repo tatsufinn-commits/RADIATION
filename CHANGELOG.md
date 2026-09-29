@@ -2,6 +2,14 @@
 ## Updated at every Commander-applied Patch (append-only, II.2)
 Format: version · date · patch name · summary. Newest at top after founding entries.
 
+## v3.12.0 — 2026-09-30 — `/verdict` V0.1A (FIX TEAM 007 candidate)
+
+**BASE: 9fc45cbbc896b4120014800fc5a433adc488c66a — authority: D163 as activated by D164 — exact 15 paths, 6 A / 9 M / 0 D — candidate subject to Desk audit; NOT a Commander seal. No CI-success, PR, merge, ratification, or seal is claimed.**
+
+- Admits SUB-010 as a manual, opt-in, active-catalog advisory protocol: bound one objective, compare 2–3 paths, select one, retain every rejected residual. Active is not executable.
+- Adds a closed executor-supported `radiation.verdict/0.1a` schema and tests for relational invariants, negative authority vectors, and byte-identical append-only history. The tracked JSONL destination is empty and has no runtime writer.
+- Hard limits: no `/analyze`, Origami, AMF/CTP/control-plane use, tool, network, credential, subprocess, child package, implementation, permission, authentication, blocker clearance, or replacement of Commander decision/seal. Full V0.1 remains blocked.
+
 ---
 
 ## v3.11.0 — 2026-09-29 — MAS-SCAN-NOTES revision 1 (FIX TEAM 006 candidate)

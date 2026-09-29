@@ -51,4 +51,5 @@ continuity system) · mimic (no use case) · drillmaster (teaching ≠ the sole 
 | `overule` | COMMANDER-TRIGGERED (⚙️×6\*): overrules AI-flagged rules under his deadline authority; never the stop-lines; every use logs a make-good debt (SD-GOV-013) | Commander trigger ONLY | manual protocol; boundary pinned by registry SD-GOV-013 (check 25) |
 | `scout` | Source-necessity gatekeeper; builds the Acquisition Plan BEFORE anything is fetched | @Gather, @Decode, @Radiation | manual protocol; check 13's link census audits the artifacts it produces |
 | `selfdirectives` | Self-governed task generation: cue → tier grade (🟢/🟡/🔴) → bounded execution → evidence closure | ALL modes (declared + logged) | manual protocol; mechanized where: registry check 25 + meta-budget check 16 |
+| `verdict` | see file | see MODES.md | manual protocol (advisory) |
 <!-- GENERATED:subskill-actives:END -->

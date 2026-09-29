@@ -1,0 +1,19 @@
+{
+  "id": "SUB-010",
+  "title": "verdict — Manual bounded advisory",
+  "trigger": "manual",
+  "input_sketch": "A person manually requests an advisory comparison of one bounded objective and two or three paths; this is not identity proof or approval.",
+  "expected_fire_sequence": [
+    "manual request enters the declarative verdict protocol",
+    "objective, scope, exclusions, paths, selection, residuals, limitations, and blockers are stated",
+    "a complete advisory-only record is prepared for possible future manual admission"
+  ],
+  "expected_non_fires": [
+    "on_event does not fire verdict",
+    "before_skill does not fire verdict",
+    "autonomous scanning does not fire verdict",
+    "Kitchen request does not bypass record completeness"
+  ],
+  "contract": "manual advisory declaration only; no tool invocation, implementation, authentication, Commander approval, execution, network, credentials, subprocess, permission grant, or blocker clearance",
+  "notes": "Active is catalog status only; full V0.1 AMF/CTP execution remains blocked."
+}

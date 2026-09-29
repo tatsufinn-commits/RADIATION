@@ -40,6 +40,7 @@
 
 | Doc | Task | Audience |
 |-----|------|----------|
+| [VERDICT_ADVISORY.md](VERDICT_ADVISORY.md) | Understand `/verdict` V0.1A manual advisory records, limits, and non-authority | AI + Commander reviewing bounded path advice |
 | [ACTIVATION_CONFORMANCE.md](ACTIVATION_CONFORMANCE.md) | Understand MAS-SCAN-NOTES v1 probe: fixed-snapshot Extraction Notes conformance, sole custody object, six result values, limitation + non-authority disclosure | AI + Architect probing activation conformance |
 | [AI_RULES.md](AI_RULES.md) | Read supreme laws (constitution) Book.Law citation format | Every AI + Commander |
 | [ANTI_PATTERNS.md](ANTI_PATTERNS.md) | Lookup documented failures + machine-checkable cures | Architect avoiding repeats |
@@ -79,4 +80,4 @@
 
 ---
 
-**Coverage:** 42 docs/*.md = 7 Tutorial + 9 How-to + 15 Reference + 9 Explanation + 2 Generated = 42. Every docs/*.md listed exactly once. No moves/renames — virtual lanes only (links, never moves). Lane assignments only, no prose rewrites of doctrine docs per G6 non-goals.
+**Coverage:** 43 docs/*.md = 7 Tutorial + 9 How-to + 16 Reference + 9 Explanation + 2 Generated = 43. Every docs/*.md listed exactly once. No moves/renames — virtual lanes only (links, never moves). Lane assignments only, no prose rewrites of doctrine docs per G6 non-goals.

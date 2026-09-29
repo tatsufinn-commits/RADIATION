@@ -1,4 +1,5 @@
 # ☢️ RADIATION
+**Version:** v3.12.0 · 2026-09-30 · `/verdict` V0.1A — manual non-executing advisory record discipline (candidate; pending Desk audit and the Commander’s seal) · base 9fc45cb
 ### A Research & Answer-Oriented Operating System for Artificial Intelligence
 **Version:** v3.11.0 · 2026-09-29 · MAS-SCAN-NOTES V1 — one read-only fixed-snapshot conformance probe, six result values, no authority (candidate; pending Desk audit and the Commander's seal) · base 78029d3
 **Version:** v3.10.32 · Ratified by THE COMMANDER · 2026-09-17 · S-2-PPTX-D stage 4 of 5 (renderer + verify-rendered + fill_template unfrozen)
