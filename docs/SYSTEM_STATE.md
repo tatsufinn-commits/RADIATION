@@ -1,7 +1,7 @@
 # 📡 SYSTEM STATE (`docs/SYSTEM_STATE.md`)
 ## Current Ground-Truth Snapshot — the ONLY overwrite-permitted file (II.2 exception)
-**Last updated:** 2026-09-24 · **Version:** v3.10.40 candidate
-**Updated by:** Fix Team Arena (#004), candidate for Desk audit; not a Commander seal
+**Last updated:** 2026-09-29 · **Version:** v3.11.0 candidate
+**Updated by:** FIX TEAM 006 (Arena), candidate for Desk audit; not a Commander seal
 
 ---
 
@@ -50,6 +50,7 @@ graded items: `Brain/courses/INDEX.md`.
 
 
 ## REPOSITORY VERSION
+**RADIATION v3.11.0 (candidate)** — MAS-SCAN-NOTES revision 1: ONE read-only structural evaluator (`scripts/activation_conformance.py`) answering whether a supplied, task-bound Scan Declaration has a structurally nonempty Extraction Notes field under the sole custody object `scaffolding/activation_rules/MAS-SCAN-NOTES.v1.json`; six result values only (SATISFIED · MISSING · NOT APPLICABLE · UNKNOWN · CONFLICT · COMMANDER DISPOSITION); any stale, mismatched, non-canonical, invalidated, superseded, or uncheckable fact is UNKNOWN, never SATISFIED. Not an activation engine: no caller authentication, no dynamic disposition, no persistence, no network or credential, no cross-invocation replay protection, no activation or permission grant. Registry row METADATA-ONLY (41→42 rows; ten γ bindings unchanged). `scripts/verify_tool_io.py` + `tests/test_verify_tool_io.py` re-fenced from stale row counts to the B4.2 shape law per DESK RULING D144 (Option A); the custody object carries its P-16 scaffold contract sidecar. Sixteen-path charter, 6 A / 10 M. Base 78029d3d24cc0391c3107cd76f5722c77d132076; Desk audit pending, no PR or seal claimed.
 **RADIATION v3.10.40 (candidate)** — B4.2 R0 executor validates existing IO contracts for the 10 γ schema-bound tools (2 JSON envelopes + 8 prose adapters). Registry 41 entries: 10 bound, 30 other METADATA-ONLY, executor itself METADATA-ONLY. `verify_apply.py` reports any non-PASS as Option-A advisory WARN, never FAIL-class; no ninth sticky DoD line or R3 promotion. Base 5f41281e356cb42f904de7f6294cf5a32c7f1c02; Desk audit pending, no PR or seal claimed.
 **RADIATION v3.10.39** — B4 wiring batch #1 — 10 CI-DoD tools IO schemas bound (`schemas/tool_io/`, 20 files); registry 10/40 schema-bound, 30 METADATA-ONLY; tools stay 40. Base cb0ed65f4ab21f2ca0b13dd6b45998d7331a957b. No R3, no c42, cassette stays Option-A WARN.
 **RADIATION v3.10.38** — T5 check-1 full diagnostics — check 1 reports the complete unresolved-path list (no first-six truncation). Base 0732aed86b9ab961ffe70ca7b3e2354b8028b00c. DIRECTIVE №10. Matcher unchanged.
@@ -105,7 +106,7 @@ in `docs/shrine/members/` first (CHARTER §3). Standing orders:
 `docs/COMMANDER_QUICKREF.md` §5. Await the Commander.
 
 <!-- GENERATED:machine-facts:START -->
-**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 42 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 39 (12 exercised in CI)
+**Machine facts (GENERATED — hand edits here are a CI failure; source: render_docs.py):** 42 validator checks · knowledge locks 11/16 (5 pending) · 46 K-IDs · Core 2/2 cards canonical · registry 13 directives · subskills 4 passive + 5 active · scripts 40 (12 exercised in CI)
 <!-- GENERATED:machine-facts:END -->
 
 **S-2-ENV v3.10.28:** Session Capability State working memory — schema radiation.session_capability_state/1, writer --persist, checker 5 vectors, tests 6 vectors, registry 32->33, doc refs, Gate-1 correspondence annex, UNKNOWN first-class, stale reads UNKNOWN, host_label DECLARED, OBSERVED=>cap_probe, lifecycle session-local never committed live, no hardcoded limits, input artifact for scan/anchor/stockpile shortfall never resolver.

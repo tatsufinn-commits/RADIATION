@@ -149,11 +149,13 @@ class TestVerifyToolIO(unittest.TestCase):
         self.assertEqual(timed_out["verdict"], "RETURNED")
         self.assertIn("TimeoutExpired", timed_out["justification"])
 
-    def test_t08_scope_fence_exact_ten_bound_thirty_other_metadata(self):
+    def test_t08_scope_fence_exact_ten_bound_and_metadata_only_rest(self):
+        # DESK RULING D144: the fence is a SHAPE law — exactly the ten γ ids are
+        # schema-bound, every other row is metadata-only, size is a floor.
         reg = V._load_registry()
         by_id, findings = V._scope(reg)
         self.assertFalse(findings)
-        self.assertEqual(len(by_id), 41)
+        self.assertGreaterEqual(len(by_id), 41)
         self.assertEqual(by_id["release_truth_check"]["timeout_seconds"], 300)
         mutant = deepcopy(reg)
         next(t for t in mutant["tools"] if t["id"] == "relay")["outputs_schema"] = (
@@ -270,6 +272,44 @@ class TestVerifyToolIO(unittest.TestCase):
         self.assertEqual(rc, 0)
         self.assertEqual(calls, 0)
         self.assertNotIn("tool_io : ADVISORY", output)
+
+
+    def test_t15_shape_law_admits_metadata_probe_and_rejects_bound_drift(self):
+        # DESK RULING D144 negative regressions: a read-only metadata-only probe
+        # row is compatible with the fence; drifting the bound set is not.
+        reg = V._load_registry()
+        probe = next(t for t in reg["tools"] if t["id"] == "activation_conformance")
+        self.assertIsNone(probe["inputs_schema"])
+        self.assertIsNone(probe["outputs_schema"])
+        self.assertEqual(probe["effects"], ["read"])
+        self.assertEqual(probe["mutation_scope"], "none")
+        self.assertEqual(probe["approval"], "none")
+        self.assertEqual(probe["network"], "none")
+        self.assertEqual(probe["credential_handling"], "prohibited")
+        self.assertEqual(probe["cap_mapping"], [])
+        self.assertEqual(probe["idempotency"], "yes")
+        self.assertFalse(V._scope(reg)[1])
+        extra = deepcopy(reg)
+        extra["tools"].append(dict(probe, id="probe_two"))
+        self.assertFalse(V._scope(extra)[1])
+        rogue = deepcopy(reg)
+        next(t for t in rogue["tools"]
+             if t["id"] == "activation_conformance")["inputs_schema"] = (
+            "schemas/tool_io/validate.inputs.schema.json")
+        self.assertIn("schema-bound scope", " ".join(V._scope(rogue)[1]))
+        self.assertIn("METADATA-ONLY", " ".join(V._scope(rogue)[1]))
+        stripped = deepcopy(reg)
+        stripped["tools"] = [t for t in stripped["tools"] if t["id"] != "docs_index_check"]
+        self.assertIn("schema-bound scope", " ".join(V._scope(stripped)[1]))
+        floor = deepcopy(reg)
+        floor["tools"] = ([t for t in floor["tools"] if t["id"] in V.BOUND] +
+                          [t for t in floor["tools"] if t["id"] not in V.BOUND][:19])
+        self.assertIn("at least 41 rows", " ".join(V._scope(floor)[1]))
+        with mock.patch.object(V, "_load_registry", return_value=rogue), \
+             mock.patch.object(V, "_invoke") as invoke:
+            report = V.run_io()
+        invoke.assert_not_called()
+        self.assertTrue(all(r["verdict"] == "RETURNED" for r in report["rows"]))
 
 
 if __name__ == "__main__":
