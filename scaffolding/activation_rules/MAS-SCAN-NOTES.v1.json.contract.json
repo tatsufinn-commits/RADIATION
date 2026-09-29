@@ -1,0 +1,12 @@
+{
+  "id": "SCAFFOLD-other-activation-rules-mas-scan-notes",
+  "file": "scaffolding/activation_rules/MAS-SCAN-NOTES.v1.json",
+  "kind": "other",
+  "status": "active",
+  "loads_when": "activation conformance probe MAS-SCAN-NOTES v1 only",
+  "depends_on": [],
+  "effects": ["read"],
+  "tests": ["test_activation_conformance"],
+  "note": "custody object for the sole pilot rule: a record the evaluator reads, never an operator; grants nothing",
+  "superseded_by": null
+}

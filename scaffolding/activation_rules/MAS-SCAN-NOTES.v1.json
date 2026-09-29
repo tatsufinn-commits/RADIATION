@@ -1,0 +1,52 @@
+{
+  "schema_name": "radiation.activation_rule_custody/1",
+  "rule_id": "MAS-SCAN-NOTES",
+  "rule_revision": 1,
+  "sole_path": "scaffolding/activation_rules/MAS-SCAN-NOTES.v1.json",
+  "identity": {
+    "custodian_label": "THE COMMANDER",
+    "custodian_class": "commander_label_assertion",
+    "identity_proven": false
+  },
+  "approval_provenance": {
+    "order_ref": "FIX TEAM 006 execution order 2026-09-29 + DESK RULING D144 (Option A) + Desk sidecar authorization",
+    "order_kind": "desk_order_relay",
+    "ratified_by_commander": false
+  },
+  "task": {
+    "task_id": "TID-2026-09-29-f",
+    "mode": "@Data",
+    "topic": "MAS-SCAN-NOTES V1 conformance probe build"
+  },
+  "session": {
+    "session_ref": "FIX_TEAM_006",
+    "revision": 1
+  },
+  "declaration": {
+    "declaration_revision": 1,
+    "notes_field": "EXTRACTION NOTES",
+    "declaration_required": true,
+    "template_path": "scaffolding/core/proc_scan-declaration.md"
+  },
+  "context": {
+    "cutoff_recorded_on": "2026-09-29",
+    "use_status": "RECORDED_UNUSED",
+    "currentness": "FIXED_SNAPSHOT_NO_FRESHNESS_CLAIM"
+  },
+  "validity": {
+    "state": "VALID",
+    "invalidated_reason": null
+  },
+  "supersession": {
+    "superseded": false,
+    "superseded_by": null
+  },
+  "digests": {
+    "rule_digest_sha256": "a3b66c2108ffd506685d045249196e0d7cc6ec590adcdcc9bccf3af49cbf3be4",
+    "contract_digest_sha256": "34fba2e5d8fb65a8a3b060e37151e687f2f8c3602177db677acdcceecf070ac8"
+  },
+  "history": {
+    "basis": "recording-time-empty",
+    "entries": []
+  }
+}

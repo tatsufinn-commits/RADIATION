@@ -1,0 +1,489 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "radiation.activation_conformance/1",
+  "description": "MAS-SCAN-NOTES revision 1 — closed tagged records for the one custody object, the task-bound Scan Declaration submission, and the in-memory conformance receipt. Executed by radiation_core.relay._schema_check (the ONE schema executor) from scripts/activation_conformance.py; keywords are confined to the executor's executed set. Schema shape is not enforcement: semantic relationships (sole-path equality, digest freshness, validity/supersession, revision agreement, disposition reachability, history legality, structural nonemptiness) are enforced as code-level rules in the evaluator, and validate check 40 keeps this file inside the executed keyword set. A schema is a claim; the evaluator is its truth.",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "schema_name",
+        "rule_id",
+        "rule_revision",
+        "sole_path",
+        "identity",
+        "approval_provenance",
+        "task",
+        "session",
+        "declaration",
+        "context",
+        "validity",
+        "supersession",
+        "digests",
+        "history"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema_name": {
+          "const": "radiation.activation_rule_custody/1"
+        },
+        "rule_id": {
+          "const": "MAS-SCAN-NOTES"
+        },
+        "rule_revision": {
+          "const": 1
+        },
+        "sole_path": {
+          "const": "scaffolding/activation_rules/MAS-SCAN-NOTES.v1.json"
+        },
+        "identity": {
+          "type": "object",
+          "required": [
+            "custodian_label",
+            "custodian_class",
+            "identity_proven"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "custodian_label": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            "custodian_class": {
+              "const": "commander_label_assertion"
+            },
+            "identity_proven": {
+              "const": false
+            }
+          }
+        },
+        "approval_provenance": {
+          "type": "object",
+          "required": [
+            "order_ref",
+            "order_kind",
+            "ratified_by_commander"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "order_ref": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 200
+            },
+            "order_kind": {
+              "enum": [
+                "desk_order_relay",
+                "commander_order_assertion",
+                "commander_motor_act"
+              ]
+            },
+            "ratified_by_commander": {
+              "type": "boolean"
+            }
+          }
+        },
+        "task": {
+          "type": "object",
+          "required": [
+            "task_id",
+            "mode",
+            "topic"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "pattern": "^TID-[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z]$"
+            },
+            "mode": {
+              "type": "string",
+              "pattern": "^@[A-Za-z]{3,16}$"
+            },
+            "topic": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 200
+            }
+          }
+        },
+        "session": {
+          "type": "object",
+          "required": [
+            "session_ref",
+            "revision"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "session_ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_-]{2,32}$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 999
+            }
+          }
+        },
+        "declaration": {
+          "type": "object",
+          "required": [
+            "declaration_revision",
+            "notes_field",
+            "declaration_required",
+            "template_path"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "declaration_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 999
+            },
+            "notes_field": {
+              "const": "EXTRACTION NOTES"
+            },
+            "declaration_required": {
+              "type": "boolean"
+            },
+            "template_path": {
+              "const": "scaffolding/core/proc_scan-declaration.md"
+            }
+          }
+        },
+        "context": {
+          "type": "object",
+          "required": [
+            "cutoff_recorded_on",
+            "use_status",
+            "currentness"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "cutoff_recorded_on": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "use_status": {
+              "const": "RECORDED_UNUSED"
+            },
+            "currentness": {
+              "const": "FIXED_SNAPSHOT_NO_FRESHNESS_CLAIM"
+            }
+          }
+        },
+        "validity": {
+          "type": "object",
+          "required": [
+            "state",
+            "invalidated_reason"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "enum": [
+                "VALID",
+                "INVALIDATED",
+                "SUPERSEDED",
+                "UNKNOWN"
+              ]
+            },
+            "invalidated_reason": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 200
+            }
+          }
+        },
+        "supersession": {
+          "type": "object",
+          "required": [
+            "superseded",
+            "superseded_by"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "superseded": {
+              "type": "boolean"
+            },
+            "superseded_by": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 120
+            }
+          }
+        },
+        "digests": {
+          "type": "object",
+          "required": [
+            "rule_digest_sha256",
+            "contract_digest_sha256"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rule_digest_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "contract_digest_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "history": {
+          "type": "object",
+          "required": [
+            "basis",
+            "entries"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "basis": {
+              "const": "recording-time-empty"
+            },
+            "entries": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 8,
+              "items": {
+                "type": "object",
+                "required": [
+                  "result",
+                  "persisted"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "result": {
+                    "enum": [
+                      "SATISFIED",
+                      "MISSING",
+                      "NOT APPLICABLE",
+                      "UNKNOWN",
+                      "CONFLICT",
+                      "COMMANDER DISPOSITION"
+                    ]
+                  },
+                  "persisted": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema_name",
+        "task_id",
+        "rule_id",
+        "rule_revision",
+        "declaration_revision",
+        "field",
+        "notes",
+        "history",
+        "disposition"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema_name": {
+          "const": "radiation.activation_conformance.submission/1"
+        },
+        "task_id": {
+          "type": "string",
+          "pattern": "^TID-[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z]$"
+        },
+        "rule_id": {
+          "const": "MAS-SCAN-NOTES"
+        },
+        "rule_revision": {
+          "const": 1
+        },
+        "declaration_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999
+        },
+        "field": {
+          "const": "EXTRACTION NOTES"
+        },
+        "notes": {
+          "type": "object",
+          "required": [
+            "present",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "present": {
+              "type": "boolean"
+            },
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 8000
+            }
+          }
+        },
+        "history": {
+          "type": "object",
+          "required": [
+            "basis",
+            "entries"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "basis": {
+              "enum": [
+                "declared-by-supplier",
+                "recording-time-empty"
+              ]
+            },
+            "entries": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 8,
+              "items": {
+                "type": "object",
+                "required": [
+                  "result",
+                  "persisted"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "result": {
+                    "enum": [
+                      "SATISFIED",
+                      "MISSING",
+                      "NOT APPLICABLE",
+                      "UNKNOWN",
+                      "CONFLICT",
+                      "COMMANDER DISPOSITION"
+                    ]
+                  },
+                  "persisted": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "disposition": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "kind",
+            "authenticated",
+            "statement"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "commander_disposition"
+            },
+            "authenticated": {
+              "type": "boolean"
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 400
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema_name",
+        "rule_id",
+        "rule_revision",
+        "result",
+        "reasons",
+        "custody_path",
+        "cutoff_recorded_on",
+        "limits",
+        "persisted",
+        "authority",
+        "authentication"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema_name": {
+          "const": "radiation.activation_conformance.receipt/1"
+        },
+        "rule_id": {
+          "const": "MAS-SCAN-NOTES"
+        },
+        "rule_revision": {
+          "const": 1
+        },
+        "result": {
+          "enum": [
+            "SATISFIED",
+            "MISSING",
+            "NOT APPLICABLE",
+            "UNKNOWN",
+            "CONFLICT",
+            "COMMANDER DISPOSITION"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 300
+          }
+        },
+        "custody_path": {
+          "const": "scaffolding/activation_rules/MAS-SCAN-NOTES.v1.json"
+        },
+        "cutoff_recorded_on": {
+          "type": "string",
+          "pattern": "^([0-9]{4}-[0-9]{2}-[0-9]{2})?$"
+        },
+        "limits": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "enum": [
+              "fixed_snapshot",
+              "no_caller_authentication",
+              "no_dynamic_disposition",
+              "no_persistence",
+              "no_cross_invocation_replay_protection",
+              "no_activation_or_permission_grant"
+            ]
+          }
+        },
+        "persisted": {
+          "const": false
+        },
+        "authority": {
+          "const": "none"
+        },
+        "authentication": {
+          "const": "none"
+        }
+      }
+    }
+  ]
+}

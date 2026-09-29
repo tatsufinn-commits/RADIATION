@@ -65,22 +65,44 @@ def _load_registry():
 
 
 def _scope(reg):
-    """Exact γ tranche, plus ONE new METADATA-ONLY executor (not recursive)."""
+    """γ tranche SHAPE LAW, not a stale row count (DESK RULING D144, Option A).
+
+    The B4.2 R0 fence was written as an exact total (41 rows / 30 other
+    metadata-only rows). That counted the registry, not the contract — and a
+    later tranche's read-only metadata-only probe row collided with the count
+    while breaking no rule. The substantive law is restored here and kept:
+
+      * the ten γ tool ids are EXACTLY the schema-bound set, unchanged;
+      * every non-bound row (including this executor and any new probe) is
+        METADATA-ONLY — both registry IO schema fields null;
+      * this executor itself stays metadata-only and is never self-executed;
+      * registry size and metadata-only count are FLOORS, never exact counts.
+
+    A row that binds an IO schema outside the ten, or a bound row that goes
+    metadata-only, is still a scope finding.
+    """
     bad = []
     tools = reg.get("tools") if isinstance(reg, dict) else None
     if not isinstance(tools, list) or any(not isinstance(t, dict) for t in tools):
         return {}, ["registry.tools: missing or malformed list"]
     by_id = {t.get("id"): t for t in tools}
-    if len(tools) != 41 or len(by_id) != 41:
-        bad.append(f"registry scope: want 41 distinct tools; found {len(tools)} rows/{len(by_id)} ids")
+    if len(tools) < 41:
+        bad.append(f"registry scope: want at least 41 rows; found {len(tools)}")
+    if len(by_id) != len(tools):
+        bad.append(f"registry scope: {len(tools)} rows / {len(by_id)} distinct ids")
     bound = {t.get("id") for t in tools if t.get("inputs_schema") is not None or
              t.get("outputs_schema") is not None}
     if bound != set(BOUND):
         bad.append(f"schema-bound scope: missing {sorted(set(BOUND) - bound)}; extra {sorted(bound - set(BOUND))}")
+    for tool in tools:
+        if tool.get("id") not in BOUND and (tool.get("inputs_schema") is not None or
+                                            tool.get("outputs_schema") is not None):
+            bad.append(f"{tool.get('id')}: non-bound row must be METADATA-ONLY "
+                       "(both IO schema fields null)")
     metadata = [t for t in tools if t.get("inputs_schema") is None and
                 t.get("outputs_schema") is None and t.get("id") != "verify_tool_io"]
-    if len(metadata) != 30:
-        bad.append(f"METADATA-ONLY scope: want 30 other tools; found {len(metadata)}")
+    if len(metadata) < 30:
+        bad.append(f"METADATA-ONLY scope: want at least 30 other tools; found {len(metadata)}")
     self_row = by_id.get("verify_tool_io", {})
     if (self_row.get("inputs_schema") is not None or
             self_row.get("outputs_schema") is not None or
@@ -212,7 +234,7 @@ def self_test():
     next(t for t in mutant["tools"] if t["id"] == "verify_tool_io")["inputs_schema"] = "schemas/x.json"
     wrapped = _prose_adapter("docs_index_check", good, prose)
     checks = (
-        ("scope 10/30 + self unbound", not scope and len(bound) == 41),
+        ("scope shape law + self unbound", not scope and len(bound) >= 41),
         ("self-binding rejected", bool(_scope(mutant)[1])),
         ("valid input accepted", not _schema_findings(sample, "tool_io/validate.inputs.schema.json", "v")),
         ("closed input rejects extra", bool(_schema_findings(dict(sample, extra=1), "tool_io/validate.inputs.schema.json", "v"))),

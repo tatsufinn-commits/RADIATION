@@ -1,20 +1,91 @@
 {
   "schema_name": "radiation.release_truth_expectation/0.1",
-  "generated_by": "Fix Team Arena (#004) B4.2 R0 execution order 2026-09-24",
-  "base_sha": "5f41281e356cb42f904de7f6294cf5a32c7f1c02",
+  "generated_by": "FIX TEAM 006 execution order 2026-09-29 + DESK RULING D144 (Option A, 15-path amendment) + Desk sidecar authorization (Option A, 16th path: scaffold contract sidecar)",
+  "base_sha": "78029d3d24cc0391c3107cd76f5722c77d132076",
   "base_must_be_ancestor": true,
-  "description": "B4.2 R0 v3.10.40 candidate — Fix Team Arena (#004) execution order 2026-09-24 — base 5f41281e356cb42f904de7f6294cf5a32c7f1c02 (origin/main v3.10.39) — physical ref arena/01a0d202-radiation, semantic lane fix/b42-io-executor-r0-2026-09-24 — two JSON emitters + eight prose adapters, executor METADATA-ONLY, verify_apply Option-A WARN only — exactly nine allowed paths, no ninth sticky DoD validation; D061 word-denial respected",
-  "allowed": "exact delta — B4.2 R0 nine-path charter, nothing else",
+  "description": "MAS-SCAN-NOTES V1 v3.11.0 candidate - FIX TEAM 006 - base 78029d3d24cc0391c3107cd76f5722c77d132076 (public origin/main, B4.2 R0 squash-merge head) - ONE read-only fixed-snapshot structural evaluator for Scan Declaration Extraction Notes conformance under the sole custody object; six result values; UNKNOWN default; no authentication, dynamic disposition, persistence, network, replay protection, or activation; registry 41 to 42 metadata-only probe row; R0 scope fence re-fenced to the shape law per DESK RULING D144 (Option A) - exactly sixteen allowed paths, six A and ten M, zero D (the sixteenth is the additive P-16 scaffold contract sidecar the custody path requires once scaffold_check enters the composition lane)",
+  "allowed": "exact delta - MAS-SCAN-NOTES V1 fifteen-path charter, nothing else",
   "allowed_changes": [
-    {"kind": "A", "path": "scripts/verify_tool_io.py", "note": "B4.2 R0 stdlib executor"},
-    {"kind": "A", "path": "tests/test_verify_tool_io.py", "note": "T1–T14 deterministic acceptance"},
-    {"kind": "M", "path": "tools/TOOL_REGISTRY.json", "note": "one metadata-only row, 40→41"},
-    {"kind": "M", "path": "scripts/verify_apply.py", "note": "Option-A advisory plug-in"},
-    {"kind": "M", "path": "docs/CAPABILITIES.md", "note": "generated inventory and bounded section"},
-    {"kind": "M", "path": "docs/SYSTEM_STATE.md", "note": "candidate version and generated machine facts"},
-    {"kind": "M", "path": "README.md", "note": "candidate line only"},
-    {"kind": "M", "path": "CHANGELOG.md", "note": "candidate authority, base, physical-ref/D061/CI footing"},
-    {"kind": "M", "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json", "note": "moving-base exact nine-path re-pin"}
+    {
+      "kind": "A",
+      "path": "scripts/activation_conformance.py",
+      "note": "sole evaluator: six result values, sole custody selection, UNKNOWN default, in-memory receipt, bounded self-test"
+    },
+    {
+      "kind": "A",
+      "path": "schemas/activation_conformance.schema.json",
+      "note": "closed tagged schema for custody, submission, and receipt records; executor-executed keywords only"
+    },
+    {
+      "kind": "A",
+      "path": "scaffolding/activation_rules/MAS-SCAN-NOTES.v1.json",
+      "note": "sole pilot rule plus finite custody/context/history object with rule and contract digests"
+    },
+    {
+      "kind": "A",
+      "path": "tests/test_activation_conformance.py",
+      "note": "contract and limitation regressions incl. every required negative vector"
+    },
+    {
+      "kind": "A",
+      "path": "docs/ACTIVATION_CONFORMANCE.md",
+      "note": "contract, custody, limitations, non-authority disclosure"
+    },
+    {
+      "kind": "M",
+      "path": "docs/INDEX.md",
+      "note": "Reference lane row for the new document plus coverage 41 to 42"
+    },
+    {
+      "kind": "M",
+      "path": "tools/TOOL_REGISTRY.json",
+      "note": "exactly one metadata-only read-only probe entry (41 to 42 rows; ten gamma bindings unchanged)"
+    },
+    {
+      "kind": "M",
+      "path": "docs/CAPABILITIES.md",
+      "note": "generated inventory plus bounded V1 limitation disclosure"
+    },
+    {
+      "kind": "M",
+      "path": "docs/SYSTEM_STATE.md",
+      "note": "generated facts plus v3.11.0 candidate facts only"
+    },
+    {
+      "kind": "M",
+      "path": "docs/RELEASE_TRUTH_GATE/EXPECTATION.json",
+      "note": "moving-base exact 15-path re-pin to public 78029d3d"
+    },
+    {
+      "kind": "M",
+      "path": "CHANGELOG.md",
+      "note": "honest v3.11.0 candidate record; no seal or CI-success claim"
+    },
+    {
+      "kind": "M",
+      "path": "README.md",
+      "note": "candidate-version line only"
+    },
+    {
+      "kind": "M",
+      "path": "docs/PATCH_LEDGER.md",
+      "note": "append-only no-ZIP branch/PR candidate lifecycle row"
+    },
+    {
+      "kind": "M",
+      "path": "scripts/verify_tool_io.py",
+      "note": "DESK RULING D144 shape law replaces stale exact row counts; ten gamma bindings unchanged"
+    },
+    {
+      "kind": "M",
+      "path": "tests/test_verify_tool_io.py",
+      "note": "scope-fence tests prove the shape law incl. the new metadata-only probe and negative regressions"
+    },
+    {
+      "kind": "A",
+      "path": "scaffolding/activation_rules/MAS-SCAN-NOTES.v1.json.contract.json",
+      "note": "P-16 scaffold contract sidecar for the custody object the charter pins - additive, read-only, grants nothing"
+    }
   ],
   "forbidden_paths": [],
   "required_deletions": [],
@@ -38,25 +109,59 @@
     }
   ],
   "mandatory_validations": [
-    {"command": "python3 scripts/validate.py", "expected_exit": 0, "must_contain": "0 fail"},
-    {"command": "python3 -m unittest discover -s tests", "expected_exit": 0, "must_contain": "OK"},
-    {"command": "python3 scripts/agent_policy_check.py", "expected_exit": 0, "must_contain": "PASS"},
-    {"command": "python3 scripts/verify_policy_check.py", "expected_exit": 0, "must_contain": "PASS"},
-    {"command": "python3 scripts/docs_index_check.py", "expected_exit": 0, "must_contain": "0 finding"},
-    {"command": "python3 scripts/render_docs.py --check", "expected_exit": 0, "must_contain": "match reality"},
-    {"command": "python3 scripts/verify_apply.py --strict", "expected_exit": 0, "must_contain": "FAIL-CLASS : none"},
-    {"command": "python3 scripts/verify_cassette_runner.py", "expected_exit": 0, "must_contain": "5/5 rows PASS"}
+    {
+      "command": "python3 scripts/validate.py",
+      "expected_exit": 0,
+      "must_contain": "0 fail"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests",
+      "expected_exit": 0,
+      "must_contain": "OK"
+    },
+    {
+      "command": "python3 scripts/agent_policy_check.py",
+      "expected_exit": 0,
+      "must_contain": "PASS"
+    },
+    {
+      "command": "python3 scripts/verify_policy_check.py",
+      "expected_exit": 0,
+      "must_contain": "PASS"
+    },
+    {
+      "command": "python3 scripts/docs_index_check.py",
+      "expected_exit": 0,
+      "must_contain": "0 finding"
+    },
+    {
+      "command": "python3 scripts/render_docs.py --check",
+      "expected_exit": 0,
+      "must_contain": "match reality"
+    },
+    {
+      "command": "python3 scripts/verify_apply.py --strict",
+      "expected_exit": 0,
+      "must_contain": "FAIL-CLASS : none"
+    },
+    {
+      "command": "python3 scripts/verify_cassette_runner.py",
+      "expected_exit": 0,
+      "must_contain": "5/5 rows PASS"
+    }
   ],
   "risks": [
     "wrong root",
-    "stale base — base SHA not ancestor or not exact pinned SHA 5f41281e356cb42f904de7f6294cf5a32c7f1c02",
-    "ZIP extraction without applying deletion",
-    "generated-file drift",
-    "documentation claiming unverified CI",
-    "IO schema dangling ref (R6)",
-    "binding remaining 30 tools or executor itself (forbidden at R0)",
-    "cue_card / S-PROSE-1 / c42 (forbidden this batch)",
-    "verify cassette or tool_io advisory escalated to FAIL-class (forbidden: Option-A WARN-only)",
-    "shrine or ROADMAP sneak"
+    "phantom base - base SHA not public or not exact 78029d3d24cc0391c3107cd76f5722c77d132076 (the pre-tranche expectation pinned 5f41281 which does not exist in public history)",
+    "generated-file drift after render",
+    "documentation claiming unverified CI success",
+    "fence regression - a non-bound row carrying an IO schema, or a gamma binding lost while re-fencing per D144",
+    "a new validator check or sticky DoD line smuggled with the probe",
+    "result-vocabulary drift outside the six accepted values",
+    "a live disposition or authentication claim appearing in code, docs, or receipt",
+    "persistence, network, subprocess, or write effect appearing in the evaluator",
+    "custody path made configurable through argv, environment, task field, or history",
+    "scope creep into shrine, cue, control plane, policy files, workflows, child packages, or B4.2 authority",
+    "scaffold contract sidecar omitted while the custody object lives under scaffolding/ (scaffold_check + catalog composition lane go red)"
   ]
 }
